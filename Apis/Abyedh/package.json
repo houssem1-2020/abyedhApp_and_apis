@@ -1,0 +1,16 @@
+{
+  "name": "abyedh.tn",
+  "version": "1.0.0",
+  "description": "for abyedh.tn main app",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20"
+  }
+}
