@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2023 at 05:14 PM
+-- Generation Time: Jun 05, 2023 at 10:19 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -93,13 +93,12 @@ CREATE TABLE `01_docteur_seances` (
   `PID` bigint(20) NOT NULL,
   `S_Patient` varchar(50) NOT NULL,
   `Diagnostic` varchar(5000) NOT NULL,
-  `Resultat` varchar(2000) NOT NULL,
   `Maladie` varchar(500) NOT NULL,
   `State` varchar(200) NOT NULL,
   `State_Degre` varchar(200) NOT NULL,
   `S_Date` date NOT NULL,
   `S_Time` time NOT NULL,
-  `Ordonance` varchar(100) NOT NULL
+  `Ordonance` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -244,13 +243,7 @@ ALTER TABLE `01_docteur_tarif`
 -- AUTO_INCREMENT for table `01_docteur_ordonance`
 --
 ALTER TABLE `01_docteur_ordonance`
-  MODIFY `PK` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `01_docteur_patient`
---
-ALTER TABLE `01_docteur_patient`
-  MODIFY `PK` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `PK` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `01_docteur_rapports`
@@ -262,13 +255,13 @@ ALTER TABLE `01_docteur_rapports`
 -- AUTO_INCREMENT for table `01_docteur_seances`
 --
 ALTER TABLE `01_docteur_seances`
-  MODIFY `PK` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `PK` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `01_docteur_tarif`
 --
 ALTER TABLE `01_docteur_tarif`
-  MODIFY `PK` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `PK` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

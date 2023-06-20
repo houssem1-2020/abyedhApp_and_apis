@@ -3,18 +3,27 @@ const multer = require('multer')
 const PtVenteMagazin = express.Router()
 const connection = require('../../connection.js')
 const path = require("path");
+const { spawn } = require('child_process');
+const fs = require('fs');
 
 //Multer.js
-const DIR = 'C:/Users/kheli/Desktop/PROJECTS/abyedh/abyedh.system/PtVenteMagazin/public/houssem';
+//const DIR = 'C:/Users/kheli/Desktop/PROJECTS/abyedh/abyedh.system/PtVenteMagazin/public/houssem';
+//const DIR = `C:/Users/hp/Desktop/BackUp/NouvBCK/`; 
+const DIR = 'C:/Users/Administrator/Desktop/Abyedh/CDN/Images/Directory';
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null,  DIR );
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + '-'  + Math.floor(Math.random() * 9999999999999) + '.'+ file.mimetype.split('/')[1])
+        cb(null, file.originalname +  Date.now() + '-'  + Math.floor(Math.random() * 9999999999999) + '.' + file.mimetype.split('/')[1])
     }
 });
-const upload = multer({  storage: storage });
+const upload = multer({  storage: storage, array: true });
+
+// const accountSid = "ACce5a5fdffd330db55f27599aff6e635d";
+// const authToken = "45ee080b9cf3212d2c6ea803c77f44ec"
+// const verifySid = "VA52c47a4ff3b0b9028c16fd53ffd63533";
+// const client = require("twilio")(accountSid, authToken);
 
 
 //connection.end()
@@ -57,7 +66,7 @@ const upload = multer({  storage: storage });
       const logInD = req.body.LoginData;
       function Connect(){
           connection.changeUser({database : 'dszrccqg_registration'}, () => {});
-          let sql = `SELECT * FROM system_login WHERE Identification = '${logInD.Log}' AND PasswordSalt   = '${logInD.Pwd}' AND SystemKey ='PTVMagazin'` ;
+          let sql = `SELECT * FROM system_login WHERE Identification = '${logInD.Log}' AND PasswordSalt   = '${logInD.Pwd}' AND SystemKey = 'Magazin'` ;
           connection.query(sql, (err, rows, fields) => {
             if (err) throw err;
             if (rows.length == 0 ) {
@@ -124,7 +133,7 @@ const upload = multer({  storage: storage });
               function CommandeDistrubition() {
                 return new Promise((resolve, reject) => {
                         connection.changeUser({database : 'dszrccqg_communications'}, () => {});
-                        let sql = `SELECT State,COUNT(1) as Totale FROM 05_pv_alimentaire_shop  WHERE PID  = '${PID}' GROUP BY State ORDER BY State;`;
+                        let sql = `SELECT State,COUNT(1) as Totale FROM 05_magazin_commande  WHERE PID  = '${PID}' GROUP BY State ORDER BY State;`;
                          connection.query(sql, (err, rows, fields) => {
                           if(err) return reject(err);
                           resolve(rows);
@@ -134,7 +143,7 @@ const upload = multer({  storage: storage });
               function RecetteDepo() {
                 return new Promise((resolve, reject) => {
                         connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                        let sql = `SELECT Cre_Date,SUM(Tota) as Totale FROM 05_magazin_factures  WHERE PID  = '${PID}' GROUP BY Cre_Date ORDER BY Cre_Date LIMIT 10;`;
+                        let sql = `SELECT T_Date ,SUM(Final_Value) as Totale FROM 05_magazin_factures  WHERE PID  = '${PID}' GROUP BY T_Date  ORDER BY T_Date  LIMIT 10;`;
                          connection.query(sql, (err, rows, fields) => {
                           if(err) return reject(err);
                           resolve(rows);
@@ -144,7 +153,7 @@ const upload = multer({  storage: storage });
               function FetchAllCaisses() {
                   return new Promise((resolve, reject) => {
                     connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                    let sql = `SELECT Cam_ID, Cam_Name, Matricule, Chauffeur  FROM 05_magazin_caisses  WHERE PID  = '${PID}' `;
+                    let sql = `SELECT C_ID, CA_Name, User_ID, Identifiant  FROM 05_magazin_caisses  WHERE PID  = '${PID}' `;
                      connection.query(sql, (err, rows, fields) => {
                         if (err) return reject(err);
                         resolve(rows);
@@ -154,8 +163,8 @@ const upload = multer({  storage: storage });
               function CalculateRecette(camId) {
                   return new Promise((resolve, reject) => {
                     connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                    let sql = `SELECT SUM(Tota) AS RCT
-                               FROM 05_magazin_factures  WHERE PID  = '${PID}'  AND  Caisse = ${camId} AND Cre_Date = '${Today}'`;
+                    let sql = `SELECT SUM(Final_Value) AS RCT
+                               FROM 05_magazin_factures  WHERE PID  = '${PID}'  AND  Caisse_ID = ${camId} AND T_Date  = '${Today}'`;
                      connection.query(sql, (err, rows, fields) => {
                         if (err) return reject(err);
                         if (rows[0].RCT == null) {resolve('0.000');} else {resolve(rows[0].RCT.toFixed(3));}
@@ -179,7 +188,7 @@ const upload = multer({  storage: storage });
               async function StatForMainPage() {
                   const camionList = await FetchAllCaisses(); 
                   for (var i = 0; i < camionList.length; i++) {
-                      camionList[i].Recette = await CalculateRecette(camionList[i].Cam_ID)
+                      camionList[i].Recette = await CalculateRecette(camionList[i].C_ID)
                   }
 
                   let main = {};
@@ -208,9 +217,9 @@ const upload = multer({  storage: storage });
       PtVenteMagazin.post('/commande', (req, res) => {
             let PID = req.body.PID;
             connection.changeUser({database : 'dszrccqg_communications'}, () => {});
-            let sql = `SELECT * FROM dszrccqg_communications.05_pv_alimentaire_shop 
-                       INNER JOIN dszrccqg_profile.user_general_data ON dszrccqg_communications.05_pv_alimentaire_shop.UID = dszrccqg_profile.user_general_data.UID 
-                       WHERE  dszrccqg_communications.05_pv_alimentaire_shop.PID = '${PID}'`;
+            let sql = `SELECT * FROM dszrccqg_communications.05_magazin_commande 
+                       INNER JOIN dszrccqg_profile.user_general_data ON dszrccqg_communications.05_magazin_commande.UID = dszrccqg_profile.user_general_data.UID 
+                       WHERE  dszrccqg_communications.05_magazin_commande.PID = '${PID}'`;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
               res.json(rows);
@@ -223,9 +232,9 @@ const upload = multer({  storage: storage });
             let PID = req.body.PID;
             let RID = req.body.CID;
             connection.changeUser({database : 'dszrccqg_communications'}, () => {});
-            let sql = `SELECT * FROM dszrccqg_communications.05_pv_alimentaire_shop 
-                       INNER JOIN dszrccqg_profile.user_general_data ON dszrccqg_communications.05_pv_alimentaire_shop.UID = dszrccqg_profile.user_general_data.UID 
-                       WHERE  dszrccqg_communications.05_pv_alimentaire_shop.PID = '${PID}' AND dszrccqg_communications.05_pv_alimentaire_shop.R_ID = '${RID}'`;
+            let sql = `SELECT * FROM dszrccqg_communications.05_magazin_commande 
+                       INNER JOIN dszrccqg_profile.user_general_data ON dszrccqg_communications.05_magazin_commande.UID = dszrccqg_profile.user_general_data.UID 
+                       WHERE  dszrccqg_communications.05_magazin_commande.PID = '${PID}' AND dszrccqg_communications.05_magazin_commande.R_ID = '${RID}'`;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
               res.json(rows);
@@ -239,7 +248,7 @@ const upload = multer({  storage: storage });
             let R_ID = req.body.RID;
             let State = req.body.state;
             connection.changeUser({database : 'dszrccqg_communications'}, () => {});
-            let sql = `UPDATE 05_pv_alimentaire_shop
+            let sql = `UPDATE 05_magazin_commande
                        SET State = '${State}'
                        WHERE R_ID = '${R_ID}'`;
              connection.query(sql, (err, rows, fields) => {
@@ -549,16 +558,16 @@ const upload = multer({  storage: storage });
             })   
     })
 
-/*####################################[CAISSES]#####################################*/
+/*####################################[CAISSE]#####################################*/
 
       /* featch tou les camion*/
-      PtVenteMagazin.post('/camions', (req, res) => {
+      PtVenteMagazin.post('/caisses', (req, res) => {
             let PID = req.body.PID;
             let Today = new Date().toISOString().split('T')[0]
-            function FetchAllCamion() {
+            function FetchAllCaisses() {
                 return new Promise((resolve, reject) => {
                   connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                  let sql = `SELECT * FROM 05_magazin_caisses WHERE  PID = '${PID}'`;
+                  let sql = `SELECT * FROM 05_magazin_caisses WHERE PID = ${PID}`;
                    connection.query(sql, (err, rows, fields) => {
                       if (err) return reject(err);
                       resolve(rows);
@@ -568,7 +577,7 @@ const upload = multer({  storage: storage });
             function CalculateRecette(camId) {
                 return new Promise((resolve, reject) => {
                   connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                  let sql = `SELECT SUM(Tota) AS RCT FROM 05_magazin_factures WHERE Caisse = ${camId} AND Cre_Date = '${Today}'  AND PID = '${PID}'`;
+                  let sql = `SELECT SUM(Final_Value) AS RCT FROM 05_magazin_factures WHERE PID = ${PID} AND Caisse_ID = ${camId} AND T_Date = '${Today}' `;
                    connection.query(sql, (err, rows, fields) => {
                       if (err) return reject(err);
                       if (rows[0].RCT == null) {resolve('0.000');} else {resolve(rows[0].RCT.toFixed(3));}
@@ -576,39 +585,29 @@ const upload = multer({  storage: storage });
                   })
                 });
             }
-            function CalculateFond(camId) {
-                return new Promise((resolve, reject) => {
-                  connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                  let sql = `SELECT * FROM 05_magazin_caisses_fond WHERE Camion = ${camId}`;
-                   connection.query(sql, (err, rows, fields) => {
-                      if (err) return reject(err);
-                      if (rows[0]) {resolve(rows[0].Totale);} else {resolve('0.000');}
-                  })
-                });
-            }
 
-              // Call, Function
+
+            // Call, Function
             async function query() {
-                const camionList = await FetchAllCamion(); 
-                for (var i = 0; i < camionList.length; i++) {
-                  camionList[i].Recette = await CalculateRecette(camionList[i].Cam_ID)
-                  camionList[i].Fond = await CalculateFond(camionList[i].Cam_ID)
+                const caisseList = await FetchAllCaisses(); 
+                for (var i = 0; i < caisseList.length; i++) {
+                  caisseList[i].Recette = await CalculateRecette(caisseList[i].C_ID)
                 }
-              res.send(camionList)
+              res.send(caisseList)
             }
             query();
                      
       })
 
       /* selectioner un camion */
-      PtVenteMagazin.post('/camions/info', (req, res) => {
+      PtVenteMagazin.post('/caisse/info', (req, res) => {
             let PID = req.body.PID;
-            let camionID = req.body.camId;
+            let caisseID = req.body.camId;
             let Today = new Date().toISOString().split('T')[0]
-            function FetchAllCamionData() {
+            function FetchAllCaisseData() {
                 return new Promise((resolve, reject) => {
                   connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                  let sql = `SELECT * FROM 05_magazin_caisses WHERE Cam_ID = ${camionID}`;
+                  let sql = `SELECT * FROM 05_magazin_caisses WHERE PID = ${PID} AND C_ID = ${caisseID}`;
                    connection.query(sql, (err, rows, fields) => {
                       if (err) return reject(err);
                       resolve(rows[0]);
@@ -618,18 +617,19 @@ const upload = multer({  storage: storage });
             function CalculateRecette() {
                 return new Promise((resolve, reject) => {
                   connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                  let sql = `SELECT SUM(Tota) AS RCT
-                            FROM 05_magazin_factures WHERE Caisse = ${camionID} AND Cre_Date = '${Today}'`;
+                  let sql = `SELECT SUM(Final_Value) AS RCT FROM 05_magazin_factures WHERE PID = ${PID} AND  Caisse_ID = ${caisseID} AND T_Date = '${Today}' `;
                    connection.query(sql, (err, rows, fields) => {
                       if (err) return reject(err);
                       if (!rows[0].RCT) {resolve('0.000');} else {resolve(rows[0].RCT.toFixed(3));}
                   })
                 });
             }
-            function CamionFactures() {
+            function CaisseFactures() {
                 return new Promise((resolve, reject) => {
                   connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                  let sql = `SELECT * FROM 05_magazin_factures WHERE Caisse = ${camionID} ORDER BY Cre_Date ASC LIMIT 100 `;
+                  let sql = `SELECT * , COALESCE(05_magazin_clients.CL_Name, 'PASSAGER') AS CL_Name FROM 05_magazin_factures 
+                             LEFT JOIN 05_magazin_clients ON 05_magazin_factures.Client = 05_magazin_clients.CL_ID 
+                             WHERE 05_magazin_factures.PID = ${PID} AND  05_magazin_factures.Caisse_ID = ${caisseID}   LIMIT 200 `;
                    connection.query(sql, (err, rows, fields) => {
                       if (err) return reject(err);
                       resolve(rows);
@@ -637,16 +637,13 @@ const upload = multer({  storage: storage });
                 });
             }
 
+
               // Call, Function
             async function query() {
                 const camionList = [{}]  
-                camionList[0].Data = await FetchAllCamionData();
+                camionList[0].Data = await FetchAllCaisseData();
                 camionList[0].Recette = await CalculateRecette();
-                camionList[0].Fond = 800.000 ; //await CalculateFond();
-                // camionList[0].Position = await FindPosition()
-                camionList[0].Facture = await CamionFactures()
-                camionList[0].Stock = 150.000; //await CamionStock()
-                // camionList[0].FondList = await CamionFond()
+                camionList[0].Facture = await CaisseFactures()
               res.send(camionList)
             }
             query();
@@ -654,13 +651,13 @@ const upload = multer({  storage: storage });
       })
       
       /*Ajouter Camion*/
-      PtVenteMagazin.post('/camions/ajouter', (req, res) => {
+      PtVenteMagazin.post('/caisses/ajouter', (req, res) => {
           (async() => {
               let PID = req.body.PID
-              let camionData = req.body.camionD
-              let Cam_ID =   await GenerateID(1111111111,`05_magazin_caisses`,'Cam_ID');
-              let sql = `INSERT INTO 05_magazin_caisses (PID, Cam_ID,Cam_Name, Matricule, Detail, Chauffeur,Pasword,Identifiant) 
-                        VALUES (${PID} ,${Cam_ID},'${camionData.Cam_Name}','${camionData.Matricule}','${camionData.Marque}','${camionData.Chauffeur}','${camionData.Password}','${camionData.Identifiant}') `;
+              let caisseData = req.body.caisseD
+              let C_ID =   await GenerateID(1111111111,`05_magazin_caisses`,'C_ID');
+              let sql = `INSERT INTO 05_magazin_caisses (PID, C_ID,CA_Name, Password ,Identifiant, Caisse_Fond) 
+                        VALUES (${PID} ,${C_ID},'${caisseData.CA_Name}', '${caisseData.Password}','${caisseData.Identifiant}','${caisseData.Caisse_Fond}') `;
                connection.query(sql, (err, rows, fields) => {
                 if (err){res.json(err)}
                   res.json(rows);
@@ -669,397 +666,30 @@ const upload = multer({  storage: storage });
       })
 
       /* modifier un camion */
-      PtVenteMagazin.post('/camions/modifier', (req, res) => {
+      PtVenteMagazin.post('/caisses/modifier', (req, res) => {
             let PID = req.body.PID
-            let camionData = req.body.camionD
+            let caisseData = req.body.caisseD
             let sql = `UPDATE 05_magazin_caisses
-                      SET Cam_Name = '${camionData.Cam_Name}' , Matricule = '${camionData.Matricule}' , Detail = '${camionData.Detail}' , Chauffeur = '${camionData.Chauffeur}' ,Pasword = '${camionData.Pasword}' ,Identifiant = '${camionData.Identifiant}' 
-                      WHERE Cam_ID = '${camionData.Cam_ID}' `;
+                      SET CA_Name = '${caisseData.CA_Name}' , Caisse_Fond = '${caisseData.Caisse_Fond}' , Identifiant = '${caisseData.Identifiant}' , Password = '${caisseData.Password}'  
+                      WHERE PID = ${PID} AND C_ID = '${caisseData.C_ID}' `;
              connection.query(sql, (err, rows, fields) => {
               if (err){res.json(err)}
                 res.json(rows);
             })          
       })
 
-      /* supprimer un camion */
-
-      /* ##### CAMION INFO  ##### */
-
-      /*Info Article */
-      PtVenteMagazin.post('/camions/info/article', (req, res) => {
-            let PID = req.body.PID;
-            let camionID = req.body.camId;
-            let article = req.body.article;
-            let Today = new Date().toISOString().split('T')[0]
-            
-            function GetLastInventaire() {
-                return new Promise((resolve, reject) => {
-                  let sql = `SELECT * FROM 05_magazin_caisses_fond WHERE Camion = ${camionID} AND Articles LIKE '%${article}%' AND Genre = 'Inventaire' ORDER BY Jour DESC LIMIT 1`;
-                   connection.query(sql, (err, rows, fields) => {
-                      if (err) return reject(err);
-                      if (!rows[0]) {resolve([{PK: 0 , Articles:'[{}]' , Jour: null}]);} else {resolve(rows);}
-                  })
-                });
-            }
-            function GetArticleData() {
-                return new Promise((resolve, reject) => {
-                  let sql = `SELECT  05_magazin_caisses_stock.Qte, 05_magazin_articles.*
-                       FROM 05_magazin_caisses_stock
-                       LEFT JOIN 05_magazin_articles ON 05_magazin_caisses_stock.Article = 05_magazin_articles.A_Code
-                       WHERE 05_magazin_caisses_stock.Camion = ${camionID} AND 05_magazin_caisses_stock.Article = ${article}`;
-                   connection.query(sql, (err, rows, fields) => {
-                      if (err) return reject(err);
-                      resolve(rows)
-                  })
-                });
-            }
-            function FetchArticleFromFond(date,last) {
-                return new Promise((resolve, reject) => {
-                  let sql = `SELECT * FROM 05_magazin_caisses_fond WHERE Camion = ${camionID} AND Genre = 'Fonds' AND PK > ${last} AND Jour >= '${date}' AND Articles LIKE '%${article}%'`;
-                   connection.query(sql, (err, rows, fields) => {
-                      if (err) return reject(err);
-                      resolve(rows)
-                  })
-                });
-            }
-            function FetchArticleInFacture(date) {
-                return new Promise((resolve, reject) => {
-                  let sql = `SELECT * FROM 05_magazin_factures WHERE Caisse = ${camionID} AND Cre_Date  >= '${date}' AND Articles LIKE '%${article}%'`;
-                   connection.query(sql, (err, rows, fields) => {
-                      if (err) return reject(err);
-                      resolve(rows)
-                  })
-                });
-            }
-            function FetchSuivieArticle(date) {
-                return new Promise((resolve, reject) => {
-                  let sql = `SELECT * FROM 05_magazin_caisses_stock_fixed WHERE Camion = ${camionID} AND Jour >= '${date}' AND Articles LIKE '%${article}%'`;
-
-                   connection.query(sql, (err, rows, fields) => {
-                      if (err) return reject(err);
-                      resolve(rows);
-                  })
-                });
-            }
-            function GenerateDate(str, days) {
-              var myDate = new Date(str);
-                myDate.setDate(myDate.getDate() + parseInt(days));
-                return myDate.toISOString().split('T')[0];
-            }
-
-              // Call, Function
-            async function query() {
-                const camionArtData = [{}];
-                const LastInv = await GetLastInventaire();  
-                const LastInvDate = GenerateDate(LastInv[0].Jour, 1) 
-                camionArtData[0].LastInv = await GetLastInventaire(); 
-                camionArtData[0].ArtData = await GetArticleData(); 
-                camionArtData[0].InFact = await FetchArticleInFacture(LastInvDate); 
-                camionArtData[0].InFond = await FetchArticleFromFond(LastInvDate, LastInv[0].PK)
-                camionArtData[0].FromSuivie = await FetchSuivieArticle(LastInvDate)
-                res.send(camionArtData[0])
-            }
-            query();
-                
-      })
-
-      /* Info Fond */
-      PtVenteMagazin.post('/camion/fond', (req, res) => {
-             let PID = req.body.PID
-             let BonID = req.body.fondID
-             let sql = `SELECT * FROM  05_magazin_caisses_fond WHERE Bon_id = ${BonID}`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-              
-            })       
-      })
-
-      /* Info Facture */
-      PtVenteMagazin.post('/camion/facture', (req, res) => {
-             let PID = req.body.PID
-             let FID = req.body.fid
-             let sql = `SELECT * FROM  05_magazin_caisses_facture WHERE F_ID = ${FID}`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-              
-            })       
-      })
-
-      /* Info Facture */
-      PtVenteMagazin.post('/camion/facture/info', (req, res) => {
-             let PID = req.body.PID
-             let FID = req.body.fid
-             let sql = `SELECT * FROM  05_magazin_caisses_facture WHERE F_ID = ${FID}`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-              
-            })       
-      })
-
-      /* ##### CAMION CONTROL &  IMPRIMER   ##### */
-
-
-      /*CAMION INFO PAGE FUNCTION*/
-      // select stock a zero 
-      PtVenteMagazin.post('/camion/info/ztockzero', (req, res) => {
-             let PID = req.body.PID
-             let camId = req.body.camId
-             let sql = `SELECT * FROM  05_magazin_caisses_stock WHERE Camion = ${camId} AND Qte = 0`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-              
-            })       
-      })
-
-      // delete stock zero 
-      PtVenteMagazin.post('/camion/info/ztockzero/delete', (req, res) => {
-             let PID = req.body.PID
-             let camId = req.body.camId
-             let sql = `DELETE FROM  05_magazin_caisses_stock WHERE Camion = ${camId} AND Qte = 0 `;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-              
-            })       
-      })
-
-      // select vente d'un jour: ou bine entre deux periode  
-      PtVenteMagazin.post('/camion/info/ventes', (req, res) => {
-             let PID = req.body.PID
-             let camId = req.body.camId
-             let start = req.body.start
-             let end = req.body.end
-             let sql = `SELECT * FROM  05_magazin_factures WHERE Caisse = ${camId} AND Cre_Date >= '${start}' AND Cre_Date < '${end}'`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-              
-            })       
-      })
-
-      // select fond  entre deux periode  
-      PtVenteMagazin.post('/camion/info/fonds', (req, res) => {
-             let PID = req.body.PID
-             let camId = req.body.camId
-             let start = req.body.start
-             let end = req.body.end
-             let sql = `SELECT * FROM  05_magazin_caisses_fond WHERE Camion = ${camId} AND Jour >= ${start} AND Jour < ${end}`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-              
-            })       
-      })
 
       /*PRINTING*/ 
-      //stock et stock zero
-      PtVenteMagazin.post('/camion/info/printing/stock', (req, res) => {
-             let PID = req.body.PID
-             let camId = req.body.camId
-             let genre = req.body.genre
-             let sql = `SELECT 05_magazin_caisses_stock.Camion, 05_magazin_caisses_stock.Article, 05_magazin_caisses_stock.Qte ,05_magazin_articles.A_Code, 05_magazin_articles.Name, 05_magazin_articles.Genre,05_magazin_articles.Groupage, 05_magazin_articles.Prix_vente
-                         FROM 05_magazin_caisses_stock 
-                         INNER JOIN 05_magazin_articles ON 05_magazin_caisses_stock.Article  = 05_magazin_articles.A_Code
-                         WHERE 05_magazin_caisses_stock.Camion = ${camId} AND 05_magazin_caisses_stock.Qte ${genre} 0`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-              
-            })       
-      })
-
-      //article vendu du jour 
-      PtVenteMagazin.post('/camion/info/printing/venteArticle', (req, res) => {
-           let PID = req.body.PID
-             let camId = req.body.camId
-             let today =  req.body.date
-             let sql = `SELECT Articles  FROM 05_magazin_caisses_facture  WHERE Camion = ${camId} AND Cre_Date = '${today}' `;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              let rended = []
-              for (var i = 0; i < rows.length; i++) {
-                let item = JSON.parse(rows[i].Articles);
-                for (var k = 0; k < item.length; k++) {
-                  rended.push(item[k])
-                }
-              }
-              var result = [];
-              rended.reduce(function(res, value) {
-                if (!res[value.A_Code]) {
-                  res[value.A_Code] = { A_Code: value.A_Code, Name: value.Name, Qte: 0 };
-                  result.push(res[value.A_Code])
-                }
-                res[value.A_Code].Qte += parseInt(value.Qte);
-                return res;
-              }, {});
-
-                  res.json(result);
-                }) 
-      })
 
       //facture du jour 
-      PtVenteMagazin.post('/camion/info/printing/venteFacture', (req, res) => {
+      PtVenteMagazin.post('/caisse/searchrecette', (req, res) => {
              let PID = req.body.PID
-             let camId = req.body.camId
-             let today = req.body.date
-             let sql = `SELECT *  FROM 05_magazin_caisses_facture  WHERE Camion = ${camId} AND Cre_Date = '${today}' `;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-              
-            })       
-      })
-
-      //facture du jour 
-      PtVenteMagazin.post('/camion/info/printing/venteRecette', (req, res) => {
-             let PID = req.body.PID
-             let camId = req.body.camId
-             let start = req.body.start
-             let end = req.body.end
-             let sql = `SELECT Cre_Date,SUM(Tota) as Totale FROM 05_magazin_caisses_facture WHERE Cre_Date >= '${start}' AND Cre_Date < '${end}' AND Camion = ${camId} GROUP BY Cre_Date ORDER BY Cre_Date ;`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-              
-            })       
-      })
-
-      //facture du jour 
-      PtVenteMagazin.post('/camion/info/printing/fondResumer', (req, res) => {
-             let PID = req.body.PID
-             let camId = req.body.camId
-             let start = req.body.start
-             let end = req.body.end
-             let sql = `SELECT Jour,SUM(Totale) as Totale FROM 05_magazin_caisses_fond WHERE Jour >= '${start}' AND Jour < '${end}' AND Camion = ${camId} GROUP BY Jour ORDER BY Jour ;`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-              
-            })       
-      })
-
-
-      /* ##### CAMION AJOUTER FONDS  ##### */
-
-      /* ajouter fond aux camion*/
-      PtVenteMagazin.post('/camion/ajouterf', (req, res) => {
-        (async() => {
-               let PID = req.body.PID
-               let fondData = req.body.fondD
-               let BonID =  await GenerateID(1111111111,`05_magazin_caisses_fond`,'Bon_id');
-               let fiexedTotal = parseFloat(fondData.totale).toFixed(3);
-               let articleL = JSON.stringify(fondData.articles)
-               let sql = `INSERT INTO 05_magazin_caisses_fond (Bon_id,Camion,Totale,Jour,SCF,SDF,Articles,Genre) 
-                         VALUES ('${BonID}','${fondData.camion}','${fiexedTotal}','${fondData.jour}','false','false','${articleL}','${fondData.Genre}')`;
-               connection.query(sql, (err, rows, fields) => {
-                if (err){ throw err}
-                res.json({BonID:BonID});
-              }) 
-        })()      
-      })
-
-      //SELECIONNER ARTICLE LIST
-      PtVenteMagazin.post('/camion/ajouterf/stock', (req, res) => {
-            let PID = req.body.PID
-            let CamID = req.body.camId
-            let sql = `SELECT 05_magazin_articles.*, 05_magazin_caisses_stock.Qte 
-                  FROM 05_magazin_articles 
-                  LEFT OUTER JOIN (SELECT * FROM 05_magazin_caisses_stock WHERE Camion = ${CamID}) 05_magazin_caisses_stock 
-                  ON 05_magazin_articles.A_Code = 05_magazin_caisses_stock.Article AND COALESCE(05_magazin_caisses_stock.Qte ) IS NOT NULL;`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-            })
-                
-      })
-
-      //Modifier Le Stock Du camion [ VERY IMPORTANT]
-      PtVenteMagazin.post('/camion/stock/update', (req, res) => {
-            let PID = req.body.PID  
-            let CAMION = req.body.camion  
-            let articleList = req.body.artList; //[['6191513501017','6191513501017','5'],['6191513502212','6191513501017','12']]; // req.body.artList
-            let sqlTexts = []
-
-            for (let i = 0; i < articleList.length; i++) {
-              item = (`(${articleList[i][0]},${articleList[i][1]},${CAMION},${articleList[i][2]} )`);  
-              sqlTexts.push(item)
-           }
-           let LastToSQL = sqlTexts.join(",");
-            let sql = `INSERT INTO 05_magazin_caisses_stock (Ultra_Unique, Article, Camion, Qte) VALUES ${LastToSQL} ON DUPLICATE KEY UPDATE Qte = Qte +  VALUES (Qte);`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ res.json(err)}
-                res.json(rows);
-              }) 
-       
-             //res.json(sql);
-      })
-
-      // Update Stock  (us) State == true 
-      PtVenteMagazin.post('/camion/fond/us', (req, res) => {
-             let PID = req.body.PID
-             let BonID = req.body.bonId
-             let State = req.body.state
-             let sql = `UPDATE 05_magazin_caisses_fond
-                    SET ${State} = 'true'
-                    WHERE Bon_id = '${BonID}' `;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-            })         
-      })
-
-      /* ajouter fond aux camion*/
-      PtVenteMagazin.post('/camion/fond/modifier', (req, res) => {
-             let PID = req.body.PID
-             let fondData = req.body.editFondD
-             let BonID =  fondData.Bon_id
-             let fiexedTotal = parseFloat(fondData.totale).toFixed(3);
-             let articleL = JSON.stringify(fondData.articles)
-             let sql = `UPDATE 05_magazin_caisses_fond
-                  SET Totale = '${fiexedTotal}', Jour = '${fondData.jour}' , Articles = '${articleL}'
-                      WHERE Bon_id = '${BonID}'`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json({BonID:BonID});
-            })     
-      })
-
-
-      /* ##### CAMION INVENTAIRE  ##### */
-
-      /* Inventaire camion*/
-      PtVenteMagazin.post('/camion/inventaire', (req, res) => {
-            let PID = req.body.PID  
-            let camion = req.body.camion  
-            let articleList = req.body.artList; //[['6191513501017','5'],['6191513502212','5']]; //req.body.artList
-            let sqlText = ''
-            for (let i = 0; i < articleList.length; i++) {
-              sqlText = sqlText.concat(" ", `WHEN ${articleList[i][0]} THEN  ${articleList[i][2]} `);    
-             }
-              let sql = `UPDATE 05_magazin_caisses_stock
-                  SET Qte = CASE Ultra_Unique 
-                                  ${sqlText}
-                    ELSE Qte
-                    END`;
-               connection.query(sql, (err, rows, fields) => {
-                if (err){ res.json(err)}
-                  res.json(rows);
-                })       
-      })
-
-      //Selectioner les article dans camion 
-      PtVenteMagazin.post('/camion/inventaire/stock', (req, res) => {
-             let PID = req.body.PID
-             let camId = req.body.camId
-             let sql = `SELECT 05_magazin_caisses_stock.Qte AS Qte, 05_magazin_articles.*  
-                    FROM  05_magazin_caisses_stock 
-                    LEFT JOIN 05_magazin_articles 
-                    ON 05_magazin_articles.A_Code = 05_magazin_caisses_stock.Article
-                    WHERE 05_magazin_caisses_stock.Camion = ${camId}`;
+             let caisseID = req.body.camId
+             let targetDay = req.body.targetDay
+             connection.changeUser({database : 'dszrccqg_system'}, () => {});
+             let sql = `SELECT * , COALESCE(05_magazin_clients.CL_Name, 'PASSAGER') AS CL_Name FROM 05_magazin_factures 
+                        LEFT JOIN 05_magazin_clients ON 05_magazin_factures.Client = 05_magazin_clients.CL_ID 
+                        WHERE 05_magazin_factures.Caisse_ID = ${caisseID}  AND 05_magazin_factures.T_Date >= '${targetDay.start}' AND 05_magazin_factures.T_Date <= '${targetDay.end}' `;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
               res.json(rows);
@@ -1074,8 +704,8 @@ const upload = multer({  storage: storage });
           let PID = req.body.PID;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `SELECT *  FROM 05_magazin_factures 
-                     LEFT JOIN 05_magazin_clients ON 05_magazin_factures.C_Name = 05_magazin_clients.CL_ID 
-                     LEFT JOIN 05_magazin_caisses ON 05_magazin_factures.Caisse = 05_magazin_caisses.Cam_ID 
+                     LEFT JOIN 05_magazin_clients ON 05_magazin_factures.Client = 05_magazin_clients.CL_ID 
+                     LEFT JOIN 05_magazin_caisses ON 05_magazin_factures.Caisse_ID = 05_magazin_caisses.C_ID 
                     WHERE 05_magazin_factures.PID = '${PID}'`;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
@@ -1091,8 +721,8 @@ const upload = multer({  storage: storage });
            let date = req.body.targetDate
            connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `SELECT *  FROM 05_magazin_factures 
-                     LEFT JOIN 05_magazin_clients ON 05_magazin_factures.C_Name = 05_magazin_clients.CL_ID  
-                     WHERE 05_magazin_factures.Cre_Date >= '${date.start}' AND 05_magazin_factures.Cre_Date <= '${date.end}' AND 05_magazin_factures.PID = '${PID}'`;
+                     LEFT JOIN 05_magazin_clients ON 05_magazin_factures.Client = 05_magazin_clients.CL_ID  
+                     WHERE 05_magazin_factures.T_Date >= '${date.start}' AND 05_magazin_factures.T_Date <= '${date.end}' AND 05_magazin_factures.PID = '${PID}'`;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
               res.json(rows);
@@ -1104,10 +734,10 @@ const upload = multer({  storage: storage });
            let PID = req.body.PID
            let FID = req.body.fid
            connection.changeUser({database : 'dszrccqg_system'}, () => {});
-           let sql = `SELECT 05_magazin_factures.* , 05_magazin_clients.*,  05_magazin_caisses.Cam_ID, 05_magazin_caisses.Cam_Name, 05_magazin_caisses.Matricule 
+           let sql = `SELECT 05_magazin_factures.* , 05_magazin_clients.*,  05_magazin_caisses.C_ID, 05_magazin_caisses.CA_Name, 05_magazin_caisses.User_ID 
                       FROM 05_magazin_factures
-                      LEFT JOIN 05_magazin_clients ON 05_magazin_factures.C_Name = 05_magazin_clients.CL_ID 
-                      LEFT JOIN 05_magazin_caisses ON 05_magazin_factures.Caisse = 05_magazin_caisses.Cam_ID
+                      LEFT JOIN 05_magazin_clients ON 05_magazin_factures.Client = 05_magazin_clients.CL_ID 
+                      LEFT JOIN 05_magazin_caisses ON 05_magazin_factures.Caisse_ID = 05_magazin_caisses.C_ID
                       WHERE 05_magazin_factures.F_ID = ${FID} AND 05_magazin_factures.PID = '${PID}' `;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
@@ -1123,7 +753,7 @@ const upload = multer({  storage: storage });
            let FID = await GenerateID(1111111111,`05_magazin_factures`,'F_ID');
            let articleL = JSON.stringify(factId.articles)
            connection.changeUser({database : 'dszrccqg_system'}, () => {});
-           let sql = `INSERT INTO 05_magazin_factures (PID, F_ID,Cre_Date,C_Name,Tota,De,Vers,Chauffeur,Fournisseurs,SDF,Articles) 
+           let sql = `INSERT INTO 05_magazin_factures (PID, F_ID,Cre_Date,C_Name,Tota,De,Vers,Identifiant,Fournisseurs,SDF,Articles) 
                      VALUES ('${PID}','${FID}','${factId.jour}','${factId.client}','${factId.totale}','${factId.de}','${factId.vers}','null','null','false','${articleL}')`;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
@@ -1153,7 +783,7 @@ const upload = multer({  storage: storage });
            let articleL = JSON.stringify(factId.articles)
            connection.changeUser({database : 'dszrccqg_system'}, () => {});
            let sql = `UPDATE 05_magazin_factures
-                      SET Cre_Date = '${factId.jour}', C_Name = '${factId.client}', Tota = '${factId.totale}', De = '${factId.de}', Vers ='${factId.vers}' , Chauffeur ='${factId.Chauffeur}' ,Fournisseurs ='${factId.Fournisseurs}', Articles = '${articleL}'
+                      SET Cre_Date = '${factId.jour}', C_Name = '${factId.client}', Tota = '${factId.totale}', De = '${factId.de}', Vers ='${factId.vers}' , Identifiant ='${factId.Identifiant}' ,Fournisseurs ='${factId.Fournisseurs}', Articles = '${articleL}'
                       WHERE F_ID = '${FID}' AND PID = ${PID}`;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
@@ -1365,18 +995,17 @@ const upload = multer({  storage: storage });
               
     })
 
-/*####################################[TEAM]#####################################*/
+/*####################################[TEAM]#######################################*/
 
-      /* selectioner tous l'equipe */
+     /* selectioner tous l'05_magazin_team */
       PtVenteMagazin.post('/team', (req, res) => {
             let PID = req.body.PID;
             connection.changeUser({database : 'dszrccqg_system'}, () => {});
-            let sql = `SELECT *  FROM 05_magazin_team WHERE PID = '${PID}'`;
+            let sql = `SELECT *  FROM 05_magazin_team WHERE PID = ${PID} `;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
               res.send(rows);
-            })
-                
+            })         
       })
 
       /* Ajouter client */
@@ -1387,8 +1016,8 @@ const upload = multer({  storage: storage });
           let CID = await GenerateID(1111111111,'05_magazin_team','T_ID');
           let Today = new Date().toISOString().split('T')[0]
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `INSERT INTO 05_magazin_team (PID, T_ID, Releted_UID, T_Name, T_CIN, T_Phone, T_Adress, Poste, State, Start_at, Finish_at)
-                       VALUES (${PID},${CID},'${teamD.Releted_UID}','${teamD.Name}','${teamD.T_CIN}','${teamD.Phone}','${teamD.Adress}','${teamD.Poste}','null','${Today}','');`;
+          let sql = `INSERT INTO 05_magazin_team (PID, T_ID, T_Name, T_CIN, T_Phone, T_Adress, Poste,  Started_At, Finish_at)
+                       VALUES (${PID} , ${CID},'${teamD.Name}','${teamD.T_CIN}','${teamD.Phone}','${teamD.Adress}','${teamD.Poste}','${Today}','');`;
               connection.query(sql, (err, rows, fields) => {
                 if (err){ throw err}
                res.json(rows);
@@ -1396,61 +1025,133 @@ const upload = multer({  storage: storage });
           })()      
       })
 
+      /* modifier un client */
+      PtVenteMagazin.post('/team/modifier', (req, res) => {
+          let PID = req.body.PID;
+          let teamData = req.body.teamData
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `UPDATE 05_magazin_team
+                     SET T_Name = '${teamData.T_Name}',  T_Phone = '${teamData.T_Phone}' , T_Adress = '${teamData.T_Adress}' ,  T_Gouv = '${teamData.T_Gouv}' , T_Deleg = '${teamData.T_Deleg}' , T_CIN = '${teamData.T_CIN}'
+                     WHERE T_ID = ${teamData.T_ID} AND PID = ${PID}`;
+              connection.query(sql, (err, rows, fields) => {
+                if (err){ throw err}
+               res.json(rows);
+              })     
+      })
+
       /* selectioner un client */
       PtVenteMagazin.post('/team/info', (req, res) => {
           let PID = req.body.PID;
           let TID = req.body.Team_ID
           function FetchTeamData() {
-      	      return new Promise((resolve, reject) => {
-      	      	connection.changeUser({database : 'dszrccqg_system'}, () => {});
-      	      	let sql = `SELECT * FROM 05_magazin_team WHERE T_ID = ${TID} AND PID = ${PID}`;
-      		       connection.query(sql, (err, rows, fields) => {
-      		          if (err) return reject(err);
-      		          if (!rows[0]) {resolve([{ Name:null , }]);} else {resolve(rows);}
-      		      })
-      	      });
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 05_magazin_team WHERE T_ID = ${TID} AND PID = ${PID} `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    if (!rows[0]) {resolve([{ Name:null , }]);} else {resolve(rows);}
+                })
+              });
           }
-          function SelectCommandes(Name) {
-      	      return new Promise((resolve, reject) => {
-      	      	connection.changeUser({database : 'dszrccqg_system'}, () => {});
-      	      	let sql = `SELECT * FROM system_commande WHERE Client = '${TID}' AND State = 'W'`;
-      		       connection.query(sql, (err, rows, fields) => {
-      		          if (err) return reject(err);
-      		          resolve(rows);
-      		      })
-      	      });
+          function SelectPresence(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 05_magazin_team_presence WHERE Team_ID = ${TID}  `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
           }
-          function SelectFactureCamion(Name) {
-      	      return new Promise((resolve, reject) => {
-      	      	connection.changeUser({database : 'dszrccqg_system'}, () => {});
-      	      	let sql = `SELECT * FROM ${TAG}_camion_facture WHERE C_Name = '${TID}' `;
-      		       connection.query(sql, (err, rows, fields) => {
-      		          if (err) return reject(err);
-      		          resolve(rows);
-      		      })
-      	      });
+          function SelectAvances(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 05_magazin_team_avance WHERE Team_ID = ${TID}  `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
           }
-          function SelectFactures(Name) {
-      	      return new Promise((resolve, reject) => {
-      	      	connection.changeUser({database : 'dszrccqg_system'}, () => {});
-      	      	let sql = `SELECT * FROM ${TAG}_facture WHERE C_Name = '${TID}' `;
-      		       connection.query(sql, (err, rows, fields) => {
-      		          if (err) return reject(err);
-      		          resolve(rows);
-      		      })
-      	      });
-          }
+          // function SelectFactures(Name) {
+           //    return new Promise((resolve, reject) => {
+           //     connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           //     let sql = `SELECT * FROM ${TAG}_facture WHERE C_Name = '${TID}' `;
+            //      connection.query(sql, (err, rows, fields) => {
+            //         if (err) return reject(err);
+            //         resolve(rows);
+            //     })
+           //    });
+          // }
 
 
-          	// Call, Function
+            // Call, Function
           async function query() {
-              const clientData = await FetchTeamData(); 
-            	//clientData[0].Commandes = await  SelectCommandes(clientData[0].Name)
-            	//clientData[0].FactureCamion = await SelectFactureCamion(clientData[0].Name)
-            	//clientData[0].Facture = await SelectFactures(clientData[0].Name)
-            res.send(clientData)
+              const teamData = await FetchTeamData(); 
+              teamData[0].Presence = await  SelectPresence(teamData[0].T_ID)
+              teamData[0].Avances = await SelectAvances(teamData[0].T_ID)
+              //teamData[0].Facture = await SelectFactures(teamData[0].Name)
+            res.send(teamData)
           }
           query();               
+      })
+
+      /* selectioner tous les client */
+      PtVenteMagazin.post('/team/anavce', (req, res) => {
+          let PID = req.body.PID;
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `SELECT * 
+                       FROM 05_magazin_team_avance 
+                       LEFT JOIN 05_magazin_team ON 05_magazin_team.T_ID =  05_magazin_team_avance.Team_ID 
+                       WHERE PID = ${PID}`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
+      /* selectioner tous les client */
+      PtVenteMagazin.post('/team/anavce/ajoute', (req, res) => {
+          let TAG = req.body.PID;
+          let avanceD = req.body.avanceD;
+          let Today = new Date().toISOString().split('T')[0]
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `INSERT INTO 05_magazin_team_avance (Team_ID, AV_Date, Valeur)
+                       VALUES ('${avanceD.Team_ID}','${Today}','${avanceD.Valeur}');`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
+      /* selectioner tous les client */
+      PtVenteMagazin.post('/team/presence', (req, res) => {
+          let PID = req.body.PID;
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `SELECT * 
+                       FROM 05_magazin_team_presence 
+                       LEFT JOIN 05_magazin_team ON 05_magazin_team.T_ID =  05_magazin_team_presence.Team_ID 
+                       WHERE PID = ${PID}`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
+      PtVenteMagazin.post('/team/presence/ajoute', (req, res) => {
+          let TAG = req.body.PID;
+          let presenceD = req.body.presenceD;
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `INSERT INTO 05_magazin_team_presence (Team_ID, PR_Date, Genre)
+                       VALUES ('${presenceD.Team_ID}','${presenceD.PR_Date}','');`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })
+                
       })
 
       /* selectioner tous les client */
@@ -1485,7 +1186,7 @@ const upload = multer({  storage: storage });
         let posteD = req.body.posteD
         connection.changeUser({database : 'dszrccqg_system'}, () => {});
         let sql = `UPDATE 05_magazin_team_poste 
-                   SET Genre = '${posteD.Name}' , Description =  '${posteD.Description}'
+                   SET Poste = '${posteD.Poste}' , Description =  '${posteD.Description}'
                    WHERE PK = ${posteD.PK} AND PID = '${PID}' `;
          connection.query(sql, (err, rows, fields) => {
           if (err){ res.json(err)}
@@ -1494,8 +1195,7 @@ const upload = multer({  storage: storage });
             
       })
 
-
-/*####################################[FOURNISSEUR]###############################*/
+/*####################################[FOURNISSEUR]################################*/
 
     /* selectioner tous les client */
     PtVenteMagazin.post('/fournisseur', (req, res) => {
@@ -1586,7 +1286,7 @@ const upload = multer({  storage: storage });
     PtVenteMagazin.post('/fournisseur/checkAbyedhDb', (req, res) => {
           let PID = req.body.PID;
           connection.changeUser({database : 'dszrccqg_directory'}, () => {});
-          let sql = `SELECT * FROM 05_pv_alimentaire WHERE PID = '${PID}'`;
+          let sql = `SELECT * FROM 05_magazin WHERE PID = '${PID}'`;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
             res.json(rows[0]);
@@ -1628,7 +1328,7 @@ const upload = multer({  storage: storage });
           function GetGeneralData() {
             return new Promise((resolve, reject) => {
                     connection.changeUser({database : 'dszrccqg_directory'}, () => {});
-                    let sql = `SELECT * FROM 05_pv_alimentaire WHERE PID = ${PID}`;
+                    let sql = `SELECT * FROM 05_magazin WHERE PID = '${PID}'`;
                      connection.query(sql, (err, rows, fields) => {
                       if(err) return reject(err);
                       resolve(rows);
@@ -1707,14 +1407,14 @@ const upload = multer({  storage: storage });
   PtVenteMagazin.post('/profile/print', (req, res) => {
         let PID = req.body.PID;
         connection.changeUser({database : 'dszrccqg_directory'}, () => {});
-        let sql = `SELECT * FROM 08_vente_en_gros WHERE PID = ${PID}`;
+        let sql = `SELECT * FROM 05_magazin WHERE PID = ${PID}`;
          connection.query(sql, (err, rows, fields) => {
           if (err){ res.json(err)}
           res.json(rows);
         })
   })
 
-  /* modifier Images */
+  /* modifier Images 
   PtVenteMagazin.post('/profile/images/ajouter', upload.single("ProfileImage"), (req, res) => {
           let PID = req.body.PID;
           let ImgPID = req.body.PID
@@ -1728,15 +1428,14 @@ const upload = multer({  storage: storage });
             if (err){res.json(err)}
               res.json(req.body);
           })        
-  })
-
+  })*/
 
   /* Modifier Profle Data  */
   PtVenteMagazin.post('/profile/update/general', (req, res) => {
         let PID = req.body.PID
         let profileD = req.body.profileDataSent
         connection.changeUser({database : 'dszrccqg_directory'}, () => {});
-        let sql = `UPDATE 08_vente_en_gros
+        let sql = `UPDATE 05_magazin
                    SET Genre = '${profileD.Genre}', Gouv = '${profileD.Gouv}' ,  Deleg = '${profileD.Deleg}' ,  Phone = '${profileD.Phone}' , Matricule_F  = '${profileD.Matricule_F}', Name = '${profileD.Name}' , Localite = '${profileD.Adress}' ,  Adress = '${profileD.Adress}' 
                    WHERE  PID = '${PID}' `;
          connection.query(sql, (err, rows, fields) => {
@@ -1752,7 +1451,7 @@ const upload = multer({  storage: storage });
           connection.changeUser({database : 'dszrccqg_registration'}, () => {});
           let sql = `UPDATE system_login
                      SET Identification = '${passwordD.Identification}', PasswordSalt = '${passwordD.PasswordSalt}'
-                     WHERE PID = '${PID}' AND SystemKey = 'PTVGros' `;
+                     WHERE PID = '${PID}' AND SystemKey = 'Restaurant' `;
            connection.query(sql, (err, rows, fields) => {
             if (err){res.json(err)}
               res.json(rows);
@@ -1764,7 +1463,7 @@ const upload = multer({  storage: storage });
           let PID = req.body.PID
           let positionD = req.body.positionDataSent
           connection.changeUser({database : 'dszrccqg_directory'}, () => {});
-          let sql = `UPDATE 08_vente_en_gros
+          let sql = `UPDATE 05_magazin
                      SET Lat = '${positionD[0]}', Lng = '${positionD[1]}' 
                      WHERE  PID = '${PID}' `;
            connection.query(sql, (err, rows, fields) => {
@@ -1774,28 +1473,72 @@ const upload = multer({  storage: storage });
   })
 
   /* modifier Images */
-  PtVenteMagazin.post('/profile/images/ajouter', upload.single("ProfileImage"), (req, res) => {
+  PtVenteMagazin.post('/profile/images/ajouter', upload.array("Images",5), (req, res) => {
           let PID = req.body.PID;
-          let ImgPID = req.body.PID
-          let link = req.file.filename;
-          let dest = JSON.stringify(req.file.destination);
+          let link = req.files;
+          //let dest = JSON.stringify(req.file.destination);
+          let sqlText = ''
+          link.map( (data) => {
+            sqlText = sqlText.concat(" ", `('${PID}', '${data.filename}'),`);
+         })
+
           connection.changeUser({database : 'dszrccqg_directory'}, () => {});
-          let sql = `UPDATE profile_photoes
-                     SET ImageLink = '${link}'
-                     WHERE PID = '${PID}' AND ImageTag = '${ImgTag}' `;
+          let sql = `INSERT INTO 000_abyedh_profile_photoes (PID , ImageLink)
+                     VALUES ${sqlText.slice(0, -1)} `;
            connection.query(sql, (err, rows, fields) => {
             if (err){res.json(err)}
-              res.json(req.body);
-          })        
+              res.json(rows);
+          })    
+
     })
 
+  PtVenteMagazin.post('/profile/images/deletefile', async function(req, res, next) {
 
-  /* Modifier Prifle Data  */
-  /* Modifier Password   */
+          const fileName = req.body.fileName;
+          //const filePath = `C:/Users/hp/Desktop/BackUp/NouvBCK/${fileName}`; 
+          const filePath = `C:/Users/Administrator/Desktop/Abyedh/CDN/Images/Directory/${fileName}`;
+          req.fileName = fileName
+          
+          fs.unlink(filePath, (err) => {
+              if (err) {
+                console.error(err);
+                //res.status(500).send('Error deleting file');
+                return;
+              }
+
+              //res.send('File deleted');
+              
+          }); 
+          
+          next();
+  }, function(req, res) {
+        let fileNameToDelete =  req.fileName
+        connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+        let sql = `DELETE FROM 000_abyedh_profile_photoes WHERE ImageLink = '${fileNameToDelete}' ;`;
+         connection.query(sql, (err, rows, fields) => {
+          if (err){ res.json(err)}
+            res.json(rows)
+        }) 
+  });
+
+
   /* Modifier Horaire   */
+  PtVenteMagazin.post('/profile/update/horaire', (req, res) => {
+          let PID = req.body.PID
+          let settingD = req.body.settingDataSent
+          let genre = req.body.genre
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `UPDATE 05_magazin_setting
+                     SET ${genre} = '${settingD}' 
+                     WHERE  PID = '${PID}' `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){res.json(err)}
+              res.json(rows);
+            })         
+  })
+
   /* Modifier Images   */
   /* Repler Comment   */
-  /* Modifier Tarife  */
 
 /*&&&&&&&&&&&&&&&&&[SETTING]&&&&&&&&&&&&&&&&&*/
 
@@ -1805,7 +1548,7 @@ const upload = multer({  storage: storage });
           function GetConfirmation() {
             return new Promise((resolve, reject) => {
                     connection.changeUser({database : 'dszrccqg_directory'}, () => {});
-                    let sql = `SELECT * FROM 05_pv_alimentaire WHERE PID = ${PID}`;
+                    let sql = `SELECT * FROM 05_magazin WHERE PID = ${PID}`;
                      connection.query(sql, (err, rows, fields) => {
                       if(err) return reject(err);
                       resolve(rows[0]);
@@ -1858,13 +1601,95 @@ const upload = multer({  storage: storage });
               res.json(rows);
             })         
   })
+
+  /* Update Setting   */
+  PtVenteMagazin.post('/parametre/confirmer', (req, res) => {
+          let PID = req.body.PID
+          connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+          let sql = `UPDATE 05_magazin
+                     SET Activated = 'true' 
+                     WHERE  PID = '${PID}' `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){res.json(err)}
+              res.json(rows);
+            })         
+  })
+
+  /* Update Setting   */
+  PtVenteMagazin.post('/parametre/paymment', (req, res) => {
+           let PID = req.body.PID
+           let Genre = req.body.Genre
+           let Today = new Date().toISOString().split('T')[0]
+           let paymmentD = req.body.paymmentD; 
+
+           connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+           let sql = `INSERT INTO system_activation_paymment(PID, Genre, Name,  Location, CodeP, Montant, Secret_Code,  Phone,  P_Date, State)
+                      VALUES(${PID},'${Genre}','${paymmentD.Name}','${paymmentD.Location}', '${paymmentD.CodeP}', '${paymmentD.Montant}', '${paymmentD.Secret_Code}', '${paymmentD.Phone}','${Today}','W')`;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ res.json(err)}
+            res.json(rows);
+          })         
+  })
+
+/*&&&&&&&&&&&&&&&&&[DOCUMENTATION]&&&&&&&&&&&*/
+    /* ajouter un messages */
+    PtVenteMagazin.post('/documentation/messages', (req, res) => {
+           let PID = req.body.PID
+           connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           let sql = `SELECT *  FROM 00_abyedh_messages_sav  WHERE PID = '${PID}' ORDER BY Sent_Date ASC, Sent_Time ASC`;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ throw err}
+            res.json(rows);
+          })
+              
+    })
+
+    /* ajouter un messages */
+    PtVenteMagazin.post('/documentation/ajouter', (req, res) => {
+           let Today = new Date().toISOString().split('T')[0]
+           let ToTime = new Date().toLocaleTimeString([],{ hourCycle: 'h23'})
+           let PID = req.body.PID
+           let MID  = Math.floor(Math.random() * 10000000000);
+           let msgD = req.body.msgC; //JSON.stringify(req.body.msgC)
+           connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           let sql = `INSERT INTO 00_abyedh_messages_sav(M_ID,PID,Sender_Genre,Sender,SystemTag,Content,Sent_Date,Sent_Time)
+                      VALUES(${MID},${PID},'SYSTEM','SYSTEM','ABYEDH', '${msgD}' ,'${Today}','${ToTime}')`;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ res.json(err)}
+            res.json(rows);
+          })
+              
+    })
+
+    /*
+     PtVenteMagazin.post('/verification', (req, res) => {
+          client.verify.v2
+          .services(verifySid)
+          .verifications.create({ to: "+21696787676", channel: "sms" })
+          .then((verification) => console.log(verification.status))
+          .then(() => {
+            const readline = require("readline").createInterface({
+              input: process.stdin,
+              output: process.stdout,
+            });
+            readline.question("Please enter the OTP:", (otpCode) => {
+              client.verify.v2
+                .services(verifySid)
+                .verificationChecks.create({ to: "+21696787676", code: otpCode })
+                .then((verification_check) => console.log(verification_check.status))
+                .then(() => readline.close());
+            });
+          });             
+      })
+      */
+
 /*&&&&&&&&&&&&&&&&&[MESSAGES]&&&&&&&&&&&&&&&&*/
 
     //*selectionner message */
     PtVenteMagazin.post('/messages', (req, res) => {
            let PID = req.body.PID
-           connection.changeUser({database : 'dszrccqg_communications'}, () => {});
-           let sql = `SELECT *  FROM message_conversations  WHERE PID = '${PID}' ORDER BY StartedAt ASC`;
+           connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           let sql = `SELECT *  FROM 00_abyedh_messages_sav  WHERE PID = '${PID}' ORDER BY StartedAt ASC`;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
             res.json(rows);
@@ -1876,8 +1701,8 @@ const upload = multer({  storage: storage });
     PtVenteMagazin.post('/message', (req, res) => {
            let PID = req.body.PID
            let MID = req.body.MID
-           connection.changeUser({database : 'dszrccqg_communications'}, () => {});
-           let sql = `SELECT *  FROM message_conversations  WHERE PID = '${PID}' ORDER BY Sent_Date ASC, Sent_Time ASC`;
+           connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           let sql = `SELECT *  FROM 00_abyedh_messages_sav  WHERE PID = '${PID}' ORDER BY Sent_Date ASC, Sent_Time ASC`;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
             res.json(rows);
@@ -1887,14 +1712,14 @@ const upload = multer({  storage: storage });
 
     /* ajouter un messages */
     PtVenteMagazin.post('/message/ajouter', (req, res) => {
-         let Today = new Date().toISOString().split('T')[0]
-         let ToTime = new Date().toLocaleTimeString([],{ hourCycle: 'h23'})
+           let Today = new Date().toISOString().split('T')[0]
+           let ToTime = new Date().toLocaleTimeString([],{ hourCycle: 'h23'})
            let PID = req.body.PID
            let MID  = Math.floor(Math.random() * 10000000000);
            let msgD = req.body.msgC; //JSON.stringify(req.body.msgC)
-           connection.changeUser({database : 'dszrccqg_communications'}, () => {});
-           let sql = `INSERT INTO system_messages(M_ID,Sender_Genre,Sender,SystemTag,Content,Sent_Date,Sent_Time)
-                  VALUES(${MID},'SYSTEM','SYSTEM','${TAG}', '${msgD}' ,'${Today}','${ToTime}')`;
+           connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           let sql = `INSERT INTO system_messages(M_ID,PID,Sender_Genre,Sender,SystemTag,Content,Sent_Date,Sent_Time)
+                      VALUES(${MID},${PID},'SYSTEM','SYSTEM','ABYEDH', '${msgD}' ,'${Today}','${ToTime}')`;
            connection.query(sql, (err, rows, fields) => {
             if (err){ res.json(err)}
             res.json(rows);
@@ -1902,11 +1727,106 @@ const upload = multer({  storage: storage });
               
     })
 
-/*&&&&&&&&&&&&&&&&&[NOTIFICATION]&&&&&&&&&&&&*/
+/*&&&&&&&&&&&&&&&&&[SAUVGARDER ]&&&&&&&&&&&&&*/
+    /*Sauvgarder les donneé desirable */
+    PtVenteMagazin.post('/tools/export/done', (req, res) => {
+        let fileName =  req.body.fileName + '-' + new Date().toLocaleDateString('fr-FR').split( '/' ).join( '-' ) + '-' + Date.now()
+        let exportedTable = req.body.exportedTable
+        let PID =  req.body.PID
+        const converted = exportedTable.flatMap(({ name, where }) => [name, '--where', where]);
+        const exportProcess = spawn("C:/xampp/mysql/bin/mysqldump.exe", [
+          '-u',
+          'root',
+          'dszrccqg_system', 
+          ...converted,
+          '--no-create-info', 
+          '-r',
+          `C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp/${fileName}.sql` //C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp/
+        ]);
+         exportProcess.stdout.on('data', (data) => {
+          console.log(`stdout: ${data}`);
+        });
 
-/* selectioner les notification recentte*/
+        exportProcess.stderr.on('data', (data) => {
+          console.log(`stderr: ${data}`);
+        });
 
-/*&&&&&&&&&&&&&&&&&[Mettre A Jour]&&&&&&&&&&&&&&*/
+        exportProcess.on('close', (code) => {
+          res.send({file:fileName});
+        });
+    })
+
+    PtVenteMagazin.get('/tools/export/download/:file', (req, res) => {
+      res.download(`C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp/${req.params.file}.sql`);
+    })
+
+    PtVenteMagazin.post('/tools/export/calclength', (req, res) => {
+      fs.readdir('C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp', (err, files) => {
+        if (err) {
+          console.error(err);
+          res.status(500).send('Error reading directory');
+          return;
+        }
+
+        res.send(`Number of files: ${files.size}`);
+      });
+    })
+
+    PtVenteMagazin.post('/tools/export/calcsize', (req, res) => {
+        let totalSize = 0;
+        fs.readdir('C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp', (err, files) => {
+          if (err) {
+            console.error(err);
+            res.status(500).send('Error reading directory');
+            return;
+          }
+          for (const file of files) {
+            if (!file.startsWith('restaurant_1567154730')) continue;
+            const filePath = path.join('C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp', file);
+            fs.stat(filePath, (err, stat) => {
+              if (err) {
+                console.error(err);
+                res.status(500).send('Error getting file size');
+                return;
+              }
+
+              totalSize += stat.size;
+
+              if (files.indexOf(file) === files.length - 1) {
+                res.send({totSize: totalSize});
+              }
+            });
+          }
+        });
+    })
+
+    PtVenteMagazin.post('/tools/export/clear', (req, res) => {
+        fs.readdir('C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp', (err, files) => {
+          if (err) {
+            console.error(err);
+            res.status(500).send('Error reading directory');
+            return;
+          }
+
+          for (const file of files) {
+            if (!file.startsWith('restaurant_1567154730')) continue;
+            const filePath = path.join('C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp', file);
+            fs.unlink(filePath, (err) => {
+              if (err) {
+                console.error(err);
+                res.status(500).send('Error deleting file');
+                return;
+              }
+
+              if (files.indexOf(file) === files.length - 1) {
+                res.send('All files deleted');
+              }
+            });
+          }
+        });
+    })
+    
+/*&&&&&&&&&&&&&&&&&[Mettre A Jour]&&&&&&&&&&&*/
     /* fetch main Tools */
     PtVenteMagazin.post('/update', (req, res) => {
          let PID = req.body.PID
@@ -1915,7 +1835,7 @@ const upload = multer({  storage: storage });
           function FetchStock() {
             return new Promise((resolve, reject) => {
               connection.changeUser({database : 'dszrccqg_system'}, () => {});
-              let sql = `SELECT * FROM 05_magazin_articles WHERE PID = '${PID}'`;
+              let sql = `SELECT * FROM 05_magazin_menu WHERE PID = '${PID}'`;
                connection.query(sql, (err, rows, fields) => {
                  if (err) return reject(err);
                  resolve(rows);
@@ -1925,7 +1845,7 @@ const upload = multer({  storage: storage });
           function FetchStockFamille() {
             return new Promise((resolve, reject) => {
                 connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                let sql = `SELECT * FROM 05_magazin_articles_genre WHERE PID = '${PID}'`;
+                let sql = `SELECT * FROM 05_magazin_menu_genre WHERE PID = '${PID}'`;
                connection.query(sql, (err, rows, fields) => {
                  if (err) return reject(err);
                  resolve(rows);
@@ -1935,27 +1855,39 @@ const upload = multer({  storage: storage });
           function FetchFacture() {
             return new Promise((resolve, reject) => {
               connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                let sql = `SELECT *  FROM 05_magazin_factures 
-                           LEFT JOIN 05_magazin_clients ON 05_magazin_factures.C_Name = 05_magazin_clients.CL_ID 
-                           LEFT JOIN 05_magazin_caisses ON 05_magazin_factures.Caisse = 05_magazin_caisses.Cam_ID 
-                           WHERE 05_magazin_factures.PID = '${PID}'`;
+                let sql = `SELECT * , COALESCE(05_magazin_clients.CL_Name, 'PASSAGER') AS CL_Name ,05_magazin_factures.State AS Pay_State FROM 05_magazin_factures 
+                           LEFT JOIN 05_magazin_clients ON 05_magazin_factures.Client = 05_magazin_clients.CL_ID 
+                           LEFT JOIN 05_magazin_caisses ON 05_magazin_factures.Caisse_ID_ID = 05_magazin_caisses.C_ID 
+                           WHERE 05_magazin_factures.PID = ${PID}`;
                connection.query(sql, (err, rows, fields) => {
                  if (err) return reject(err);
                  resolve(rows);
                 })
               })
           }
-          function FetchCommande() {
-            return new Promise((resolve, reject) => {
-              connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                let sql = `SELECT * FROM dszrccqg_communications.05_pv_alimentaire_shop 
-                       INNER JOIN dszrccqg_profile.user_general_data ON dszrccqg_communications.05_pv_alimentaire_shop.UID = dszrccqg_profile.user_general_data.UID 
-                       WHERE  dszrccqg_communications.05_pv_alimentaire_shop.PID = '${PID}'`;
-               connection.query(sql, (err, rows, fields) => {
-                 if (err) return reject(err);
-                 resolve(rows);
+          function FetchCommandes() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `SELECT * FROM dszrccqg_communications.05_magazin_commande 
+                       INNER JOIN dszrccqg_profile.user_general_data ON dszrccqg_communications.05_magazin_commande.UID = dszrccqg_profile.user_general_data.UID 
+                       WHERE  dszrccqg_communications.05_magazin_commande.PID = '${PID}'`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
                 })
-              })
+              });
+          }
+          function FetchReservation(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `SELECT * FROM dszrccqg_communications.05_magazin_commande 
+                       INNER JOIN dszrccqg_profile.user_general_data ON dszrccqg_communications.05_magazin_commande.UID = dszrccqg_profile.user_general_data.UID 
+                       WHERE  dszrccqg_communications.05_magazin_commande.PID = '${PID}'`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
           }
           function FetchCamion() {
             return new Promise((resolve, reject) => {
@@ -1981,7 +1913,8 @@ const upload = multer({  storage: storage });
           // Call, Function
           async function query() {
                   const updateData = [{}]; 
-                updateData[0].commande = await FetchCommande()
+                updateData[0].commande = await FetchCommandes()
+                updateData[0].reservation = await FetchReservation()
                 updateData[0].stock = await FetchStock()
                 updateData[0].stockFamille = await FetchStockFamille()
                 updateData[0].facture = await FetchFacture()

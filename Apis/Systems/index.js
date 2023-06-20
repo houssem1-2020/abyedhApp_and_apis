@@ -74,18 +74,18 @@ app.use('/magazin-caisse', PtVenteQuancaillerieCaisseRouter)
 
 /* ###################################[SANTE]########################################*/
 //docteur
-const docteurRouter = require('./01-Sante/Docteur/docteur')
+const docteurRouter = require('./01-Sante/Docteur/Docteur')
 app.use('/docteur', docteurRouter)
-const docteurInputRouter = require('./01-Sante/Docteur/docteurInterf')
-app.use('/drcaisse', docteurInputRouter)
+const docteurRDVRouter = require('./01-Sante/Docteur/DocteurRDV')
+app.use('/docteur-rdv', docteurRDVRouter)
 
 
 /* ###################################[EDUCATION]####################################*/
 //garderie
 const garderieRouter = require('./02-Education/Garderie/garderie')
 app.use('/garderie', garderieRouter)
-const garderieInputRouter = require('./02-Education/Garderie/garderieInterf')
-app.use('/garderieI', garderieInputRouter)
+const garderieProfRouter = require('./02-Education/Garderie/GarderieProf')
+app.use('/garderie-prof', garderieProfRouter)
 
 
 //Lycee
@@ -106,8 +106,29 @@ app.use('/autoecoleI', AutoEcoleInputRouter)
 //Restaurant
 const RestaurantRouter = require('./03-Restauration/Restaurant/Restaurant')
 app.use('/restaurant', RestaurantRouter)
-const RestaurantInputRouter = require('./03-Restauration/Restaurant/RestaurantInterf')
-app.use('/restaurantI', RestaurantInputRouter)
+
+const RestaurantCaisseRouter = require('./03-Restauration/Restaurant/RestaurantCaisse')
+app.use('/restaurant-caisse', RestaurantCaisseRouter)
+
+const RestaurantServeurRouter = require('./03-Restauration/Restaurant/RestaurantServeur')
+app.use('/restaurant-serveur', RestaurantServeurRouter)
+
+const RestaurantChefRouter = require('./03-Restauration/Restaurant/RestaurantChef')
+app.use('/restaurant-chef', RestaurantChefRouter)
+
+
+//Cafe
+const CafeRouter = require('./03-Restauration/Cafe/Cafe')
+app.use('/cafe', CafeRouter)
+
+const CafeCaisseRouter = require('./03-Restauration/Cafe/CafeCaisse')
+app.use('/cafe-caisse', CafeCaisseRouter)
+
+const CafeServeurRouter = require('./03-Restauration/Cafe/CafeServeur')
+app.use('/cafe-serveur', CafeServeurRouter)
+
+const CafeChefRouter = require('./03-Restauration/Cafe/CafeChef')
+app.use('/cafe-chef', CafeChefRouter)
 
 
 //Hotels
@@ -147,8 +168,8 @@ app.use('/coiffureI', CoiffureInputRouter)
 //Gym
 const GymRouter = require('./10-Sport/Gym/Gym')
 app.use('/gym', GymRouter)
-const GymInputRouter = require('./10-Sport/Gym/GymInterf')
-app.use('/gym', GymInputRouter)
+const GymInputRouter = require('./10-Sport/Gym/GymCaisse')
+app.use('/gym-caisse', GymInputRouter)
 
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2023 at 07:15 PM
+-- Generation Time: May 07, 2023 at 12:17 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -94,6 +94,21 @@ CREATE TABLE `05_magazin_caisses` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `05_magazin_caisses_bons`
+--
+
+CREATE TABLE `05_magazin_caisses_bons` (
+  `PK` bigint(20) NOT NULL,
+  `Bon` varchar(20) NOT NULL,
+  `Genre` varchar(200) NOT NULL,
+  `B_Valeur` varchar(20) NOT NULL,
+  `B_Remise` varchar(20) NOT NULL,
+  `B_Nette` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `05_magazin_caisses_depenses`
 --
 
@@ -118,7 +133,7 @@ CREATE TABLE `05_magazin_clients` (
   `CL_ID` bigint(20) NOT NULL,
   `Releted_PID` bigint(10) NOT NULL,
   `CIN` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `CL_Name` varchar(500) CHARACTER SET utf8 NOT NULL,
+  `Name` varchar(500) CHARACTER SET utf8 NOT NULL,
   `Genre` varchar(100) NOT NULL,
   `Creation_Date` date NOT NULL,
   `Phone` varchar(20) CHARACTER SET utf8 NOT NULL,
@@ -151,7 +166,6 @@ CREATE TABLE `05_magazin_clients_reglement` (
 
 CREATE TABLE `05_magazin_factures` (
   `PK` bigint(20) NOT NULL,
-  `PID` bigint(20) NOT NULL,
   `T_ID` varchar(100) NOT NULL,
   `Caisse_ID` varchar(100) NOT NULL,
   `Final_Value` float NOT NULL,
@@ -362,6 +376,12 @@ ALTER TABLE `05_magazin_caisses`
   ADD PRIMARY KEY (`PK`);
 
 --
+-- Indexes for table `05_magazin_caisses_bons`
+--
+ALTER TABLE `05_magazin_caisses_bons`
+  ADD PRIMARY KEY (`PK`);
+
+--
 -- Indexes for table `05_magazin_caisses_depenses`
 --
 ALTER TABLE `05_magazin_caisses_depenses`
@@ -472,6 +492,12 @@ ALTER TABLE `05_magazin_article_suivie_stock`
 --
 ALTER TABLE `05_magazin_caisses`
   MODIFY `PK` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `05_magazin_caisses_bons`
+--
+ALTER TABLE `05_magazin_caisses_bons`
+  MODIFY `PK` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `05_magazin_caisses_depenses`

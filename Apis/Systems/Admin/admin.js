@@ -93,16 +93,87 @@ const upload = multer({  storage: storage });
                         })
                 });
               }
-              function ClientDistrubition() {
+              function ClientNum() {
                 return new Promise((resolve, reject) => {
-                        connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                        let sql = `SELECT Gouv,COUNT(1) as Totale FROM 08_vente_en_gros_clients  WHERE PID  = '${PID}' GROUP BY Gouv ORDER BY Gouv;`;
+                        connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+                        let sql = `SELECT * FROM dszrccqg_registration.system_subscription 
+                                   INNER JOIN dszrccqg_profile.user_general_data ON dszrccqg_registration.system_subscription.UID  = dszrccqg_profile.user_general_data.UID 
+                                   WHERE  1 `;
                          connection.query(sql, (err, rows, fields) => {
                           if(err) return reject(err);
-                          resolve(rows);
+                          resolve(rows.length);
                         })
                 });
               }
+              function UsersNum() {
+                return new Promise((resolve, reject) => {
+                        connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+                        let sql = `SELECT * FROM dszrccqg_profile.user_general_data 
+                                    INNER JOIN dszrccqg_registration.profile_login ON  dszrccqg_profile.user_general_data.UID = dszrccqg_registration.profile_login.UID 
+                                    WHERE  1 `;
+                         connection.query(sql, (err, rows, fields) => {
+                          if(err) return reject(err);
+                          resolve(rows.length);
+                        })
+                });
+              }
+              function EquipeNum() {
+                return new Promise((resolve, reject) => {
+                        connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                        let sql = `SELECT *  FROM 000_abyedh_team WHERE 1`;
+                         connection.query(sql, (err, rows, fields) => {
+                          if(err) return reject(err);
+                          resolve(rows.length);
+                        })
+                });
+              }
+              function TotaleRequests() {
+                return new Promise((resolve, reject) => {
+                        connection.changeUser({database : 'information_schema'}, () => {});
+                        let sql = `SELECT SUM(table_rows) AS total_records
+                                   FROM information_schema.tables
+                                   WHERE table_schema = 'dszrccqg_communications';`;
+                         connection.query(sql, (err, rows, fields) => {
+                          if(err) return reject(err);
+                          resolve(rows[0].total_records);
+                        })
+                });
+              }
+              function TotaleAnnaire() {
+                return new Promise((resolve, reject) => {
+                        connection.changeUser({database : 'information_schema'}, () => {});
+                        let sql = `SELECT SUM(table_rows) AS total_records
+                                   FROM information_schema.tables
+                                   WHERE table_schema = 'dszrccqg_directory';`;
+                         connection.query(sql, (err, rows, fields) => {
+                          if(err) return reject(err);
+                          resolve(rows[0].total_records);
+                        })
+                });
+              }
+              function Evaluation() {
+                    return new Promise((resolve, reject) => {
+                      connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+                      let sql = `SELECT COUNT(1) as Tot FROM system_subscription_request WHERE Req_State != 'D'`;
+                       connection.query(sql, (err, rows, fields) => {
+                          if (err) return reject(err);
+                           resolve(rows[0].Tot * 500);
+                          
+                      })
+                     });
+              }
+              function RequestSystem() {
+                    return new Promise((resolve, reject) => {
+                      connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+                      let sql = `SELECT COUNT(1) as Tot FROM system_subscription_request WHERE Req_State != 'D'`;
+                       connection.query(sql, (err, rows, fields) => {
+                          if (err) return reject(err);
+                           resolve(rows[0].Tot);
+                          
+                      })
+                     });
+              }
+
               function GenreDistrubition() {
                 return new Promise((resolve, reject) => {
                         connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -166,17 +237,7 @@ const upload = multer({  storage: storage });
                       })
                      });
               }
-              function RequestSystem() {
-                    return new Promise((resolve, reject) => {
-                      connection.changeUser({database : 'dszrccqg_registration'}, () => {});
-                      let sql = `SELECT COUNT(1) as Tot FROM system_subscription_request `;
-                       connection.query(sql, (err, rows, fields) => {
-                          if (err) return reject(err);
-                           resolve(rows[0].Tot);
-                          
-                      })
-                     });
-              }
+
 
               // Call, Function
               async function StatForMainPage() {
@@ -186,17 +247,19 @@ const upload = multer({  storage: storage });
                   }
 
                   let main = {};
-                    main.clientsNum = await NumRowsTable('clients'); 
-                    main.articlesNum = await NumRowsTable('articles'); 
-                    main.camionsNum = await NumRowsTable('camion'); 
-                    main.facturesNum = await NumRowsTable('factures'); 
-                    main.clientDistro = await ClientDistrubition(); 
-                    main.genreDistro = await  GenreDistrubition(); 
-                    main.commandeDistro = await  CommandeDistrubition(); 
+                    main.clientsNum = await UsersNum(); 
+                    main.articlesNum = 85; 
+                    main.camionsNum = await ClientNum(); 
+                    main.equipeNum = await EquipeNum(); 
+                    main.totalRequest = await TotaleRequests(); 
+                    main.totalAnnuaire = await  TotaleAnnaire(); 
+                    main.evaluation = await  Evaluation(); 
+                    main.RequestSystem = await RequestSystem();
+
                     main.RecetteDepo = await  RecetteDepo(); 
                     main.camionStat = camionList; 
                     main.activationState = await CheckActivationState();
-                    main.RequestSystem = await RequestSystem();
+                    main.facturesNum = await NumRowsTable('factures');
 
                     res.send(main)
               }
@@ -212,9 +275,24 @@ const upload = multer({  storage: storage });
       Admin.post('/communication', (req, res) => {
             let PID = req.body.PID;
             connection.changeUser({database : 'information_schema'}, () => {});
-            let sql = `SELECT * FROM tables WHERE TABLE_SCHEMA = 'dszrccqg_communications' AND TABLE_NAME != 'message_conversations' AND TABLE_NAME != 'message_contents' AND TABLE_NAME != '0000'`;
+            let sql = `SELECT * FROM tables 
+                       WHERE TABLE_SCHEMA = 'dszrccqg_communications' AND TABLE_NAME != 'message_conversations' AND TABLE_NAME != 'message_contents' AND TABLE_NAME != '0000' ORDER BY TABLE_ROWS DESC`;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
+      /*fetch all request */
+      Admin.post('/communication/info', (req, res) => {
+            let PID = req.body.PID;
+            let tableName = req.body.tableName;
+            connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+            let sql = `SELECT * FROM ${tableName} `;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+                console
               res.json(rows);
             })
                 
@@ -229,6 +307,20 @@ const upload = multer({  storage: storage });
             let sql = `SELECT * FROM tables WHERE TABLE_SCHEMA = 'dszrccqg_directory' AND TABLE_NAME != 'message_conversations' AND TABLE_NAME != 'message_contents' AND TABLE_NAME != '0000'`;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
+      /*fetch all request */
+      Admin.post('/annuaire/info', (req, res) => {
+            let PID = req.body.PID;
+            let tableName = req.body.tableName;
+            connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+            let sql = `SELECT * FROM ${tableName} `;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+                console
               res.json(rows);
             })
                 
@@ -250,6 +342,89 @@ const upload = multer({  storage: storage });
                 
       })
 
+     /* Profile Data  */
+     Admin.post('/user/info', (req, res) => {
+          let UID = req.body.UID;
+          let Today = new Date().toISOString().split('T')[0]
+          function GetGeneralData() {
+            return new Promise((resolve, reject) => {
+                    connection.changeUser({database : 'dszrccqg_profile'}, () => {});
+                    let sql = `SELECT * FROM user_general_data WHERE UID = '${UID}'`;
+                     connection.query(sql, (err, rows, fields) => {
+                      if(err) return reject(err);
+                      resolve(rows);
+                    })
+            });
+          }
+          function GetPasswordData() {
+            return new Promise((resolve, reject) => {
+                    connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+                    let sql = `SELECT * FROM profile_login  WHERE UID  = '${UID}' ;`;
+                     connection.query(sql, (err, rows, fields) => {
+                      if(err) return reject(err);
+                      resolve(rows);
+                    })
+            });
+          }
+          function GetRating() {
+            return new Promise((resolve, reject) => {
+                    connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+                    let sql = `SELECT * FROM dszrccqg_directory.000_abyedh_profile_avis 
+                               INNER JOIN dszrccqg_profile.user_general_data ON dszrccqg_directory.000_abyedh_profile_avis.UID = dszrccqg_profile.user_general_data.UID 
+                               WHERE  dszrccqg_directory.000_abyedh_profile_avis.PID = '${PID}';`;
+                     connection.query(sql, (err, rows, fields) => {
+                      if(err) return reject(err);
+                      resolve(rows);
+                    })
+            });
+          }
+          function GetImages() {
+            return new Promise((resolve, reject) => {
+                    connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+                    let sql = `SELECT * FROM 000_abyedh_profile_photoes  WHERE PID  = '${PID}' ;`;
+                     connection.query(sql, (err, rows, fields) => {
+                      if(err) return reject(err);
+                      resolve(rows);
+                    })
+            });
+          }
+          function GetLikes() {
+            return new Promise((resolve, reject) => {
+                    connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+                    let sql = `SELECT * FROM dszrccqg_profile.dash_favorite  
+                               INNER JOIN dszrccqg_profile.user_general_data ON dszrccqg_profile.dash_favorite.UID = dszrccqg_profile.user_general_data.UID 
+                                WHERE  dszrccqg_profile.dash_favorite.PID = '${PID}';`;
+                     connection.query(sql, (err, rows, fields) => {
+                      if(err) return reject(err);
+                      resolve(rows);
+                    })
+            });
+          }
+          function GetHoraire() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+                let sql = `SELECT * FROM 000_abyedh_profile_horaires  WHERE PID  = '${PID}' `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          // Call, Function
+          async function query() {
+                let main = {};
+                main.general = await GetGeneralData(); 
+                main.password = await GetPasswordData(); 
+                // main.review = await GetRating(); 
+                // main.images = await GetImages(); 
+                // main.likes = await GetLikes(); 
+                // main.horaire = await  GetHoraire(); 
+            res.send(main)
+          }
+          query(); 
+     })
+
 /*####################################[CLIENTS]####################################*/
 
       /*fetch all request */
@@ -268,6 +443,56 @@ const upload = multer({  storage: storage });
 
       /*fetch all request */
       Admin.post('/clients/request', (req, res) => {
+            let PID = req.body.PID;
+            connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+            let sql = `SELECT * FROM system_subscription_request WHERE Req_State != 'D'`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
+      /*fetch all request */
+      Admin.post('/clients/request/info', (req, res) => {
+            let PK = req.body.PK;
+            connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+            let sql = `SELECT * FROM system_subscription_request WHERE PK = ${PK}`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
+      /*fetch all request */
+      Admin.post('/clients/request/save/directory', (req, res) => {
+            let PK = req.body.PK;
+            connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+            let sql = `SELECT * FROM system_subscription_request WHERE PK = ${PK}`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
+/*####################################[Team]####################################*/
+
+      /*fetch all request */
+      Admin.post('/team', (req, res) => {
+            let PID = req.body.PID;
+            connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `SELECT *  FROM 000_abyedh_team WHERE 1 `;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.send(rows);
+            }) 
+                
+      })
+
+      /*fetch all request */
+      Admin.post('/team/info', (req, res) => {
             let PID = req.body.PID;
             connection.changeUser({database : 'dszrccqg_registration'}, () => {});
             let sql = `SELECT * FROM system_subscription_request `;
