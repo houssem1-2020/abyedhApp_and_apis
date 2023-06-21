@@ -149,7 +149,7 @@ const upload = multer({  storage: storage, array: true });
               function ClassesDistrubition() {
                 return new Promise((resolve, reject) => {
                         connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                        let sql = `SELECT Genre,COUNT(1) as Totale FROM 02_garderie_classes  WHERE PID  = '${PID}' GROUP BY Genre ORDER BY Genre;`;
+                        let sql = `SELECT CL_Niveaux,COUNT(1) as Totale FROM 02_garderie_classes  WHERE PID  = '${PID}' GROUP BY CL_Niveaux ORDER BY CL_Niveaux;`;
                          connection.query(sql, (err, rows, fields) => {
                           if(err) return reject(err);
                           resolve(rows);
@@ -957,8 +957,6 @@ const upload = multer({  storage: storage, array: true });
               
     })
 
-
-
     /* modifier article  */
     GarderieRouter.post('/classes/modifier', (req, res) => {
           let PID = req.body.PID
@@ -1059,6 +1057,49 @@ const upload = multer({  storage: storage, array: true });
             
     })
 
+/*####################################[SALLES]####################################*/
+
+      //fetch all article */
+      GarderieRouter.post('/tables', (req, res) => {
+            let PID = req.body.PID;
+            connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `SELECT * FROM 02_garderie_seances_salles WHERE PID = '${PID}'`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
+      /* ajouter article */
+      GarderieRouter.post('/tables/ajouter', (req, res) => {
+            let PID = req.body.PID;
+            let tableData = req.body.tableD;
+            connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `INSERT INTO 02_garderie_seances_salles (PID ,Table_Name,  Table_Num,  Description ) 
+                       VALUES ('${PID}','${tableData.Table_Name}','${tableData.Table_Num}', '' ) `;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){res.json(err)}
+                res.json(rows);
+            })          
+      })
+
+
+        /* modifier famille */
+      GarderieRouter.post('/tables/modifier', (req, res) => {
+          let PID = req.body.PID
+          let edittableD = req.body.editTableD
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `UPDATE 02_garderie_seances_salles 
+                     SET Table_Name = '${edittableD.Name}' , Table_Num =  '${edittableD.Num}'
+                     WHERE PK = ${edittableD.PK} AND PID = '${PID}' `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ res.json(err)}
+            res.json(rows);
+          })
+              
+      })
+
 /*####################################[SEANCES]####################################*/
 
       /* featch tou les camion*/
@@ -1067,8 +1108,9 @@ const upload = multer({  storage: storage, array: true });
               connection.changeUser({database : 'dszrccqg_system'}, () => {});
               let sql = `SELECT * 
                         FROM 02_garderie_seances
-                        LEFT JOIN 02_garderie_abonnement ON 02_garderie_seances.Abonnement_ID = 02_garderie_abonnement.AB_ID
-                        LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID
+                        LEFT JOIN 02_garderie_classes ON 02_garderie_seances.Classe_ID = 02_garderie_classes.CL_ID
+                        LEFT JOIN 02_garderie_team ON 02_garderie_seances.Proffeseur_ID = 02_garderie_team.T_ID
+                        LEFT JOIN 02_garderie_seances_salles ON 02_garderie_seances.Salle_ID = 02_garderie_seances_salles.Salle_ID
                         WHERE 02_garderie_seances.PID = ${PID} LIMIT 200`;
                connection.query(sql, (err, rows, fields) => {
                 if (err){res.json(err)}
@@ -1188,49 +1230,6 @@ const upload = multer({  storage: storage, array: true });
               res.json(rows);
               
             })       
-      })
-
-/*####################################[GROUPES]####################################*/
-
-      //fetch all article */
-      GarderieRouter.post('/tables', (req, res) => {
-            let PID = req.body.PID;
-            connection.changeUser({database : 'dszrccqg_system'}, () => {});
-            let sql = `SELECT * FROM 02_garderie_seances_salles WHERE PID = '${PID}'`;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-            })
-                
-      })
-
-      /* ajouter article */
-      GarderieRouter.post('/tables/ajouter', (req, res) => {
-            let PID = req.body.PID;
-            let tableData = req.body.tableD;
-            connection.changeUser({database : 'dszrccqg_system'}, () => {});
-            let sql = `INSERT INTO 02_garderie_seances_salles (PID ,Table_Name,  Table_Num,  Description ) 
-                       VALUES ('${PID}','${tableData.Table_Name}','${tableData.Table_Num}', '' ) `;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){res.json(err)}
-                res.json(rows);
-            })          
-      })
-
-
-        /* modifier famille */
-      GarderieRouter.post('/tables/modifier', (req, res) => {
-          let PID = req.body.PID
-          let edittableD = req.body.editTableD
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `UPDATE 02_garderie_seances_salles 
-                     SET Table_Name = '${edittableD.Name}' , Table_Num =  '${edittableD.Num}'
-                     WHERE PK = ${edittableD.PK} AND PID = '${PID}' `;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){ res.json(err)}
-            res.json(rows);
-          })
-              
       })
 
 /*####################################[TEAM]#######################################*/
@@ -1432,6 +1431,50 @@ const upload = multer({  storage: storage, array: true });
         })
             
       })
+
+/*####################################[MATEIRE]####################################*/
+
+      //fetch all article */
+      GarderieRouter.post('/matiere', (req, res) => {
+            let PID = req.body.PID;
+            connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `SELECT * FROM 02_garderie_seances_salles WHERE PID = '${PID}'`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
+      /* ajouter article */
+      GarderieRouter.post('/matiere/ajouter', (req, res) => {
+            let PID = req.body.PID;
+            let tableData = req.body.tableD;
+            connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `INSERT INTO 02_garderie_seances_salles (PID ,Table_Name,  Table_Num,  Description ) 
+                       VALUES ('${PID}','${tableData.Table_Name}','${tableData.Table_Num}', '' ) `;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){res.json(err)}
+                res.json(rows);
+            })          
+      })
+
+
+        /* modifier famille */
+      GarderieRouter.post('/matiere/modifier', (req, res) => {
+          let PID = req.body.PID
+          let edittableD = req.body.editTableD
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `UPDATE 02_garderie_seances_salles 
+                     SET Table_Name = '${edittableD.Name}' , Table_Num =  '${edittableD.Num}'
+                     WHERE PK = ${edittableD.PK} AND PID = '${PID}' `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ res.json(err)}
+            res.json(rows);
+          })
+              
+      })
+
 
 /*####################################[FOURNISSEUR]################################*/
 
