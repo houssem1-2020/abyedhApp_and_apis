@@ -347,13 +347,13 @@ const upload = multer({  storage: storage, array: true });
                 
       })
 
-/*####################################[CLASSES]################################*/
+/*####################################[ELEVES]####################################*/
 
-    //fetch all article */
-    GarderieRouter.post('/classes', (req, res) => {
+    /* selectioner tous les client */
+    GarderieRouter.post('/eleves', (req, res) => {
           let PID = req.body.PID;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `SELECT * FROM 02_garderie_classes WHERE PID = '${PID}'`;
+          let sql = `SELECT *  FROM 02_garderie_eleves  WHERE PID = '${PID}'`;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
             res.json(rows);
@@ -361,24 +361,273 @@ const upload = multer({  storage: storage, array: true });
               
     })
 
-    //fetch all article */
-    GarderieRouter.post('/equipemment/info', (req, res) => {
+
+    /* selectioner un client */
+    GarderieRouter.post('/eleve/info', (req, res) => {
           let PID = req.body.PID;
-          let Code = req.body.Code;
+          let membreId = req.body.membreId
+          function FetchMembreData() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 02_garderie_eleves WHERE PID = ${PID} AND EL_ID = ${membreId}`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    if (!rows[0]) {resolve([{ Name:null , }]);} else {resolve(rows[0]);}
+                })
+              });
+          }
+
+          function SelectSeances(Classes) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT *  FROM 02_garderie_seances WHERE PID = ${PID} AND  SE_ID = '${Classes}'  `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+          function SelectAbonnement(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * , COALESCE(02_garderie_eleves.EL_Name, 'PASSAGER') AS EL_Name ,  02_garderie_abonnement.State AS Pay_State FROM 02_garderie_abonnement 
+                           LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID
+                           LEFT JOIN 02_garderie_forfait ON 02_garderie_abonnement.Forfait_ID = 02_garderie_forfait.F_ID  
+                           WHERE 02_garderie_abonnement.PID = ${PID} AND 02_garderie_abonnement.Membre_ID = '${Name}'  `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+          function SelectExamain(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 02_garderie_classes_examain WHERE SE_ID = '${Name}' AND PID = ${PID} `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+          function SelectBultin(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 02_garderie_eleves_bultin WHERE SE_ID = '${Name}' AND PID = ${PID} `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+          function SelectAvertissement(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT *   FROM 02_garderie_eleves_avertissement  WHERE  PID = ${PID} AND  Membre_ID = '${Name}'  `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+          function SelectRetenue(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT *  FROM 02_garderie_eleves_retenue WHERE  PID = ${PID} AND  Membre_ID = '${Name}'  `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+            // Call, Function
+          async function query() {
+              const clientListe = {}; 
+              clientListe.Data = await FetchMembreData()
+
+              clientListe.Seances = await SelectSeances(clientListe.Data.EL_Classe)
+              clientListe.Abonnement = await SelectAbonnement(membreId)
+              clientListe.Examain = await  SelectExamain(membreId)
+              clientListe.Bultin = await  SelectBultin(membreId)
+              clientListe.Avertissemnt = await SelectAvertissement(membreId)
+              clientListe.Retenue = await SelectRetenue(membreId)
+
+            res.send(clientListe)
+          }
+          query();               
+    })
+
+ 
+
+    /* selectioner tous les client */
+    GarderieRouter.post('/eleve/verification', (req, res) => {
+          let PID = req.body.PID;
+          let UID = req.body.UID;
+          let EL_ID = req.body.EL_ID;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `SELECT * FROM 02_garderie_classes WHERE PID = '${PID}' AND INS_Code = ${Code}`;
+          let sql = `UPDATE 02_garderie_eleves
+                     SET Releted_UID = ${UID}
+                     WHERE EL_ID = ${EL_ID} AND PID = ${PID}`;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
             res.json(rows);
           })
               
+    })
+
+
+    /* Ajouter client */
+    GarderieRouter.post('/eleve/ajouter', (req, res) => {
+      (async() => {
+        let PID = req.body.PID;
+        let eleveData = req.body.eleveData
+        let El_ID = await GenerateID(1111111111,'02_garderie_eleves','EL_ID');
+        let Today = new Date().toISOString().split('T')[0]
+          let sql = `INSERT INTO 02_garderie_eleves (EL_ID,PID,EL_Name, EL_Genre, EL_Naissance, Creation_Date, EL_Adress, Deleg, Gouv,  EL_Etat_Sanitaire, EL_Pere_Nom, EL_Pere_Phone, EL_Pere_Metier, EL_Mere_Nom, EL_Mere_Phone, EL_Mere_Metier, EL_Parant_Etat_Civle,  EL_Classe) 
+                     VALUES (${El_ID}, ${PID},'${eleveData.EL_Name}', '${eleveData.EL_Genre}', '${eleveData.EL_Naissance}', '${Today}' ,'${eleveData.EL_Adress}', '${eleveData.Deleg}', '${eleveData.Gouv}', '${eleveData.EL_Etat_Sanitaire}', '${eleveData.EL_Pere_Nom}', '${eleveData.EL_Pere_Phone}', '${eleveData.EL_Pere_Metier}', '${eleveData.EL_Mere_Nom}', '${eleveData.EL_Mere_Phone}', '${eleveData.EL_Mere_Metier}', '${eleveData.EL_Parant_Etat_Civle}', '${eleveData.EL_Classe}');`;
+            connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+             res.json(rows);
+            })
+        })()      
+    })
+
+
+
+
+    /* modifier un client */
+    GarderieRouter.post('/eleve/modifier', (req, res) => {
+        let PID = req.body.PID;
+        let clientD = req.body.clientD
+        connection.changeUser({database : 'dszrccqg_system'}, () => {});
+        let sql = `UPDATE 02_garderie_eleves
+                   SET EL_Name = '${clientD.EL_Name}',  Phone = '${clientD.Phone}' , Adress = '${clientD.Adress}' ,  Gouv = '${clientD.Gouv}' , Deleg = '${clientD.Deleg}' , CIN = '${clientD.CIN}'
+                   WHERE EL_ID = ${clientD.EL_ID} AND PID = ${PID}`;
+            connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+             res.json(rows);
+            })     
+    })
+
+    /* map : liste des location */
+    GarderieRouter.post('/eleve/fidelite', (req, res) => {
+           let PID = req.body.PID;
+           let genre = req.body.genre
+           let start = req.body.start
+           let finish = req.body.finish
+           let top = req.body.Top
+           connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           let sql1 = `SELECT  02_garderie_abonnement.Membre_ID, SUM(Final_Value) as Totale, 02_garderie_abonnement.T_Date , 02_garderie_eleves.EL_Name, 02_garderie_eleves.EL_ID, COALESCE(02_garderie_eleves.EL_Name, 'PASSAGER') AS EL_Name
+                      FROM 02_garderie_abonnement 
+                      LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID
+                      WHERE 02_garderie_abonnement.T_Date > '${start}' AND 02_garderie_abonnement.T_Date < '${finish}' 
+                      GROUP BY 02_garderie_abonnement.Membre_ID ORDER BY SUM(Final_Value) DESC LIMIT ${top};`
+
+           let sql2 = `SELECT COUNT(1) as Totale , 02_garderie_abonnement.Membre_ID , 02_garderie_eleves.EL_Name , 02_garderie_eleves.EL_ID, COALESCE(02_garderie_eleves.EL_Name, 'PASSAGER') AS EL_Name
+                      FROM 02_garderie_abonnement  
+                      LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID
+                      WHERE 02_garderie_abonnement.T_Date > '${start}' AND 02_garderie_abonnement.T_Date < '${finish}'  
+                      GROUP BY 02_garderie_abonnement.Membre_ID ORDER BY COUNT(1) DESC LIMIT ${top};`
+
+           connection.query(genre == 'Totale' ? sql1 : sql2 , (err, rows, fields) => {
+            if (err){ throw err}
+            res.json(rows);
+          })
+              
+    })
+
+/*####################################[BULTIN]#####################################*/
+    /* selectioner tous les client */
+    GarderieRouter.post('/bultin', (req, res) => {
+          let PID = req.body.PID
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `SELECT * FROM 02_garderie_eleves_bultin WHERE PID = '${PID}'`;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ throw err}
+            res.json(rows);
+          })          
+    })
+
+    /* selectioner un client */
+    GarderieRouter.post('/bultin/info', (req, res) => {
+          let PID = req.body.PID;
+          let fourId = req.body.fourId
+          function FetchClientData() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 02_garderie_eleves_bultin WHERE Four_ID = ${fourId}`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    if (!rows[0]) {resolve([{ Name:null , }]);} else {resolve(rows);}
+                })
+              });
+          }
+          function SelectCommandes(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM system_commande WHERE Client = '${fourId}' AND State = 'W'`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+          function SelectFactureCamion(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 02_garderie_seances_facture WHERE C_Name = '${fourId}' `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+          function SelectFactures(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 02_garderie_seances_facture WHERE C_Name = '${fourId}' `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+
+            // Call, Function
+          async function query() {
+              const clientData = await FetchClientData(); 
+              //clientData[0].Commandes = await  SelectCommandes(clientData[0].Name)
+              //clientData[0].FactureCamion = await SelectFactureCamion(clientData[0].Name)
+              //clientData[0].Facture = await SelectFactures(clientData[0].Name)
+            res.send(clientData)
+          }
+          query();               
+    })
+
+    /* Ajouter client */
+    GarderieRouter.post('/bultin/ajouter', (req, res) => {
+      (async() => {
+        let PID = req.body.PID;
+        let frsD = req.body.bultinData
+        let CID = await GenerateID(1111111111,'02_garderie_eleves_bultin','Four_ID');
+        let Today = new Date().toISOString().split('T')[0]
+        connection.changeUser({database : 'dszrccqg_system'}, () => {});
+        let sql = `INSERT INTO 02_garderie_eleves_bultin (PID, Releted_PID, Four_ID, Four_Code_Fiscale, Four_Name, Four_Phone, Articles_Genre, Four_Gouv, Four_Deleg, Four_Adress, Jour_Periodique, Four_State, Four_Lng, Four_Lat)
+                   VALUES (${PID},'${frsD.Releted_PID}', ${CID},'${frsD.Code_Fiscale}','${frsD.Name}','${frsD.Phone}', '', '${frsD.Gouv}','${frsD.Deleg}','${frsD.Adress}','Lundi','','0','0');`;
+            connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+             res.json(rows);
+            })
+        })()      
     })
 
     //check article in abyedhDB */
-    GarderieRouter.post('/menu/checkAbyedhDb', (req, res) => {
-          let Code = req.body.Code;
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `SELECT * FROM 000_abyedh_articles WHERE A_Code = '${Code}'`;
+    GarderieRouter.post('/bultin/checkAbyedhDb', (req, res) => {
+          let PID = req.body.PID;
+          connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+          let sql = `SELECT * FROM 05_pv_alimentaire WHERE PID = '${PID}'`;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
             res.json(rows[0]);
@@ -386,158 +635,145 @@ const upload = multer({  storage: storage, array: true });
               
     })
 
-
-    //selectioner calendar articles : ba3ed 7otha m3a elli fou9ha 
-    GarderieRouter.post('/menu/plat', (req, res) => {
-            let PID = req.body.PID
-            let Code = req.body.code
-            function FetchPlatInfo() {
-                return new Promise((resolve, reject) => {
-                   connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                    let sql = `SELECT * FROM 02_garderie_classes WHERE P_Code = '${Code}' AND PID = ${PID}`;
-                   connection.query(sql, (err, rows, fields) => {
-                      if (err) return reject(err);
-                      resolve(rows[0]);
-                  })
-                });
-            }
-            
-            function FetchInFacture() {
-                return new Promise((resolve, reject) => {
-                  connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                  let sql = `SELECT * FROM 02_garderie_abonnement WHERE  Articles LIKE '%${Code}%' AND PID = ${PID}`;
-                   connection.query(sql, (err, rows, fields) => {
-                      if (err) return reject(err);
-                      resolve(rows);
-                  })
-                });
-            }
-
-            // Call, Function
-            async function StockArticleCalendar() {
-                const platInfo = {}; 
-                platInfo.Data = await FetchPlatInfo()
-                platInfo.InFacture = await FetchInFacture()
-              res.send(platInfo)
-            }
-
-            //
-            StockArticleCalendar();
-              
+    /* modifier un client */
+    GarderieRouter.post('/bultin/modifier', (req, res) => {
+        let PID = req.body.PID;
+        let frsD = req.body.fournisseurData
+        connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `UPDATE 02_garderie_eleves
+                    SET Name = '${frsD.Name}',  Phone = '${frsD.Phone}' , Adress = '${frsD.Adress}' ,  Gouv = '${frsD.Gouv}' , Deleg = '${frsD.Deleg}' , Social_Name = '${frsD.Social_Name}'
+                    WHERE EL_ID = ${frsD.EL_ID}`;
+            connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+             res.json(rows);
+            })     
     })
 
-    /* ajouter article */
-    GarderieRouter.post('/menu/ajouter', (req, res) => {
-          let PID = req.body.PID;
-          let articleData = req.body.articleD;
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `INSERT INTO 02_garderie_classes (PID ,P_Code,Name, Prix_vente, Prix_promo,  Cout, Genre,  Repture,  Description, Photo_Path) 
-                     VALUES ('${PID}','${articleData.P_Code}','${articleData.Name}','${articleData.Prix_vente}','${articleData.Prix_promo}','${articleData.Cout}','${articleData.Genre}','${articleData.Repture}','${articleData.Description}', 'plat.png' ) `;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){res.json(err)}
-              res.json(rows);
-          })          
-    })
-
-
-    /* modifier article  */
-    GarderieRouter.post('/menu/modifier', (req, res) => {
-          let PID = req.body.PID
-          let articleNData = req.body.articleND
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `UPDATE 02_garderie_classes
-                     SET Name = '${articleNData.Name}', Prix_vente = '${articleNData.Prix_vente}', Cout = '${articleNData.Cout}', Genre = '${articleNData.Genre}',   Repture = '${articleNData.Repture}',  Description = '${articleNData.Description}'
-                     WHERE P_Code = '${articleNData.P_Code}' AND PID = ${PID} `;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){res.json(err)}
-              res.json(rows);
-            })    
-           //res.json(fields)      
-    })
-    /* modifier article  */
-    GarderieRouter.post('/menu/modifier/ingredient', (req, res) => {
-          let PID = req.body.PID
-          let articleListe = JSON.stringify(req.body.articleListe)
-          let Cout = req.body.Cout
-          let CodePlat = req.body.CodePlat
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `UPDATE 02_garderie_classes
-                     SET Cout = '${Cout}', Ingredient = '${articleListe}'
-                     WHERE P_Code = '${CodePlat}' AND PID = ${PID} `;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){res.json(err)}
-              res.json(rows);
-            })    
-           //res.json(fields)      
-    })
-
-    /* modifier article  */
-    GarderieRouter.post('/menu/modifier/image', (req, res) => {
-          let PID = req.body.PID
-          let path = req.body.path
-          let Code = req.body.code
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `UPDATE 02_garderie_classes
-                     SET Photo_Path = '${path}'
-                     WHERE P_Code = '${Code}' AND PID = ${PID} `;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){res.json(err)}
-              res.json(rows);
-            })        
-    })
-
-    /* supprimer article */
-    GarderieRouter.post('/menu/supprimer', (req, res) => {
-          let articleData = req.body.articleD
-          // let sql = `INSERT INTO alimentaire_article
-          //           (A_Code,Name, Prix_vente, Quantite, Prix_achat, Genre, Socite, Repture, TVA,Groupage,facturable) 
-          //           VALUES ('${articleData.A_Code}','${articleData.Name}','${articleData.PrixV}','${articleData.Qte}','${articleData.PrixA}','${articleData.Genre}','${articleData.Socite}','${articleData.Repture}','${articleData.TVA}','${articleData.Groupage}','') `;
-          //  connection.query(sql, (err, rows, fields) => {
-          //   if (err){res.json(err)}
-          //     res.json(rows);
-          // })    
-           res.json(articleData)      
-    })
-
-    /* fetch familles */
-    GarderieRouter.post('/menu/familleplat', (req, res) => {
+/*####################################[ABONNEMENT]#################################*/
+    
+    /* selectionner tous les factures */
+    GarderieRouter.post('/abonnement', (req, res) => {
           let PID = req.body.PID;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `SELECT * FROM 02_garderie_classes_genre WHERE PID = '${PID}'`;
+          let sql = `SELECT * , COALESCE(02_garderie_eleves.EL_Name, 'PASSAGER') AS EL_Name ,  02_garderie_abonnement.State AS Pay_State FROM 02_garderie_abonnement 
+                     LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID
+                     LEFT JOIN 02_garderie_forfait ON 02_garderie_abonnement.Forfait_ID = 02_garderie_forfait.F_ID  
+                     WHERE 02_garderie_abonnement.PID = ${PID} LIMIT 200`;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
+
             res.json(rows);
           })
               
     })
 
-    /*ajouter famille */
-    GarderieRouter.post('/menu/familles/ajouter', (req, res) => {
-        let PID = req.body.PID
-        let familleData = req.body.familleD
-        connection.changeUser({database : 'dszrccqg_system'}, () => {});
-        let sql = `INSERT INTO 02_garderie_classes_genre (Genre,Description,PID) 
-                   VALUES ('${familleData.Name}','${familleData.Description}','${PID}')`;
-         connection.query(sql, (err, rows, fields) => {
-          if (err){ res.json(err)}
-          res.json(rows);
-        })
-            
+    /* selectionner tous les factures */
+    GarderieRouter.post('/abonnement/resumer', (req, res) => {
+           let PID = req.body.PID
+           let date = req.body.targetDate
+           connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           let sql = `SELECT * , COALESCE(02_garderie_eleves.EL_Name, 'PASSAGER') AS EL_Name , COALESCE(02_garderie_forfait.CA_Name, 'COMMANDE') AS CA_Name ,02_garderie_abonnement.State AS Pay_State FROM 02_garderie_abonnement 
+                     LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID 
+                     LEFT JOIN 02_garderie_forfait ON 02_garderie_abonnement.Forfait_ID = 02_garderie_forfait.F_ID 
+                     WHERE 02_garderie_abonnement.T_Date >= '${date.start}' AND 02_garderie_abonnement.T_Date <= '${date.end}' `;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })        
+      })
+
+    /* selectioner un facture et ses articles 
+    GarderieRouter.post('/abonnement/select', (req, res) => {
+           let PID = req.body.PID
+           let FID = req.body.fid
+           connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           let sql = `SELECT * , COALESCE(02_garderie_eleves.EL_Name, 'PASSAGER') AS EL_Name ,  02_garderie_abonnement.State AS Pay_State FROM 02_garderie_abonnement 
+                     LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID
+                     LEFT JOIN 02_garderie_forfait ON 02_garderie_abonnement.Forfait_ID = 02_garderie_forfait.F_ID
+                     WHERE 02_garderie_abonnement.PID = '${PID}' AND 02_garderie_abonnement.AB_ID = ${FID} `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ throw err}
+            res.send(rows);
+          })         
+    })*/
+    GarderieRouter.post('/abonnement/select', (req, res) => {
+          let PID = req.body.PID
+          let FID = req.body.fid
+          function FetchAbonnementData() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * , COALESCE(02_garderie_eleves.EL_Name, 'PASSAGER') AS EL_Name ,  02_garderie_abonnement.State AS Pay_State FROM 02_garderie_abonnement 
+                           LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID
+                           LEFT JOIN 02_garderie_forfait ON 02_garderie_abonnement.Forfait_ID = 02_garderie_forfait.F_ID
+                           WHERE 02_garderie_abonnement.PID = '${PID}' AND 02_garderie_abonnement.AB_ID = ${FID} `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows[0]);
+                })
+              });
+          }
+
+          function SelectSeances() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 02_garderie_seances  WHERE PID = ${PID} AND Abonnement_ID = ${FID}`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          function SelectPaymment() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 02_garderie_seances  WHERE PID = ${PID} AND Abonnement_ID = ${FID}`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+
+
+            // Call, Function
+          async function query() {
+              const clientListe = {}; 
+              clientListe.Data = await FetchAbonnementData()
+              clientListe.Seances = await  SelectSeances(clientListe.Data.EL_Classe)
+              clientListe.Paymment = await SelectPaymment()
+            res.send(clientListe)
+          }
+          query();               
     })
 
-    /* modifier famille */
-    GarderieRouter.post('/menu/familles/modifier', (req, res) => {
-        let PID = req.body.PID
-        let familleData = req.body.familleD
-        connection.changeUser({database : 'dszrccqg_system'}, () => {});
-        let sql = `UPDATE 02_garderie_classes_genre 
-                   SET Genre = '${familleData.Name}' , Description =  '${familleData.Description}'
-                    WHERE PK = ${familleData.PK} AND PID = '${PID}' `;
-         connection.query(sql, (err, rows, fields) => {
-          if (err){ res.json(err)}
-          res.json(rows);
-        })
-            
+
+    /* modifier un facture */
+    GarderieRouter.post('/abonnement/modifier', (req, res) => {
+           let PID = req.body.PID
+           let factId = req.body.factD
+           let FID = req.body.fid
+           let articleL = JSON.stringify(factId.articles)
+           connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           let sql = `UPDATE 02_garderie_abonnement
+                      SET Cre_Date = '${factId.jour}', C_Name = '${factId.client}', Tota = '${factId.totale}', De = '${factId.de}', Vers ='${factId.vers}' , Chauffeur ='${factId.Chauffeur}' ,Fournisseurs ='${factId.Fournisseurs}', Articles = '${articleL}'
+                      WHERE F_ID = '${FID}' `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ throw err}
+            res.json({FID:FID});
+          })         
+    })
+    /* modifier un facture */
+    GarderieRouter.post('/abonnement/supprimer', (req, res) => {
+           let PID = req.body.PID
+           let FID = req.body.FID
+           connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           let sql = `DELETE FROM 02_garderie_abonnement WHERE  T_ID = '${FID}' AND PID = ${PID} `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ throw err}
+            res.json(rows);
+          })         
     })
 
 /*####################################[OFFRES]#####################################*/
@@ -637,6 +873,192 @@ const upload = multer({  storage: storage, array: true });
            res.json(articleData)      
     })
 
+/*####################################[CLASSES]################################*/
+
+    //fetch all article */
+    GarderieRouter.post('/classes', (req, res) => {
+          let PID = req.body.PID;
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `SELECT * FROM 02_garderie_classes WHERE PID = '${PID}'`;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ throw err}
+            res.json(rows);
+          })
+              
+    })
+
+    //fetch all article */
+    GarderieRouter.post('/equipemment/info', (req, res) => {
+          let PID = req.body.PID;
+          let Code = req.body.Code;
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `SELECT * FROM 02_garderie_classes WHERE PID = '${PID}' AND INS_Code = ${Code}`;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ throw err}
+            res.json(rows);
+          })
+              
+    })
+
+    /* ajouter article */
+    GarderieRouter.post('/classes/ajouter', (req, res) => {
+      (async() => {
+          let PID = req.body.PID;
+          let classeData = req.body.classeData;
+          let CL_ID = await GenerateID(1111111111,'02_garderie_classes','CL_ID');
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `INSERT INTO 02_garderie_classes (PID , CL_ID, CL_Name, CL_Niveaux, CL_Seasson) 
+                       VALUES ('${PID}','${CL_ID}','${classeData.CL_Name}','${classeData.CL_Niveaux}','${classeData.CL_Seasson}' ) `;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){res.json(err)}
+                res.json(rows);
+            })
+      })()             
+    })
+
+
+
+    //selectioner calendar articles : ba3ed 7otha m3a elli fou9ha 
+    GarderieRouter.post('/classes/niveauxListe', (req, res) => {
+            let PID = req.body.PID
+            let Code = req.body.code
+            function FetchPlatInfo() {
+                return new Promise((resolve, reject) => {
+                   connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                    let sql = `SELECT * FROM 02_garderie_classes WHERE P_Code = '${Code}' AND PID = ${PID}`;
+                   connection.query(sql, (err, rows, fields) => {
+                      if (err) return reject(err);
+                      resolve(rows[0]);
+                  })
+                });
+            }
+            
+            function FetchInFacture() {
+                return new Promise((resolve, reject) => {
+                  connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                  let sql = `SELECT * FROM 02_garderie_abonnement WHERE  Articles LIKE '%${Code}%' AND PID = ${PID}`;
+                   connection.query(sql, (err, rows, fields) => {
+                      if (err) return reject(err);
+                      resolve(rows);
+                  })
+                });
+            }
+
+            // Call, Function
+            async function StockArticleCalendar() {
+                const platInfo = {}; 
+                platInfo.Data = await FetchPlatInfo()
+                platInfo.InFacture = await FetchInFacture()
+              res.send(platInfo)
+            }
+
+            //
+            StockArticleCalendar();
+              
+    })
+
+
+
+    /* modifier article  */
+    GarderieRouter.post('/classes/modifier', (req, res) => {
+          let PID = req.body.PID
+          let articleNData = req.body.articleND
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `UPDATE 02_garderie_classes
+                     SET Name = '${articleNData.Name}', Prix_vente = '${articleNData.Prix_vente}', Cout = '${articleNData.Cout}', Genre = '${articleNData.Genre}',   Repture = '${articleNData.Repture}',  Description = '${articleNData.Description}'
+                     WHERE P_Code = '${articleNData.P_Code}' AND PID = ${PID} `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){res.json(err)}
+              res.json(rows);
+            })    
+           //res.json(fields)      
+    })
+    /* modifier article  */
+    GarderieRouter.post('/classes/modifier/ingredient', (req, res) => {
+          let PID = req.body.PID
+          let articleListe = JSON.stringify(req.body.articleListe)
+          let Cout = req.body.Cout
+          let CodePlat = req.body.CodePlat
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `UPDATE 02_garderie_classes
+                     SET Cout = '${Cout}', Ingredient = '${articleListe}'
+                     WHERE P_Code = '${CodePlat}' AND PID = ${PID} `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){res.json(err)}
+              res.json(rows);
+            })    
+           //res.json(fields)      
+    })
+
+    /* modifier article  */
+    GarderieRouter.post('/classes/modifier/image', (req, res) => {
+          let PID = req.body.PID
+          let path = req.body.path
+          let Code = req.body.code
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `UPDATE 02_garderie_classes
+                     SET Photo_Path = '${path}'
+                     WHERE P_Code = '${Code}' AND PID = ${PID} `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){res.json(err)}
+              res.json(rows);
+            })        
+    })
+
+    /* supprimer article */
+    GarderieRouter.post('/classes/supprimer', (req, res) => {
+          let articleData = req.body.articleD
+          // let sql = `INSERT INTO alimentaire_article
+          //           (A_Code,Name, Prix_vente, Quantite, Prix_achat, Genre, Socite, Repture, TVA,Groupage,facturable) 
+          //           VALUES ('${articleData.A_Code}','${articleData.Name}','${articleData.PrixV}','${articleData.Qte}','${articleData.PrixA}','${articleData.Genre}','${articleData.Socite}','${articleData.Repture}','${articleData.TVA}','${articleData.Groupage}','') `;
+          //  connection.query(sql, (err, rows, fields) => {
+          //   if (err){res.json(err)}
+          //     res.json(rows);
+          // })    
+           res.json(articleData)      
+    })
+
+    /* fetch familles */
+    GarderieRouter.post('/classes/niveaux', (req, res) => {
+          let PID = req.body.PID;
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `SELECT * FROM 02_garderie_classes_niveaux WHERE PID = '${PID}'`;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ throw err}
+            res.json(rows);
+          })
+              
+    })
+
+    /*ajouter famille */
+    GarderieRouter.post('/classes/niveaux/ajouter', (req, res) => {
+        let PID = req.body.PID
+        let familleData = req.body.familleD
+        connection.changeUser({database : 'dszrccqg_system'}, () => {});
+        let sql = `INSERT INTO 02_garderie_classes_niveaux (Genre,Description,PID) 
+                   VALUES ('${familleData.Name}','${familleData.Description}','${PID}')`;
+         connection.query(sql, (err, rows, fields) => {
+          if (err){ res.json(err)}
+          res.json(rows);
+        })
+            
+    })
+
+    /* modifier famille */
+    GarderieRouter.post('/classes/niveaux/modifier', (req, res) => {
+        let PID = req.body.PID
+        let familleData = req.body.familleD
+        connection.changeUser({database : 'dszrccqg_system'}, () => {});
+        let sql = `UPDATE 02_garderie_classes_niveaux 
+                   SET Genre = '${familleData.Name}' , Description =  '${familleData.Description}'
+                    WHERE PK = ${familleData.PK} AND PID = '${PID}' `;
+         connection.query(sql, (err, rows, fields) => {
+          if (err){ res.json(err)}
+          res.json(rows);
+        })
+            
+    })
+
 /*####################################[SEANCES]####################################*/
 
       /* featch tou les camion*/
@@ -646,7 +1068,7 @@ const upload = multer({  storage: storage, array: true });
               let sql = `SELECT * 
                         FROM 02_garderie_seances
                         LEFT JOIN 02_garderie_abonnement ON 02_garderie_seances.Abonnement_ID = 02_garderie_abonnement.AB_ID
-                        LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID
+                        LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID
                         WHERE 02_garderie_seances.PID = ${PID} LIMIT 200`;
                connection.query(sql, (err, rows, fields) => {
                 if (err){res.json(err)}
@@ -662,7 +1084,7 @@ const upload = multer({  storage: storage, array: true });
               let sql = `SELECT * 
                         FROM 02_garderie_seances
                         LEFT JOIN 02_garderie_abonnement ON 02_garderie_seances.Abonnement_ID = 02_garderie_abonnement.AB_ID
-                        LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID
+                        LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID
                         WHERE 02_garderie_seances.PID = ${PID} AND 02_garderie_seances.SE_ID = ${SID}`;
                connection.query(sql, (err, rows, fields) => {
                 if (err){res.json(err)}
@@ -698,8 +1120,8 @@ const upload = multer({  storage: storage, array: true });
             function CaisseFactures() {
                 return new Promise((resolve, reject) => {
                   connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                  let sql = `SELECT * , COALESCE(02_garderie_eleves.ME_Name, 'PASSAGER') AS ME_Name FROM 02_garderie_abonnement 
-                             LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID 
+                  let sql = `SELECT * , COALESCE(02_garderie_eleves.EL_Name, 'PASSAGER') AS EL_Name FROM 02_garderie_abonnement 
+                             LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID 
                              WHERE 02_garderie_abonnement.PID = ${PID} AND  02_garderie_abonnement.Caisse_ID = ${caisseID}   LIMIT 200 `;
                    connection.query(sql, (err, rows, fields) => {
                       if (err) return reject(err);
@@ -758,8 +1180,8 @@ const upload = multer({  storage: storage, array: true });
              let caisseID = req.body.camId
              let targetDay = req.body.targetDay
              connection.changeUser({database : 'dszrccqg_system'}, () => {});
-             let sql = `SELECT * , COALESCE(02_garderie_eleves.ME_Name, 'PASSAGER') AS ME_Name FROM 02_garderie_abonnement 
-                        LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID 
+             let sql = `SELECT * , COALESCE(02_garderie_eleves.EL_Name, 'PASSAGER') AS EL_Name FROM 02_garderie_abonnement 
+                        LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID 
                         WHERE 02_garderie_abonnement.Caisse_ID = ${caisseID}  AND 02_garderie_abonnement.T_Date >= '${targetDay.start}' AND 02_garderie_abonnement.T_Date <= '${targetDay.end}' `;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
@@ -767,81 +1189,6 @@ const upload = multer({  storage: storage, array: true });
               
             })       
       })
-
-/*####################################[ABONNEMENT]#################################*/
-    
-    /* selectionner tous les factures */
-    GarderieRouter.post('/abonnement', (req, res) => {
-          let PID = req.body.PID;
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `SELECT * , COALESCE(02_garderie_eleves.ME_Name, 'PASSAGER') AS ME_Name ,  02_garderie_abonnement.State AS Pay_State FROM 02_garderie_abonnement 
-                     LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID
-                     LEFT JOIN 02_garderie_forfait ON 02_garderie_abonnement.Forfait_ID = 02_garderie_forfait.F_ID  
-                     WHERE 02_garderie_abonnement.PID = ${PID} LIMIT 200`;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){ throw err}
-
-            res.json(rows);
-          })
-              
-    })
-
-    /* selectionner tous les factures */
-    GarderieRouter.post('/abonnement/resumer', (req, res) => {
-           let PID = req.body.PID
-           let date = req.body.targetDate
-           connection.changeUser({database : 'dszrccqg_system'}, () => {});
-           let sql = `SELECT * , COALESCE(02_garderie_eleves.ME_Name, 'PASSAGER') AS ME_Name , COALESCE(02_garderie_forfait.CA_Name, 'COMMANDE') AS CA_Name ,02_garderie_abonnement.State AS Pay_State FROM 02_garderie_abonnement 
-                     LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID 
-                     LEFT JOIN 02_garderie_forfait ON 02_garderie_abonnement.Forfait_ID = 02_garderie_forfait.F_ID 
-                     WHERE 02_garderie_abonnement.T_Date >= '${date.start}' AND 02_garderie_abonnement.T_Date <= '${date.end}' `;
-             connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-              res.json(rows);
-            })        
-      })
-
-    /* selectioner un facture et ses articles */
-    GarderieRouter.post('/abonnement/select', (req, res) => {
-           let PID = req.body.PID
-           let FID = req.body.fid
-           connection.changeUser({database : 'dszrccqg_system'}, () => {});
-           let sql = `SELECT * , COALESCE(02_garderie_eleves.ME_Name, 'PASSAGER') AS ME_Name ,  02_garderie_abonnement.State AS Pay_State FROM 02_garderie_abonnement 
-                     LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID
-                     LEFT JOIN 02_garderie_forfait ON 02_garderie_abonnement.Forfait_ID = 02_garderie_forfait.F_ID
-                     WHERE 02_garderie_abonnement.PID = '${PID}' AND 02_garderie_abonnement.AB_ID = ${FID} `;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){ throw err}
-            res.send(rows);
-          })         
-    })
-
-    /* modifier un facture */
-    GarderieRouter.post('/abonnement/modifier', (req, res) => {
-           let PID = req.body.PID
-           let factId = req.body.factD
-           let FID = req.body.fid
-           let articleL = JSON.stringify(factId.articles)
-           connection.changeUser({database : 'dszrccqg_system'}, () => {});
-           let sql = `UPDATE 02_garderie_abonnement
-                      SET Cre_Date = '${factId.jour}', C_Name = '${factId.client}', Tota = '${factId.totale}', De = '${factId.de}', Vers ='${factId.vers}' , Chauffeur ='${factId.Chauffeur}' ,Fournisseurs ='${factId.Fournisseurs}', Articles = '${articleL}'
-                      WHERE F_ID = '${FID}' `;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){ throw err}
-            res.json({FID:FID});
-          })         
-    })
-    /* modifier un facture */
-    GarderieRouter.post('/abonnement/supprimer', (req, res) => {
-           let PID = req.body.PID
-           let FID = req.body.FID
-           connection.changeUser({database : 'dszrccqg_system'}, () => {});
-           let sql = `DELETE FROM 02_garderie_abonnement WHERE  T_ID = '${FID}' AND PID = ${PID} `;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){ throw err}
-            res.json(rows);
-          })         
-    })
 
 /*####################################[GROUPES]####################################*/
 
@@ -885,192 +1232,6 @@ const upload = multer({  storage: storage, array: true });
           })
               
       })
-
-/*####################################[ELEVES]####################################*/
-
-    /* selectioner tous les client */
-    GarderieRouter.post('/eleves', (req, res) => {
-          let PID = req.body.PID;
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `SELECT *  FROM 02_garderie_eleves  WHERE PID = '${PID}'`;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){ throw err}
-            res.json(rows);
-          })
-              
-    })
-
-
-    /* selectioner un client */
-    GarderieRouter.post('/membres/info', (req, res) => {
-          let PID = req.body.PID;
-          let membreId = req.body.membreId
-          function FetchMembreData() {
-              return new Promise((resolve, reject) => {
-                connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                let sql = `SELECT * FROM 02_garderie_eleves WHERE PID = ${PID} AND ME_ID = ${membreId}`;
-                 connection.query(sql, (err, rows, fields) => {
-                    if (err) return reject(err);
-                    if (!rows[0]) {resolve([{ Name:null , }]);} else {resolve(rows[0]);}
-                })
-              });
-          }
-
-          function SelectSouscription(Name) {
-              return new Promise((resolve, reject) => {
-                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
-                let sql = `SELECT * FROM 02_garderie_souscription WHERE UID = '${Name}' AND PID = ${PID} `;
-                 connection.query(sql, (err, rows, fields) => {
-                    if (err) return reject(err);
-                    resolve(rows);
-                })
-              });
-          }
-
-          function SelectAbonnement(Name) {
-              return new Promise((resolve, reject) => {
-                connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                let sql = `SELECT * , COALESCE(02_garderie_eleves.ME_Name, 'PASSAGER') AS ME_Name ,  02_garderie_abonnement.State AS Pay_State FROM 02_garderie_abonnement 
-                           LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID
-                           LEFT JOIN 02_garderie_forfait ON 02_garderie_abonnement.Forfait_ID = 02_garderie_forfait.F_ID  
-                           WHERE 02_garderie_abonnement.PID = ${PID} AND 02_garderie_abonnement.Membre_ID = '${Name}'  `;
-                 connection.query(sql, (err, rows, fields) => {
-                    if (err) return reject(err);
-                    resolve(rows);
-                })
-              });
-         }
-
-         function SelectSeances(Name) {
-              return new Promise((resolve, reject) => {
-                connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                let sql = `SELECT * 
-                          FROM 02_garderie_seances
-                          LEFT JOIN 02_garderie_abonnement ON 02_garderie_seances.Abonnement_ID = 02_garderie_abonnement.AB_ID
-                          LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID
-                          WHERE 02_garderie_seances.PID = ${PID} AND 02_garderie_seances.Membre_ID = '${Name}'  `;
-                 connection.query(sql, (err, rows, fields) => {
-                    if (err) return reject(err);
-                    resolve(rows);
-                })
-              });
-         }
-
-
-            // Call, Function
-          async function query() {
-              const clientListe = {}; 
-              clientListe.Data = await FetchMembreData()
-              clientListe.Souscription = await  SelectSouscription(membreId)
-              clientListe.Abonnement = await SelectAbonnement(membreId)
-              clientListe.Seances = await SelectSeances(membreId)
-            res.send(clientListe)
-          }
-          query();               
-    })
-
-    /* selectioner tous les client 
-    GarderieRouter.post('/membres/verification/recherche', (req, res) => {
-          let UID = req.body.UID;
-          connection.changeUser({database : 'dszrccqg_profile'}, () => {});
-          let sql = `SELECT *  FROM user_general_data  WHERE UID = '${UID}'`;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){ throw err}
-            res.json(rows);
-          })
-              
-    })*/
-
-    //check article in abyedhDB */
-    GarderieRouter.post('/membres/checkAbyedhDb', (req, res) => {
-          let UID = req.body.UID;
-          connection.changeUser({database : 'dszrccqg_profile'}, () => {});
-          let sql = `SELECT * FROM user_general_data WHERE UID = '${UID}'`;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){ throw err}
-            res.json(rows[0]);
-          })
-              
-    })
-
-    /* selectioner tous les client */
-    GarderieRouter.post('/membres/verification', (req, res) => {
-          let PID = req.body.PID;
-          let UID = req.body.UID;
-          let ME_ID = req.body.ME_ID;
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `UPDATE 02_garderie_eleves
-                     SET Releted_UID = ${UID}
-                     WHERE ME_ID = ${ME_ID} AND PID = ${PID}`;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){ throw err}
-            res.json(rows);
-          })
-              
-    })
-
-    
-
-
-    /* Ajouter client */
-    GarderieRouter.post('/membres/ajouter', (req, res) => {
-      (async() => {
-        let PID = req.body.PID;
-        let clientD = req.body.clientD
-        let CID = await GenerateID(1111111111,'02_garderie_eleves','ME_ID');
-        let Today = new Date().toISOString().split('T')[0]
-          let sql = `INSERT INTO 02_garderie_eleves (ME_ID, PID,  Releted_UID,  ME_Name, Creation_Date, Phone, Adress, CIN, ME_State, Gouv, Deleg) 
-                     VALUES (${CID}, ${PID},'${clientD.Releted_UID}','${clientD.Name}','${Today}','${clientD.Phone}','${clientD.Adress}','${clientD.CIN}','null','${clientD.Gouv}', '${clientD.Deleg}' );`;
-            connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-             res.json(rows);
-            })
-        })()      
-    })
-
-
-
-
-    /* modifier un client */
-    GarderieRouter.post('/membres/modifier', (req, res) => {
-        let PID = req.body.PID;
-        let clientD = req.body.clientD
-        connection.changeUser({database : 'dszrccqg_system'}, () => {});
-        let sql = `UPDATE 02_garderie_eleves
-                   SET ME_Name = '${clientD.ME_Name}',  Phone = '${clientD.Phone}' , Adress = '${clientD.Adress}' ,  Gouv = '${clientD.Gouv}' , Deleg = '${clientD.Deleg}' , CIN = '${clientD.CIN}'
-                   WHERE ME_ID = ${clientD.ME_ID} AND PID = ${PID}`;
-            connection.query(sql, (err, rows, fields) => {
-              if (err){ throw err}
-             res.json(rows);
-            })     
-    })
-
-    /* map : liste des location */
-    GarderieRouter.post('/membres/fidelite', (req, res) => {
-           let PID = req.body.PID;
-           let genre = req.body.genre
-           let start = req.body.start
-           let finish = req.body.finish
-           let top = req.body.Top
-           connection.changeUser({database : 'dszrccqg_system'}, () => {});
-           let sql1 = `SELECT  02_garderie_abonnement.Membre_ID, SUM(Final_Value) as Totale, 02_garderie_abonnement.T_Date , 02_garderie_eleves.ME_Name, 02_garderie_eleves.ME_ID, COALESCE(02_garderie_eleves.ME_Name, 'PASSAGER') AS ME_Name
-                      FROM 02_garderie_abonnement 
-                      LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID
-                      WHERE 02_garderie_abonnement.T_Date > '${start}' AND 02_garderie_abonnement.T_Date < '${finish}' 
-                      GROUP BY 02_garderie_abonnement.Membre_ID ORDER BY SUM(Final_Value) DESC LIMIT ${top};`
-
-           let sql2 = `SELECT COUNT(1) as Totale , 02_garderie_abonnement.Membre_ID , 02_garderie_eleves.ME_Name , 02_garderie_eleves.ME_ID, COALESCE(02_garderie_eleves.ME_Name, 'PASSAGER') AS ME_Name
-                      FROM 02_garderie_abonnement  
-                      LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID
-                      WHERE 02_garderie_abonnement.T_Date > '${start}' AND 02_garderie_abonnement.T_Date < '${finish}'  
-                      GROUP BY 02_garderie_abonnement.Membre_ID ORDER BY COUNT(1) DESC LIMIT ${top};`
-
-           connection.query(genre == 'Totale' ? sql1 : sql2 , (err, rows, fields) => {
-            if (err){ throw err}
-            res.json(rows);
-          })
-              
-    })
 
 /*####################################[TEAM]#######################################*/
 
@@ -1378,7 +1539,7 @@ const upload = multer({  storage: storage, array: true });
         connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `UPDATE 02_garderie_eleves
                     SET Name = '${frsD.Name}',  Phone = '${frsD.Phone}' , Adress = '${frsD.Adress}' ,  Gouv = '${frsD.Gouv}' , Deleg = '${frsD.Deleg}' , Social_Name = '${frsD.Social_Name}'
-                    WHERE ME_ID = ${frsD.ME_ID}`;
+                    WHERE EL_ID = ${frsD.EL_ID}`;
             connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
              res.json(rows);
@@ -1932,8 +2093,8 @@ const upload = multer({  storage: storage, array: true });
           function FetchFacture() {
             return new Promise((resolve, reject) => {
               connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                let sql = `SELECT * , COALESCE(02_garderie_eleves.ME_Name, 'PASSAGER') AS ME_Name ,02_garderie_abonnement.State AS Pay_State FROM 02_garderie_abonnement 
-                           LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.ME_ID 
+                let sql = `SELECT * , COALESCE(02_garderie_eleves.EL_Name, 'PASSAGER') AS EL_Name ,02_garderie_abonnement.State AS Pay_State FROM 02_garderie_abonnement 
+                           LEFT JOIN 02_garderie_eleves ON 02_garderie_abonnement.Membre_ID = 02_garderie_eleves.EL_ID 
                            LEFT JOIN 02_garderie_seances ON 02_garderie_abonnement.Caisse_ID = 02_garderie_seances.C_ID 
                            WHERE 02_garderie_abonnement.PID = ${PID}`;
                connection.query(sql, (err, rows, fields) => {
