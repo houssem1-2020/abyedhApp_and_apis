@@ -380,7 +380,7 @@ const upload = multer({  storage: storage, array: true });
           function SelectSeances(Classes) {
               return new Promise((resolve, reject) => {
                 connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                let sql = `SELECT *  FROM 02_garderie_seances WHERE PID = ${PID} AND  SE_ID = '${Classes}'  `;
+                let sql = `SELECT *  FROM 02_garderie_seances WHERE PID = ${PID} AND  Classe_ID = '${Classes}'  `;
                  connection.query(sql, (err, rows, fields) => {
                     if (err) return reject(err);
                     resolve(rows);
@@ -403,7 +403,7 @@ const upload = multer({  storage: storage, array: true });
           function SelectExamain(Name) {
               return new Promise((resolve, reject) => {
                 connection.changeUser({database : 'dszrccqg_system'}, () => {});
-                let sql = `SELECT * FROM 02_garderie_classes_examain WHERE SE_ID = '${Name}' AND PID = ${PID} `;
+                let sql = `SELECT * FROM 02_garderie_classes_examain WHERE Classes_ID = '${Name}' AND PID = ${PID} `;
                  connection.query(sql, (err, rows, fields) => {
                     if (err) return reject(err);
                     resolve(rows);
@@ -887,17 +887,66 @@ const upload = multer({  storage: storage, array: true });
               
     })
 
-    //fetch all article */
-    GarderieRouter.post('/equipemment/info', (req, res) => {
+    /* selectioner un client */
+    GarderieRouter.post('/classes/info', (req, res) => {
           let PID = req.body.PID;
-          let Code = req.body.Code;
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `SELECT * FROM 02_garderie_classes WHERE PID = '${PID}' AND INS_Code = ${Code}`;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){ throw err}
-            res.json(rows);
-          })
-              
+          let classeID = req.body.classeID
+          function FetchClasseData() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 02_garderie_classes WHERE PID = '${PID}' AND CL_ID = ${classeID}`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    if (!rows[0]) {resolve([{ Name:null , }]);} else {resolve(rows[0]);}
+                })
+              });
+          }
+
+          function SelectSeances(Classes) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT *  FROM 02_garderie_seances WHERE PID = ${PID} AND  Classe_ID = '${classeID}'  `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+          function SelectEleve(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 02_garderie_eleves WHERE PID = ${PID} AND EL_Classe = '${classeID}'  `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+          function SelectExamain(Name) {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 02_garderie_classes_examain WHERE Classes_ID = '${Name}' AND PID = ${PID} `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+ 
+
+            // Call, Function
+          async function query() {
+              const clientListe = {}; 
+              clientListe.Data = await FetchClasseData()
+
+              clientListe.Seances = await SelectSeances(classeID)
+              clientListe.Eleve = await SelectEleve(classeID)
+              clientListe.Examain = await  SelectExamain(classeID)
+ 
+
+            res.send(clientListe)
+          }
+          query();               
     })
 
     /* ajouter article */
@@ -971,6 +1020,7 @@ const upload = multer({  storage: storage, array: true });
             })    
            //res.json(fields)      
     })
+
     /* modifier article  */
     GarderieRouter.post('/classes/modifier/ingredient', (req, res) => {
           let PID = req.body.PID
@@ -1474,7 +1524,6 @@ const upload = multer({  storage: storage, array: true });
           })
               
       })
-
 
 /*####################################[FOURNISSEUR]################################*/
 
