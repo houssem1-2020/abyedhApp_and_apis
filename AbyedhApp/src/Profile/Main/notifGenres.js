@@ -26,12 +26,12 @@ const  NotifGenres  = {
                 </> )
         }
     }, 
-    garderie_inscrie_saved : {
+    garderie_inscription_saved : {
         icon:'bi-check-circle-fill text-success',
         titleIcon:'bi-receipt-cutoff',
         GenTextFunction : function(requestData,pidData){
             return (<>
-                   <div>تم تسجيل طلب موعد مع الطبيب {pidData.Name}  بنجاح  و ذلك بتاريخ {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                   <div>تم تسجيل صغيرك {requestData.EL_Name} في روضة  {pidData.Name}  بنجاح  و ذلك بتاريخ {new Date(requestData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
                 </> )
         }
     }, 
@@ -76,12 +76,13 @@ const  NotifGenres  = {
         }
 
     },
-    sport_salle_souscrire_saved : {
+    gym_souscription_saved : {
         icon:'bi-pencil-square text-info',
         titleIcon:'receipt-cutoff',
         GenTextFunction : function(requestData,pidData){
-            return ('La Commande  pour : ' + requestData.R_ID + ' en totale ' + requestData.State + 'a ete modifier ')
-        }
+            return (<>
+                <div>تم تسجيل طلب الإشتراك  {requestData.Ab_Genre} في قاعة الرياضة   {pidData.Name}  بنجاح  . تم تسجيل الإنطلاق ليوم  {new Date(requestData.Start_At).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}  </div>  
+             </> )}
 
     },
     boutique_shop_saved : {
@@ -92,7 +93,28 @@ const  NotifGenres  = {
         }
 
     },
-
+    restaurant_commande_saved: {
+        icon:'bi-check-circle-fill text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div> تم تسجيل طلب الطبق  
+                    <ul className="mb-0">
+                        {JSON.parse(requestData.C_Articles).map((data,index) => <li key={index}>{data.Qte} * {data.Name}</li>)}
+                    </ul>
+                    في الطاولة عدد <b className="text-danger">{requestData.Table_Num}</b>   بنجاح  و ذلك بتاريخ {new Date(requestData.Wanted_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                </> )
+        }
+    }, 
+    restaurant_reservation_saved: {
+        icon:'bi-check-circle-fill text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم تسجيل طلب  الطبق   {pidData.Name}  بنجاح  و ذلك بتاريخ {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                </> )
+        }
+    }, 
 
 
 }

@@ -21,27 +21,27 @@ function ArtPage() {
 
     /* ###########################[Card]############################# */
     const TopNavBar = () =>{
-        let UID = localStorage.getItem('UID')
         const UserCard = () =>{
             return(<>
                 <NavLink exact='true' to='/Profile' className="navbar-brand border-div m-0 p-0 ms-3">
-                    <img  className="rounded-circle p-0 m-0 me-1" src="https://cdn.abyedh.tn/images/p_pic/15.gif"   alt="Logo" style={{width:'30px', height:'30px'}} />
+                    <img  className="rounded-circle p-0 m-0 me-1" src={`https://cdn.abyedh.tn/images/p_pic/${GConf.UserData.UData.PictureId}.gif`}   alt="Logo" style={{width:'30px', height:'30px'}} />
                 </NavLink>
             </>)
         }
         return(<>
-                <div className="rounded-0 border-0 p-2 m-0  navshad fixed-top" style={{backgroundColor: GConf.Tools.art.themeColor}} >
-                    <div className='row m-0'>
+                <nav className="p-2 fixed-top navshad" style={{backgroundColor: GConf.Tools.art.themeColor}}>
+                    <div className='row'>
                         <div className='col-6 text-start align-self-center'>
                             <NavLink exact='true' to='/Tools' className="m-0 p-0 ms-3">
-                                <img  className="border-div" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
                         </div>
                         <div className='col-6 text-end align-self-center'>
-                            {UID ? <UserCard />  : <NavLink exact='true' to='/Profile' className="m-0 p-0 ms-3 text-white"> تسجيل الدخول</NavLink>}
+                            {GConf.UserData.Logged ? <UserCard />  : <NavLink exact='true' to='/Profile' className="m-0 p-0 me-3 text-white"> تَسْجِيلْ الدٌخٌولْ</NavLink>}
                         </div>
                     </div>
-                </div>
+                </nav>
             </>)
     }
     const AdsLanding = () =>{
@@ -49,7 +49,7 @@ function ArtPage() {
         <div className='card-body rounded-0' style={{height:'170px', backgroundColor:'#e9ecef', marginTop:'55px'}}>
             <div className='row'>
                 <div className='col-12 col-lg-8 align-self-center text-center'>
-                       <h3  dir='rtl' style={{color:GConf.Tools.art.themeColor}}> {GConf.Tools.blog.textAds} </h3>
+                       <h3  dir='rtl' style={{color:GConf.Tools.art.themeColor}}> {GConf.Tools.art.textAds} </h3>
                 </div>
                 <div className='col-4 align-self-end text-center d-none d-lg-block'>
                     <img src='https://cdn.abyedh.tn/images/Tools/art.svg' className='img-responsive' width='40%' height='40%'  />
@@ -60,7 +60,7 @@ function ArtPage() {
     }
     const ButtomCard = () =>{
         return(<>
-            <div className='card-body rounded-bottom-card' style={{backgroundColor:GConf.Tools.art.themeColor}}>
+            <div className='card-body rounded-bottom-card ' style={{backgroundColor:GConf.Tools.art.themeColor}}>
                 <div className='text-end text-white me-5'>
                     <b>منصة أبيض التونسية </b>
                 </div>
@@ -70,7 +70,7 @@ function ArtPage() {
     const LinkCard = (props) =>{
         return(<>
             <NavLink exact='true' to={`landing/${props.data.link}`}>
-                <div className='card card-body shadow-sm mb-3 '>
+                <div className='card card-body shadow-sm mb-3 border-div'>
                     <div className='row'>
                         <div className='col-4 align-self-center'>
                              <div className="icon-shape text-white rounded-circle elevation" style={{backgroundColor: GConf.Tools.art.themeColor, width: `${props.data.size}rem`, height: `${props.data.size}rem`}} >

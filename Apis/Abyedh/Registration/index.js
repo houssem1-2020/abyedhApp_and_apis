@@ -95,10 +95,12 @@ const connection = require('../connection.js')
             let userData = JSON.stringify(req.body.userData);
             let horaireData = JSON.stringify(req.body.horaireData);
             let alwaysOpen = req.body.alwaysOpen;
+            let position = JSON.stringify(req.body.position);
+            let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )
             let inscData = JSON.stringify(req.body.inscData);
             connection.changeUser({database : 'dszrccqg_registration'}, () => {});
-          let sql = `INSERT INTO system_subscription_request (UserData, ProfileData , Horaire, HoraireALways, Genre) 
-                     VALUES ('${userData}','${inscData}','${horaireData}','${alwaysOpen}','${system}') `;
+          let sql = `INSERT INTO system_subscription_request (UserData, ProfileData , Horaire, HoraireALways, Position,  Genre,Req_Date) 
+                     VALUES ('${userData}','${inscData}','${horaireData}','${alwaysOpen}','${position}','${system}', '${Today}') `;
            connection.query(sql, (err, rows, fields) => {
             if (err){res.json(err)}
               res.json(rows);

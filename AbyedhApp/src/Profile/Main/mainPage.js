@@ -23,7 +23,6 @@ function MainPage() {
          })
          .then(function (response) {
                setFeedData(response.data)
-               console.log(response.data)
                SetLoading(false)
          }).catch((error) => {
            if(error.request) {
@@ -77,8 +76,9 @@ function MainPage() {
     }
     const EmptyCard = () =>{
         return(<>
-            <div className='card-body'>
-                لا توجذ نتائج
+            <div className='card-body text-center'>
+                <img src='https://cdn.abyedh.tn/images/profile/suivie-empty.png' width='80%'  height='290px' />
+                <h5>لا توجد نتائج . قم بإكتشاف محرك البحث في الصفحة الرئسية</h5> 
             </div>
         </>)
     }

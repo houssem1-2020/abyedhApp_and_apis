@@ -1,88 +1,78 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Tab } from 'semantic-ui-react'
+import { Select, Tab } from 'semantic-ui-react'
 import GConf from '../../../AssetsM/generalConf';
 import { Form, TextArea, Input , Button, Icon, Loader} from 'semantic-ui-react'
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import TableGrid from '../../../AssetsM/tableGrid';
-function GymSpecific() {
+
+function GymActions(props) {
+
     /* ############### Const #################*/
-    let {tag} = useParams()
-    const [rendyVousD, setRdvData] = useState([])
+    const [souscriptionData, setsouscriptionData] = useState([])
     const [loaderState, setLS] = useState(false)
+    const [disabledSaveBtn, setDisabledBtn] = useState(false)
+    const genres = [
+        { key: 1 , value: 'mensuel', text: 'شهري' },
+        { key: 2 , value: 'annuel', text: 'سنوي' },
+    ]
 
-
-    /* ############### UseEffect #################*/
-    
-    /* ############### Functions #################*/
+   /* ############### Functions #################*/
     const saveFunction = () =>{
-        if (!rendyVousD.comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
-        else if (!rendyVousD.date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        if (!souscriptionData.User_Name) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
+        else if (!souscriptionData.User_Age) {toast.error("ادخل الاسم  !", GConf.TostErrorGonf)}
+        else if (!souscriptionData.Ab_Genre) {toast.error("ادخل نوعه الاشتراك  !", GConf.TostErrorGonf)}
+        else if (!souscriptionData.Start_At) {toast.error("ادخل تاريخ الإنطلاق  !", GConf.TostErrorGonf)}
+        else if (!souscriptionData.Comment) {toast.error("ادخل تعليق   !", GConf.TostErrorGonf)}
         else{
             setLS(true)
-            axios.post(`${GConf.ApiLink}/LogIn`, {
-                rendyVousData : rendyVousD,
+            axios.post(`${GConf.ApiLink}/Action/gym-souscription`, {
+                UID : props.UID,
+                PID : props.PID ,
+                TAG : props.TAG ,
+                souscriptionData : souscriptionData,
             }).then(function (response) {
-                
+                toast.success(<><div><h5>تم تسجيل الموعد بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+                setLS(false)
+                setDisabledBtn(true)
             }).catch((error) => {
                 if(error.request) {
-                  toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de connecter aux systeme </div></>, GConf.TostInternetGonf)   
+                  toast.error(<><div><h5> لم يتم تسجيل الموعد</h5> حاول مرة أخري  </div></>, GConf.TostInternetGonf)   
                   setLS(false)
                 }
             });
         } 
     }
+    
 
-    /* ############### Card #################*/
-    const SalleAttentCard = () =>{
-        return(<>
-            <div className='card card-body shadow-sm border-div mb-4 text-center '>
-                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> قاعة الانتضار</h5> 
-                <h1 className='display-5 text-info'>0</h1>
-            </div>
-        </>)
-    }
-    const RoleTimeEstimateCard = () =>{
-        return(<>
-            <div className='card card-body shadow-sm border-div mb-4 text-center '>
-                <h5 className='text-end ' style={{color: GConf.ADIL[tag].themeColor}}>  توقع الوقت المتبقي </h5> 
-                <h1 className='display-5 text-warning' dir='rtl'>20 دقيقة</h1>
-            </div>
-        </>)
-    }
-    const TarifCard = () =>{
-        return(<>
-            <div className='card card-body shadow-sm border-div mb-4 text-center  '>
-                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> التعريفة </h5> 
-                <h1 className='display-1 text-info'></h1>
-            </div>
-        </>)
-    }
-    const CertificatCard = () =>{
-        return(<>
-            <div className='card card-body shadow-sm border-div mb-4 text-center  '>
-                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> الشهائد العلمية </h5> 
-                <h1 className='display-1 text-info'></h1>
-            </div>
-        </>)
-    }
-    const SimpleCard = () =>{
-        return(<>
-            <div className='card card-body shadow-sm border-div mb-4 text-center  '>
-                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> إعلانات </h5> 
-                <h1 className='display-1 text-info'></h1>
-            </div>
-        </>)
-    }
     return ( <>
-        <div className='row mt-4' >
-            <div className='col-12 col-lg-4'> <SalleAttentCard  /> <RoleTimeEstimateCard /></div>
-            <div className='col-12 col-lg-8'> <TarifCard /> <CertificatCard /></div>
-            
-        </div>
-        
+        <div className='m-0'>
+                <div   dir='rtl' className='card card-body shadow-sm pt-3 border-div'>
+                    <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  الإسم و اللقب </h5>
+                    <Input className='mb-1' fluid icon='user' placeholder=' الإسم و اللقب  ' value={souscriptionData.User_Name} onChange={(e) => setsouscriptionData({...souscriptionData, User_Name: e.target.value })} />
+
+                    <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>   العمر </h5>
+                    <Input className='mb-1' fluid icon='user' placeholder=' العمر' value={souscriptionData.User_Age} onChange={(e) => setsouscriptionData({...souscriptionData, User_Age: e.target.value })} />
+
+                    <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>   نوع الإشتراك   </h5>
+                    <Select className='mb-1'  fluid options={genres} onChange={(e, { value }) => setsouscriptionData({...souscriptionData, Ab_Genre: value })} />
+
+                    <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-calendar2'></span>  تاريخ الإنطلاق  </h5>
+                    <small> متي تريد أن تبدأ ؟</small>
+                        <Input className='mb-1' type='date' fluid alue={souscriptionData.Start_At}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setsouscriptionData({...souscriptionData, Start_At: e.target.value })}  />
+                    
+                    <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  إوقات التمرين </h5>
+                    <small>ماهي الإوقات التي تريد أن تتمرن فيها </small> 
+                        <Form className='mb-1'>
+                            <TextArea   rows={2} value={souscriptionData.Comment} onChange={ (e,value) => setsouscriptionData({...souscriptionData, Comment:e.target.value})} />
+                        </Form>
+
+                    <div className='text-end'>
+                        <Button className='rounded-pill' onClick={saveFunction} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[props.TAG].themeColor, color:'white'}} > <Icon name='save' />  تسجيل إشتراك  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+                    </div>
+                </div>
+        </div>      
     </> );
 }
 
-export default GymSpecific;
+export default GymActions;

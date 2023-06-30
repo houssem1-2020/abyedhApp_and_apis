@@ -90,13 +90,10 @@ function SuiviePage() {
                     </div>
                     <div className="flex-grow-1 ms-3">
                         <h4 className='mb-0 text-secondary'><NavLink exact='true' to={`/S/P/${props.data.P_Genre}/${props.data.PID}`}>{props.data.PidData.Name}</NavLink></h4>
-                        <div><small>{new Date(props.data.Notif_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</small></div>
+                        <div><small>{new Date(props.data.Notif_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )} | {SuivieRequestData[props.data.Notif_Name].title} </small></div>
                     </div>
                 </div>
-                <div className='text-center text-danger'>
-                    {SuivieRequestData[props.data.Notif_Name].title} 
-                     
-                </div> 
+
                 <div className='card-body pb-0 d-none d-lg-block'>
                     <div className='row'>
                         <div className='col-8'> <RendredData /> </div>
@@ -104,18 +101,18 @@ function SuiviePage() {
                         <div className='col-12 text-end pt-2 navshad-top'><ActionBtns /></div>
                     </div>
                 </div>
-                <div className='card-body d-lg-none'>
-                <Swiper
+                <div className='card-body d-lg-none pb-0'>
+                    <Swiper
                         spaceBetween={1}
                         pagination={{
                             dynamicBullets: true,
                         }}
                         modules={[Pagination]}
-                        className="mySwiper pb-4 mb-1 text-center"
+                        className="mySwiper pb-0 text-center"
                     >
                                 <SwiperSlide key={1}> <CircularPourcentage value={SuivieRequestData[props.data.Notif_Name].stepsValues[props.data.State].value} small /></SwiperSlide>
                                 <SwiperSlide key={2}> <RendredData /> </SwiperSlide>
-                                <SwiperSlide key={3}> <SmallActionBtns  /> </SwiperSlide>
+                                {/* <SwiperSlide key={3}> <SmallActionBtns  /> </SwiperSlide> */}
                         
                     </Swiper>
                 </div>
@@ -138,8 +135,9 @@ function SuiviePage() {
     }
     const EmptyCard = () =>{
         return(<>
-            <div className='card-body'>
-                لا توجذ نتائج
+            <div className='card-body text-center'>
+                <img src='https://cdn.abyedh.tn/images/profile/suivie-empty.png' width='80%'  height='290px' />
+                <h5>لا توجد نتائج . قم بإكتشاف محرك البحث في الصفحة الرئسية</h5> 
             </div>
         </>)
     }

@@ -8,24 +8,60 @@ const ADIL = {
 }
 
 /*####################################[BLOG]########################################*/
-    Tools.post('/blog', (req, res) => {
-        let tag = req.body.tag;
-        let gouv = req.body.gouv;
-        let deleg = req.body.deleg;
-        connection.changeUser({database : 'dszrccqg_directory'}, () => {});
-        let sql = `SELECT * FROM  ${ADIL[tag].directoryTable} WHERE Gouv = '${gouv}' LIMIT 50;`; // AND Deleg = '${deleg}' 
+   Tools.post('/blog', (req, res) => {
+            let categ = req.body.categ;
+
+            function FetchPots() {
+                return new Promise((resolve, reject) => {
+                  connection.changeUser({database : 'dszrccqg_tools'}, () => {});
+                  let sql = `SELECT Blog_ID, Gategory, Subcategory, Genre, Img_Url, Title, Page_Name  FROM  wiki_blog WHERE Gategory = '${categ}' ;`;  
+                   connection.query(sql, (err, rows, fields) => {
+                      if (err) return reject(err);
+                      resolve(rows);
+                  })
+                });
+            }
+            function FetchSubCateg(RID, genre) {
+                return new Promise((resolve, reject) => {
+                  connection.changeUser({database : 'dszrccqg_tools'}, () => {});
+                 let sql = `SELECT *  FROM  wiki_blog_subcategory WHERE Gategory = '${categ}' ;`;  
+                   connection.query(sql, (err, rows, fields) => {
+                      if (err) return reject(err);
+                      resolve(rows);
+                      
+                  })
+                });
+            }
+            // Call, Function
+            async function query() {
+                const postListe = {}
+                  postListe.posts = await FetchPots()
+                  postListe.subCtaeg = await FetchSubCateg()
+
+              res.send(postListe)
+            }
+            query();
+      
+    })
+
+
+    Tools.post('/blog/select', (req, res) => {
+        let PAID = req.body.PAID;
+        connection.changeUser({database : 'dszrccqg_tools'}, () => {});
+        let sql = `SELECT * FROM  wiki_blog WHERE Blog_ID = ${PAID} ;`;  
          connection.query(sql, (err, rows, fields) => {
           if (err){ throw err}
-          res.json(rows);
+          res.json(rows[0]);
         })
                     
     })
+
 /*####################################[PUBLIC]######################################*/
     Tools.post('/setting', (req, res) => {
         let tag = req.body.tag;
         let gouv = req.body.gouv;
         let deleg = req.body.deleg;
-        connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+        connection.changeUser({database : 'dszrccqg_tools'}, () => {});
         let sql = `SELECT * FROM  ${ADIL[tag].directoryTable} WHERE Gouv = '${gouv}' LIMIT 50;`; // AND Deleg = '${deleg}' 
          connection.query(sql, (err, rows, fields) => {
           if (err){ throw err}
@@ -38,7 +74,7 @@ const ADIL = {
         let tag = req.body.tag;
         let gouv = req.body.gouv;
         let deleg = req.body.deleg;
-        connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+        connection.changeUser({database : 'dszrccqg_tools'}, () => {});
         let sql = `SELECT * FROM  ${ADIL[tag].directoryTable} WHERE Gouv = '${gouv}' LIMIT 50;`; // AND Deleg = '${deleg}' 
          connection.query(sql, (err, rows, fields) => {
           if (err){ throw err}
@@ -47,24 +83,24 @@ const ADIL = {
                     
     })
 /*####################################[TAXI]########################################*/
-    Tools.post('/setting', (req, res) => {
-        let tag = req.body.tag;
-        let gouv = req.body.gouv;
-        let deleg = req.body.deleg;
-        connection.changeUser({database : 'dszrccqg_directory'}, () => {});
-        let sql = `SELECT * FROM  ${ADIL[tag].directoryTable} WHERE Gouv = '${gouv}' LIMIT 50;`; // AND Deleg = '${deleg}' 
-         connection.query(sql, (err, rows, fields) => {
-          if (err){ throw err}
-          res.json(rows);
-        })
-                    
-    })
+
+    Tools.post('/taxi/search', (req, res) => {
+            let position = req.body.position;
+            connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+            let sql = `SELECT * FROM  03_taxi WHERE 1;`; // AND Deleg = '${deleg}' 
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
 /*####################################[LOUAGE]######################################*/
     Tools.post('/setting', (req, res) => {
         let tag = req.body.tag;
         let gouv = req.body.gouv;
         let deleg = req.body.deleg;
-        connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+        connection.changeUser({database : 'dszrccqg_tools'}, () => {});
         let sql = `SELECT * FROM  ${ADIL[tag].directoryTable} WHERE Gouv = '${gouv}' LIMIT 50;`; // AND Deleg = '${deleg}' 
          connection.query(sql, (err, rows, fields) => {
           if (err){ throw err}

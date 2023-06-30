@@ -51,7 +51,7 @@ function ProfileLandingPage() {
                                     >
                                     <Modal.Content className='mt-4' >
                                         <h5 className='text-end'>خروج</h5> 
-                                        <Button onClick={logOutInput}  size='mini' style={{backgroundColor:GConf.themeColor}} fluid className='rounded-pill text-white' icon='log out'>تسجيل الخروج </Button>
+                                        <Button onClick={logOutInput}  size='mini' style={{backgroundColor:GConf.themeColor}} fluid className='rounded-pill text-white'  >تسجيل الخروج </Button>
                                     </Modal.Content>
                                 </Modal>
                             </div>
@@ -68,7 +68,7 @@ function ProfileLandingPage() {
             }
 
             return(<>
-                <div className='border bg-white rounded-0 text-center p-4 sticky-top' dir='rtl' style={{margingTop:'80px'}}>
+                <div className='border bg-white rounded-0 text-center p-4 sticky-top' dir='rtl' style={{margingTop:'80px', zIndex: 1000}}>
 
                         {GConf.ProfileNavsData.map((links) => 
                                 <MainLink key={links.id} name={links.name} link={links.link} icon={links.icon} />

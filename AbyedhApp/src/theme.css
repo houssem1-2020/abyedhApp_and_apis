@@ -199,3 +199,41 @@ Dropdown{text-align: right !important;}
 }
 .rounded-pill-input{border-radius: 50% !important;}
 .setWissard-res{flex-direction: column-reverse}
+.no-menu-tabs .ui.menu { display: none !important; }
+.yes-menu-tabs .ui.menu { display: flex !important; }
+.btn-cursor {cursor: pointer !important;}
+
+.fullscreen-profile-modal-stopped {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 5000 !important;
+  transform: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+.floating-card {
+  position: fixed;
+  top: 65px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #007bff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.floating-card:hover {
+  transform: scale(1.1);
+}

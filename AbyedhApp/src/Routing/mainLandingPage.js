@@ -170,7 +170,7 @@ function MainLandingPage() {
             return(
                 <>
                     <div  className="text-center hvr-float mb-4">
-                        <NavLink exact='true' to={props.cardData.tools ?  `Tools` : `S/L/${props.cardData.link}`} >
+                        <NavLink exact='true' to={props.cardData.tools ?  `${props.cardData.link}` : `S/L/${props.cardData.link}`} >
                             <img className='mb-0' src={`https://cdn.abyedh.tn/Images/Search/Icons/${props.cardData.image}.gif`}  width='50px' height='50px' />
                             <h5 className="font-droid text-secondary mt-0"> {props.cardData.name} </h5>
                         </NavLink>

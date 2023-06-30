@@ -92,7 +92,7 @@ function PharmacieActions() {
                 <Statistics />
             </div>
             <div className='col-12 col-lg-8'>  
-                <Tab menu={{secondary: true , selected: { backgroundColor: 'purple' },  dir:'rtl', style:{justifyContent: 'right',} }} panes={panes} />
+                <Tab menu={{secondary: true , selected: { backgroundColor: 'purple' },  dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={panes} />
             </div>
         </div>
         

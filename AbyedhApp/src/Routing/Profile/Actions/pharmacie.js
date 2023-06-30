@@ -201,7 +201,7 @@ function PharmacieActions(props) {
      
     return ( <>
     <div className='m-0'>
-        <Tab menu={{secondary: true , selected: { backgroundColor: 'purple' },  dir:'rtl', style:{justifyContent: 'right',} }} panes={panes} />
+        <Tab menu={{secondary: true , selected: { backgroundColor: 'purple' },  dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={panes} />
     </div>
         
     </> );

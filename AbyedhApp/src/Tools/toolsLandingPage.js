@@ -3,6 +3,7 @@ import { Bounce } from 'react-reveal';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import { Tab } from 'semantic-ui-react'
+import GConf from '../AssetsM/generalConf';
 
 function setPageSize() {
     const style = document.createElement('style');
@@ -15,17 +16,18 @@ function ToolsLandingPage() {
     /*#########################[Const]###########################*/
     const panes = [
         {
-          menuItem: { key: 'edit', icon: 'edit outline', content:  <span className='me-2'>الموسوعات</span> , dir:'rtl',  className:'rounded-pill border-tabs' },
+            menuItem: { key: 'edfit', icon: 'shield', content:  <span className='me-2'>تطبيقات</span> , dir:'rtl',  className:'rounded-pill border-tabs' },
+          render: () => <AppsCard />,
+        },
+        {
+          menuItem: { key: 'edit', icon: 'book', content:  <span className='me-2'>المدونات</span> , dir:'rtl',  className:'rounded-pill border-tabs' },
           render: () => <Encyclipedia />,
         },
         {
-            menuItem: { key: 'edith', icon: 'edit outline', content:  <span className='me-2'>أدوات</span> , dir:'rtl',  className:'rounded-pill border-tabs' },
+            menuItem: { key: 'edith', icon: 'wrench', content:  <span className='me-2'>أدوات</span> , dir:'rtl',  className:'rounded-pill border-tabs' },
           render: () => <ToolsCard />,
         },
-        {
-            menuItem: { key: 'edfit', icon: 'edit outline', content:  <span className='me-2'>تطبيقات</span> , dir:'rtl',  className:'rounded-pill border-tabs' },
-          render: () => <AppsCard />,
-        },
+
       ]
 
     /*#########################[UseEffect]###########################*/
@@ -38,29 +40,30 @@ function ToolsLandingPage() {
     
     /*#########################[Card]###########################*/
     const TopNavBar = () =>{
-        let UID = localStorage.getItem('UID')
         const UserCard = () =>{
             return(<>
                 <NavLink exact='true' to='/Profile' className="navbar-brand border-div m-0 p-0 ms-3">
-                    <img  className="rounded-circle p-0 m-0 me-1" src="https://cdn.abyedh.tn/images/p_pic/15.gif"   alt="Logo" style={{width:'30px', height:'30px'}} />
+                    <img  className="rounded-circle p-0 m-0 me-1" src={`https://cdn.abyedh.tn/images/p_pic/${GConf.UserData.UData.PictureId}.gif`}   alt="Logo" style={{width:'30px', height:'30px'}} />
                 </NavLink>
             </>)
         }
         return(<>
-                <div className="rounded-0 border-0 p-2 m-0  navshad fixed-top" style={{backgroundColor:'#46d5e8'}} >
-                    <div className='row m-0'>
+                <nav className="p-2 fixed-top navshad" style={{backgroundColor: '#46d5e8'}}>
+                    <div className='row'>
                         <div className='col-6 text-start align-self-center'>
-                            <NavLink exact='true' to='/' className="m-0 p-0 ms-3">
-                                <img  className="border-div" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                            <NavLink exact='true' to='/Tools' className="m-0 p-0 ms-3">
+                                <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
                         </div>
                         <div className='col-6 text-end align-self-center'>
-                            {UID ? <UserCard />  : <NavLink exact='true' to='/Profile' className="m-0 p-0 ms-3 text-white"> تسجيل الدخول</NavLink>}
+                            {GConf.UserData.Logged ? <UserCard />  : <NavLink exact='true' to='/Profile' className="m-0 p-0 me-3 text-white"> تَسْجِيلْ الدٌخٌولْ</NavLink>}
                         </div>
                     </div>
-                </div>
+                </nav>
             </>)
     }
+
     const ButtomCard = () =>{
         return(<>
             <div className='card-body rounded-bottom-card footered-card' style={{backgroundColor:'#46d5e8', bottom:'0px !important', position:'relative'}}>
@@ -104,14 +107,13 @@ function ToolsLandingPage() {
         return(<>
             <div className='row' dir='rtl'>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='Blog' name='الإدارية' img='blog.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Public' name=' النقل ' img='public.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Art' name=' الفنية ' img='art.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='Products' name='  المنتجات ' img='products.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name='  القانونية ' img='politics.svg' /></div>
+                {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name='  القانونية ' img='politics.svg' /></div> */}
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='Sport' name='الرياضية  ' img='sport.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الإقتصادية ' img='finance.svg' /></div>
+                {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الإقتصادية ' img='finance.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' السياحية ' img='images.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الصحافية ' img='images.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الصحافية ' img='images.svg' /></div> */}
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Art' name=' الثقافية ' img='art.svg' /></div>
             </div> 
         </>)
     }
@@ -119,10 +121,10 @@ function ToolsLandingPage() {
     const ToolsCard = () =>{
         return(<>
             <div className='row' dir='rtl'>
-                <div className='col-4 col-lg-2 mb-3 '><LinkCard link='#' name=' إحصائيات' img='data.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' يومية ' img='calendar.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' المنتدي ' img='forum.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الإخبار ' img='news.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3 '><LinkCard link='Data' name=' إحصائيات' img='data.svg' /></div>
+                {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' يومية ' img='calendar.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' المنتدي ' img='forum.svg' /></div> */}
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='News' name=' الإخبار ' img='news.svg' /></div>
             </div> 
         </>)
     }
@@ -131,12 +133,13 @@ function ToolsLandingPage() {
         return(<>
             <div className='row' dir='rtl'>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='Taxi' name=' تاكسي' img='taxi.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' سيارة اجرة' img='louage.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' للكراء' img='rent_house.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' أدات فلاحية' img='nature.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Louage' name=' سيارة اجرة' img='louage.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Public' name=' النقل ' img='public.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Renting' name=' للكراء' img='rent_house.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='AgriTools' name=' أدات فلاحية' img='nature.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' إستدعاءات' img='invitation.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الدور التونسي' img='invitation.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' المطبخ التونسي' img='invitation.svg' /></div>
+                {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الدور التونسي' img='invitation.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' المطبخ التونسي' img='invitation.svg' /></div> */}
             </div> 
         </>)
     }

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import GConf from '../../AssetsM/generalConf';
 import {Grid, _ } from "gridjs-react";
-import { Button, Icon } from 'semantic-ui-react';
+import { Button, Icon, Placeholder } from 'semantic-ui-react';
 import { Select } from 'semantic-ui-react'
 import { Bounce } from 'react-reveal';
 import { NavLink } from 'react-router-dom';
@@ -12,6 +12,7 @@ function FavoritePage() {
     /* ########################[Const]########################## */
     let UID = JSON.parse(localStorage.getItem("UID"));
     let [favoriteList, setFList] = useState([])
+    let [loading, SetLoading] = useState(true)
     const panes = [
         {
            menuItem: { key: 'admin', icon: 'building', content:  <span className='me-2'>إدارة  </span> , dir:'rtl',  className:'rounded-pill border-tabs' },
@@ -64,7 +65,7 @@ function FavoritePage() {
           })
           .then(function (response) {
             setFList(response.data)
-            console.log(response.data)
+            SetLoading(false)
           })
       }, [])
 
@@ -84,20 +85,58 @@ function FavoritePage() {
         }
 
         return(<>
-            <div className='row'>
                 {
-                     result.map( (data,index) => <div className='col-6 col-lg-2'> <ProfileCard key={index} data={data} /></div> )  
+                    loading ? 
+                    <SekeltonCard /> 
+                    :
+                    <>
+                        {
+                            result.length == 0 ?
+                            <EmptyCard />
+                            :
+                            <div className='row'>
+                                {
+                                    result.map( (data,index) => <div className='col-6 col-lg-2'> <ProfileCard key={index} data={data} /></div> )  
+                                }
+                                
+                            </div>
+                        }
+                    </>
                 }
-                
-            </div> 
+             
+        </>)
+    }
+    const SekeltonCard = () =>{
+        const PlaceHolderCard = () =>{
+            return(<>
+            <Placeholder className='mb-0 rounded-circle' style={{ height: 70, width: 70 }}>
+                <Placeholder.Image />
+            </Placeholder>
+            </>)
+        }
+        return(<>
+            <div className='row'>
+                    <div className='col-3 col-lg-2 mb-3'><PlaceHolderCard /></div>
+                    <div className='col-3 col-lg-2 mb-3'><PlaceHolderCard /></div>
+                    <div className='col-3 col-lg-2 mb-3'><PlaceHolderCard /></div>
+                    <div className='col-3 col-lg-2 mb-3'><PlaceHolderCard /></div>
+                    <div className='col-3 col-lg-2 mb-3'><PlaceHolderCard /></div>
+                    <div className='col-3 col-lg-2 mb-3'><PlaceHolderCard /></div>
+            </div>
         </>)
     }
 
+    const EmptyCard = () =>{
+        return(<>
+            <div className='card-body text-center'>
+                <img src='https://cdn.abyedh.tn/images/profile/empty-fvrt.png' width='80%'  height='220px' />
+                <h5>ليس لديك اي عنصر في المفضلة . قم بإكتشاف محرك البحث في الصفحة الرئسية</h5> 
+            </div>
+        </>)
+    }
     return (  <>
-        <Bounce bottom>
-            <Tab menu={{ secondary: true ,style: {overflowX : 'auto', overflowY : 'hidden', paddingBottom:'5px' } }} panes={panes} />
+            <Tab menu={{ secondary: true , style: {overflowX : 'auto', overflowY : 'hidden', paddingBottom:'5px' } }} panes={panes} />
             <br />
-        </Bounce>
  
     </>);
 }

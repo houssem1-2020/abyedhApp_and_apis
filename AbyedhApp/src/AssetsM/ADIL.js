@@ -3843,7 +3843,7 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    agritools: {
+    agritoolsOld: {
         tag: 'docteur',
         themeColor: '#087159',
         directoryTable: '01_docteur',
@@ -4319,5 +4319,145 @@ const AbyedhADIL = {
     //     ],
     //     profileTarif:true,
     // },
+
+     /* Tools */
+    rentingHouse: {
+        tag: 'docteur',
+        themeColor: '#6f92d9',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ الشَرِكَاتْ',
+        systemLink: 'https://system.abyedh.tn/Landing/socite',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
+            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'إستديو', value: 'dentiste', imgSrc: 'studio' },
+                { id: 2, name: 'فيلا', value: 'dentiste', imgSrc: 'garage' },
+                
+                
+            ],
+            [   
+                { id: 3, name: 'شقة', value: 'dentiste', imgSrc: 'apartement' },
+                { id: 4, name: 'دار', value: 'dentiste', imgSrc: 'maison' },
+            ],
+            [   
+                { id: 5, name: 'مكتب', value: 'dentiste', imgSrc: 'office' },
+                { id: 6, name: 'دار للطلبة', value: 'dentiste', imgSrc: 'rak2' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'إستديو', value: 'dentiste', imgSrc: 'studio' },
+                { id: 2, name: 'فيلا', value: 'dentiste', imgSrc: 'garage' },
+                { id: 3, name: 'شقة', value: 'dentiste', imgSrc: 'apartement' },
+                { id: 4, name: 'دار', value: 'dentiste', imgSrc: 'maison' },
+                { id: 5, name: 'مكتب', value: 'dentiste', imgSrc: 'office' },
+                { id: 6, name: 'دار للطلبة', value: 'dentiste', imgSrc: 'rak2' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'بنوك', value: 'dentiste', imgSrc: 'bank' },
+            { id: 2, name: 'صناعات غذائية', value: 'dentiste', imgSrc: 'alimentaire' },
+            { id: 3, name: 'بناء و أنشاء', value: 'dentiste', imgSrc: 'construc' },
+            { id: 4, name: 'نسيج', value: 'dentiste', imgSrc: 'textile' },
+            { id: 5, name: 'نقل', value: 'dentiste', imgSrc: 'transp' },
+            { id: 6, name: 'تقنية', value: 'dentiste', imgSrc: 'teck' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    agriTools: {
+        tag: 'docteur',
+        themeColor: '#265e61',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ الشَرِكَاتْ',
+        systemLink: 'https://system.abyedh.tn/Landing/socite',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
+            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'ألة حصاد', value: 'dentiste', imgSrc: 'machine' },
+                { id: 2, name: 'جرار', value: 'dentiste', imgSrc: 'tracteur' },
+                
+                
+            ],
+            [   
+                { id: 3, name: 'موزع السماد', value: 'dentiste', imgSrc: 'mohrath' },
+                { id: 4, name: 'محراث', value: 'dentiste', imgSrc: 'mohrath2' },
+            ],
+            [   
+                { id: 5, name: 'مكبس القش', value: 'dentiste', imgSrc: 'brisse' },
+                { id: 6, name: 'مجرورة', value: 'dentiste', imgSrc: 'remorque' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'ألة حصاد', value: 'dentiste', imgSrc: 'machine' },
+                { id: 2, name: 'جرار', value: 'dentiste', imgSrc: 'tracteur' },
+                { id: 3, name: 'موزع السماد', value: 'dentiste', imgSrc: 'mohrath' },
+                { id: 4, name: 'محراث', value: 'dentiste', imgSrc: 'mohrath2' },
+                { id: 5, name: 'مكبس القش', value: 'dentiste', imgSrc: 'brisse' },
+                { id: 6, name: 'مجرورة', value: 'dentiste', imgSrc: 'remorque' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'بنوك', value: 'dentiste', imgSrc: 'bank' },
+            { id: 2, name: 'صناعات غذائية', value: 'dentiste', imgSrc: 'alimentaire' },
+            { id: 3, name: 'بناء و أنشاء', value: 'dentiste', imgSrc: 'construc' },
+            { id: 4, name: 'نسيج', value: 'dentiste', imgSrc: 'textile' },
+            { id: 5, name: 'نقل', value: 'dentiste', imgSrc: 'transp' },
+            { id: 6, name: 'تقنية', value: 'dentiste', imgSrc: 'teck' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
 }
 export default AbyedhADIL 

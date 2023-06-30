@@ -6,12 +6,12 @@ import { Icon, Input } from 'semantic-ui-react'
 function PublicPage() {
     /* ###########################[const]############################ */
     const Items = [
-        {id:2, size:4 , link:'',  icon:'truck-front-fill',  iconColor:'#04c6ce', text:'كار ', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
-        {id:2, size:4 , link:'',  icon:'train-lightrail-front',  iconColor:'#04c6ce', text:'مترو خفيف ', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
-        {id:2, size:4 , link:'',  icon:'train-front',  iconColor:'#04c6ce', text:'قطار', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
-        {id:2, size:4 , link:'',  icon:'train-freight-front-fill',  iconColor:'#04c6ce', text:'TGM', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
-        {id:1, size:4 , link:'',  icon:'airplane-engines-fill',  iconColor:'#04c6ce', text:'طائرة', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
-        {id:2, size:4 , link:'',  icon:'tsunami',  iconColor:'#04c6ce', text:'سفينة', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
+        {id:2, size:4 , link:'bus',  icon:'truck-front-fill',  iconColor:'#04c6ce', text:'كار ', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
+        {id:2, size:4 , link:'metro',  icon:'train-lightrail-front',  iconColor:'#04c6ce', text:'مترو خفيف ', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
+        {id:2, size:4 , link:'train',  icon:'train-front',  iconColor:'#04c6ce', text:'قطار', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
+        {id:2, size:4 , link:'tgm',  icon:'train-freight-front-fill',  iconColor:'#04c6ce', text:'TGM', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
+        {id:1, size:4 , link:'avion',  icon:'airplane-engines-fill',  iconColor:'#04c6ce', text:'طائرة', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
+        {id:2, size:4 , link:'bateaux',  icon:'tsunami',  iconColor:'#04c6ce', text:'سفينة', smallText:'أوقات سفر جميع انواع الحافلات, ...'},
     ]
 
     /*#########################[UseEffect]###########################*/
@@ -21,29 +21,30 @@ function PublicPage() {
 
     /* ###########################[Card]############################# */
     const TopNavBar = () =>{
-        let UID = localStorage.getItem('UID')
         const UserCard = () =>{
             return(<>
                 <NavLink exact='true' to='/Profile' className="navbar-brand border-div m-0 p-0 ms-3">
-                    <img  className="rounded-circle p-0 m-0 me-1" src="https://cdn.abyedh.tn/images/p_pic/15.gif"   alt="Logo" style={{width:'30px', height:'30px'}} />
+                    <img  className="rounded-circle p-0 m-0 me-1" src={`https://cdn.abyedh.tn/images/p_pic/${GConf.UserData.UData.PictureId}.gif`}   alt="Logo" style={{width:'30px', height:'30px'}} />
                 </NavLink>
             </>)
         }
         return(<>
-                <div className="rounded-0 border-0 p-2 m-0  navshad fixed-top" style={{backgroundColor: GConf.Tools.public.themeColor}} >
-                    <div className='row m-0'>
+                <nav className="p-2 fixed-top navshad" style={{backgroundColor: GConf.Tools.public.themeColor}}>
+                    <div className='row'>
                         <div className='col-6 text-start align-self-center'>
                             <NavLink exact='true' to='/Tools' className="m-0 p-0 ms-3">
-                                <img  className="border-div" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
                         </div>
                         <div className='col-6 text-end align-self-center'>
-                            {UID ? <UserCard />  : <NavLink exact='true' to='/Profile' className="m-0 p-0 ms-3 text-white"> تسجيل الدخول</NavLink>}
+                            {GConf.UserData.Logged ? <UserCard />  : <NavLink exact='true' to='/Profile' className="m-0 p-0 me-3 text-white"> تَسْجِيلْ الدٌخٌولْ</NavLink>}
                         </div>
                     </div>
-                </div>
+                </nav>
             </>)
     }
+
     const AdsLanding = () =>{
         return(<>
         <div className='card-body rounded-0' style={{height:'170px', backgroundColor:'#e9ecef', marginTop:'55px'}}>
@@ -60,8 +61,8 @@ function PublicPage() {
     }
     const LinkCard = (props) =>{
         return(<>
-            <NavLink exact='true' to={`${props.data.link}`}>
-                <div className='card card-body shadow-sm mb-3 '>
+            <NavLink exact='true' to={`landing/${props.data.link}`}>
+                <div className='card card-body shadow-sm mb-3 border-div'>
                     <div className='row'>
                         <div className='col-4 align-self-center'>
                             <div className="icon-shape text-white rounded-circle elevation" style={{backgroundColor: props.data.iconColor, width: `${props.data.size}rem`, height: `${props.data.size}rem`}} >
@@ -114,8 +115,8 @@ function PublicPage() {
                 <div className='col-12 col-md-6'><LinkCard data={Items[1]} /></div>
                 <div className='col-12 col-md-6'><LinkCard data={Items[2]} /></div>
                 <div className='col-12 col-md-6'><LinkCard data={Items[3]} /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[4]} /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[5]} /></div>
+                {/* <div className='col-12 col-md-6'><LinkCard data={Items[4]} /></div>
+                <div className='col-12 col-md-6'><LinkCard data={Items[5]} /></div> */}
             </div>
         </div>
         <ButtomCard />

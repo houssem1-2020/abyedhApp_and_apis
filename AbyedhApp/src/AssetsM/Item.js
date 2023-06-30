@@ -81,8 +81,8 @@ const dirItem = {
         slides: [
                 { id: 1, image: 'transp', name: 'نَقْلْ بَضَائِعْ', link: 'transporteur' },
                 { id: 2, image: 'autoecole', name: 'تَعْلِيمْ سِيَاقَة', link: 'autoecole' },
-                { id: 3, image: 'taxi', name: 'تَاكْسِي', link: 'taxi', tools:true },
-                { id: 4, image: 'louage', name: 'لٌوَّاجْ', link: 'louage', tools:true }
+                { id: 3, image: 'taxi', name: 'تَاكْسِي', link: 'Tools/Taxi', tools:true },
+                { id: 4, image: 'louage', name: 'لٌوَّاجْ', link: 'Tools', tools:true }
         ],
         smallSlider: false,
         smallDisplay:[
@@ -320,18 +320,18 @@ const dirItem = {
         themeColor: '#795549',
         slider: false,
         slides: [
-            { id: 1, image: 'animals', name: 'حَيَوَانَاتْ أَلِيفَة', link: 'animals', tools:true },
-            { id: 2, image: 'champ', name: 'أَرْضْ فِلاَحِيَّة', link: 'champ' , tools:true },
-            { id: 3, image: 'agtool', name: 'أَدَاةْ فِلاَحِيَّة', link: 'agritools' , tools:true },
+            { id: 2, image: 'champ', name: 'بَيْعْ العَلَفْ', link: 'champ'},
+            { id: 1, image: 'animals', name: 'حَيَوَانَاتْ أَلِيفَة', link: 'Tools', tools:true }, 
+            { id: 3, image: 'agtool', name: 'أَدَاةْ فِلاَحِيَّة', link: 'Tools/agritools' , tools:true },
         ],
         smallSlider: true,
         smallDisplay:[
             [
-                { id: 1, image: 'animals', name: 'حَيَوَانَاتْ أَلِيفَة', link: 'animals' , tools:true },
-                { id: 2, image: 'champ', name: 'أَرْضْ فِلاَحِيَّة', link: 'champ' , tools:true },
+                { id: 1, image: 'animals', name: 'حَيَوَانَاتْ أَلِيفَة', link: 'Tools' , tools:true },
+                { id: 2, image: 'champ', name: 'بَيْعْ العَلَفْ', link: 'champ'   },
             ],
             [
-                { id: 3, image: 'agtool', name: 'أَدَاةْ فِلاَحِيَّة', link: 'agtools' , tools:true },
+                { id: 3, image: 'agtool', name: 'أَدَاةْ فِلاَحِيَّة', link: 'Tools/agritools' , tools:true },
             ]
         ]
     },
@@ -366,7 +366,7 @@ const dirItem = {
             ],
             [
                 { id: 5, image: 'admin_a_mosq', name: 'جَامَعْ', link: 'admin_a_mosq' },
-                { id: 6, image: 'embassy', name: 'سَفَارَة', link: 'ambassade', tools:true },
+                { id: 6, image: 'embassy', name: 'سَفَارَة', link: 'Tools/ambassade', tools:true },
             ]
         ],
         smallSlider: true,

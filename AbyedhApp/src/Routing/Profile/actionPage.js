@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
 import GConf from '../../AssetsM/generalConf';
 
@@ -66,13 +66,29 @@ import WeddingPhotographeActions from './Actions/wedding_photographe';
 import WeddingBijouxActions from './Actions/wedding_bijoux';
 import WeddingChefActions from './Actions/wedding_chef';
 import WeddingSallonMariageActions from './Actions/wedding_salon_marriage';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function ProfileAction() {
 
     /* ############### Const #################*/
     let {tag,PID} = useParams()
     let UID = localStorage.getItem('UID')
+    let [clientActivated, setClientActivated] = useState(false)
 
+    /* ############### UseEffect #################*/
+        useEffect(() => {
+            //window.scrollTo(0, 0);
+            axios.post(`${GConf.ApiLink}/profile/activation`, {
+                tag: tag,
+                PID:PID,
+            })
+            .then(function (response) {
+               if (response.data.Activated == 'true') {
+                setClientActivated(true)
+               }
+            })
+            }, [])
     /* ############### Card #################*/
     const TopNavBar = () =>{
         const UserCard = () =>{
@@ -183,14 +199,14 @@ function ProfileAction() {
         <br />
         <br />
         <br />
-        <div className='container'>
-            <div className='  mb-4 border-div'>
+        <div className='container container-lg'>
+            <div className=' mb-4 border-div'>
                 <br />
                 <div className='row'>
                     <div className='col-12 '>
-                      <AlertCard /> 
+                      {clientActivated ? '': <AlertCard /> } 
                     </div>
-                    <div className='col-12 col-lg-8 mb-4 order-2 order-lg-1 mt-4'>
+                    <div className='col-12 col-lg-8 mb-4 order-2 order-lg-1 mt-4  p-0'>
                         <StateCard status={tag} />
                     </div>
                     <div className='col-12 col-md-4 mb-4 order-1 order-lg-2 text-center align-self-center'>

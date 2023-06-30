@@ -22,8 +22,8 @@ import "swiper/css/pagination";
 import DocteurSpecific from './Specific/docteur'; 
 import CliniqueSpecific from './Specific/clinique'; 
 import PharmacieSpecific from './Specific/pharmacie';
-import GarderieActions from './Specific/garderie';
-import RestaurantActions from './Specific/restaurant';
+import GarderieSpecific from './Specific/garderie';
+import RestaurantSpecific from './Specific/restaurant';
 import AutoEcoleSpecific from './Specific/autoecole';
 import AvocatSpecific from './Specific/avocat';
 import BoutiqueSpecific from './Specific/boutique';
@@ -101,6 +101,139 @@ import AdminFPosteSpecific from './Specific/admin_f_poste';
 import AdminFRfSpecific from './Specific/admin_f_rf';
 import AdminSScbSpecific from './Specific/admin_s_csb';
 import AdminSHospitalSpecific from './Specific/admin_s_hospital';
+
+
+///ACTION
+import DocteurActions from './Actions/docteur'; 
+import GarderieActions from './Actions/garderie';
+import PharmacieActions from './Actions/pharmacie';
+import RestaurantActions from './Actions/restaurant';
+import CliniqueActions from './Actions/clinique'; 
+import AutoEcoleActions from './Actions/autoecole';
+import AvocatActions from './Actions/avocat';
+import BoutiqueActions from './Actions/boutique';
+import CafeActions from './Actions/cafe';
+import CentreMdActions from './Actions/centreMD';
+import GymActions from './Actions/gym';
+import EcoleActions from './Actions/ecole';
+import ComptableActions from './Actions/comptable';
+import CoiffureActions from './Actions/coiffure';
+import HotelsActions from './Actions/hotels';
+import LaboActions from './Actions/labo';
+import LibrairieActions from './Actions/librairie';
+import LyceeActions from './Actions/lycee';
+import StadeActions from './Actions/stade';
+import SociteActions from './Actions/socite';
+import SmasarActions from './Actions/samsar';
+import PyscineActions from './Actions/pyscine';
+import UniversiteActions from './Actions/universite';
+import TransporteurActions from './Actions/transporteur';
+import StorageActions from './Actions/storage';
+import VgAgenceActions from './Actions/vg_agence';
+
+import HauseElectroActions from './Actions/house_electro';
+import HauseMeubleActions from './Actions/house_meuble';
+
+import PtvMagazinActions from './Actions/ptvente_shop';
+import PtvPatesserieActions from './Actions/ptvente_patesserie';
+import PtvFuiterieActions from './Actions/ptvente_fruit';
+import PtvVBoulengerieActions from './Actions/ptvente_boulengerie';
+import PtvEpecerieActions from './Actions/ptvente_small_shop';
+import PtvViandeActions from './Actions/ptvente_viande';
+
+import ChantierArchitectureActions from './Actions/chantier_architecture';
+import ChantierContracteurActions from './Actions/chantier_contrateur';
+import ChantierQuicaillerieActions from './Actions/chantier_quincaillerie';
+
+import HandmadeCristalActions from './Actions/handmade_cristal';
+import HandmadeElectricienActions from './Actions/handmade_electricien';
+import HandmadeForferonActions from './Actions/handmade_forgeron';
+import HandemadeMarbreActions from './Actions/handmade_menuisier';
+import HandemadeMenuisierActions from './Actions/handmade_menuisier';
+import HandemadePeintureActions from './Actions/handmade_peinture';
+import HandemadePlombierActions from './Actions/handmade_plombier';
+
+import CarQiosqieActions from './Actions/car_qiosque';
+import CarMecanicienActions from './Actions/car_mecanicien';
+import CarLocationActions from './Actions/car_location';
+import CarParkingActions from './Actions/car_parking';
+
+import ArtCinemaActions from './Actions/art_cinema';
+import ArtMuseeActions from './Actions/art_musee';
+import ArtTheatreActions from './Actions/art_theatre';
+
+import WeddingOrchestreActions from './Actions/wedding_orchestre';
+import WeddingFournitureMarriageActions from './Actions/wedding_fourniture_marriage';
+import WeddingPhotographeActions from './Actions/wedding_photographe';
+import WeddingBijouxActions from './Actions/wedding_bijoux';
+import WeddingChefActions from './Actions/wedding_chef';
+import WeddingSallonMariageActions from './Actions/wedding_salon_marriage';
+
+///
+import DocteurSuivie from './Suivie/docteur'; 
+import GarderieSuivie from './Suivie/garderie';
+import PharmacieSuivie from './Suivie/pharmacie';
+import RestaurantSuivie from './Suivie/restaurant';
+import CliniqueSuivie from './Suivie/clinique'; 
+import AutoEcoleSuivie from './Suivie/autoecole';
+import AvocatSuivie from './Suivie/avocat';
+import BoutiqueSuivie from './Suivie/boutique';
+import CafeSuivie from './Suivie/cafe';
+import CentreMdSuivie from './Suivie/centreMD';
+import GymSuivie from './Suivie/gym';
+import EcoleSuivie from './Suivie/ecole';
+import ComptableSuivie from './Suivie/comptable';
+import CoiffureSuivie from './Suivie/coiffure';
+import HotelsSuivie from './Suivie/hotels';
+import LaboSuivie from './Suivie/labo';
+import LibrairieSuivie from './Suivie/librairie';
+import LyceeSuivie from './Suivie/lycee';
+import StadeSuivie from './Suivie/stade';
+import SociteSuivie from './Suivie/socite';
+import SmasarSuivie from './Suivie/samsar';
+import PyscineSuivie from './Suivie/pyscine';
+import UniversiteSuivie from './Suivie/universite';
+import TransporteurSuivie from './Suivie/transporteur';
+import StorageSuivie from './Suivie/storage';
+import VgAgenceSuivie from './Suivie/vg_agence';
+
+import HauseElectroSuivie from './Suivie/house_electro';
+import HauseMeubleSuivie from './Suivie/house_meuble';
+
+import PtvMagazinSuivie from './Suivie/ptvente_shop';
+import PtvPatesserieSuivie from './Suivie/ptvente_patesserie';
+import PtvFuiterieSuivie from './Suivie/ptvente_fruit';
+import PtvVBoulengerieSuivie from './Suivie/ptvente_boulengerie';
+import PtvEpecerieSuivie from './Suivie/ptvente_small_shop';
+import PtvViandeSuivie from './Suivie/ptvente_viande';
+
+import ChantierArchitectureSuivie from './Suivie/chantier_architecture';
+import ChantierContracteurSuivie from './Suivie/chantier_contrateur';
+import ChantierQuicaillerieSuivie from './Suivie/chantier_quincaillerie';
+
+import HandmadeCristalSuivie from './Suivie/handmade_cristal';
+import HandmadeElectricienSuivie from './Suivie/handmade_electricien';
+import HandmadeForferonSuivie from './Suivie/handmade_forgeron';
+import HandemadeMarbreSuivie from './Suivie/handmade_menuisier';
+import HandemadeMenuisierSuivie from './Suivie/handmade_menuisier';
+import HandemadePeintureSuivie from './Suivie/handmade_peinture';
+import HandemadePlombierSuivie from './Suivie/handmade_plombier';
+
+import CarQiosqieSuivie from './Suivie/car_qiosque';
+import CarMecanicienSuivie from './Suivie/car_mecanicien';
+import CarLocationSuivie from './Suivie/car_location';
+import CarParkingSuivie from './Suivie/car_parking';
+
+import ArtCinemaSuivie from './Suivie/art_cinema';
+import ArtMuseeSuivie from './Suivie/art_musee';
+import ArtTheatreSuivie from './Suivie/art_theatre';
+
+import WeddingOrchestreSuivie from './Suivie/wedding_orchestre';
+import WeddingFournitureMarriageSuivie from './Suivie/wedding_fourniture_marriage';
+import WeddingPhotographeSuivie from './Suivie/wedding_photographe';
+import WeddingBijouxSuivie from './Suivie/wedding_bijoux';
+import WeddingChefSuivie from './Suivie/wedding_chef';
+import WeddingSallonMariageSuivie from './Suivie/wedding_salon_marriage';
 
 
 const AddComment = ({rateValue,setRateValue,SaveRating}) =>{
@@ -227,10 +360,11 @@ const CommentsCard = ({tag, profileData,rateValue,setRateValue,SaveRating }) =>{
 function ProfilePage() {
     /*#########################[Const]##################################*/
         let {tag,PID} = useParams()
-        let [loading,setLoading] =useState(false)
+        let [loading,setLoading] =useState(true)
         let [rateValue,setRateValue] =useState({comment:'', rating:0})
         let [isFavorite,setIsFavorite] =useState(false)
-        let [profileData, setProfileData] = useState({liguiyg:'test'})
+        let [profileData, setProfileData] = useState({photoes:[]})
+        let [clientActivated, setClientActivated] = useState(false)
         L.Icon.Default.mergeOptions(GConf.LeafleftIcon);
         let UID = localStorage.getItem('UID')
         const panes = [
@@ -249,22 +383,43 @@ function ProfilePage() {
                             <div className='col-12 d-none mb-4'>
                                 { GConf.ADIL[tag].systemActive ?  <ActionCardForSmall /> : <></> }                        
                             </div> 
-                        </div>                        
+                        </div> 
+                        <div className='d-lg-none'>
+                            { GConf.ADIL[tag].systemActive && GConf.UserData.Logged ?  <ActionCardForSmall /> : <></> }                        
+                        </div>                       
                     </>,
         },
         {
             menuItem: { key: 'sp', content:  <b className='' ><span className='bi bi-view-list bi-sm'></span></b> , dir:'rtl',  className:'rounded border border-2 border-div' , style:{color:GConf.ADIL[tag].themeColor,},},
             render: () => <SpecificCard status={tag} />,
         },
-        // {
-        //     menuItem: { key: 'sp', content:  <b className='' ><span className='bi bi-pencil-square bi-sm'></span></b> , dir:'rtl',  className:'rounded border border-2 border-div' , style:{color:GConf.ADIL[tag].themeColor,},},
-        //   render: () => <SpecificCard status={tag} />,
-        // },
-        // {
-        //     menuItem: { key: 'sp', content:  <b className='' ><span className='bi bi-eye-fill bi-sm'></span></b> , dir:'rtl',  className:'rounded border border-2 border-div' , style:{color:GConf.ADIL[tag].themeColor,},},
-        //   render: () => <SpecificCard status={tag} />,
-        // },
-      ]
+        {
+            menuItem: { key: 'ac', content:  <b className='' ><span className='bi bi-pencil-square bi-sm'></span></b> , dir:'rtl',  className:'rounded border border-2 border-div' , style:{color:GConf.ADIL[tag].themeColor,},},
+          render: () => <>
+                        {!GConf.UserData.Logged ? 'Pas de Client ': 
+                            <>
+                                <div className='row'>
+                                    <div className='col-12 '>
+                                        {clientActivated ? '': <AlertCard /> } 
+                                    </div>
+                                    <div className='col-12 col-lg-8 mb-4 order-2 order-lg-1 mt-4  p-0'>
+                                    <ActionStateCard status={tag} />
+                                    </div>
+                                    <div className='col-12 col-md-4 mb-4 order-1 order-lg-2 text-center align-self-center'>
+                                        <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} width='60%' heigth='60%' className='img-responsive' />
+                                    </div>
+                                </div>
+                            </>
+                         }
+                        
+                        </>,
+        },
+        {
+            menuItem: { key: 'sv', content:  <b className='' ><span className='bi bi-eye-fill bi-sm'></span></b> , dir:'rtl',  className:'rounded border border-2 border-div' , style:{color:GConf.ADIL[tag].themeColor,},},
+          render: () => <>{!GConf.UserData.Logged ? 'Pas de Client ': <FollowStateCard status={tag} /> }</>,
+        },
+        ]
+        const [activeIndex, setActiveIndex] = useState(0)
     /* ############### UseEffect #################*/
         useEffect(() => {
         window.scrollTo(0, 0);
@@ -273,9 +428,23 @@ function ProfilePage() {
             PID:PID,
           })
           .then(function (response) {
-            setLoading(false)
             setProfileData(response.data)
-          })
+            setLoading(false)
+            if (response.data.Activated == 'true') {
+                setClientActivated(true)
+            }
+        })
+        
+        if (GConf.UserData.Logged) {
+            axios.post(`${GConf.ApiProfileLink}/favorite/check-favorite`, {
+                tag: tag,
+                PID:PID,
+                UID: GConf.UserData.UData.UID,
+              })
+              .then(function (response) {
+                if (response.data != 0 ) {setIsFavorite(true)}
+            })
+        }
         }, [])
 
     /* ############### Functions #################*/
@@ -349,44 +518,37 @@ function ProfilePage() {
             
         }
         const AddToFarite = () =>{
-            
-            if (GConf.UserData.Logged && !isFavorite ) { 
-                console.log('to save')
-                setIsFavorite(!isFavorite)
-                // axios.post(`${GConf.ApiLink}/profile-add-favorite`, {
-                //     PID: '',
-                //     UID:'',
-                //     tag:'',
-                // })
-                // .then(function (response) {
-                //     // setResultList(response.data)
-                //     // setLoading(false)
-                // }).catch((error) => {
-                //     if(error.request) {
-                //     toast.error(<><div><h5>مشل في الإتصال </h5> </div></>, GConf.TostInternetGonf) 
-                //     }
-                // });
+            if (GConf.UserData.Logged && !isFavorite ) {      
+                axios.post(`${GConf.ApiProfileLink}/favorite/ajouter`, {
+                    PID: PID,
+                    UID: GConf.UserData.UData.UID,
+                    tag: tag,
+                    Name: profileData.genrale[0].Name,
+                })
+                .then(function (response) {
+                    setIsFavorite(!isFavorite)
+                }).catch((error) => {
+                    if(error.request) {
+                    toast.error(<><div><h5>مشل في الإتصال </h5> </div></>, GConf.TostInternetGonf) 
+                    }
+                });
 
             } 
             else if (GConf.UserData.Logged && isFavorite ) {
-                console.log('to delete')
-                setIsFavorite(!isFavorite)
-                // axios.post(`${GConf.ApiLink}/profile-delete-favorite`, {
-                //     PID: '',
-                //     UID:'',
-                //     tag:'',
-                // })
-                // .then(function (response) {
-                //     // setResultList(response.data)
-                //     // setLoading(false)
-                // }).catch((error) => {
-                //     if(error.request) {
-                //     toast.error(<><div><h5>مشل في الإتصال </h5> </div></>, GConf.TostInternetGonf) 
-                //     }
-                // });
+                axios.post(`${GConf.ApiProfileLink}/favorite/remove`, {
+                    PID: PID,
+                    UID: GConf.UserData.UData.UID,
+                    tag: tag,
+                })
+                .then(function (response) {
+                    setIsFavorite(!isFavorite)
+                }).catch((error) => {
+                    if(error.request) {
+                    toast.error(<><div><h5>مشل في الإتصال </h5> </div></>, GConf.TostInternetGonf) 
+                    }
+                });
             }
             else{
-                console.log('not logged')
                 toast.error(<><div><h5> قم بتسجيل الدخول  </h5> </div></>, GConf.TostInternetGonf)
             }
         }
@@ -487,8 +649,8 @@ function ProfilePage() {
                                     {
                                         GConf.ADIL[tag].cardProfile.map( (data,index) => 
                                         <tr key={index}> 
-                                            <td className='col-8 text-end'><b className='text-secondary'>{profileData.genrale ? profileData.genrale[0][data.resultTag]:' '}</b></td> 
-                                            <td className='col-4' scope="row" > <b style={{color:GConf.ADIL[tag].themeColor}}><span className={`bi bi-${data.icon}`}></span> {data.name} </b></td>
+                                            <td className='col-11 text-end'><b className='text-secondary'>{profileData.genrale ? <> { profileData.genrale[0][data.resultTag]  ? profileData.genrale[0][data.resultTag] : 'غير معروف' }</> : ''}</b></td> 
+                                            <td className='col-1' scope="row" > <b style={{color:GConf.ADIL[tag].themeColor}}><span className={`bi bi-${data.icon}`}></span>  </b></td>
                                         </tr> )
                                     }
                                     
@@ -499,7 +661,19 @@ function ProfilePage() {
                     </div>
             </>)
         }
-        const CalendarCard = () =>{
+        const CalendarCard = () =>{   
+            const defaultEvents = [ ]
+            const GeneratedTime = () => {
+                let curr = new Date()
+                let first = curr.getDate() - curr.getDay()
+                const TargertDateIs = (dayIndex) => { return new Date(curr.setDate(first + dayIndex)).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}
+                let reternedListe = []
+                JSON.parse(profileData.horaire[0].WorkingTime).map( (getData,index) => reternedListe.push(
+                    { title: 'S1',  start: `${TargertDateIs(index)}T${getData.matin.start}` , end: `${TargertDateIs(index)}T${getData.matin.end}`, display: 'background', backgroundColor:'#f5a442'},
+                    { title: 'S2',  start: `${TargertDateIs(index)}T${getData.soir.start}` , end: `${TargertDateIs(index)}T${getData.soir.end}`, display: 'background', backgroundColor:'#001942'},
+                    ))
+                return reternedListe
+            }
             return(<>
                     <div className='card card-body shadow-sm mb-2 h-100 border-div'>
                         <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>أوقات العمل  </h5>
@@ -508,12 +682,7 @@ function ProfilePage() {
                             initialView="timeGridWeek"
                             locale='fr' 
                             dayHeaderFormat = {{weekday: 'short'}}
-                            events={[
-                                { title: 'S1',  start: '2022-08-18T08:00:00' , end: "2022-08-18T12:00:00", display: 'background', backgroundColor:'red'},
-                                { title: 'S2', start: '2022-08-18T14:00:00', end: "2022-08-18T18:00:00", display: 'background' },
-                                { title: 'S1',  start: '2022-08-18T08:00:00' , end: "2022-08-18T12:00:00", display: 'background'},
-                                { title: 'S2',  start: '2022-08-18T14:00:00' , end: "2022-08-18T18:00:00", display: 'background'},
-                            ]}
+                            events={loading || !profileData.horaire[0]  ?  defaultEvents : GeneratedTime()}
                             headerToolbar='false'
                             height='250px'
                             allDaySlot= {false}
@@ -525,7 +694,7 @@ function ProfilePage() {
             const position = [36.726 , 9.965];
             const GetPosition = () =>{
                 if (loading) { return [36.726 , 9.965] } 
-                else if (profileData.position) { return [9.965 , 36.726  ] }
+                else if (profileData.position && profileData.position[0] != 0) { return [profileData.position[0] , profileData.position[1]] }
                 else if (profileData.genrale) { 
                     let selectedGouv = GConf.abyedhMap.GouvData.filter(gouvr => gouvr.value == profileData.genrale[0].Gouv)
                     if (selectedGouv[0]) {
@@ -564,27 +733,35 @@ function ProfilePage() {
             //nextArrow: <span className='bi bi-arrow-right-circle-fill bg-danger'></span>,
             //prevArrow: <span className='bi bi-arrow-left-circle-fill ' />
             };
-
+            const DefaultImages = [
+                {src:'https://cdn.abyedh.tn/images/required/profile-img1.gif'},
+                {src:'https://cdn.abyedh.tn/images/required/profile-img2.gif'},
+                {src:'https://cdn.abyedh.tn/images/required/profile-img3.gif'},
+                {src:'https://cdn.abyedh.tn/images/required/not-f-4.svg'},
+            ]
             return(<>
                     <div className='card card-body shadow-sm mb-2 h-100 border-div'>
                         <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> الصور</h5>
-                        <Slider {...settings} >
-                            <div>
-                                <img src='https://cdn.abyedh.tn/images/required/profile-img1.gif' width="100%" height="210"/>
-                            </div>
-                            <div>
-                                <img src='https://cdn.abyedh.tn/images/required/profile-img2.gif' width="100%" height="210"/>
-                            </div>
-                            <div>
-                                <img src='https://cdn.abyedh.tn/images/required/profile-img3.gif' width="100%" height="210"/>
-                            </div>
-                            <div>
-                                <img src='https://cdn.abyedh.tn/images/required/not-f-4.svg' width="100%" height="210"/>
-                            </div>
-                            {/* <div>
-                                <img src='https://cdn.abyedh.tn/images/required/not-f-5.svg' width="100%" height="210"/>
-                            </div> */}
-                    </Slider>
+                        
+                            {profileData.photoes.length == 0 ?
+                            <Slider {...settings} >
+                                {DefaultImages.map((data,index) => 
+                                    <div key={index}>
+                                        <img src={data.src} width="100%" height="210"/>
+                                    </div>
+                                )}
+                            </Slider>
+                            :
+                            <Slider {...settings} >
+                                {profileData.photoes.map((data,index) => 
+                                    <div key={index}>
+                                        <img src={`https://cdn.abyedh.tn/images/Directory/${data.ImageLink}`} width="100%" height="210"/>
+                                    </div>
+                                )}
+                            </Slider>
+                            }
+                            
+                    
                     </div>
             </>)
         }
@@ -626,21 +803,21 @@ function ProfilePage() {
         }
         const ActionsBtnCard = (props) =>{
             return(<>
-                <NavLink exact='true' to={`/S/P/${props.data.link}/${tag}/${PID}`}>
-                    <Button  animated size={props.fluid ? 'large' : 'small'} className='bg-white shadow-sm border mb-2 '  fluid={props.fluid}   icon style={{borderRadius:'18px'}}>
+                {/* <NavLink exact='true' to={`/S/P/${props.data.link}/${tag}/${PID}`}> */}
+                    <Button  animated size={props.fluid ? 'large' : 'small'} className='bg-white shadow-sm border mb-2 '  fluid={props.fluid} onClick={ () => setActiveIndex( 2 + props.indexKey)}  icon style={{borderRadius:'18px'}}>
                         <Button.Content visible style={{color: GConf.ADIL[tag].themeColor}}>
                             <div className='row'>
-                                <div className='col-9 align-self-center'>{props.data.name} </div>
+                                <div className='col-9 align-self-center'>{props.data.name}  </div>
                                 <div className='col-3 align-self-center'><Icon name={props.data.icon} /> </div>
                             </div>
                             
                         </Button.Content>
-                        <Button.Content hidden>
-                            <Icon name='arrow right' />
+                        <Button.Content hidden style={{color: GConf.ADIL[tag].themeColor}}>
+                            <Icon name={props.data.icon} />
                         </Button.Content> 
             
                     </Button>
-                </NavLink>
+                {/* </NavLink> */}
                 
                 </>)
         }
@@ -652,7 +829,7 @@ function ProfilePage() {
                                         GConf.ADIL[tag].systemActive && GConf.UserData.Logged ? 
                                         <>
                                             {
-                                                GConf.ADIL[tag].profileBtns.map( (data,index) => <ActionsBtnCard key={index} data={data} /> )
+                                                GConf.ADIL[tag].profileBtns.map( (data,index) => <ActionsBtnCard key={index} data={data} indexKey={index} /> )
                                             }
                                         </> 
                                         : 
@@ -675,7 +852,7 @@ function ProfilePage() {
                 <div className='card card-body shadow-sm mb-2 h-100 border-div'>
                         <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> تواصل </h5>
                         {
-                            GConf.ADIL[tag].profileBtns.map( (data,index) => <ActionsBtnCard key={index} data={data} fluid  /> )
+                            GConf.ADIL[tag].profileBtns.map( (data,index) => <ActionsBtnCard key={index} data={data} fluid indexKey={index}  /> )
                         }
                 </div> 
             </>)
@@ -707,7 +884,7 @@ function ProfilePage() {
                 case 'clinique': return <CliniqueSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'labo': return <LaboSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'centreMD': return <CentreMdSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'garderie': return <GarderieActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'garderie': return <GarderieSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'autoecole': return <AutoEcoleSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'ecole': return <EcoleSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'lycee': return <LyceeSpecific TAG={tag} PID={PID} UID={UID} /> ;
@@ -715,7 +892,7 @@ function ProfilePage() {
                 case 'librairie': return <LibrairieSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'transporteur': return <TransporteurSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'cafe': return <CafeSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'restaurant': return <RestaurantActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'restaurant': return <RestaurantSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'ptvente_shop': return <PtvMagazinSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'ptvente_boulengerie': return <PtvVBoulengerieSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'ptvente_viande': return <PtvViandeSpecific TAG={tag} PID={PID} UID={UID} /> ;
@@ -809,6 +986,162 @@ function ProfilePage() {
                     </div>
             </>)
         }
+        const ActivePaneCard = (props) =>{
+            return(<>
+                <div className={`card p-2 btn-cursor mb-1  text-center border-0  border-div ${ activeIndex == props.activeI ? 'shadow ': '' }`} onClick={ () => setActiveIndex(props.activeI)}>
+                        <h2 className='text-center' style={{color: GConf.ADIL[tag].themeColor}}><span className={`bi bi-${props.icon} bi-xsm`}></span></h2> 
+                </div>
+            </>)
+        }
+        const AlertCard = () =>{
+            return(<>
+                <div className='card-body bg-danger text-white mb-4 border-div text-center ' dir='rtl'>
+                    <span className='bi bi-exclamation-circle-fill ms-2'></span>       <small className='text-white mb-1'>هذا العميل غير مشترك في المنصة .  سيتولي فريق أبيض محاولة الاتصال به لإعلامه بطلبكم</small> 
+                </div>
+            </>)
+        }
+        const ActionStateCard = ({ status }) => {
+            const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
+            const statusCard = React.useCallback(() => {
+              switch(status) {
+                case 'docteur': return <DocteurActions TAG={tag} PID={PID} UID={UID} />;  
+                case 'pharmacie': return <PharmacieActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'clinique': return <CliniqueActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'labo': return <LaboActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'centreMD': return <CentreMdActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'garderie': return <GarderieActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'autoecole': return <AutoEcoleActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ecole': return <EcoleActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'lycee': return <LyceeActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'universite': return <UniversiteActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'librairie': return <LibrairieActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'transporteur': return <TransporteurActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'cafe': return <CafeActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'restaurant': return <RestaurantActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_shop': return <PtvMagazinActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_boulengerie': return <PtvVBoulengerieActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_viande': return <PtvViandeActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_fruit': return <PtvFuiterieActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_patesserie': return <PtvPatesserieActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_small_shop': return <PtvEpecerieActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'house_electro': return <HauseElectroActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'house_meuble': return <HauseMeubleActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'car_location': return <CarLocationActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'car_parking': return <CarParkingActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'car_qiosque': return <CarQiosqieActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'car_mecanicien': return <CarMecanicienActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'samsar': return <SmasarActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'chantier_contrateur': return <ChantierContracteurActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'chantier_architecture': return <ChantierArchitectureActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'chantier_quincaillerie': return <ChantierQuicaillerieActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_forgeron': return <HandmadeForferonActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_menuisier': return <HandemadeMenuisierActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_peinture': return <HandemadePeintureActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_electricien': return <HandmadeElectricienActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_plombier': return <HandemadePlombierActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_cristal': return <HandmadeCristalActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_marbre': return <HandemadeMarbreActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'coiffure': return <CoiffureActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'boutique': return <BoutiqueActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_salon_marriage': return <WeddingSallonMariageActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_orchestre': return <WeddingOrchestreActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_chef': return <WeddingChefActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_photographe': return <WeddingPhotographeActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_fourniture_marriage': return <WeddingFournitureMarriageActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_bijoux': return <WeddingBijouxActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'gym': return <GymActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'pyscine': return <PyscineActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'stade': return <StadeActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'art_cinema': return <ArtCinemaActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'art_theatre': return <ArtTheatreActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'art_musee': return <ArtMuseeActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'avocat': return <AvocatActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'storage': return <StorageActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'comptable': return <ComptableActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'socite': return <SociteActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'hotels': return <HotelsActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'vg_agence': return <VgAgenceActions TAG={tag} PID={PID} UID={UID} /> ;
+                default:  return <StateCard color='secondary' text='Indefinie' />;    
+              }
+            }, [status]);
+          
+            return (
+              <div className="container">
+                {statusCard()}
+              </div>
+            );
+        };
+        const FollowStateCard = ({ status }) => {
+            const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
+            const statusCard = React.useCallback(() => {
+              switch(status) {
+                case 'docteur': return <DocteurSuivie TAG={tag} PID={PID} UID={UID} />;  
+                case 'pharmacie': return <PharmacieSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'clinique': return <CliniqueSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'labo': return <LaboSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'centreMD': return <CentreMdSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'garderie': return <GarderieSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'autoecole': return <AutoEcoleSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ecole': return <EcoleSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'lycee': return <LyceeSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'universite': return <UniversiteSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'librairie': return <LibrairieSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'transporteur': return <TransporteurSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'cafe': return <CafeSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'restaurant': return <RestaurantSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_shop': return <PtvMagazinSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_boulengerie': return <PtvVBoulengerieSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_viande': return <PtvViandeSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_fruit': return <PtvFuiterieSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_patesserie': return <PtvPatesserieSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'ptvente_small_shop': return <PtvEpecerieSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'house_electro': return <HauseElectroSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'house_meuble': return <HauseMeubleSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'car_location': return <CarLocationSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'car_parking': return <CarParkingSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'car_qiosque': return <CarQiosqieSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'car_mecanicien': return <CarMecanicienSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'samsar': return <SmasarSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'chantier_contrateur': return <ChantierContracteurSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'chantier_architecture': return <ChantierArchitectureSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'chantier_quincaillerie': return <ChantierQuicaillerieSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_forgeron': return <HandmadeForferonSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_menuisier': return <HandemadeMenuisierSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_peinture': return <HandemadePeintureSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_electricien': return <HandmadeElectricienSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_plombier': return <HandemadePlombierSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_cristal': return <HandmadeCristalSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'handmade_marbre': return <HandemadeMarbreSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'coiffure': return <CoiffureSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'boutique': return <BoutiqueSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_salon_marriage': return <WeddingSallonMariageSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_orchestre': return <WeddingOrchestreSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_chef': return <WeddingChefSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_photographe': return <WeddingPhotographeSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_fourniture_marriage': return <WeddingFournitureMarriageSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'wedding_bijoux': return <WeddingBijouxSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'gym': return <GymSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'pyscine': return <PyscineSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'stade': return <StadeSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'art_cinema': return <ArtCinemaSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'art_theatre': return <ArtTheatreSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'art_musee': return <ArtMuseeSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'avocat': return <AvocatSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'storage': return <StorageSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'comptable': return <ComptableSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'socite': return <SociteSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'hotels': return <HotelsSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'vg_agence': return <VgAgenceSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                default:  return <StateCard color='secondary' text='Indefinie' />;    
+              }
+            }, [status]);
+          
+            return (
+              <div className="container">
+                {statusCard()}
+              </div>
+            );
+        };
     return ( <>
             <TopNavBar /> 
             <HeaderCard />
@@ -816,19 +1149,29 @@ function ProfilePage() {
             <div className='container'>
             
                 <TopBtnsCard /> 
+                <div className='row justify-content-center' dir='rtl'>
+                        <div className='col-3 col-lg-1'><ActivePaneCard icon='grid-3x3-gap-fill' activeI={0} /> </div>
+                        <div className='col-3 col-lg-1'><ActivePaneCard icon='view-list' activeI={1} /> </div>
+                        <div className='col-3 col-lg-1'><ActivePaneCard icon='pencil-square' activeI={2} /> </div>
+                        <div className='col-3 col-lg-1'><ActivePaneCard icon='eye-fill' activeI={3} /> </div>
+                </div>
                 <br />
                 {
                     loading ? <PlacHolderCard />
                     :
-                    <Tab  menu={{ secondary: true , style: {overflowX : 'auto', justifyContent: 'center', border:'none'} }} menuPosition='right' panes={panes} />
+                    <Tab  
+                            menu={{ secondary: true , style: {overflowX : 'auto', justifyContent: 'center', border:'none'} }} 
+                            menuPosition='right' 
+                            panes={panes}
+                            activeIndex={activeIndex}
+                            className='no-menu-tabs mt-2' 
+                    />
                 }
                 
                 {/* <GeneralCard />
                 <SpecificCard status={tag} />  */}
                 <br /> 
-                <div className='d-lg-none'>
-                    { GConf.ADIL[tag].systemActive && GConf.UserData.Logged ?  <ActionCardForSmall /> : <></> }                        
-                </div>
+                
                 
                 <br />
                 <ButtomCard />

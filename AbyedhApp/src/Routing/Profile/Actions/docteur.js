@@ -41,11 +41,11 @@ function DocteurActions(props) {
 
     return ( <>
         <div className='m-0'>
-                <div attached={false} dir='rtl' className='card card-body shadow-sm pt-5 border-div'>
+                <div   dir='rtl' className='card card-body shadow-sm pt-5 border-div'>
                     <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> تشخيص سريع </h5>
                     <small>التشخيص الدقيق لوضك الصحي قد سياعد طبيبك في تقديم العلاج المناسب و الأكثر فاعلية</small> 
                         <Form className='mb-3'>
-                            <TextArea fluid rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                            <TextArea   rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
                         </Form>
                     <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-calendar2'></span>  تاريخ الموعد </h5>
                     <small> متي تريد أن تحجز الموعد ؟</small>

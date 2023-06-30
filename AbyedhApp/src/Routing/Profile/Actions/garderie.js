@@ -8,20 +8,45 @@ import { toast } from 'react-toastify';
 
 const InscrieCard = ({inscrieD, setInscrieD, SaveInscrie , disabledSaveBtn, tag, loaderState}) =>{
     const genres = [
-        { key: 1 , value: 'garde', text: 'محضنة' },
-        { key: 2 , value: 'preparation', text: 'تحضيري' },
+        { key: 1 , value: 'male', text: 'محضنة' },
+        { key: 2 , value: 'female', text: 'تحضيري' },
     ]
     return(<>
             <h5 className='mb-0 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  الإسم و اللقب </h5>
             <small>اسم و لقب صغيرك</small>
-            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.Name} onChange={(e) => setInscrieD({...inscrieD, Name: e.target.value })} />
+            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.EL_Name} onChange={(e) => setInscrieD({...inscrieD, EL_Name: e.target.value })} />
 
             <h5 className='mb-1' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  تاريخ الولادة </h5>
-            <Input className='mb-3' type='date' fluid  defaultValue={new Date().toISOString().split('T')[0]} value={inscrieD.birthday} onChange={(e) => setInscrieD({...inscrieD, birthday: e.target.value })} />
+            <Input className='mb-3' type='date' fluid  defaultValue={new Date().toISOString().split('T')[0]} value={inscrieD.EL_Naissance} onChange={(e) => setInscrieD({...inscrieD, EL_Naissance: e.target.value })} />
             
-            <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>   نوع التسجيل </h5>
+            <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>   الجنس  </h5>
+            <Select className='mb-3'  fluid options={genres} onChange={(e, { value }) => setInscrieD({...inscrieD, EL_Genre: value })} />
 
-            <Select className='mb-3'  fluid options={genres} onChange={(e, { value }) => setInscrieD({...inscrieD, level: value })} />
+           <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>    الولاية     </h5>
+            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.Gouv} onChange={(e) => setInscrieD({...inscrieD, Gouv: e.target.value })} />
+           
+           <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  المعتمدية </h5>
+            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.Deleg} onChange={(e) => setInscrieD({...inscrieD, Deleg: e.target.value })} />
+           
+           <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  العنوان </h5>
+            <Form>
+                <TextArea  rows="3"   placeholder='العنوان' className='w-100 shadow-sm rounded mb-3' value={inscrieD.EL_Adress} onChange={(e) => setInscrieD({...inscrieD, EL_Adress: e.target.value })}/>
+            </Form>
+
+           <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> اسم و لقب الاب</h5>
+            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.EL_Pere_Nom} onChange={(e) => setInscrieD({...inscrieD, EL_Pere_Nom: e.target.value })} />
+           <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> هاتف الاب</h5>
+            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.EL_Pere_Phone} onChange={(e) => setInscrieD({...inscrieD, EL_Pere_Phone: e.target.value })} />
+           
+           <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> اسم و لقب الام</h5>
+            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.EL_Mere_Nom} onChange={(e) => setInscrieD({...inscrieD, EL_Mere_Nom: e.target.value })} />
+           <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> هاتف الام</h5>
+            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.EL_Mere_Phone	} onChange={(e) => setInscrieD({...inscrieD, EL_Mere_Phone	: e.target.value })} />
+
+            <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات اخري </h5>
+            <Form>
+                <TextArea  rows="3"   placeholder='العنوان' className='w-100 shadow-sm rounded mb-3' value={inscrieD.Comment} onChange={(e) => setInscrieD({...inscrieD, Comment: e.target.value })}/>
+            </Form>
 
             <div className='text-end'>
                 <Button className='rounded-pill' disabled={disabledSaveBtn} onClick={SaveInscrie} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل   <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
@@ -70,9 +95,17 @@ function GarderieActions(props) {
 
     /* ############### Functions #################*/
     const SaveInscrie = () =>{
-        if (!inscrieD.Name) {toast.error("أدخل الاسم و اللقب  !", GConf.TostErrorGonf)}
-        else if (!inscrieD.birthday) {toast.error("ادخل تاريخ الميلاد  !", GConf.TostErrorGonf)}
-        else if (!inscrieD.level) {toast.error("ادخل المستوي  !", GConf.TostErrorGonf)}
+        if (!inscrieD.EL_Name) {toast.error("أدخل الاسم و اللقب  !", GConf.TostErrorGonf)}
+        else if (!inscrieD.EL_Naissance) {toast.error("ادخل تاريخ الميلاد  !", GConf.TostErrorGonf)}
+        else if (!inscrieD.EL_Genre) {toast.error("ادخل الحنس   !", GConf.TostErrorGonf)}
+        else if (!inscrieD.Gouv) {toast.error("ادخل الولاية   !", GConf.TostErrorGonf)}
+        else if (!inscrieD.Deleg) {toast.error("ادخل المعتمدية   !", GConf.TostErrorGonf)}
+        else if (!inscrieD.EL_Adress) {toast.error("ادخل الغعنوان   !", GConf.TostErrorGonf)}
+        else if (!inscrieD.EL_Pere_Nom) {toast.error("ادخل اسم الاب   !", GConf.TostErrorGonf)}
+        else if (!inscrieD.EL_Pere_Phone) {toast.error("ادخل هاتف الاب   !", GConf.TostErrorGonf)}
+        else if (!inscrieD.EL_Mere_Nom) {toast.error("ادخل اسم الام    !", GConf.TostErrorGonf)}
+        else if (!inscrieD.EL_Mere_Phone) {toast.error("ادخل هاتف الام    !", GConf.TostErrorGonf)}
+        else if (!inscrieD.Comment) {toast.error("ادخل تعليق إضافي    !", GConf.TostErrorGonf)}
         else{
             setLS(true)
             axios.post(`${GConf.ApiLink}/Action/garderie-inscrie`, {
@@ -117,7 +150,7 @@ function GarderieActions(props) {
      
     return ( <>
     <div className='m-0'>
-        <Tab menu={{secondary: true , selected: { backgroundColor: 'purple' },  dir:'rtl', style:{justifyContent: 'right',} }} panes={panes} />
+        <Tab menu={{secondary: true , selected: { backgroundColor: 'purple' },  dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={panes} />
     </div>
         
     </> );

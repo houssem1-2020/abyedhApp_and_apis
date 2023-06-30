@@ -37,7 +37,6 @@ const REQUESTS = require('../REQUESTS.js')
       return await Generate(arrayFromDb,IdName,length);  
     }
 
-
 /*####################################[LOGIN]######################################*/
    /* Login */
    Profile.post('/LogIn', (req, res) => {
@@ -129,8 +128,8 @@ const REQUESTS = require('../REQUESTS.js')
           function SaveSetting() {
               return new Promise((resolve, reject) => {
                 connection.changeUser({database : 'dszrccqg_profile'}, () => {});
-                let sql = `INSERT INTO dash_setting(UID,Favorite,Directory,Documents) 
-                           VALUES(${UID}, '[{"f_max":"hhhh","f_autoPlace":"kuyguy", "f_autoSave":"kuyguy","f_auto":"kuyguy"}]', '','')` ;
+                let sql = `INSERT INTO dash_setting(UID,Favorite,Documents,Directory) 
+                           VALUES(${UID}, '', '', '{"Gouv":"${Gouv}","Deleg":"${Deleg}"}')` ;
                  connection.query(sql, (err, rows, fields) => {
                     if (err) return reject(err);
                     resolve(rows);
@@ -353,40 +352,77 @@ const REQUESTS = require('../REQUESTS.js')
     })
 
 /*####################################[FAVORITE]######################################*/
-        Profile.post('/favorite', (req, res) => {
-                let UID = req.body.UID;
-                function FetchAllFavorite() {
-                    return new Promise((resolve, reject) => {
-                      connection.changeUser({database : 'dszrccqg_profile'}, () => {});
-                      let sql = `SELECT * FROM dash_favorite WHERE  UID = '${UID}'`;
-                       connection.query(sql, (err, rows, fields) => {
-                          if (err) return reject(err);
-                          resolve(rows);
-                      })
-                    });
+    Profile.post('/favorite', (req, res) => {
+            let UID = req.body.UID;
+            function FetchAllFavorite() {
+                return new Promise((resolve, reject) => {
+                  connection.changeUser({database : 'dszrccqg_profile'}, () => {});
+                  let sql = `SELECT * FROM dash_favorite WHERE  UID = '${UID}'`;
+                   connection.query(sql, (err, rows, fields) => {
+                      if (err) return reject(err);
+                      resolve(rows);
+                  })
+                });
+            }
+            function GetPIDData(PID,genre) {
+                return new Promise((resolve, reject) => {
+                  connection.changeUser({database : 'dszrccqg_directory'}, () => {});
+                  let sql = `SELECT * FROM  ${ADIL[genre].directoryTable} WHERE  PID = '${PID}'`;
+                   connection.query(sql, (err, rows, fields) => {
+                      if (err) return reject(err);
+                      resolve(rows[0]);
+                  })
+                });
+            }
+              // Call, Function
+            async function query() {
+                const favoriteList = await FetchAllFavorite(); 
+                for (var i = 0; i < favoriteList.length; i++) {
+                  favoriteList[i].PidData = await GetPIDData(favoriteList[i].PID, favoriteList[i].Genre)
                 }
-                function GetPIDData(PID,genre) {
-                    return new Promise((resolve, reject) => {
-                      connection.changeUser({database : 'dszrccqg_directory'}, () => {});
-                      let sql = `SELECT * FROM  ${ADIL[genre].directoryTable} WHERE  PID = '${PID}'`;
-                       connection.query(sql, (err, rows, fields) => {
-                          if (err) return reject(err);
-                          resolve(rows[0]);
-                      })
-                    });
-                }
+              res.send(favoriteList)
+            }
+            query();            
+    })
 
-                  // Call, Function
-                async function query() {
-                    const favoriteList = await FetchAllFavorite(); 
-                    for (var i = 0; i < favoriteList.length; i++) {
-                      favoriteList[i].PidData = await GetPIDData(favoriteList[i].PID, favoriteList[i].Genre)
-                    }
-                  res.send(favoriteList)
-                }
-                query();
-                    
-        })
+    Profile.post('/favorite/ajouter', (req, res) => {
+            let UID = req.body.UID;
+            let PID = req.body.PID;
+            let tag = req.body.tag;
+            let Name = req.body.Name;
+            let Today = new Date().toISOString().split('T')[0]
+            connection.changeUser({database : 'dszrccqg_profile'}, () => {});
+            let sql = `INSERT INTO dash_favorite (UID, PID ,Genre, added_date, Name, Category) 
+                       VALUES ('${UID}','${PID}','${tag}', '${Today}','${Name}','${ADIL[tag].FavoriteGenre}') `;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){res.json(err)}
+                res.json(rows);
+            })                 
+    })
+
+    Profile.post('/favorite/remove', (req, res) => {
+            let UID = req.body.UID;
+            let PID = req.body.PID;
+            let tag = req.body.tag;
+            connection.changeUser({database : 'dszrccqg_profile'}, () => {});
+            let sql = `DELETE FROM dash_favorite WHERE UID = ${UID} AND  PID = ${PID} AND  Genre = '${tag}'`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){res.json(err)}
+                res.json(rows);
+            })                 
+    })
+
+    Profile.post('/favorite/check-favorite', (req, res) => {
+            let UID = req.body.UID;
+            let PID = req.body.PID;
+            let tag = req.body.tag;
+            connection.changeUser({database : 'dszrccqg_profile'}, () => {});
+            let sql = `SELECT PK FROM dash_favorite WHERE  UID = '${UID}' AND PID = ${PID} AND Genre = '${tag}'`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){res.json(err)}
+                res.json(rows.length);
+            })                 
+    })
 
 /*####################################[DOCUMMENTS]###################################*/
       Profile.post('/documment', (req, res) => {
@@ -412,6 +448,64 @@ const REQUESTS = require('../REQUESTS.js')
                 res.json(rows);
               })
                   
+      })
+
+      /* fetch data */
+      Profile.post('/documment/sante', (req, res) => {
+                let tag = req.body.tag;
+                let UID = req.body.UID;
+                let Today = new Date().toISOString().split('T')[0]
+
+                function GetRendyVousListe() {
+                    return new Promise((resolve, reject) => {
+                      connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                      let sql = `SELECT * 
+                                  FROM  dszrccqg_communications.01_docteur_rdv 
+                                  INNER JOIN dszrccqg_directory.01_docteur ON dszrccqg_communications.01_docteur_rdv.PID = dszrccqg_directory.01_docteur.PID 
+                                  WHERE  dszrccqg_communications.01_docteur_rdv.UID  = '${UID}'`;
+
+                       connection.query(sql, (err, rows, fields) => {
+                          if (err) return reject(err);
+                          resolve(rows);
+                      })
+                    });
+                }
+                function GetSeancesListe() {
+                  return new Promise((resolve, reject) => {
+                          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                          let sql = `SELECT * , COALESCE(dszrccqg_system.01_docteur_patient.PA_Name, 'PASSAGER') AS PA_Name , COALESCE(dszrccqg_system.01_docteur_ordonance.OR_Articles, '[]') AS OR_Articles ,  dszrccqg_system.01_docteur_seances.State AS Pay_State FROM dszrccqg_system.01_docteur_seances 
+                                     LEFT JOIN dszrccqg_system.01_docteur_patient ON dszrccqg_system.01_docteur_seances.S_Patient = dszrccqg_system.01_docteur_patient.PA_ID
+                                     LEFT JOIN dszrccqg_system.01_docteur_ordonance ON dszrccqg_system.01_docteur_seances.Ordonance = dszrccqg_system.01_docteur_ordonance.OR_ID
+                                     INNER JOIN dszrccqg_directory.01_docteur ON dszrccqg_system.01_docteur_ordonance.PID = dszrccqg_directory.01_docteur.PID 
+                                     WHERE  dszrccqg_system.01_docteur_patient.Releted_UID = ${UID};`;
+                           connection.query(sql, (err, rows, fields) => {
+                            if(err) return reject(err);
+                            resolve(rows);
+                          })
+                  });
+                }
+                function GetOrdonanceListe() {
+                  return new Promise((resolve, reject) => {
+                          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                          let sql = `SELECT * FROM 01_docteur_ordonance 
+                                     LEFT JOIN dszrccqg_system.01_docteur_patient ON dszrccqg_system.01_docteur_ordonance.OR_Patient = dszrccqg_system.01_docteur_patient.PA_ID
+                                     INNER JOIN dszrccqg_directory.01_docteur ON dszrccqg_system.01_docteur_ordonance.PID = dszrccqg_directory.01_docteur.PID 
+                                     WHERE dszrccqg_system.01_docteur_patient.Releted_UID = ${UID} ;`;
+                           connection.query(sql, (err, rows, fields) => {
+                            if(err) return reject(err);
+                            resolve(rows);
+                          })
+                  });
+                }
+                  // Call, Function
+                async function query() {
+                    const suivieData = {}
+                      suivieData.rdv = await GetRendyVousListe()
+                      suivieData.seance = await GetSeancesListe()
+                      suivieData.ordonance = await GetOrdonanceListe()
+                  res.send(suivieData)
+                }
+                query();               
       })
 
 /*####################################[CALENDAR]#####################################*/

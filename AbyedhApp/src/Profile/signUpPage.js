@@ -154,8 +154,8 @@ const SelectPhoto = (props) =>{
                                                             <ItmesList
                                                                 key={option.id -1}
                                                                 option={option}
-                                                                selected={props.isSelected === option.id -1 }
-                                                                onChange={() => props.setisSelected(option.id -1 )}
+                                                                selected={props.isSelected === option.value }
+                                                                onChange={() => props.setisSelected(option.value)}
                                                             />
                                                         </div>
                                                     ))}     
@@ -187,8 +187,8 @@ const SelectPhoto = (props) =>{
                                                             <ItmesList
                                                                 key={option.id -1}
                                                                 option={option}
-                                                                selected={props.isSelected === option.id -1 }
-                                                                onChange={() => props.setisSelected(option.id -1 )}
+                                                                selected={props.isSelected === option.value }
+                                                                onChange={() => props.setisSelected(option.value )}
                                                             />
                                                         </div>
                                                     ))}     
@@ -238,7 +238,7 @@ const Password = (props) =>{
 function SignUpPage() {
     /*#########################[Const]##################################*/
     const [signUpD, setSignUp] = useState({Name:'', BirthDay: new Date().toISOString().split('T')[0], Phone:'', Gender:'' })
-    const [isSelected, setisSelected] = useState(0);
+    const [isSelected, setisSelected] = useState('0');
     const [password ,setPassword] = useState([{Pvalue:'', repeated:''}])
     const [gouv ,setGouv] = useState('')
     const [deleg ,setDeleg] = useState('')
@@ -419,11 +419,6 @@ function SignUpPage() {
                   }
               });
 
-            console.log(signUpD)
-            console.log(gouv)
-            console.log(deleg)
-            console.log(isSelected)
-            console.log(password)
         }
     }
     /*#########################[Card]##################################*/
