@@ -255,6 +255,9 @@ function CollectivTaxiPage() {
         <div className="floating-card" style={{zIndex: 10000}} onClick={ () => setModalS(true)}>
             <i className="bi bi-diagram-2-fill"></i>
         </div>
+        <div className="floating-card-2" style={{zIndex: 10000}} onClick={ () => setModalS(true)}>
+            <i className="bi bi-search"></i>
+        </div>
         <Modal
                 size='small'
                 open={modalS}

@@ -17,9 +17,9 @@ const GConf = {
     Items : dirItem,
     abyedhMap : TunMap,
     UserData : GetUID(),
-    ApiLink : 'https://api.abyedh.tn/apiAbyedh/Search', //https://api.abyedh.tn/apiAbyedh
-    ApiProfileLink : 'https://api.abyedh.tn/apiAbyedh/Profile', //https://api.abyedh.tn/apiAbyedh
-    ApiToolsLink : 'https://api.abyedh.tn/apiAbyedh/Tools', //https://api.abyedh.tn/apiAbyedh
+    ApiLink : 'http://localhost:3011/Search', //https://api.abyedh.tn/apiAbyedh
+    ApiProfileLink : 'http://localhost:3011/Profile', //https://api.abyedh.tn/apiAbyedh
+    ApiToolsLink : 'http://localhost:3011/Tools', //https://api.abyedh.tn/apiAbyedh
 
     themeColor : '#dc3545',
     TostErrorGonf : {
@@ -96,6 +96,8 @@ const GConf = {
         products:{themeColor:'#d91a33', imgAds:'' , textAds:'المنصة هاذي عبارة عن موسوعة شاملة لمختلف العلميات الأدراية التونسيسة و كيفاش تتم العمليات هاذي باش ترتح المواطنين من الحيرة اللي دور في ريوسهم و تعاونهم باش يجاوبو علي مختلف تساءلاتهم'},
         sport:{themeColor:'#8dd673', imgAds:'' , textAds:'المنصة هاذي عبارة عن موسوعة شاملة لمختلف العلميات الأدراية التونسيسة و كيفاش تتم العمليات هاذي باش ترتح المواطنين من الحيرة اللي دور في ريوسهم و تعاونهم باش يجاوبو علي مختلف تساءلاتهم'},
         public:{themeColor:'#04c6ce', imgAds:'' , textAds:'المنصة هاذي عبارة عن موسوعة شاملة لمختلف وسائل النقل العمومي التونسية , تحتوي أوقات جميع الوسائل من قطار و حافلة و مترو و طائرة ...بالإظافة إلي خريطة الرحلات و متتبع يعطيك مكان الوسيلة علي الخريطة'},
+        news:{themeColor:'#ff6363', imgAds:'' , textAds:'المنصة هاذي عبارة عن موسوعة شاملة لمختلف وسائل النقل العمومي التونسية , تحتوي أوقات جميع الوسائل من قطار و حافلة و مترو و طائرة ...بالإظافة إلي خريطة الرحلات و متتبع يعطيك مكان الوسيلة علي الخريطة'},
+        data:{themeColor:'#04c6ce', imgAds:'' , textAds:'المنصة هاذي عبارة عن موسوعة شاملة لمختلف وسائل النقل العمومي التونسية , تحتوي أوقات جميع الوسائل من قطار و حافلة و مترو و طائرة ...بالإظافة إلي خريطة الرحلات و متتبع يعطيك مكان الوسيلة علي الخريطة'},
     },
 }
  

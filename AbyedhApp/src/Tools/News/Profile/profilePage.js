@@ -43,10 +43,10 @@ function BlogProfilePage() {
                 </>)
             }
             return(<>
-                    <nav className="p-2 fixed-top navshad" style={{backgroundColor: GConf.Tools.blog.themeColor}}>
+                    <nav className="p-2 fixed-top navshad" style={{backgroundColor: GConf.Tools.news.themeColor}}>
                         <div className='row'>
                             <div className='col-6 text-start align-self-center'>
-                                <NavLink exact='true' to='/Tools/Blog' className="m-0 p-0 ms-3">
+                                <NavLink exact='true' to='/Tools/News' className="m-0 p-0 ms-3">
                                     <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
                                     <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                                 </NavLink>
@@ -92,7 +92,7 @@ function BlogProfilePage() {
             <br />
             <br />
             <div className='container' >
-                <Link exaxt='true' to='/tools/Blog'><Button className='rounded-circle' icon='arrow left' /></Link>
+                <Link exaxt='true' to='/Tools/News'><Button className='rounded-circle' icon='arrow left' /></Link>
                 <br />
                 <br />
                 {

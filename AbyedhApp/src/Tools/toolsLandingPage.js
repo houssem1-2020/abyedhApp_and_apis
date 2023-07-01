@@ -23,10 +23,10 @@ function ToolsLandingPage() {
           menuItem: { key: 'edit', icon: 'book', content:  <span className='me-2'>المدونات</span> , dir:'rtl',  className:'rounded-pill border-tabs' },
           render: () => <Encyclipedia />,
         },
-        {
-            menuItem: { key: 'edith', icon: 'wrench', content:  <span className='me-2'>أدوات</span> , dir:'rtl',  className:'rounded-pill border-tabs' },
-          render: () => <ToolsCard />,
-        },
+        // {
+        //     menuItem: { key: 'edith', icon: 'wrench', content:  <span className='me-2'>أدوات</span> , dir:'rtl',  className:'rounded-pill border-tabs' },
+        //   render: () => <ToolsCard />,
+        // },
 
       ]
 
@@ -113,7 +113,7 @@ function ToolsLandingPage() {
                 {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الإقتصادية ' img='finance.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' السياحية ' img='images.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الصحافية ' img='images.svg' /></div> */}
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Art' name=' الثقافية ' img='art.svg' /></div>
+                {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='Art' name=' الثقافية ' img='art.svg' /></div> */}
             </div> 
         </>)
     }
@@ -137,7 +137,9 @@ function ToolsLandingPage() {
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='Public' name=' النقل ' img='public.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='Renting' name=' للكراء' img='rent_house.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='AgriTools' name=' أدات فلاحية' img='nature.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' إستدعاءات' img='invitation.svg' /></div>
+                {/* <div className='col-4 col-lg-2 mb-3 '><LinkCard link='Data' name=' إحصائيات' img='data.svg' /></div> */}
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='News' name=' الإخبار ' img='news.svg' /></div>
+                {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' إستدعاءات' img='invitation.svg' /></div> */}
                 {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الدور التونسي' img='invitation.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' المطبخ التونسي' img='invitation.svg' /></div> */}
             </div> 

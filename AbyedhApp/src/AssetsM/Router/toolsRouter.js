@@ -54,15 +54,6 @@ import NewsPage from '../../Tools/News/mainPage';
 import NewsLandingPage from '../../Tools/News/Landing/landingPage';
 import NewsProfilePage from '../../Tools/News/Profile/profilePage';
 
-
-
-
-
-
-
-
-
-
 const ToolsRouter = () => (
     <Route path="Tools" exact element={<Outlet  />} >
             <Route path="" exact element={<ToolsLandingPage />} />

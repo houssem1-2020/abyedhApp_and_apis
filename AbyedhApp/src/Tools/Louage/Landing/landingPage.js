@@ -14,6 +14,10 @@ import DansDeleg from './Genres/dansDeleg';
 import InterGouv from './Genres/interGouv';
 import DansGouv from './Genres/dansGouv'; 
 
+import DansDelegData from './GenreData/dansDeleg'; 
+import InterGouvData from './GenreData/interGouv';
+import DansGouvData from './GenreData/dansGouv'; 
+
 
 function BlogLandingPage() {
     /* ###########################[const]############################ */
@@ -102,6 +106,25 @@ function BlogLandingPage() {
         }, [status]);
       
         return (
+          <div className=" ">
+            {statusCard()}
+          </div>
+        );
+    };
+
+    const StateDataCard = ({ status }) => {
+        const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
+        const statusCard = React.useCallback(() => {
+          switch(status) {
+            case 'dansGouv': return <DansGouvData TAG={tag} PID={45858588555} UID={555555222} />;  
+            case 'InterGouv': return <InterGouvData TAG={tag} PID={45858588555} UID={555555222} /> ;
+            case 'dansDeleg': return <DansDelegData TAG={tag} PID={45858588555} UID={555555222} /> ;
+             
+            default:  return <StateCard color='secondary' text='Indefinie' />;    
+          }
+        }, [status]);
+      
+        return (
           <div className="container">
             {statusCard()}
           </div>
@@ -115,14 +138,15 @@ function BlogLandingPage() {
             <br />
             <br />
             <div className="container-fluid">
-                <div className="row  ">
-                    <div className="col-12 col-lg-5">
+                {/* <div className="row p-1">
+                    <div className="col-12 col-lg-4 p-1">
                         <StateCard status={tag} />
                     </div> 
-                    <div className="col-12 col-lg-7 align-self-center">
-                        <MapCard  /> 
+                    <div className="col-12 col-lg-8 p-1 align-self-center">
+                        <StateDataCard status={tag} />
                     </div> 
-                </div>
+                </div> */}
+                <StateCard status={tag} />
             </div>
             
     </> );

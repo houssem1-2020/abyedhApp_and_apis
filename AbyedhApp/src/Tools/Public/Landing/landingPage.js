@@ -60,7 +60,7 @@ function BlogLandingPage() {
                 <nav className="p-2 fixed-top navshad" style={{backgroundColor: GConf.Tools.public.themeColor}}>
                     <div className='row'>
                         <div className='col-6 text-start align-self-center'>
-                            <NavLink exact='true' to='/Tools/Blog' className="m-0 p-0 ms-3">
+                            <NavLink exact='true' to='/Tools/Public' className="m-0 p-0 ms-3">
                                 <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
                                 <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
@@ -72,24 +72,7 @@ function BlogLandingPage() {
                 </nav>
             </>)
     }
-    const MapCard = ()=>{
- 
-        return(<>
-                <div className="sticky-top" style={{top:'70px'}}> 
-                        <MapContainer center={myPosition} zoom={7} scrollWheelZoom={false} style={{height:'350px'}} className='border-div' >
-                                <TileLayer
-                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                
-                                />
-                                <Marker position={myPosition}>
-                                    <Popup> مكاني </Popup>
-                                </Marker>
 
-                        </MapContainer>
-                </div>  
-        </>)
-    }
     const StateCard = ({ status }) => {
         const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
         const statusCard = React.useCallback(() => {
@@ -104,7 +87,7 @@ function BlogLandingPage() {
         }, [status]);
       
         return (
-          <div className="container">
+          <div className=" ">
             {statusCard()}
           </div>
         );
@@ -117,18 +100,8 @@ function BlogLandingPage() {
             <br />
             <br />
             <br />
-            <div className="container">
-                <div className="row  ">
-                    <div className="col-12 col-lg-5">
-                        <Link exaxt='true' to='/tools/public'><Button className='rounded-circle' icon='arrow left' /></Link>
-                        <br />
-                        <br />
-                        <StateCard status={tag} />
-                    </div> 
-                    <div className="col-12 col-lg-7 align-self-center d-none d-lg-block">
-                        <MapCard  /> 
-                    </div> 
-                </div>
+            <div className="container-fluid">
+                 <StateCard status={tag} />
             </div>
             
     </> );

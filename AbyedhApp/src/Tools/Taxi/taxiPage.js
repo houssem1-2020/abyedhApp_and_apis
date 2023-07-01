@@ -43,7 +43,7 @@ function TaxiPage() {
 
     const AdsLanding = () =>{
         return(<>
-        <div className='card-body rounded-0' style={{height:'170px', backgroundColor:'#e9ecef', marginTop:'55px'}}>
+        <div className='card-body rounded-0 pt-5' style={{height:'170px', backgroundColor:'#e9ecef'}}>
             <div className='row'>
                 <div className='col-12 col-lg-8 align-self-center text-center'>
  
@@ -77,9 +77,20 @@ function TaxiPage() {
             </NavLink>
         </>)
     }
- 
+    const ButtomCard = (props) =>{
+        return(<>
+            <div className={`card-body rounded-bottom-card fixed-bottom`} style={{backgroundColor:GConf.Tools.taxi.themeColor}}>
+                <div className='text-end text-white me-5'>
+                    <b>منصة أبيض التونسية </b>
+                </div>
+            </div>
+        </>)
+    }
     return ( <>
         <TopNavBar />
+        <br />
+        <br />
+      
         <AdsLanding /> 
         <br />
         <br />
@@ -91,6 +102,8 @@ function TaxiPage() {
                  
             </div>
         </div>
+         
+        <ButtomCard fixed />
     </> );
 }
 

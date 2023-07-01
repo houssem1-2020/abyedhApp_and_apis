@@ -44,7 +44,7 @@ function PublicPage() {
 
     const AdsLanding = () =>{
         return(<>
-        <div className='card-body rounded-0' style={{height:'170px', backgroundColor:'#e9ecef', marginTop:'55px'}}>
+        <div className='card-body rounded-0 pt-5' style={{height:'170px', backgroundColor:'#e9ecef' }}>
             <div className='row'>
                 <div className='col-12 col-lg-8 align-self-center text-center'>
                        <h3  dir='rtl' style={{color:GConf.Tools.Louage.themeColor}}> {GConf.Tools.Louage.textAds} </h3>
@@ -89,9 +89,9 @@ function PublicPage() {
             </div>
         </>)
     }
-    const ButtomCard = () =>{
+    const ButtomCard = (props) =>{
         return(<>
-            <div className='card-body rounded-bottom-card d-md-none' style={{backgroundColor:GConf.Tools.Louage.themeColor}}>
+            <div className={`card-body rounded-bottom-card ${props.fixed ? 'd-none d-md-block fixed-bottom' : 'd-md-none'}`} style={{backgroundColor:GConf.Tools.Louage.themeColor}}>
                 <div className='text-end text-white me-5'>
                     <b>منصة أبيض التونسية </b>
                 </div>
@@ -101,6 +101,8 @@ function PublicPage() {
 
     return ( <>
         <TopNavBar />
+        <br />
+        <br />
         <AdsLanding /> 
         <br />
         <br />
@@ -113,7 +115,8 @@ function PublicPage() {
                 <div className='col-12 col-md-4'><LinkCard data={Items[2]} /></div>
             </div>
         </div>
-        <ButtomCard />
+        <ButtomCard  />
+        <ButtomCard fixed />
     </> );
 }
 
