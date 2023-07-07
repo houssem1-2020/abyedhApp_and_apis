@@ -1,13 +1,13 @@
 const express = require('express')
 const multer = require('multer')
-const RestaurantRouter = express.Router()
+const GymRouter = express.Router()
 const connection = require('../../connection.js')
 const { spawn } = require('child_process');
 const path = require("path");
 const fs = require('fs');
 
 //Multer.js
-//const DIR = 'C:/Users/kheli/Desktop/PROJECTS/abyedh/abyedh.system/RestaurantRouter/public/houssem';
+//const DIR = 'C:/Users/kheli/Desktop/PROJECTS/abyedh/abyedh.system/GymRouter/public/houssem';
 //const DIR = `C:/Users/hp/Desktop/BackUp/NouvBCK/`; 
 const DIR = 'C:/Users/Administrator/Desktop/Abyedh/CDN/Images/Directory';
 const storage = multer.diskStorage({
@@ -62,7 +62,7 @@ const upload = multer({  storage: storage, array: true });
 
     const SaveWithMulter = () =>{
         //Multer.js
-        const DIR = 'C:/Users/kheli/Desktop/PROJECTS/abyedh/abyedh.system/RestaurantRouter/public/houssem';
+        const DIR = 'C:/Users/kheli/Desktop/PROJECTS/abyedh/abyedh.system/GymRouter/public/houssem';
         const storage = multer.diskStorage({
             destination: (req, file, cb) => {
                 cb(null,  DIR );
@@ -76,7 +76,7 @@ const upload = multer({  storage: storage, array: true });
 
 /*####################################[LOGIN]######################################*/
   /* Login */
-  RestaurantRouter.post('/LogIn', (req, res) => {
+  GymRouter.post('/LogIn', (req, res) => {
       const logInD = req.body.LoginData;
       function Connect(){
           connection.changeUser({database : 'dszrccqg_registration'}, () => {});
@@ -99,7 +99,7 @@ const upload = multer({  storage: storage, array: true });
   })
 
   /* Check autorisation */
-  RestaurantRouter.get('/Permission', (req, res) => {
+  GymRouter.get('/Permission', (req, res) => {
       const PID = req.body.pid;
       let sql = `SELECT * FROM admin_setting WHERE SystemTag  = '${PID}'` ;
       connection.query(sql, (err, rows, fields) => {
@@ -110,7 +110,7 @@ const upload = multer({  storage: storage, array: true });
 
 /*####################################[MAIN]#######################################*/
       /* statistics */
-      RestaurantRouter.post('/ma/stat', (req, res) => {
+      GymRouter.post('/ma/stat', (req, res) => {
               let PID =  req.body.PID;
               let Today = new Date().toISOString().split('T')[0]
 
@@ -209,7 +209,7 @@ const upload = multer({  storage: storage, array: true });
 /*####################################[REQUEST]####################################*/
       
       /* selectioner un client */
-      RestaurantRouter.post('/request', (req, res) => {
+      GymRouter.post('/request', (req, res) => {
           let PID = req.body.PID;   
           function FetchReservation(Name) {
               return new Promise((resolve, reject) => {
@@ -235,7 +235,7 @@ const upload = multer({  storage: storage, array: true });
 
 
       /* request data 
-      RestaurantRouter.post('/commande/info', (req, res) => {
+      GymRouter.post('/commande/info', (req, res) => {
             let PID = req.body.PID;
             let RID = req.body.CID;
             connection.changeUser({database : 'dszrccqg_communications'}, () => {});
@@ -250,7 +250,7 @@ const upload = multer({  storage: storage, array: true });
                 
       })*/
        /* request data */
-      RestaurantRouter.post('/reservation/info', (req, res) => {
+      GymRouter.post('/reservation/info', (req, res) => {
             let PID = req.body.PID;
             let RID = req.body.CID;
             connection.changeUser({database : 'dszrccqg_communications'}, () => {});
@@ -266,7 +266,7 @@ const upload = multer({  storage: storage, array: true });
       })
 
       /* request control : Update commande state  
-      RestaurantRouter.post('/commande/controle', (req, res) => {
+      GymRouter.post('/commande/controle', (req, res) => {
             let PID = req.body.PID;
             let R_ID = req.body.RID;
             let State = req.body.state;
@@ -281,7 +281,7 @@ const upload = multer({  storage: storage, array: true });
                 
       })*/
       /* request control : Update commande state  */
-      RestaurantRouter.post('/reservation/controle', (req, res) => {
+      GymRouter.post('/reservation/controle', (req, res) => {
             let PID = req.body.PID;
             let R_ID = req.body.RID;
             let State = req.body.state;
@@ -297,7 +297,7 @@ const upload = multer({  storage: storage, array: true });
       })
 
       /* comptes */
-      RestaurantRouter.post('/commande/facturer', (req, res) => {
+      GymRouter.post('/commande/facturer', (req, res) => {
           (async() => {
               let PID = req.body.PID;
               let factureD = req.body.factureD;
@@ -320,7 +320,7 @@ const upload = multer({  storage: storage, array: true });
 /*####################################[EQUIPEMMENT]################################*/
 
     //fetch all article */
-    RestaurantRouter.post('/equipemment', (req, res) => {
+    GymRouter.post('/equipemment', (req, res) => {
           let PID = req.body.PID;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `SELECT * FROM 06_gym_equipement WHERE PID = '${PID}'`;
@@ -332,7 +332,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     //fetch all article */
-    RestaurantRouter.post('/equipemment/info', (req, res) => {
+    GymRouter.post('/equipemment/info', (req, res) => {
           let PID = req.body.PID;
           let Code = req.body.Code;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -345,7 +345,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     //check article in abyedhDB */
-    RestaurantRouter.post('/equipemment/checkAbyedhDb', (req, res) => {
+    GymRouter.post('/equipemment/checkAbyedhDb', (req, res) => {
           let Code = req.body.Code;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `SELECT * FROM 000_abyedh_articles WHERE A_Code = '${Code}'`;
@@ -358,7 +358,7 @@ const upload = multer({  storage: storage, array: true });
 
 
     /* ajouter article */
-    RestaurantRouter.post('/equipemment/ajouter', (req, res) => {
+    GymRouter.post('/equipemment/ajouter', (req, res) => {
           let PID = req.body.PID;
           let equipemmentD = req.body.equipemmentD;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -372,13 +372,14 @@ const upload = multer({  storage: storage, array: true });
 
 
     /* modifier article  */
-    RestaurantRouter.post('/equipemment/modifier', (req, res) => {
+    GymRouter.post('/equipemment/modifier', (req, res) => {
           let PID = req.body.PID
-          let articleNData = req.body.articleND
+          let equipemmentD = req.body.equipemmentD
+          let INS_Code = req.body.INS_Code
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `UPDATE 06_gym_equipement
-                     SET Name = '${articleNData.Name}', Prix_vente = '${articleNData.Prix_vente}', Cout = '${articleNData.Cout}', Genre = '${articleNData.Genre}',   Repture = '${articleNData.Repture}',  Description = '${articleNData.Description}'
-                     WHERE P_Code = '${articleNData.P_Code}' AND PID = ${PID} `;
+                     SET INS_Name = '${equipemmentD.INS_Name}', INS_Genre = '${equipemmentD.INS_Genre}',   INS_Qte = '${equipemmentD.INS_Qte}',  Description = '${equipemmentD.Description}'
+                     WHERE INS_Code = '${INS_Code}' AND PID = ${PID} `;
            connection.query(sql, (err, rows, fields) => {
             if (err){res.json(err)}
               res.json(rows);
@@ -386,14 +387,14 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* modifier article  */
-    RestaurantRouter.post('/equipemment/modifier/image', (req, res) => {
+    GymRouter.post('/equipemment/modifier/image', (req, res) => {
           let PID = req.body.PID
           let path = req.body.path
           let Code = req.body.code
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `UPDATE 06_gym_equipement
                      SET Photo_Path = '${path}'
-                     WHERE P_Code = '${Code}' AND PID = ${PID} `;
+                     WHERE INS_Code = '${Code}' AND PID = ${PID} `;
            connection.query(sql, (err, rows, fields) => {
             if (err){res.json(err)}
               res.json(rows);
@@ -402,7 +403,7 @@ const upload = multer({  storage: storage, array: true });
  
 
     /* fetch familles */
-    RestaurantRouter.post('/equipemment/famille', (req, res) => {
+    GymRouter.post('/equipemment/famille', (req, res) => {
           let PID = req.body.PID;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `SELECT * FROM 06_gym_equipement_genre WHERE PID = '${PID}'`;
@@ -414,7 +415,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /*ajouter famille */
-    RestaurantRouter.post('/equipemment/familles/ajouter', (req, res) => {
+    GymRouter.post('/equipemment/familles/ajouter', (req, res) => {
         let PID = req.body.PID
         let familleData = req.body.familleD
         connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -428,13 +429,13 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* modifier famille */
-    RestaurantRouter.post('/equipemment/familles/modifier', (req, res) => {
+    GymRouter.post('/equipemment/familles/modifier', (req, res) => {
         let PID = req.body.PID
         let familleData = req.body.familleD
         connection.changeUser({database : 'dszrccqg_system'}, () => {});
         let sql = `UPDATE 06_gym_equipement_genre 
                    SET Genre = '${familleData.Name}' , Description =  '${familleData.Description}'
-                    WHERE PK = ${familleData.PK} AND PID = '${PID}' `;
+                   WHERE PK = ${familleData.PK} AND PID = '${PID}' `;
          connection.query(sql, (err, rows, fields) => {
           if (err){ res.json(err)}
           res.json(rows);
@@ -445,7 +446,7 @@ const upload = multer({  storage: storage, array: true });
 /*####################################[OFFRES]#####################################*/
 
     //fetch all article */
-    RestaurantRouter.post('/forfait', (req, res) => {
+    GymRouter.post('/forfait', (req, res) => {
           let PID = req.body.PID;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `SELECT * FROM 06_gym_forfait WHERE PID = '${PID}'`;
@@ -456,21 +457,52 @@ const upload = multer({  storage: storage, array: true });
               
     })
 
-   /* fetach article info  */
-    RestaurantRouter.post('/forfait/select', (req, res) => {
+
+    /* selectioner un client */
+    GymRouter.post('/forfait/select', (req, res) => {
           let PID = req.body.PID
           let Code = req.body.code
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-          let sql = `SELECT * FROM 06_gym_forfait WHERE F_ID = '${Code}' AND PID = ${PID}`;
-           connection.query(sql, (err, rows, fields) => {
-            if (err){ throw err}
-            res.send(rows);
-          })
-              
+          function FetchMembreData() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * FROM 06_gym_forfait WHERE F_ID = '${Code}' AND PID = ${PID}`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    if (!rows[0]) {resolve([{ Name:null , }]);} else {resolve(rows[0]);}
+                })
+              });
+          }
+
+ 
+
+          function SelectAbonnement() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_system'}, () => {});
+                let sql = `SELECT * , COALESCE(06_gym_membres.ME_Name, 'PASSAGER') AS ME_Name ,  06_gym_abonnement.State AS Pay_State FROM 06_gym_abonnement 
+                           LEFT JOIN 06_gym_membres ON 06_gym_abonnement.Membre_ID = 06_gym_membres.ME_ID
+                           LEFT JOIN 06_gym_forfait ON 06_gym_abonnement.Forfait_ID = 06_gym_forfait.F_ID  
+                           WHERE 06_gym_abonnement.PID = ${PID} AND 06_gym_abonnement.Forfait_ID = '${Code}'  `;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+         }
+
+ 
+
+            // Call, Function
+          async function query() {
+              const clientListe = {}; 
+              clientListe.Data = await FetchMembreData()
+              clientListe.Abonnement = await SelectAbonnement()
+            res.send(clientListe)
+          }
+          query();               
     })
 
     /* ajouter article */
-    RestaurantRouter.post('/forfait/ajouter', (req, res) => {
+    GymRouter.post('/forfait/ajouter', (req, res) => {
         (async() => {
             let PID = req.body.PID;
             let forfaitD = req.body.forfaitD;
@@ -487,13 +519,14 @@ const upload = multer({  storage: storage, array: true });
 
 
     /* modifier article  */
-    RestaurantRouter.post('/forfait/modifier', (req, res) => {
+    GymRouter.post('/forfait/modifier', (req, res) => {
           let PID = req.body.PID
-          let articleNData = req.body.articleND
+          let F_ID = req.body.F_ID
+          let forfaitData = req.body.forfaitData
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `UPDATE 06_gym_forfait
-                     SET Name = '${articleNData.Name}',  Quantite = '${articleNData.Quantite}', Prix_achat = '${articleNData.Prix_achat}', Genre = '${articleNData.Genre}',   Repture = '${articleNData.Repture}'
-                     WHERE A_Code = '${articleNData.A_Code}' AND PID = ${PID} `;
+                     SET F_Name = '${forfaitData.F_Name}',  Tarif = '${forfaitData.Tarif}', NB_Seance = '${forfaitData.NB_Seance}'
+                     WHERE F_ID = '${F_ID}' AND PID = ${PID} `;
            connection.query(sql, (err, rows, fields) => {
             if (err){res.json(err)}
               res.json(rows);
@@ -503,7 +536,7 @@ const upload = multer({  storage: storage, array: true });
 
 
     /* supprimer article */
-    RestaurantRouter.post('/forfait/supprimer', (req, res) => {
+    GymRouter.post('/forfait/supprimer', (req, res) => {
           let articleData = req.body.articleD
           // let sql = `INSERT INTO alimentaire_article
           //           (A_Code,Name, Prix_vente, Quantite, Prix_achat, Genre, Socite, Repture, TVA,Groupage,facturable) 
@@ -518,7 +551,7 @@ const upload = multer({  storage: storage, array: true });
 /*####################################[SEANCES]####################################*/
 
       /* featch tou les camion*/
-      RestaurantRouter.post('/seances', (req, res) => {
+      GymRouter.post('/seances', (req, res) => {
               let PID = req.body.PID
               connection.changeUser({database : 'dszrccqg_system'}, () => {});
               let sql = `SELECT * 
@@ -534,7 +567,7 @@ const upload = multer({  storage: storage, array: true });
       })
 
       /* featch tou les camion*/
-      RestaurantRouter.post('/seances/info', (req, res) => {
+      GymRouter.post('/seances/info', (req, res) => {
               let PID = req.body.PID
               let SID = req.body.SID
               connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -552,7 +585,7 @@ const upload = multer({  storage: storage, array: true });
 
       
       /*Ajouter Camion*/
-      RestaurantRouter.post('/seances/ajouter', (req, res) => {
+      GymRouter.post('/seances/ajouter', (req, res) => {
           (async() => {
               let PID = req.body.PID
               let seanceD = req.body.seanceD
@@ -567,41 +600,35 @@ const upload = multer({  storage: storage, array: true });
       })
 
       /* modifier un camion */
-      RestaurantRouter.post('/seances/modifier', (req, res) => {
+      GymRouter.post('/seances/modifier', (req, res) => {
             let PID = req.body.PID
-            let caisseData = req.body.caisseD
+            let SE_ID = req.body.SE_ID
+            let seanceData = req.body.seanceData
             let sql = `UPDATE 06_gym_abonnement_seances
-                      SET CA_Name = '${caisseData.CA_Name}' , Caisse_Fond = '${caisseData.Caisse_Fond}' , Identifiant = '${caisseData.Identifiant}' , Password = '${caisseData.Password}'  
-                      WHERE PID = ${PID} AND C_ID = '${caisseData.C_ID}' `;
+                      SET Abonnement_ID = '${seanceData.Abonnement_ID}' , Membre_ID = '${seanceData.Membre_ID}' , SE_Date = '${seanceData.SE_Date}' , SE_Time = '${seanceData.SE_Time}'  
+                      WHERE PID = ${PID} AND SE_ID = '${SE_ID}' `;
              connection.query(sql, (err, rows, fields) => {
               if (err){res.json(err)}
                 res.json(rows);
             })          
       })
 
-
-      /*PRINTING*/ 
-
-      //facture du jour 
-      RestaurantRouter.post('/seances/searchrecette', (req, res) => {
+      /* modifier un facture */
+      GymRouter.post('/seances/supprimer', (req, res) => {
              let PID = req.body.PID
-             let caisseID = req.body.camId
-             let targetDay = req.body.targetDay
+             let SE_ID = req.body.SE_ID
              connection.changeUser({database : 'dszrccqg_system'}, () => {});
-             let sql = `SELECT * , COALESCE(06_gym_membres.ME_Name, 'PASSAGER') AS ME_Name FROM 06_gym_abonnement 
-                        LEFT JOIN 06_gym_membres ON 06_gym_abonnement.Membre_ID = 06_gym_membres.ME_ID 
-                        WHERE 06_gym_abonnement.Caisse_ID = ${caisseID}  AND 06_gym_abonnement.T_Date >= '${targetDay.start}' AND 06_gym_abonnement.T_Date <= '${targetDay.end}' `;
+             let sql = `DELETE FROM 06_gym_abonnement_seances WHERE SE_ID = '${SE_ID}' AND PID = ${PID} `;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
               res.json(rows);
-              
-            })       
+            })         
       })
-
+ 
 /*####################################[ABONNEMENT]#################################*/
     
     /* selectionner tous les factures */
-    RestaurantRouter.post('/abonnement', (req, res) => {
+    GymRouter.post('/abonnement', (req, res) => {
           let PID = req.body.PID;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `SELECT * , COALESCE(06_gym_membres.ME_Name, 'PASSAGER') AS ME_Name ,  06_gym_abonnement.State AS Pay_State FROM 06_gym_abonnement 
@@ -617,13 +644,29 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /*Ajouter Camion*/
-    RestaurantRouter.post('/abonnement/ajouter', (req, res) => {
+    GymRouter.post('/abonnement/ajouter', (req, res) => {
           (async() => {
               let PID = req.body.PID
               let abonnemmentData = req.body.abonnemmentData
               let AB_ID =   await GenerateID(1111111111,`06_gym_abonnement`,'AB_ID');
-              let sql = `INSERT INTO 06_gym_abonnement (PID, AB_ID , Forfait_ID, Membre_ID ,AB_Depart_Date, AB_Termine_Date, AB_Depart_Time, AB_Termine_Time,State) 
-                         VALUES (${PID} ,${AB_ID},'${abonnemmentData.Forfait_ID}', '${abonnemmentData.Membre_ID}','${abonnemmentData.AB_Depart_Date}','${abonnemmentData.AB_Termine_Date}','${abonnemmentData.AB_Depart_Time}','${abonnemmentData.AB_Termine_Time}','NonPayee') `;
+              let sql = `INSERT INTO 06_gym_abonnement (PID, AB_ID , Forfait_ID, Membre_ID ,AB_Depart_Date, AB_Saisson, AB_Depart_Time, AB_Termine_Time,State, AB_Paymment) 
+                         VALUES (${PID} ,${AB_ID},'${abonnemmentData.Forfait_ID}', '${abonnemmentData.Membre_ID}','${abonnemmentData.AB_Depart_Date}','${abonnemmentData.AB_Saisson}','${abonnemmentData.AB_Depart_Time}','${abonnemmentData.AB_Termine_Time}','NonPayee','[]') `;
+               connection.query(sql, (err, rows, fields) => {
+                if (err){res.json(err)}
+                  res.json(rows);
+              })  
+          })()             
+    })
+
+    /*Ajouter Camion*/
+    GymRouter.post('/abonnement/renouveller', (req, res) => {
+          (async() => {
+              let PID = req.body.PID
+              let abonnemmentData = req.body.abonnemmentData
+              let renouvellmmentData = req.body.renouvellmmentData
+              let AB_ID =   await GenerateID(1111111111,`06_gym_abonnement`,'AB_ID');
+              let sql = `INSERT INTO 06_gym_abonnement (PID, AB_ID , Forfait_ID, Membre_ID ,AB_Depart_Date, AB_Saisson, AB_Depart_Time, AB_Termine_Time,State, AB_Paymment) 
+                         VALUES (${PID} ,${AB_ID},'${abonnemmentData.Forfait_ID}', '${abonnemmentData.Membre_ID}','${renouvellmmentData.AB_Depart_Date}','${renouvellmmentData.AB_Saisson}','${abonnemmentData.AB_Depart_Time}','${abonnemmentData.AB_Termine_Time}','NonPayee','[]') `;
                connection.query(sql, (err, rows, fields) => {
                 if (err){res.json(err)}
                   res.json(rows);
@@ -632,7 +675,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* selectioner un client */
-    RestaurantRouter.post('/abonnement/select', (req, res) => {
+    GymRouter.post('/abonnement/select', (req, res) => {
           let PID = req.body.PID
            let FID = req.body.fid
           function FetchAbonnementData() {
@@ -685,7 +728,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* selectionner tous les factures */
-    RestaurantRouter.post('/abonnement/resumer', (req, res) => {
+    GymRouter.post('/abonnement/resumer', (req, res) => {
            let PID = req.body.PID
            let date = req.body.targetDate
            connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -700,22 +743,33 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* modifier un facture */
-    RestaurantRouter.post('/abonnement/modifier', (req, res) => {
+    GymRouter.post('/abonnement/modifier', (req, res) => {
            let PID = req.body.PID
-           let factId = req.body.factD
-           let FID = req.body.fid
-           let articleL = JSON.stringify(factId.articles)
+           let abonnemmentData = req.body.abonnemmentData
+           let AB_ID = req.body.AB_ID
            connection.changeUser({database : 'dszrccqg_system'}, () => {});
            let sql = `UPDATE 06_gym_abonnement
-                      SET Cre_Date = '${factId.jour}', C_Name = '${factId.client}', Tota = '${factId.totale}', De = '${factId.de}', Vers ='${factId.vers}' , Chauffeur ='${factId.Chauffeur}' ,Fournisseurs ='${factId.Fournisseurs}', Articles = '${articleL}'
-                      WHERE F_ID = '${FID}' `;
+                      SET Forfait_ID = '${abonnemmentData.Forfait_ID}', Membre_ID = '${abonnemmentData.Membre_ID}', AB_Depart_Date = '${abonnemmentData.AB_Depart_Date}', AB_Saisson = '${abonnemmentData.AB_Saisson}', AB_Depart_Time ='${abonnemmentData.AB_Depart_Time}' , AB_Termine_Time ='${abonnemmentData.AB_Termine_Time}' 
+                      WHERE AB_ID = '${AB_ID}' AND PID =  ${PID} `;
            connection.query(sql, (err, rows, fields) => {
             if (err){ throw err}
-            res.json({FID:FID});
+            res.json(rows);
+          })         
+    })
+    GymRouter.post('/abonnement/payee', (req, res) => {
+           let PID = req.body.PID
+           let editPaymment = req.body.editPaymment 
+           connection.changeUser({database : 'dszrccqg_system'}, () => {});
+           let sql = `UPDATE 06_gym_abonnement
+                      SET AB_Paymment = '${JSON.stringify(editPaymment.toEdit)}'
+                      WHERE AB_ID = '${editPaymment.FID}' AND PID =  ${PID} `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ throw err}
+            res.json(rows);
           })         
     })
     /* modifier un facture */
-    RestaurantRouter.post('/abonnement/supprimer', (req, res) => {
+    GymRouter.post('/abonnement/supprimer', (req, res) => {
            let PID = req.body.PID
            let FID = req.body.FID
            connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -729,7 +783,7 @@ const upload = multer({  storage: storage, array: true });
 /*####################################[GROUPES]####################################*/
 
       //fetch all article */
-      RestaurantRouter.post('/tables', (req, res) => {
+      GymRouter.post('/groupe', (req, res) => {
             let PID = req.body.PID;
             connection.changeUser({database : 'dszrccqg_system'}, () => {});
             let sql = `SELECT * FROM 06_gym_membres_group WHERE PID = '${PID}'`;
@@ -741,27 +795,30 @@ const upload = multer({  storage: storage, array: true });
       })
 
       /* ajouter article */
-      RestaurantRouter.post('/tables/ajouter', (req, res) => {
+      GymRouter.post('/groupe/ajouter', (req, res) => {
+      	 (async() => {
             let PID = req.body.PID;
-            let tableData = req.body.tableD;
+            let groupData = req.body.groupData;
+             let GP_ID =   await GenerateID(1111111111,`06_gym_membres_group`,'GP_ID');
             connection.changeUser({database : 'dszrccqg_system'}, () => {});
-            let sql = `INSERT INTO 06_gym_membres_group (PID ,Table_Name,  Table_Num,  Description ) 
-                       VALUES ('${PID}','${tableData.Table_Name}','${tableData.Table_Num}', '' ) `;
+            let sql = `INSERT INTO 06_gym_membres_group (GP_ID, PID,  GP_Name,  GP_Genre,  GP_Activite, GP_Temps, GP_Cotch ) 
+                       VALUES ('${GP_ID}','${PID}','${groupData.GP_Name}','${groupData.GP_Genre}', '${groupData.GP_Activite}','${groupData.GP_Temps}','${groupData.GP_Cotch}' ) `;
              connection.query(sql, (err, rows, fields) => {
               if (err){res.json(err)}
                 res.json(rows);
-            })          
+            }) 
+         })()            
       })
 
 
         /* modifier famille */
-      RestaurantRouter.post('/tables/modifier', (req, res) => {
+      GymRouter.post('/groupe/modifier', (req, res) => {
           let PID = req.body.PID
-          let edittableD = req.body.editTableD
+          let editGroupD = req.body.editGroupD
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `UPDATE 06_gym_membres_group 
-                     SET Table_Name = '${edittableD.Name}' , Table_Num =  '${edittableD.Num}'
-                     WHERE PK = ${edittableD.PK} AND PID = '${PID}' `;
+                     SET GP_Name = '${editGroupD.GP_Name}' , GP_Genre =  '${editGroupD.GP_Genre}', GP_Activite =  '${editGroupD.GP_Activite}', GP_Temps =  '${editGroupD.GP_Temps}', GP_Cotch =  '${editGroupD.GP_Cotch}'
+                     WHERE GP_ID = ${editGroupD.GP_ID} AND PID = '${PID}' `;
            connection.query(sql, (err, rows, fields) => {
             if (err){ res.json(err)}
             res.json(rows);
@@ -772,7 +829,7 @@ const upload = multer({  storage: storage, array: true });
 /*####################################[MEMBRES]####################################*/
 
     /* selectioner tous les client */
-    RestaurantRouter.post('/membres', (req, res) => {
+    GymRouter.post('/membres', (req, res) => {
           let PID = req.body.PID;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `SELECT *  FROM 06_gym_membres  WHERE PID = '${PID}'`;
@@ -785,7 +842,7 @@ const upload = multer({  storage: storage, array: true });
 
 
     /* selectioner un client */
-    RestaurantRouter.post('/membres/info', (req, res) => {
+    GymRouter.post('/membres/info', (req, res) => {
           let PID = req.body.PID;
           let membreId = req.body.membreId
           function FetchMembreData() {
@@ -830,6 +887,7 @@ const upload = multer({  storage: storage, array: true });
                 let sql = `SELECT * 
                           FROM 06_gym_abonnement_seances
                           LEFT JOIN 06_gym_abonnement ON 06_gym_abonnement_seances.Abonnement_ID = 06_gym_abonnement.AB_ID
+                          LEFT JOIN 06_gym_forfait ON 06_gym_abonnement.Forfait_ID = 06_gym_forfait.F_ID
                           LEFT JOIN 06_gym_membres ON 06_gym_abonnement.Membre_ID = 06_gym_membres.ME_ID
                           WHERE 06_gym_abonnement_seances.PID = ${PID} AND 06_gym_abonnement_seances.Membre_ID = '${Name}'  `;
                  connection.query(sql, (err, rows, fields) => {
@@ -853,7 +911,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* selectioner tous les client 
-    RestaurantRouter.post('/membres/verification/recherche', (req, res) => {
+    GymRouter.post('/membres/verification/recherche', (req, res) => {
           let UID = req.body.UID;
           connection.changeUser({database : 'dszrccqg_profile'}, () => {});
           let sql = `SELECT *  FROM user_general_data  WHERE UID = '${UID}'`;
@@ -865,7 +923,7 @@ const upload = multer({  storage: storage, array: true });
     })*/
 
     //check article in abyedhDB */
-    RestaurantRouter.post('/membres/checkAbyedhDb', (req, res) => {
+    GymRouter.post('/membres/checkAbyedhDb', (req, res) => {
           let UID = req.body.UID;
           connection.changeUser({database : 'dszrccqg_profile'}, () => {});
           let sql = `SELECT * FROM user_general_data WHERE UID = '${UID}'`;
@@ -877,7 +935,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* selectioner tous les client */
-    RestaurantRouter.post('/membres/verification', (req, res) => {
+    GymRouter.post('/membres/verification', (req, res) => {
           let PID = req.body.PID;
           let UID = req.body.UID;
           let ME_ID = req.body.ME_ID;
@@ -892,11 +950,8 @@ const upload = multer({  storage: storage, array: true });
               
     })
 
-    
-
-
     /* Ajouter client */
-    RestaurantRouter.post('/membres/ajouter', (req, res) => {
+    GymRouter.post('/membres/ajouter', (req, res) => {
       (async() => {
         let PID = req.body.PID;
         let clientD = req.body.clientD
@@ -912,10 +967,8 @@ const upload = multer({  storage: storage, array: true });
     })
 
 
-
-
     /* modifier un client */
-    RestaurantRouter.post('/membres/modifier', (req, res) => {
+    GymRouter.post('/membres/modifier', (req, res) => {
         let PID = req.body.PID;
         let clientD = req.body.clientD
         connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -929,26 +982,32 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* map : liste des location */
-    RestaurantRouter.post('/membres/fidelite', (req, res) => {
+    GymRouter.post('/membres/fidelite', (req, res) => {
            let PID = req.body.PID;
            let genre = req.body.genre
            let start = req.body.start
            let finish = req.body.finish
            let top = req.body.Top
            connection.changeUser({database : 'dszrccqg_system'}, () => {});
-           let sql1 = `SELECT  06_gym_abonnement.Membre_ID, SUM(Final_Value) as Totale, 06_gym_abonnement.T_Date , 06_gym_membres.ME_Name, 06_gym_membres.ME_ID, COALESCE(06_gym_membres.ME_Name, 'PASSAGER') AS ME_Name
+           let sql10 = `SELECT  06_gym_abonnement.Membre_ID, SUM(Final_Value) as Totale, 06_gym_abonnement.T_Date , 06_gym_membres.ME_Name, 06_gym_membres.ME_ID, COALESCE(06_gym_membres.ME_Name, 'PASSAGER') AS ME_Name
                       FROM 06_gym_abonnement 
                       LEFT JOIN 06_gym_membres ON 06_gym_abonnement.Membre_ID = 06_gym_membres.ME_ID
                       WHERE 06_gym_abonnement.T_Date > '${start}' AND 06_gym_abonnement.T_Date < '${finish}' 
                       GROUP BY 06_gym_abonnement.Membre_ID ORDER BY SUM(Final_Value) DESC LIMIT ${top};`
 
-           let sql2 = `SELECT COUNT(1) as Totale , 06_gym_abonnement.Membre_ID , 06_gym_membres.ME_Name , 06_gym_membres.ME_ID, COALESCE(06_gym_membres.ME_Name, 'PASSAGER') AS ME_Name
+           let sql1 = `SELECT COUNT(1) as Totale , 06_gym_abonnement_seances.Membre_ID , 06_gym_membres.ME_Name , 06_gym_membres.ME_ID, COALESCE(06_gym_membres.ME_Name, 'PASSAGER') AS ME_Name
+                      FROM 06_gym_abonnement_seances  
+                      LEFT JOIN 06_gym_membres ON 06_gym_abonnement_seances.Membre_ID = 06_gym_membres.ME_ID
+                      WHERE 06_gym_abonnement_seances.SE_Date > '${start}' AND 06_gym_abonnement_seances.SE_Date < '${finish}'  
+                      GROUP BY 06_gym_abonnement_seances.Membre_ID ORDER BY COUNT(1) DESC LIMIT ${top};`
+
+            let sql2 = `SELECT COUNT(1) as Totale , 06_gym_abonnement.Membre_ID , 06_gym_membres.ME_Name , 06_gym_membres.ME_ID, COALESCE(06_gym_membres.ME_Name, 'PASSAGER') AS ME_Name
                       FROM 06_gym_abonnement  
                       LEFT JOIN 06_gym_membres ON 06_gym_abonnement.Membre_ID = 06_gym_membres.ME_ID
-                      WHERE 06_gym_abonnement.T_Date > '${start}' AND 06_gym_abonnement.T_Date < '${finish}'  
+                      WHERE 06_gym_abonnement.AB_Depart_Date > '${start}' AND 06_gym_abonnement.AB_Depart_Date < '${finish}'  
                       GROUP BY 06_gym_abonnement.Membre_ID ORDER BY COUNT(1) DESC LIMIT ${top};`
 
-           connection.query(genre == 'Totale' ? sql1 : sql2 , (err, rows, fields) => {
+           connection.query(genre == 'Seance' ? sql1 : sql2 , (err, rows, fields) => {
             if (err){ throw err}
             res.json(rows);
           })
@@ -958,7 +1017,7 @@ const upload = multer({  storage: storage, array: true });
 /*####################################[TEAM]#######################################*/
 
       /* selectioner tous l'06_gym_team */
-      RestaurantRouter.post('/team', (req, res) => {
+      GymRouter.post('/team', (req, res) => {
             let PID = req.body.PID;
             connection.changeUser({database : 'dszrccqg_system'}, () => {});
             let sql = `SELECT *  FROM 06_gym_team WHERE PID = ${PID} `;
@@ -969,7 +1028,7 @@ const upload = multer({  storage: storage, array: true });
       })
 
       /* Ajouter client */
-      RestaurantRouter.post('/team/ajouter', (req, res) => {
+      GymRouter.post('/team/ajouter', (req, res) => {
         (async() => {
           let PID = req.body.PID;
           let teamD = req.body.teamD
@@ -986,7 +1045,7 @@ const upload = multer({  storage: storage, array: true });
       })
 
       /* modifier un client */
-      RestaurantRouter.post('/team/modifier', (req, res) => {
+      GymRouter.post('/team/modifier', (req, res) => {
           let PID = req.body.PID;
           let teamData = req.body.teamData
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -1000,7 +1059,7 @@ const upload = multer({  storage: storage, array: true });
       })
 
       /* selectioner un client */
-      RestaurantRouter.post('/team/info', (req, res) => {
+      GymRouter.post('/team/info', (req, res) => {
           let PID = req.body.PID;
           let TID = req.body.Team_ID
           function FetchTeamData() {
@@ -1009,7 +1068,7 @@ const upload = multer({  storage: storage, array: true });
                 let sql = `SELECT * FROM 06_gym_team WHERE T_ID = ${TID} AND PID = ${PID} `;
                  connection.query(sql, (err, rows, fields) => {
                     if (err) return reject(err);
-                    if (!rows[0]) {resolve([{ Name:null , }]);} else {resolve(rows);}
+                    resolve(rows[0]);
                 })
               });
           }
@@ -1047,23 +1106,26 @@ const upload = multer({  storage: storage, array: true });
 
             // Call, Function
           async function query() {
-              const teamData = await FetchTeamData(); 
-              teamData[0].Presence = await  SelectPresence(teamData[0].T_ID)
-              teamData[0].Avances = await SelectAvances(teamData[0].T_ID)
-              //teamData[0].Facture = await SelectFactures(teamData[0].Name)
+              const teamData = {} 
+              teamData.Data = await  FetchTeamData();
+              teamData.Presence = await  SelectPresence(TID)
+              teamData.Avances = await SelectAvances(TID)
+              //teamData.Facture = await SelectFactures(teamData.Name)
             res.send(teamData)
           }
           query();               
       })
 
+
       /* selectioner tous les client */
-      RestaurantRouter.post('/team/anavce', (req, res) => {
-          let PID = req.body.PID;
-          connection.changeUser({database : 'dszrccqg_system'}, () => {});
-            let sql = `SELECT * 
-                       FROM 06_gym_team_avance 
-                       LEFT JOIN 06_gym_team ON 06_gym_team.T_ID =  06_gym_team_avance.Team_ID 
-                       WHERE PID = ${PID}`;
+      GymRouter.post('/team/verification', (req, res) => {
+            let PID = req.body.PID;
+            let UID = req.body.UID;
+            let T_ID = req.body.T_ID;
+            connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `UPDATE 06_gym_team
+                       SET Releted_UID = ${UID}
+                       WHERE T_ID = ${T_ID} AND PID = ${PID}`;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
               res.json(rows);
@@ -1072,13 +1134,28 @@ const upload = multer({  storage: storage, array: true });
       })
 
       /* selectioner tous les client */
-      RestaurantRouter.post('/team/anavce/ajoute', (req, res) => {
-          let TAG = req.body.PID;
+      GymRouter.post('/team/anavce', (req, res) => {
+          let PID = req.body.PID;
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+            let sql = `SELECT * , 06_gym_team_avance.PK AS TPK
+                       FROM 06_gym_team_avance 
+                       LEFT JOIN 06_gym_team ON 06_gym_team.T_ID =  06_gym_team_avance.Team_ID 
+                       WHERE 06_gym_team_avance.PID = ${PID}`;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })
+                
+      })
+
+      /* selectioner tous les client */
+      GymRouter.post('/team/anavce/ajoute', (req, res) => {
+          let PID = req.body.PID;
           let avanceD = req.body.avanceD;
           let Today = new Date().toISOString().split('T')[0]
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
-            let sql = `INSERT INTO 06_gym_team_avance (Team_ID, AV_Date, Valeur)
-                       VALUES ('${avanceD.Team_ID}','${Today}','${avanceD.Valeur}');`;
+            let sql = `INSERT INTO 06_gym_team_avance (PID, Team_ID, AV_Date, Valeur)
+                       VALUES (${PID}, '${avanceD.Team_ID}','${Today}','${avanceD.Valeur}');`;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
               res.json(rows);
@@ -1086,14 +1163,26 @@ const upload = multer({  storage: storage, array: true });
                 
       })
 
+      /* modifier un facture */
+      GymRouter.post('/team/anavce/supprimer', (req, res) => {
+             let PID = req.body.PID
+             let PK = req.body.PK
+             connection.changeUser({database : 'dszrccqg_system'}, () => {});
+             let sql = `DELETE FROM 06_gym_team_avance WHERE PK = ${PK}  AND PID = ${PID} `;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })         
+      })
+
       /* selectioner tous les client */
-      RestaurantRouter.post('/team/presence', (req, res) => {
+      GymRouter.post('/team/presence', (req, res) => {
           let PID = req.body.PID;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
             let sql = `SELECT * 
                        FROM 06_gym_team_presence 
                        LEFT JOIN 06_gym_team ON 06_gym_team.T_ID =  06_gym_team_presence.Team_ID 
-                       WHERE PID = ${PID}`;
+                       WHERE 06_gym_team_presence.PID = ${PID}`;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
               res.json(rows);
@@ -1101,21 +1190,33 @@ const upload = multer({  storage: storage, array: true });
                 
       })
 
-      RestaurantRouter.post('/team/presence/ajoute', (req, res) => {
-          let TAG = req.body.PID;
+      GymRouter.post('/team/presence/ajoute', (req, res) => {
+          let PID = req.body.PID;
           let presenceD = req.body.presenceD;
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
-            let sql = `INSERT INTO 06_gym_team_presence (Team_ID, PR_Date, Genre)
-                       VALUES ('${presenceD.Team_ID}','${presenceD.PR_Date}','');`;
+            let sql = `INSERT INTO 06_gym_team_presence (PID, Team_ID, PR_Date, Genre)
+                       VALUES (${PID}, '${presenceD.Team_ID}','${presenceD.PR_Date}','');`;
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
               res.json(rows);
             })
                 
+      })
+
+      /* modifier un facture */
+      GymRouter.post('/team/presence/supprimer', (req, res) => {
+             let PID = req.body.PID
+             let PK = req.body.PK
+             connection.changeUser({database : 'dszrccqg_system'}, () => {});
+             let sql = `DELETE FROM 06_gym_team_presence WHERE PK = ${PK}  AND PID = ${PID} `;
+             connection.query(sql, (err, rows, fields) => {
+              if (err){ throw err}
+              res.json(rows);
+            })         
       })
 
       /* selectioner tous les client */
-      RestaurantRouter.post('/team/poste', (req, res) => {
+      GymRouter.post('/team/poste', (req, res) => {
         let TAG = req.body.PID;
         connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `SELECT * FROM 06_gym_team_poste WHERE PID = '${TAG}'`;
@@ -1127,7 +1228,7 @@ const upload = multer({  storage: storage, array: true });
       })
 
       /*ajouter famille */
-      RestaurantRouter.post('/team/poste/ajouter', (req, res) => {
+      GymRouter.post('/team/poste/ajouter', (req, res) => {
           let PID = req.body.PID
           let posteD = req.body.posteD
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -1141,7 +1242,7 @@ const upload = multer({  storage: storage, array: true });
       })
 
       /* modifier famille */
-      RestaurantRouter.post('/team/poste/modifier', (req, res) => {
+      GymRouter.post('/team/poste/modifier', (req, res) => {
         let PID = req.body.PID
         let posteD = req.body.posteD
         connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -1158,7 +1259,7 @@ const upload = multer({  storage: storage, array: true });
 /*####################################[FOURNISSEUR]################################*/
 
     /* selectioner tous les client */
-    RestaurantRouter.post('/fournisseur', (req, res) => {
+    GymRouter.post('/fournisseur', (req, res) => {
           let PID = req.body.PID
           connection.changeUser({database : 'dszrccqg_system'}, () => {});
           let sql = `SELECT * FROM 06_gym_fournisseur WHERE PID = '${PID}'`;
@@ -1169,7 +1270,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* selectioner un client */
-    RestaurantRouter.post('/fournisseur/info', (req, res) => {
+    GymRouter.post('/fournisseur/info', (req, res) => {
           let PID = req.body.PID;
           let fourId = req.body.fourId
           function FetchClientData() {
@@ -1226,7 +1327,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* Ajouter client */
-    RestaurantRouter.post('/fournisseur/ajouter', (req, res) => {
+    GymRouter.post('/fournisseur/ajouter', (req, res) => {
       (async() => {
         let PID = req.body.PID;
         let frsD = req.body.fournisseurData
@@ -1243,7 +1344,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     //check article in abyedhDB */
-    RestaurantRouter.post('/fournisseur/checkAbyedhDb', (req, res) => {
+    GymRouter.post('/fournisseur/checkAbyedhDb', (req, res) => {
           let PID = req.body.PID;
           connection.changeUser({database : 'dszrccqg_directory'}, () => {});
           let sql = `SELECT * FROM 05_pv_alimentaire WHERE PID = '${PID}'`;
@@ -1255,7 +1356,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* modifier un client */
-    RestaurantRouter.post('/fournisseur/modifier', (req, res) => {
+    GymRouter.post('/fournisseur/modifier', (req, res) => {
         let PID = req.body.PID;
         let frsD = req.body.fournisseurData
         connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -1282,7 +1383,7 @@ const upload = multer({  storage: storage, array: true });
 /*&&&&&&&&&&&&&&&&&[PROFILE]&&&&&&&&&&&&&&&&&*/
 
   /* Profile Data  */
-  RestaurantRouter.post('/profile', (req, res) => {
+  GymRouter.post('/profile', (req, res) => {
           let PID = req.body.PID;
           let Today = new Date().toISOString().split('T')[0]
           function GetGeneralData() {
@@ -1364,7 +1465,7 @@ const upload = multer({  storage: storage, array: true });
           query(); 
   })
 
-  RestaurantRouter.post('/profile/print', (req, res) => {
+  GymRouter.post('/profile/print', (req, res) => {
         let PID = req.body.PID;
         connection.changeUser({database : 'dszrccqg_directory'}, () => {});
         let sql = `SELECT * FROM 06_sport_salle WHERE PID = ${PID}`;
@@ -1375,7 +1476,7 @@ const upload = multer({  storage: storage, array: true });
   })
 
   /* modifier Images 
-  RestaurantRouter.post('/profile/images/ajouter', upload.single("ProfileImage"), (req, res) => {
+  GymRouter.post('/profile/images/ajouter', upload.single("ProfileImage"), (req, res) => {
           let PID = req.body.PID;
           let ImgPID = req.body.PID
           let link = req.file.filename;
@@ -1391,7 +1492,7 @@ const upload = multer({  storage: storage, array: true });
   })*/
 
   /* Modifier Profle Data  */
-  RestaurantRouter.post('/profile/update/general', (req, res) => {
+  GymRouter.post('/profile/update/general', (req, res) => {
         let PID = req.body.PID
         let profileD = req.body.profileDataSent
         connection.changeUser({database : 'dszrccqg_directory'}, () => {});
@@ -1405,7 +1506,7 @@ const upload = multer({  storage: storage, array: true });
   })
 
   /* Modifier Password   */
-  RestaurantRouter.post('/profile/update/password', (req, res) => {
+  GymRouter.post('/profile/update/password', (req, res) => {
           let PID = req.body.PID
           let passwordD = req.body.passwordDataSent
           connection.changeUser({database : 'dszrccqg_registration'}, () => {});
@@ -1419,7 +1520,7 @@ const upload = multer({  storage: storage, array: true });
   })
 
   /* Modifier Horaire   */
-  RestaurantRouter.post('/profile/update/position', (req, res) => {
+  GymRouter.post('/profile/update/position', (req, res) => {
           let PID = req.body.PID
           let positionD = req.body.positionDataSent
           connection.changeUser({database : 'dszrccqg_directory'}, () => {});
@@ -1433,7 +1534,7 @@ const upload = multer({  storage: storage, array: true });
   })
 
   /* modifier Images */
-  RestaurantRouter.post('/profile/images/ajouter', upload.array("Images",5), (req, res) => {
+  GymRouter.post('/profile/images/ajouter', upload.array("Images",5), (req, res) => {
           let PID = req.body.PID;
           let link = req.files;
           //let dest = JSON.stringify(req.file.destination);
@@ -1452,7 +1553,7 @@ const upload = multer({  storage: storage, array: true });
 
     })
 
-  RestaurantRouter.post('/profile/images/deletefile', async function(req, res, next) {
+  GymRouter.post('/profile/images/deletefile', async function(req, res, next) {
 
           const fileName = req.body.fileName;
           //const filePath = `C:/Users/hp/Desktop/BackUp/NouvBCK/${fileName}`; 
@@ -1483,7 +1584,7 @@ const upload = multer({  storage: storage, array: true });
 
 
   /* Modifier Horaire   */
-  RestaurantRouter.post('/profile/update/horaire', (req, res) => {
+  GymRouter.post('/profile/update/horaire', (req, res) => {
           let PID = req.body.PID
           let settingD = req.body.settingDataSent
           let genre = req.body.genre
@@ -1502,7 +1603,7 @@ const upload = multer({  storage: storage, array: true });
 
 /*&&&&&&&&&&&&&&&&&[SETTING]&&&&&&&&&&&&&&&&&*/
 
-  RestaurantRouter.post('/parametre', (req, res) => {
+  GymRouter.post('/parametre', (req, res) => {
           let PID = req.body.PID;
           let Today = new Date().toISOString().split('T')[0]
           function GetConfirmation() {
@@ -1548,7 +1649,7 @@ const upload = multer({  storage: storage, array: true });
   })
   
   /* Update Setting   */
-  RestaurantRouter.post('/parametre/update', (req, res) => {
+  GymRouter.post('/parametre/update', (req, res) => {
           let PID = req.body.PID
           let settingD = req.body.settingDataSent
           let genre = req.body.genre
@@ -1563,7 +1664,7 @@ const upload = multer({  storage: storage, array: true });
   })
 
   /* Update Setting   */
-  RestaurantRouter.post('/parametre/confirmer', (req, res) => {
+  GymRouter.post('/parametre/confirmer', (req, res) => {
           let PID = req.body.PID
           connection.changeUser({database : 'dszrccqg_directory'}, () => {});
           let sql = `UPDATE 06_sport_salle
@@ -1576,7 +1677,7 @@ const upload = multer({  storage: storage, array: true });
   })
 
   /* Update Setting   */
-  RestaurantRouter.post('/parametre/paymment', (req, res) => {
+  GymRouter.post('/parametre/paymment', (req, res) => {
            let PID = req.body.PID
            let Genre = req.body.Genre
            let Today = new Date().toISOString().split('T')[0]
@@ -1593,7 +1694,7 @@ const upload = multer({  storage: storage, array: true });
 
 /*&&&&&&&&&&&&&&&&&[DOCUMENTATION]&&&&&&&&&&&*/
     /* ajouter un messages */
-    RestaurantRouter.post('/documentation/messages', (req, res) => {
+    GymRouter.post('/documentation/messages', (req, res) => {
            let PID = req.body.PID
            connection.changeUser({database : 'dszrccqg_system'}, () => {});
            let sql = `SELECT *  FROM 00_abyedh_messages_sav  WHERE PID = '${PID}' ORDER BY Sent_Date ASC, Sent_Time ASC`;
@@ -1605,7 +1706,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* ajouter un messages */
-    RestaurantRouter.post('/documentation/ajouter', (req, res) => {
+    GymRouter.post('/documentation/ajouter', (req, res) => {
            let Today = new Date().toISOString().split('T')[0]
            let ToTime = new Date().toLocaleTimeString([],{ hourCycle: 'h23'})
            let PID = req.body.PID
@@ -1622,7 +1723,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /*
-     RestaurantRouter.post('/verification', (req, res) => {
+     GymRouter.post('/verification', (req, res) => {
           client.verify.v2
           .services(verifySid)
           .verifications.create({ to: "+21696787676", channel: "sms" })
@@ -1646,7 +1747,7 @@ const upload = multer({  storage: storage, array: true });
 /*&&&&&&&&&&&&&&&&&[MESSAGES]&&&&&&&&&&&&&&&&*/
 
     //*selectionner message */
-    RestaurantRouter.post('/messages', (req, res) => {
+    GymRouter.post('/messages', (req, res) => {
            let PID = req.body.PID
            connection.changeUser({database : 'dszrccqg_system'}, () => {});
            let sql = `SELECT *  FROM 00_abyedh_messages_sav  WHERE PID = '${PID}' ORDER BY StartedAt ASC`;
@@ -1658,7 +1759,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     //*selectionner message */
-    RestaurantRouter.post('/message', (req, res) => {
+    GymRouter.post('/message', (req, res) => {
            let PID = req.body.PID
            let MID = req.body.MID
            connection.changeUser({database : 'dszrccqg_system'}, () => {});
@@ -1671,7 +1772,7 @@ const upload = multer({  storage: storage, array: true });
     })
 
     /* ajouter un messages */
-    RestaurantRouter.post('/message/ajouter', (req, res) => {
+    GymRouter.post('/message/ajouter', (req, res) => {
            let Today = new Date().toISOString().split('T')[0]
            let ToTime = new Date().toLocaleTimeString([],{ hourCycle: 'h23'})
            let PID = req.body.PID
@@ -1689,7 +1790,7 @@ const upload = multer({  storage: storage, array: true });
 
 /*&&&&&&&&&&&&&&&&&[SAUVGARDER ]&&&&&&&&&&&&&*/
     /*Sauvgarder les donneé desirable */
-    RestaurantRouter.post('/tools/export/done', (req, res) => {
+    GymRouter.post('/tools/export/done', (req, res) => {
         let fileName =  req.body.fileName + '-' + new Date().toLocaleDateString('fr-FR').split( '/' ).join( '-' ) + '-' + Date.now()
         let exportedTable = req.body.exportedTable
         let PID =  req.body.PID
@@ -1716,11 +1817,11 @@ const upload = multer({  storage: storage, array: true });
         });
     })
 
-    RestaurantRouter.get('/tools/export/download/:file', (req, res) => {
+    GymRouter.get('/tools/export/download/:file', (req, res) => {
       res.download(`C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp/${req.params.file}.sql`);
     })
 
-    RestaurantRouter.post('/tools/export/calclength', (req, res) => {
+    GymRouter.post('/tools/export/calclength', (req, res) => {
       fs.readdir('C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp', (err, files) => {
         if (err) {
           console.error(err);
@@ -1732,7 +1833,7 @@ const upload = multer({  storage: storage, array: true });
       });
     })
 
-    RestaurantRouter.post('/tools/export/calcsize', (req, res) => {
+    GymRouter.post('/tools/export/calcsize', (req, res) => {
         let totalSize = 0;
         fs.readdir('C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp', (err, files) => {
           if (err) {
@@ -1760,7 +1861,7 @@ const upload = multer({  storage: storage, array: true });
         });
     })
 
-    RestaurantRouter.post('/tools/export/clear', (req, res) => {
+    GymRouter.post('/tools/export/clear', (req, res) => {
         fs.readdir('C:/Users/Administrator/Desktop/Abyedh/CDN/DataBaseBackUp', (err, files) => {
           if (err) {
             console.error(err);
@@ -1788,7 +1889,7 @@ const upload = multer({  storage: storage, array: true });
     
 /*&&&&&&&&&&&&&&&&&[Mettre A Jour]&&&&&&&&&&&*/
     /* fetch main Tools */
-    RestaurantRouter.post('/update', (req, res) => {
+    GymRouter.post('/update', (req, res) => {
          let PID = req.body.PID
          let Today = new Date().toISOString().split('T')[0]
 
@@ -1886,4 +1987,4 @@ const upload = multer({  storage: storage, array: true });
     })
 
 
-module.exports = RestaurantRouter
+module.exports = GymRouter
