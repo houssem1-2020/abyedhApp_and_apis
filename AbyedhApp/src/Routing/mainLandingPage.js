@@ -163,6 +163,14 @@ function MainLandingPage() {
                 </div>
             </>)
     }
+    const IntroducingCard = () =>{
+        return(<>
+                <div className='card p-4 mb-3   border-div border-0' style={{backgroundColor: '#dedede', fontSize:'14px', color:'#14524f'}} >
+                     <b>مِنَصّةْ أَبْيَضْ تعَاوْنِكْ فِي عِدّةْ مَجَالَاتْ بَاشْ تَلْقَي :   </b>
+                </div>
+            </>)
+    }
+
     const DisplayedCard = (props)  =>{
 
         const ItemCard = (props) => {
@@ -335,7 +343,10 @@ function MainLandingPage() {
             <SearchBar open={open} setOpen={setOpen} searchKey={searchKey} setSearchKey={setSearchKey} SearchFunction={SearchFunction} GoToQrCodeFunction={GoToQrCodeFunction} data={data} setData={setData} />
             <br />
             <br />
+
             <div className='container' dir='rtl'>
+                <IntroducingCard />
+                <br />
                 <div className='row'>
                     <div className='col-12 col-lg-6 d-none d-lg-inline'>
                         <DisplayedCard smallDisplay={false} data={GConf.Items.sante} />

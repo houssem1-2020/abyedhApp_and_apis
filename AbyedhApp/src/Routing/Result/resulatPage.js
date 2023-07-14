@@ -154,6 +154,26 @@ function ResultPage() {
         </>);
 
     }
+    const ActionsBtnCard = (props) =>{
+        return(<>
+            {/* <NavLink exact='true' to={`/S/P/${props.data.link}/${tag}/${PID}`}> */}
+                <Button  animated size={props.fluid ? 'large' : 'small'}  className='bg-white   border mb-2 '  fluid={props.fluid}    icon style={{borderRadius:'18px'}}>
+                    <Button.Content visible style={{color: GConf.ADIL[tag].themeColor}}>
+                        <div className='row'>
+                            <div className='col-3 align-self-center'><Icon name={props.data.icon} /> </div>
+                            <div className='col-9 align-self-center'>{props.data.name}  </div>
+                        </div>
+                    </Button.Content>
+                    <Button.Content hidden style={{color: GConf.ADIL[tag].themeColor}}>
+                        <Icon name={props.data.icon} />
+                    </Button.Content> 
+        
+                </Button>
+            {/* </NavLink> */}
+            
+            </>)
+    }
+
     const ResultCard = (props) => {
         return (<>
                 <div className='col-12 col-lg-4 mb-3'>
@@ -172,13 +192,17 @@ function ResultPage() {
                             </span>
                             
                         </div>
-                        <div className='text-center '> <h5 style={{ color: GConf.ADIL[tag].themeColor}}>{props.data.Name} { props.data.Activated == 'YES' ?  <span className='bi bi-shield-fill-check text-dark'></span> : ''}</h5></div>
+                        <div className='text-center '> <h5 style={{ color: GConf.ADIL[tag].themeColor}}>{props.data.Name} { props.data.Activated == 'true' ?  <span className='bi bi-shield-fill-check ' style={{color: '#d91a37'}}></span> : ''}</h5></div>
                         <div className='card-body text-secondary ' >
                             <div className='text-end  pb-2' dir='ltr'>
-                            <div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-geo-alt-fill' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Gouv}</div> 
-                            <div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-geo-alt' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Deleg}</div> 
-                            <div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-pin-map-fill' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Adress}</div> 
+                            {props.data.Genre != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-bookmark-heart-fill' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Genre}</div> </> : <></> }
+                            {props.data.Gouv != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-geo-alt-fill' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Gouv}</div> </> : <></> }
+                            {props.data.Deleg != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-geo-alt' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Deleg}</div> </> : <></> }
+                            {props.data.Adress != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-pin-map-fill' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Adress}</div> </> : <></> }
                             </div>
+                        </div>
+                        <div className='col-12' dir='rtl'>
+                            { GConf.ADIL[tag].systemActive ?  GConf.ADIL[tag].profileBtns.map( (data,index) => <ActionsBtnCard key={index} data={data} indexKey={index} /> ) : <></> }                        
                         </div>
                     </div>
                     
@@ -187,7 +211,7 @@ function ResultPage() {
     }
     const FilterCard = () =>{
         return(<>
-        <div className='card-body rounded-0 ' style={{height:'80px', marginBottom:'35px',   paddingTop:'30px' }}>
+        <div className='card-body rounded-0' style={{height:'80px', marginBottom:'35px',   paddingTop:'30px' }}>
             <div className='row'>
                 <div className='col-lg-3 align-self-center d-none d-lg-block '>
                     <Dropdown
@@ -278,6 +302,15 @@ function ResultPage() {
             </div>
         </>)
     }
+    const ScrollDelegCard = () =>{
+        return(<>
+            <div className="mt-0 p-1" dir='rtl' style={{width:'100%', overflowX: 'auto', overflowY : 'hidden', whiteSpace:'nowrap'}}>
+                <div className="d-flex"  >
+                    {localiteList.map((data,index) =>  <div key={index} className='border rounded-pill mb-1 p-2 text-end ms-2'> {data.text} </div>)} 
+                </div>
+            </div>
+        </>)
+    }
     return ( <>
             <TopNavBar />  
             <br />
@@ -293,7 +326,7 @@ function ResultPage() {
                                 <FilterCard />
                             </div>
                             
-
+                            <ScrollDelegCard />
                             {loading ?  <PlacHolderCard />
                             :
                             <>
