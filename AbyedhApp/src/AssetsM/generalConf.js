@@ -1,6 +1,7 @@
 import TunMap from './tunMap'
 import AbyedhADIL from './ADIL'
 import dirItem from './Item'
+import AbyedhASIL from './ASIL';
 
 const GetUID = () =>{
     const UserLoggedIn = (localStorage.getItem('UserData') !== null);
@@ -14,6 +15,7 @@ const GetUID = () =>{
 const GConf = {
     // main variables
     ADIL:AbyedhADIL,
+    ASIL:AbyedhASIL,
     Items : dirItem,
     abyedhMap : TunMap,
     UserData : GetUID(),

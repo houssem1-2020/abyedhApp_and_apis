@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 //Router & Routes
 import { BrowserRouter as Router,Routes,Route, Outlet} from "react-router-dom";
 import { Navigate } from 'react-router-dom';
+//import appRouter  from './AssetsM/Router/appRouter';
 import profileRouter  from './AssetsM/Router/profileRouter';
 import toolsRouter from './AssetsM/Router/toolsRouter'
 
@@ -28,10 +29,13 @@ import GarderieActions from './Routing/Profile/Actions/garderie';
 import ProfileFollow from './Routing/Profile/followPage';
 import AboutPage from './About/aboutPage';
 import SearchPage from './Routing/Search/searchPage';
-
+import SystemPage from './Routing/Systems/SystemPage';
+import SystemAdd from './Routing/Systems/addPage';
+import SystemUser from './Routing/Systems/userPage';
 
 function App() {
   //const and variables 
+  //const AppRouter = appRouter();
   const ProfileRouter = profileRouter();
   const ToolsRouter = toolsRouter();
   const [progress, setProgress] = useState(2)
@@ -60,6 +64,10 @@ function App() {
           <Route path="S/P/:tag/:PID" element={<ProfilePage />} />
           <Route path="S/P/Action/:tag/:PID" element={<ProfileAction />} />
           <Route path="S/P/Suivie/:tag/:PID" element={<ProfileFollow />} />
+          <Route path="S/I" element={<SystemPage />} />
+          <Route path="S/I/add/:tag" element={<SystemAdd />} />
+          <Route path="S/I/user/:tag" element={<SystemUser />} />
+          {/* {AppRouter} */}
           {ProfileRouter}
           {ToolsRouter}
           <Route path="About" element={<AboutPage />} />

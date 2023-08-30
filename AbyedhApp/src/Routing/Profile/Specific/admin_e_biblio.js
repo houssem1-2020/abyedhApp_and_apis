@@ -39,7 +39,7 @@ function AdminEBiblioSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> عدد الكتب الجملي </h5> 
-                 
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-journal-album bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -47,7 +47,7 @@ function AdminEBiblioSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end ' style={{color: GConf.ADIL[tag].themeColor}}>  تعريقة الخدمات   </h5> 
-                
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-cash-coin bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -55,7 +55,7 @@ function AdminEBiblioSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> قائمة الكتب  </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-list-stars bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -63,7 +63,7 @@ function AdminEBiblioSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  تقسيم المكتبة </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-layout-wtf bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -71,7 +71,7 @@ function AdminEBiblioSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> كيفية الإشتراك </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-info-circle bi-lg'></span></h1>
             </div>
         </>)
     }

@@ -31,15 +31,15 @@ function GymAction() {
 
     const panes = [
         {
-          menuItem: { key: 'save', icon: 'calendar alternate', content:  <span className='me-2'>مواعيد</span> , dir:'rtl' },
+          menuItem: { key: 'save', icon: 'calendar alternate', content:  <span className='me-2'>طلبات</span> , dir:'rtl' },
           render: () => <TableGrid tableData={inscriptionListe}  columns={['فتح','عدد','يوم','يوم']} />,
         },
         {
-            menuItem: { key: 'edit', icon: 'pin', content:  <span className='me-2'>جلسات</span> , dir:'rtl' },
+            menuItem: { key: 'edit', icon: 'pin', content:  <span className='me-2'>إشتراكات</span> , dir:'rtl' },
             render: () => <TableGrid tableData={seanceListe}  columns={['فتح','عدد','يوم','معرف']} />,
         },
         {
-            menuItem: { key: 'oug', icon: 'list alternate outline', content:  <span className='me-2'>Ordonance</span> , dir:'rtl' },
+            menuItem: { key: 'oug', icon: 'list alternate outline', content:  <span className='me-2'>حصص</span> , dir:'rtl' },
             render: () => <TableGrid tableData={abonnemmentListe} columns={['فتح','عدد','يوم','معرف']} />,
         },
       ]

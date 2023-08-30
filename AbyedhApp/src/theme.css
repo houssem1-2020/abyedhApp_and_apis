@@ -264,3 +264,32 @@ Dropdown{text-align: right !important;}
   z-index: 1;
   background-color: #fff;
 }
+
+/*Icon & Icon small*/
+.icon-system { width: 3rem; height: 3rem; }
+.icon-system img { font-size: 1.5rem; }
+.icon-system-shape {
+ display: inline-flex;
+ padding: 12px;
+ text-align: center;
+ border-radius: 50%;
+ align-items: center;
+ justify-content: center;
+}
+.icon-small {
+  width: 7rem;
+  height: 7rem;
+}
+
+.icon-small i {
+  font-size: 3.5rem;
+}
+
+.icon-small-shape {
+  display: inline-flex;
+  padding: 12px;
+  text-align: center;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}

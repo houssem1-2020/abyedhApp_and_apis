@@ -40,7 +40,7 @@ function RestaurantActions() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>   عدد الطاولات الشاغرة </h5> 
-                <h1 className='display-5 text-info'>14</h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-5-circle-fill bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -48,7 +48,7 @@ function RestaurantActions() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  الوقت المتبقي للطلب</h5> 
-                <h1 className='display-6 text-danger'>412:12:25</h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-hourglass-top bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -56,7 +56,7 @@ function RestaurantActions() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  التعريفة </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-cash-coin bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -64,7 +64,7 @@ function RestaurantActions() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> القائمة لليوم</h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-menu-button-fill bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -72,7 +72,7 @@ function RestaurantActions() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> إعلانات </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-megaphone bi-lg'></span></h1>
             </div>
         </>)
     }

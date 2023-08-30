@@ -38,24 +38,24 @@ function CliniqueSpecific() {
     const SalleAttentCard = () =>{
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
-                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> قاعة الانتضار</h5> 
-                <h1 className='display-5 text-info'>0</h1>
+                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> هيكلة المصحة </h5> 
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-diagram-3-fill bi-lg'></span></h1>
             </div>
         </>)
     }
     const RoleTimeEstimateCard = () =>{
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
-                <h5 className='text-end ' style={{color: GConf.ADIL[tag].themeColor}}>  توقع الوقت المتبقي </h5> 
-                <h1 className='display-5 text-warning' dir='rtl'>20 دقيقة</h1>
+                <h5 className='text-end ' style={{color: GConf.ADIL[tag].themeColor}}> الأقسام </h5> 
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-columns-gap bi-lg'></span></h1>
             </div>
         </>)
     }
     const TarifCard = () =>{
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
-                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> التعريفة </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> تعريفة الخدمات </h5> 
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-cash-coin bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -63,7 +63,7 @@ function CliniqueSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  الطاقم الطبي </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-people bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -71,7 +71,7 @@ function CliniqueSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> إعلانات </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-megaphone-fill bi-lg'></span></h1>
             </div>
         </>)
     }

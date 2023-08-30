@@ -17,19 +17,22 @@ function ProfileLandingPage() {
 
     /*#########################[Function]###########################*/
     const logOutInput = () =>{    
-        localStorage.clear();
+        //localStorage.clear();
+        localStorage.removeItem('UID')
+        localStorage.removeItem('UserData')
         window.location.href = "/Profile";
     }
 
     /*#########################[Card]###########################*/
+    /*style={{backgroundColor:'#4287f5'}}*/
     const MainTopCard = () =>{
         const TopAppBar = () =>{
             return(<>
-                <div className='rounded-0 border-0 p-2 m-0 ' style={{backgroundColor:'#4287f5'}}>
+                <div className='rounded-0 border-0 p-2 m-0  ' >
                         <div className='row m-0'>
                             <div className='col-6 text-start align-self-center'>
                                 <NavLink exact='true' to='/' className="m-0 p-0 ms-3">
-                                    <img  className="border-div" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                    <img  className="border-div bg-danger border border-danger" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
                                 </NavLink>
                             </div>
                             <div className='col-6 align-self-center text-end' >
@@ -68,7 +71,7 @@ function ProfileLandingPage() {
             }
 
             return(<>
-                <div className='border bg-white rounded-0 text-center p-4 sticky-top' dir='rtl' style={{margingTop:'80px', zIndex: 1000}}>
+                <div className='border-0 bg-white rounded-0 text-center p-4 sticky-top shadow-bottom-card' dir='rtl' style={{margingTop:'80px', zIndex: 1000}}>
 
                         {GConf.ProfileNavsData.map((links) => 
                                 <MainLink key={links.id} name={links.name} link={links.link} icon={links.icon} />

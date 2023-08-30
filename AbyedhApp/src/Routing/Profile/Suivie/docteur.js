@@ -117,7 +117,7 @@ function DocteurActions() {
     }
     const GetTheLastRDV = (dateList) =>{
         if (dateList.length === 0) {
-            return '--/--/--';
+            return <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-calendar-week bi-lg'></span></h1>;
           }
         
           let maxDate = new Date(0);
@@ -148,10 +148,10 @@ function DocteurActions() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end text-secondary'> ملخص</h5> 
-                <div className='row'>
-                    <div className='col-4'><h2 style={{color:GConf.ADIL[tag].themeColor}}>{ordonanceListe.length} </h2>  وصفة </div>
+                <div className='row' dir='rtl'>
+                    <div className='col-4 border-start'><h2 style={{color:GConf.ADIL[tag].themeColor}}>{ordonanceListe.length} </h2>  وصفة </div>
                     <div className='col-4 border-start'><h2 style={{color:GConf.ADIL[tag].themeColor}}>{rendyVousD.length} </h2> موعد</div>
-                    <div className='col-4 border-start'><h2 style={{color:GConf.ADIL[tag].themeColor}}>{seanceListe.length} </h2> جلسة</div>
+                    <div className='col-4 '><h2 style={{color:GConf.ADIL[tag].themeColor}}>{seanceListe.length} </h2> جلسة</div>
                 </div>
             </div>
         </>)

@@ -39,7 +39,7 @@ function CafeSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  عدد الطاولات</h5> 
-                <h1 className='display-5 text-info'>0</h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-8-circle-fill bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -47,7 +47,7 @@ function CafeSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end ' style={{color: GConf.ADIL[tag].themeColor}}> الإنتضار   </h5> 
-                <h1 className='display-5 text-warning' dir='rtl'>20 دقيقة</h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-hourglass-bottom bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -55,7 +55,7 @@ function CafeSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> التعريفة </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-cash-coin bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -63,7 +63,7 @@ function CafeSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  قائمة الخدمات  </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-card-checklist bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -71,7 +71,7 @@ function CafeSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> إعلانات </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-megaphone-fill bi-lg'></span></h1>
             </div>
         </>)
     }

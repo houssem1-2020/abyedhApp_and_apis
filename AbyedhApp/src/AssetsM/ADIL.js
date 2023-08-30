@@ -10,6 +10,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -18,66 +20,66 @@ const AbyedhADIL = {
         ],
         subCatagSmall : [
             [
-                { id: 1, name: 'أَسْنَانْ', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
-                { id: 2, name: 'أَطْفَالْ', value: 'dentiste', imgSrc: 'PEDIATRIE' },
-                { id: 3, name: 'المَجَارِي البَوْلِيَّة', value: 'dentiste', imgSrc: 'UROLOGIE' },
-                { id: 4, name: 'أَمْرَاضْ الرِئَة', value: 'dentiste', imgSrc: 'PNEUMOLOGIE' },
+                { id: 1, name: 'أَسْنَانْ', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
+                { id: 2, name: 'أَطْفَالْ', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
+                { id: 3, name: 'المَجَارِي البَوْلِيَّة', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
+                { id: 4, name: 'أَمْرَاضْ الرِئَة', value: 'PNEUMOLOGIE', imgSrc: 'PNEUMOLOGIE' },
             ],
             [
-                { id: 5, name: 'العُيُونْ', value: 'dentiste', imgSrc: 'OPHTALMOLOGIE' },
-                { id: 6, name: 'أًذًنْ أَنْفْ حُنْجُرَة', value: 'dentiste', imgSrc: 'ORL' },
-                { id: 7, name: 'الأعصاب', value: 'dentiste', imgSrc: 'NEUROLOGIE' },
-                { id: 8, name: 'الكلي', value: 'dentiste', imgSrc: 'UROLOGIE' },
+                { id: 5, name: 'العُيُونْ', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
+                { id: 6, name: 'أًذًنْ أَنْفْ حُنْجُرَة', value: 'ORL', imgSrc: 'ORL' },
+                { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
+                { id: 8, name: 'الكلي', value: 'NEPHROLOGIE', imgSrc: 'NEPHROLOGIE' },
             ],
             [
-                { id: 9, name: 'نِسَاءْ وَ تَوْلِيدْ', value: 'dentiste', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
-                { id: 10, name: 'الجِهَازْ الهَضْمِي', value: 'dentiste', imgSrc: 'GASTROLOGIE' },
-                { id: 11, name: 'الغُدَدْ', value: 'dentiste', imgSrc: 'ENDOCRINOLOGIE' },
-                { id: 12, name: 'البَشْرَة', value: 'dentiste', imgSrc: 'DERMATOLOGIE' },
+                { id: 9, name: 'نِسَاءْ وَ تَوْلِيدْ', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
+                { id: 10, name: 'الجِهَازْ الهَضْمِي', value: 'GASTROLOGIE', imgSrc: 'GASTROLOGIE' },
+                { id: 11, name: 'الغُدَدْ', value: 'ENDOCRINOLOGIE', imgSrc: 'ENDOCRINOLOGIE' },
+                { id: 12, name: 'البَشْرَة', value: 'DERMATOLOGIE', imgSrc: 'DERMATOLOGIE' },
             ],
             [
-                { id: 13, name: 'القَلْبْ', value: 'dentiste', imgSrc: 'CARDIOLOGIE' },
-                { id: 14, name: 'النَفْسْ', value: 'dentiste', imgSrc: 'PSYCHIATRIE' },
-                { id: 15, name: 'التَغْذِيَة', value: 'dentiste', imgSrc: 'NUTRITION' },
+                { id: 13, name: 'القَلْبْ', value: 'CARDIOLOGIE', imgSrc: 'CARDIOLOGIE' },
+                { id: 14, name: 'النَفْسْ', value: 'PSYCHIATRIE', imgSrc: 'PSYCHIATRIE' },
+                { id: 15, name: 'التَغْذِيَة', value: 'NUTRITION', imgSrc: 'NUTRITION' },
             ]
         ],
         subCatagLarge : [
             [
-                { id: 1, name: 'أَسْنَانْ', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
-                { id: 2, name: 'أَطْفَالْ', value: 'dentiste', imgSrc: 'PEDIATRIE' },
-                { id: 3, name: 'المَجَارِي البَوْلِيَّة', value: 'dentiste', imgSrc: 'UROLOGIE' },
-                { id: 4, name: 'أَمْرَاضْ الرِئَة', value: 'dentiste', imgSrc: 'PNEUMOLOGIE' },
-                { id: 5, name: 'العُيُونْ', value: 'dentiste', imgSrc: 'OPHTALMOLOGIE' },
-                { id: 6, name: 'أًذًنْ أَنْفْ حُنْجُرَة', value: 'dentiste', imgSrc: 'ORL' },
-                { id: 7, name: 'الأعصاب', value: 'dentiste', imgSrc: 'NEUROLOGIE' },
-                { id: 8, name: 'الكلي', value: 'dentiste', imgSrc: 'UROLOGIE' },
+                { id: 1, name: 'أَسْنَانْ', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
+                { id: 2, name: 'أَطْفَالْ', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
+                { id: 3, name: 'المَجَارِي البَوْلِيَّة', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
+                { id: 4, name: 'أَمْرَاضْ الرِئَة', value: 'PNEUMOLOGIE', imgSrc: 'PNEUMOLOGIE' },
+                { id: 5, name: 'العُيُونْ', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
+                { id: 6, name: 'أًذًنْ أَنْفْ حُنْجُرَة', value: 'ORL', imgSrc: 'ORL' },
+                { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
+                { id: 8, name: 'الكلي', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
             ],
             [
-                { id: 9, name: 'نِسَاءْ وَ تَوْلِيدْ', value: 'dentiste', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
-                { id: 10, name: 'الجِهَازْ الهَضْمِي', value: 'dentiste', imgSrc: 'GASTROLOGIE' },
-                { id: 11, name: 'الغُدَدْ', value: 'dentiste', imgSrc: 'ENDOCRINOLOGIE' },
-                { id: 12, name: 'البَشْرَة', value: 'dentiste', imgSrc: 'DERMATOLOGIE' },
-                { id: 13, name: 'القَلْبْ', value: 'dentiste', imgSrc: 'CARDIOLOGIE' },
-                { id: 14, name: 'النَفْسْ', value: 'dentiste', imgSrc: 'PSYCHIATRIE' },
-                { id: 15, name: 'التَغْذِيَة', value: 'dentiste', imgSrc: 'NUTRITION' },
+                { id: 9, name: 'نِسَاءْ وَ تَوْلِيدْ', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
+                { id: 10, name: 'الجِهَازْ الهَضْمِي', value: 'GASTROLOGIE', imgSrc: 'GASTROLOGIE' },
+                { id: 11, name: 'الغُدَدْ', value: 'ENDOCRINOLOGIE', imgSrc: 'ENDOCRINOLOGIE' },
+                { id: 12, name: 'البَشْرَة', value: 'DERMATOLOGIE', imgSrc: 'DERMATOLOGIE' },
+                { id: 13, name: 'القَلْبْ', value: 'CARDIOLOGIE', imgSrc: 'CARDIOLOGIE' },
+                { id: 14, name: 'النَفْسْ', value: 'PSYCHIATRIE', imgSrc: 'PSYCHIATRIE' },
+                { id: 15, name: 'التَغْذِيَة', value: 'NUTRITION', imgSrc: 'NUTRITION' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'أسنان', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
-                { id: 2, name: 'أطفال', value: 'dentiste', imgSrc: 'PEDIATRIE' },
-                { id: 3, name: 'المجاري البولية', value: 'dentiste', imgSrc: 'UROLOGIE' },
-                { id: 4, name: 'امراض الرئة', value: 'dentiste', imgSrc: 'PNEUMOLOGIE' },
-                { id: 5, name: 'العيون', value: 'dentiste', imgSrc: 'OPHTALMOLOGIE' },
-                { id: 6, name: 'أذن أنف حنجرة', value: 'dentiste', imgSrc: 'ORL' },
-                { id: 7, name: 'الأعصاب', value: 'dentiste', imgSrc: 'NEUROLOGIE' },
-                { id: 8, name: 'الكلي', value: 'dentiste', imgSrc: 'UROLOGIE' },
-                { id: 9, name: 'نساء و توليد', value: 'dentiste', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
-                { id: 10, name: 'الجهاز الهضمي', value: 'dentiste', imgSrc: 'GASTROLOGIE' },
-                { id: 11, name: 'الغدد', value: 'dentiste', imgSrc: 'ENDOCRINOLOGIE' },
-                { id: 12, name: 'البشرة', value: 'dentiste', imgSrc: 'DERMATOLOGIE' },
-                { id: 13, name: 'القلب', value: 'dentiste', imgSrc: 'CARDIOLOGIE' },
-                { id: 14, name: 'النفس', value: 'dentiste', imgSrc: 'PSYCHIATRIE' },
-                { id: 15, name: 'التغذية', value: 'dentiste', imgSrc: 'NUTRITION' },    
+                { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
+                { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
+                { id: 3, name: 'المجاري البولية', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
+                { id: 4, name: 'امراض الرئة', value: 'PNEUMOLOGIE', imgSrc: 'PNEUMOLOGIE' },
+                { id: 5, name: 'العيون', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
+                { id: 6, name: 'أذن أنف حنجرة', value: 'ORL', imgSrc: 'ORL' },
+                { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
+                { id: 8, name: 'الكلي', value: 'NEPHROLOGIE', imgSrc: 'NEPHROLOGIE' },
+                { id: 9, name: 'نساء و توليد', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
+                { id: 10, name: 'الجهاز الهضمي', value: 'GASTROLOGIE', imgSrc: 'GASTROLOGIE' },
+                { id: 11, name: 'الغدد', value: 'ENDOCRINOLOGIE', imgSrc: 'ENDOCRINOLOGIE' },
+                { id: 12, name: 'البشرة', value: 'DERMATOLOGIE', imgSrc: 'DERMATOLOGIE' },
+                { id: 13, name: 'القلب', value: 'CARDIOLOGIE', imgSrc: 'CARDIOLOGIE' },
+                { id: 14, name: 'النفس', value: 'PSYCHIATRIE', imgSrc: 'PSYCHIATRIE' },
+                { id: 15, name: 'التغذية', value: 'NUTRITION', imgSrc: 'NUTRITION' },    
         ],
         profileImg:'',
         cardProfile:[
@@ -108,6 +110,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'الصيدلية',
+        businesOwner: 'صاحب صيدلية',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -156,6 +160,8 @@ const AbyedhADIL = {
         iconName: 'clinique',
         WiconName: 'clinique',
         adsImage: 'clinique',
+        businesName: 'المصحة',
+        businesOwner: 'صاحب مصحة خاصة',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -213,6 +219,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'المخبر',
+        businesOwner: 'صاحب مخبر تحاليل',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -269,6 +277,8 @@ const AbyedhADIL = {
         iconName: 'centreMD',
         WiconName: 'centreMD',
         adsImage: 'centreMD',
+        businesName: 'المركز الطبي',
+        businesOwner: 'صاحب مركز طبي',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -325,6 +335,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -382,6 +394,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -434,6 +448,8 @@ const AbyedhADIL = {
         iconName: 'garderie',
         WiconName: 'garderie',
         adsImage: 'garderie',
+        businesName: 'روضة الأطفال',
+        businesOwner: 'صاحب روضة أطفال',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -483,6 +499,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -534,6 +552,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -585,6 +605,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -652,6 +674,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -703,6 +727,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -754,6 +780,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -805,6 +833,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -856,11 +886,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>', 
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -907,11 +939,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>', 
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -958,11 +992,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>', 
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -1025,11 +1061,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>', 
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -1078,11 +1116,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كانك تلوج في سيارة نقل بظائع أبيض توفرلك دليل واسع لأصحاب شاحنات نقل البظائع , الدليل يمكنك تلقي transporteur قريب و اللي تنجم تاخو معاه موعد و تنجم زادا تبقي متابع لعملية نقل بظاعتك بكل لحظة</h5>', 
+            '<h5>في المقابل كانك صاحب شاحنة نقل بظائع منصتنا توفرلك نظام إدارة و متابعة للعمل متاعك من خلال فضاء لتنضيم المواعيد و تسجيل العمليات كما توفر موقع يمكن جميع التونسيين من التواصل معك و أخذ المواعيد من خلاله </h5> ']
         ],
         subCatagSmall: [
             [
@@ -1129,11 +1169,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كان تحب تاخو رخصة سياقة و تلوج في معلم ماهر و ذو خبرة فأنو منصة أبيض توفر الدليل هذا اللي تلقي فيه مدارس تعليم السياقة بمختلف أصنافها و يعاونك و يرشدك بالنصائح اللي تساعد باش تتحصل علي رخصتك</h5>', 
+            '<h5>في المقابل كانك صاحب مدرسة تعليم سياقة أبيض توفرلك نظام تحكم و مراقبة و محاسبة لمدرستك و لحرفائك من خلال العديد من الأدوات اللي تخليك ديما مطلع علي سير و تطور مهارات تلامذك في السياقة.</h5>  ']
         ],
         subCatagSmall: [
             [
@@ -1189,11 +1231,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>تلوج في قهوة ؟ قاعة شاي ؟ تحب تحجز طاولة في مقهي فاخر . أبيض توفرلك دليل بحث يعاونك أنك تلقي اللي حاجتك بيه باش تربحك في الوقت و تعاونك تعرف الإختيار اللي يساعدك و يخليك تستمتع </h5> ',
+            '<h5>في المقابل كانك صاحب مقهي و تحب تحسن في جودة الخدمات اللي تقدمها للحرفاء متاعك , أبيض توفرلك نظام إدارة و تواصل مع حرفائك باش تربحهم في الوقت و تعاونهم يستمتعو بخدماتك أكثر  </h5> ']
         ],
         subCatagSmall: [
             [
@@ -1244,11 +1288,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>تلوج في مطعم نظيف و خدماتو صحية ؟ تحب تحجز طاولة في مطعم فاخر ؟ أبيض توفرلك محرك البحث هذا باش يعاونك تلقي اللي حاجتك بيه و يمكنك أنك تختار بين النتائج من أجل جرّب إستمتاع أفظل </h5> ',
+            '<h5>في المقابل كانك صاحب مطعم أبيض يوفرلك نظام إدارة و مراقبة و متابعة للمطعم وإلا العمل متاعك , من خلال بيئة إفتراضية تخليك ديما متصل بالزبائن متاعك لمعرفة ردود أفعالهم علي الخدمات اللي تقدمها </h5>']
         ],
         subCatagSmall: [
             [
@@ -1301,11 +1347,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            '<h5>في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك </h5> ']
         ],
         subCatagSmall: [
             [
@@ -1356,11 +1404,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            '<h5>في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك </h5> ']
         ],
         subCatagSmall: [
             [
@@ -1411,6 +1461,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1468,6 +1520,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1519,11 +1573,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            '<h5>في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك </h5> ']
         ],
         subCatagSmall: [
             [
@@ -1570,11 +1626,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            '<h5>في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك </h5> ']
         ],
         subCatagSmall: [
             [
@@ -1627,11 +1685,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: 'house_electro',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
             ['<h5>تلوج في خدمات مختلفة للمنزل متاعك ؟ أبيض تمكنك أنك تلقي المنتجات اللي تحتاجها للمنزل الكل : آلات كهربيائية , مفروشات متنوعة و تمكنك تختار المنتج بالخاصيات اللي تحب عليها ببساطة و سهولة </h5>', 
-            '<h5>في المقابل كانك صاحب محل بيع منتجات منزلية المنصة هاذي توفرلك النظام اللي تحتاجو باش تدير العمل متاعك بصفة رقمية و تعاونك تتصل بالحرفاء و المزودين بسهولة و سرعة </h5> ']
+            '<h5>في المقابل كانك صاحب محل بيع منتجات منزلية المنصة هاذي توفرلك النظام اللي تحتاجو باش تدير العمل متاعك بصفة رقمية و تعاونك تتصل بالحرفاء و المزودين بسهولة و سرعة </h5>  ']
         ],
         subCatagSmall: [
             [
@@ -1678,11 +1738,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>تلوج في خدمات مختلفة للمنزل متاعك ؟ أبيض تمكنك أنك تلقي المنتجات اللي تحتاجها للمنزل الكل : آلات كهربيائية , مفروشات متنوعة و تمكنك تختار المنتج بالخاصيات اللي تحب عليها ببساطة و سهولة </h5> ',
+            '<h5>في المقابل كانك صاحب محل بيع منتجات منزلية المنصة هاذي توفرلك النظام اللي تحتاجو باش تدير العمل متاعك بصفة رقمية و تعاونك تتصل بالحرفاء و المزودين بسهولة و سرعة </h5>']
         ],
         subCatagSmall: [
             [
@@ -1729,11 +1791,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            '<h5>في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم </h5> ']
         ],
         subCatagSmall: [
             [
@@ -1785,11 +1849,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            '<h5>في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم </h5> ']
         ],
         subCatagSmall: [
             [
@@ -1836,11 +1902,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            '<h5>في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم </h5> ']
         ],
         subCatagSmall: [
             [
@@ -1887,11 +1955,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            '<h5>في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم </h5> ']
         ],
         subCatagSmall: [
             [
@@ -1940,11 +2010,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن وسيط عقاري علي الأنترنت كانك قاعد تلوج في حاجة معينة : دار , أستديو , كاراج لكرهبتك , ... و لا كانك طالب جامعي لوج هنا مليح تو تلقا الدار اللي حاجتك بيها بسهولة  </h5> ',
+            '<h5>في المقابل كانك وسيط عقاري المنصة هاذي توفرلك نضام إدارة للخدمة متاعك و تسهلك عملية إيصال العروض اللي عندك للحرفاء و تنجم توفرلك أداة تقييم للعقارات اللي تعرفها </h5> ']
         ],
         subCatagSmall: [
             [
@@ -1991,11 +2063,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
+            '<h5>في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -2042,11 +2116,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
+            '<h5>في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -2093,11 +2169,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
+            '<h5>في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -2144,11 +2222,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
         ],
         subCatagSmall: [
             [
@@ -2195,11 +2275,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
         ],
         subCatagSmall: [
             [
@@ -2246,11 +2328,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
         ],
         subCatagSmall: [
             [
@@ -2297,11 +2381,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
         ],
         subCatagSmall: [
             [
@@ -2348,11 +2434,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
         ],
         subCatagSmall: [
             [
@@ -2399,11 +2487,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
         ],
         subCatagSmall: [
             [
@@ -2450,11 +2540,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
         ],
         subCatagSmall: [
             [
@@ -2503,11 +2595,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي توفر دليل واسع لمختلف  صالونات الحلاقة للرجال و للنساء , كما تعتبر أداة تسهل عملية حجز مواعيد مع قاعات الحلاقة من أجل توفير الوقت و تجنب الأنتظار لفترات زمنية طويلة</h5> ',
+            '<h5>في المقابل كانك صاحب قاعة حلاقة أبيض توفرلك نظام إداة للقاعة متاعك يمكنك من التواصل مع حرفائك و التواصل معاهم , كما يوفر أداة لعرض خدماتك لوصول أوسع للزبائن و الحرفاء </h5> ']
         ],
         subCatagSmall: [
             [
@@ -2554,15 +2648,17 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث تلقي فيه محلات بيع الملابس بمختلف انواعها للرجال و للنساء و للصغار ... تمكنك زاد إنك تعرف خصائص و مدي جودة  المنتجات اللي تحب تشريها من خلال منصة عرض ذكية  </h5>', 
+            '<h5>في المقابل كانك صاحب محل بيع للملابس فإنا نوفرولك نظام إدارة و مراقبة و متابعة للمحل متاعك يمكنك من عرض منتجاتك علي الأنترنت باش توصل لأكبر قدر من الحرفاء و المهتمين بالموضة و المنتجات الجديدة </h5> ']
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'رِجَالْ', value: 'dentiste', imgSrc: 'man' },
+                { id: 1, name: 'رِجَالْ', value: '1', imgSrc: 'man' },
                 { id: 2, name: 'نِسَاءْ', value: 'dentiste', imgSrc: 'woumen' },
                 { id: 3, name: 'صِغَارْ', value: 'dentiste', imgSrc: 'child' },
                 { id: 4, name: 'أَحْذِيَة', value: 'dentiste', imgSrc: 'shoes' },
@@ -2570,17 +2666,17 @@ const AbyedhADIL = {
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'رِجَالْ', value: 'dentiste', imgSrc: 'man' },
-                { id: 2, name: 'نِسَاءْ', value: 'dentiste', imgSrc: 'woumen' },
-                { id: 3, name: 'صِغَارْ', value: 'dentiste', imgSrc: 'child' },
-                { id: 4, name: 'أَحْذِيَة', value: 'dentiste', imgSrc: 'shoes' },
+                { id: 1, name: 'رِجَالْ', value: '1', imgSrc: 'man' },
+                { id: 2, name: 'نِسَاءْ', value: '2', imgSrc: 'woumen' },
+                { id: 3, name: 'صِغَارْ', value: '3', imgSrc: 'child' },
+                { id: 4, name: 'أَحْذِيَة', value: '4', imgSrc: 'shoes' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'رجال', value: 'dentiste', imgSrc: 'man' },
-            { id: 2, name: 'نساء', value: 'dentiste', imgSrc: 'woumen' },
-            { id: 3, name: 'صغار', value: 'dentiste', imgSrc: 'child' },
-            { id: 4, name: 'أحذية', value: 'dentiste', imgSrc: 'shoes' },
+            { id: 1, name: 'رجال', value: 'Homme', imgSrc: 'man' },
+            { id: 2, name: 'نساء', value: 'Femme', imgSrc: 'woumen' },
+            { id: 3, name: 'صغار', value: 'enfant', imgSrc: 'child' },
+            { id: 4, name: 'أحذية', value: 'chaussures', imgSrc: 'shoes' },
         ],
         profileImg:'',
         cardProfile:[
@@ -2611,11 +2707,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
+            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
         ],
         subCatagSmall: [
             [
@@ -2662,11 +2760,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
+            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
         ],
         subCatagSmall: [
             [
@@ -2718,11 +2818,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
+            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
         ],
         subCatagSmall: [
             [
@@ -2769,11 +2871,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
+            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
         ],
         subCatagSmall: [
             [
@@ -2820,11 +2924,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
+            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
         ],
         subCatagSmall: [
             [
@@ -2871,11 +2977,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
+            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
         ],
         subCatagSmall: [
             [
@@ -2924,11 +3032,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كانك من المهتمين يصحتهم و يمارسو في الرياضة بإتنضام . المنصة هاذي توفرلك محرك بحث للقاعات الرياضية التونسية بمختلف تخصصاتها و توفرلك زادا فضاء للتواصل مع زملاءك في القاعة و نضام مراقبة و تقييم لجسمك و صحتك</h5> ',
+            '<h5>في المقابل كانك صاحب قاعة رياضة المنصة توفرلك نظام إدارة و محاسبة و تواصل مع مشتركيك و مراقبة أداءهم و تطور نشاطهم الرياضي من خلال خلق فضاء للتفاعل إفتراضيا مع القاعة لتقييم خدماتها ...</h5> ']
         ],
         subCatagSmall: [
             [
@@ -2979,11 +3089,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث لمختلف أنواع المسابح , تعاونك أنك تلقي المسبح اللي يساعدك و تمكنك كذاك من تنظيم وقتك المخصص لتعلم السباحة و تمكنك أنك تشترك عن بعد و تبقي ديما متصل بالمسبح </h5> ',
+            '<h5>في المقابل كانك صاحب مسبح خاص أبيض توفرلك نظام إدارة و مراقبة و متابعة للمسبح متاعك و تخليك ديما متصل بمختلف الجهات اللي عندها علاقة بالعمل متاعك كما توفر إمكانية تنظيم التضاهرات الرياضية ...</h5> ']
         ],
         subCatagSmall: [
             [
@@ -3034,11 +3146,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي ملاعب الكرة المختلفة : قدم , سلة , تنس ... و تمكنك زادا تحجز ملعب لفترة معينة كيما توفرلك أيضا أداة تمكنك إنك  تنظم مباريات مع أصدقائك </h5> ',
+            '<h5>في المقابل كانك صاحب ملعب للكرة أبيض توفرلك نظام إدارة و مراقبة و متابعة للملعب متاعك و تخولك زاد تنضم مختلف طلبات الحجز المطلوبة من الحرفاء و كذلك أداة تواصل و تفاعل معهم ... </h5> ']
         ],
         subCatagSmall: [
             [
@@ -3098,11 +3212,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',
+            '<h5>في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون </h5> ']
         ],
         subCatagSmall: [
             [
@@ -3149,11 +3265,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',        
+            '<h5>في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون </h5> ']
         ],
         subCatagSmall: [
             [
@@ -3200,11 +3318,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',        
+            '<h5>في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون </h5> ']
         ],
         subCatagSmall: [
             [
@@ -3251,11 +3371,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الثقافة و الشباب ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -3302,11 +3424,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الثقافة و الشباب ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -3353,11 +3477,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الثقافة و الشباب ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -3406,11 +3532,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كانك تلوج في محامي باهي و ذو خبرة , المنصة هاذي توفرلك دليل شامل للمحامين التوانسيين الكل باش تختار المحامي اللي يساعدك  و تمكنك تاخو معاهم الموعد المناسب و تبقي ديما متصل بيه للإطلاع علي جديد قضاياك .</h5> ',
+            '<h5>في المقابل كانك محامي منصة أبيض توفرلك نظام إدارة و متابعة و أرشفة رقمية للقضايا اللي تتبناها و تنظملك مواعيدك و تخليك في إتصال دائم مع منوبيك من خلال إمكانية إجراء لقاءاتك معاهم بتقنية البث الحي  .</h5> ']
         ],
         subCatagSmall: [
             [
@@ -3464,11 +3592,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي موجهة للتجار بالأساس لأنها عبارة عن محرك بحث تلقي فيه المزودين بالجملة بمختلف أنواع السلع اللي تحتاجها , وكذاك تعتبر أداة للتواصل مع ها المزودين و تمرير طلبات المنتجات ...</h5> ',
+            '<h5>في المقابل كانك صاحب متجر بيع بالجملة أبيض توفرلك نظام إدارة و مراقبة للمتجر متاعك بالإظافة لإمكانية متابعة طلبات حرفائك و حاجيتهم للسلع و البضائع و ذلك من خلال منصة تواصل معهم  </h5> ']
         ],
         subCatagSmall: [
             [
@@ -3529,11 +3659,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كان تلوج في محاسب خبير يعاونك باش تنضم حساباتك و أرقامك فإننا في منصة أبيض نوفرولك دليل فيه عدد كبير من المحاسبين في كامل تراب الجمهورية باش يعاونك تلقي المحاسب اللي يساعدك</h5> ',
+            '<h5>في المقابل كان محاسب ولا عندك مكتب محاسبات ابيصض يوفرلك نظام إدارة و متابعة و للعمل متابعة من خلال توفير بعض الادوات الحسابية و الرقمية اللي تعمل بنظام الذكاء الإصطناعي ... </h5> ']
         ],
         subCatagSmall: [
             [
@@ -3580,11 +3712,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة عاذي عبارة علي دليل واسع لمختلف الشركات التونسية بمختلف ميادين أنشطتها , بحيث تعتبر أداة يمكن الأستفادة منها من قبل عديد الأطراف : الباحثين غن شغل , الباحثين عن خدمات معينة ...</h5> ',
+            '<h5>في المقابل توفر المنصة لمختلف الشركات نظام تواصل و تفاعل مع عديد الأطراف المرتبطة بنشاطها , كما تعمل علي توفير نظام إدارة و مراقبة ومتابعة لمختلف أنشطة الشركة بطريقة رقمية و ذات جودة عالية </h5>']
         ],
         subCatagSmall: [
             [
@@ -3645,11 +3779,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -3696,11 +3832,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -3749,6 +3887,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3801,6 +3941,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3853,6 +3995,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3899,6 +4043,7 @@ const AbyedhADIL = {
     /* tourizm */
     hotels: {
         tag: 'hotel',
+        businesName : 'النزل',
         themeColor: '#247cc7',
         directoryTable: '01_docteur',
         systemActive: true,
@@ -3907,11 +4052,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>Cette Plate-forme est considérer comme un moteur de recherche pour les hotels et les maison de hote en tunisie , ça vous permettre de choisissez le meieur choix pour votre confort et plaisir</h5> ',
+            '<h5>En meme temps abyedh.tn vous affort un systeme de gestion et de controle pour votre endroit touristique, a l aide d un outil de communication avec vos clientelle pour rendre vos services plus mieux </h5>']
         ],
         subCatagSmall: [
             [
@@ -3959,11 +4106,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>كانك من عشاق السفر و الأستكشاف و ديما تسافر و تلوج في خدمات سفر أفضل و ذات جودة عالية, منصة أبيض توفرلك محرك البحث هذا باش تلقي وكالة الأسفار اللي تساعدك و تنضم رحلاتك من خلالها </h5>', 
+            '<h5>في المقابل كانك صاحب وكالة أسفار المنصة توفرلك نظام إدارة و مراقبة و متابعة للوكالة متاعك و تخليك ديما متصل بحرفائك و موضفيك من خلال عدة أدوات و ذلك من أجل تحسين جودة الخدمات التي تقدمونها ... </h5> ']
         ],
         subCatagSmall: [
             [
@@ -4012,11 +4161,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -4068,11 +4219,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -4125,11 +4278,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -4175,11 +4330,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -4230,11 +4387,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
         ],
         subCatagSmall: [
             [
@@ -4331,6 +4490,8 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4400,11 +4561,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['<h5>تلوج في آلة فلاحية باش تنجز بيها نشاطك الزراعي , أبيض توفرلك المنصة هاذي تلقا فيها أغلب الآلات الفلاحية و اللي تنجم تستأجر من خلالها الآلة اللي تلوج عليها للفترة الزمنية اللي تساعدك ...</h5> ',
+            '<h5>في المقابل كانك فلاح ولا صاحب آلة فلاحية تنجم تتمتع بنظام لإدارة مختلف أنشطتك الفلاحية من خلال منصة تربطك بالعديد من الجهات اللي عندها علاقة بنشاطك و ذلك من اجل تحسين قطاع الفلاحة و عصرنته.</h5>']
         ],
         subCatagSmall: [
             [

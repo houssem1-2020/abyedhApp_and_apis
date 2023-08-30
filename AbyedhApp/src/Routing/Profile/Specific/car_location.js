@@ -39,7 +39,7 @@ function CarLocationSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> عدد السيارات </h5> 
-                <h1 className='display-5 text-info'>0</h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-car-front bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -47,7 +47,7 @@ function CarLocationSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end ' style={{color: GConf.ADIL[tag].themeColor}}>   انواع السيارات  </h5> 
-                <h1 className='display-5 text-warning' dir='rtl'>20 دقيقة</h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-suit-club-fill bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -55,7 +55,7 @@ function CarLocationSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> التعريفة </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-cash-coin bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -63,7 +63,7 @@ function CarLocationSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> الصيانة   </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-wrench-adjustable bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -71,7 +71,7 @@ function CarLocationSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> إعلانات </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-megaphone-fill bi-lg'></span></h1>
             </div>
         </>)
     }

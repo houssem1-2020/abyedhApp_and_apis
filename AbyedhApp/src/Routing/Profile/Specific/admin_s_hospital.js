@@ -39,7 +39,7 @@ function AdminSHospitalSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  أوقات الزيارة</h5> 
-                <h1 className='display-5 text-info'>0</h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-clock-history bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -47,7 +47,7 @@ function AdminSHospitalSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end ' style={{color: GConf.ADIL[tag].themeColor}}>  قسم الإستعجالي </h5> 
-                <h1 className='display-5 text-warning' dir='rtl'>20 دقيقة</h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-lightning-fill bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -55,7 +55,7 @@ function AdminSHospitalSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> الأقسام  </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-grid-1x2 bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -63,7 +63,7 @@ function AdminSHospitalSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  الأدارة </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-hospital bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -71,7 +71,7 @@ function AdminSHospitalSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> عيادة مريض  </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-eye-fill bi-lg'></span></h1>
             </div>
         </>)
     }

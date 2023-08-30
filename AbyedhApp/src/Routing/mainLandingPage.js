@@ -13,7 +13,7 @@ import { useNavigate} from 'react-router-dom';
 
 const SearchBar = ({open, setOpen, searchKey, setSearchKey,SearchFunction,GoToQrCodeFunction, data, setData}) =>{
     return(<>
-        <div className='rounded-0 border-0 bg-danger p-3 sticky-top shadow-bottom-card'>
+        <div className='rounded-0 border-0 bg-white p-3 sticky-top shadow-bottom-card'>
            {/* <div className='row'>
                 <div className='col-3  col-lg -1'>
                     <Modal
@@ -61,7 +61,7 @@ const SearchBar = ({open, setOpen, searchKey, setSearchKey,SearchFunction,GoToQr
                     onOpen={() => setOpen(true)}
                     open={open}
                     dimmer= 'blurring'
-                    trigger={<Button className='border-0' icon ><Icon name='qrcode' /></Button>}
+                    trigger={<Button className='border-0 bg-white border-top border-bottom border-start ' icon ><Icon name='qrcode' /></Button>}
                     >
                     <Modal.Content image>
                         <QrReader
@@ -84,7 +84,7 @@ const SearchBar = ({open, setOpen, searchKey, setSearchKey,SearchFunction,GoToQr
                     </Modal.Content>
                 </Modal>
                 
-                <Button onClick={() => SearchFunction()} icon ><Icon name='arrow right' /></Button>
+                <Button className='bg-white border-top border-bottom' onClick={() => SearchFunction()} icon ><Icon name='arrow right' /></Button>
                 <input  value={searchKey} className='text-end' icon='user' />
             </Input>
             
@@ -122,15 +122,18 @@ function MainLandingPage() {
             </>)
         }
         return(<>
-                <div className="rounded-0 border-0 p-2 m-0 bg-danger" >
+                <div className="rounded-0 border-0 p-2 m-0  bg-white" >
                     <div className='row m-0'>
-                        <div className='col-6 text-start align-self-center'>
+                        <div className='col-4 col-lg-6 text-start align-self-center'>
                             <NavLink exact='true' to='/' className="m-0 p-0 ms-3">
-                                <img  className="border-div" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                <img  className="border-div bg-danger border border-danger" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
                             </NavLink>
                         </div>
-                        <div className='col-6 text-end align-self-center'>
-                            {GConf.UserData.Logged  ? <UserCard />  : <NavLink exact='true' to='/Profile' className="m-0 p-0 ms-3 text-white"> تَسْجِيلْ الدٌخٌولْ</NavLink>}
+                        <div className='col-4 col-lg-6  d-lg-none align-self-center'>
+                            <h3 className='text-danger mt-5'>مِنَصَّـة أَبْيَـضْ </h3>
+                        </div>
+                        <div className='col-4 col-lg-6 text-end align-self-center'>
+                            {GConf.UserData.Logged  ? <UserCard />  : <NavLink exact='true' to='/Profile' className="m-0 p-0 ms-3 text-danger">    <img  className="rounded-circle9 p-0 m-0 me-1" src={`https://cdn.abyedh.tn/images/p_pic/logIn.gif`}   alt="Logo" style={{width:'30px', height:'30px'}} />   </NavLink>}
                         </div>
                     </div>
                 </div>
@@ -138,9 +141,10 @@ function MainLandingPage() {
     }
     const AddsCard = () =>{
         return(<>
-                <div className='rounded-0 border-0 bg-danger text-white text-center pt-2 d-none d-lg-block' style={{heigth:'200px'}}>
+                <div className='rounded-0 border-0 bg-white text-secondary text-center pt-2 d-none d-lg-block' style={{heigth:'200px'}}>
                     <h1 className='display-3'>مِنَصَّـة أَبْيَـضْ </h1> 
-                    <h5 className='display-6'>
+                    <h3 className='text-danger'>برشا تطبيقات في تطبيق واحد</h3>
+                    <h5 className='display-6 d-none'>
                             <Typed    
                                 strings={[
                                     'مَنْظٌومَة إِلِكْترٌونِيَّة شَامِلَة',
@@ -179,7 +183,7 @@ function MainLandingPage() {
                 <>
                     <div  className="text-center hvr-float mb-4">
                         <NavLink exact='true' to={props.cardData.tools ?  `${props.cardData.link}` : `S/L/${props.cardData.link}`} >
-                            <img className='mb-0' src={`https://cdn.abyedh.tn/Images/Search/Icons/${props.cardData.image}.gif`}  width='50px' height='50px' />
+                            <img className='mb-0' src={`https://cdn.abyedh.tn/Images/Search/CIcons/${props.cardData.image}.gif`}  width='50px' height='50px' />
                             <h5 className="font-droid text-secondary mt-0"> {props.cardData.name} </h5>
                         </NavLink>
                     </div>

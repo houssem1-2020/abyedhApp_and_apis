@@ -39,7 +39,7 @@ function AdminEEcoleSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  الأقسام </h5> 
-                <h1 className='display-5 text-info'>0</h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-diagram-3-fill bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -47,7 +47,7 @@ function AdminEEcoleSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end ' style={{color: GConf.ADIL[tag].themeColor}}>    هيكلة المؤسسة </h5> 
-                <h1 className='display-5 text-warning' dir='rtl'>20 دقيقة</h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-layout-wtf bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -55,7 +55,7 @@ function AdminEEcoleSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> الطاقم التربوي </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-people-fill bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -63,7 +63,7 @@ function AdminEEcoleSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  نتائج  </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-file-earmark-binary bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -71,7 +71,7 @@ function AdminEEcoleSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> إعلانات </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-megaphone bi-lg'></span></h1>
             </div>
         </>)
     }

@@ -138,9 +138,14 @@ function SearchPage() {
                         <div className='text-center '> <h5 style={{ color: GConf.ADIL[props.data.Tag].themeColor}}>{props.data.Name} { props.data.Activated == 'YES' ?  <span className='bi bi-shield-fill-check text-dark'></span> : ''}</h5></div>
                         <div className='card-body text-secondary ' >
                             <div className='text-end  pb-2' dir='ltr'>
-                            <div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-geo-alt-fill' style={{color: GConf.ADIL[props.data.Tag].themeColor}}></span> : {props.data.Gouv}</div> 
+                            {props.data.Genre != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-bookmark-heart-fill' style={{color: GConf.ADIL[props.data.Tag].themeColor}}></span> : {props.data.Genre}</div> </> : <></> }
+                            {props.data.Gouv != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-geo-alt-fill' style={{color: GConf.ADIL[props.data.Tag].themeColor}}></span> : {props.data.Gouv}</div> </> : <></> }
+                            {props.data.Deleg != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-geo-alt' style={{color: GConf.ADIL[props.data.Tag].themeColor}}></span> : {props.data.Deleg}</div> </> : <></> }
+                            {props.data.Adress != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-pin-map-fill' style={{color: GConf.ADIL[props.data.Tag].themeColor}}></span> : {props.data.Adress}</div> </> : <></> }
+
+                            {/* <div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-geo-alt-fill' style={{color: GConf.ADIL[props.data.Tag].themeColor}}></span> : {props.data.Gouv}</div> 
                             <div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-geo-alt' style={{color: GConf.ADIL[props.data.Tag].themeColor}}></span> : {props.data.Deleg}</div> 
-                            <div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-pin-map-fill' style={{color: GConf.ADIL[props.data.Tag].themeColor}}></span> : {props.data.Adress}</div> 
+                            <div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-pin-map-fill' style={{color: GConf.ADIL[props.data.Tag].themeColor}}></span> : {props.data.Adress}</div>  */}
                             </div>
                         </div>
                     </div>

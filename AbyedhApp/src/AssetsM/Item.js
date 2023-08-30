@@ -6,7 +6,7 @@ const dirItem = {
         slider: false,
         slides: [
             { id: 1, image: 'docteur', name: 'طَبِيبْ', link: 'docteur' },
-            { id: 2, image: 'pharma', name: 'صَيْدَلِية', link: 'pharmacie' },
+            { id: 2, image: 'pharmacie', name: 'صَيْدَلِية', link: 'pharmacie' },
             { id: 3, image: 'clinique', name: 'مِصَحَّة', link: 'clinique' },
             { id: 4, image: 'labo', name: 'مَخْبَرْ', link: 'labo' },
             { id: 5, image: 'centremedi', name: 'مَرْكَزْ', link: 'centreMD' },
@@ -17,7 +17,7 @@ const dirItem = {
         smallDisplay:[
             [
                 { id: 1, image: 'docteur', name: 'طَبِيبْ', link: 'docteur' },
-                { id: 2, image: 'pharma', name: 'صَيْدَلِية', link: 'pharmacie' },
+                { id: 2, image: 'pharmacie', name: 'صَيْدَلِية', link: 'pharmacie' },
                 { id: 3, image: 'clinique', name: 'مِصَحَّة', link: 'clinique' },
                 { id: 4, image: 'labo', name: 'مَخْبَرْ', link: 'labo' },
             ],
@@ -35,11 +35,11 @@ const dirItem = {
         slider: true,
         slides: [
             [
-                { id: 1, image: 'nurs', name: 'رَوْضَة', link: 'garderie' },
+                { id: 1, image: 'garderie', name: 'رَوْضَة', link: 'garderie' },
                 { id: 2, image: 'ecole', name: 'مَدْرَسَة خَاصَّة', link: 'ecole' },
                 { id: 3, image: 'lycee', name: 'مَعْهِدْ خَاصْ', link: 'lycee' },
                 { id: 4, image: 'universite', name: 'جَامِعَة خَاصَّة', link: 'universite' },
-                { id: 5, image: 'eduser', name: 'مَطْبَعَة', link: 'impremerie' },
+                { id: 5, image: 'impremerie', name: 'مَطْبَعَة', link: 'impremerie' },
                 { id: 6, image: 'librairie', name: 'كٌتٌبٍيَّة', link: 'librairie' },
                 { id: 7, image: 'admin_e_centre', name: 'مَرْكِزْ تَكْوِينْ', link: 'admin_e_centre' },
                 { id: 8, image: 'admin_e_biblio', name: 'مَكْتَبَة عٌمٌومِيًّة', link: 'admin_e_biblio' },
@@ -105,7 +105,7 @@ const dirItem = {
         slides: [
             { id: 1, image: 'cafe', name: 'مَقْهًي', link: 'cafe' },
             { id: 2, image: 'restaurant', name: 'مَطْعًمْ', link: 'restaurant' },
-            { id: 3, image: 'shop', name: 'مَغَازَة', link: 'ptvente_shop' },
+            { id: 3, image: 'ptvente_shop', name: 'مَغَازَة', link: 'ptvente_shop' },
             { id: 4, image: 'ptvente_bread', name: 'مِخْبَزَة', link: 'ptvente_boulengerie' },
             { id: 5, image: 'ptvente_viande', name: 'بَيْعْ اللٌّحٌومْ', link: 'ptvente_viande' },
             { id: 6, image: 'ptvente_fruit', name: 'بَيْعْ الخٌضَرْ', link: 'ptvente_fruit' },
@@ -142,7 +142,7 @@ const dirItem = {
             ],
             [
                 { id: 9, image: 'car_qiosque', name: 'Qiosque', link: 'car_qiosque' },
-                { id: 10, image: 'car_mecancien', name: 'Mecanicien', link: 'car_mecanicien' },
+                { id: 10, image: 'car_mecanicien', name: 'Mecanicien', link: 'car_mecanicien' },
             ]
         ],
         smallSlider: true,
@@ -151,7 +151,7 @@ const dirItem = {
                 { id: 3, image: 'car', name: ' كِرَاءْ السَيَّارَاتْ ', link: 'car_location' },
                 { id: 4, image: 'car_parking', name: 'Parking ', link: 'car_parking' },
                 { id: 9, image: 'car_qiosque', name: 'Qiosque', link: 'car_qiosque' },
-                { id: 10, image: 'car_mecancien', name: 'Mecanicien', link: 'car_mecanicien' },
+                { id: 10, image: 'car_mecanicien', name: 'Mecanicien', link: 'car_mecanicien' },
             ],
             [
                 { id: 1, image: 'house_electro', name: 'بَيْعْ الإِلِكْتْرٌونِيَاتْ', link: 'house_electro' },
@@ -211,11 +211,11 @@ const dirItem = {
             { id: 1, image: 'coiffure', name: 'قَاعَةْ حِلاَقَة', link: 'coiffure' },
             { id: 2, image: 'boutique', name: 'Boutique', link: 'boutique' },
             { id: 3, image: 'wedding_salon_marriage', name: 'قَاعَةْ أَفْرَاحْ', link: 'wedding_salon_marriage' },
-            { id: 4, image: 'wedding_orchestre', name: 'فِرْقَة مٌوسِيقِيَّة', link: 'wedding_orchestre' },
+            { id: 8, image: 'wedding', name: ' مُجَوْهَرَاتْ ', link: 'wedding_bijoux' },
             { id: 5, image: 'wedding_chef', name: 'طَبَّاخْ', link: 'wedding_chef' },
             { id: 6, image: 'wedding_photographe', name: 'مَصَوِّرْ', link: 'wedding_photographe' },
             { id: 7, image: 'wedding_fourniture_marriage', name: ' لَوَازِمْ أَفْرَاجْ', link: 'wedding_fourniture_marriage' },
-            { id: 8, image: 'wedding', name: ' مُجَوْهَرَاتْ ', link: 'wedding_bijoux' },
+            { id: 4, image: 'wedding_orchestre', name: 'فِرْقَة مٌوسِيقِيَّة', link: 'wedding_orchestre' },
         ],
         smallSlider: true,
         smallDisplay:[
@@ -223,13 +223,13 @@ const dirItem = {
                 { id: 1, image: 'coiffure', name: 'قَاعَةْ حِلاَقَة', link: 'coiffure' },
                 { id: 2, image: 'boutique', name: 'Boutique', link: 'boutique' },
                 { id: 3, image: 'wedding_salon_marriage', name: 'قَاعَةْ أَفْرَاحْ', link: 'wedding_salon_marriage' },
-                { id: 4, image: 'wedding_orchestre', name: 'فِرْقَة مٌوسِيقِيَّة', link: 'wedding_orchestre' },
+                { id: 8, image: 'wedding', name: ' مُجَوْهَرَاتْ ', link: 'wedding_bijoux' },
             ],
             [
                 { id: 5, image: 'wedding_chef', name: 'طَبَّاخْ', link: 'wedding_chef' },
                 { id: 6, image: 'wedding_photographe', name: 'مَصَوِّرْ', link: 'wedding_photographe' },
                 { id: 7, image: 'wedding_fourniture_marriage', name: ' لَوَازِمْ أَفْرَاجْ', link: 'wedding_fourniture_marriage' },
-                { id: 8, image: 'wedding', name: ' مُجَوْهَرَاتْ ', link: 'wedding_bijoux' },
+                { id: 4, image: 'wedding_orchestre', name: 'فِرْقَة مٌوسِيقِيَّة', link: 'wedding_orchestre' },
             ]
         ]
     },

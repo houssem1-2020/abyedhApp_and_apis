@@ -4,6 +4,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
+// Check if the protocol is HTTP, and if so, redirect to HTTPS
+if (window.location.protocol === 'http:' && process.env.NODE_ENV === 'production') {
+  window.location.href = `https:${window.location.href.substring(window.location.protocol.length)}`;
+}
+
 ReactDOM.render(
     <App />,
   document.getElementById('root')

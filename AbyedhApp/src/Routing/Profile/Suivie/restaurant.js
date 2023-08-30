@@ -31,15 +31,15 @@ function RestaurantActions() {
 
     const panes = [
         {
-          menuItem: { key: 'save', icon: 'calendar alternate', content:  <span className='me-2'>مواعيد</span> , dir:'rtl' },
+          menuItem: { key: 'save', icon: 'calendar alternate', content:  <span className='me-2'>طلبات</span> , dir:'rtl' },
           render: () => <TableGrid tableData={rendyVousD}  columns={['فتح','عدد','يوم','يوم']} />,
         },
         {
-            menuItem: { key: 'edit', icon: 'pin', content:  <span className='me-2'>جلسات</span> , dir:'rtl' },
+            menuItem: { key: 'edit', icon: 'pin', content:  <span className='me-2'>حجوزات</span> , dir:'rtl' },
             render: () => <TableGrid tableData={seanceListe}  columns={['فتح','عدد','يوم','معرف']} />,
         },
         {
-            menuItem: { key: 'oug', icon: 'list alternate outline', content:  <span className='me-2'>Ordonance</span> , dir:'rtl' },
+            menuItem: { key: 'oug', icon: 'list alternate outline', content:  <span className='me-2'>فواتير</span> , dir:'rtl' },
             render: () => <TableGrid tableData={ordonanceListe} columns={['فتح','عدد','يوم','معرف']} />,
         },
       ]
@@ -117,7 +117,7 @@ function RestaurantActions() {
     }
     const GetTheLastRDV = (dateList) =>{
         if (dateList.length === 0) {
-            return '--/--/--';
+            return  <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-stopwatch-fill bi-lg'></span></h1>;
           }
         
           let maxDate = new Date(0);
@@ -139,7 +139,7 @@ function RestaurantActions() {
     const NextRendyVous = () =>{
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
-                <h5 className='text-end text-secondary'> الموعد القادم </h5> 
+                <h5 className='text-end text-secondary'> الطلب القادم </h5> 
                 <h1 className='display-3' style={{color:GConf.ADIL[tag].themeColor}}>{GetTheLastRDV(rendyVousD)}</h1>
             </div>
         </>)

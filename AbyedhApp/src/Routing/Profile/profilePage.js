@@ -396,7 +396,7 @@ function ProfilePage() {
         {
             menuItem: { key: 'ac', content:  <b className='' ><span className='bi bi-pencil-square bi-sm'></span></b> , dir:'rtl',  className:'rounded border border-2 border-div' , style:{color:GConf.ADIL[tag].themeColor,},},
           render: () => <>
-                        {!GConf.UserData.Logged ? 'Pas de Client ': 
+                        {!GConf.UserData.Logged ? <LogginCard /> : 
                             <>
                                 <div className='row'>
                                     <div className='col-12 '>
@@ -416,7 +416,7 @@ function ProfilePage() {
         },
         {
             menuItem: { key: 'sv', content:  <b className='' ><span className='bi bi-eye-fill bi-sm'></span></b> , dir:'rtl',  className:'rounded border border-2 border-div' , style:{color:GConf.ADIL[tag].themeColor,},},
-          render: () => <>{!GConf.UserData.Logged ? 'Pas de Client ': <FollowStateCard status={tag} /> }</>,
+            render: () => <>{!GConf.UserData.Logged ?  <LogginCard />: <FollowStateCard status={tag} /> }</>,
         },
         ]
         const [activeIndex, setActiveIndex] = useState(0)
@@ -621,7 +621,7 @@ function ProfilePage() {
                         }}
                         className="card-img"
                     >   
-                        <img src={`https://cdn.abyedh.tn/Images/Search/Icons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white' width='100px'  height='100px' />
+                        <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white' width='100px'  height='100px' />
                         
                     </span>
                     <span
@@ -953,7 +953,7 @@ function ProfilePage() {
                 case 'admin_a_ar': return <AdminAArSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'admin_a_court': return <AdminACourtSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'admin_a_mosq': return <AdminAMosqSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                default:  return <StateCard color='secondary' text='Indefinie' />;    
+                default:  return <IndefinieCard />;    
             }
             }, [status]);
         
@@ -990,6 +990,22 @@ function ProfilePage() {
             return(<>
                 <div className={`card p-2 btn-cursor mb-1  text-center border-0  border-div ${ activeIndex == props.activeI ? 'shadow ': '' }`} onClick={ () => setActiveIndex(props.activeI)}>
                         <h2 className='text-center' style={{color: GConf.ADIL[tag].themeColor}}><span className={`bi bi-${props.icon} bi-xsm`}></span></h2> 
+                </div>
+            </>)
+        }
+        const IndefinieCard = (props) =>{
+            return(<>
+                <div className='text-center p-2 text-secondary'>
+                        <span className='bi bi-file-earmark-lock bi-lg '></span>
+                        <h5>صفحة غير متوفرة</h5> 
+                </div>
+            </>)
+        }
+        const LogginCard = (props) =>{
+            return(<>
+                <div className='text-center p-2 text-secondary'>
+                        <span className='bi bi-person-circle bi-lg '></span>
+                        <h5><NavLink exact='true' to='/Profile' className="m-0 p-0 me-3">  قُمْ بٍتَسْجِيلْ الدٌخٌولْ أًوُلاً</NavLink></h5> 
                 </div>
             </>)
         }
@@ -1061,7 +1077,7 @@ function ProfilePage() {
                 case 'socite': return <SociteActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'hotels': return <HotelsActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'vg_agence': return <VgAgenceActions TAG={tag} PID={PID} UID={UID} /> ;
-                default:  return <StateCard color='secondary' text='Indefinie' />;    
+                default:  return <IndefinieCard />;    
               }
             }, [status]);
           
@@ -1132,12 +1148,14 @@ function ProfilePage() {
                 case 'socite': return <SociteSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'hotels': return <HotelsSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'vg_agence': return <VgAgenceSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                default:  return <StateCard color='secondary' text='Indefinie' />;    
+                default:  return <><div className='col-12 col-md-4 mb-4 order-1 order-lg-2 text-center align-self-center'>
+                            <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} width='60%' heigth='60%' className='img-responsive' />
+                            </div><IndefinieCard /></>;    
               }
             }, [status]);
           
             return (
-              <div className="container">
+              <div className="c">
                 {statusCard()}
               </div>
             );

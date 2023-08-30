@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { _ } from "gridjs-react";
 import Typed from 'react-typed';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, Navigate, useParams } from 'react-router-dom';
 import GConf from '../../AssetsM/generalConf';
 import { toast } from 'react-toastify';
-import { Button, Icon, Select } from 'semantic-ui-react';
+import { Button, Icon, Select , Modal} from 'semantic-ui-react';
 import { Pagination,Autoplay,Navigation } from "swiper";
 import { Swiper, SwiperSlide, } from "swiper/react";
 import "swiper/css";
@@ -20,9 +20,12 @@ function SearchLandingPage() {
     const [isSelected, setisSelected] = useState(0);
     const [loadingTo, setLoadingTo] = useState(0);
     const [delegList ,setDelegList] = useState([])
+    const [open, setOpen] = useState(false)
+    const [openD, setOpenD] = useState(false)
     const [gouv ,setGouv] = useState('')
     const [deleg ,setDeleg] = useState('')
     const navigate = useNavigate();
+    
     /* ############### UseEffect #################*/
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -33,6 +36,7 @@ function SearchLandingPage() {
         setGouv(value)
         const found = GConf.abyedhMap.Deleg.filter(element => element.tag === value)
         setDelegList(found)
+        setOpen(false)
       }
       
       const RenderAsHtml = (text) => {
@@ -137,7 +141,42 @@ function SearchLandingPage() {
         );
     }
     
+    const GouvListeToSelet = () =>{
+        return(<>
+        <div className='row'>
+            {GConf.abyedhMap.Gouv.map((data, index) => <div key={index} className='col-6'>
+                <div  className={`card p-2  mb-2  ${data.value == gouv ? 'bg-dark text-white' : 'text-secondary'}`} onClick={() => GetDelegList(data.value)}>
+                    <div className='row'>
+                        <div className='col-3'><span className='bi bi-pin-map-fill'></span></div> 
+                        <div className='col-9 align-self-center'> <b>{data.text}</b></div> 
+                    </div>
+                   
+                </div>
+            </div> )}
+        </div>
+            
+        </>)
+    }
+    const DelegListeToSelet = () =>{
+        return(<>
+            {delegList.map((data, index) => <div key={index} className={`card p-2  mb-2  ${data.value == deleg ? 'bg-dark text-white' : 'text-secondary'}`} onClick={() => { setDeleg(data.value); setOpenD(false) }}><b>{data.text}</b></div> )}
+        </>)
+    }
     const SelectGouvCard = () =>{
+        const SelectGouv = () =>{
+           return(<>
+                <div className='card p-3 shadow-sm mb-2 rounded-pill' onClick={() => setOpen(true)}>
+                    <h4 className='text-end me-2' style={{color:GConf.ADIL[tag].themeColor}}>{gouv ? gouv : 'إختر ولاية'} <span className='ms-3 bi bi-map'></span> </h4> 
+                </div>
+           </>) 
+        }
+        const SelectDeleg = () =>{
+            return(<>
+                 <div className='card p-3 shadow-sm mb-2 rounded-pill' onClick={() => setOpenD(true)}>
+                     <h4 className='text-end me-2' style={{color:GConf.ADIL[tag].themeColor}}>  {deleg ? deleg : ' إختر منطقة'} <span className='ms-3 bi bi-geo-alt-fill'></span> </h4> 
+                 </div>
+            </>) 
+         }
         const FastSearch = (props) =>{
             return(<>
                 <h5 className='text-end text-secondary'> بحث سريع  </h5>
@@ -155,10 +194,13 @@ function SearchLandingPage() {
                 <div className="card card-body shadow-sm mb-4 sticky-top border-div" style={{top:'70px'}}>
                      
                     {GConf.UserData.Logged ?  <FastSearch gouv={GConf.UserData.UData.BirthGouv} deleg={GConf.UserData.UData.BirthDeleg} /> : ''}
-                    <h5 className='text-end text-secondary'> {GConf.UserData.Logged ?  'أو' : ''} إختر ولاية </h5> 
-                    <Select placeholder='إختر ولاية' className='mb-2 shadow-sm' options={GConf.abyedhMap.Gouv} value={gouv} onChange={(e, { value }) => GetDelegList(value)} />
-                    <Select placeholder='إختر منطقة' className='shadow-sm' value={deleg} options={delegList} onChange={(e, { value }) => setDeleg(value)} />
+                    <h5 className='text-end text-secondary'> {GConf.UserData.Logged ?  'أو' : ''}  حدد الموقع  </h5> 
                     <br />
+                    <SelectGouv />
+                    <SelectDeleg />
+                    {/* <Select placeholder='إختر ولاية' className='mb-2 shadow-sm' options={GConf.abyedhMap.Gouv} value={gouv} onChange={(e, { value }) => GetDelegList(value)} /> */}
+                    {/* <Select placeholder='إختر منطقة' className='shadow-sm' value={deleg} options={delegList} onChange={(e, { value }) => setDeleg(value)} /> */}
+                     
                     <h5 className='text-end text-secondary m-1'> بحث </h5>
                     {/* <NavLink exact='true' to={`/S/R/${tag}/${GConf.ADIL[tag].subCateg[isSelected].value}/${gouv}/${deleg}`} > */}
                             <Button fluid size='medium' onClick={() => GoToResult()} className='rounded-pill  text-white' style={{backgroundColor:GConf.ADIL[tag].themeColor}}   >بحث  <Icon name='search' className='ms-2' /> </Button>
@@ -168,14 +210,18 @@ function SearchLandingPage() {
     const SystemLinkCard = () =>{
         return(<>
             <div className='card p-2 shadow mb-2 border-div d-md-none'>
-                <a href={`${GConf.ADIL[tag].systemLink}`} className='stretched-link text-secondary' >
+                <h5 className='text-end text-secondary mb-1 mt-2'> هَلْ أَنْتَ {GConf.ADIL[tag].businesOwner} ؟ </h5>
+                <a href={`/S/I/add/${tag}`} className=' text-secondary' ></a>
                 <div className='row'>
-                    <div className='col-4 align-self-center text-center'>
+                    <div className='col-3 align-self-center text-center'>
                         <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className='img-responsive mb-1 ms-2' width='100%'  height='100px' />
                     </div>
-                    <div className='col-8 align-self-center text-center'><h5>{GConf.ADIL[tag].systemName}</h5></div>
+                    <div className='col-9 align-self-center text-center'>
+                        <p >   <b style={{color:GConf.ADIL[tag].themeColor}}>{GConf.ADIL[tag].systemName}</b> يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ  </p>
+                        <Button className='rounded-pill text-white' style={{backgroundColor:GConf.ADIL[tag].themeColor}} size='tiny' onClick={() => navigate(`/S/I/add/${tag}`)}>إضغط هنا للتسجيل </Button> 
+                    </div>
                 </div>
-                </a>
+                
             </div> 
         </>)
     }
@@ -331,6 +377,28 @@ function SearchLandingPage() {
             </div> 
             <br />
             <ButtomCard />
+            <Modal
+                onClose={() => setOpen(false)}
+                onOpen={() => setOpen(true)}
+                open={open}
+                dimmer= 'blurring'
+                    
+                >
+                <Modal.Content  >
+                        <GouvListeToSelet />
+                </Modal.Content>
+            </Modal>
+            <Modal
+                onClose={() => setOpenD(false)}
+                onOpen={() => setOpenD(true)}
+                open={openD}
+                dimmer= 'blurring'
+                    
+                >
+                <Modal.Content  >
+                        <DelegListeToSelet />
+                </Modal.Content>
+            </Modal>
         </> );
 }
 

@@ -38,16 +38,16 @@ function StadeSpecific() {
     const SalleAttentCard = () =>{
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
-                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> قاعة الانتضار</h5> 
-                <h1 className='display-5 text-info'>0</h1>
+                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> خصائص الملعب </h5> 
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-columns-gap bi-lg'></span></h1>
             </div>
         </>)
     }
     const RoleTimeEstimateCard = () =>{
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
-                <h5 className='text-end ' style={{color: GConf.ADIL[tag].themeColor}}>  توقع الوقت المتبقي </h5> 
-                <h1 className='display-5 text-warning' dir='rtl'>20 دقيقة</h1>
+                <h5 className='text-end ' style={{color: GConf.ADIL[tag].themeColor}}>  الفرق </h5> 
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-microsoft-teams bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -55,15 +55,15 @@ function StadeSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> التعريفة </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-cash-coin bi-lg'></span></h1>
             </div>
         </>)
     }
     const CertificatCard = () =>{
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
-                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> الشهائد العلمية </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> المدربون  </h5> 
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-people bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -71,7 +71,7 @@ function StadeSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> إعلانات </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-megaphone bi-lg'></span></h1>
             </div>
         </>)
     }

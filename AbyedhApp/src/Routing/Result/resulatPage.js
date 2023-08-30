@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './resultCard.css'
-import { Dropdown, Input , Icon ,Divider, Header, Placeholder, Modal, Button} from 'semantic-ui-react';
+import { Dropdown, Input , Icon ,Divider, Header, Placeholder, Modal, Button, Dimmer, Loader} from 'semantic-ui-react';
 import SKLT from '../../AssetsM/usedSlk';
 
 
@@ -18,6 +18,7 @@ function ResultPage() {
     let {tag,genre,gouv,deleg} = useParams()
     let [openMapModal,setOpenMM] = useState(false)
     let [loading,setLoading] = useState(true)
+    let [filterLoader,setFilterLoader] = useState(false)
     let [resultList,setResultList] = useState([])
     let [localiteList,setLocaliteL] = useState([])
     L.Icon.Default.mergeOptions(GConf.LeafleftIcon);
@@ -102,6 +103,14 @@ function ResultPage() {
             })
             setLocaliteL(rendredTable)        
         }
+
+        const setFilterLoading = () =>{
+            setFilterLoader(true)
+            setTimeout(() => {
+                setFilterLoader(false)
+            }, 2000);
+
+        }
     /* ############### Card #################*/
     const TopNavBar = () =>{
         const UserCard = () =>{
@@ -156,7 +165,14 @@ function ResultPage() {
     }
     const ActionsBtnCard = (props) =>{
         return(<>
-            {/* <NavLink exact='true' to={`/S/P/${props.data.link}/${tag}/${PID}`}> */}
+        <Button    className='bg-white  border mb-2 ' icon style={{borderRadius:'18px', color: GConf.ADIL[tag].themeColor}}     >
+                <div className='row'>
+                    <div className='col-3 align-self-center'><Icon name={props.data.icon} /> </div>
+                    <div className='col-9 align-self-center'>{props.data.name}  </div>
+                </div>
+        </Button>
+ 
+            {/* <NavLink exact='true' to={`/S/P/${props.data.link}/${tag}/${PID}`}> 
                 <Button  animated size={props.fluid ? 'large' : 'small'}  className='bg-white   border mb-2 '  fluid={props.fluid}    icon style={{borderRadius:'18px'}}>
                     <Button.Content visible style={{color: GConf.ADIL[tag].themeColor}}>
                         <div className='row'>
@@ -168,7 +184,7 @@ function ResultPage() {
                         <Icon name={props.data.icon} />
                     </Button.Content> 
         
-                </Button>
+                </Button>*/}
             {/* </NavLink> */}
             
             </>)
@@ -188,7 +204,7 @@ function ResultPage() {
                                 }}
                                 className="card-img bg-white"
                             >
-                                <img src={`https://cdn.abyedh.tn/Images/Search/Icons/${tag}.gif`} className='img-responsive rounded-circle bg-white' width='100px'  height='100px' />
+                                <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white' width='100px'  height='100px' />
                             </span>
                             
                         </div>
@@ -201,9 +217,14 @@ function ResultPage() {
                             {props.data.Adress != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-pin-map-fill' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Adress}</div> </> : <></> }
                             </div>
                         </div>
-                        <div className='col-12' dir='rtl'>
+                        <div className='col-12 d-flex' dir='rtl'  >
                             { GConf.ADIL[tag].systemActive ?  GConf.ADIL[tag].profileBtns.map( (data,index) => <ActionsBtnCard key={index} data={data} indexKey={index} /> ) : <></> }                        
                         </div>
+                        {/* <div className="mt-0 p-1" dir='rtl' style={{width:'100%', overflowX: 'auto', overflowY : 'hidden', whiteSpace:'nowrap'}}>
+                            <div className="d-flex"  >
+                                    { GConf.ADIL[tag].systemActive ?  GConf.ADIL[tag].profileBtns.map( (data,index) => <ActionsBtnCard key={index} data={data} indexKey={index} /> ) : <></> }
+                            </div>
+                        </div> */}
                     </div>
                     
                 </div>
@@ -306,7 +327,7 @@ function ResultPage() {
         return(<>
             <div className="mt-0 p-1" dir='rtl' style={{width:'100%', overflowX: 'auto', overflowY : 'hidden', whiteSpace:'nowrap'}}>
                 <div className="d-flex"  >
-                    {localiteList.map((data,index) =>  <div key={index} className='border rounded-pill mb-1 p-2 text-end ms-2'> {data.text} </div>)} 
+                    {localiteList.map((data,index) =>  <div key={index} className='border rounded-pill shadow-sm mb-1 p-2 text-white text-end ms-2 btn-cursor' style={{backgroundColor:GConf.ADIL[tag].themeColor}} onClick={() => setFilterLoading(data.text)}> <b className='ms-1 me-1'> {data.text} </b></div>)} 
                 </div>
             </div>
         </>)
@@ -322,6 +343,9 @@ function ResultPage() {
                         </div>
                     </div>
                     <div className='col-12 col-lg-8'>
+                            <Dimmer active={filterLoader} inverted>
+                                <Loader inverted>تحيين من قاعدة البيانات</Loader>
+                            </Dimmer>
                             <div className="sticky-top bg-white mb-4 " style={{top:'50px', zIndex:'+50'}}>
                                 <FilterCard />
                             </div>

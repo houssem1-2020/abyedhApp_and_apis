@@ -38,8 +38,8 @@ function PtvMagazinSpecific() {
     const SalleAttentCard = () =>{
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
-                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>    الانتضار</h5> 
-                <h1 className='display-5 text-info'>0</h1>
+                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>    العاملين</h5> 
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-people bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -47,7 +47,7 @@ function PtvMagazinSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  الوقت المتبقي للطلب </h5> 
-                <h1 className='display-6 text-danger'>412:12:25</h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-file-break bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -55,7 +55,7 @@ function PtvMagazinSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  بحث عن منتج </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-search bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -63,7 +63,7 @@ function PtvMagazinSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>  ترويج  </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-megaphone bi-lg'></span></h1>
             </div>
         </>)
     }
@@ -71,7 +71,7 @@ function PtvMagazinSpecific() {
         return(<>
             <div className='card card-body shadow-sm border-div mb-4 text-center  '>
                 <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> عائلات المنتجات </h5> 
-                <h1 className='display-1 text-info'></h1>
+                <h1 className='display-1' style={{color: GConf.ADIL[tag].themeColor}}><span className='bi bi-bookmarks-fill bi-lg'></span></h1>
             </div>
         </>)
     }
