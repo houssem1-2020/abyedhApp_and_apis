@@ -258,7 +258,17 @@ const REQUESTS = require('../REQUESTS.js')
             function FetchAllSuivie() {
                 return new Promise((resolve, reject) => {
                   connection.changeUser({database : 'dszrccqg_profile'}, () => {});
-                  let sql = `SELECT * FROM dash_suivie WHERE  UID = '${UID}' ORDER BY Notif_Date DESC LIMIT 10`;
+                  let sql = `SELECT * FROM dash_suivie WHERE  UID = '${UID}' ORDER BY Notif_Date DESC, PK DESC LIMIT 10`;
+                   connection.query(sql, (err, rows, fields) => {
+                      if (err) return reject(err);
+                      resolve(rows);
+                  })
+                });
+            }
+            function FetchNotifList(RID) {
+                return new Promise((resolve, reject) => {
+                  connection.changeUser({database : 'dszrccqg_profile'}, () => {});
+                  let sql = `SELECT * FROM dash_feeds WHERE  UID = '${UID}' AND R_ID = ${RID} `;
                    connection.query(sql, (err, rows, fields) => {
                       if (err) return reject(err);
                       resolve(rows);
@@ -293,6 +303,7 @@ const REQUESTS = require('../REQUESTS.js')
                 for (var i = 0; i < suivieList.length; i++) {
                   suivieList[i].RequestData = await GetRequestData(suivieList[i].R_ID,suivieList[i].Notif_Name)
                   suivieList[i].PidData = await GetPIDData(suivieList[i].PID, suivieList[i].P_Genre)
+                  suivieList[i].NotifList = await FetchNotifList(suivieList[i].R_ID)
                 }
               res.send(suivieList)
             }

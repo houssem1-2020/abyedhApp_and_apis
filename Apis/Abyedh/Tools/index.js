@@ -57,12 +57,21 @@ const ADIL = {
     })
 
 /*####################################[PUBLIC]######################################*/
-    Tools.post('/setting', (req, res) => {
-        let tag = req.body.tag;
-        let gouv = req.body.gouv;
-        let deleg = req.body.deleg;
+    Tools.post('/metro', (req, res) => {
+        let ligne = req.body.ligne;
+        let saison = req.body.saison;
         connection.changeUser({database : 'dszrccqg_tools'}, () => {});
-        let sql = `SELECT * FROM  ${ADIL[tag].directoryTable} WHERE Gouv = '${gouv}' LIMIT 50;`; // AND Deleg = '${deleg}' 
+        let sql = `SELECT * FROM  apps_transpo_metro WHERE Ligne = '${ligne}' AND Saison = '${saison}' ;`;  
+         connection.query(sql, (err, rows, fields) => {
+          if (err){ throw err}
+          res.json(rows);
+        })
+                    
+    })
+    Tools.post('/tgm', (req, res) => {
+        let saison = req.body.saison;
+        connection.changeUser({database : 'dszrccqg_tools'}, () => {});
+        let sql = `SELECT * FROM  apps_transpo_tgm WHERE  Saison = '${saison}' ;`;  
          connection.query(sql, (err, rows, fields) => {
           if (err){ throw err}
           res.json(rows);

@@ -41,8 +41,9 @@ const path = require("path");
             let tag = req.body.tag;
             let gouv = req.body.gouv;
             let deleg = req.body.deleg;
+            let genre = req.body.genre;
             connection.changeUser({database : 'dszrccqg_directory'}, () => {});
-            let sql = `SELECT * FROM  ${ADIL[tag].directoryTable} WHERE Gouv = '${gouv}' LIMIT 50;`; // AND Deleg = '${deleg}' 
+            let sql = `SELECT * FROM  ${ADIL[tag].directoryTable} WHERE Gouv = '${gouv}' ${ADIL[tag].SearchByGenre ? `AND Genre = '${genre}'` : ''}   ORDER BY CASE WHEN Deleg = '${deleg}' THEN 0 ELSE 1 END LIMIT 50;`; // AND Deleg = '${deleg}' 
              connection.query(sql, (err, rows, fields) => {
               if (err){ throw err}
               res.json(rows);
@@ -67,6 +68,50 @@ const path = require("path");
                 
       })
 
+      /*FROM CHATGPT*/
+      // Search.post('/search/key', async (req, res) => {
+      //   function GetGeneralData(query, values) {
+      //     return new Promise((resolve, reject) => {
+      //       connection.query(query, values, (err, rows, fields) => {
+      //         if (err) {
+      //           console.error('Database Error:', err);
+      //           return reject(err);
+      //         }
+      //         resolve(rows);
+      //       });
+      //     });
+      //   }
+
+      //   try {
+      //     const Targetkey = req.body.key;
+      //     let unionQueries = [];
+
+      //     Object.keys(ADIL).forEach((key) => {
+      //       const directoryTable = ADIL[key].directoryTable;
+      //       const query = `SELECT Name, PID, Gouv, Deleg, Adress, ? as Tag FROM ${directoryTable} WHERE Name LIKE ?`;
+      //       unionQueries.push(query);
+      //     });
+
+      //     const finalQuery = unionQueries.join(' UNION ALL ') + ' ORDER BY Name;';
+
+      //     connection.changeUser({ database: 'dszrccqg_directory' }, () => {});
+          
+      //     const results = await Promise.all(
+      //       unionQueries.map(async (query) => {
+      //         return GetGeneralData(query, [Targetkey, `%${Targetkey}%`]);
+      //       })
+      //     );
+
+      //     const profileData = results.flat(); // Flatten the array of arrays
+
+      //     res.send(profileData);
+      //   } catch (error) {
+      //     console.error('Error:', error);
+      //     res.status(500).send('An error occurred.');
+      //   }
+      // });
+
+
       Search.post('/search/key', (req, res) => {
             let Targetkey = req.body.key;
             let LastSql = ''
@@ -80,7 +125,7 @@ const path = require("path");
                     
                 });
                 LastSql = LastSql.concat(' ORDER BY Name;');
-
+ 
                 resolve(LastSql)
               });
             }
@@ -276,8 +321,8 @@ const path = require("path");
           function InsertRequest() {
               return new Promise((resolve, reject) => {
                 connection.changeUser({database : 'dszrccqg_communications'}, () => {});
-                let sql = `INSERT INTO 01_docteur_rdv(R_ID, PID, UID, user , Genre, comment, RDV_Date , R_Date ,State) 
-                           VALUES('${R_ID}','${PID}','${UID}','','','${ReqData.comment}','${ReqData.date}','${Today}','W')`;
+                let sql = `INSERT INTO 01_docteur_rdv(R_ID, PID, UID, user , Genre, comment, RDV_Date , RDV_Time , R_Date ,State) 
+                           VALUES('${R_ID}','${PID}','${UID}','','','${ReqData.comment}','${ReqData.date}','${ReqData.time}','${Today}','W')`;
                  connection.query(sql, (err, rows, fields) => {
                     if (err) return reject(err);
                     resolve(rows);
@@ -311,8 +356,8 @@ const path = require("path");
           function InsertRequest() {
               return new Promise((resolve, reject) => {
                 connection.changeUser({database : 'dszrccqg_communications'}, () => {});
-                let sql = `INSERT INTO 01_pharmacie_shop(R_ID, PID, UID, Wanted_Day, Articles , R_Date ,State) 
-                           VALUES('${R_ID}','${PID}','${UID}','${ReqData.Wanted_Day}','${JSON.stringify(ReqData.articles)}','${Today}','W')`;
+                let sql = `INSERT INTO 01_pharmacie_shop(R_ID, PID, UID, Wanted_Day, Wanted_Time, Livraison_Par,  Articles , R_Date ,State) 
+                           VALUES('${R_ID}','${PID}','${UID}','${ReqData.Wanted_Day}','${ReqData.Wanted_Time}','${ReqData.Livraison_Par}','${JSON.stringify(ReqData.articles)}','${Today}','W')`;
                  connection.query(sql, (err, rows, fields) => {
                     if (err) return reject(err);
                     resolve(rows);
@@ -332,6 +377,15 @@ const path = require("path");
           SaveRequest();
       })()           
     })
+    Search.post('/Action/pharmacie-shop/medicamment', (req, res) => {
+          let searchForArticle = req.body.searchForArticle
+          connection.changeUser({database : 'dszrccqg_system'}, () => {});
+          let sql = `SELECT * FROM 000_abyedh_medicamment WHERE Nom LIKE '%${searchForArticle}%' AND PID = 'ABYEDH' LIMIT 5`;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){res.json(err)}
+              res.json(rows);
+          })            
+    })
     Search.post('/Action/pharmacie-rdv', (req, res) => {
       (async() => {
           let TAG = req.body.TAG;
@@ -345,8 +399,8 @@ const path = require("path");
           function InsertRequest() {
               return new Promise((resolve, reject) => {
                 connection.changeUser({database : 'dszrccqg_communications'}, () => {});
-                let sql = `INSERT INTO 01_pharmacie_rdv(R_ID, PID, UID, user , Genre, comment, RDV_Date , R_Date ,State) 
-                           VALUES('${R_ID}','${PID}','${UID}','','','${ReqData.comment}','${ReqData.date}','${Today}','W')`;
+                let sql = `INSERT INTO 01_pharmacie_rdv(R_ID, PID, UID, RDV_Cause , RDV_Date , RDV_Time , R_Date ,State) 
+                           VALUES('${R_ID}','${PID}','${UID}', '${ReqData.RDV_Cause}','${ReqData.RDV_Date}','${ReqData.RDV_Time}','${Today}','W')`;
                  connection.query(sql, (err, rows, fields) => {
                     if (err) return reject(err);
                     resolve(rows);
@@ -359,6 +413,111 @@ const path = require("path");
                 const requestData = {}
                 requestData.insert = await InsertRequest()
                 requestData.notif = await UserIssue(UID,PID,R_ID,TAG,'01_pharmacie_rdv','pharmacie_rdv','pharmacie_rdv_saved')
+              
+            res.send(requestData)
+          }
+
+          SaveRequest();
+      })()           
+    })
+
+    Search.post('/Action/clinique-reserver', (req, res) => {
+      (async() => {
+          let TAG = req.body.TAG;
+          let PID = req.body.PID;
+          let UID = req.body.UID;
+          let ReqData = req.body.rendyVousData;
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' );
+          let Time = new Date().toLocaleTimeString('fr-FR');
+          let R_ID =  await GenerateID(11111111111111111111,`01_clinique_reserver`,'R_ID','dszrccqg_communications');
+
+          function InsertRequest() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `INSERT INTO 01_clinique_reserver(R_ID, PID, UID, RES_Cause , RES_From_Date , RES_From_Time, RES_To_Date, RES_To_Time, Comment , R_Date , R_Time ,State) 
+                           VALUES('${R_ID}','${PID}','${UID}', '${ReqData.RES_Cause}','${ReqData.RES_From_Date}','${ReqData.RES_From_Time}','${ReqData.RES_To_Date}', '${ReqData.RES_To_Time}','${ReqData.Comment}', '${Today}','${Time}','W')`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          // Call, Function
+          async function SaveRequest() {
+                const requestData = {}
+                requestData.insert = await InsertRequest()
+                requestData.notif = await UserIssue(UID,PID,R_ID,TAG,'01_clinique_reserver','clinique_reserver','clinique_reserver_saved')
+              
+            res.send(requestData)
+          }
+
+          SaveRequest();
+      })()           
+    })
+
+    Search.post('/Action/centre-reserver', (req, res) => {
+      (async() => {
+          let TAG = req.body.TAG;
+          let PID = req.body.PID;
+          let UID = req.body.UID;
+          let ReqData = req.body.rendyVousData;
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' );
+          let Time = new Date().toLocaleTimeString('fr-FR');
+          let R_ID =  await GenerateID(11111111111111111111,`01_centre_reserver`,'R_ID','dszrccqg_communications');
+
+          function InsertRequest() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `INSERT INTO 01_centre_reserver(R_ID, PID, UID, RES_Cause , RES_From_Date , RES_From_Time, RES_To_Date, RES_To_Time, Comment , R_Date , R_Time ,State) 
+                           VALUES('${R_ID}','${PID}','${UID}', '${ReqData.RES_Cause}','${ReqData.RES_From_Date}','${ReqData.RES_From_Time}','${ReqData.RES_To_Date}', '${ReqData.RES_To_Time}','${ReqData.Comment}', '${Today}','${Time}','W')`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          // Call, Function
+          async function SaveRequest() {
+                const requestData = {}
+                requestData.insert = await InsertRequest()
+                requestData.notif = await UserIssue(UID,PID,R_ID,TAG,'01_centre_reserver','centre_reserver','centre_reserver_saved')
+              
+            res.send(requestData)
+          }
+
+          SaveRequest();
+      })()           
+    })
+
+    Search.post('/Action/labo-rdv', (req, res) => {
+      (async() => {
+          let TAG = req.body.TAG;
+          let PID = req.body.PID;
+          let UID = req.body.UID;
+          let ReqData = req.body.rendyVousData;
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' );
+          let Time = new Date().toLocaleTimeString('fr-FR');
+          let R_ID =  await GenerateID(11111111111111111111,`01_labo_rdv`,'R_ID','dszrccqg_communications');
+
+          function InsertRequest() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `INSERT INTO 01_labo_rdv(R_ID, PID, UID, RDV_Cause , RDV_Date , RDV_Time,   Comment , R_Date , R_Time ,State) 
+                           VALUES('${R_ID}','${PID}','${UID}', '${ReqData.RDV_Cause}','${ReqData.RDV_Date}','${ReqData.RDV_Time}','${ReqData.Comment}', '${Today}','${Time}','W')`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          // Call, Function
+          async function SaveRequest() {
+                const requestData = {}
+                requestData.insert = await InsertRequest()
+                requestData.notif = await UserIssue(UID,PID,R_ID,TAG,'01_labo_rdv','labo_rdv','labo_rdv_saved')
               
             res.send(requestData)
           }
@@ -435,6 +594,262 @@ const path = require("path");
           SaveRequest();
       })()           
     })
+
+    Search.post('/Action/librairie-shop', (req, res) => {
+      (async() => {
+          let TAG = req.body.TAG;
+          let PID = req.body.PID;
+          let UID = req.body.UID;
+          let ReqData = req.body.commandeD;
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' );
+          let Time = new Date().toLocaleTimeString('fr-FR');
+          let R_ID =  await GenerateID(11111111111111111111,`02_librairie_shop`,'R_ID','dszrccqg_communications');
+
+          function InsertRequest() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `INSERT INTO 02_librairie_shop(R_ID, PID, UID, Wanted_Day, Wanted_Time, Livraison_Par,  Articles , R_Date ,R_Time ,State) 
+                           VALUES('${R_ID}','${PID}','${UID}','${ReqData.Wanted_Day}','${ReqData.Wanted_Time}','${ReqData.Livraison_Par}','${JSON.stringify(ReqData.articles)}','${Today}','${Time}','W')`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          // Call, Function
+          async function SaveRequest() {
+                const requestData = {}
+                requestData.insert = await InsertRequest()
+                requestData.notif = await UserIssue(UID,PID,R_ID,TAG,'02_librairie_shop','librairie_shop','librairie_shop_saved')
+              
+            res.send(requestData)
+          }
+
+          SaveRequest();
+      })()           
+    })
+
+    Search.post('/Action/transporteur-request', (req, res) => {
+      (async() => {
+          let TAG = req.body.TAG;
+          let PID = req.body.PID;
+          let UID = req.body.UID;
+          let ReqData = req.body.commandeD;
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' );
+          let Time = new Date().toLocaleTimeString('fr-FR');
+          let R_ID =  await GenerateID(11111111111111111111,`03_transporteur_request`,'R_ID','dszrccqg_communications');
+
+          function InsertRequest() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `INSERT INTO 03_transporteur_request(R_ID, PID, UID, Genre, De, Vers , Wanted_Day, Wanted_Time,  Articles , R_Date ,R_Time, State) 
+                           VALUES('${R_ID}','${PID}','${UID}','${ReqData.Genre}','${JSON.stringify(ReqData.De)}','${JSON.stringify(ReqData.Vers)}','${ReqData.Wanted_Day}','${ReqData.Wanted_Time}','${JSON.stringify(ReqData.articles)}','${Today}','${Time}','W')`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          // Call, Function
+          async function SaveRequest() {
+                const requestData = {}
+                requestData.insert = await InsertRequest()
+                requestData.notif = await UserIssue(UID,PID,R_ID,TAG,'03_transporteur_request','transporteur_request','transporteur_request_saved')
+              
+            res.send(requestData)
+          }
+
+          SaveRequest();
+      })()           
+    })
+    Search.post('/Action/autoecole-inscrie', (req, res) => {
+      (async() => {
+          let TAG = req.body.TAG;
+          let PID = req.body.PID;
+          let UID = req.body.UID;
+          let ReqData = req.body.commandeD;
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' );
+          let Time = new Date().toLocaleTimeString('fr-FR');
+          let R_ID =  await GenerateID(11111111111111111111,`03_autoecole_inscrie`,'R_ID','dszrccqg_communications');
+
+          function InsertRequest() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `INSERT INTO 03_autoecole_inscrie(R_ID, PID, UID, Renouvellemment, BirthDay_Check, Genre , Drive_Befor, Wanted_Times, Comment , R_Date ,R_Time, State) 
+                           VALUES('${R_ID}','${PID}','${UID}','${ReqData.Renouvellemment}','${ReqData.BirthDay_Check}','${ReqData.Genre}','${ReqData.Drive_Befor}','${JSON.stringify(ReqData.Wanted_Times)}','${ReqData.Comment}','${Today}','${Time}','W')`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          // Call, Function
+          async function SaveRequest() {
+                const requestData = {}
+                requestData.insert = await InsertRequest()
+                requestData.notif = await UserIssue(UID,PID,R_ID,TAG,'03_autoecole_inscrie','autoecole_inscrie','autoecole_inscrie_saved')
+              
+            res.send(requestData)
+          }
+
+          SaveRequest();
+      })()           
+    })
+    Search.post('/Action/taxi-request', (req, res) => {
+      (async() => {
+          let TAG = req.body.TAG;
+          let PID = req.body.PID;
+          let UID = req.body.UID;
+          let ReqData = req.body.commandeD;
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' );
+          let Time = new Date().toLocaleTimeString('fr-FR');
+          let R_ID =  await GenerateID(11111111111111111111,`03_taxi_request`,'R_ID','dszrccqg_communications');
+
+          function InsertRequest() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `INSERT INTO 03_taxi_request(R_ID, PID, UID,  Depart, Arrivee, Bagage, R_Date ,R_Time, State) 
+                           VALUES('${R_ID}','${PID}','${UID}','${JSON.stringify(ReqData.targetPositionFrom)}','${JSON.stringify(ReqData.targetPositionTo)}','${ReqData.Bagage}','${Today}','${Time}','W')`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          function AddUserNotification(UID,PID,R_ID,TAG,TableName,ReqTag,NotifTag) {
+              return new Promise((resolve, reject) => {
+                      connection.changeUser({database : 'dszrccqg_profile'}, () => {});
+                      let sql = `INSERT INTO dash_feeds(R_ID, UID, PID, Notif_Name, Notif_Genre, P_Genre, Notif_Date, Notif_Time, State) 
+                                 VALUES('${R_ID}','${UID}','${PID}','${NotifTag}','${ReqTag}','${TAG}','${Today}','${Time}','W');`;
+                       connection.query(sql, (err, rows, fields) => {
+                        if(err) return reject(err);
+                        resolve(rows);
+                      })
+              });
+            }
+            
+          // Call, Function
+          async function SaveRequest() {
+                const requestData = {}
+                requestData.insert = await InsertRequest()
+                requestData.notif = await AddUserNotification(UID,PID,R_ID,TAG,'03_taxi_request','taxi_request','taxi_request_saved')
+              
+            res.send(requestData)
+          }
+
+          SaveRequest();
+      })()           
+    })
+
+    Search.post('/Action/location-request', (req, res) => {
+      (async() => {
+          let TAG = req.body.TAG;
+          let PID = req.body.PID;
+          let UID = req.body.UID;
+          let ReqData = req.body.commandeD;
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' );
+          let Time = new Date().toLocaleTimeString('fr-FR');
+          let R_ID =  await GenerateID(11111111111111111111,`04_location_request`,'R_ID','dszrccqg_communications');
+
+          function InsertRequest() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `INSERT INTO 04_location_request(R_ID, PID, UID,  Wanted_Cars, Cause, Depart_Date, Depart_Time , Finish_Date, Finish_Time, Comment , R_Date ,R_Time, State) 
+                           VALUES('${R_ID}','${PID}','${UID}', '${JSON.stringify(ReqData.Wanted_Cars)}','${ReqData.Cause}','${ReqData.Depart_Date}','${ReqData.Depart_Time}','${ReqData.Finish_Date}','${ReqData.Finish_Time}','${ReqData.Comment}','${Today}','${Time}','W')`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          // Call, Function
+          async function SaveRequest() {
+                const requestData = {}
+                requestData.insert = await InsertRequest()
+                requestData.notif = await UserIssue(UID,PID,R_ID,TAG,'04_location_request','location_request','location_request_saved')
+              
+            res.send(requestData)
+          }
+
+          SaveRequest();
+      })()           
+    })
+
+    Search.post('/Action/parking-reserver', (req, res) => {
+      (async() => {
+          let TAG = req.body.TAG;
+          let PID = req.body.PID;
+          let UID = req.body.UID;
+          let ReqData = req.body.commandeD;
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' );
+          let Time = new Date().toLocaleTimeString('fr-FR');
+          let R_ID =  await GenerateID(11111111111111111111,`04_parking_reserver`,'R_ID','dszrccqg_communications');
+
+          function InsertRequest() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `INSERT INTO 04_parking_reserver(R_ID, PID, UID,  Car_Name, Car_Matricule, Depart_Date, Depart_Time , Finish_Date, Finish_Time, Comment , R_Date ,R_Time, State) 
+                           VALUES('${R_ID}','${PID}','${UID}', '${ReqData.Car_Name}','${ReqData.Car_Matricule}','${ReqData.Depart_Date}','${ReqData.Depart_Time}','${ReqData.Finish_Date}','${ReqData.Finish_Time}','${ReqData.Comment}','${Today}','${Time}','W')`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          // Call, Function
+          async function SaveRequest() {
+                const requestData = {}
+                requestData.insert = await InsertRequest()
+                requestData.notif = await UserIssue(UID,PID,R_ID,TAG,'04_parking_reserver','parking_reserver','parking_reserver_saved')
+              
+            res.send(requestData)
+          }
+
+          SaveRequest();
+      })()           
+    })
+
+    Search.post('/Action/parking-souscrire', (req, res) => {
+      (async() => {
+          let TAG = req.body.TAG;
+          let PID = req.body.PID;
+          let UID = req.body.UID;
+          let ReqData = req.body.commandeD;
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' );
+          let Time = new Date().toLocaleTimeString('fr-FR');
+          let R_ID =  await GenerateID(11111111111111111111,`04_parking_souscrire`,'R_ID','dszrccqg_communications');
+
+          function InsertRequest() {
+              return new Promise((resolve, reject) => {
+                connection.changeUser({database : 'dszrccqg_communications'}, () => {});
+                let sql = `INSERT INTO 04_parking_souscrire(R_ID, PID, UID,  Car_Name, Car_Matricule, Depart_Date,   Finish_Date, Sous_Genre , Comment , R_Date ,R_Time, State) 
+                           VALUES('${R_ID}','${PID}','${UID}','${ReqData.Car_Name}','${ReqData.Car_Matricule}','${ReqData.Depart_Date}', '${ReqData.Finish_Date}','${ReqData.Sous_Genre}','${ReqData.Comment}','${Today}','${Time}','W')`;
+                 connection.query(sql, (err, rows, fields) => {
+                    if (err) return reject(err);
+                    resolve(rows);
+                })
+              });
+          }
+
+          // Call, Function
+          async function SaveRequest() {
+                const requestData = {}
+                requestData.insert = await InsertRequest()
+                requestData.notif = await UserIssue(UID,PID,R_ID,TAG,'04_parking_souscrire','parking_souscrire','parking_souscrire_saved')
+              
+            res.send(requestData)
+          }
+
+          SaveRequest();
+      })()           
+    })
+
 
     Search.post('/Action/restaurant-commande', (req, res) => {
       (async() => {
@@ -539,6 +954,7 @@ const path = require("path");
           SaveRequest();
       })()           
     })
+
 
 /*####################################[Suivie]######################################*/
     
@@ -817,6 +1233,96 @@ const path = require("path");
                   res.send(suivieData)
                 }
                 query();               
+    })
+
+/*####################################[Systems]######################################*/
+    Search.post('/systems/check', (req, res) => {
+          let reqID = req.body.reqID;
+          connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+          let sql = `SELECT * FROM  directory_request WHERE  Req_ID = '${reqID}' ;`; // AND Deleg = '${deleg}' 
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ throw err}
+            res.json(rows);
+          })
+              
+    })
+
+    Search.post('/systems/save', (req, res) => {
+       (async() => {
+          let system = req.body.system;
+          let addTodirectory = req.body.addTodirectory;
+          let userData = JSON.stringify(req.body.userData);
+          let horaireData = JSON.stringify(req.body.horaireData);
+          let alwaysOpen = req.body.alwaysOpen;
+          let position = JSON.stringify(req.body.position);
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )
+          let inscData = JSON.stringify(req.body.inscData);
+          let Req_ID =  await GenerateID(11111111,`directory_request`,'Req_ID','dszrccqg_registration');
+          connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+          let sql = `INSERT INTO directory_request (Req_ID, UserData, ProfileData , Horaire, HoraireALways, Position,  Genre, Req_Date, Req_State) 
+                     VALUES ('${addTodirectory ? addTodirectory : Req_ID}','${userData}','${inscData}','${horaireData}','${alwaysOpen}','${position}','${system}', '${Today}', 'W') `;
+           connection.query(sql, (err, rows, fields) => {
+            if (err){res.json(err)}
+              res.json({Req_ID: addTodirectory ? addTodirectory : Req_ID});
+          })
+      })()           
+    })
+
+    Search.post('/systems/user/LogIn', (req, res) => {
+        const LoginUID = req.body.LoginUID;
+        function ExistTance(){
+          return new Promise((resolve, reject) => {
+              connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+              let sql = `SELECT * FROM profile_login WHERE UID = '${LoginUID}'`;
+               connection.query(sql, (err, rows, fields) => {
+                  if (err) return reject(err);
+                  resolve(rows);
+              })
+          });
+
+        }
+
+        function GetUserData(UID) {
+            return new Promise((resolve, reject) => {
+              connection.changeUser({database : 'dszrccqg_profile'}, () => {});
+              let sql = `SELECT * FROM user_general_data WHERE UID = '${UID}' ` ;
+               connection.query(sql, (err, rows, fields) => {
+                  if (err) return reject(err);
+                  resolve(rows[0]);
+
+              })
+            });
+        }
+
+
+        // Call, Function
+      async function query() {
+          const CheckExistance = await ExistTance(); 
+          if (CheckExistance.length != 0) {
+            const FetchedData = await GetUserData(CheckExistance[0].UID); 
+            let UserLogIn = {Exist: true, UserD : FetchedData};
+            res.send(UserLogIn)
+          } else {
+            let UserLogIn = {Exist: false, UserD : []};
+            res.send(UserLogIn)
+          }
+      }
+      query();
+   })
+
+    Search.post('/systems/fromfcb', (req, res) => {
+          let isFromFcb = req.body.isFromFcb;
+          let Genre = req.body.Genre;
+          let Today = new Date().toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )
+          let ToTime = new Date().toLocaleTimeString('fr-FR');
+          connection.changeUser({database : 'dszrccqg_registration'}, () => {});
+          let sql = `INSERT INTO directory_request_fcb (Fcb_ID,Date,Time,Genre) 
+                     VALUES ('${isFromFcb}','${Today}','${ToTime}','${Genre}') ;`; // AND Deleg = '${deleg}' 
+           connection.query(sql, (err, rows, fields) => {
+            if (err){ throw err}
+            res.json(rows);
+          })
+              
     })
 
 module.exports = Search
