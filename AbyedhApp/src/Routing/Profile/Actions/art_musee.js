@@ -40,22 +40,23 @@ function ArtMuseeSpecific(props) {
 
     return ( <>
         <div className='m-0'>
-                <div   dir='rtl' className='card card-body shadow-sm pt-5 border-div'>
-                    <div className="input-group mb-1">
-                    <input type="text" className="form-control" id="reserver-name" dir="rtl" required placeholder="إالاسم و اللقب" />
+                <div   dir='rtl' className='card card-body shadow-sm pt-3 border-div'>
+                    <h5 className='mb-2 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> الوقت المطلوب </h5>
+                    <small> متي تريد الحضور ؟</small>
+                    <div className='row mb-0'>
+                        <div className='col-12'><Input className='mb-2' type='date' fluid alue={rendyVousD.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, date: e.target.value })}  /></div> 
+                        <div className='col-6'><small className='ms-2'>من</small><Input className='mb-2' type='time' fluid alue={rendyVousD.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setRdvData({...rendyVousD, time: e.target.value })}  /></div> 
+                        <div className='col-6'><small className='ms-2'>إلي</small><Input className='mb-2' type='time' fluid alue={rendyVousD.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setRdvData({...rendyVousD, time: e.target.value })}  /></div> 
                     </div>
-                    <div className="text-right text-danger mb-1 mr-2"><span>بتاريخ </span></div>
-                    <div className="input-group mb-3 float-right">
-                    <input type="date" className="form-control" id="reserver-jour" value="<?php echo date('Y-m-d'); ?>" min="2019-01-01" max="2020-12-29" />
-                     
-                    </div>
-                        <div className="input-group mb-1">
-                    <textarea type="text" className="form-control"  rows="2" id="reserver-comment" dir="rtl" required placeholder="ملاحضات"></textarea>
-                    </div>
-                    <input type="hidden" value="<?php echo $PID; ?>" id="reserver-pid" />
-                    <div className="text-left">
-                        <button className="btn btn-success card-1 btn-sm" id="reserver" >تأكيد <span className="fa fa-check-circle"></span></button>
-                        <button className="btn btn-danger card-1 btn-sm close-md" data-dismiss="modal">إلغاء <span className="fa fa-times-circle"></span></button>
+
+  
+                    <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>        
+                    <Form className='mb-3'>
+                        <TextArea className='font-droid' placeholder='ملاحضات'  rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                    </Form>
+
+                    <div className='text-end'>
+                        <Button className='rounded-pill' onClick={saveFunction} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[props.TAG].themeColor, color:'white'}} > <Icon name='save' />  تسجيل موعد  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
                     </div>
                 </div>
         </div>      

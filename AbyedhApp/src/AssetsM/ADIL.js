@@ -15,8 +15,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
+            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
         ],
         subCatagSmall : [
             [
@@ -85,7 +85,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -115,8 +115,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي صيدلية و تنجم تعرف مفتوحة ولا مغلقة و كلنك تلوج علي دواء معين نتجم تعرف بالمسبق موجود ولا لا , دون الحاجة للتنقل ...</h5>',
-            '<h5>في المقابل كانك صاحب صيدلية المنصة هاذي توفرك نضام إدارة للصيدلية متاعك و تعاونك باش تكون قريب من زبائنك و مزودي الأدوية اللي تتعامل معاهم بطريقة ساهلة و بسيطة  </h5> ']
+            ['المنصة هاذي عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي صيدلية و تنجم تعرف مفتوحة ولا مغلقة و كلنك تلوج علي دواء معين نتجم تعرف بالمسبق موجود ولا لا , دون الحاجة للتنقل ...',
+            'في المقابل كانك صاحب صيدلية المنصة هاذي توفرك نضام إدارة للصيدلية متاعك و تعاونك باش تكون قريب من زبائنك و مزودي الأدوية اللي تتعامل معاهم بطريقة ساهلة و بسيطة   ']
         ],
         subCatagSmall: [
             [
@@ -138,7 +138,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'صيدلية', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' تعمل بـ ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -165,8 +165,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك نلوج في مصحة ذات جودة خدمات معينة أنت في المكان الصحيح , أبيض توفرلك محرك بحث لجميع أنواع المصحات التونسية باش تعاونك تلقا الوجة اللي حاجتك بيها من أجل خدمات صحية أفضل و أكثر رفاهية </h5>', 
-            '<h5>في المقابل أبيض توفر لأصحاب و مديري المصحات الخاصة نِظَامْ إِدَارًةْ و مراقبة و متابعة للمصحة و للحرفاء من أجل تقديم خدمة أفضل و تحسين جودة عملية العلاج و التواصل مع الحرفاء و المرضي بطريقة سهلة و رقمية </h5>']
+            ['كانك نلوج في مصحة ذات جودة خدمات معينة أنت في المكان الصحيح , أبيض توفرلك محرك بحث لجميع أنواع المصحات التونسية باش تعاونك تلقا الوجة اللي حاجتك بيها من أجل خدمات صحية أفضل و أكثر رفاهية ', 
+            'في المقابل أبيض توفر لأصحاب و مديري المصحات الخاصة نِظَامْ إِدَارًةْ و مراقبة و متابعة للمصحة و للحرفاء من أجل تقديم خدمة أفضل و تحسين جودة عملية العلاج و التواصل مع الحرفاء و المرضي بطريقة سهلة و رقمية ']
         ],
         subCatagSmall: [
             [
@@ -194,7 +194,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'مصحة ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' إختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -224,8 +224,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>تلوج في مخبر تحليل ؟ مخبر تشريح ؟ و إلا اي نوع أخر من المخابر الطبية ؟ أبيض توفرلك محرك البحث هاذا اللي تلقا فيه المخبر اللي تلوج عليه و اللي تنجم تاخو مواعيدك و تحاليلك من خلالو بطريقة رقمية</h5>',
-            '<h5>في المقابل كلنك صاحب ولا مدير ولا تشتغل في مركز طبي و تلوج علي أداة تكنولوجية تعاونك في أداء عملك بطريقة تضمن تحسين  جودة الخدمة الصحية , فأنت في المكان الصحيح : منصة ابيض للمخابر الطبية</h5>']
+            ['تلوج في مخبر تحليل ؟ مخبر تشريح ؟ و إلا اي نوع أخر من المخابر الطبية ؟ أبيض توفرلك محرك البحث هاذا اللي تلقا فيه المخبر اللي تلوج عليه و اللي تنجم تاخو مواعيدك و تحاليلك من خلالو بطريقة رقمية',
+            'في المقابل كلنك صاحب ولا مدير ولا تشتغل في مركز طبي و تلوج علي أداة تكنولوجية تعاونك في أداء عملك بطريقة تضمن تحسين  جودة الخدمة الصحية , فأنت في المكان الصحيح : منصة ابيض للمخابر الطبية']
         ],
         subCatagSmall: [
             [
@@ -252,7 +252,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'مخبر ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -282,8 +282,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>تلوج في مركز تصوير راديولوجي ؟ مركز غسيل كلي ولا مركز علاج بمياه البحر ؟ ولا اي مركز صحي آخر ؟ أبيض يوفرلك محرك البحث اللي يربط بالمنشآت الصحية هاذي و يمكنك أنك تتواصل معاها لتحسين عملية العلاج </h5>',
-            '<h5>في المقابل كانك مدير ولا صاحب مركز علاج خاص المنصة هاذي تعاونك بالباهي إنك تدير مركزك الصحي من خلال نِظَامْ إِدَارًةْ ومراقبة و متابعة  رقمي متصلة بجميع الأطراف المتدخلة في عملية العلاج من حرفاء و عاملين و غيرهم ..</h5> ']
+            ['تلوج في مركز تصوير راديولوجي ؟ مركز غسيل كلي ولا مركز علاج بمياه البحر ؟ ولا اي مركز صحي آخر ؟ أبيض يوفرلك محرك البحث اللي يربط بالمنشآت الصحية هاذي و يمكنك أنك تتواصل معاها لتحسين عملية العلاج ',
+            'في المقابل كانك مدير ولا صاحب مركز علاج خاص المنصة هاذي تعاونك بالباهي إنك تدير مركزك الصحي من خلال نِظَامْ إِدَارًةْ ومراقبة و متابعة  رقمي متصلة بجميع الأطراف المتدخلة في عملية العلاج من حرفاء و عاملين و غيرهم .. ']
         ],
         subCatagSmall: [
             [
@@ -310,7 +310,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'مركز  ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -340,8 +340,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الصحة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الصحة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...',
+            'في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -369,7 +369,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'مستشفي ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' النوع ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -399,8 +399,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الصحة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الصحة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...',
+            'في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -422,7 +422,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'مركز صحة', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -453,8 +453,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك تلوج في روضة مناسبة لصغيرك المنصة هاذي توفر دليل كامل لرياض الأطفال في تونس و تمكنك زادا من التسجيل عن بعد في الروضة و تعطيك الفرصة باش تبقي ديما متصل و متابع لعملية تعلم ولدك ولا بنتك </h5>',
-            '<h5>في المقابل كانك صاحب ولا صاحبة رياض أطفال أبيض توفرلك نِظَامْ إِدَارًةْ و متابعة لمختلف الانشطة اللي تصير داخل المؤسسة متاعك , و بالتالي مزيد من التحكم و الإدارة الذكية لجعل عملية التعلم أكثر جودة و تطور .</h5> ']
+            ['كانك تلوج في روضة مناسبة لصغيرك المنصة هاذي توفر دليل كامل لرياض الأطفال في تونس و تمكنك زادا من التسجيل عن بعد في الروضة و تعطيك الفرصة باش تبقي ديما متصل و متابع لعملية تعلم ولدك ولا بنتك ',
+            'في المقابل كانك صاحب ولا صاحبة رياض أطفال أبيض توفرلك نِظَامْ إِدَارًةْ و متابعة لمختلف الانشطة اللي تصير داخل المؤسسة متاعك , و بالتالي مزيد من التحكم و الإدارة الذكية لجعل عملية التعلم أكثر جودة و تطور . ']
         ],
         subCatagSmall: [
             [
@@ -476,7 +476,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'إسم الروضة', resultTag:'Name' , icon:'person-circle'},
                 {id:1, name:' نوع الروضة ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:1, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:1, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:1, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:1, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:1, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -499,13 +499,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: ' المدرسة الخاصة',
+        businesOwner: 'صاحب مدرسة خاصة ',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك باش تلقي المؤسسة الخاصة المناسبة لصغيرك, تلقي فيها أغلب المؤسسات التونسسية مع إمكانية التفاعل المباشر مع المؤسسة اللي حاجتك بيها : تسجيل , ترسيم , متابعة الأعداد , المراقبة ...</h5>', 
-            '<h5>في المقابل كانك صاحب مؤسسة خاصة منصة أبيض تمكنك من إدارة مؤسستك و متابعة أنشطتها من خلال فضاء يربط بين الإدارة و المدرس و الولي ... بالإضافة لبرنامج حساب الأعداد آليا و أرشفة سحابية لكل ملفات التلاميذ </h5> ']
+            ['المنصة هاذي تعاونك باش تلقي المؤسسة الخاصة المناسبة لصغيرك, تلقي فيها أغلب المؤسسات التونسسية مع إمكانية التفاعل المباشر مع المؤسسة اللي حاجتك بيها : تسجيل , ترسيم , متابعة الأعداد , المراقبة ...', 
+            'في المقابل كانك صاحب مؤسسة خاصة منصة أبيض تمكنك من إدارة مؤسستك و متابعة أنشطتها من خلال فضاء يربط بين الإدارة و المدرس و الولي ... بالإضافة لبرنامج حساب الأعداد آليا و أرشفة سحابية لكل ملفات التلاميذ  ']
         ],
         subCatagSmall: [
             [
@@ -527,7 +527,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:' مدرسة', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -552,13 +552,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: ' المعهد الخاص ',
+        businesOwner: 'صاحب معهد خاص ',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك باش تلقي المؤسسة الخاصة المناسبة لصغيرك, تلقي فيها أغلب المؤسسات التونسسية مع إمكانية التفاعل المباشر مع المؤسسة اللي حاجتك بيها : تسجيل , ترسيم , متابعة الأعداد , المراقبة ...</h5>', 
-            '<h5>في المقابل كانك صاحب مؤسسة خاصة منصة أبيض تمكنك من إدارة مؤسستك و متابعة أنشطتها من خلال فضاء يربط بين الإدارة و المدرس و الولي ... بالإضافة لبرنامج حساب الأعداد آليا و أرشفة سحابية لكل ملفات التلاميذ </h5>']
+            ['المنصة هاذي تعاونك باش تلقي المؤسسة الخاصة المناسبة لصغيرك, تلقي فيها أغلب المؤسسات التونسسية مع إمكانية التفاعل المباشر مع المؤسسة اللي حاجتك بيها : تسجيل , ترسيم , متابعة الأعداد , المراقبة ...', 
+            'في المقابل كانك صاحب مؤسسة خاصة منصة أبيض تمكنك من إدارة مؤسستك و متابعة أنشطتها من خلال فضاء يربط بين الإدارة و المدرس و الولي ... بالإضافة لبرنامج حساب الأعداد آليا و أرشفة سحابية لكل ملفات التلاميذ ']
         ],
         subCatagSmall: [
             [
@@ -580,7 +580,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'معهد / إعدادية ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' المستوي ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -605,13 +605,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'الجامعة الخاصة ',
+        businesOwner: 'صاحب جامعة خاصة ',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك باش تلقي المؤسسة الخاصة المناسبة لصغيرك, تلقي فيها أغلب المؤسسات التونسسية مع إمكانية التفاعل المباشر مع المؤسسة اللي حاجتك بيها : تسجيل , ترسيم , متابعة الأعداد , المراقبة ...</h5>', 
-            '<h5>في المقابل كانك صاحب مؤسسة خاصة منصة أبيض تمكنك من إدارة مؤسستك و متابعة أنشطتها من خلال فضاء يربط بين الإدارة و المدرس و الولي ... بالإضافة لبرنامج حساب الأعداد آليا و أرشفة سحابية لكل ملفات التلاميذ </h5>']
+            ['المنصة هاذي تعاونك باش تلقي المؤسسة الخاصة المناسبة لصغيرك, تلقي فيها أغلب المؤسسات التونسسية مع إمكانية التفاعل المباشر مع المؤسسة اللي حاجتك بيها : تسجيل , ترسيم , متابعة الأعداد , المراقبة ...', 
+            'في المقابل كانك صاحب مؤسسة خاصة منصة أبيض تمكنك من إدارة مؤسستك و متابعة أنشطتها من خلال فضاء يربط بين الإدارة و المدرس و الولي ... بالإضافة لبرنامج حساب الأعداد آليا و أرشفة سحابية لكل ملفات التلاميذ ']
         ],
         subCatagSmall: [
             [
@@ -649,7 +649,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'جامعة', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاصات ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -674,13 +674,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'المطبعة',
+        businesOwner: 'صاحب مطبعة',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك تلوج في خدمات عامة مناسبة لصغيرك المنصة هاذي توفر دليل كامل لرياض الأطفال في تونس و تمكنك زادا من التسجيل عن بعد في الخدمات عامة و تعطيك الفرصة باش تبقي ديما متصل و متابع لعملية تعلم ولدك ولا بنتك </h5>',
-            '<h5>في المقابل كانك صاحب ولا صاحبة رياض أطفال أبيض توفرلك نِظَامْ إِدَارًةْ و متابعة لمختلف الانشطة اللي تصير داخل المؤسسة متاعك , و بالتالي مزيد من التحكم و الإدارة الذكية لجعل عملية التعلم أكثر جودة و تطور .</h5>']
+            ['كانك تلوج في خدمات عامة مناسبة لصغيرك المنصة هاذي توفر دليل كامل لرياض الأطفال في تونس و تمكنك زادا من التسجيل عن بعد في الخدمات عامة و تعطيك الفرصة باش تبقي ديما متصل و متابع لعملية تعلم ولدك ولا بنتك ',
+            'في المقابل كانك صاحب ولا صاحبة رياض أطفال أبيض توفرلك نِظَامْ إِدَارًةْ و متابعة لمختلف الانشطة اللي تصير داخل المؤسسة متاعك , و بالتالي مزيد من التحكم و الإدارة الذكية لجعل عملية التعلم أكثر جودة و تطور .']
         ],
         subCatagSmall: [
             [
@@ -702,7 +702,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:' مطبعة', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' النوع ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -727,13 +727,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'الكتبية',
+        businesOwner: 'صاحب كتبية',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك تلوج في خدمات عامة مناسبة لصغيرك المنصة هاذي توفر دليل كامل لرياض الأطفال في تونس و تمكنك زادا من التسجيل عن بعد في الخدمات عامة و تعطيك الفرصة باش تبقي ديما متصل و متابع لعملية تعلم ولدك ولا بنتك </h5>',
-            '<h5>في المقابل كانك صاحب ولا صاحبة رياض أطفال أبيض توفرلك نِظَامْ إِدَارًةْ و متابعة لمختلف الانشطة اللي تصير داخل المؤسسة متاعك , و بالتالي مزيد من التحكم و الإدارة الذكية لجعل عملية التعلم أكثر جودة و تطور .</h5>']
+            ['كانك تلوج في خدمات عامة مناسبة لصغيرك المنصة هاذي توفر دليل كامل لرياض الأطفال في تونس و تمكنك زادا من التسجيل عن بعد في الخدمات عامة و تعطيك الفرصة باش تبقي ديما متصل و متابع لعملية تعلم ولدك ولا بنتك ',
+            'في المقابل كانك صاحب ولا صاحبة رياض أطفال أبيض توفرلك نِظَامْ إِدَارًةْ و متابعة لمختلف الانشطة اللي تصير داخل المؤسسة متاعك , و بالتالي مزيد من التحكم و الإدارة الذكية لجعل عملية التعلم أكثر جودة و تطور .']
         ],
         subCatagSmall: [
             [
@@ -755,7 +755,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'كتبية ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -785,8 +785,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...',
+            'في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -808,7 +808,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'إسم المركز', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -838,8 +838,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>', 
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...', 
+            'في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -861,7 +861,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'مكتبة', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -891,8 +891,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>', 
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...', 
+            'في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -914,7 +914,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -944,8 +944,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>', 
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...', 
+            'في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -967,7 +967,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -997,8 +997,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>', 
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...', 
+            'في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -1036,7 +1036,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1066,8 +1066,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5>', 
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال التعليم ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...', 
+            'في المقابل أي إدارة تنجم تتمتع بنِظَامْ إِدَارًةْ عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -1089,7 +1089,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1116,13 +1116,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'شركة نقل البضائع',
+        businesOwner: 'صاحب شركة نقل بطائع',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك تلوج في سيارة نقل بظائع أبيض توفرلك دليل واسع لأصحاب شاحنات نقل البظائع , الدليل يمكنك تلقي transporteur قريب و اللي تنجم تاخو معاه موعد و تنجم زادا تبقي متابع لعملية نقل بظاعتك بكل لحظة</h5>', 
-            '<h5>في المقابل كانك صاحب شاحنة نقل بظائع منصتنا توفرلك نظام إدارة و متابعة للعمل متاعك من خلال فضاء لتنضيم المواعيد و تسجيل العمليات كما توفر موقع يمكن جميع التونسيين من التواصل معك و أخذ المواعيد من خلاله </h5> ']
+            ['كانك تلوج في سيارة نقل بظائع أبيض توفرلك دليل واسع لأصحاب شاحنات نقل البظائع , الدليل يمكنك تلقي transporteur قريب و اللي تنجم تاخو معاه موعد و تنجم زادا تبقي متابع لعملية نقل بظاعتك بكل لحظة', 
+            'في المقابل كانك صاحب شاحنة نقل بظائع منصتنا توفرلك نظام إدارة و متابعة للعمل متاعك من خلال فضاء لتنضيم المواعيد و تسجيل العمليات كما توفر موقع يمكن جميع التونسيين من التواصل معك و أخذ المواعيد من خلاله  ']
         ],
         subCatagSmall: [
             [
@@ -1144,7 +1144,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1169,13 +1169,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'مدرسة تعليم السياقة',
+        businesOwner: 'صاحب مدرسة تعليم السياقة',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كان تحب تاخو رخصة سياقة و تلوج في معلم ماهر و ذو خبرة فأنو منصة أبيض توفر الدليل هذا اللي تلقي فيه مدارس تعليم السياقة بمختلف أصنافها و يعاونك و يرشدك بالنصائح اللي تساعد باش تتحصل علي رخصتك</h5>', 
-            '<h5>في المقابل كانك صاحب مدرسة تعليم سياقة أبيض توفرلك نظام تحكم و مراقبة و محاسبة لمدرستك و لحرفائك من خلال العديد من الأدوات اللي تخليك ديما مطلع علي سير و تطور مهارات تلامذك في السياقة.</h5>  ']
+            ['كان تحب تاخو رخصة سياقة و تلوج في معلم ماهر و ذو خبرة فأنو منصة أبيض توفر الدليل هذا اللي تلقي فيه مدارس تعليم السياقة بمختلف أصنافها و يعاونك و يرشدك بالنصائح اللي تساعد باش تتحصل علي رخصتك', 
+            'في المقابل كانك صاحب مدرسة تعليم سياقة أبيض توفرلك نظام تحكم و مراقبة و محاسبة لمدرستك و لحرفائك من خلال العديد من الأدوات اللي تخليك ديما مطلع علي سير و تطور مهارات تلامذك في السياقة.</h5>  ']
         ],
         subCatagSmall: [
             [
@@ -1203,7 +1203,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1231,13 +1231,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'المقهي',
+        businesOwner: 'صاحب مقهي',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>تلوج في قهوة ؟ قاعة شاي ؟ تحب تحجز طاولة في مقهي فاخر . أبيض توفرلك دليل بحث يعاونك أنك تلقي اللي حاجتك بيه باش تربحك في الوقت و تعاونك تعرف الإختيار اللي يساعدك و يخليك تستمتع </h5> ',
-            '<h5>في المقابل كانك صاحب مقهي و تحب تحسن في جودة الخدمات اللي تقدمها للحرفاء متاعك , أبيض توفرلك نظام إدارة و تواصل مع حرفائك باش تربحهم في الوقت و تعاونهم يستمتعو بخدماتك أكثر  </h5> ']
+            ['تلوج في قهوة ؟ قاعة شاي ؟ تحب تحجز طاولة في مقهي فاخر . أبيض توفرلك دليل بحث يعاونك أنك تلقي اللي حاجتك بيه باش تربحك في الوقت و تعاونك تعرف الإختيار اللي يساعدك و يخليك تستمتع </h5> ',
+            'في المقابل كانك صاحب مقهي و تحب تحسن في جودة الخدمات اللي تقدمها للحرفاء متاعك , أبيض توفرلك نظام إدارة و تواصل مع حرفائك باش تربحهم في الوقت و تعاونهم يستمتعو بخدماتك أكثر   ']
         ],
         subCatagSmall: [
             [
@@ -1263,7 +1263,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1288,13 +1288,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'المطعم',
+        businesOwner: 'صاحب مطعم',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>تلوج في مطعم نظيف و خدماتو صحية ؟ تحب تحجز طاولة في مطعم فاخر ؟ أبيض توفرلك محرك البحث هذا باش يعاونك تلقي اللي حاجتك بيه و يمكنك أنك تختار بين النتائج من أجل جرّب إستمتاع أفظل </h5> ',
-            '<h5>في المقابل كانك صاحب مطعم أبيض يوفرلك نظام إدارة و مراقبة و متابعة للمطعم وإلا العمل متاعك , من خلال بيئة إفتراضية تخليك ديما متصل بالزبائن متاعك لمعرفة ردود أفعالهم علي الخدمات اللي تقدمها </h5>']
+            ['تلوج في مطعم نظيف و خدماتو صحية ؟ تحب تحجز طاولة في مطعم فاخر ؟ أبيض توفرلك محرك البحث هذا باش يعاونك تلقي اللي حاجتك بيه و يمكنك أنك تختار بين النتائج من أجل جرّب إستمتاع أفظل </h5> ',
+            'في المقابل كانك صاحب مطعم أبيض يوفرلك نظام إدارة و مراقبة و متابعة للمطعم وإلا العمل متاعك , من خلال بيئة إفتراضية تخليك ديما متصل بالزبائن متاعك لمعرفة ردود أفعالهم علي الخدمات اللي تقدمها ']
         ],
         subCatagSmall: [
             [
@@ -1322,7 +1322,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1337,7 +1337,7 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    ptvente_shop: {
+    magazin: {
         tag: 'docteur',
         themeColor: '#5e7968',
         directoryTable: '01_docteur',
@@ -1347,13 +1347,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'المغازة',
+        businesOwner: 'صاحب مغازة ',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
-            '<h5>في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك </h5> ']
+            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
         ],
         subCatagSmall: [
             [
@@ -1379,7 +1379,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1394,7 +1394,7 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    ptvente_boulengerie: {
+    boulengerie: {
         tag: 'docteur',
         themeColor: '#5e7968',
         directoryTable: '01_docteur',
@@ -1404,13 +1404,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'المخبزة',
+        businesOwner: 'صاحب مخبزة',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
-            '<h5>في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك </h5> ']
+            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
         ],
         subCatagSmall: [
             [
@@ -1436,7 +1436,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1451,7 +1451,7 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    ptvente_viande: {
+    boucherie: {
         tag: 'docteur',
         themeColor: '#5e7968',
         directoryTable: '01_docteur',
@@ -1461,13 +1461,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'جزّار',
+        businesOwner: 'صاحب نقطة بيع اللحوة',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
+            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
         ],
         subCatagSmall: [
             [
@@ -1495,7 +1495,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1510,7 +1510,7 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    ptvente_fruit: {
+    fruiterie: {
         tag: 'docteur',
         themeColor: '#5e7968',
         directoryTable: '01_docteur',
@@ -1520,13 +1520,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'خظّار',
+        businesOwner: 'صاحب نقطة بيع الخضر',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
+            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
         ],
         subCatagSmall: [
             [
@@ -1548,7 +1548,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1563,7 +1563,7 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    ptvente_patesserie: {
+    patesserie: {
         tag: 'docteur',
         themeColor: '#5e7968',
         directoryTable: '01_docteur',
@@ -1573,13 +1573,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'مخبرة المرطبات',
+        businesOwner: 'صاحب نقطة بيع المرطبات',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
-            '<h5>في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك </h5> ']
+            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
         ],
         subCatagSmall: [
             [
@@ -1601,7 +1601,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1616,7 +1616,7 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    ptvente_small_shop: {
+    epicerie: {
         tag: 'docteur',
         themeColor: '#5e7968',
         directoryTable: '01_docteur',
@@ -1626,13 +1626,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'البقالة',
+        businesOwner: 'صاحب بقالة',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
-            '<h5>في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك </h5> ']
+            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
         ],
         subCatagSmall: [
             [
@@ -1658,7 +1658,343 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    ptvente_shop: {
+        tag: 'docteur',
+        themeColor: '#5e7968',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ المَغَازَاتْ',
+        systemLink: 'https://system.abyedh.tn/Landing/ptvMagazin',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'المغازة',
+        businesOwner: 'صاحب مغازة ',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'Magazin', value: 'dentiste', imgSrc: 'bread' },
+                { id: 2, name: 'Superette', value: 'dentiste', imgSrc: 'bread' },
+            ],[
+                { id: 3, name: 'عَطَّارْ ', value: 'dentiste', imgSrc: 'bread' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'Magazin', value: 'dentiste', imgSrc: 'bread' },
+                { id: 2, name: 'Superette', value: 'dentiste', imgSrc: 'bread' },
+                { id: 3, name: 'عَطَّارْ ', value: 'dentiste', imgSrc: 'bread' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'magazin', value: 'dentiste', imgSrc: 'bread' },
+                { id: 2, name: 'superette', value: 'dentiste', imgSrc: 'bread' },
+                { id: 3, name: 'عطار ', value: 'dentiste', imgSrc: 'bread' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    ptvente_boulengerie: {
+        tag: 'docteur',
+        themeColor: '#5e7968',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ المَخَابِزْ',
+        systemLink: 'https://system.abyedh.tn/Landing/ptvBoulengerie',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'المخبزة',
+        businesOwner: 'صاحب مخبزة',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'طَابُونَة', value: 'dentiste', imgSrc: 'pain' },
+                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'pain' },
+            ],[
+                { id: 3, name: 'عَرْبِي', value: 'dentiste', imgSrc: 'pain' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'طَابُونَة', value: 'dentiste', imgSrc: 'pain' },
+                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'pain' },
+                { id: 3, name: 'عَرْبِي', value: 'dentiste', imgSrc: 'pain' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'طابونة', value: 'dentiste', imgSrc: 'pain' },
+                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'pain' },
+                { id: 3, name: ' عربي', value: 'dentiste', imgSrc: 'pain' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    ptvente_viande: {
+        tag: 'docteur',
+        themeColor: '#5e7968',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ بَيْعْ اللُحُومْ',
+        systemLink: 'https://system.abyedh.tn/Landing/ptvBoucherie',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'نقطة بيع اللحوم',
+        businesOwner: 'صاحب نقطة بيع اللحوم',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
+            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'لُحُومْ حَمْرَاءْ', value: 'dentiste', imgSrc: 'viande' },
+                { id: 2, name: 'سَكَالُوبْ', value: 'dentiste', imgSrc: 'viande' },
+                { id: 3, name: 'مَزْرَعَة', value: 'dentiste', imgSrc: 'viande' },
+                { id: 4, name: 'سَمَـكْ', value: 'dentiste', imgSrc: 'viande' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'لُحُومْ حَمْرَاءْ', value: 'dentiste', imgSrc: 'viande' },
+                { id: 2, name: 'سَكَالُوبْ', value: 'dentiste', imgSrc: 'viande' },
+                { id: 3, name: 'مَزْرَعَة', value: 'dentiste', imgSrc: 'viande' },
+                { id: 4, name: 'سَمَـكْ' , value: 'dentiste', imgSrc: 'viande' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'لحوم حمراء', value: 'dentiste', imgSrc: 'viande' },
+                { id: 2, name: 'سكالوب', value: 'dentiste', imgSrc: 'viande' },
+                { id: 3, name: 'مزرعة', value: 'dentiste', imgSrc: 'viande' },
+                { id: 4, name: ' سمك', value: 'dentiste', imgSrc: 'viande' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    ptvente_fruit: {
+        tag: 'docteur',
+        themeColor: '#5e7968',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ بَيْعَ الخُضَرْ',
+        systemLink: 'https://system.abyedh.tn/Landing/ptvFruiterie',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'نقطة بيع الخضر',
+        businesOwner: 'صاحب نقطة بيع الخضر',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
+            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'خُضَرْ', value: 'dentiste', imgSrc: 'fruit' },
+                { id: 2, name: 'غِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'خُضَرْ', value: 'dentiste', imgSrc: 'fruit' },
+                { id: 2, name: 'غِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'خضر', value: 'dentiste', imgSrc: 'fruit' },
+                { id: 2, name: 'غلال', value: 'dentiste', imgSrc: 'fruit' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    ptvente_patesserie: {
+        tag: 'docteur',
+        themeColor: '#5e7968',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ بَيْعْ المُرَطَبَاتْ',
+        systemLink: 'https://system.abyedh.tn/Landing/ptvPatesserie',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: '  نقطة بيع المرطبات',
+        businesOwner: 'صاحب نقطة بيع المرطبات',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patt' },
+                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patt' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patt' },
+                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patt' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patt' },
+                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patt' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    ptvente_small_shop: {
+        tag: 'docteur',
+        themeColor: '#5e7968',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ البَقَّالاَتْ',
+        systemLink: 'https://system.abyedh.tn/Landing/ptvGrocery',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'البقالة',
+        businesOwner: 'صاحب بقالة',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'سَجَائِرْ', value: 'dentiste', imgSrc: 'hmas' },
+                { id: 2, name: 'بُقُولْ', value: 'dentiste', imgSrc: 'hmas' },
+            ],[
+                { id: 3, name: 'فَوَاكِهْ جَافَّة', value: 'dentiste', imgSrc: 'hmas' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'سَجَائِرْ', value: 'dentiste', imgSrc: 'hmas' },
+                { id: 2, name: 'بُقُولْ', value: 'dentiste', imgSrc: 'hmas' },
+                { id: 3, name: 'فَوَاكِهْ جَافَّة', value: 'dentiste', imgSrc: 'hmas' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'سجائر', value: 'dentiste', imgSrc: 'hmas' },
+                { id: 2, name: 'بقول', value: 'dentiste', imgSrc: 'hmas' },
+                { id: 3, name: ' فواكه جافة', value: 'dentiste', imgSrc: 'hmas' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1675,7 +2011,7 @@ const AbyedhADIL = {
     },
 
     /*houseCar*/
-    house_electro: {
+    electromenager: {
         tag: 'docteur',
         themeColor: '#0078d7',
         directoryTable: '01_docteur',
@@ -1685,13 +2021,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: 'house_electro',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'نقطة بيع الكهروإلكترونيات',
+        businesOwner: 'صاحب نقطة بيع الكهروإلكترونيات',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>تلوج في خدمات مختلفة للمنزل متاعك ؟ أبيض تمكنك أنك تلقي المنتجات اللي تحتاجها للمنزل الكل : آلات كهربيائية , مفروشات متنوعة و تمكنك تختار المنتج بالخاصيات اللي تحب عليها ببساطة و سهولة </h5>', 
-            '<h5>في المقابل كانك صاحب محل بيع منتجات منزلية المنصة هاذي توفرلك النظام اللي تحتاجو باش تدير العمل متاعك بصفة رقمية و تعاونك تتصل بالحرفاء و المزودين بسهولة و سرعة </h5>  ']
+            ['تلوج في خدمات مختلفة للمنزل متاعك ؟ أبيض تمكنك أنك تلقي المنتجات اللي تحتاجها للمنزل الكل : آلات كهربيائية , مفروشات متنوعة و تمكنك تختار المنتج بالخاصيات اللي تحب عليها ببساطة و سهولة ', 
+            'في المقابل كانك صاحب محل بيع منتجات منزلية المنصة هاذي توفرلك النظام اللي تحتاجو باش تدير العمل متاعك بصفة رقمية و تعاونك تتصل بالحرفاء و المزودين بسهولة و سرعة </h5>  ']
         ],
         subCatagSmall: [
             [
@@ -1713,7 +2049,113 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    meublerie: {
+        tag: 'docteur',
+        themeColor: '#0078d7',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ الأَثَاثْ',
+        systemLink: 'https://system.abyedh.tn/Landing/ptvMeuble',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'نقطة بيع الأثاث',
+        businesOwner: 'صاحب نقطة بيع الأثاث',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['تلوج في خدمات مختلفة للمنزل متاعك ؟ أبيض تمكنك أنك تلقي المنتجات اللي تحتاجها للمنزل الكل : آلات كهربيائية , مفروشات متنوعة و تمكنك تختار المنتج بالخاصيات اللي تحب عليها ببساطة و سهولة </h5> ',
+            'في المقابل كانك صاحب محل بيع منتجات منزلية المنصة هاذي توفرلك النظام اللي تحتاجو باش تدير العمل متاعك بصفة رقمية و تعاونك تتصل بالحرفاء و المزودين بسهولة و سرعة ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'أَثَاثْ مَنْزِلِي', value: 'fourniture', imgSrc: 'furniture' },
+                { id: 2, name: 'أَثَاثْ مَكْتَبِي', value: 'fourniture', imgSrc: 'furniture' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'أَثَاثْ مَنْزِلِي', value: 'fourniture', imgSrc: 'furniture' },
+                { id: 2, name: 'أَثَاثْ مَكْتَبِي', value: 'fourniture', imgSrc: 'furniture' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'أثاث منزلي', value: 'fourniture', imgSrc: 'furniture' },
+            { id: 2, name: 'أثاث مكتبي', value: 'fourniture', imgSrc: 'furniture' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    house_electro: {
+        tag: 'docteur',
+        themeColor: '#0078d7',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ نقطة بَيْعْ الإِلِكْتُرُونِيَّاتْ',
+        systemLink: 'https://system.abyedh.tn/Landing/ptvElectro',
+        iconName: '',
+        WiconName: '',
+        adsImage: 'house_electro',
+        businesName: 'نقطة بيع الكهروإلكترونيات',
+        businesOwner: 'صاحب نقطة بيع الكهروإلكترونيات',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['تلوج في خدمات مختلفة للمنزل متاعك ؟ أبيض تمكنك أنك تلقي المنتجات اللي تحتاجها للمنزل الكل : آلات كهربيائية , مفروشات متنوعة و تمكنك تختار المنتج بالخاصيات اللي تحب عليها ببساطة و سهولة ', 
+            'في المقابل كانك صاحب محل بيع منتجات منزلية المنصة هاذي توفرلك النظام اللي تحتاجو باش تدير العمل متاعك بصفة رقمية و تعاونك تتصل بالحرفاء و المزودين بسهولة و سرعة </h5>  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'أَجْهِزَةَ كَهْرُومَنْزِلِيَّة', value: 'electro', imgSrc: 'electro' },
+                { id: 2, name: 'هَوَاتِفْ وَ حَوَاسْيبْ', value: 'electro', imgSrc: 'electro' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'أَجْهِزَةَ كَهْرُومَنْزِلِيَّة', value: 'electro', imgSrc: 'electro' },
+                { id: 2, name: 'هَوَاتِفْ وَ حَوَاسْيبْ', value: 'electro', imgSrc: 'electro' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'أجهزة كهرومنزلية', value: 'electro', imgSrc: 'electro' },
+            { id: 2, name: 'هواتف و حواسيب', value: 'electro', imgSrc: 'electro' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1738,13 +2180,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'نقطة بيع الأثاث',
+        businesOwner: 'صاحب نقطة بيع الأثاث',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>تلوج في خدمات مختلفة للمنزل متاعك ؟ أبيض تمكنك أنك تلقي المنتجات اللي تحتاجها للمنزل الكل : آلات كهربيائية , مفروشات متنوعة و تمكنك تختار المنتج بالخاصيات اللي تحب عليها ببساطة و سهولة </h5> ',
-            '<h5>في المقابل كانك صاحب محل بيع منتجات منزلية المنصة هاذي توفرلك النظام اللي تحتاجو باش تدير العمل متاعك بصفة رقمية و تعاونك تتصل بالحرفاء و المزودين بسهولة و سرعة </h5>']
+            ['تلوج في خدمات مختلفة للمنزل متاعك ؟ أبيض تمكنك أنك تلقي المنتجات اللي تحتاجها للمنزل الكل : آلات كهربيائية , مفروشات متنوعة و تمكنك تختار المنتج بالخاصيات اللي تحب عليها ببساطة و سهولة </h5> ',
+            'في المقابل كانك صاحب محل بيع منتجات منزلية المنصة هاذي توفرلك النظام اللي تحتاجو باش تدير العمل متاعك بصفة رقمية و تعاونك تتصل بالحرفاء و المزودين بسهولة و سرعة ']
         ],
         subCatagSmall: [
             [
@@ -1766,7 +2208,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1791,13 +2233,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: ' وكالة كراء السيارات ',
+        businesOwner: 'صاحب وكالة كراء السيارات ',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
-            '<h5>في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم </h5> ']
+            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
         ],
         subCatagSmall: [
             [
@@ -1824,7 +2266,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1849,13 +2291,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'الـ Parking ',
+        businesOwner: 'صاحب Parking ',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
-            '<h5>في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم </h5> ']
+            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
         ],
         subCatagSmall: [
             [
@@ -1877,7 +2319,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1902,13 +2344,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'الـ Qiosque',
+        businesOwner: 'صاحب Qiosque',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
-            '<h5>في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم </h5> ']
+            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
         ],
         subCatagSmall: [
             [
@@ -1930,7 +2372,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -1955,13 +2397,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'ورشة الميكانيك',
+        businesOwner: 'ميكانيكي',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
-            '<h5>في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم </h5> ']
+            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
         ],
         subCatagSmall: [
             [
@@ -1983,7 +2425,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2010,13 +2452,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'الوكالة',
+        businesOwner: 'وسيط عقاري',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن وسيط عقاري علي الأنترنت كانك قاعد تلوج في حاجة معينة : دار , أستديو , كاراج لكرهبتك , ... و لا كانك طالب جامعي لوج هنا مليح تو تلقا الدار اللي حاجتك بيها بسهولة  </h5> ',
-            '<h5>في المقابل كانك وسيط عقاري المنصة هاذي توفرلك نضام إدارة للخدمة متاعك و تسهلك عملية إيصال العروض اللي عندك للحرفاء و تنجم توفرلك أداة تقييم للعقارات اللي تعرفها </h5> ']
+            ['المنصة هاذي عبارة عن وسيط عقاري علي الأنترنت كانك قاعد تلوج في حاجة معينة : دار , أستديو , كاراج لكرهبتك , ... و لا كانك طالب جامعي لوج هنا مليح تو تلقا الدار اللي حاجتك بيها بسهولة  </h5> ',
+            'في المقابل كانك وسيط عقاري المنصة هاذي توفرلك نضام إدارة للخدمة متاعك و تسهلك عملية إيصال العروض اللي عندك للحرفاء و تنجم توفرلك أداة تقييم للعقارات اللي تعرفها  ']
         ],
         subCatagSmall: [
             [
@@ -2038,7 +2480,61 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    
+    chantier_contracteur: {
+        tag: 'docteur',
+        themeColor: '#406163',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ مَكْتَبْ مُقَاوِلْ',
+        systemLink: 'https://system.abyedh.tn/Landing/chantier_contracteur',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'مكتب المقاولة',
+        businesOwner: 'مقاول',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
+            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
+                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
+                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
+            { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2063,13 +2559,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'مكتب المقاولة',
+        businesOwner: 'مقاول',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
-            '<h5>في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... </h5>']
+            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
+            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
         ],
         subCatagSmall: [
             [
@@ -2091,7 +2587,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2116,13 +2612,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'مكتب المهندس المعماري',
+        businesOwner: 'مهندس معماري',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
-            '<h5>في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... </h5>']
+            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
+            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
         ],
         subCatagSmall: [
             [
@@ -2144,7 +2640,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2169,13 +2665,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'الـ Quincaillerie',
+        businesOwner: 'صاحب Quincaillerie',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
-            '<h5>في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... </h5>']
+            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
+            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
         ],
         subCatagSmall: [
             [
@@ -2197,7 +2693,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2222,13 +2718,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'ورشة الحدادة',
+        businesOwner: 'حذّاد',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
         ],
         subCatagSmall: [
             [
@@ -2250,7 +2746,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2275,13 +2771,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'ورشة النجارة',
+        businesOwner: 'نجّار',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
         ],
         subCatagSmall: [
             [
@@ -2303,7 +2799,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2328,13 +2824,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'شركة الدهان',
+        businesOwner: 'دهان',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
         ],
         subCatagSmall: [
             [
@@ -2356,7 +2852,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2386,8 +2882,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
         ],
         subCatagSmall: [
             [
@@ -2409,7 +2905,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2434,13 +2930,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'شركة السباكة',
+        businesOwner: 'سبّاك',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
         ],
         subCatagSmall: [
             [
@@ -2462,7 +2958,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2487,13 +2983,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'ورشة تركيب البلور',
+        businesOwner: 'صاحب ورشة تركيب البلور',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
         ],
         subCatagSmall: [
             [
@@ -2515,7 +3011,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2540,13 +3036,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'ورشة بيع الرخام',
+        businesOwner: 'صاحب ورشة بيع الرخام',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            '<h5>في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك</h5>']
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
         ],
         subCatagSmall: [
             [
@@ -2568,7 +3064,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2595,13 +3091,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'قاعة الحلاقة',
+        businesOwner: 'صاحب قاعة حلاقة',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي توفر دليل واسع لمختلف  صالونات الحلاقة للرجال و للنساء , كما تعتبر أداة تسهل عملية حجز مواعيد مع قاعات الحلاقة من أجل توفير الوقت و تجنب الأنتظار لفترات زمنية طويلة</h5> ',
-            '<h5>في المقابل كانك صاحب قاعة حلاقة أبيض توفرلك نظام إداة للقاعة متاعك يمكنك من التواصل مع حرفائك و التواصل معاهم , كما يوفر أداة لعرض خدماتك لوصول أوسع للزبائن و الحرفاء </h5> ']
+            ['المنصة هاذي توفر دليل واسع لمختلف  صالونات الحلاقة للرجال و للنساء , كما تعتبر أداة تسهل عملية حجز مواعيد مع قاعات الحلاقة من أجل توفير الوقت و تجنب الأنتظار لفترات زمنية طويلة</h5> ',
+            'في المقابل كانك صاحب قاعة حلاقة أبيض توفرلك نظام إداة للقاعة متاعك يمكنك من التواصل مع حرفائك و التواصل معاهم , كما يوفر أداة لعرض خدماتك لوصول أوسع للزبائن و الحرفاء  ']
         ],
         subCatagSmall: [
             [
@@ -2623,7 +3119,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2648,13 +3144,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'محل الملابس',
+        businesOwner: 'صاحب محل ملابس',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث تلقي فيه محلات بيع الملابس بمختلف انواعها للرجال و للنساء و للصغار ... تمكنك زاد إنك تعرف خصائص و مدي جودة  المنتجات اللي تحب تشريها من خلال منصة عرض ذكية  </h5>', 
-            '<h5>في المقابل كانك صاحب محل بيع للملابس فإنا نوفرولك نظام إدارة و مراقبة و متابعة للمحل متاعك يمكنك من عرض منتجاتك علي الأنترنت باش توصل لأكبر قدر من الحرفاء و المهتمين بالموضة و المنتجات الجديدة </h5> ']
+            ['المنصة هاذي عبارة عن محرك بحث تلقي فيه محلات بيع الملابس بمختلف انواعها للرجال و للنساء و للصغار ... تمكنك زاد إنك تعرف خصائص و مدي جودة  المنتجات اللي تحب تشريها من خلال منصة عرض ذكية  ', 
+            'في المقابل كانك صاحب محل بيع للملابس فإنا نوفرولك نظام إدارة و مراقبة و متابعة للمحل متاعك يمكنك من عرض منتجاتك علي الأنترنت باش توصل لأكبر قدر من الحرفاء و المهتمين بالموضة و المنتجات الجديدة  ']
         ],
         subCatagSmall: [
             [
@@ -2682,7 +3178,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2707,13 +3203,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'قاعة الأفراح',
+        businesOwner: 'صاحب قاعة أفراح',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
-            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
         ],
         subCatagSmall: [
             [
@@ -2735,7 +3231,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2760,13 +3256,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'الفرقة الموسيقية',
+        businesOwner: 'صاحب فرقة موسيقية',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
-            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
         ],
         subCatagSmall: [
             [
@@ -2793,7 +3289,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2818,13 +3314,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'الطباخ',
+        businesOwner: 'طباخ',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
-            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
         ],
         subCatagSmall: [
             [
@@ -2846,7 +3342,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2871,13 +3367,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'إستديو التصوير',
+        businesOwner: 'مصور',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
-            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
         ],
         subCatagSmall: [
             [
@@ -2899,7 +3395,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2924,13 +3420,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'نقطة بيع لوازم الأفراج',
+        businesOwner: 'صاحب نقطة بيع لوازم الأفراح',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
-            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
         ],
         subCatagSmall: [
             [
@@ -2952,7 +3448,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -2977,13 +3473,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'نقطة بيع المجوهرات',
+        businesOwner: 'صاحب نقطة بيع المجوهرات',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  </h5>', 
-            '<h5>في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية </h5> ']
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
         ],
         subCatagSmall: [
             [
@@ -3005,7 +3501,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3032,13 +3528,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'القاعة الرياضية',
+        businesOwner: 'صاحب قاعة رياضية',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك من المهتمين يصحتهم و يمارسو في الرياضة بإتنضام . المنصة هاذي توفرلك محرك بحث للقاعات الرياضية التونسية بمختلف تخصصاتها و توفرلك زادا فضاء للتواصل مع زملاءك في القاعة و نضام مراقبة و تقييم لجسمك و صحتك</h5> ',
-            '<h5>في المقابل كانك صاحب قاعة رياضة المنصة توفرلك نظام إدارة و محاسبة و تواصل مع مشتركيك و مراقبة أداءهم و تطور نشاطهم الرياضي من خلال خلق فضاء للتفاعل إفتراضيا مع القاعة لتقييم خدماتها ...</h5> ']
+            ['كانك من المهتمين يصحتهم و يمارسو في الرياضة بإتنضام . المنصة هاذي توفرلك محرك بحث للقاعات الرياضية التونسية بمختلف تخصصاتها و توفرلك زادا فضاء للتواصل مع زملاءك في القاعة و نضام مراقبة و تقييم لجسمك و صحتك</h5> ',
+            'في المقابل كانك صاحب قاعة رياضة المنصة توفرلك نظام إدارة و محاسبة و تواصل مع مشتركيك و مراقبة أداءهم و تطور نشاطهم الرياضي من خلال خلق فضاء للتفاعل إفتراضيا مع القاعة لتقييم خدماتها ... ']
         ],
         subCatagSmall: [
             [
@@ -3064,7 +3560,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3089,13 +3585,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'المسبح',
+        businesOwner: 'صاحب مسبح خاص',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث لمختلف أنواع المسابح , تعاونك أنك تلقي المسبح اللي يساعدك و تمكنك كذاك من تنظيم وقتك المخصص لتعلم السباحة و تمكنك أنك تشترك عن بعد و تبقي ديما متصل بالمسبح </h5> ',
-            '<h5>في المقابل كانك صاحب مسبح خاص أبيض توفرلك نظام إدارة و مراقبة و متابعة للمسبح متاعك و تخليك ديما متصل بمختلف الجهات اللي عندها علاقة بالعمل متاعك كما توفر إمكانية تنظيم التضاهرات الرياضية ...</h5> ']
+            ['المنصة هاذي عبارة عن محرك بحث لمختلف أنواع المسابح , تعاونك أنك تلقي المسبح اللي يساعدك و تمكنك كذاك من تنظيم وقتك المخصص لتعلم السباحة و تمكنك أنك تشترك عن بعد و تبقي ديما متصل بالمسبح </h5> ',
+            'في المقابل كانك صاحب مسبح خاص أبيض توفرلك نظام إدارة و مراقبة و متابعة للمسبح متاعك و تخليك ديما متصل بمختلف الجهات اللي عندها علاقة بالعمل متاعك كما توفر إمكانية تنظيم التضاهرات الرياضية ... ']
         ],
         subCatagSmall: [
             [
@@ -3121,7 +3617,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3146,13 +3642,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'الملعب',
+        businesOwner: 'صاحب ملعب خاص',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث يعاونك تلقي ملاعب الكرة المختلفة : قدم , سلة , تنس ... و تمكنك زادا تحجز ملعب لفترة معينة كيما توفرلك أيضا أداة تمكنك إنك  تنظم مباريات مع أصدقائك </h5> ',
-            '<h5>في المقابل كانك صاحب ملعب للكرة أبيض توفرلك نظام إدارة و مراقبة و متابعة للملعب متاعك و تخولك زاد تنضم مختلف طلبات الحجز المطلوبة من الحرفاء و كذلك أداة تواصل و تفاعل معهم ... </h5> ']
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي ملاعب الكرة المختلفة : قدم , سلة , تنس ... و تمكنك زادا تحجز ملعب لفترة معينة كيما توفرلك أيضا أداة تمكنك إنك  تنظم مباريات مع أصدقائك </h5> ',
+            'في المقابل كانك صاحب ملعب للكرة أبيض توفرلك نظام إدارة و مراقبة و متابعة للملعب متاعك و تخولك زاد تنضم مختلف طلبات الحجز المطلوبة من الحرفاء و كذلك أداة تواصل و تفاعل معهم ...  ']
         ],
         subCatagSmall: [
             [
@@ -3187,7 +3683,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3212,13 +3708,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'قاعة السنما',
+        businesOwner: 'صاحب قاعة سنما',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',
-            '<h5>في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون </h5> ']
+            ['المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',
+            'في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون  ']
         ],
         subCatagSmall: [
             [
@@ -3240,7 +3736,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3265,13 +3761,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'قاعة المسرح',
+        businesOwner: 'صاحب قاعة مسرح',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',        
-            '<h5>في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون </h5> ']
+            ['المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',        
+            'في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون  ']
         ],
         subCatagSmall: [
             [
@@ -3293,7 +3789,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3318,13 +3814,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'المتحف',
+        businesOwner: 'صاحب متحف خاص',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',        
-            '<h5>في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون </h5> ']
+            ['المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',        
+            'في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون  ']
         ],
         subCatagSmall: [
             [
@@ -3346,7 +3842,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3376,8 +3872,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الثقافة و الشباب ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الثقافة و الشباب ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            'في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -3399,7 +3895,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3429,8 +3925,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الثقافة و الشباب ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الثقافة و الشباب ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            'في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -3452,7 +3948,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3482,8 +3978,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الثقافة و الشباب ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي منشأة معينة في مجال الثقافة و الشباب ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            'في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -3505,7 +4001,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3532,13 +4028,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'مكتب المحامي',
+        businesOwner: 'محامي',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك تلوج في محامي باهي و ذو خبرة , المنصة هاذي توفرلك دليل شامل للمحامين التوانسيين الكل باش تختار المحامي اللي يساعدك  و تمكنك تاخو معاهم الموعد المناسب و تبقي ديما متصل بيه للإطلاع علي جديد قضاياك .</h5> ',
-            '<h5>في المقابل كانك محامي منصة أبيض توفرلك نظام إدارة و متابعة و أرشفة رقمية للقضايا اللي تتبناها و تنظملك مواعيدك و تخليك في إتصال دائم مع منوبيك من خلال إمكانية إجراء لقاءاتك معاهم بتقنية البث الحي  .</h5> ']
+            ['كانك تلوج في محامي باهي و ذو خبرة , المنصة هاذي توفرلك دليل شامل للمحامين التوانسيين الكل باش تختار المحامي اللي يساعدك  و تمكنك تاخو معاهم الموعد المناسب و تبقي ديما متصل بيه للإطلاع علي جديد قضاياك .</h5> ',
+            'في المقابل كانك محامي منصة أبيض توفرلك نظام إدارة و متابعة و أرشفة رقمية للقضايا اللي تتبناها و تنظملك مواعيدك و تخليك في إتصال دائم مع منوبيك من خلال إمكانية إجراء لقاءاتك معاهم بتقنية البث الحي  . ']
         ],
         subCatagSmall: [
             [
@@ -3565,7 +4061,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3582,7 +4078,7 @@ const AbyedhADIL = {
     },
 
     /*finance */
-    storage: {
+    ptvgros: {
         tag: 'docteur',
         themeColor: '#6f858f',
         directoryTable: '01_docteur',
@@ -3592,13 +4088,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'نقطة البيع بالجملة',
+        businesOwner: 'صاحب نقطة بيع بالجملة',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي موجهة للتجار بالأساس لأنها عبارة عن محرك بحث تلقي فيه المزودين بالجملة بمختلف أنواع السلع اللي تحتاجها , وكذاك تعتبر أداة للتواصل مع ها المزودين و تمرير طلبات المنتجات ...</h5> ',
-            '<h5>في المقابل كانك صاحب متجر بيع بالجملة أبيض توفرلك نظام إدارة و مراقبة للمتجر متاعك بالإظافة لإمكانية متابعة طلبات حرفائك و حاجيتهم للسلع و البضائع و ذلك من خلال منصة تواصل معهم  </h5> ']
+            ['المنصة هاذي موجهة للتجار بالأساس لأنها عبارة عن محرك بحث تلقي فيه المزودين بالجملة بمختلف أنواع السلع اللي تحتاجها , وكذاك تعتبر أداة للتواصل مع ها المزودين و تمرير طلبات المنتجات ...</h5> ',
+            'في المقابل كانك صاحب متجر بيع بالجملة أبيض توفرلك نظام إدارة و مراقبة للمتجر متاعك بالإظافة لإمكانية متابعة طلبات حرفائك و حاجيتهم للسلع و البضائع و ذلك من خلال منصة تواصل معهم   ']
         ],
         subCatagSmall: [
             [
@@ -3634,7 +4130,74 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    storage: {
+        tag: 'docteur',
+        themeColor: '#6f858f',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ نِقَاطْ بَيْعْ الجُمْلَة',
+        systemLink: 'https://system.abyedh.tn/Landing/storage',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'نقطة البيع بالجملة',
+        businesOwner: 'صاحب نقطة بيع بالجملة',
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي موجهة للتجار بالأساس لأنها عبارة عن محرك بحث تلقي فيه المزودين بالجملة بمختلف أنواع السلع اللي تحتاجها , وكذاك تعتبر أداة للتواصل مع ها المزودين و تمرير طلبات المنتجات ...</h5> ',
+            'في المقابل كانك صاحب متجر بيع بالجملة أبيض توفرلك نظام إدارة و مراقبة للمتجر متاعك بالإظافة لإمكانية متابعة طلبات حرفائك و حاجيتهم للسلع و البضائع و ذلك من خلال منصة تواصل معهم   ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'storage-nutrition' },
+                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'constraction' },
+                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'medical' },
+                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'clothes' },
+            ],
+            [
+                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'drink' },
+                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'storage-nutrition' },
+                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'constraction' },
+                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'medical' },
+                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'clothes' },
+                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'drink' },
+                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'مَوَادْ غذائية', value: 'dentiste', imgSrc: 'storage-nutrition' },
+            { id: 2, name: 'مَوَادْ بناء', value: 'dentiste', imgSrc: 'constraction' },
+            { id: 3, name: 'مَوَادْ طبية', value: 'dentiste', imgSrc: 'medical' },
+            { id: 4, name: 'ملابس', value: 'dentiste', imgSrc: 'clothes' },
+            { id: 5, name: 'مشروبات', value: 'dentiste', imgSrc: 'drink' },
+            { id: 6, name: 'خضر غلال', value: 'dentiste', imgSrc: 'fruit' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3659,13 +4222,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'مكتب المحاسبة',
+        businesOwner: 'محاسب',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كان تلوج في محاسب خبير يعاونك باش تنضم حساباتك و أرقامك فإننا في منصة أبيض نوفرولك دليل فيه عدد كبير من المحاسبين في كامل تراب الجمهورية باش يعاونك تلقي المحاسب اللي يساعدك</h5> ',
-            '<h5>في المقابل كان محاسب ولا عندك مكتب محاسبات ابيصض يوفرلك نظام إدارة و متابعة و للعمل متابعة من خلال توفير بعض الادوات الحسابية و الرقمية اللي تعمل بنظام الذكاء الإصطناعي ... </h5> ']
+            ['كان تلوج في محاسب خبير يعاونك باش تنضم حساباتك و أرقامك فإننا في منصة أبيض نوفرولك دليل فيه عدد كبير من المحاسبين في كامل تراب الجمهورية باش يعاونك تلقي المحاسب اللي يساعدك</h5> ',
+            'في المقابل كان محاسب ولا عندك مكتب محاسبات ابيصض يوفرلك نظام إدارة و متابعة و للعمل متابعة من خلال توفير بعض الادوات الحسابية و الرقمية اللي تعمل بنظام الذكاء الإصطناعي ...  ']
         ],
         subCatagSmall: [
             [
@@ -3687,7 +4250,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3712,13 +4275,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'الشركة القابضة',
+        businesOwner: 'صاحب شركة قابضة',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة عاذي عبارة علي دليل واسع لمختلف الشركات التونسية بمختلف ميادين أنشطتها , بحيث تعتبر أداة يمكن الأستفادة منها من قبل عديد الأطراف : الباحثين غن شغل , الباحثين عن خدمات معينة ...</h5> ',
-            '<h5>في المقابل توفر المنصة لمختلف الشركات نظام تواصل و تفاعل مع عديد الأطراف المرتبطة بنشاطها , كما تعمل علي توفير نظام إدارة و مراقبة ومتابعة لمختلف أنشطة الشركة بطريقة رقمية و ذات جودة عالية </h5>']
+            ['المنصة عاذي عبارة علي دليل واسع لمختلف الشركات التونسية بمختلف ميادين أنشطتها , بحيث تعتبر أداة يمكن الأستفادة منها من قبل عديد الأطراف : الباحثين غن شغل , الباحثين عن خدمات معينة ...</h5> ',
+            'في المقابل توفر المنصة لمختلف الشركات نظام تواصل و تفاعل مع عديد الأطراف المرتبطة بنشاطها , كما تعمل علي توفير نظام إدارة و مراقبة ومتابعة لمختلف أنشطة الشركة بطريقة رقمية و ذات جودة عالية ']
         ],
         subCatagSmall: [
             [
@@ -3754,7 +4317,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3784,8 +4347,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            'في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -3807,7 +4370,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3837,8 +4400,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            'في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -3860,7 +4423,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3892,8 +4455,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
+            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
         ],
         subCatagSmall: [
             [
@@ -3916,7 +4479,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -3946,8 +4509,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
+            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
         ],
         subCatagSmall: [
             [
@@ -3970,7 +4533,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -4000,8 +4563,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
+            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
         ],
         subCatagSmall: [
             [
@@ -4024,7 +4587,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -4052,13 +4615,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'النزل أو الفندق',
+        businesOwner: 'صاحب نزل أو فندق',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>Cette Plate-forme est considérer comme un moteur de recherche pour les hotels et les maison de hote en tunisie , ça vous permettre de choisissez le meieur choix pour votre confort et plaisir</h5> ',
-            '<h5>En meme temps abyedh.tn vous affort un systeme de gestion et de controle pour votre endroit touristique, a l aide d un outil de communication avec vos clientelle pour rendre vos services plus mieux </h5>']
+            ['Cette Plate-forme est considérer comme un moteur de recherche pour les hotels et les maison de hote en tunisie , ça vous permettre de choisissez le meieur choix pour votre confort et plaisir</h5> ',
+            'En meme temps abyedh.tn vous affort un systeme de gestion et de controle pour votre endroit touristique, a l aide d un outil de communication avec vos clientelle pour rendre vos services plus mieux ']
         ],
         subCatagSmall: [
             [
@@ -4081,7 +4644,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -4106,13 +4669,13 @@ const AbyedhADIL = {
         iconName: '',
         WiconName: '',
         adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
+        businesName: 'وكالة الأسفار',
+        businesOwner: 'صاحب وكالة أسفار',
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>كانك من عشاق السفر و الأستكشاف و ديما تسافر و تلوج في خدمات سفر أفضل و ذات جودة عالية, منصة أبيض توفرلك محرك البحث هذا باش تلقي وكالة الأسفار اللي تساعدك و تنضم رحلاتك من خلالها </h5>', 
-            '<h5>في المقابل كانك صاحب وكالة أسفار المنصة توفرلك نظام إدارة و مراقبة و متابعة للوكالة متاعك و تخليك ديما متصل بحرفائك و موضفيك من خلال عدة أدوات و ذلك من أجل تحسين جودة الخدمات التي تقدمونها ... </h5> ']
+            ['كانك من عشاق السفر و الأستكشاف و ديما تسافر و تلوج في خدمات سفر أفضل و ذات جودة عالية, منصة أبيض توفرلك محرك البحث هذا باش تلقي وكالة الأسفار اللي تساعدك و تنضم رحلاتك من خلالها ', 
+            'في المقابل كانك صاحب وكالة أسفار المنصة توفرلك نظام إدارة و مراقبة و متابعة للوكالة متاعك و تخليك ديما متصل بحرفائك و موضفيك من خلال عدة أدوات و ذلك من أجل تحسين جودة الخدمات التي تقدمونها ...  ']
         ],
         subCatagSmall: [
             [
@@ -4134,7 +4697,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -4166,8 +4729,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            'في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -4194,7 +4757,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -4224,8 +4787,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            'في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -4253,7 +4816,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -4283,8 +4846,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            'في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -4306,7 +4869,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -4335,8 +4898,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            'في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -4363,7 +4926,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -4392,8 +4955,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
-            '<h5>في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... </h5>']
+            ['المنصة هاذي تعاونك بالباهي كانك تلوج علي إدارة معينة ولا تحب تعرف اوقات عمل الإدارات التونيسة ولا تعرف أي معلومة إرشادية ...</h5> ',
+            'في المقابل أي إدارة تنجم تتمتع بنظام إدارة عن بعد يربط بينها و بين المواطن لتسهيل و تبسيط العمليات الإدارية ... ']
         ],
         subCatagSmall: [
             [
@@ -4415,7 +4978,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -4442,8 +5005,8 @@ const AbyedhADIL = {
     //     xxxxxxxxxx: '',
     //     yyyyyyyyyy: '',
     //     adsText: [
-    //         ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-    //         '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+    //         ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
+    //         'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
     //     ],
     //     subCatagSmall: [
     //         [
@@ -4466,7 +5029,7 @@ const AbyedhADIL = {
     //     cardProfile:[
     //             {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
     //             {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-    //             {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+    //             {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
     //             {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
     //             {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
     //             {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -4495,8 +5058,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...</h5>',
-            '<h5>في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .</h5>']
+            ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
+            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
         ],
         subCatagSmall: [
             [
@@ -4536,7 +5099,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
@@ -4566,8 +5129,8 @@ const AbyedhADIL = {
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
-            ['<h5>تلوج في آلة فلاحية باش تنجز بيها نشاطك الزراعي , أبيض توفرلك المنصة هاذي تلقا فيها أغلب الآلات الفلاحية و اللي تنجم تستأجر من خلالها الآلة اللي تلوج عليها للفترة الزمنية اللي تساعدك ...</h5> ',
-            '<h5>في المقابل كانك فلاح ولا صاحب آلة فلاحية تنجم تتمتع بنظام لإدارة مختلف أنشطتك الفلاحية من خلال منصة تربطك بالعديد من الجهات اللي عندها علاقة بنشاطك و ذلك من اجل تحسين قطاع الفلاحة و عصرنته.</h5>']
+            ['تلوج في آلة فلاحية باش تنجز بيها نشاطك الزراعي , أبيض توفرلك المنصة هاذي تلقا فيها أغلب الآلات الفلاحية و اللي تنجم تستأجر من خلالها الآلة اللي تلوج عليها للفترة الزمنية اللي تساعدك ...</h5> ',
+            'في المقابل كانك فلاح ولا صاحب آلة فلاحية تنجم تتمتع بنظام لإدارة مختلف أنشطتك الفلاحية من خلال منصة تربطك بالعديد من الجهات اللي عندها علاقة بنشاطك و ذلك من اجل تحسين قطاع الفلاحة و عصرنته.']
         ],
         subCatagSmall: [
             [
@@ -4607,7 +5170,7 @@ const AbyedhADIL = {
         cardProfile:[
                 {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
                 {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Tel' , icon:'telephone-forward-fill'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
                 {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
                 {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
                 {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},

@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 function DocteurActions(props) {
 
     /* ############### Const #################*/
-    const [rendyVousD, setRdvData] = useState([])
+    const [rendyVousD, setRdvData] = useState({date:new Date().toISOString().split('T')[0] , time: new Date().toLocaleTimeString('fr-FR')})
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
 
@@ -18,6 +18,7 @@ function DocteurActions(props) {
     const saveFunction = () =>{
         if (!rendyVousD.comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
         else if (!rendyVousD.date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.time) {toast.error("ادخل الوقت  !", GConf.TostErrorGonf)}
         else{
             setLS(true)
             axios.post(`${GConf.ApiLink}/Action/docteur-rdv`, {
@@ -50,6 +51,7 @@ function DocteurActions(props) {
                     <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-calendar2'></span>  تاريخ الموعد </h5>
                     <small> متي تريد أن تحجز الموعد ؟</small>
                         <Input className='mb-3' type='date' fluid alue={rendyVousD.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, date: e.target.value })}  />
+                        <Input className='mb-3' type='time' fluid alue={rendyVousD.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setRdvData({...rendyVousD, time: e.target.value })}  />
                     <div className='text-end'>
                         <Button className='rounded-pill' onClick={saveFunction} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[props.TAG].themeColor, color:'white'}} > <Icon name='save' />  تسجيل موعد  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
                     </div>

@@ -70,7 +70,7 @@ function SearchLandingPage() {
                     <div className='row'>
                         <div className='col-6 text-start align-self-center'>
                             <NavLink exact='true' to='/' className="m-0 p-0 ms-3">
-                                <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                <img  className="border-div-s d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
                                 <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
                         </div>
@@ -81,42 +81,48 @@ function SearchLandingPage() {
                 </nav>
             </>)
     }
-    const AdsLanding = () =>{
+    const AdsLanding = (props) =>{
         return(<>
-        <div className='card-body rounded-0' style={{height:'170px',  marginTop:'40px', paddingTop:'50px'}}>
-            <div className='row'>
-                <div className='col-12 col-lg-8 align-self-center text-center ' dir='rtl'>
-                        {/* <Typed    
-                            strings={GConf.ADIL[tag].adsText[0]}
-                            typeSpeed={3}
-                            backSpeed={4}
-                            backDelay={4000}
-                            loop
-                            showCursor={false} 
-                            className="font-droid d-none"  
-                        /> */}
-                        <Swiper
-                            spaceBetween={30}
-                            centeredSlides={true}
-                            autoplay={{
-                              delay: 6000,
-                              disableOnInteraction: false,
-                            }}
-                            
-                            navigation={false}
-                            modules={[Autoplay, Pagination, Navigation]}
-                            className="mySwiper pb-5 mb-1"
-                        >
-                            <SwiperSlide><h5>{RenderAsHtml(GConf.ADIL[tag].adsText[0][0])}</h5></SwiperSlide>
-                            <SwiperSlide><h5>{RenderAsHtml(GConf.ADIL[tag].adsText[0][1])}</h5></SwiperSlide>
-                        </Swiper>
-                        
+            <div className={`${props.displylg ? 'd-none d-lg-block' : 'd-lg-none'}`}>
+                <br />
+                <div className='card-body rounded-0 ' style={{height:'170px',  marginTop:'40px', paddingTop:'50px'}}>
+                    <div className='row'>
+                        <div className='col-12 col-lg-8 align-self-center text-center ' dir='rtl'>
+                                {/* <Typed    
+                                    strings={GConf.ADIL[tag].adsText[0]}
+                                    typeSpeed={3}
+                                    backSpeed={4}
+                                    backDelay={4000}
+                                    loop
+                                    showCursor={false} 
+                                    className="font-droid d-none"  
+                                /> */}
+                                <Swiper
+                                    spaceBetween={30}
+                                    centeredSlides={true}
+                                    autoplay={{
+                                    delay: 6000,
+                                    disableOnInteraction: false,
+                                    }}
+                                    
+                                    navigation={false}
+                                    modules={[Autoplay, Pagination, Navigation]}
+                                    className="mySwiper pb-5 mb-1"
+                                >
+                                    <SwiperSlide><h4 className='text-secondary'>{RenderAsHtml(GConf.ADIL[tag].adsText[0][0])}</h4></SwiperSlide>
+                                    <SwiperSlide><h4 className='text-secondary'>{RenderAsHtml(GConf.ADIL[tag].adsText[0][1])}</h4></SwiperSlide>
+                                </Swiper>
+                                
+                        </div> 
+                        <div className='col-4 col-lg-4   text-center d-none d-lg-block '>
+                            {GConf.ADIL[tag].systemActive ? <SystemLinkCardLG /> : <></> }
+                        </div>
+                    </div> 
                 </div>
-                <div className='col-4 align-self-end text-center d-none d-lg-block'>
-                    <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className='img-responsive mt-3' width='40%' height='40%'  />
-                </div>
-            </div> 
-        </div>
+                <br />
+            </div>
+
+            
         </>)
     }
     const ButtomCard = () =>{
@@ -179,38 +185,56 @@ function SearchLandingPage() {
          }
         const FastSearch = (props) =>{
             return(<>
-                <h5 className='text-end text-secondary'> بحث سريع  </h5>
+                 
                 <NavLink exact='true' to={`/S/R/${tag}/${GConf.ADIL[tag].subCateg[isSelected].value}/${props.gouv}/${props.deleg}`} >
-                            <div className='card p-3 shadow-sm rounded-pill text-center'>
+                            <div className='card p-3 mb-2 shadow-sm rounded-pill text-center'>
                                <div className='row' style={{color:GConf.ADIL[tag].themeColor}}>
                                     <div className='col-10 align-text-center' dir='rtl'><b> بحث في {props.deleg} , {props.gouv} </b></div>
                                     <div className='col-2 align-text-center'><b> <span className='bi bi-arrow-right-short'></span> </b></div>
                                </div>
                             </div>
                 </NavLink>
+                
             </>)
         }
         return(<>
                 <div className="card card-body shadow-sm mb-4 sticky-top border-div" style={{top:'70px'}}>
                      
-                    {GConf.UserData.Logged ?  <FastSearch gouv={GConf.UserData.UData.BirthGouv} deleg={GConf.UserData.UData.BirthDeleg} /> : ''}
-                    <h5 className='text-end text-secondary'> {GConf.UserData.Logged ?  'أو' : ''}  حدد الموقع  </h5> 
+                    
+                    {/* <h5 className='text-end text-secondary'> {GConf.UserData.Logged ?  'أو' : ''}  حدد الموقع  </h5>  */}
                     <br />
-                    <SelectGouv />
-                    <SelectDeleg />
+                    <div className='row'>
+                        <div className='col-12 col-lg-4 align-self-center '>
+                            {GConf.UserData.Logged ?  <FastSearch gouv={GConf.UserData.UData.BirthGouv} deleg={GConf.UserData.UData.BirthDeleg} /> : ''}
+                        </div>
+                        <div className='col-12 col-lg-3 align-self-center order-4 order-lg-2'>
+                            <h5 className='text-end text-secondary m-1 mb-3 d-lg-none'> </h5>
+                            <Button fluid size='large' onClick={() => GoToResult()} className='rounded-pill  mb-2 p-3 text-white' style={{backgroundColor:GConf.ADIL[tag].themeColor}}   >بحث  <Icon name='search' className='ms-2' /> </Button>
+                        </div>
+                        <div className='col-12 col-lg-2 align-self-center order-lg-4'>
+                            <h5 className='text-end text-secondary m-1 mb-3 d-lg-none'>  {GConf.UserData.Logged ?  'أو إبحث في ' : 'حدد موقع البحث'}  </h5>
+                            <SelectGouv />
+                        </div>
+                        <div className='col-12 col-lg-3 align-self-center order-lg-3'>
+                            <h5 className='text-end text-secondary m-1'>   </h5>
+                            <SelectDeleg />
+                        </div>
+                    </div>
+                    
+                    
                     {/* <Select placeholder='إختر ولاية' className='mb-2 shadow-sm' options={GConf.abyedhMap.Gouv} value={gouv} onChange={(e, { value }) => GetDelegList(value)} /> */}
                     {/* <Select placeholder='إختر منطقة' className='shadow-sm' value={deleg} options={delegList} onChange={(e, { value }) => setDeleg(value)} /> */}
                      
-                    <h5 className='text-end text-secondary m-1'> بحث </h5>
+                    
                     {/* <NavLink exact='true' to={`/S/R/${tag}/${GConf.ADIL[tag].subCateg[isSelected].value}/${gouv}/${deleg}`} > */}
-                            <Button fluid size='medium' onClick={() => GoToResult()} className='rounded-pill  text-white' style={{backgroundColor:GConf.ADIL[tag].themeColor}}   >بحث  <Icon name='search' className='ms-2' /> </Button>
+                            
                     {/* </NavLink> */}
                 </div></>)
     }
     const SystemLinkCard = () =>{
         return(<>
             <div className='card p-2 shadow mb-2 border-div d-md-none'>
-                <h5 className='text-end text-secondary mb-1 mt-2'> هَلْ أَنْتَ {GConf.ADIL[tag].businesOwner} ؟ </h5>
+                <h5 className='text-end text-secondary mb-1 mt-2' dir='rtl'> هَلْ أَنْتَ {GConf.ADIL[tag].businesOwner} ؟ </h5>
                 <a href={`/S/I/add/${tag}`} className=' text-secondary' ></a>
                 <div className='row'>
                     <div className='col-3 align-self-center text-center'>
@@ -222,6 +246,13 @@ function SearchLandingPage() {
                     </div>
                 </div>
                 
+            </div> 
+        </>)
+    }
+    const SystemLinkCardLG = () =>{
+        return(<>
+            <div className='card p-3 shadow-sm  border-div btn-cursor' onClick={() => navigate(`/S/I/add/${tag}`)}>
+                <p className='text-end'>   <b style={{color:GConf.ADIL[tag].themeColor}}>{GConf.ADIL[tag].systemName}</b>  يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ </p> 
             </div> 
         </>)
     }
@@ -294,81 +325,89 @@ function SearchLandingPage() {
             {/* <LoadingBar color={GConf.themeColor} progress={loadingTo}  
                 //onLoaderFinished={() => setProgress(0)} 
             /> */}
-            <br />
-            <AdsLanding />
-            <br />
-            <div   className='d-none d-lg-block lol-hhh'>
-                <br />
-                <br />
-                <br />
-            </div>
+            <AdsLanding  />
             
             <div className='container '>
+                <AdsLanding displylg />
                 <div className='row'> 
-                    <div className='col-12 col-lg-8 align-self-center ' dir='rtl'>
-                        <div className='d-none d-lg-flex '>
-                                <Swiper
-                                    spaceBetween={30}
-                                    pagination={{
-                                        dynamicBullets: true,
-                                    }}
-                                    modules={[Pagination]}
-                                    className="mySwiper pb-4 mb-1"
-                                >
-                                    {
-                                        GConf.ADIL[tag].subCatagLarge.map((slides, index) => (
-                                            <SwiperSlide key={index}>
-                                                <div className='row card-body justify-content-center'>
-                                                    {slides.map((option,index) => (
-                                                        <div className='col-3 p-0' key={index}>
-                                                            <ItmesList
-                                                                key={option.id -1}
-                                                                option={option}
-                                                                selected={isSelected === option.id -1 }
-                                                                onChange={() => setisSelected(option.id -1 )}
-                                                            />
+                    <div className='col-12 col-lg-12 align-self-center  ' dir='rtl'>
+                        <div className='row mb-4'>
+                            <div className='col-4 col-lg-4 align-self-center text-center d-none d-lg-block '>
+                                <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className='img-responsive  ' width='60%' height='auto'  />
+                            </div>
+
+                            <div className='col-12 col-lg-8 align-self-center text-center'>
+                                <div className='d-none d-lg-flex '>
+                                        <Swiper
+                                            spaceBetween={30}
+                                            pagination={{
+                                                dynamicBullets: true,
+                                            }}
+                                            modules={[Pagination]}
+                                            className="mySwiper pb-4 mb-1"
+                                        >
+                                            {
+                                                GConf.ADIL[tag].subCatagLarge.map((slides, index) => (
+                                                    <SwiperSlide key={index}>
+                                                        <div className='row card-body justify-content-center'>
+                                                            {slides.map((option,index) => (
+                                                                <div className='col-3 p-0' key={index}>
+                                                                    <ItmesList
+                                                                        key={option.id -1}
+                                                                        option={option}
+                                                                        selected={isSelected === option.id -1 }
+                                                                        onChange={() => setisSelected(option.id -1 )}
+                                                                    />
+                                                                </div>
+                                                            ))}     
                                                         </div>
-                                                    ))}     
-                                                </div>
-                                            </SwiperSlide>
-                                        ))
-                                    }
-                                    
-                                </Swiper>
+                                                    </SwiperSlide>
+                                                ))
+                                            }
+                                            
+                                        </Swiper>
+                                </div>
+                                <div className='d-lg-none '>
+                                        <Swiper
+                                            spaceBetween={30}
+                                            pagination={{
+                                                dynamicBullets: true,
+                                            }}
+                                            modules={[Pagination]}
+                                            className="mySwiper pb-4 mb-1"
+                                        >
+                                            {
+                                                GConf.ADIL[tag].subCatagSmall.map((slides, index) => (
+                                                    <SwiperSlide key={index}>
+                                                        <div className='row card-body '>
+                                                            {slides.map((option,index) => (
+                                                                <div className='col-6 p-0' key={index}>
+                                                                    <ItmesList
+                                                                        key={option.id -1}
+                                                                        option={option}
+                                                                        selected={isSelected === option.id -1 }
+                                                                        onChange={() => setisSelected(option.id -1 )}
+                                                                    />
+                                                                </div>
+                                                            ))}     
+                                                        </div>
+                                                    </SwiperSlide>
+                                                ))
+                                            }
+                                            
+                                        </Swiper>
+                                </div> 
+                            </div>
+                            
                         </div>
-                        <div className='d-lg-none '>
-                                <Swiper
-                                    spaceBetween={30}
-                                    pagination={{
-                                        dynamicBullets: true,
-                                    }}
-                                    modules={[Pagination]}
-                                    className="mySwiper pb-4 mb-1"
-                                >
-                                    {
-                                        GConf.ADIL[tag].subCatagSmall.map((slides, index) => (
-                                            <SwiperSlide key={index}>
-                                                <div className='row card-body '>
-                                                    {slides.map((option,index) => (
-                                                        <div className='col-6 p-0' key={index}>
-                                                            <ItmesList
-                                                                key={option.id -1}
-                                                                option={option}
-                                                                selected={isSelected === option.id -1 }
-                                                                onChange={() => setisSelected(option.id -1 )}
-                                                            />
-                                                        </div>
-                                                    ))}     
-                                                </div>
-                                            </SwiperSlide>
-                                        ))
-                                    }
-                                    
-                                </Swiper>
-                        </div> 
-                        <br />
+                        
                     </div> 
-                    <div className='col-12 col-lg-4 align-self-center'>
+                    <div className='col-12 col-lg-12 align-self-center'>
+                        <div className='d-none d-lg-block lol-hhh'>
+                            <br />
+                            <br />
+                            <br />
+                        </div>
                         <SelectGouvCard />
                     </div>
                 </div> 

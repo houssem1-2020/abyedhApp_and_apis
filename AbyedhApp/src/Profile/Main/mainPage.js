@@ -40,21 +40,42 @@ function MainPage() {
     const NotificationCard = (props) =>{
         return(<>
             <div className='card p-2 shadow-sm mb-3 border-div'>
-                <div className="d-flex align-items-center">
-                    <div className="flex-shrink-0">
-                        <img src={`https://cdn.abyedh.tn/images/Search/Icons/${props.data.P_Genre}.gif`} alt="..."  width='50px' height='50px'/>
+                <div className=' row'>
+                    <div className='col-10  '>
+                        <div className="d-flex align-items-center">
+                            <div className="flex-shrink-0">
+                                {
+                                   props.data.PID == 0 ?
+                                   <img  className="border-div-s bg-danger border border-danger ms-3" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
+                                   :
+                                   <img src={`https://cdn.abyedh.tn/images/Search/Icons/${props.data.P_Genre}.gif`} alt="..."  width='50px' height='50px'/>
+                                }
+
+                                
+                            </div>
+                            <div className="flex-grow-1 ms-3">
+                                {
+                                   props.data.PID == 0 ?
+                                   <h4 className='mb-0 text-secondary'>Abyedh.Tn</h4>
+                                   :
+                                   <h4 className='mb-0 text-secondary'><NavLink exact='true' to={`/S/P/${props.data.P_Genre}/${props.data.PID}`}>{props.data.PidData.Name}</NavLink></h4>
+                                }
+                                
+                                <div><small>{props.data.Notif_Time} | {new Date(props.data.Notif_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</small></div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex-grow-1 ms-3">
-                        <h4 className='mb-0 text-secondary'><NavLink exact='true' to={`/S/P/${props.data.P_Genre}/${props.data.PID}`}>{props.data.PidData.Name}</NavLink></h4>
-                        <div><small>{props.data.Notif_Time} | {new Date(props.data.Notif_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</small></div>
+                    <div className='col-2  align-self-center  '>
+                        <span className={`bi ${NotifGenres[props.data.Notif_Name].icon} bi-md text-success`}></span>
                     </div>
                 </div>
+                
                 <div className='card-body row'>
-                    <div className='col-8 align-self-center text-end'>
+                    <div className='col-12 align-self-center text-end'>
                             {NotifGenres[props.data.Notif_Name].GenTextFunction(props.data.RequestData,props.data.PidData)}
                     </div>
-                    <div className='col-4 align-self-center text-start'>
-                            <span className='bi bi-check-circle-fill bi-md text-success'></span>
+                    <div className='col-4 align-self-center text-start d-none'>
+                            <span className={`bi ${NotifGenres[props.data.Notif_Name].icon} bi-md text-success`}></span>
                     </div>
                 </div>
             </div>

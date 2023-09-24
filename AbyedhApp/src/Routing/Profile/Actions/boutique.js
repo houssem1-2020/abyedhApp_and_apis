@@ -1,40 +1,96 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Tab } from 'semantic-ui-react'
+import { Modal, Tab } from 'semantic-ui-react'
 import GConf from '../../../AssetsM/generalConf';
 import { Form, TextArea, Input , Button, Icon, Loader, Select} from 'semantic-ui-react'
 import axios, { Axios } from 'axios';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 
-const EnterCard = ({articleNow, setArticleNow, disabledSaveBtn, AddArticleToList}) =>{
+const EnterCard = ({articleNow, setArticleNow, disabledSaveBtn, commandeData, AddArticleToList}) =>{
+    const [modalOpen, setModalOpen] = useState(false)
+    const [searchForArticle, setSearchForArticle] = useState('')
+    const [rendredMedicammentListe, setRendredMedicammentListe] = useState([])
+    const SearchForArticleFunc = () => {
+        if (!searchForArticle || searchForArticle == '') {  toast.error("أدخل إسم المنتج    !", GConf.TostErrorGonf) } 
+        else {
+            // axios.post(`${GConf.ApiLink}/Action/pharmacie-shop/medicamment`, {
+            //     searchForArticle : searchForArticle,
+            // }).then(function (response) {
+            //     console.log(response.data)
+            //     setRendredMedicammentListe(response.data)
+            // }).catch((error) => {
+            //     if(error.request) {
+            //       toast.error(<><div><h5>   </h5> حاول مرة أخري  </div></>, GConf.TostInternetGonf)   
+                  
+            //     }
+            // });
+        }
+    }
     return (<>
         <div className='card-body mt-2'>
-            <Input icon='pin'   placeholder='إختر منتج' value={articleNow.Name}  onChange={ (e) => setArticleNow({...articleNow, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
-            <Input icon='dropbox' type='number' defaultValue={1} value={articleNow.Qte}   onChange={ (e) => setArticleNow({...articleNow, Qte: Number(e.target.value) })} size="small" iconPosition='left' placeholder='الكمية'  fluid className='mb-1' />
+            <div className='row mb-3'>
+                <div className='col-8 align-self-center text-secondary'><h5>عدد المنتجات في السلة : {commandeData.articles ? commandeData.articles.length : 0}  </h5></div>
+                <div className='col-4 align-self-center text-start'><Button onClick={() => setModalOpen(true)} size='small' icon className='rounded-circle'> <Icon name='plus' /> </Button></div>
+            </div>
+            <Input icon='pin'   placeholder='إسم المنتج' value={articleNow.Name}  onChange={ (e) => setArticleNow({...articleNow, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+            <Input icon='dropbox' type='number'   value={articleNow.Qte}   onChange={ (e) => setArticleNow({...articleNow, Qte: e.target.value })} size="small" iconPosition='left' placeholder='الكمية'  fluid className='mb-1' />
+            <Input icon='cut'     value={articleNow.Taille}   onChange={ (e) => setArticleNow({...articleNow, Taille: e.target.value })} size="small" iconPosition='left' placeholder='Taille'  fluid className='mb-1' />
+            <Input icon='adjust' type='color'    value={articleNow.Couleur}   onChange={ (e) => setArticleNow({...articleNow, Couleur: e.target.value })} size="small" iconPosition='left' placeholder='Couleur'  fluid className='mb-1' />
             <br />
             <Button disabled={disabledSaveBtn}  fluid className='rounded-pill' size='small' color='blue' onClick={AddArticleToList}>  <Icon name='edit outline' className='ms-2' /> أضف </Button>
+                <Modal
+                    onClose={() => setModalOpen(false)}
+                    onOpen={() => setModalOpen(true)}
+                    open={modalOpen}
+                     
+                >
+                <Modal.Header className='text-end'>
+                     <span className='font-droid'> إختر منتج </span>
+                     
+                </Modal.Header>
+                <Modal.Content >
+                    <div className='row' dir='ltr'>
+                        <div className='col-2'><Button   icon className='rounded-pill' size='small'  onClick={() => SearchForArticleFunc()}>  <Icon name='edit outline' className='ms-2' /> </Button></div>
+                        <div className='col-10'><Input icon='pin' size='small'  placeholder='إسم المنتج' value={searchForArticle}  onChange={ (e) => setSearchForArticle(e.target.value )}  iconPosition='left'   fluid className='mb-1' /></div>
+                    </div> 
+                    {rendredMedicammentListe.length == 0 ?
+                    <h1 className='text-center'><span className='bi bi-card-checklist bi-lg  '></span></h1>
+                    :
+                    <>
+                     {rendredMedicammentListe.map((data,index) => <div key={index} className='card p-2 mb-2 ' onClick={() => setArticleNow({...articleNow, Name: data.Nom })}><div className='row'><span className='col-1 bi bi-capsule-pill d-inline'></span> <span className='col-11'>{data.Nom} : {data.Dosage} - {data.Presentation} </span></div></div>)}
+                    </>
+                    }
+                    
+                </Modal.Content>
+                </Modal>
         </div>
     </>)
 }
 const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn, tag, loaderState}) =>{
     /* Const */
-    const [articleNow, setArticleNow] = useState({PK: 1 , Name:'', Qte: 1})
+    const [articleNow, setArticleNow] = useState({PK: 1 , Name:'', Qte: ''})
     const PannierPannes = [
         {
-          menuItem: { key: 'enter',   content:  <span> <span className='bi bi-1-circle  me-2 ms-2'></span>  إدخال</span> , dir:'rtl'},
-          render: () => <EnterCard articleNow={articleNow} setArticleNow={setArticleNow} disabledSaveBtn={disabledSaveBtn} AddArticleToList={AddArticleToList} />,
+          menuItem: { key: 'enter',   content:  <span> <span className='bi bi-1-circle  bi-sm me-2 ms-2 ' style={{color :GConf.ADIL[tag].themeColor}}></span>   </span> , dir:'rtl'},
+          render: () => <EnterCard articleNow={articleNow} setArticleNow={setArticleNow} disabledSaveBtn={disabledSaveBtn} AddArticleToList={AddArticleToList} commandeData={commandeData} />,
         },
         {
-            menuItem: { key: 'article',   content:  <span > <span className='bi bi-2-circle  me-2 ms-2'></span> قائمة <span className='badge ' style={{backgroundColor :GConf.ADIL[tag].themeColor}}>{commandeData.articles ? commandeData.articles.length : 0} </span></span> , dir:'rtl' },
+            menuItem: { key: 'article',   content:  <span > <span className='bi bi-2-circle bi-sm  me-2 ms-2' style={{color :GConf.ADIL[tag].themeColor}}></span>   </span> , dir:'rtl' },
             render: () => <ArticleListCard />,
         },
         {
-            menuItem: { key: 'check',   content:  <span >  <span className='bi bi-3-circle  me-2 ms-2'></span> تأكيد</span> , dir:'rtl' },
+            menuItem: { key: 'check',   content:  <span >  <span className='bi bi-3-circle bi-sm  me-2 ms-2' style={{color :GConf.ADIL[tag].themeColor}}></span>  </span> , dir:'rtl' },
             render: () => <ConfirmCard />,
         },
     ]
-
+    const Livraisonoptions = [
+        { key: '1', value: 'INTIGO', text: 'INTIGO ', image: { src: 'https://foodealz.com/wp-content/uploads/2020/04/intigo-1-300x145-1.png', avatar: true } },
+        { key: '2', value: 'Yassir', text: 'Yassir ', image: { src: 'https://foodealz.com/wp-content/uploads/2020/04/yassir.png', avatar: true } },
+        { key: '3', value: 'Farm Trust', text: 'Farm Trust ', image: { src: 'https://foodealz.com/wp-content/uploads/2020/04/farmtrust.png', avatar: true } },
+        { key: '4', value: 'Founashop', text: 'Founashop', image: { src: 'https://foodealz.com/wp-content/uploads/2020/04/founa-shop.png', avatar: true } },
+        { key: '5', value: 'Joy s', text: 'Joy’s', image: { src: 'https://foodealz.com/wp-content/uploads/2020/04/28070452_400909117034010_1865031699315847664_o-300x300-1.jpg', avatar: true } },
+      ]
     /* Function  */
     const AddArticleToList = () =>{
         if (articleNow.Name == '') { toast.error("أدخل إسم المنتج    !", GConf.TostErrorGonf) } 
@@ -42,7 +98,7 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         else {
             console.log(articleNow)
             commandeData.articles.push(articleNow)
-            setArticleNow({PK: commandeData.articles.length + 1 , Name:'', Qte: 1})
+            setArticleNow({PK: commandeData.articles.length + 1 , Name:'', Qte: ''})
         }
         
     }
@@ -57,14 +113,16 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
     const ArticleListCard = () =>{
         const ListCard = (props) =>{
             return(<>   
-                        <div className='card shadow-sm p-2   rounded-pill ps-4 mb-2'>
+                        <div className='card shadow-sm p-2   border-div ps-4 mb-2'>
                             <div className='row'>
-                                <div className='col-2 align-self-center'><b>{props.dataA.Qte}</b> </div>
-                                <div className='col-8 col-lg-9 text-end pe-4 align-self-center'>
-                                    {props.dataA.Name}
+                            <div className='col-1 align-self-center pe-3'><b>{props.dataA.Qte} </b>  </div>
+                                <div className='col-8 col-lg-9 text-end  align-self-center' dir='ltr'>
+                                     {props.dataA.Name}  * {props.dataA.Taille}
                                 </div>
-                               
-                                <div className='col-1 align-self-center'><Button icon="times" className='rounded-circle p-2 text-white bg-danger' disabled={disabledSaveBtn} onClick={() => DeleteFromUpdateList(props.dataA.A_Code)}></Button></div>
+                                <div className='col-1 col-lg-9 text-end  align-self-center'>
+                                     <span className='bi bi-circle-fill' style={{color: props.dataA.Couleur}}> </span> 
+                                </div>
+                                <div className='col-1 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' disabled={disabledSaveBtn} onClick={() => DeleteFromUpdateList(props.dataA.A_Code)}></Button></div>
                             </div>
                         </div>
                     </>)
@@ -87,8 +145,15 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         return (<>
         <div className='card-body mt-2'>
             <div className='row mb-2'>
+            <small className='text-danger text-end'  dir='rtl'>لا نعلم هل خدمة التوصيل متوفرة أم لا </small>
+                <div className='col-12'  dir='ltr'>
+                    
+                    <Select options={Livraisonoptions} fluid placeholder='شركة التوصيل ' className='mb-3' onChange={(e, data) => setCommandeD({...commandeData, Livraison_Par: data.value })}  />
+                </div>
                 <div className='col-12'>
-                    <Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-3' value={commandeData.Wanted_Day} onChange={(e) => setCommandeD({...commandeData, Wanted_Day: e.target.value })}/>
+                    <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> وقت التوصيل المطلوب</h5>
+                    <Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-1' value={commandeData.Wanted_Day} onChange={(e) => setCommandeD({...commandeData, Wanted_Day: e.target.value })}/>
+                    <Input className='mb-3' type='time' fluid value={commandeData.Wanted_Time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, Wanted_Time: e.target.value })}  />
                 </div>
                 <div className='col-12'>
                     <Button  className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[tag].themeColor}} disabled={disabledSaveBtn} fluid onClick={SaveCMDFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
@@ -99,7 +164,7 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
     }
         
     return(<>
-        <Tab menu={{secondary: true, color: 'grey' , widths: PannierPannes.length , pointing: true, selected: { backgroundColor: GConf.ADIL[tag].themeColor },  dir:'rtl', style:{justifyContent: 'right',} }}  className='yes-menu-tabs' panes={PannierPannes} /> 
+        <Tab menu={{secondary: true, color: 'grey' , widths: PannierPannes.length , pointing: true, selected: { backgroundColor: GConf.ADIL[tag].themeColor },  dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={PannierPannes} /> 
     </>)
 }
 
@@ -153,9 +218,10 @@ function BoutiqueSpecific(props) {
     /* ############### Card #################*/
      
     return ( <>
-    <div className='m-0'>
+    <div className='m-0' dir='rtl'>
         <div className='card p-2 border-div shadow-sm'>
-            <CommandeCard commandeData={commandeData} setCommandeD={setCommandeD} SaveCMDFunc={SaveCMDFunc} disabledSaveBtn={disabledSaveBtn} tag={props.TAG} loaderState={loaderState} />
+            <h5 className='text-secondary mb-1'>قم بإدخال المنتجات  
+            </h5> <CommandeCard commandeData={commandeData} setCommandeD={setCommandeD} SaveCMDFunc={SaveCMDFunc} disabledSaveBtn={disabledSaveBtn} tag={props.TAG} loaderState={loaderState} /> 
         </div>
     </div>
         
@@ -163,3 +229,4 @@ function BoutiqueSpecific(props) {
 }
 
 export default BoutiqueSpecific;
+

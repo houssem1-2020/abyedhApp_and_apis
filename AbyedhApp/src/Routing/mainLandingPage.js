@@ -126,7 +126,7 @@ function MainLandingPage() {
                     <div className='row m-0'>
                         <div className='col-4 col-lg-6 text-start align-self-center'>
                             <NavLink exact='true' to='/' className="m-0 p-0 ms-3">
-                                <img  className="border-div bg-danger border border-danger" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                <img  className="  bg-danger border border-danger"   src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
                             </NavLink>
                         </div>
                         <div className='col-4 col-lg-6  d-lg-none align-self-center'>
@@ -314,7 +314,7 @@ function MainLandingPage() {
                         <div className='mb-1'><NavLink exact='true' to='/#' className='text-white'> من نحن ؟  -  <span className='bi bi-people-fill' ></span> </NavLink></div>
                     </div>
                     <div className='col-5 col-lg-4 align-self-center text-center'>
-                        <img  className="rounded-pill-abyedh" src="https://cdn.abyedh.tn/images/logo/mlogo.gif" alt="Logo" style={{width:'40px', height:'90px'}} />
+                        <img  className="rounded-pill-abyedh-s" src="https://cdn.abyedh.tn/images/logo/mlogo.gif" alt="Logo" style={{width:'40px', height:'90px', borderRadius: '10px 20px 10px 50px'}} />
                     </div>
                 </div>
             </div>

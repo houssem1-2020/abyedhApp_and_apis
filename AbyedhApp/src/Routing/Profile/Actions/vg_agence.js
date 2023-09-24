@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Tab } from 'semantic-ui-react'
+import { Select, Tab } from 'semantic-ui-react'
 import GConf from '../../../AssetsM/generalConf';
 import { Form, TextArea, Input , Button, Icon, Loader} from 'semantic-ui-react'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import TableGrid from '../../../AssetsM/tableGrid';
+import WorldMap from '../../../AssetsM/worldMap';
 function VgAgenceSpecific(props) {
     /* ############### Const #################*/
     const [rendyVousD, setRdvData] = useState([])
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
-
+    const stayOptions = [
+        {key:1, value:'نزل', text:'نزل'},
+        {key:2, value:'عند العائلة أول صديق', text:'عند العائلة أول صديق'},
+        {key:3, value:'غير محدد', text:'غير محدد'},
+    ]
+    const transWayptions = [
+        {key:1, value:'الجو', text:'الجو'},
+        {key:2, value:'البحر', text:'البحر'},
+        {key:3, value:'البر', text:'البر'},
+    ]
+    const transCauseOption = [
+        {key:1, value:'سياحة', text:'سياحة'},
+        {key:2, value:'عمل', text:'عمل'},
+        {key:3, value:'لم شمل عائلة', text:'لم شمل عائلة'},
+        {key:4, value:'غير محدد', text:'غير محدد'},
+    ]
 
    /* ############### Functions #################*/
     const saveFunction = () =>{
@@ -40,25 +56,39 @@ function VgAgenceSpecific(props) {
 
     return ( <>
         <div className='m-0'>
-                <div   dir='rtl' className='card card-body shadow-sm pt-5 border-div'>
-                        <div class="input-group mb-1">
-                            <input type="text" class="form-control" id="service-name" dir="rtl" required placeholder="الاسم و اللقب" />
+                <div   dir='rtl' className='card card-body shadow-sm pt-3 border-div'>
+                        <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> البلد</h5>
+                        <Input list='languages' placeholder='البلد'   onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                        <datalist id='languages'>
+                            {WorldMap.map((data,index) => <option key={index} value={data.text}>{data.text}</option>)}
+                        </datalist>
+                 
+                        <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-calendar2'></span>  مدة السفر </h5>
+                        <div className='row'>
+                            <div className='col-6'><small>من </small><Input className='mb-3' type='date' fluid alue={rendyVousD.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, date: e.target.value })}  /></div> 
+                            <div className='col-6'><small>إلي </small><Input className='mb-3' type='date' fluid alue={rendyVousD.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, date: e.target.value })}  /></div> 
+                            
                         </div>
-                        <div class="input-group mb-1">
-                            <input type="text" class="form-control" id="service-direction" dir="rtl" required placeholder="الوجهة المطلوبة" />
+                        
+                        <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> الإقامة</h5>
+                        <Select fluid placeholder=' ' options={stayOptions} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+
+                        <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> سبب السفر</h5>
+                        <Select fluid placeholder=' ' options={transCauseOption} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+
+                        <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> السفر عبر </h5>
+                        <Select fluid placeholder=' ' options={transWayptions} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                        
+                        <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>
+                        <Form className='mb-3'>
+                            <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                        </Form>
+
+                        <div className='text-end'>
+                            <Button className='rounded-pill' onClick={saveFunction} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[props.TAG].themeColor, color:'white'}} > <Icon name='save' />  تسجيل موعد  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
                         </div>
-                        <div class="text-right text-danger mb-1 mr-2"><span>السفر قبل :</span></div>
-                        <div class="input-group mb-3 float-right">
-                            <input type="date" class="form-control" id="service-jour" value="<?php echo date('Y-m-d'); ?>" min="2019-01-01" max="2020-12-29" />
-                        </div>
-                        <div class="input-group mb-1">
-                        <textarea type="text" class="form-control"  rows="4" id="service-comment" dir="rtl" required placeholder="ملاحضات"></textarea>
-                        </div>
-                        <input type="hidden" value="<?php echo $PID ;?>" id="service-pid" /> 
-                        <div class="text-left">
-                            <button class="btn btn-success card-1 btn-sm" id="service" >تأكيد <span class="fa fa-check-circle"></span></button>
-                            <button class="btn btn-danger card-1 btn-sm close-md" data-dismiss="modal">إلغاء <span class="fa fa-times-circle"></span></button>
-                        </div>
+
+                         
                 </div>
         </div>      
     </> );

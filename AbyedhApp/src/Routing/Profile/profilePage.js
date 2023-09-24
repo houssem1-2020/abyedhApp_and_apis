@@ -63,7 +63,7 @@ import ChantierQuicaillerieSpecific from './Specific/chantier_quincaillerie';
 import HandmadeCristalSpecific from './Specific/handmade_cristal';
 import HandmadeElectricienSpecific from './Specific/handmade_electricien';
 import HandmadeForferonSpecific from './Specific/handmade_forgeron';
-import HandemadeMarbreSpecific from './Specific/handmade_menuisier';
+import HandemadeMarbreSpecific from './Specific/handmade_marbre';
 import HandemadeMenuisierSpecific from './Specific/handmade_menuisier';
 import HandemadePeintureSpecific from './Specific/handmade_peinture';
 import HandemadePlombierSpecific from './Specific/handmade_plombier';
@@ -148,7 +148,7 @@ import ChantierQuicaillerieActions from './Actions/chantier_quincaillerie';
 import HandmadeCristalActions from './Actions/handmade_cristal';
 import HandmadeElectricienActions from './Actions/handmade_electricien';
 import HandmadeForferonActions from './Actions/handmade_forgeron';
-import HandemadeMarbreActions from './Actions/handmade_menuisier';
+import HandemadeMarbreActions from './Actions/handmade_marbre';
 import HandemadeMenuisierActions from './Actions/handmade_menuisier';
 import HandemadePeintureActions from './Actions/handmade_peinture';
 import HandemadePlombierActions from './Actions/handmade_plombier';
@@ -214,7 +214,7 @@ import ChantierQuicaillerieSuivie from './Suivie/chantier_quincaillerie';
 import HandmadeCristalSuivie from './Suivie/handmade_cristal';
 import HandmadeElectricienSuivie from './Suivie/handmade_electricien';
 import HandmadeForferonSuivie from './Suivie/handmade_forgeron';
-import HandemadeMarbreSuivie from './Suivie/handmade_menuisier';
+import HandemadeMarbreSuivie from './Suivie/handmade_marbre';
 import HandemadeMenuisierSuivie from './Suivie/handmade_menuisier';
 import HandemadePeintureSuivie from './Suivie/handmade_peinture';
 import HandemadePlombierSuivie from './Suivie/handmade_plombier';
@@ -384,9 +384,9 @@ function ProfilePage() {
                                 { GConf.ADIL[tag].systemActive ?  <ActionCardForSmall /> : <></> }                        
                             </div> 
                         </div> 
-                        <div className='d-lg-none'>
+                        {/* <div className='d-lg-none'>
                             { GConf.ADIL[tag].systemActive && GConf.UserData.Logged ?  <ActionCardForSmall /> : <></> }                        
-                        </div>                       
+                        </div> */}
                     </>,
         },
         {
@@ -428,6 +428,7 @@ function ProfilePage() {
             PID:PID,
           })
           .then(function (response) {
+            window.scrollTo(0, 0);
             setProfileData(response.data)
             setLoading(false)
             if (response.data.Activated == 'true') {
@@ -457,52 +458,7 @@ function ProfilePage() {
             }
             
         }
-        const ConverColorToHsl = (color) =>{
-                //"hsl(166, 87%, 24%, 0.4)"
-               // Convert hex to RGB first
-                let r = 0, g = 0, b = 0;
-                if (color.length == 4) {
-                    r = "0x" + color[1] + color[1];
-                    g = "0x" + color[2] + color[2];
-                    b = "0x" + color[3] + color[3];
-                } else if (color.length == 7) {
-                    r = "0x" + color[1] + color[2];
-                    g = "0x" + color[3] + color[4];
-                    b = "0x" + color[5] + color[6];
-                }
-                // Then to HSL
-                r /= 255;
-                g /= 255;
-                b /= 255;
-                let cmin = Math.min(r,g,b),
-                    cmax = Math.max(r,g,b),
-                    delta = cmax - cmin,
-                    h = 0,
-                    s = 0,
-                    l = 0;
-
-                if (delta == 0)
-                    h = 0;
-                else if (cmax == r)
-                    h = ((g - b) / delta) % 6;
-                else if (cmax == g)
-                    h = (b - r) / delta + 2;
-                else
-                    h = (r - g) / delta + 4;
-
-                h = Math.round(h * 60);
-
-                if (h < 0)
-                    h += 360;
-
-                l = (cmax + cmin) / 2;
-                s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
-                s = +(s * 100).toFixed(1);
-                l = +(l * 100).toFixed(1);
-
-                return "hsl(" + h + "," + s + "%," + l + "% " + ", 0.3 )";
-
-        }
+ 
         const CalculateRating = (table) =>{
             let tot = 0;
             let tabLength = table.length;
@@ -587,7 +543,7 @@ function ProfilePage() {
                         <div className='row'>
                             <div className='col-6 text-start align-self-center'>
                                 <NavLink exact='true' to={`/S/L/${tag}`} className="m-0 p-0 ms-3">
-                                    <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                    <img  className="border-div-s d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px',borderRadius: '10px 20px 10px 50px'}} />
                                     <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                                 </NavLink>
                             </div>
@@ -612,14 +568,16 @@ function ProfilePage() {
             return(<>
 
                 {/* <div className="card-header  border-div" style={{marginBottom:'50px', marginTop:'30px', backgroundColor: ConverColorToHsl(GConf.ADIL[tag].themeColor) , color: "black"}}> */}
-                <div className="card-header   rounded-0" style={{marginBottom:'35px', marginTop:'30px', background: `linear-gradient(to top, ${ConverColorToHsl(GConf.ADIL[tag].themeColor)},  #ffffff` , border: '0px solid' , color: "black"}}>
+                {/* <div className="card-header   rounded-0" style={{marginBottom:'35px', marginTop:'30px', background: `linear-gradient(to top, ${ConverColorToHsl(GConf.ADIL[tag].themeColor)},  #ffffff` , border: '0px solid' , color: "black"}}> */}
+                <div className="card-header  border rounded-0" style={{marginBottom:'35px', marginTop:'30px',  backgroundImage: `url(https://cdn.abyedh.tn/images/ads/${tag}.svg)` , backgroundSize: 'auto', backgroundPosition: 'center', backgroundColor: 'rgba(255, 255, 255, 0.1)',  border: '0px solid' , color: "black"}}>
+                    <div style={{ content: '',  background: 'rgba(255, 255, 255, 0.7)',  position: 'absolute', top: 0, left: 0, width: '100%', height: '150px', }}></div>
                     <span
                         style={{
                         width: '100px',
                         height: '100px',
                         borderRadius: '50%',
                         }}
-                        className="card-img"
+                        className="card-img shadow"
                     >   
                         <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white' width='100px'  height='100px' />
                         
@@ -824,7 +782,7 @@ function ProfilePage() {
         const TopBtnsCard = () =>{
             return(<>
                         <div className='row mb-2'>
-                                <div className='col-8 text-start d-none d-lg-block'>
+                                {/* <div className='col-8 text-start d-none d-lg-block'>
                                     {
                                         GConf.ADIL[tag].systemActive && GConf.UserData.Logged ? 
                                         <>
@@ -836,7 +794,7 @@ function ProfilePage() {
                                         <></>
                                     }
                                     
-                                </div>
+                                </div> */}
                                 <div className='col-12 col-lg-4  text-end  d-none d-lg-block'>
                                     {/* <Button className='rounded-circle bg-white border shadow-sm' icon size='large'> <Icon name='thumbs up' style={{color: GConf.ADIL[tag].themeColor}} /> </Button> */}
                                     <Button className='rounded-circle border shadow-sm' disabled={!GConf.UserData.Logged} onClick={() => AddToFarite()} icon size='large' style={{backgroundColor: isFavorite ?  GConf.ADIL[tag].themeColor : '#ffffff' }} > <Icon name='heart' style={{color: isFavorite ? '#ffffff' : GConf.ADIL[tag].themeColor}} /> </Button>
@@ -1163,15 +1121,23 @@ function ProfilePage() {
     return ( <>
             <TopNavBar /> 
             <HeaderCard />
-            <br /> 
+            <br />
             <div className='container'>
             
-                <TopBtnsCard /> 
-                <div className='row justify-content-center' dir='rtl'>
-                        <div className='col-3 col-lg-1'><ActivePaneCard icon='grid-3x3-gap-fill' activeI={0} /> </div>
-                        <div className='col-3 col-lg-1'><ActivePaneCard icon='view-list' activeI={1} /> </div>
-                        <div className='col-3 col-lg-1'><ActivePaneCard icon='pencil-square' activeI={2} /> </div>
-                        <div className='col-3 col-lg-1'><ActivePaneCard icon='eye-fill' activeI={3} /> </div>
+                {/* <TopBtnsCard />  */}
+                
+                <div className='row'>
+                    <div className='col-4 text-start d-none d-lg-block'>
+                        <Button className='rounded-circle border shadow-sm' disabled={!GConf.UserData.Logged} onClick={() => AddToFarite()} icon size='large' style={{backgroundColor: isFavorite ?  GConf.ADIL[tag].themeColor : '#ffffff' }} > <Icon name='heart' style={{color: isFavorite ? '#ffffff' : GConf.ADIL[tag].themeColor}} /> </Button>
+                    </div>
+                    <div className='col-12 col-lg-8'>
+                        <div className='row justify-content-center' dir='rtl'>
+                                <div className='col-3 col-lg-2'><ActivePaneCard icon='grid-3x3-gap-fill' activeI={0} /> </div>
+                                <div className='col-3 col-lg-2'><ActivePaneCard icon='view-list' activeI={1} /> </div>
+                                <div className='col-3 col-lg-2'><ActivePaneCard icon='pencil-square' activeI={2} /> </div>
+                                <div className='col-3 col-lg-2'><ActivePaneCard icon='eye-fill' activeI={3} /> </div>
+                        </div>
+                    </div>
                 </div>
                 <br />
                 {

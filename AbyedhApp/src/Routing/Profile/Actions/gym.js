@@ -48,20 +48,20 @@ function GymActions(props) {
     return ( <>
         <div className='m-0'>
                 <div   dir='rtl' className='card card-body shadow-sm pt-3 border-div'>
-                    <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  الإسم و اللقب </h5>
+                    <h5 className='mb-0 mt-2 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  الإسم و اللقب </h5>
                     <Input className='mb-1' fluid icon='user' placeholder=' الإسم و اللقب  ' value={souscriptionData.User_Name} onChange={(e) => setsouscriptionData({...souscriptionData, User_Name: e.target.value })} />
 
-                    <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>   العمر </h5>
+                    <h5 className='mb-0 mt-2 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>   العمر </h5>
                     <Input className='mb-1' fluid icon='user' placeholder=' العمر' value={souscriptionData.User_Age} onChange={(e) => setsouscriptionData({...souscriptionData, User_Age: e.target.value })} />
 
-                    <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>   نوع الإشتراك   </h5>
+                    <h5 className='mb-0 mt-2 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>   نوع الإشتراك   </h5>
                     <Select className='mb-1'  fluid options={genres} onChange={(e, { value }) => setsouscriptionData({...souscriptionData, Ab_Genre: value })} />
 
-                    <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-calendar2'></span>  تاريخ الإنطلاق  </h5>
+                    <h5 className='mb-0 mt-2 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-calendar2'></span>  تاريخ الإنطلاق  </h5>
                     <small> متي تريد أن تبدأ ؟</small>
                         <Input className='mb-1' type='date' fluid alue={souscriptionData.Start_At}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setsouscriptionData({...souscriptionData, Start_At: e.target.value })}  />
                     
-                    <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  إوقات التمرين </h5>
+                    <h5 className='mb-0 mt-2 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  إوقات التمرين </h5>
                     <small>ماهي الإوقات التي تريد أن تتمرن فيها </small> 
                         <Form className='mb-1'>
                             <TextArea   rows={2} value={souscriptionData.Comment} onChange={ (e,value) => setsouscriptionData({...souscriptionData, Comment:e.target.value})} />

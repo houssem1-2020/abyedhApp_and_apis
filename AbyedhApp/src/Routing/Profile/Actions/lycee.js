@@ -1,3 +1,4 @@
+ 
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Tab } from 'semantic-ui-react'
@@ -8,13 +9,17 @@ import { toast } from 'react-toastify';
 
 const InscrieCard = ({inscrieD, setInscrieD, SaveInscrie , disabledSaveBtn, tag, loaderState}) =>{
     const genres = [
-        { key: 1 , value: 'male', text: 'محضنة' },
-        { key: 2 , value: 'female', text: 'تحضيري' },
+        { key: 1 , value: 'male', text: 'ذكر' },
+        { key: 2 , value: 'female', text: 'أنثي' },
     ]
+    const lastYear = [
+        { key: 1 , value: 'ناجح', text: 'ناجح' },
+        { key: 2 , value: 'راسب', text: 'راسب' },
+    ]
+ 
     return(<>
-            <h5 className='mb-0 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  الإسم و اللقب </h5>
-            <small>اسم و لقب صغيرك</small>
-            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.EL_Name} onChange={(e) => setInscrieD({...inscrieD, EL_Name: e.target.value })} />
+            <h5 className='mb-0 mb-2' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  الإسم و اللقب </h5>
+            <Input className='mb-3' fluid icon='user' placeholder='  الإسم و اللقب ' value={inscrieD.EL_Name} onChange={(e) => setInscrieD({...inscrieD, EL_Name: e.target.value })} />
 
             <h5 className='mb-1' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  تاريخ الولادة </h5>
             <Input className='mb-3' type='date' fluid  defaultValue={new Date().toISOString().split('T')[0]} value={inscrieD.EL_Naissance} onChange={(e) => setInscrieD({...inscrieD, EL_Naissance: e.target.value })} />
@@ -23,29 +28,25 @@ const InscrieCard = ({inscrieD, setInscrieD, SaveInscrie , disabledSaveBtn, tag,
             <Select className='mb-3'  fluid options={genres} onChange={(e, { value }) => setInscrieD({...inscrieD, EL_Genre: value })} />
 
            <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>    الولاية     </h5>
-            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.Gouv} onChange={(e) => setInscrieD({...inscrieD, Gouv: e.target.value })} />
+            <Input className='mb-3' fluid icon='user' placeholder='  الولاية  ' value={inscrieD.Gouv} onChange={(e) => setInscrieD({...inscrieD, Gouv: e.target.value })} />
            
            <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  المعتمدية </h5>
-            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.Deleg} onChange={(e) => setInscrieD({...inscrieD, Deleg: e.target.value })} />
+            <Input className='mb-3' fluid icon='user' placeholder='  المعتمدية ' value={inscrieD.Deleg} onChange={(e) => setInscrieD({...inscrieD, Deleg: e.target.value })} />
            
            <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  العنوان </h5>
             <Form>
                 <TextArea  rows="3"   placeholder='العنوان' className='w-100 shadow-sm rounded mb-3' value={inscrieD.EL_Adress} onChange={(e) => setInscrieD({...inscrieD, EL_Adress: e.target.value })}/>
             </Form>
 
-           <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> اسم و لقب الاب</h5>
-            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.EL_Pere_Nom} onChange={(e) => setInscrieD({...inscrieD, EL_Pere_Nom: e.target.value })} />
-           <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> هاتف الاب</h5>
-            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.EL_Pere_Phone} onChange={(e) => setInscrieD({...inscrieD, EL_Pere_Phone: e.target.value })} />
-           
-           <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> اسم و لقب الام</h5>
-            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.EL_Mere_Nom} onChange={(e) => setInscrieD({...inscrieD, EL_Mere_Nom: e.target.value })} />
-           <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> هاتف الام</h5>
-            <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={inscrieD.EL_Mere_Phone	} onChange={(e) => setInscrieD({...inscrieD, EL_Mere_Phone	: e.target.value })} />
-
+            <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> اسم المؤسسة السابقة    </h5>
+            <Input className='mb-3' fluid icon='user' placeholder=' إسم المؤسسة السابقة' value={inscrieD.EL_Pere_Nom} onChange={(e) => setInscrieD({...inscrieD, EL_Pere_Nom: e.target.value })} />
+            <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>      المستوي و الإختصاص السابق </h5>
+            <Input className='mb-3' fluid icon='user' placeholder='  المستوي و الإختصاص السابق' value={inscrieD.EL_Pere_Phone} onChange={(e) => setInscrieD({...inscrieD, EL_Pere_Phone: e.target.value })} />
+            <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>   نتيجة أخر سنة دراسية  </h5>
+            <Select className='mb-3'  fluid options={lastYear} onChange={(e, { value }) => setInscrieD({...inscrieD, EL_Genre: value })} />
             <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات اخري </h5>
             <Form>
-                <TextArea  rows="3"   placeholder='العنوان' className='w-100 shadow-sm rounded mb-3' value={inscrieD.Comment} onChange={(e) => setInscrieD({...inscrieD, Comment: e.target.value })}/>
+                <TextArea  rows="3"   placeholder='ملاحضات أخري' className='w-100 shadow-sm rounded mb-3' value={inscrieD.Comment} onChange={(e) => setInscrieD({...inscrieD, Comment: e.target.value })}/>
             </Form>
 
             <div className='text-end'>
@@ -56,19 +57,21 @@ const InscrieCard = ({inscrieD, setInscrieD, SaveInscrie , disabledSaveBtn, tag,
  const SouscrieCard = ({souscrieD, setSouscrieD, SaveSouscrie, disabledSaveBtn, tag, loaderState }) =>{
     return(<>
             <div><small>
-                تأكيد الترسيم خاص فقط بالتلاميذ 
+                تأكيد الترسيم خاص فقط بالطلبة 
                 المسجلين من قبل , عند تأكيد الترسيم بإدخال المعرف الذي يمكن 
                 أن تطلبة من مدير الروضة سيتم تنبيهه بذلك علي الفور  
             </small></div>
-            <h5 className='mb-0 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  الإسم و اللقب </h5>
-            <small>اسم و لقب صغيرك</small>
-            <Input className='mb-3' fluid icon='user' placeholder='' />
+            <h5 className='mb-0 mb-1' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  الإسم و اللقب </h5>
+            <Input className='mb-3' fluid icon='user' placeholder=' الإسم و اللقب ' />
+            
+            <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>      المستوي و الإختصاص السابق </h5>
+            <Input className='mb-3' fluid icon='user' placeholder='  المستوي و الإختصاص السابق'  />
 
-            <h5 className='mb-0 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  تاريخ الموعد </h5>
-            <small> متي تريد أن تحجز الموعد ؟</small>
-            <Input className='mb-3' type='date' fluid  defaultValue={new Date().toISOString().split('T')[0]} />
+            <h5 className='mb-0 mb-1' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  معرف الترسيم  </h5>
+            <Input className='mb-3' fluid icon='user' placeholder=' معرف الترسيم ' />
+
             <div className='text-end'>
-                <Button className='rounded-pill' disabled={disabledSaveBtn} onClick={SaveSouscrie} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل موعد  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+                <Button className='rounded-pill' disabled={disabledSaveBtn} onClick={SaveSouscrie} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' /> ترسيم  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
             </div> 
     </>)
  }

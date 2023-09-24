@@ -8,47 +8,95 @@ import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 
 const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn, tag, loaderState}) =>{       
+    const serviceOptions = [
+        {key:1, value:'A1', text:'كامل الوجبات'},
+        {key:2, value:'A', text:'فطور الصباح فقط'},
+        {key:3, value:'BH', text:'وجبة الغداء فقط'},
+        {key:4, value:'G', text:'وجبة العشاء فقط'},
+        {key:5, value:'GH', text:'وجبتين في اليوم'},
+    ]
+    const LitOptions = [
+        {key:1, value:'A1', text:'سرير لشخص'},
+        {key:2, value:'A', text:'سرير لشخصين '},
+        {key:3, value:'A2', text:'سرير لطفل '},
+         
+    ]
+    const reservationOptions = [
+        {key:1, value:'A1', text:'عائلي'},
+        {key:2, value:'A', text:'عمل'},
+        {key:3, value:'BH', text:'أصدقاء'},
+        {key:4, value:'G', text:'غير محدد'},
+         
+    ]
     return(<>
-        <div class="input-group mb-1">
-            <input type="text" class="form-control" id="reserver-name"  required placeholder="nom et prenon" />
+        <h5 className='mb-0 mt-0' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  مدة الحجز </h5>
+        <small>من </small>
+        <div className='row'>
+            <div className='col-6'><Input className='mb-3' type='date' fluid alue={commandeData.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setCommandeD({...commandeData, date: e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-3' type='time' fluid alue={commandeData.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, time: e.target.value })}  /></div> 
         </div>
-        <div class="input-group mb-1">
-            <input type="text" class="form-control" id="reserver-offre"  required placeholder="quel service voulez vous réserver" />
+        <small> إلي </small>
+        <div className='row'>
+            <div className='col-6'><Input className='mb-3' type='date' fluid alue={commandeData.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setCommandeD({...commandeData, date: e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-3' type='time' fluid alue={commandeData.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, time: e.target.value })}  /></div> 
         </div>
-        <div class="input-group mb-1">
-            <input type="text" class="form-control" id="reserver-resident"  required placeholder="Nombre de résidents" />
+
+        <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> نوع الغرفة </h5>
+        <small>  إختر نوع الغرفة التي تريد جحزها  </small> 
+        <Select fluid placeholder='نوع الغرفة' options={LitOptions} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
+
+        <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> الوجبات </h5>
+        <Select  fluid placeholder=' الوجبات ' options={serviceOptions} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
+
+        <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> عدد الأفراد معك </h5>
+        <Input className='mb-1' fluid icon='user' type='number' placeholder='عدد الأفراد معك ' value={commandeData.User_Name} onChange={(e) => setCommandeD({...commandeData, User_Name: e.target.value })} />
+
+        <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> نوع الحجز </h5>
+        <Select fluid placeholder=' نوع الحجز ' options={reservationOptions} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
+
+
+        <h5 className='mb-0 mt-1' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>
+        <Form className='mb-3'>
+            <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={commandeData.comment} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
+        </Form>
+
+        <div className='text-end'>
+            <Button className='rounded-pill' onClick={SaveCMDFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل الحجز  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
         </div>
-        <div class="input-group mb-1">
-            <textarea type="text" class="form-control"  rows="4" id="reserver-comment"  required placeholder="remarques"></textarea>
-        </div>
-        <div class="text-left text-danger mb-1 mr-2"><span>date de présence</span></div>
-        <div class="input-group mb-3 float-right">
-            <input type="date" class="form-control" id="reserver-jour" value="<?php echo date('Y-m-d'); ?>" min="2019-01-01" max="2020-12-29" />
-        </div>
-        <input type="hidden" value="<?php echo $PID; ?>" id="reserver-pid" />
-        <div class="text-left">
-            <button class="btn btn-success card-1 btn-sm" id="reserver" >Terminer <span class="fa fa-check-circle"></span></button>
-            <button class="btn btn-danger card-1 btn-sm close-md" data-dismiss="modal">Annulez <span class="fa fa-times-circle"></span></button>
-        </div>
+ 
     </>)
 }
 
 const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, tag, loaderState }) =>{
+    const reservationOptions = [
+        {key:1, value:'A1', text:'طلب وجبة'},
+        {key:2, value:'A', text:'طلب عامل'},
+        {key:3, value:'BH', text:'صيانة سريعة'},
+        {key:4, value:'G', text:'غير محدد'},
+         
+    ]
+    
     return(<>
-            <div class="input-group mb-1">
-                <textarea type="text" class="form-control"  rows="4" id="service-description"  required placeholder="Comment pouvons-nous vous aider"></textarea>
+            <h5 className='mb-0 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> رمز الحجز </h5>
+            <small>سيتم آليا رفض رقم الحجز الخاطئ</small>
+            <Input className='mb-1' fluid icon='user' type='number'  placeholder='رمز الحجز' value={rendyVousD.User_Name} onChange={(e) => setRdvData({...rendyVousD, User_Name: e.target.value })} />
+
+            <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  رقم الغرفة </h5>
+            <Input className='mb-1' fluid icon='user'   placeholder=' رقم الغرفة ' value={rendyVousD.User_Name} onChange={(e) => setRdvData({...rendyVousD, User_Name: e.target.value })} />
+
+            <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> نوع الطلب </h5>
+            <Select fluid placeholder=' نوع الطلب ' options={reservationOptions} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+
+            <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات و تفاصيل   </h5>
+            <Form className='mb-3'>
+                <TextArea placeholder=' ملاحضات و تفاصيل' className='font-droid'  rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+            </Form>
+
+            <div className='text-end'>
+                <Button className='rounded-pill' onClick={RendyVousFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل الطلب  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
             </div>
-            <div class="input-group mb-1">
-                <input type="text" class="form-control" id="service-name"  required placeholder="Nom et prenon" />
-            </div>
-            <div class="input-group mb-1">
-                <input type="text" class="form-control" id="service-chambre"  required placeholder="Nombre de la chambre " />
-            </div>
-            <input type="hidden" value="<?php echo $PID; ?>" id="service-pid" />
-            <div class="text-left">
-                <button class="btn btn-success card-1 btn-sm" id="service" >Terminer <span class="fa fa-check-circle"></span></button>
-                <button class="btn btn-danger card-1 btn-sm" data-dismiss="modal">Anulez <span class="fa fa-times-circle"></span></button>
-            </div>  
+
+  
     </>)
 }
 
@@ -61,11 +109,11 @@ function HotelsSpecific(props) {
 
     const panes = [
         {
-          menuItem: { key: 'save', icon: 'checkmark box', content:  <span className='me-2'> Reservez </span> , dir:'rtl'},
+          menuItem: { key: 'save', icon: 'checkmark box', content:  <span className='me-2'> حجز </span> , dir:'rtl'},
           render: () => <Tab.Pane className='border-div shadow-sm' attached={false} dir='rtl'> <CommandeCard commandeData={commandeData} setCommandeD={setCommandeD} SaveCMDFunc={SaveCMDFunc} disabledSaveBtn={disabledSaveBtn} tag={props.TAG} loaderState={loaderState} /></Tab.Pane>,
         },
         {
-            menuItem: { key: 'edit', icon: 'calendar alternate', content:  <span className='me-2'> Services</span> , dir:'rtl' },
+            menuItem: { key: 'edit', icon: 'calendar alternate', content:  <span className='me-2'> طلب خدمة</span> , dir:'rtl' },
             render: () => <Tab.Pane className='border-div shadow-sm' attached={false} dir='rtl'><RendyVousCard rendyVousD={rendyVousD} setRdvData={setRdvData} RendyVousFunc={RendyVousFunc} disabledSaveBtn={disabledSaveBtn} tag={props.TAG} loaderState={loaderState} /></Tab.Pane>,
         },
     ]

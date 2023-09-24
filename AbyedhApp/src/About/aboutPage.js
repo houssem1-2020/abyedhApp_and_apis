@@ -27,14 +27,15 @@ function AboutPage() {
     /* ############### Card #################*/
     const TopCard = () =>{
         return(<>
-            <div className='row p-0 m-0' style={{height:'250px'}}>
+            <div className='row p-0 m-0 ' style={{height:'250px'}}>
                 <div className='col-12 col-lg-4 text-center align-self-center'>
                     <NavLink exact='true' to='/' >
-                        <img src='https://cdn.abyedh.tn/images/logo/mlogo.gif' className='img-responsive border-div' width='70px' height='120px' /> 
+                        <img src='https://cdn.abyedh.tn/images/logo/mlogo.gif' className='img-responsive   border border-danger bg-danger' width='70px' height='120px' style={{borderRadius: '10px 20px 10px 50px'}} /> 
                     </NavLink> 
                 </div>
-                <div className='col-12 col-lg-8 d-none d-lg-block text-white text-center align-self-center'>
-                    <h1>منصة أبيض</h1>
+                <div className='col-12 col-lg-8     text-center align-self-center'>
+                    <h1 className='text-danger display-2'>مِنَصَةْ أَبْيَضْ</h1>
+                    <h3 className='text-secondary'> تطبيق تنجم تعمل بيه كل شي  </h3>
                 </div>
             </div>
         </>)
@@ -160,8 +161,9 @@ function AboutPage() {
     }
 
     return ( <>
-            <div className='bg-about'>
+            <div className='bg-about-stopped'>
                     <TopCard />
+                    <br />
                     <br />
                     <br />
                     <br />

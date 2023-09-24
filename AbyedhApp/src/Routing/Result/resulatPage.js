@@ -125,7 +125,7 @@ function ResultPage() {
                     <div className='row'>
                         <div className='col-6 text-start align-self-center'>
                             <NavLink exact='true' to={`/S/L/${tag}`} className="m-0 p-0 ms-3">
-                                <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                <img  className="border-div-s d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px',borderRadius: '10px 20px 10px 50px'}} />
                                 <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
                         </div>
@@ -195,20 +195,22 @@ function ResultPage() {
                 <div className='col-12 col-lg-4 mb-3'>
                     <div className='card shadow-sm h-100 border-div'>
                         <NavLink exact='true' to={`/S/P/${tag}/${props.data.PID}`} className='stretched-link'></NavLink>
-                        <div className="card-header  " style={{marginBottom:'50px', height:'90px',  borderRadius:'0', background: `linear-gradient(to bottom, ${ConverColorToHsl(GConf.ADIL[tag].themeColor)},  #ffffff` , border: '0px solid' ,}}> 
+                        {/* <div className="card-header  " style={{marginBottom:'50px', height:'90px',  borderRadius:'0', background: `linear-gradient(to bottom, ${ConverColorToHsl(GConf.ADIL[tag].themeColor)},  #ffffff` , border: '0px solid' ,}}>  */}
+                        <div className="card-header  " style={{marginBottom:'50px', height:'90px',  borderRadius:'0', backgroundImage: `url(https://cdn.abyedh.tn/images/ads/${tag}.svg)` , backgroundSize: 'auto', backgroundPosition: 'center' , border: '0px solid' ,}}> 
+                            <div style={{ content: '',  background: 'rgba(255, 255, 255, 0.6)',  position: 'absolute', top: 0, left: 0, width: '100%', height: '100px', }}></div>
                             <span
                                 style={{
                                 width: '100px',
                                 height: '100px',
                                 borderRadius: '50%',
                                 }}
-                                className="card-img bg-white"
+                                className="card-img bg-white shadow border-0"
                             >
                                 <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white' width='100px'  height='100px' />
                             </span>
                             
                         </div>
-                        <div className='text-center '> <h5 style={{ color: GConf.ADIL[tag].themeColor}}>{props.data.Name} { props.data.Activated == 'true' ?  <span className='bi bi-shield-fill-check ' style={{color: '#d91a37'}}></span> : ''}</h5></div>
+                        <div className='text-center '> <h5 style={{ color: GConf.ADIL[tag].themeColor}}>{props.data.Name} { props.data.Activated == 'true' ?  <span className='bi bi-patch-check-fill  ' style={{color: '#1d9bf0'}}></span> : ''}</h5></div>
                         <div className='card-body text-secondary ' >
                             <div className='text-end  pb-2' dir='ltr'>
                             {props.data.Genre != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-bookmark-heart-fill' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Genre}</div> </> : <></> }

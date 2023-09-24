@@ -9,46 +9,56 @@ import { useEffect } from 'react';
 
 const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn, tag, loaderState}) =>{       
     return(<>
-        <div className="text-right text-danger mb-1 mr-2"> إسم الفلم <span className="fa fa-star"></span></div>
-        <div className="input-group mb-1">
-            <input type="text" className="form-control" id="reserver-movie" dir="rtl" required placeholder="إسم الفلم " />
+        <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  إسم الفلم</h5>
+        <Input className='mb-1' fluid icon='user' placeholder=' إسم الفلم ' value={commandeData.User_Name} onChange={(e) => setCommandeD({...commandeData, User_Name: e.target.value })} />
+
+        <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> المخرج </h5>
+        <Input className='mb-1' fluid icon='user' placeholder='المخرج  ' value={commandeData.User_Name} onChange={(e) => setCommandeD({...commandeData, User_Name: e.target.value })} />
+
+        <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> تاريخ العرض </h5>
+        <div className='row mb-0'>
+            <div className='col-6'><Input className='mb-2' type='date' fluid alue={commandeData.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setCommandeD({...commandeData, date: e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-2' type='time' fluid alue={commandeData.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, time: e.target.value })}  /></div> 
         </div>
-        <div className="text-right text-danger mb-1 mr-2"> تاريخ العرض <span className="fa fa-calendar"></span></div>
-        <div className="input-group mb-1">
-            <input type="date" className="form-control" id="reserver-id" dir="rtl" required value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>" />
-        </div>
-        <div className="text-right text-danger mb-1 mr-2"> ملاحضات <span className="fa fa-comments"></span></div>
-        <div className="input-group mb-3">
-            <textarea type="text" className="form-control"  rows="2" id="reserver-comment" dir="rtl" required placeholder="ملاحضات"></textarea>
-        </div>
-        <div className="text-left">
-            <button className="btn btn-success card-1 btn-md" id="reserver" >تأكيد <span className="fa fa-check-circle"></span></button>
+
+        <h5 className='mb-0 mt-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات </h5>
+        <Form className='mb-1'>
+            <TextArea  placeholder='ملاحضات' className='font-droid'  rows={2} value={commandeData.Comment} onChange={ (e,value) => setCommandeD({...commandeData, Comment:e.target.value})} />
+        </Form>
+
+        <div className='text-end mt-3'>
+            <Button className='rounded-pill' onClick={SaveCMDFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل إشتراك  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
         </div>
     </>)
 }
 
 const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, tag, loaderState }) =>{
     return(<>
-            <div className="text-right text-danger mb-1 mr-2"> إسم الفلم المقترح +  إسم المخرج<span className="fa fa-star"></span></div>
-            <div className="input-group mb-1">
-                <input type="text" className="form-control" id="avis-name" dir="rtl" required />
-            </div>
-            <div className="text-right text-danger mb-1 mr-2"> سنة الخروج للعرض <span className="fa fa-calendar"></span></div>
-            <div className="input-group mb-1">
-                <input type="date" className="form-control" id="avis-annee" dir="rtl" value="<?php echo date('Y-m-d'); ?>" required />
-            </div>
-            <div className="text-right text-danger mb-1 mr-2"> التاريخ المقترح للعرض <span className="fa fa-calendar"></span></div>
-            <div className="input-group mb-1 float-right">
-                <input type="date" className="form-control" id="avis-jour" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>" /> 
-            </div>
-            <div className="text-right text-danger mb-1 mr-2"> ملاحضات <span className="fa fa-comments"></span></div>
-            <div className="input-group mb-3">
-                <textarea type="text" className="form-control"  rows="2" id="avis-comment" dir="rtl" required placeholder="ملاحضات"></textarea>
-            </div>
-            <input type="hidden" value="<?php echo $PID; ?>" id="avis-pid" />
-            <div className="text-left">
-                <button className="btn btn-success card-1 btn-md" id="avis" >تأكيد <span className="fa fa-check-circle"></span></button>
-            </div> 
+        <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  إسم الفلم المقترح</h5>
+        <Input className='mb-1' fluid icon='user' placeholder=' إسم الفلم المقترح' value={rendyVousD.User_Name} onChange={(e) => setRdvData({...rendyVousD, User_Name: e.target.value })} />
+
+        <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> المخرج </h5>
+        <Input className='mb-1' fluid icon='user' placeholder='المخرج  ' value={rendyVousD.User_Name} onChange={(e) => setRdvData({...rendyVousD, User_Name: e.target.value })} />
+
+        <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> سنة الخروج للعرض  </h5>
+        <Input className='mb-1' fluid icon='user' placeholder='سنة الخروج للعرض   ' value={rendyVousD.User_Name} onChange={(e) => setRdvData({...rendyVousD, User_Name: e.target.value })} />
+
+
+        <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  التاريخ المقترح للعرض  </h5>
+        <div className='row mb-0'>
+            <div className='col-6'><Input className='mb-2' type='date' fluid alue={rendyVousD.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, date: e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-2' type='time' fluid alue={rendyVousD.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setRdvData({...rendyVousD, time: e.target.value })}  /></div> 
+        </div>
+
+        <h5 className='mb-0 mt-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات </h5>
+        <Form className='mb-1'>
+            <TextArea  placeholder='ملاحضات' className='font-droid'  rows={2} value={rendyVousD.Comment} onChange={ (e,value) => setRdvData({...rendyVousD, Comment:e.target.value})} />
+        </Form>
+
+        <div className='text-end mt-3'>
+            <Button className='rounded-pill' onClick={RendyVousFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل الأقتراح  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+        </div>
+
     </>)
 }
 

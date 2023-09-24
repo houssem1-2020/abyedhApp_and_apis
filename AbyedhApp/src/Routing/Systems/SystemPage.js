@@ -18,7 +18,7 @@ import { Swiper, SwiperSlide, } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
-
+import { useLocation } from 'react-router-dom';
  
 function ProfilePage() {
     /*#########################[Const]##################################*/
@@ -30,11 +30,25 @@ function ProfilePage() {
         let [clientActivated, setClientActivated] = useState(false)
         L.Icon.Default.mergeOptions(GConf.LeafleftIcon);
         let UID = localStorage.getItem('UID')
-         
+        const isFromFcb = new URLSearchParams(useLocation().search).get('fbclid')
         const [activeIndex, setActiveIndex] = useState(0)
     /* ############### UseEffect #################*/
         useEffect(() => {
-        window.scrollTo(0, 0);
+             window.scrollTo(0, 0);
+            if (isFromFcb && !localStorage.getItem('userEnter')) {
+                axios.post(`${GConf.ApiLink}/systems/fromfcb`,{
+                    PID :GConf.PID,
+                    isFromFcb: isFromFcb,
+                    Genre:'mainPage'
+                })
+                .then(function (response) {
+                    localStorage.setItem('userEnter', isFromFcb)
+                }).catch((error) => {
+                if(error.request) {
+                     console.log('error-52478')
+                }
+                });
+            }
          
         }, [])
 
@@ -115,6 +129,21 @@ function ProfilePage() {
                 <br />
             </>)
         }
+        const StartAddCard = () =>{
+            return(<>
+            <div className="text-end jumbtron  mb-4  border-div" dir="rtl">
+                <div className="row">
+                    <div className="col-12 col-lg-4 align-self-center  text-center">
+                        <img src="https://cdn.abyedh.tn/images/required/input_ads.svg" className="img-responsive mb-1"  width='150px' height='150px' />
+                    </div>
+                    <div className="col-12 col-lg-8 align-self-center text-secondary text-center"> 
+                        <h3> <span style={{color:'#bd0d3f'}}>إختر مهنتك</span> و <span style={{color:'#100dbd'}}>  قم بإدخال المعلومات الضرورية</span> و  <span style={{color:'#06993c'}}>أحصل علي تطبيق إستقبال الطلبات</span></h3> 
+                    </div>
+                </div>
+            </div>
+
+            </>)
+        }
     return ( <>
             <TopNavBar /> 
  
@@ -122,9 +151,9 @@ function ProfilePage() {
             <div className='container p-4'>
                 <br />  
                 <br />  
+                <StartAddCard />
                 <br />  
-                <br />  
-    
+                <br /> 
                 {GConf.ASIL.map( (tabData) => <ContainerLinksCard key={tabData.id} data={tabData}  />)}   
                 
             </div>

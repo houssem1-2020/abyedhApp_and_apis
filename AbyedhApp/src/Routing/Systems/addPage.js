@@ -9,6 +9,8 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, Marker, Popup, TileLayer, useMapEvents  } from 'react-leaflet';
 import { useNavigate} from 'react-router-dom';
+import ReactGA from 'react-ga';
+ReactGA.initialize('G-JHPD6D9RGH');
 
 const GeneralUserData = ({userData, setUserData, UDL, GouvChanged, targetSystem}) =>{
     return(<>
@@ -242,11 +244,27 @@ function ProfileAction() {
     let [openModal,setOpenMoadal] = useState(false)
 
     const navigate = useNavigate();
+    
     /* ############### UseEffect #################*/
         useEffect(() => {
+            window.scrollTo(0, 0);
             if (GConf.UserData.Logged) {
                 setUserData({name :GConf.UserData.UData.Name , phone:GConf.UserData.UData.PhoneNum , Sex :GConf.UserData.UData.Sex , birthday: GConf.UserData.UData.BirthDay , gouv: GConf.UserData.UData.BirthGouv ,deleg: GConf.UserData.UData.BirthDeleg}) 
             }
+            axios.post(`${GConf.ApiLink}/systems/fromfcb`,{
+                PID :GConf.PID,
+                isFromFcb: localStorage.getItem('userEnter') ? localStorage.getItem('userEnter')  : Math.floor(Math.random() * (999999 - 111111 + 1)) + 111111,
+                Genre: tag
+            })
+            .then(function (response) {
+                //if (!localStorage.getItem('userEnter')) { localStorage.setItem('userEnter', response.data.Req_ID); }
+            }).catch((error) => {
+            if(error.request) {
+                 console.log('error-52478')
+            }
+            });
+
+            //ReactGA.pageview(window.location.pathname);
             //if (localStorage.getItem('AddToDirectory')) {window.location.href = "/S/I";}
             //window.scrollTo(0, 0);
             // axios.post(`${GConf.ApiLink}/systems/check`, {
@@ -310,8 +328,16 @@ function ProfileAction() {
         setTimming(copyOfHoraire)
         setTest(Math.random())
     }
+    const  handleClick = (targetSystem) => {
+        ReactGA.event({
+          category: targetSystem,
+          action: 'SystemGenre',
+          label: targetSystem
+        });
+      }
+
     const Inscription = () =>{
-            
+            handleClick(tag)
             if (!userData.name || userData.name == '') {toast.error("أدخل إسم و لقب المستخدم !", GConf.TostErrorGonf)}
             else if (!userData.phone || userData.phone == '' ) {toast.error("أدخل هاتف المستخدم !", GConf.TostErrorGonf)}
             else if (!userData.birthday || userData.birthday == '' ) {toast.error("أدخل تاريخ ميلاد المستخدم !", GConf.TostErrorGonf)}
@@ -334,11 +360,11 @@ function ProfileAction() {
                     horaireData : timming,
                     alwaysOpen : alwaysState,
                     position : position,
+                    addTodirectory : localStorage.getItem('AddToDirectory') ? localStorage.getItem('AddToDirectory')  : false
                 }).then(function (response) {
                     if(response.data.Req_ID) {
-                        localStorage.setItem('AddToDirectory', response.data.Req_ID);
+                        if (!localStorage.getItem('AddToDirectory')) { localStorage.setItem('AddToDirectory', response.data.Req_ID); }
                         setSaveBtnState(true)
-                        //toast.success("تم التسجيل !", GConf.TostSuucessGonf)
                         setLS(false)
                         setOpenMoadal(true)
                     }
@@ -401,7 +427,7 @@ function ProfileAction() {
                     <div className='row'>
                         <div className='col-6 text-start align-self-center'>
                             <NavLink exact='true' to={`/S/L/${tag}`} className="m-0 p-0 ms-3">
-                                <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
+                                <img  className="border-div-s d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px',borderRadius: '10px 20px 10px 50px'}} />
                                 <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
                         </div>
@@ -513,9 +539,9 @@ function ProfileAction() {
         <br />
         <div className='container container-lg font-droid' dir='rtl'>
                  {localStorage.getItem('AddToDirectory') ? <BottomCard />  : <></>}
-                 <h4>1- منصة أبيض هي محرك بحث شامل تنجم تلقي فيه العديد من أصحاب الخدمات و نقاط البيع مثل : أطباء صيذلبات مخابر و تنجم تتواصل معاهم باش تتمتع بخدماتهم و منتجاتهم  </h4>
-                 <h4>2- في المقابل توفر المنصة لأصحاب الخذمات و نقاط البيع هاذم أنظمة لإدارة الأعمال متاعهم و تساعدهم كذلك في التعريف بأنفسهم و بأعمالهم من أجل الوصل أكثر لعملائهم  ...</h4>
-                 <h4>3-  كانك من أصحاب الخذمات و نقاط البيع تنجم تسجل معانا و تتحصل علي منصة مجانية تعاونك  تستقبل الطلبات متاعك و تقوم بتنضيمها   ...</h4>
+                 <h4 className='text-secondary'>1- منصة أبيض هي محرك بحث شامل تنجم تلقي فيه العديد من أصحاب الخدمات و نقاط البيع  و تنجم تتواصل معاهم باش تتمتع بخدماتهم و منتجاتهم  </h4>
+                 <h4 className='text-secondary'>2- في المقابل توفر المنصة لأصحاب الخدمات و نقاط البيع هاذم أنظمة لإدارة الأعمال متاعهم و تساعدهم كذلك في التعريف بأنفسهم و بأعمالهم من أجل الوصل أكثر لعملائهم  ...</h4>
+                 <h4 className='text-secondary'>3-  كانك من أصحاب الخدمات و نقاط البيع تنجم تسجل معانا و تتحصل علي منصة مجانية تعاونك  تستقبل الطلبات متاعك و تقوم بتنظيمها   ...</h4>
                  <br />
                  <br />
                  {GConf.UserData.Logged ? <UserCard />  : <GeneralUserData userData={userData}  setUserData={setUserData} GouvChanged={GouvChanged} UDL={UDL} targetSystem={targetSystem} />}
@@ -537,7 +563,10 @@ function ProfileAction() {
                     
                 >
                 <Modal.Content  >
-                        <Button fluid className='rounded-pill' onClick={() => navigate('/')}>Va Ici </Button>
+                        <h1 className='text-center bi bi-clipboard-check-fill bi-lg text-success'></h1>
+                        <h4 className='text-center text-success'> لقد تمت عملية التسجيل بنجاح </h4>
+                        <h4 className='text-center text-سثؤخىيضقغ'> إضغط ليتم تمريرك لصفحة متابعة عملية القبول</h4>
+                        <Button fluid className='rounded-pill' onClick={() => navigate(`/S/I/user/${tag}`)}> صفحة المتابعة  </Button>
                 </Modal.Content>
             </Modal>
         <br />

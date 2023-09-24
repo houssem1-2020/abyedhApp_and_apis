@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import GConf from '../../AssetsM/generalConf';
-import { Tab } from 'semantic-ui-react'
+import { Dimmer, Tab } from 'semantic-ui-react'
 import { Button, Icon, Input, Modal, Form, TextArea,  Loader, Select } from 'semantic-ui-react'
 import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -23,31 +23,46 @@ const MapEventsHandler = ({ onLocationSelected }) => {
 
 const CommandeCard = ({commandeData, setCommandeD, myPosition, loaderState, disabledSaveBtn, SaveCommande, targetPosition, handleLocationSelected}) =>{
     const optionBagage = [
-        {key : 1 , value : 'true', text :'نعم'},
-        {key : 2 , value : 'false', text :'لا'}
+        {key : 2 , value : 'لا', text :'لا'},
+        {key : 1 , value : 'نعم', text :'نعم'},
+        
     ]
+    const handleLocationSelectedFrom = (location) => {
+        setCommandeD({...commandeData, targetPositionFrom: {Lat: location.lat , Lng : location.lng} })
+    };
+    const handleLocationSelectedTo = (location) => {
+        setCommandeD({...commandeData, targetPositionTo: {Lat: location.lat , Lng : location.lng} })
+    };
     return(<>
-            <h5 className='text-end'>إختر المكان الذي تود الذهاب إليه </h5>
-            <MapContainer center={myPosition} zoom={15} scrollWheelZoom={false} className="map-height cursor-map-crosshair border-div">
+            <h5 className='text-end'>إختر   مكان الإنطلاق </h5>
+            <MapContainer center={[commandeData.targetPositionFrom.Lat, commandeData.targetPositionFrom.Lng]} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
                 <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <MapEventsHandler onLocationSelected={handleLocationSelected} />
-                <Marker position={targetPosition}>
-                    <Popup>
-                        
-                    </Popup>
-                </Marker>
+                <MapEventsHandler onLocationSelected={handleLocationSelectedFrom} />
+                <Marker position={[commandeData.targetPositionFrom.Lat, commandeData.targetPositionFrom.Lng]}> <Popup> </Popup> </Marker>
+            </MapContainer>
+
+            <h5 className='text-end'>إختر   مكان الوصول </h5>
+            <MapContainer center={[commandeData.targetPositionTo.Lat, commandeData.targetPositionTo.Lng]} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
+                <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <MapEventsHandler onLocationSelected={handleLocationSelectedTo} />
+                <Marker position={[commandeData.targetPositionTo.Lat, commandeData.targetPositionTo.Lng]}> <Popup> </Popup> </Marker>
             </MapContainer>
 
             <h5 className='text-end'>هل لديك أمتعة ؟ </h5>
-            <Select placeholder='إختر ولاية' fluid className='mb-2' options={optionBagage} value={commandeData.bagage} onChange={(e, data) => setCommandeD({...commandeData, bagage: data.value })} />
-
+            <Select placeholder='إختر ولاية' fluid className='mb-2' options={optionBagage} value={commandeData.Bagage} onChange={(e, data) => setCommandeD({...commandeData, Bagage: data.value })} />
+             
             <div className=' mt-4' dir='ltr'>
-                <Button  className='rounded-pill text-white    '  style={{backgroundColor: GConf.Tools.taxi.themeColor}} disabled={disabledSaveBtn} fluid onClick={() => SaveCommande()}>  <Icon name='save' className='ms-4  ' /> تسجيل  <Loader inverted active={loaderState} inline  size='tiny' className='ms-4  ' /></Button>
+                <Button  className='rounded-pill text-white    '  style={{backgroundColor: GConf.Tools.taxi.themeColor}} disabled={disabledSaveBtn} fluid onClick={() => SaveCommande()}>  <Icon name='save' className='ms-4  ' /> تسجيل  </Button>
             </div>
-
+            <Dimmer active={loaderState} inverted className='border-div'>
+                <Loader inverted> </Loader>
+            </Dimmer>
 
     </>)
 }
@@ -64,26 +79,35 @@ const ReservationCard = ({reservationD, setReservationD, myPosition , loaderStat
             <h5 className='text-end'>هل لديك أمتعة ؟ </h5>
             <Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-3' value={reservationD.Wanted_Date} onChange={(e) => setReservationD({...reservationD, Wanted_Date: e.target.value })}/>
 
-            <h5 className='text-end'>إختر المكان الذي تود الذهاب إليه </h5>
-            <MapContainer center={myPosition} zoom={15} scrollWheelZoom={false} className="map-height cursor-map-crosshair border-div">
+            <h5 className='text-end'>إختر   مكان الإنطلاق </h5>
+            <MapContainer center={myPosition} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
                 <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <MapEventsHandler onLocationSelected={handleLocationSelected} />
-                <Marker position={targetPosition}>
-                    <Popup>
-                        
-                    </Popup>
-                </Marker>
+                <Marker position={targetPosition}> <Popup> </Popup> </Marker>
+            </MapContainer>
+
+            <h5 className='text-end'>إختر   مكان الوصول </h5>
+            <MapContainer center={myPosition} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
+                <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <MapEventsHandler onLocationSelected={handleLocationSelected} />
+                <Marker position={targetPosition}> <Popup> </Popup> </Marker>
             </MapContainer>
 
             <h5 className='text-end'>هل لديك أمتعة ؟ </h5>
             <Select placeholder='إختر ولاية' fluid className='mb-2' options={optionBagage} value={reservationD.bagage} onChange={(e, data) => setReservationD({...reservationD, bagage: data.value })} />
 
             <div className=' mt-4' dir='ltr'>
-                <Button  className='rounded-pill text-white    '  style={{backgroundColor: GConf.Tools.taxi.themeColor}} disabled={disabledSaveBtn} fluid onClick={() => SaveReservation()}>  <Icon name='save' className='ms-4  ' /> تسجيل  <Loader inverted active={loaderState} inline  size='tiny' className='ms-4  ' /></Button>
+                <Button  className='rounded-pill text-white    '  style={{backgroundColor: GConf.Tools.taxi.themeColor}} disabled={disabledSaveBtn} fluid onClick={() => SaveReservation()}>  <Icon name='save' className='ms-4  ' /> تسجيل   </Button>
             </div>
+            <Dimmer active={loaderState} inverted className='border-div'>
+                <Loader inverted> </Loader>
+            </Dimmer>
     </>)
 }
 
@@ -93,8 +117,8 @@ function IndivTaxiPage() {
     const [targetPosition, setTragetPosition] = useState([36.17720,9.12337])
     const [taxiPosition, setTaxiPosition] = useState([])
     const [modalS, setModalS] = useState(false)
-    const [commandeData, setCommandeD] = useState({Wanted_Date: new Date().toISOString().split('T')[0] , bagage:''})
-    const [reservationD, setReservationD] = useState([])
+    const [commandeData, setCommandeD] = useState({bagage:'', targetPositionFrom: {Lat: 36.17720 , Lng : 9.12337}, targetPositionTo: {Lat: 36.17720 , Lng : 9.12337}})
+    const [reservationD, setReservationD] = useState({Wanted_Date: new Date().toISOString().split('T')[0] , })
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
 
@@ -142,26 +166,26 @@ function IndivTaxiPage() {
         );
     }
     const SaveCommande = () =>{
-        if (!commandeData.bagage) {toast.error("أدخل رقم الطاولة !", GConf.TostErrorGonf)}
-        else if (!commandeData.targetPosition) {toast.error("أدخل اليوم المطلوب !", GConf.TostErrorGonf)}
-        else if (!commandeData.myPosition) {toast.error("أدخل اليوم المطلوب !", GConf.TostErrorGonf)}
+        if (!commandeData.Bagage) {toast.error("أدخل  هل لديك أمتعة أم لا    !", GConf.TostErrorGonf)}
+        else if (!commandeData.targetPositionFrom) {toast.error("أدخل  منطقة الأنطلاق !", GConf.TostErrorGonf)}
+        else if (!commandeData.targetPositionTo) {toast.error("أدخل منطقة الوصول !", GConf.TostErrorGonf)}
         else{
+            console.log(commandeData)
             setLS(true)
-            // axios.post(`${GConf.ApiLink}/Action/restaurant-commande`, {
-            //     // UID : props.UID,
-            //     // PID : props.PID ,
-            //     // TAG : props.TAG ,
-            //     commandeD : commandeData,
-            // }).then(function (response) {
-            //     toast.success(<><div><h5>تم التسجيل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
-            //     setLS(false)
-            //     setDisabledBtn(true)
-            // }).catch((error) => {
-            //     if(error.request) {
-            //       toast.error(<><div><h5>مشكل في الإتصال</h5>  </div></>, GConf.TostInternetGonf)   
-            //       setLS(false)
-            //     }
-            // });
+            axios.post(`${GConf.ApiLink}/Action/taxi-request`, {
+                UID : GConf.UserData.UData.UID,
+                TAG : 'taxi' ,
+                commandeD : commandeData,
+            }).then(function (response) {
+                toast.success(<><div><h5>تم التسجيل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+                setLS(false)
+                setDisabledBtn(true)
+            }).catch((error) => {
+                if(error.request) {
+                  toast.error(<><div><h5>مشكل في الإتصال</h5>  </div></>, GConf.TostInternetGonf)   
+                  setLS(false)
+                }
+            });
         } 
     }
     const SaveReservation = () =>{
@@ -263,17 +287,16 @@ function IndivTaxiPage() {
                 onClose={() => setModalS(false)}
                 onOpen={() => setModalS(true)}
             >
-                <Modal.Header><h4 className='text-end'> طلب تاكسي </h4></Modal.Header>
+                <Modal.Header><h4 className='text-end card-body'> طلب تاكسي </h4></Modal.Header>
                 <Modal.Content scrolling>
                     {GConf.UserData.Logged ? 
                             <Tab menu={{secondary: true , selected: { backgroundColor: 'purple' },  dir:'rtl', style:{justifyContent: 'right',} }} panes={panes} className='yes-menu-tabs' />  
                     : 
                             <NotLoggedInCard /> 
                     }
-                    
                 </Modal.Content>
                 <Modal.Actions>
-                        <Button className='rounded-pill' negative onClick={ () => setModalS(false)}> <span className='bi bi-x' ></span> غلق </Button>
+                     
                 </Modal.Actions>
         </Modal>
 

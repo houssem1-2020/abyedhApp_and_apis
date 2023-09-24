@@ -1,55 +1,75 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Tab } from 'semantic-ui-react'
+import { Modal, Tab } from 'semantic-ui-react'
 import GConf from '../../../AssetsM/generalConf';
 import { Form, TextArea, Input , Button, Icon, Loader, Select} from 'semantic-ui-react'
 import axios, { Axios } from 'axios';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 
-const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn, tag, loaderState}) =>{       
+
+const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn, tag, loaderState}) =>{
+    /* Const */
+    const [articleNow, setArticleNow] = useState({PK: 1 , Name:'', Qte: ''})
+
     return(<>
-        <div class="input-group mb-1">
-            <input type="text" class="form-control" id="rserver-name" dir="rtl" required placeholder="الاسم و اللقب" />
-        </div>
-        <div class="input-group mb-1">
-            <input type="text" class="form-control" id="rserver-number" dir="rtl" required placeholder="عدد الأشخاص" />
-        </div>
-        <div class="text-right text-danger mb-1 mr-2"><span>تاريخ الحجز</span></div>
-        <div class="input-group mb-1 float-right">
-            <input type="date" class="form-control" id="rserver-jour" value="<?php echo date('Y-m-d'); ?>" min="2019-01-01" max="2020-12-29" />
-            <input type="time" class="form-control" id="rserver-heur" value="<?php echo date('H:i'); ?>" min="2019-01-01" max="2020-12-29" />
-        </div>
-        <div class="input-group mb-3">
-            <textarea type="text" class="form-control"  rows="2" id="rserver-comment" dir="rtl" required placeholder="هل تريد طلب شيء ما ؟"></textarea>
-        </div>
-        <input type="hidden" value="<?php echo $PID; ?>" id="rserver-pid" />
-        <div class="text-left">
-            <button class="btn btn-success card-1 btn-sm" id="rserver" >تأكيد <span class="fa fa-check-circle"></span></button>
-            <button class="btn btn-danger card-1 btn-sm close-md" data-dismiss="modal">إلغاء <span class="fa fa-times-circle"></span></button>
-        </div>
+            <div className='p-2'>
+   
+                    <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> الوقت المطلوب </h5>
+                    <small> متي تريد الحضور ؟</small>
+                    <div className='row mb-0'>
+                        <div className='col-12'><Input className='mb-2' type='date' fluid alue={commandeData.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setCommandeD({...commandeData, date: e.target.value })}  /></div> 
+                        <div className='col-6'><small className='ms-2'>من</small><Input className='mb-2' type='time' fluid alue={commandeData.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, time: e.target.value })}  /></div> 
+                        <div className='col-6'><small className='ms-2'>إلي</small><Input className='mb-2' type='time' fluid alue={commandeData.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, time: e.target.value })}  /></div> 
+                    </div>
+
+  
+                    <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>        
+                    <Form className='mb-3'>
+                        <TextArea className='font-droid' placeholder='ملاحضات'  rows={2} value={commandeData.comment} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
+                    </Form>
+
+                    <div className='text-end'>
+                        <Button className='rounded-pill' onClick={SaveCMDFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل موعد  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+                    </div>
+        
+            </div>  
     </>)
 }
 
 const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, tag, loaderState }) =>{
+    const genres = [
+        { key: 1 , value: 'mensuel', text: 'شهري' },
+        { key: 2 , value: 'annuel', text: 'سنوي' },
+    ]
     return(<>
-            <div class="input-group mb-1">
-                <input type="text" class="form-control" id="souscrire-name" dir="rtl" required placeholder="الاسم و اللقب" />
-            </div>
-            <div class="input-group mb-1">
-                <input type="text" class="form-control" id="souscrire-age" dir="rtl" required placeholder="العمر" />
-            </div>
-            <div class="input-group mb-1">
-                <input type="text" class="form-control" id="souscrire-genre" dir="rtl" required placeholder="نوع الاشتراك " />
-            </div>
-            <div class="input-group mb-3">
-                <textarea type="text" class="form-control"  rows="2" id="souscrire-comment" dir="rtl" required placeholder="ملاحضات"></textarea>
-            </div>
-            <input type="hidden" value="<?php echo $PID; ?>" id="souscrire-pid" />
-            <div class="text-left">
-                <button class="btn btn-success card-1 btn-sm" id="souscrire" >تأكيد <span class="fa fa-check-circle"></span></button>
-                <button class="btn btn-danger card-1 btn-sm" data-dismiss="modal">إلغاء <span class="fa fa-times-circle"></span></button>
-            </div> 
+            <div className='p-2'>
+ 
+                    <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  الإسم و اللقب </h5>
+                    <Input className='mb-1' fluid icon='user' placeholder=' الإسم و اللقب  ' value={rendyVousD.User_Name} onChange={(e) => setRdvData({...rendyVousD, User_Name: e.target.value })} />
+
+                    <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>   العمر </h5>
+                    <Input className='mb-1' fluid icon='user' placeholder=' العمر' value={rendyVousD.User_Age} onChange={(e) => setRdvData({...rendyVousD, User_Age: e.target.value })} />
+
+                    <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>   نوع الإشتراك   </h5>
+                    <Select className='mb-1'  fluid options={genres} onChange={(e, { value }) => setRdvData({...rendyVousD, Ab_Genre: value })} />
+
+                    <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  تاريخ الإنطلاق  </h5>
+                    <small> متي تريد أن تبدأ ؟</small>
+                        <Input className='mb-1' type='date' fluid alue={rendyVousD.Start_At}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, Start_At: e.target.value })}  />
+                    
+                    <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  إوقات التمرين </h5>
+                    <small>ماهي الإوقات التي تريد أن تتمرن فيها </small> 
+                        <Form className='mb-1'>
+                            <TextArea   rows={2} value={rendyVousD.Comment} onChange={ (e,value) => setRdvData({...rendyVousD, Comment:e.target.value})} />
+                        </Form>
+
+                    <div className='text-end'>
+                        <Button className='rounded-pill' onClick={RendyVousFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل إشتراك  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+                    </div>
+
+        
+        </div> 
     </>)
 }
 
@@ -62,7 +82,7 @@ function StadeSpecific(props) {
 
     const panes = [
         {
-          menuItem: { key: 'save', icon: 'checkmark box', content:  <span className='me-2'> حجز   </span> , dir:'rtl'},
+          menuItem: { key: 'save', icon: 'checkmark box', content:  <span className='me-2'> حجز </span> , dir:'rtl'},
           render: () => <Tab.Pane className='border-div shadow-sm' attached={false} dir='rtl'> <CommandeCard commandeData={commandeData} setCommandeD={setCommandeD} SaveCMDFunc={SaveCMDFunc} disabledSaveBtn={disabledSaveBtn} tag={props.TAG} loaderState={loaderState} /></Tab.Pane>,
         },
         {
