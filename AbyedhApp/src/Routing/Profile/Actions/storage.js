@@ -65,6 +65,46 @@ const EnterCard = ({articleNow, setArticleNow, disabledSaveBtn, commandeData, Ad
         </div>
     </>)
 }
+const ConfirmCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn, tag, loaderState}) =>{
+    return (<>
+    <div className='card-body mt-2'>
+        <div className='rows mb-2'>
+            {/* <small className='text-danger text-end'  dir='rtl'>لا نعلم هل خدمة التوصيل متوفرة أم لا </small>
+            <div className='col-12'  dir='ltr'> 
+                <Select options={Livraisonoptions} fluid placeholder='شركة التوصيل ' className='mb-3' onChange={(e, data) => setCommandeD({...commandeData, Livraison_Par: data.value })}  />
+            </div> */}
+            <div className='col-12'>
+                <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> وقت التوصيل المطلوب</h5>
+                <div className='row'>
+                    <div className='col-6'><Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-1' value={commandeData.Wanted_Day} onChange={(e) => setCommandeD({...commandeData, Wanted_Day: e.target.value })}/></div>
+                    <div className='col-6'><Input className='mb-3' type='time' fluid value={commandeData.Wanted_Time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, Wanted_Time: e.target.value })}  /></div>
+                </div>
+            </div>
+
+            <h5 className='mb-2 mt-1' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-fill'></span>  الإسم و اللقب   </h5>        
+            <Input className='mb-3' fluid icon='user' placeholder=' الإسم و اللقب ' value={commandeData.Client_Name} onChange={(e) => setCommandeD({...commandeData, Client_Name: e.target.value })} />
+            
+            <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-fill'></span>  رقم الهاتف   </h5>        
+            <Input className='mb-3' fluid icon='user' placeholder='  رقم الهاتف ' value={commandeData.Client_Phone} onChange={(e) => setCommandeD({...commandeData, Client_Phone: e.target.value })} />
+            
+            
+            <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-map-fill'></span>  العنوان   </h5>        
+            <Form className='mb-3'>
+                <TextArea placeholder='العنوان' className='font-droid'  rows={2} value={commandeData.Client_Adresse} onChange={ (e,value) => setCommandeD({...commandeData, Client_Adresse:e.target.value})} />
+            </Form>
+
+            <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-chat-dots-fill'></span>  ملاحضات   </h5>        
+            <Form className='mb-3'>
+                <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={commandeData.Comment} onChange={ (e,value) => setCommandeD({...commandeData, Comment:e.target.value})} />
+            </Form>
+
+            <div className='col-12'>
+                <Button  className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[tag].themeColor}} disabled={disabledSaveBtn} fluid onClick={SaveCMDFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
+            </div>
+        </div>
+    </div>
+    </>)
+}
 const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn, tag, loaderState}) =>{
     /* Const */
     const [articleNow, setArticleNow] = useState({PK: 1 , Name:'', Qte: ''})
@@ -79,7 +119,7 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         },
         {
             menuItem: { key: 'check',   content:  <span >  <span className='bi bi-3-circle bi-sm  me-2 ms-2' style={{color :GConf.ADIL[tag].themeColor}}></span>  </span> , dir:'rtl' },
-            render: () => <ConfirmCard />,
+            render: () => <ConfirmCard commandeData={commandeData} setCommandeD={setCommandeD} SaveCMDFunc={SaveCMDFunc} disabledSaveBtn={disabledSaveBtn} tag={tag} loaderState={loaderState}/>,
         },
     ]
     const Livraisonoptions = [
@@ -137,46 +177,7 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         </>)
     }
     
-    const ConfirmCard = () =>{
-        return (<>
-        <div className='card-body mt-2'>
-            <div className='rows mb-2'>
-                {/* <small className='text-danger text-end'  dir='rtl'>لا نعلم هل خدمة التوصيل متوفرة أم لا </small>
-                <div className='col-12'  dir='ltr'> 
-                    <Select options={Livraisonoptions} fluid placeholder='شركة التوصيل ' className='mb-3' onChange={(e, data) => setCommandeD({...commandeData, Livraison_Par: data.value })}  />
-                </div> */}
-                <div className='col-12'>
-                    <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> وقت التوصيل المطلوب</h5>
-                    <div className='row'>
-                        <div className='col-6'><Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-1' value={commandeData.Wanted_Day} onChange={(e) => setCommandeD({...commandeData, Wanted_Day: e.target.value })}/></div>
-                        <div className='col-6'><Input className='mb-3' type='time' fluid value={commandeData.Wanted_Time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, Wanted_Time: e.target.value })}  /></div>
-                    </div>
-                </div>
-
-                <h5 className='mb-2 mt-1' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-fill'></span>  الإسم و اللقب   </h5>        
-                <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={commandeData.EL_Name} onChange={(e) => setCommandeD({...commandeData, EL_Name: e.target.value })} />
-                
-                <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-fill'></span>  رقم الهاتف   </h5>        
-                <Input className='mb-3' fluid icon='user' placeholder=' اسم و لقب صغيرك' value={commandeData.EL_Name} onChange={(e) => setCommandeD({...commandeData, EL_Name: e.target.value })} />
-                
-                
-                <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-map-fill'></span>  العنوان   </h5>        
-                <Form className='mb-3'>
-                    <TextArea placeholder='العنوان' className='font-droid'  rows={2} value={commandeData.comment} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
-                </Form>
-
-                <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-chat-dots-fill'></span>  ملاحضات   </h5>        
-                <Form className='mb-3'>
-                    <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={commandeData.comment} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
-                </Form>
-
-                <div className='col-12'>
-                    <Button  className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[tag].themeColor}} disabled={disabledSaveBtn} fluid onClick={SaveCMDFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
-                </div>
-            </div>
-        </div>
-        </>)
-    }
+    
         
     return(<>
         <Tab menu={{secondary: true, color: 'grey' , widths: PannierPannes.length , pointing: true, selected: { backgroundColor: GConf.ADIL[tag].themeColor },  dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={PannierPannes} /> 
@@ -208,10 +209,14 @@ function StorageSpecific(props) {
     const SaveCMDFunc = () =>{
         if (commandeData.articles.length == 0 ) {toast.error("أدخل  منتجات   !", GConf.TostErrorGonf)}
         else if (!commandeData.Wanted_Day  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Wanted_Time  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Client_Name  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Client_Phone  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Client_Adresse  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
         else{
             console.log(commandeData)
             setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/pharmacie-shop`, {
+            axios.post(`${GConf.ApiLink}/Action/depot-commande`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,
@@ -234,9 +239,9 @@ function StorageSpecific(props) {
      
     return ( <>
     <div className='m-0' dir='rtl'>
-        <div className='card p-2 border-div shadow-sm'>
-            <h5 className='text-secondary mb-1'>قم بإدخال المنتجات  
-            </h5> <CommandeCard commandeData={commandeData} setCommandeD={setCommandeD} SaveCMDFunc={SaveCMDFunc} disabledSaveBtn={disabledSaveBtn} tag={props.TAG} loaderState={loaderState} /> 
+        <div className='card p-2 border-div shadow-sm pt-4'>
+            <h5 className='text-secondary mb-1'> <span className='bi bi-person-x-fill'></span> قم بإدخال المنتجات  </h5> 
+            <CommandeCard commandeData={commandeData} setCommandeD={setCommandeD} SaveCMDFunc={SaveCMDFunc} disabledSaveBtn={disabledSaveBtn} tag={props.TAG} loaderState={loaderState} /> 
         </div>
     </div>
         

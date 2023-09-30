@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './resultCard.css'
-import { Dropdown, Input , Icon ,Divider, Header, Placeholder, Modal, Button, Dimmer, Loader} from 'semantic-ui-react';
+import { Dropdown, Input , Icon ,Divider, Header, Placeholder, Modal, Button, Dimmer, Loader, Rating} from 'semantic-ui-react';
 import SKLT from '../../AssetsM/usedSlk';
 
 
@@ -193,11 +193,12 @@ function ResultPage() {
     const ResultCard = (props) => {
         return (<>
                 <div className='col-12 col-lg-4 mb-3'>
-                    <div className='card shadow-sm h-100 border-div'>
+                    <div className='card shadow-sm h-100 border-div' style={{position:'relative'}}>
                         <NavLink exact='true' to={`/S/P/${tag}/${props.data.PID}`} className='stretched-link'></NavLink>
                         {/* <div className="card-header  " style={{marginBottom:'50px', height:'90px',  borderRadius:'0', background: `linear-gradient(to bottom, ${ConverColorToHsl(GConf.ADIL[tag].themeColor)},  #ffffff` , border: '0px solid' ,}}>  */}
                         <div className="card-header  " style={{marginBottom:'50px', height:'90px',  borderRadius:'0', backgroundImage: `url(https://cdn.abyedh.tn/images/ads/${tag}.svg)` , backgroundSize: 'auto', backgroundPosition: 'center' , border: '0px solid' ,}}> 
                             <div style={{ content: '',  background: 'rgba(255, 255, 255, 0.6)',  position: 'absolute', top: 0, left: 0, width: '100%', height: '100px', }}></div>
+                            
                             <span
                                 style={{
                                 width: '100px',
@@ -206,10 +207,16 @@ function ResultPage() {
                                 }}
                                 className="card-img bg-white shadow border-0"
                             >
-                                <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white' width='100px'  height='100px' />
+                                <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white p-3' width='100px'  height='100px' />
                             </span>
                             
                         </div>
+                        <div className='floating-card-result-card'>
+                            <span className=" m-2 text-dark"> {props.data.Rating_Resume == '' ? props.randomRate : props.data.Rating_Resume} <Rating className='d-inline' maxRating={5} defaultRating={props.randomRate} icon='star' disabled size='small' /> ({Math.floor(Math.random() * (400 - 1 + 1)) + 1})</span>
+                            <span className=" m-2 text-dark">| <span className='bi bi-hand-thumbs-up-fill'></span> {props.data.Likes_Num} </span>
+                            <span className=" m-2 text-dark">| <span className='bi bi-eye-fill'></span> {props.data.Views_Num >= 1000 ? (parseInt(props.data.Views_Num.toString().substring(0, 4)) / 1000).toFixed(1) + 'K' :  props.data.Views_Num}</span>
+                        </div>
+                        
                         <div className='text-center '> <h5 style={{ color: GConf.ADIL[tag].themeColor}}>{props.data.Name} { props.data.Activated == 'true' ?  <span className='bi bi-patch-check-fill  ' style={{color: '#1d9bf0'}}></span> : ''}</h5></div>
                         <div className='card-body text-secondary ' >
                             <div className='text-end  pb-2' dir='ltr'>
@@ -218,7 +225,14 @@ function ResultPage() {
                             {props.data.Deleg != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-geo-alt' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Deleg}</div> </> : <></> }
                             {props.data.Adress != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-pin-map-fill' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Adress}</div> </> : <></> }
                             </div>
+                            <div className='d-flex'>
+                                <span className='ms-2 bi bi-award-fill bi-sm'></span>
+                                <span className='ms-2 bi bi-wifi bi-sm'></span>
+                                <span className='ms-2 bi bi-hourglass-split bi-sm'></span>
+                                <span className='ms-2 bi bi-x-diamond-fill bi-sm'></span>
+                            </div>
                         </div>
+                        
                         <div className='col-12 d-flex' dir='rtl'  >
                             { GConf.ADIL[tag].systemActive ?  GConf.ADIL[tag].profileBtns.map( (data,index) => <ActionsBtnCard key={index} data={data} indexKey={index} /> ) : <></> }                        
                         </div>
@@ -361,7 +375,7 @@ function ResultPage() {
                                     :
                                     <div className='row'>
                                         {
-                                            resultList.map( (data,index) =>  <ResultCard key={index} data={data} />  )
+                                            resultList.map( (data,index) =>  <ResultCard randomRate={((Math.random() * (5 - 2)) + 2).toFixed(1)} key={index} data={data} />  )
                                         }
                                     </div>
                                 }

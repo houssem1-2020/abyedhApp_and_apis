@@ -6,8 +6,6 @@ import { Form, TextArea, Input , Select,  Button, Icon, Loader} from 'semantic-u
 import axios from 'axios';
 import { toast } from 'react-toastify';
  
-import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
  
 
  
@@ -17,11 +15,11 @@ const EnterCard = ({articleNow, setArticleNow, disabledSaveBtn, commandeData, Ad
     return (<>
         <div className='card-body mt-2'>
             <div className='row mb-3'>
-                <div className='col-8 align-self-center text-secondary'><h5>عدد الخدمات المسجلة    : {commandeData.articles ? commandeData.articles.length : 0}  </h5></div>
+                <div className='col-8 align-self-center text-secondary'><h5>عدد الخدمات المسجلة    : {commandeData.Services ? commandeData.Services.length : 0}  </h5></div>
                 <div className='col-4 align-self-center text-start'></div>
             </div>
             <Input icon='pin'   placeholder='إسم الخدمة' value={articleNow.Name}  onChange={ (e) => setArticleNow({...articleNow, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
-            <Input icon='dropbox'     value={articleNow.Qte}   onChange={ (e) => setArticleNow({...articleNow, Qte: e.target.value })} size="small" iconPosition='left' placeholder='وصف'  fluid className='mb-1' />
+            <Input icon='comment alternate'     value={articleNow.Qte}   onChange={ (e) => setArticleNow({...articleNow, Qte: e.target.value })} size="small" iconPosition='left' placeholder='وصف'  fluid className='mb-1' />
             <br />
             <Button disabled={disabledSaveBtn}  fluid className='rounded-pill' size='small' color='blue' onClick={AddArticleToList}>  <Icon name='edit outline' className='ms-2' /> أضف </Button>
                 
@@ -54,20 +52,20 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
       ]
     /* Function  */
     const AddArticleToList = () =>{
-        if (articleNow.Name == '') { toast.error("أدخل إسم المنتج    !", GConf.TostErrorGonf) } 
-        else if (articleNow.Qte == '') { toast.error("أدخل الكمية      !", GConf.TostErrorGonf) } 
+        if (articleNow.Name == '') { toast.error("أدخل إسم الخدمة    !", GConf.TostErrorGonf) } 
+        else if (articleNow.Qte == '') { toast.error("أدخل الوصف      !", GConf.TostErrorGonf) } 
         else {
-            console.log(articleNow)
-            commandeData.articles.push(articleNow)
-            setArticleNow({PK: commandeData.articles.length + 1 , Name:'', Qte: ''})
+             
+            commandeData.Services.push(articleNow)
+            setArticleNow({PK: commandeData.Services.length + 1 , Name:'', Qte: ''})
         }
         
     }
     const DeleteFromUpdateList = (value) =>{
-        const searchObject= commandeData.articles.findIndex((article) => article.A_Code == value);
-        commandeData.articles.splice(searchObject, 1);
-        let resteArticles = commandeData.articles;
-        setCommandeD({...commandeData, articles: resteArticles})
+        const searchObject= commandeData.Services.findIndex((article) => article.A_Code == value);
+        commandeData.Services.splice(searchObject, 1);
+        let resteServices = commandeData.Services;
+        setCommandeD({...commandeData, Services: resteServices})
     }
 
     /* Card */
@@ -90,8 +88,8 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         }
         return (<>
         <div className='card-body mt-2'>
-            {commandeData.articles.length != 0 ? 
-             <>{commandeData.articles.map( (val, index) => <ListCard key={index} dataA={val}/>)}</>
+            {commandeData.Services.length != 0 ? 
+             <>{commandeData.Services.map( (val, index) => <ListCard key={index} dataA={val}/>)}</>
              :
              <div className='text-center'>
                 <span className='bi bi-list-columns-reverse bi-lg'></span>
@@ -102,27 +100,7 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         </>)
     }
     
-    const ConfirmCard = () =>{
-        return (<>
-        <div className='card-body mt-2'>
-            <div className='row mb-2'>
-            <small className='text-danger text-end'  dir='rtl'>لا نعلم هل خدمة التوصيل متوفرة أم لا </small>
-                <div className='col-12'  dir='ltr'>
-                    
-                    <Select options={Livraisonoptions} fluid placeholder='شركة التوصيل ' className='mb-3' onChange={(e, data) => setCommandeD({...commandeData, Livraison_Par: data.value })}  />
-                </div>
-                <div className='col-12'>
-                    <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> وقت التوصيل المطلوب</h5>
-                    <Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-1' value={commandeData.Wanted_Day} onChange={(e) => setCommandeD({...commandeData, Wanted_Day: e.target.value })}/>
-                    <Input className='mb-3' type='time' fluid value={commandeData.Wanted_Time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, Wanted_Time: e.target.value })}  />
-                </div>
-                <div className='col-12'>
-                    <Button  className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[tag].themeColor}} disabled={disabledSaveBtn} fluid onClick={SaveCMDFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
-                </div>
-            </div>
-        </div>
-        </>)
-    }
+ 
         
     return(<>
         <Tab menu={{secondary: true, color: 'grey' , widths: PannierPannes.length , pointing: true, selected: { backgroundColor: GConf.ADIL[tag].themeColor },  dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={PannierPannes} /> 
@@ -132,7 +110,7 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
 
 function CoiffureSpecific(props) {
     /* ############### Const #################*/
-    const [commandeData, setCommandeD] = useState({Wanted_Day: new Date().toISOString().split('T')[0] , articles:[]})
+    const [commandeData, setCommandeD] = useState({Wanted_Day: new Date().toISOString().split('T')[0] , Wanted_Time: new Date().toLocaleTimeString('fr-FR'),  Services:[]})
     const [rendyVousD, setRdvData] = useState([])
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
@@ -174,12 +152,15 @@ function CoiffureSpecific(props) {
         } 
     }
     const SaveCMDFunc = () =>{
-        if (commandeData.articles.length == 0 ) {toast.error("أدخل  منتجات   !", GConf.TostErrorGonf)}
+        console.log(commandeData)
+        if (commandeData.Services.length == 0 ) {toast.error("أدخل  منتجات   !", GConf.TostErrorGonf)}
         else if (!commandeData.Wanted_Day  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Wanted_Time  ) {toast.error("أدخل  الوقت   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Comment  ) {toast.error("أدخل  ملاحضات   !", GConf.TostErrorGonf)}
         else{
             console.log(commandeData)
             setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/pharmacie-shop`, {
+            axios.post(`${GConf.ApiLink}/Action/coiffure-reserver`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,
@@ -230,22 +211,15 @@ function CoiffureSpecific(props) {
                 <h5 className='mb-2 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> الخدمات المطلوبة </h5>
                 <CommandeCard commandeData={commandeData} setCommandeD={setCommandeD} SaveCMDFunc={SaveCMDFunc} disabledSaveBtn={disabledSaveBtn} tag={props.TAG} loaderState={loaderState} /> 
                 
-
-                {/* <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> نوع الرحلة </h5>
-                <small> نوع الرحلة   </small> 
-                <Select fluid placeholder='نوع الرحلة' options={serviceOptions} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} /> */}
-
- 
-
                 <h5 className='mb-2 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> الوقت المطلوب</h5>
                 <div className='row'>
                     <div className='col-6'><Input icon='calendar alternate' type='date'  iconPosition='left'   fluid className='mb-1' value={commandeData.Wanted_Day} onChange={(e) => setCommandeD({...commandeData, Wanted_Day: e.target.value })}/></div> 
-                    <div className='col-6'><Input className='mb-3' type='time' fluid value={commandeData.Wanted_Time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, Wanted_Time: e.target.value })}  /></div> 
+                    <div className='col-6'><Input className='mb-3' type='time' fluid value={commandeData.Wanted_Time}   onChange={(e) => setCommandeD({...commandeData, Wanted_Time: e.target.value })}  /></div> 
                 </div>
 
                 <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>        
                 <Form className='mb-3'>
-                    <TextArea   rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                    <TextArea  placeholder='ملاحضات' className='font-droid'  rows={2} value={commandeData.Comment} onChange={ (e,value) => setCommandeD({...commandeData, Comment:e.target.value})} />
                 </Form>
         
                 <div className='col-12'>

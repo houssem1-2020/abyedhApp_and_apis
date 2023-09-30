@@ -26,13 +26,13 @@ const EnterCard = ({articleNow, setArticleNow, disabledSaveBtn, commandeData, Ad
     return (<>
         <div className='card-body mt-2'>
             <div className='row mb-3'>
-                <div className='col-8 align-self-center text-secondary'><h5>عدد الخيارات المدخلة  : {commandeData.articles ? commandeData.articles.length : 0}  </h5></div>
+                <div className='col-8 align-self-center text-secondary'><h5>عدد الخيارات المدخلة  : {commandeData.Wanted_Dates ? commandeData.Wanted_Dates.length : 0}  </h5></div>
                 <div className='col-4 align-self-center text-start'></div>
             </div>
-            <Input icon='calendar alternate' type='date' defaultValue={new Date().toISOString().split('T')[0]}  iconPosition='left'   fluid className='mb-1' value={articleNow.Wanted_Day} onChange={(e) => setArticleNow({...articleNow, Wanted_Day: e.target.value })}/>
+            <Input icon='calendar alternate' type='date'   iconPosition='left'   fluid className='mb-1' value={articleNow.Wanted_Day} onChange={(e) => setArticleNow({...articleNow, Wanted_Day: e.target.value })}/>
             <div className='row'>
-                <div className='col-6'><small className='ms-4'>من : </small><Input className='mb-3' type='time' fluid value={articleNow.Wanted_Time_D}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setArticleNow({...articleNow, Wanted_Time_D: e.target.value })}  /></div>
-                <div className='col-6'><small className='ms-2'>من : </small><Input className='mb-3' type='time' fluid value={articleNow.Wanted_Time_F}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setArticleNow({...articleNow, Wanted_Time_F: e.target.value })}  /></div>
+                <div className='col-6'><small className='ms-4'>من : </small><Input className='mb-3' type='time' fluid value={articleNow.Wanted_Time_D}    onChange={(e) => setArticleNow({...articleNow, Wanted_Time_D: e.target.value })}  /></div>
+                <div className='col-6'><small className='ms-2'>من : </small><Input className='mb-3' type='time' fluid value={articleNow.Wanted_Time_F}   onChange={(e) => setArticleNow({...articleNow, Wanted_Time_F: e.target.value })}  /></div>
             </div>
             <br />
             <Button disabled={disabledSaveBtn}  fluid className='rounded-pill' size='small' color='blue' onClick={AddArticleToList}>  <Icon name='edit outline' className='ms-2' /> أضف </Button>
@@ -42,7 +42,7 @@ const EnterCard = ({articleNow, setArticleNow, disabledSaveBtn, commandeData, Ad
 }
 const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn, tag, loaderState}) =>{
     /* Const */
-    const [articleNow, setArticleNow] = useState({PK: 1 , Name:'', Qte: ''})
+    const [articleNow, setArticleNow] = useState({PK: 1 , Name:'', Qte: '', Wanted_Day: new Date().toISOString().split('T')[0], Wanted_Time_D : new Date().toLocaleTimeString('fr-FR'), Wanted_Time_F: new Date().toLocaleTimeString('fr-FR') })
     const PannierPannes = [
         {
           menuItem: { key: 'enter',   content:  <span> <span className='bi bi-1-circle  bi-sm me-2 ms-2 ' style={{color :GConf.ADIL[tag].themeColor}}></span>   </span> , dir:'rtl'},
@@ -71,16 +71,16 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         else if (articleNow.Wanted_Time_F == '') { toast.error("أدخل الكمية      !", GConf.TostErrorGonf) } 
         else {
  
-            commandeData.articles.push(articleNow)
-            //setArticleNow({PK: commandeData.articles.length + 1 , Name:new Date().toLocaleTimeString('fr-FR'), Qte: new Date().toLocaleTimeString('fr-FR')})
+            commandeData.Wanted_Dates.push(articleNow)
+            //setArticleNow({PK: commandeData.Wanted_Dates.length + 1 , Name:new Date().toLocaleTimeString('fr-FR'), Qte: new Date().toLocaleTimeString('fr-FR')})
         }
         
     }
     const DeleteFromUpdateList = (value) =>{
-        const searchObject= commandeData.articles.findIndex((article) => article.A_Code == value);
-        commandeData.articles.splice(searchObject, 1);
-        let resteArticles = commandeData.articles;
-        setCommandeD({...commandeData, articles: resteArticles})
+        const searchObject= commandeData.Wanted_Dates.findIndex((article) => article.A_Code == value);
+        commandeData.Wanted_Dates.splice(searchObject, 1);
+        let resteWanted_Dates = commandeData.Wanted_Dates;
+        setCommandeD({...commandeData, Wanted_Dates: resteWanted_Dates})
     }
 
     /* Card */
@@ -100,8 +100,8 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         }
         return (<>
         <div className='card-body mt-2'>
-            {commandeData.articles.length != 0 ? 
-             <>{commandeData.articles.map( (val, index) => <ListCard key={index} dataA={val}/>)}</>
+            {commandeData.Wanted_Dates.length != 0 ? 
+             <>{commandeData.Wanted_Dates.map( (val, index) => <ListCard key={index} dataA={val}/>)}</>
              :
              <div className='text-center'>
                 <span className='bi bi-list-columns-reverse bi-lg'></span>
@@ -112,27 +112,7 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         </>)
     }
     
-    const ConfirmCard = () =>{
-        return (<>
-        <div className='card-body mt-2'>
-            <div className='row mb-2'>
-            <small className='text-danger text-end'  dir='rtl'>لا نعلم هل خدمة التوصيل متوفرة أم لا </small>
-                <div className='col-12'  dir='ltr'>
-                    
-                    <Select options={Livraisonoptions} fluid placeholder='شركة التوصيل ' className='mb-3' onChange={(e, data) => setCommandeD({...commandeData, Livraison_Par: data.value })}  />
-                </div>
-                <div className='col-12'>
-                    <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> وقت التوصيل المطلوب</h5>
-                    <Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-1' value={commandeData.Wanted_Day} onChange={(e) => setCommandeD({...commandeData, Wanted_Day: e.target.value })}/>
-                    <Input className='mb-3' type='time' fluid value={commandeData.Wanted_Time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, Wanted_Time: e.target.value })}  />
-                </div>
-                <div className='col-12'>
-                    <Button  className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[tag].themeColor}} disabled={disabledSaveBtn} fluid onClick={SaveCMDFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
-                </div>
-            </div>
-        </div>
-        </>)
-    }
+ 
         
     return(<>
         <Tab menu={{secondary: true, color: 'grey' , widths: PannierPannes.length , pointing: true, selected: { backgroundColor: GConf.ADIL[tag].themeColor },  dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={PannierPannes} /> 
@@ -141,7 +121,7 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
 
 function WeddingChefSpecific(props) {
     /* ############### Const #################*/
-    const [commandeData, setCommandeD] = useState({Wanted_Day: new Date().toISOString().split('T')[0] , articles:[]})
+    const [commandeData, setCommandeD] = useState({Wanted_Day: new Date().toISOString().split('T')[0] , Res_Position:{Gouv:'', Deleg:'', Lat:'', Lng:''},  Wanted_Dates:[]})
     const [rendyVousD, setRdvData] = useState([])
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
@@ -162,35 +142,17 @@ function WeddingChefSpecific(props) {
     const [searchForArticle, setSearchForArticle] = useState('')
 
    /* ############### Functions #################*/
-    const saveFunction = () =>{
-        if (!rendyVousD.comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
-        else if (!rendyVousD.date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+   const SaveCMDFunc = () =>{
+        if (commandeData.Wanted_Dates.length == 0 ) {toast.error("أدخل  أيام مقترحة    !", GConf.TostErrorGonf)}
+        else if (!commandeData.Res_Genre  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Res_Position.Gouv ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Res_Position.Deleg) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Estimate_Presence) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Comment) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
         else{
+
             setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/docteur-rdv`, {
-                UID : props.UID,
-                PID : props.PID ,
-                TAG : props.TAG ,
-                rendyVousData : rendyVousD,
-            }).then(function (response) {
-                toast.success(<><div><h5>تم تسجيل الموعد بنجاح </h5>  </div></>, GConf.TostInternetGonf)
-                setLS(false)
-                setDisabledBtn(true)
-            }).catch((error) => {
-                if(error.request) {
-                  toast.error(<><div><h5> لم يتم تسجيل الموعد</h5> حاول مرة أخري  </div></>, GConf.TostInternetGonf)   
-                  setLS(false)
-                }
-            });
-        } 
-    }
-    const SaveCMDFunc = () =>{
-        if (commandeData.articles.length == 0 ) {toast.error("أدخل  منتجات   !", GConf.TostErrorGonf)}
-        else if (!commandeData.Wanted_Day  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
-        else{
-            console.log(commandeData)
-            setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/pharmacie-shop`, {
+            axios.post(`${GConf.ApiLink}/Action/chef-reserver`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,
@@ -201,8 +163,8 @@ function WeddingChefSpecific(props) {
                 setDisabledBtn(true)
             }).catch((error) => {
                 if(error.request) {
-                  toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de connecter aux systeme </div></>, GConf.TostInternetGonf)   
-                  setLS(false)
+                toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de connecter aux systeme </div></>, GConf.TostInternetGonf)   
+                setLS(false)
                 }
             });
         } 
@@ -214,20 +176,13 @@ function WeddingChefSpecific(props) {
          
     }
     const SelectPosition = () => {
-        setModalOpen(false)
-        if (!searchForArticle || searchForArticle == '') {  toast.error("أدخل إسم المنتج    !", GConf.TostErrorGonf) } 
+        //setModalOpen(false)
+        if (!gouv || gouv == '') {  toast.error("أدخل إسم الولاية    !", GConf.TostErrorGonf) } 
+        else if (!gouv || gouv == '') {  toast.error("أدخل إسم المعتمدية    !", GConf.TostErrorGonf) } 
+        else if (!targetPosition) {  toast.error("أدخل   الموقع الجغرافي    !", GConf.TostErrorGonf) } 
         else {
-            // axios.post(`${GConf.ApiLink}/Action/pharmacie-shop/medicamment`, {
-            //     searchForArticle : searchForArticle,
-            // }).then(function (response) {
-            //     console.log(response.data)
-            //     setRendredMedicammentListe(response.data)
-            // }).catch((error) => {
-            //     if(error.request) {
-            //       toast.error(<><div><h5>   </h5> حاول مرة أخري  </div></>, GConf.TostInternetGonf)   
-                  
-            //     }
-            // });
+            setCommandeD({...commandeData, Res_Position: {Gouv: gouv, Deleg: deleg, Lat: targetPosition[0], Lng:targetPosition[1]} })
+            setModalOpen(false)
         }
     }
     const handleLocationSelected = (location) => {
@@ -239,28 +194,29 @@ function WeddingChefSpecific(props) {
         <div className='m-0'>
                 <div   dir='rtl' className='card card-body shadow-sm pt-4 border-div'>
                     <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  سبب الحجز  </h5>
-                    <small>  لماذا تريد حجز موعد   </small> 
-                    <Select fluid placeholder='نوع الحجز' options={serviceOptions} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                    <small>  لماذا تريد حجز القاعة   </small> 
+                    <Select fluid placeholder='نوع الحجز' options={serviceOptions} onChange={ (e,data) => setCommandeD({...commandeData, Res_Genre	: data.value})} />
                     
                     <h5 className='mb-2 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> الأوقات التي تود الحجز فيها  </h5>
                     <CommandeCard commandeData={commandeData} setCommandeD={setCommandeD} SaveCMDFunc={SaveCMDFunc} disabledSaveBtn={disabledSaveBtn} tag={props.TAG} loaderState={loaderState} /> 
 
                     <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-calendar2'></span> حدد الموقع الجغرافي </h5>
                     <div className='card p-2 shadow-sm border-div'  onClick={() => setModalOpen(true)}>
-                        {false ? <div className='text-center'> المكان الجغرافي </div> : <div className='text-center'><Icon name='plus' /></div>}
+                        {commandeData.Res_Position.Gouv != '' ? <div className='text-center'><div><b>{commandeData.Res_Position.Gouv}, {commandeData.Res_Position.Deleg} </b></div><small>{commandeData.Res_Position.Lat}, {commandeData.Res_Position.Lng}</small></div> : <div className='text-center'><Icon name='map marker alternate' /></div>}
+                      
                     </div>
 
                     <h5 className='mb-2' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> عدد الحضور المحتمل ؟ </h5>
                     <small>  كم عدد الإستدعاءات </small> 
-                    <Input icon='pin'   placeholder=' عدد الحضور' value={rendyVousD.Estimete}  onChange={ (e) => setRdvData({...rendyVousD, Estimete: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+                    <Input icon='pin'   placeholder=' عدد الحضور' value={commandeData.Estimate_Presence}  onChange={ (e) => setCommandeD({...commandeData, Estimate_Presence: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
 
                     <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>        
                     <Form className='mb-3'>
-                        <TextArea placeholder='ماهي الأكلات المطلوبة' className='font-droid'  rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                        <TextArea placeholder='ماهي الأكلات المطلوبة' className='font-droid'  rows={2} value={commandeData.Comment} onChange={ (e,value) => setCommandeD({...commandeData, Comment:e.target.value})} />
                     </Form>
 
                     <div className='col-12 mt-4'>
-                        <Button  className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[props.TAG].themeColor}} disabled={disabledSaveBtn}   onClick={SaveCMDFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
+                        <Button  fluid className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[props.TAG].themeColor}} disabled={disabledSaveBtn}   onClick={SaveCMDFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
                     </div>
 
                 </div>
@@ -293,7 +249,7 @@ function WeddingChefSpecific(props) {
                             <Select fluid placeholder='إختر منطقة' className='shadow-sm' value={deleg} options={delegList} onChange={(e, { value }) => setDeleg(value)} />
                         </div>
                         <div className='mb-3 mt-3' >
-                        <Button  fluid className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[props.TAG].themeColor}} disabled={disabledSaveBtn}   onClick={() => SelectPosition()}><Icon name='save' className='ms-2' /> تأكيد  </Button>
+                            <Button  fluid className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[props.TAG].themeColor}} disabled={disabledSaveBtn}   onClick={() => SelectPosition()}><Icon name='save' className='ms-2' /> تأكيد  </Button>
                         </div>
                 </Modal.Content>
                 </Modal>

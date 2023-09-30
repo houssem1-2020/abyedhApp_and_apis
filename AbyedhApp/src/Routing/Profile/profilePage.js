@@ -18,6 +18,7 @@ import { Swiper, SwiperSlide, } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
+import { useLocation } from 'react-router-dom';
 
 import DocteurSpecific from './Specific/docteur'; 
 import CliniqueSpecific from './Specific/clinique'; 
@@ -360,6 +361,7 @@ const CommentsCard = ({tag, profileData,rateValue,setRateValue,SaveRating }) =>{
 function ProfilePage() {
     /*#########################[Const]##################################*/
         let {tag,PID} = useParams()
+        const isAction = new URLSearchParams(useLocation().search).get('action')
         let [loading,setLoading] =useState(true)
         let [rateValue,setRateValue] =useState({comment:'', rating:0})
         let [isFavorite,setIsFavorite] =useState(false)
@@ -422,6 +424,7 @@ function ProfilePage() {
         const [activeIndex, setActiveIndex] = useState(0)
     /* ############### UseEffect #################*/
         useEffect(() => {
+        if (isAction) { setActiveIndex(2) }
         window.scrollTo(0, 0);
         axios.post(`${GConf.ApiLink}/profile`, {
             tag: tag,
@@ -564,35 +567,51 @@ function ProfilePage() {
             </>)
         }
 
-        const HeaderCard = () =>{
+        const HeaderCard = (props) =>{
             return(<>
 
                 {/* <div className="card-header  border-div" style={{marginBottom:'50px', marginTop:'30px', backgroundColor: ConverColorToHsl(GConf.ADIL[tag].themeColor) , color: "black"}}> */}
                 {/* <div className="card-header   rounded-0" style={{marginBottom:'35px', marginTop:'30px', background: `linear-gradient(to top, ${ConverColorToHsl(GConf.ADIL[tag].themeColor)},  #ffffff` , border: '0px solid' , color: "black"}}> */}
-                <div className="card-header  border rounded-0" style={{marginBottom:'35px', marginTop:'30px',  backgroundImage: `url(https://cdn.abyedh.tn/images/ads/${tag}.svg)` , backgroundSize: 'auto', backgroundPosition: 'center', backgroundColor: 'rgba(255, 255, 255, 0.1)',  border: '0px solid' , color: "black"}}>
-                    <div style={{ content: '',  background: 'rgba(255, 255, 255, 0.7)',  position: 'absolute', top: 0, left: 0, width: '100%', height: '150px', }}></div>
-                    <span
-                        style={{
-                        width: '100px',
-                        height: '100px',
-                        borderRadius: '50%',
-                        }}
-                        className="card-img shadow"
-                    >   
-                        <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white' width='100px'  height='100px' />
+                <div  style={{ position:'relative'}}>
+                    <div className="card-header  border rounded-0" style={{marginBottom:'35px', marginTop:'30px',  backgroundImage: `url(https://cdn.abyedh.tn/images/ads/${tag}.svg)` , backgroundSize: 'auto', backgroundPosition: 'center', backgroundColor: 'rgba(255, 255, 255, 0.1)',  border: '0px solid' , color: "black"}}>
+                        <div style={{ content: '',  background: 'rgba(255, 255, 255, 0.7)',  position: 'absolute', top: 0, left: 0, width: '100%', height: '150px', }}></div>
+                        <span
+                            style={{
+                            width: '100px',
+                            height: '100px',
+                            borderRadius: '50%',
+                            }}
+                            className="card-img shadow"
+                        >   
+                            <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white' width='100px'  height='100px' />
+                            
+                        </span>
+                        <span
+                            style={{
+                            width: '50px',
+                            height: '50px',
+                            borderRadius: '50%',
+                            }}
+                            className="card-img-icon d-lg-none"
+                        >   
+                            <Button className='rounded-circle border shadow-sm' disabled={!GConf.UserData.Logged} onClick={() => AddToFarite()} icon size='large' style={{backgroundColor: isFavorite ?  GConf.ADIL[tag].themeColor : '#ffffff' }} > <Icon name='heart' style={{color: isFavorite ? '#ffffff' : GConf.ADIL[tag].themeColor}} /> </Button>
+                            
+                        </span>
                         
-                    </span>
-                    <span
-                        style={{
-                        width: '50px',
-                        height: '50px',
-                        borderRadius: '50%',
-                        }}
-                        className="card-img-icon d-lg-none"
-                    >   
-                        <Button className='rounded-circle border shadow-sm' disabled={!GConf.UserData.Logged} onClick={() => AddToFarite()} icon size='large' style={{backgroundColor: isFavorite ?  GConf.ADIL[tag].themeColor : '#ffffff' }} > <Icon name='heart' style={{color: isFavorite ? '#ffffff' : GConf.ADIL[tag].themeColor}} /> </Button>
+                    </div>
+                    <div className='floating-card-result-card pt-4 ms-2 '>
+                        {loading ? 
+                        <></>
+                        :
+                        <>
+                            <span className=" m-2 text-dark"> {profileData.genrale[0].Rating_Resume == '' ? props.randomRate : profileData.genrale[0].Rating_Resume} <Rating className='d-inline' maxRating={5} defaultRating={props.randomRate} icon='star' disabled size='small' /> ({Math.floor(Math.random() * (400 - 1 + 1)) + 1})</span>
+                            <span className=" m-2 text-dark">| <span className='bi bi-hand-thumbs-up-fill'></span> {profileData.genrale[0].Likes_Num} </span>
+                            <span className=" m-2 text-dark">| <span className='bi bi-eye-fill'></span> {profileData.genrale[0].Views_Num >= 1000 ? (parseInt(profileData.genrale[0].Views_Num.toString().substring(0, 4)) / 1000).toFixed(1) + 'K' :  profileData.genrale[0].Views_Num}</span>
+                        </>
+                        }
                         
-                    </span>
+                        
+                    </div>
                 </div>
             </>)
         }
@@ -1120,7 +1139,7 @@ function ProfilePage() {
         };
     return ( <>
             <TopNavBar /> 
-            <HeaderCard />
+            <HeaderCard randomRate={((Math.random() * (5 - 2)) + 2).toFixed(1)}/>
             <br />
             <div className='container'>
             

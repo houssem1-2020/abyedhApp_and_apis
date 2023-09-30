@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import GConf from '../../AssetsM/generalConf';
-import { Tab } from 'semantic-ui-react'
+import {  Dimmer, Tab } from 'semantic-ui-react'
 import { Button, Icon, Input, Modal, Form, TextArea,  Loader, Select } from 'semantic-ui-react'
 import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -23,67 +23,102 @@ const MapEventsHandler = ({ onLocationSelected }) => {
 
 const CommandeCard = ({commandeData, setCommandeD, myPosition, loaderState, disabledSaveBtn, SaveCommande, targetPosition, handleLocationSelected}) =>{
     const optionBagage = [
-        {key : 1 , value : 'true', text :'نعم'},
-        {key : 2 , value : 'false', text :'لا'}
+        {key : 2 , value : 'لا', text :'لا'},
+        {key : 1 , value : 'نعم', text :'نعم'},
+        
     ]
+    const handleLocationSelectedFrom = (location) => {
+        setCommandeD({...commandeData, targetPositionFrom: {Lat: location.lat , Lng : location.lng} })
+    };
+    const handleLocationSelectedTo = (location) => {
+        setCommandeD({...commandeData, targetPositionTo: {Lat: location.lat , Lng : location.lng} })
+    };
     return(<>
-            <h5 className='text-end'>إختر المكان الذي تود الذهاب إليه </h5>
-            <MapContainer center={myPosition} zoom={15} scrollWheelZoom={false} className="map-height cursor-map-crosshair border-div">
+            <h5 className='text-end'>إختر   مكان الإنطلاق </h5>
+            <MapContainer center={[commandeData.targetPositionFrom.Lat, commandeData.targetPositionFrom.Lng]} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
                 <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <MapEventsHandler onLocationSelected={handleLocationSelected} />
-                <Marker position={targetPosition}>
-                    <Popup>
-                        
-                    </Popup>
-                </Marker>
+                <MapEventsHandler onLocationSelected={handleLocationSelectedFrom} />
+                <Marker position={[commandeData.targetPositionFrom.Lat, commandeData.targetPositionFrom.Lng]}> <Popup> </Popup> </Marker>
+            </MapContainer>
+
+            <h5 className='text-end'>إختر   مكان الوصول </h5>
+            <MapContainer center={[commandeData.targetPositionTo.Lat, commandeData.targetPositionTo.Lng]} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
+                <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <MapEventsHandler onLocationSelected={handleLocationSelectedTo} />
+                <Marker position={[commandeData.targetPositionTo.Lat, commandeData.targetPositionTo.Lng]}> <Popup> </Popup> </Marker>
             </MapContainer>
 
             <h5 className='text-end'>هل لديك أمتعة ؟ </h5>
-            <Select placeholder='إختر ولاية' fluid className='mb-2' options={optionBagage} value={commandeData.bagage} onChange={(e, data) => setCommandeD({...commandeData, bagage: data.value })} />
-
+            <Select placeholder='إختر ولاية' fluid className='mb-2' options={optionBagage} value={commandeData.Bagage} onChange={(e, data) => setCommandeD({...commandeData, Bagage: data.value })} />
+             
             <div className=' mt-4' dir='ltr'>
-                <Button  className='rounded-pill text-white    '  style={{backgroundColor: GConf.Tools.taxi.themeColor}} disabled={disabledSaveBtn} fluid onClick={() => SaveCommande()}>  <Icon name='save' className='ms-4  ' /> تسجيل  <Loader inverted active={loaderState} inline  size='tiny' className='ms-4  ' /></Button>
+                <Button  className='rounded-pill text-white    '  style={{backgroundColor: GConf.Tools.taxi.themeColor}} disabled={disabledSaveBtn} fluid onClick={() => SaveCommande()}>  <Icon name='save' className='ms-4  ' /> تسجيل  </Button>
             </div>
-
+            <Dimmer active={loaderState} inverted className='border-div'>
+                <Loader inverted> </Loader>
+            </Dimmer>
 
     </>)
 }
 
 const ReservationCard = ({reservationD, setReservationD, myPosition , loaderState, disabledSaveBtn, SaveReservation, targetPosition, handleLocationSelected}) =>{
     const optionBagage = [
-        {key : 1 , value : 'true', text :'نعم'},
-        {key : 2 , value : 'false', text :'لا'}
+        {key : 2 , value : 'لا', text :'لا'},
+        {key : 1 , value : 'نعم', text :'نعم'},
     ]
+    const handleLocationSelectedFrom = (location) => {
+        setReservationD({...reservationD, targetPositionFrom: {Lat: location.lat , Lng : location.lng} })
+    };
+    const handleLocationSelectedTo = (location) => {
+        setReservationD({...reservationD, targetPositionTo: {Lat: location.lat , Lng : location.lng} })
+    };
+    
     return(<>
-            <h5 className='text-end'>هل لديك أمتعة ؟ </h5>
-            <Input icon='circle'  size="small" iconPosition='left'   fluid className='mb-3' value={reservationD.Table_Num} onChange={(e) => setReservationD({...reservationD, Table_Num: e.target.value })}/>
+            <h5 className='text-end'> عدد الأشخاص</h5>
+            <Input icon='user' type='number' size="small" iconPosition='left' placeholder='عدد الأشخاص'  fluid className='mb-3' value={reservationD.Nombre} onChange={(e) => setReservationD({...reservationD, Nombre: e.target.value })}/>
             
-            <h5 className='text-end'>هل لديك أمتعة ؟ </h5>
-            <Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-3' value={reservationD.Wanted_Date} onChange={(e) => setReservationD({...reservationD, Wanted_Date: e.target.value })}/>
+            <h5 className='text-end'>حدد وقت الحجز</h5>
+            <div className='row'>
+                <div className='col-6'><Input icon='calendar alternate' type='time' size="small" iconPosition='left'   fluid className='mb-3' value={reservationD.RDV_Time} onChange={(e) => setReservationD({...reservationD, RDV_Time: e.target.value })}/></div>
+                <div className='col-6'><Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-3' value={reservationD.RDV_Date} onChange={(e) => setReservationD({...reservationD, RDV_Date: e.target.value })}/></div>
+            </div>
+            
 
-            <h5 className='text-end'>إختر المكان الذي تود الذهاب إليه </h5>
-            <MapContainer center={myPosition} zoom={15} scrollWheelZoom={false} className="map-height cursor-map-crosshair border-div">
+            <h5 className='text-end'>إختر   مكان الإنطلاق </h5>
+            <MapContainer center={[reservationD.targetPositionFrom.Lat, reservationD.targetPositionFrom.Lng]} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
                 <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <MapEventsHandler onLocationSelected={handleLocationSelected} />
-                <Marker position={targetPosition}>
-                    <Popup>
-                        
-                    </Popup>
-                </Marker>
+                <MapEventsHandler onLocationSelected={handleLocationSelectedFrom} />
+                <Marker position={[reservationD.targetPositionFrom.Lat, reservationD.targetPositionFrom.Lng]}> <Popup> </Popup> </Marker>
+            </MapContainer>
+
+            <h5 className='text-end'>إختر   مكان الوصول </h5>
+            <MapContainer center={[reservationD.targetPositionTo.Lat, reservationD.targetPositionTo.Lng]} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
+                <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <MapEventsHandler onLocationSelected={handleLocationSelectedTo} />
+                <Marker position={[reservationD.targetPositionTo.Lat, reservationD.targetPositionTo.Lng]}> <Popup> </Popup> </Marker>
             </MapContainer>
 
             <h5 className='text-end'>هل لديك أمتعة ؟ </h5>
-            <Select placeholder='إختر ولاية' fluid className='mb-2' options={optionBagage} value={reservationD.bagage} onChange={(e, data) => setReservationD({...reservationD, bagage: data.value })} />
-
+            <Select placeholder='إختر ولاية' fluid className='mb-2' options={optionBagage} value={reservationD.Bagage} onChange={(e, data) => setReservationD({...reservationD, Bagage: data.value })} />
+             
             <div className=' mt-4' dir='ltr'>
-                <Button  className='rounded-pill text-white    '  style={{backgroundColor: GConf.Tools.taxi.themeColor}} disabled={disabledSaveBtn} fluid onClick={() => SaveReservation()}>  <Icon name='save' className='ms-4  ' /> تسجيل  <Loader inverted active={loaderState} inline  size='tiny' className='ms-4  ' /></Button>
+                <Button  className='rounded-pill text-white    '  style={{backgroundColor: GConf.Tools.taxi.themeColor}} disabled={disabledSaveBtn} fluid onClick={() => SaveReservation()}>  <Icon name='save' className='ms-4  ' /> تسجيل   </Button>
             </div>
+            <Dimmer active={loaderState} inverted className='border-div'>
+                <Loader inverted> </Loader>
+            </Dimmer>
     </>)
 }
 
@@ -93,8 +128,9 @@ function CollectivTaxiPage() {
     const [targetPosition, setTragetPosition] = useState([36.17720,9.12337])
     const [taxiPosition, setTaxiPosition] = useState([])
     const [modalS, setModalS] = useState(false)
-    const [commandeData, setCommandeD] = useState({Wanted_Date: new Date().toISOString().split('T')[0] , bagage:''})
-    const [reservationD, setReservationD] = useState([])
+    const [modalInfoS, setModalInfoS] = useState(false)
+    const [commandeData, setCommandeD] = useState({bagage:'', targetPositionFrom: {Lat: 36.17720 , Lng : 9.12337}, targetPositionTo: {Lat: 36.17720 , Lng : 9.12337}})
+    const [reservationD, setReservationD] = useState({RDV_Date: new Date().toISOString().split('T')[0] , RDV_Time: new Date().toLocaleTimeString('fr-FR') ,  targetPositionFrom: {Lat: 36.17720 , Lng : 9.12337}, targetPositionTo: {Lat: 36.17720 , Lng : 9.12337} })
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
 
@@ -142,47 +178,46 @@ function CollectivTaxiPage() {
         );
     }
     const SaveCommande = () =>{
-        if (!commandeData.bagage) {toast.error("أدخل رقم الطاولة !", GConf.TostErrorGonf)}
-        else if (!commandeData.targetPosition) {toast.error("أدخل اليوم المطلوب !", GConf.TostErrorGonf)}
-        else if (!commandeData.myPosition) {toast.error("أدخل اليوم المطلوب !", GConf.TostErrorGonf)}
+        if (!commandeData.Bagage) {toast.error("أدخل  هل لديك أمتعة أم لا    !", GConf.TostErrorGonf)}
+        else if (!commandeData.targetPositionFrom) {toast.error("أدخل  منطقة الأنطلاق !", GConf.TostErrorGonf)}
+        else if (!commandeData.targetPositionTo) {toast.error("أدخل منطقة الوصول !", GConf.TostErrorGonf)}
         else{
+            console.log(commandeData)
             setLS(true)
-            // axios.post(`${GConf.ApiLink}/Action/restaurant-commande`, {
-            //     // UID : props.UID,
-            //     // PID : props.PID ,
-            //     // TAG : props.TAG ,
-            //     commandeD : commandeData,
-            // }).then(function (response) {
-            //     toast.success(<><div><h5>تم التسجيل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
-            //     setLS(false)
-            //     setDisabledBtn(true)
-            // }).catch((error) => {
-            //     if(error.request) {
-            //       toast.error(<><div><h5>مشكل في الإتصال</h5>  </div></>, GConf.TostInternetGonf)   
-            //       setLS(false)
-            //     }
-            // });
+            axios.post(`${GConf.ApiLink}/Action/taxi-request`, {
+                UID : GConf.UserData.UData.UID,
+                TAG : 'taxi' ,
+                commandeD : commandeData,
+            }).then(function (response) {
+                //toast.success(<><div><h5>تم التسجيل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+                setLS(false)
+                setDisabledBtn(true)
+            }).catch((error) => {
+                if(error.request) {
+                  //toast.error(<><div><h5>مشكل في الإتصال</h5>  </div></>, GConf.TostInternetGonf)   
+                  setLS(false)
+                }
+            });
         } 
     }
     const SaveReservation = () =>{
-        if (!reservationD.User_Name) {toast.error("أدخل صاحب الحجز !", GConf.TostErrorGonf)}
-        else if (!reservationD.Wanted_Date) {toast.error("ادخل موعد الحجز  !", GConf.TostErrorGonf)}
-        else if (!reservationD.Wanted_Time) {toast.error("ادخل زمن الحجز  !", GConf.TostErrorGonf)}
-        else if (!reservationD.Table_Num) {toast.error("ادخل رقم الطاولة  !", GConf.TostErrorGonf)}
-        else if (!reservationD.Comment) {toast.error("ادخل تعليق  !", GConf.TostErrorGonf)}
+        if (!reservationD.Nombre) {toast.error("أدخل صاحب الحجز !", GConf.TostErrorGonf)}
+        else if (!reservationD.RDV_Date) {toast.error("ادخل موعد الحجز  !", GConf.TostErrorGonf)}
+        else if (!reservationD.RDV_Time) {toast.error("ادخل زمن الحجز  !", GConf.TostErrorGonf)}
+        else if (!reservationD.Bagage) {toast.error("ادخل رقم الطاولة  !", GConf.TostErrorGonf)}
         else{
             setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/restaurant-reservation`, {
-                // UID : props.UID,
-                // PID : props.PID ,
-                // TAG : props.TAG ,
+            axios.post(`${GConf.ApiLink}/Action/taxi-rdv`, {
+                UID : GConf.UserData.UData.UID,
+                TAG : 'taxi' ,
                 reservationData : reservationD,
             }).then(function (response) {
-                toast.success(<><div><h5>تم التسجيل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+                //toast.success(<><div><h5>تم التسجيل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+                setDisabledBtn(true)
                 setLS(false)
             }).catch((error) => {
                 if(error.request) {
-                  toast.error(<><div><h5>مشكل في الإتصال</h5></div></>, GConf.TostInternetGonf)   
+                  //toast.error(<><div><h5>مشكل في الإتصال</h5></div></>, GConf.TostInternetGonf)   
                   setLS(false)
                 }
             });
@@ -192,6 +227,7 @@ function CollectivTaxiPage() {
         setTragetPosition([location.lat , location.lng])
         commandeData.targetPosition = {Lat: location.lat , Lng : location.lng}
     };
+
     /* ###########################[Card]############################# */
     const TopNavBar = () =>{
         const UserCard = () =>{
@@ -255,7 +291,7 @@ function CollectivTaxiPage() {
         <div className="floating-card" style={{zIndex: 10000}} onClick={ () => setModalS(true)}>
             <i className="bi bi-diagram-2-fill"></i>
         </div>
-        <div className="floating-card-2" style={{zIndex: 10000}} onClick={ () => setModalS(true)}>
+        <div className="floating-card-2" style={{zIndex: 10000}} onClick={ () => setModalInfoS(true)}>
             <i className="bi bi-search"></i>
         </div>
         <Modal
@@ -277,6 +313,22 @@ function CollectivTaxiPage() {
                 </Modal.Content>
                 <Modal.Actions>
                         <Button className='rounded-pill' negative onClick={ () => setModalS(false)}> <span className='bi bi-x' ></span> غلق </Button>
+                </Modal.Actions>
+        </Modal>
+        <Modal
+                size='small'
+                open={modalInfoS}
+                dimmer= 'blurring'
+ 
+                onClose={() => setModalInfoS(false)}
+                onOpen={() => setModalInfoS(true)}
+            >
+                <Modal.Header><h5 className='text-end card-body'>  التاكسي الجماعي في تونس </h5></Modal.Header>
+                <Modal.Content scrolling>
+                    Info Modal 
+                </Modal.Content>
+                <Modal.Actions>
+                     
                 </Modal.Actions>
         </Modal>
 

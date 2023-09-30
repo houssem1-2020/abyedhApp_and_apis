@@ -11,15 +11,15 @@ import { useEffect } from 'react';
 const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn, tag, loaderState}) =>{       
     return(<>
         <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  إسم المسرحية</h5>
-        <Input className='mb-1' fluid icon='user' placeholder=' إسم المسرحية ' value={commandeData.User_Name} onChange={(e) => setCommandeD({...commandeData, User_Name: e.target.value })} />
+        <Input className='mb-1' fluid icon='user' placeholder=' إسم المسرحية ' value={commandeData.Movie_Name} onChange={(e) => setCommandeD({...commandeData, Movie_Name: e.target.value })} />
 
         <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> المخرج </h5>
-        <Input className='mb-1' fluid icon='user' placeholder='المخرج  ' value={commandeData.User_Name} onChange={(e) => setCommandeD({...commandeData, User_Name: e.target.value })} />
+        <Input className='mb-1' fluid icon='user' placeholder='المخرج  ' value={commandeData.Director_Name} onChange={(e) => setCommandeD({...commandeData, Director_Name: e.target.value })} />
 
         <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> تاريخ العرض </h5>
         <div className='row mb-0'>
-            <div className='col-6'><Input className='mb-2' type='date' fluid alue={commandeData.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setCommandeD({...commandeData, date: e.target.value })}  /></div> 
-            <div className='col-6'><Input className='mb-2' type='time' fluid alue={commandeData.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, time: e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-2' type='date' fluid value={commandeData.Show_Day}   onChange={(e) => setCommandeD({...commandeData, Show_Day : e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-2' type='time' fluid value={commandeData.Show_Time}   onChange={(e) => setCommandeD({...commandeData, Show_Time : e.target.value })}  /></div> 
         </div>
 
         <h5 className='mb-0 mt-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات </h5>
@@ -28,7 +28,7 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         </Form>
 
         <div className='text-end mt-3'>
-            <Button className='rounded-pill' onClick={SaveCMDFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل إشتراك  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+            <Button fluid className='rounded-pill' onClick={SaveCMDFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل إشتراك  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
         </div>
     </>)
 }
@@ -36,19 +36,19 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
 const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, tag, loaderState }) =>{
     return(<>
         <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  إسم المسرحية المقترح</h5>
-        <Input className='mb-1' fluid icon='user' placeholder=' إسم المسرحية المقترح' value={rendyVousD.User_Name} onChange={(e) => setRdvData({...rendyVousD, User_Name: e.target.value })} />
+        <Input className='mb-1' fluid icon='user' placeholder=' إسم المسرحية المقترح' value={rendyVousD.Art_Name	} onChange={(e) => setRdvData({...rendyVousD, Art_Name	: e.target.value })} />
 
         <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> المخرج </h5>
-        <Input className='mb-1' fluid icon='user' placeholder='المخرج  ' value={rendyVousD.User_Name} onChange={(e) => setRdvData({...rendyVousD, User_Name: e.target.value })} />
+        <Input className='mb-1' fluid icon='user' placeholder='المخرج  ' value={rendyVousD.Art_Director} onChange={(e) => setRdvData({...rendyVousD, Art_Director: e.target.value })} />
 
         <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> سنة الخروج للعرض  </h5>
-        <Input className='mb-1' fluid icon='user' placeholder='سنة الخروج للعرض   ' value={rendyVousD.User_Name} onChange={(e) => setRdvData({...rendyVousD, User_Name: e.target.value })} />
+        <Input className='mb-1' fluid icon='user' placeholder='سنة الخروج للعرض   ' value={rendyVousD.Year_Of_Art} onChange={(e) => setRdvData({...rendyVousD, Year_Of_Art: e.target.value })} />
 
 
         <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  التاريخ المقترح للعرض  </h5>
         <div className='row mb-0'>
-            <div className='col-6'><Input className='mb-2' type='date' fluid alue={rendyVousD.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, date: e.target.value })}  /></div> 
-            <div className='col-6'><Input className='mb-2' type='time' fluid alue={rendyVousD.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setRdvData({...rendyVousD, time: e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-2' type='date' fluid value={rendyVousD.Wanted_Day}   onChange={(e) => setRdvData({...rendyVousD, Wanted_Day: e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-2' type='time' fluid value={rendyVousD.Wanted_Time}   onChange={(e) => setRdvData({...rendyVousD, Wanted_Time: e.target.value })}  /></div> 
         </div>
 
         <h5 className='mb-0 mt-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات </h5>
@@ -57,7 +57,7 @@ const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, 
         </Form>
 
         <div className='text-end mt-3'>
-            <Button className='rounded-pill' onClick={RendyVousFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل الأقتراح  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+            <Button fluid className='rounded-pill' onClick={RendyVousFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل الأقتراح  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
         </div>
 
     </>)
@@ -65,8 +65,8 @@ const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, 
 
 function ArtTheatreSpecific(props) {
     /* ############### Const #################*/
-    const [commandeData, setCommandeD] = useState({Wanted_Day: new Date().toISOString().split('T')[0] , articles:[]})
-    const [rendyVousD, setRdvData] = useState([])
+    const [commandeData, setCommandeD] = useState({Show_Day: new Date().toISOString().split('T')[0], Show_Time: new Date().toLocaleTimeString('fr-FR') , articles:[]})
+    const [rendyVousD, setRdvData] = useState({Wanted_Day: new Date().toISOString().split('T')[0], Wanted_Time: new Date().toLocaleTimeString('fr-FR')})
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
 
@@ -95,12 +95,14 @@ function ArtTheatreSpecific(props) {
 
     /* ############### Functions #################*/
     const SaveCMDFunc = () =>{
-        if (commandeData.articles.length == 0 ) {toast.error("أدخل  منتجات   !", GConf.TostErrorGonf)}
-        else if (!commandeData.Wanted_Day  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        if (!commandeData.Movie_Name ) {toast.error("أدخل  منتجات   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Director_Name  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Show_Day  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Show_Time ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
         else{
             console.log(commandeData)
             setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/pharmacie-shop`, {
+            axios.post(`${GConf.ApiLink}/Action/theatre-reserver`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,
@@ -118,12 +120,15 @@ function ArtTheatreSpecific(props) {
         } 
     }
     const RendyVousFunc = () =>{
-        if (!rendyVousD.comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
-        else if (!rendyVousD.date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        if (!rendyVousD.Art_Name) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Art_Director) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Year_Of_Art) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Wanted_Day) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Wanted_Time) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
         else{
             setLS(true)
             console.log(rendyVousD)
-            axios.post(`${GConf.ApiLink}/Action/pharmacie-rdv`, {
+            axios.post(`${GConf.ApiLink}/Action/art-avis`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,

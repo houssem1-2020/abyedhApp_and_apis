@@ -82,7 +82,7 @@ const dirItem = {
                 { id: 1, image: 'transp', name: 'نَقْلْ بَضَائِعْ', link: 'transporteur' },
                 { id: 2, image: 'autoecole', name: 'تَعْلِيمْ سِيَاقَة', link: 'autoecole' },
                 { id: 3, image: 'taxi', name: 'تَاكْسِي', link: 'Tools/Taxi', tools:true },
-                { id: 4, image: 'louage', name: 'لٌوَّاجْ', link: 'Tools', tools:true }
+                { id: 4, image: 'louage', name: 'لٌوَّاجْ', link: 'Tools/Louage', tools:true }
         ],
         smallSlider: false,
         smallDisplay:[

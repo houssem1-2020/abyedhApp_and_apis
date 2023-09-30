@@ -12,7 +12,7 @@ const EnterCard = ({articleNow, setArticleNow, disabledSaveBtn, commandeData, Ad
     const [searchForArticle, setSearchForArticle] = useState('')
     const [rendredMedicammentListe, setRendredMedicammentListe] = useState([])
     const SearchForArticleFunc = () => {
-        if (!searchForArticle || searchForArticle == '') {  toast.error("أدخل إسم المنتج    !", GConf.TostErrorGonf) } 
+        if (!searchForArticle || searchForArticle == '') {  toast.error("أدخل إسم السائل    !", GConf.TostErrorGonf) } 
         else {
             // axios.post(`${GConf.ApiLink}/Action/pharmacie-shop/medicamment`, {
             //     searchForArticle : searchForArticle,
@@ -30,11 +30,11 @@ const EnterCard = ({articleNow, setArticleNow, disabledSaveBtn, commandeData, Ad
     return (<>
         <div className='card-body mt-2'>
             <div className='row mb-3'>
-                <div className='col-8 align-self-center text-secondary'><h5>عدد المنتجات في السلة : {commandeData.articles ? commandeData.articles.length : 0}  </h5></div>
+                <div className='col-8 align-self-center text-secondary'><h5>عدد السوائل المسجلة   : {commandeData.articles ? commandeData.articles.length : 0}  </h5></div>
                 <div className='col-4 align-self-center text-start'><Button onClick={() => setModalOpen(true)} size='small' icon className='rounded-circle'> <Icon name='plus' /> </Button></div>
             </div>
-            <Input icon='pin'   placeholder='إسم المنتج' value={articleNow.Name}  onChange={ (e) => setArticleNow({...articleNow, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
-            <Input icon='dropbox' type='number'   value={articleNow.Qte}   onChange={ (e) => setArticleNow({...articleNow, Qte: e.target.value })} size="small" iconPosition='left' placeholder='الكمية'  fluid className='mb-1' />
+            <Input icon='pin'   placeholder='إسم السائل' value={articleNow.Name}  onChange={ (e) => setArticleNow({...articleNow, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+            <Input icon='dropbox'     value={articleNow.Qte}   onChange={ (e) => setArticleNow({...articleNow, Qte: e.target.value })} size="small" iconPosition='left' placeholder='  الكمية باللتر أو بالدينار مع التوضيح'  fluid className='mb-1' />
             <br />
             <Button disabled={disabledSaveBtn}  fluid className='rounded-pill' size='small' color='blue' onClick={AddArticleToList}>  <Icon name='edit outline' className='ms-2' /> أضف </Button>
                 <Modal
@@ -65,6 +65,27 @@ const EnterCard = ({articleNow, setArticleNow, disabledSaveBtn, commandeData, Ad
         </div>
     </>)
 }
+const ConfirmCard = ({commandeData, setCommandeD, disabledSaveBtn, SaveCMDFunc , tag, loaderState}) =>{
+    return (<>
+    <div className='card-body mt-2'>
+        <div className='row mb-2'>
+            <div className='col-12 mb-3' >
+                <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> ماهو نوع سيارتك </h5>
+                <Input icon='pin'   placeholder=' نوع السيارة' value={commandeData.Car_Genre}  onChange={ (e) => setCommandeD({...commandeData, Car_Genre: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+                 
+            </div>
+            <div className='col-12'>
+                <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> وقت الحضور</h5>
+                <Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-1' value={commandeData.Wanted_Day} onChange={(e) => setCommandeD({...commandeData, Wanted_Day: e.target.value })}/>
+                <Input className='mb-3' type='time' fluid value={commandeData.Wanted_Time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, Wanted_Time: e.target.value })}  />
+            </div>
+            <div className='col-12'>
+                <Button  className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[tag].themeColor}} disabled={disabledSaveBtn} fluid onClick={SaveCMDFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
+            </div>
+        </div>
+    </div>
+    </>)
+}
 const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn, tag, loaderState}) =>{
     /* Const */
     const [articleNow, setArticleNow] = useState({PK: 1 , Name:'', Qte: ''})
@@ -79,7 +100,7 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         },
         {
             menuItem: { key: 'check',   content:  <span >  <span className='bi bi-3-circle bi-sm  me-2 ms-2' style={{color :GConf.ADIL[tag].themeColor}}></span>  </span> , dir:'rtl' },
-            render: () => <ConfirmCard />,
+            render: () => <ConfirmCard  commandeData={commandeData} setCommandeD={setCommandeD} SaveCMDFunc={SaveCMDFunc} disabledSaveBtn={disabledSaveBtn} tag={tag} loaderState={loaderState}/>,
         },
     ]
     const Livraisonoptions = [
@@ -113,12 +134,12 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
             return(<>   
                         <div className='card shadow-sm p-2   border-div ps-4 mb-2'>
                             <div className='row'>
-                            <div className='col-2 align-self-center pe-3'><b>{props.dataA.Qte} </b>  </div>
-                                <div className='col-8 col-lg-9 text-end  align-self-center'>
+                            <div className='col-4 align-self-center pe-3'><b>{props.dataA.Qte} </b>  </div>
+                                <div className='col-6 col-lg-9 text-end  align-self-center'>
                                      {props.dataA.Name} 
                                 </div>
                                 
-                                <div className='col-1 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' disabled={disabledSaveBtn} onClick={() => DeleteFromUpdateList(props.dataA.A_Code)}></Button></div>
+                                <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' disabled={disabledSaveBtn} onClick={() => DeleteFromUpdateList(props.dataA.A_Code)}></Button></div>
                             </div>
                         </div>
                     </>)
@@ -137,27 +158,7 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
         </>)
     }
     
-    const ConfirmCard = () =>{
-        return (<>
-        <div className='card-body mt-2'>
-            <div className='row mb-2'>
-                <div className='col-12 mb-3' >
-                    <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> ماهو نوع سيارتك </h5>
-                    <Input icon='pin'   placeholder=' نوع السيارة' value={commandeData.Name}  onChange={ (e) => setCommandeD({...commandeData, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
-                     
-                </div>
-                <div className='col-12'>
-                    <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> وقت الحضور</h5>
-                    <Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-1' value={commandeData.Wanted_Day} onChange={(e) => setCommandeD({...commandeData, Wanted_Day: e.target.value })}/>
-                    <Input className='mb-3' type='time' fluid value={commandeData.Wanted_Time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, Wanted_Time: e.target.value })}  />
-                </div>
-                <div className='col-12'>
-                    <Button  className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[tag].themeColor}} disabled={disabledSaveBtn} fluid onClick={SaveCMDFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
-                </div>
-            </div>
-        </div>
-        </>)
-    }
+    
         
     return(<>
         <Tab menu={{secondary: true, color: 'grey' , widths: PannierPannes.length , pointing: true, selected: { backgroundColor: GConf.ADIL[tag].themeColor },  dir:'rtl', style:{justifyContent: 'right',} }} panes={PannierPannes} /> 
@@ -182,28 +183,28 @@ const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, 
     return(<>
             <div className='p-2'>
                     <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> ماهو نوع سيارتك </h5>
-                    <Input icon='pin'   placeholder=' نوع السيارة' value={rendyVousD.Name}  onChange={ (e) => setRdvData({...rendyVousD, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+                    <Input icon='pin'   placeholder=' نوع السيارة' value={rendyVousD.Car_Genre}  onChange={ (e) => setRdvData({...rendyVousD, Car_Genre: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
                     
                     <h5 className='mb-2 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> الوقت المطلوب </h5>
                     <small> متي تريد الحضور ؟</small>
                     <div className='row mb-0'>
-                        <div className='col-6'><Input className='mb-2' type='date' fluid alue={rendyVousD.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, date: e.target.value })}  /></div> 
-                        <div className='col-6'><Input className='mb-2' type='time' fluid alue={rendyVousD.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setRdvData({...rendyVousD, time: e.target.value })}  /></div> 
+                        <div className='col-6'><Input className='mb-2' type='date' fluid alue={rendyVousD.Wanted_Day}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, Wanted_Day: e.target.value })}  /></div> 
+                        <div className='col-6'><Input className='mb-2' type='time' fluid alue={rendyVousD.Wanted_Time	}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setRdvData({...rendyVousD, Wanted_Time	: e.target.value })}  /></div> 
                     </div>
 
                     <h5 className='mb-0 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>نوع الغسيل   </h5>
                     <small>  كيف تريد أن تغسل سيارتك </small> 
-                    <Select fluid placeholder='حالة السيارة ' options={serviceOptions} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                    <Select fluid placeholder='حالة السيارة ' options={serviceOptions} onChange={ (e,data) => setRdvData({...rendyVousD, Wash_Genre:data.value})} />
  
 
                     <h5 className='mb-0 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> حالة السيارة  </h5>
                     <small>  هل سيارتك متسخة كثيرا </small> 
-                    <Select fluid placeholder='حالة السيارة ' options={stateOptions} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                    <Select fluid placeholder='حالة السيارة ' options={stateOptions} onChange={ (e,data) => setRdvData({...rendyVousD, Car_State:data.value})} />
  
                     
                     <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>        
                     <Form className='mb-3'>
-                        <TextArea   rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                        <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={rendyVousD.Comment} onChange={ (e,value) => setRdvData({...rendyVousD, Comment:e.target.value})} />
                     </Form>
 
                     <div className='text-end'>
@@ -246,11 +247,13 @@ function CarQiosqieSpecific(props) {
     /* ############### Functions #################*/
     const SaveCMDFunc = () =>{
         if (commandeData.articles.length == 0 ) {toast.error("أدخل  منتجات   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Car_Genre  ) {toast.error("أدخل  نوع السيارة   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Wanted_Time  ) {toast.error("أدخل  الوقت   !", GConf.TostErrorGonf)}
         else if (!commandeData.Wanted_Day  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
         else{
             console.log(commandeData)
             setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/pharmacie-shop`, {
+            axios.post(`${GConf.ApiLink}/Action/qiosque-request`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,
@@ -268,12 +271,15 @@ function CarQiosqieSpecific(props) {
         } 
     }
     const RendyVousFunc = () =>{
-        if (!rendyVousD.comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
-        else if (!rendyVousD.date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        if (!rendyVousD.Car_Genre) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Wash_Genre) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Wanted_Day) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Wanted_Time) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Car_State) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
         else{
             setLS(true)
             console.log(rendyVousD)
-            axios.post(`${GConf.ApiLink}/Action/pharmacie-rdv`, {
+            axios.post(`${GConf.ApiLink}/Action/qiosque-lavage`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,

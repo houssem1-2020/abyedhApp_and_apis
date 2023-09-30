@@ -31,11 +31,16 @@ function VgAgenceSpecific(props) {
 
    /* ############### Functions #################*/
     const saveFunction = () =>{
-        if (!rendyVousD.comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
-        else if (!rendyVousD.date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        if (!rendyVousD.Coutry) {toast.error("أدخل البلد !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.From_Date) {toast.error("ادخل موعد الخروج  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.To_Date) {toast.error("ادخل موعد الرجوع  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Residence) {toast.error("ادخل نوع الأقامة  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Travel_Cause) {toast.error("ادخل سبب السفر  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Travel_Genre) {toast.error("ادخل نوع السفر  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Comment) {toast.error("ادخل التفاصيل  !", GConf.TostErrorGonf)}
         else{
             setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/docteur-rdv`, {
+            axios.post(`${GConf.ApiLink}/Action/agence-service`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,
@@ -58,34 +63,34 @@ function VgAgenceSpecific(props) {
         <div className='m-0'>
                 <div   dir='rtl' className='card card-body shadow-sm pt-3 border-div'>
                         <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> البلد</h5>
-                        <Input list='languages' placeholder='البلد'   onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                        <Input list='languages' placeholder='البلد'   onChange={ (e,value) => setRdvData({...rendyVousD, Coutry:e.target.value})} />
                         <datalist id='languages'>
                             {WorldMap.map((data,index) => <option key={index} value={data.text}>{data.text}</option>)}
                         </datalist>
                  
                         <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-calendar2'></span>  مدة السفر </h5>
                         <div className='row'>
-                            <div className='col-6'><small>من </small><Input className='mb-3' type='date' fluid alue={rendyVousD.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, date: e.target.value })}  /></div> 
-                            <div className='col-6'><small>إلي </small><Input className='mb-3' type='date' fluid alue={rendyVousD.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, date: e.target.value })}  /></div> 
+                            <div className='col-6'><small>من </small><Input className='mb-3' type='date' fluid value={rendyVousD.From_Date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, From_Date: e.target.value })}  /></div> 
+                            <div className='col-6'><small>إلي </small><Input className='mb-3' type='date' fluid value={rendyVousD.To_Date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, To_Date: e.target.value })}  /></div> 
                             
                         </div>
                         
                         <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> الإقامة</h5>
-                        <Select fluid placeholder=' ' options={stayOptions} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                        <Select fluid placeholder=' ' options={stayOptions} onChange={ (e,data) => setRdvData({...rendyVousD, Residence:data.value})} />
 
                         <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> سبب السفر</h5>
-                        <Select fluid placeholder=' ' options={transCauseOption} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                        <Select fluid placeholder=' ' options={transCauseOption} onChange={ (e,data) => setRdvData({...rendyVousD, Travel_Cause:data.value})} />
 
                         <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> السفر عبر </h5>
-                        <Select fluid placeholder=' ' options={transWayptions} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                        <Select fluid placeholder=' ' options={transWayptions} onChange={ (e,data) => setRdvData({...rendyVousD, Travel_Genre:data.value})} />
                         
                         <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>
                         <Form className='mb-3'>
-                            <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                            <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={rendyVousD.Comment} onChange={ (e,value) => setRdvData({...rendyVousD, Comment:e.target.value})} />
                         </Form>
 
                         <div className='text-end'>
-                            <Button className='rounded-pill' onClick={saveFunction} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[props.TAG].themeColor, color:'white'}} > <Icon name='save' />  تسجيل موعد  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+                            <Button fluid className='rounded-pill' onClick={saveFunction} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[props.TAG].themeColor, color:'white'}} > <Icon name='save' />  تسجيل موعد  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
                         </div>
 
                          

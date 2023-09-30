@@ -99,6 +99,45 @@ function MainLandingPage() {
     const [searchKey, setSearchKey] = useState('')
     const [data, setData] = useState('');
 
+    /* ############### Notofication System #################*/
+    // const [unreadMessages, setUnreadMessages] = useState(0);
+    // // Function to request notification permission
+    // const requestNotificationPermission = () => {
+    //     if (Notification.permission !== "granted") {
+    //     Notification.requestPermission().then((permission) => {
+    //         if (permission === "granted") {
+    //         // Permission granted, you can now send notifications.
+    //         }
+    //     });
+    //     }
+    // };
+    // // Function to create and display a new notification
+    // const showNotification = () => {
+    //     if (Notification.permission === "granted") {
+    //     const notification = new Notification("New Message", {
+    //         body: "You have a new message.",
+    //         icon: "phttps://cdn.abyedh.tn/images/logo/mlogo.gif", // Replace with your icon path
+    //     });
+
+    //     // Play a sound
+    //     const audio = new Audio("https://cdn.abyedh.tn/Sounds/notif.mp3"); // Replace with your audio file
+    //     audio.play();
+
+    //     // Handle click event on the notification (e.g., open a chat window)
+    //     notification.onclick = function () {
+    //         // Handle the click event (e.g., open a chat window).
+    //         // For now, we'll just close the notification.
+    //         notification.close();
+    //     };
+    //     }
+    // };
+    // // Function to simulate receiving a new message
+    // const receiveNewMessage = () => {
+    //     setUnreadMessages(unreadMessages + 1);
+    //     showNotification();
+    // };
+
+
     /* ############### UseEffect #################*/
     /* ############### Functions #################*/
     const SearchFunction = (key) =>{
@@ -351,6 +390,8 @@ function MainLandingPage() {
             <div className='container' dir='rtl'>
                 <IntroducingCard />
                 <br />
+                {/* <button onClick={requestNotificationPermission}>Enable Notifications</button>
+                <button onClick={receiveNewMessage}>Receive New Message</button> */}
                 <div className='row'>
                     <div className='col-12 col-lg-6 d-none d-lg-inline'>
                         <DisplayedCard smallDisplay={false} data={GConf.Items.sante} />

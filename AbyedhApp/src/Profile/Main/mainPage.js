@@ -48,7 +48,7 @@ function MainPage() {
                                    props.data.PID == 0 ?
                                    <img  className="border-div-s bg-danger border border-danger ms-3" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
                                    :
-                                   <img src={`https://cdn.abyedh.tn/images/Search/Icons/${props.data.P_Genre}.gif`} alt="..."  width='50px' height='50px'/>
+                                   <img src={`https://cdn.abyedh.tn/images/Search/CIcons/${props.data.P_Genre}.gif`} alt="..."  width='50px' height='50px'/>
                                 }
 
                                 

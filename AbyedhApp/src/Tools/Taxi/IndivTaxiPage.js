@@ -69,39 +69,50 @@ const CommandeCard = ({commandeData, setCommandeD, myPosition, loaderState, disa
 
 const ReservationCard = ({reservationD, setReservationD, myPosition , loaderState, disabledSaveBtn, SaveReservation, targetPosition, handleLocationSelected}) =>{
     const optionBagage = [
-        {key : 1 , value : 'true', text :'نعم'},
-        {key : 2 , value : 'false', text :'لا'}
+        {key : 2 , value : 'لا', text :'لا'},
+        {key : 1 , value : 'نعم', text :'نعم'},
     ]
+    const handleLocationSelectedFrom = (location) => {
+        setReservationD({...reservationD, targetPositionFrom: {Lat: location.lat , Lng : location.lng} })
+    };
+    const handleLocationSelectedTo = (location) => {
+        setReservationD({...reservationD, targetPositionTo: {Lat: location.lat , Lng : location.lng} })
+    };
+    
     return(<>
-            <h5 className='text-end'>هل لديك أمتعة ؟ </h5>
-            <Input icon='circle'  size="small" iconPosition='left'   fluid className='mb-3' value={reservationD.Table_Num} onChange={(e) => setReservationD({...reservationD, Table_Num: e.target.value })}/>
+            <h5 className='text-end'> عدد الأشخاص</h5>
+            <Input icon='user' type='number' size="small" iconPosition='left' placeholder='عدد الأشخاص'  fluid className='mb-3' value={reservationD.Nombre} onChange={(e) => setReservationD({...reservationD, Nombre: e.target.value })}/>
             
-            <h5 className='text-end'>هل لديك أمتعة ؟ </h5>
-            <Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-3' value={reservationD.Wanted_Date} onChange={(e) => setReservationD({...reservationD, Wanted_Date: e.target.value })}/>
+            <h5 className='text-end'>حدد وقت الحجز</h5>
+            <div className='row'>
+                <div className='col-6'><Input icon='calendar alternate' type='time' size="small" iconPosition='left'   fluid className='mb-3' value={reservationD.RDV_Time} onChange={(e) => setReservationD({...reservationD, RDV_Time: e.target.value })}/></div>
+                <div className='col-6'><Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-3' value={reservationD.RDV_Date} onChange={(e) => setReservationD({...reservationD, RDV_Date: e.target.value })}/></div>
+            </div>
+            
 
             <h5 className='text-end'>إختر   مكان الإنطلاق </h5>
-            <MapContainer center={myPosition} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
+            <MapContainer center={[reservationD.targetPositionFrom.Lat, reservationD.targetPositionFrom.Lng]} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
                 <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <MapEventsHandler onLocationSelected={handleLocationSelected} />
-                <Marker position={targetPosition}> <Popup> </Popup> </Marker>
+                <MapEventsHandler onLocationSelected={handleLocationSelectedFrom} />
+                <Marker position={[reservationD.targetPositionFrom.Lat, reservationD.targetPositionFrom.Lng]}> <Popup> </Popup> </Marker>
             </MapContainer>
 
             <h5 className='text-end'>إختر   مكان الوصول </h5>
-            <MapContainer center={myPosition} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
+            <MapContainer center={[reservationD.targetPositionTo.Lat, reservationD.targetPositionTo.Lng]} zoom={15} scrollWheelZoom={false} style={{height:50}} className="map-height-taxi cursor-map-crosshair border-div">
                 <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <MapEventsHandler onLocationSelected={handleLocationSelected} />
-                <Marker position={targetPosition}> <Popup> </Popup> </Marker>
+                <MapEventsHandler onLocationSelected={handleLocationSelectedTo} />
+                <Marker position={[reservationD.targetPositionTo.Lat, reservationD.targetPositionTo.Lng]}> <Popup> </Popup> </Marker>
             </MapContainer>
 
             <h5 className='text-end'>هل لديك أمتعة ؟ </h5>
-            <Select placeholder='إختر ولاية' fluid className='mb-2' options={optionBagage} value={reservationD.bagage} onChange={(e, data) => setReservationD({...reservationD, bagage: data.value })} />
-
+            <Select placeholder='إختر ولاية' fluid className='mb-2' options={optionBagage} value={reservationD.Bagage} onChange={(e, data) => setReservationD({...reservationD, Bagage: data.value })} />
+             
             <div className=' mt-4' dir='ltr'>
                 <Button  className='rounded-pill text-white    '  style={{backgroundColor: GConf.Tools.taxi.themeColor}} disabled={disabledSaveBtn} fluid onClick={() => SaveReservation()}>  <Icon name='save' className='ms-4  ' /> تسجيل   </Button>
             </div>
@@ -117,8 +128,9 @@ function IndivTaxiPage() {
     const [targetPosition, setTragetPosition] = useState([36.17720,9.12337])
     const [taxiPosition, setTaxiPosition] = useState([])
     const [modalS, setModalS] = useState(false)
+
     const [commandeData, setCommandeD] = useState({bagage:'', targetPositionFrom: {Lat: 36.17720 , Lng : 9.12337}, targetPositionTo: {Lat: 36.17720 , Lng : 9.12337}})
-    const [reservationD, setReservationD] = useState({Wanted_Date: new Date().toISOString().split('T')[0] , })
+    const [reservationD, setReservationD] = useState({RDV_Date: new Date().toISOString().split('T')[0] , RDV_Time: new Date().toLocaleTimeString('fr-FR') ,  targetPositionFrom: {Lat: 36.17720 , Lng : 9.12337}, targetPositionTo: {Lat: 36.17720 , Lng : 9.12337} })
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
 
@@ -177,36 +189,35 @@ function IndivTaxiPage() {
                 TAG : 'taxi' ,
                 commandeD : commandeData,
             }).then(function (response) {
-                toast.success(<><div><h5>تم التسجيل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+                //toast.success(<><div><h5>تم التسجيل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
                 setLS(false)
                 setDisabledBtn(true)
             }).catch((error) => {
                 if(error.request) {
-                  toast.error(<><div><h5>مشكل في الإتصال</h5>  </div></>, GConf.TostInternetGonf)   
+                  //toast.error(<><div><h5>مشكل في الإتصال</h5>  </div></>, GConf.TostInternetGonf)   
                   setLS(false)
                 }
             });
         } 
     }
     const SaveReservation = () =>{
-        if (!reservationD.User_Name) {toast.error("أدخل صاحب الحجز !", GConf.TostErrorGonf)}
-        else if (!reservationD.Wanted_Date) {toast.error("ادخل موعد الحجز  !", GConf.TostErrorGonf)}
-        else if (!reservationD.Wanted_Time) {toast.error("ادخل زمن الحجز  !", GConf.TostErrorGonf)}
-        else if (!reservationD.Table_Num) {toast.error("ادخل رقم الطاولة  !", GConf.TostErrorGonf)}
-        else if (!reservationD.Comment) {toast.error("ادخل تعليق  !", GConf.TostErrorGonf)}
+        if (!reservationD.Nombre) {toast.error("أدخل صاحب الحجز !", GConf.TostErrorGonf)}
+        else if (!reservationD.RDV_Date) {toast.error("ادخل موعد الحجز  !", GConf.TostErrorGonf)}
+        else if (!reservationD.RDV_Time) {toast.error("ادخل زمن الحجز  !", GConf.TostErrorGonf)}
+        else if (!reservationD.Bagage) {toast.error("ادخل رقم الطاولة  !", GConf.TostErrorGonf)}
         else{
             setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/restaurant-reservation`, {
-                // UID : props.UID,
-                // PID : props.PID ,
-                // TAG : props.TAG ,
+            axios.post(`${GConf.ApiLink}/Action/taxi-rdv`, {
+                UID : GConf.UserData.UData.UID,
+                TAG : 'taxi' ,
                 reservationData : reservationD,
             }).then(function (response) {
-                toast.success(<><div><h5>تم التسجيل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+                //toast.success(<><div><h5>تم التسجيل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+                setDisabledBtn(true)
                 setLS(false)
             }).catch((error) => {
                 if(error.request) {
-                  toast.error(<><div><h5>مشكل في الإتصال</h5></div></>, GConf.TostInternetGonf)   
+                  //toast.error(<><div><h5>مشكل في الإتصال</h5></div></>, GConf.TostInternetGonf)   
                   setLS(false)
                 }
             });
@@ -216,6 +227,7 @@ function IndivTaxiPage() {
         setTragetPosition([location.lat , location.lng])
         commandeData.targetPosition = {Lat: location.lat , Lng : location.lng}
     };
+
     /* ###########################[Card]############################# */
     const TopNavBar = () =>{
         const UserCard = () =>{
@@ -299,6 +311,7 @@ function IndivTaxiPage() {
                      
                 </Modal.Actions>
         </Modal>
+        
 
     </> );
 }

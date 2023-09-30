@@ -9,59 +9,59 @@ import { useEffect } from 'react';
 
 const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn, tag, loaderState}) =>{       
     const serviceOptions = [
-        {key:1, value:'A1', text:'كامل الوجبات'},
-        {key:2, value:'A', text:'فطور الصباح فقط'},
-        {key:3, value:'BH', text:'وجبة الغداء فقط'},
-        {key:4, value:'G', text:'وجبة العشاء فقط'},
-        {key:5, value:'GH', text:'وجبتين في اليوم'},
+        {key:1, value:'كامل الوجبات', text:'كامل الوجبات'},
+        {key:2, value:'فطور الصباح فقط', text:'فطور الصباح فقط'},
+        {key:3, value:'وجبة الغداء فقط', text:'وجبة الغداء فقط'},
+        {key:4, value:'وجبة العشاء فقط', text:'وجبة العشاء فقط'},
+        {key:5, value:'وجبتين في اليوم', text:'وجبتين في اليوم'},
     ]
     const LitOptions = [
-        {key:1, value:'A1', text:'سرير لشخص'},
-        {key:2, value:'A', text:'سرير لشخصين '},
-        {key:3, value:'A2', text:'سرير لطفل '},
+        {key:1, value:'سرير لشخص', text:'سرير لشخص'},
+        {key:2, value:'سرير لشخصين ', text:'سرير لشخصين '},
+        {key:3, value:'سرير لطفل ', text:'سرير لطفل '},
          
     ]
     const reservationOptions = [
-        {key:1, value:'A1', text:'عائلي'},
-        {key:2, value:'A', text:'عمل'},
-        {key:3, value:'BH', text:'أصدقاء'},
-        {key:4, value:'G', text:'غير محدد'},
+        {key:1, value:'عائلي', text:'عائلي'},
+        {key:2, value:'عمل', text:'عمل'},
+        {key:3, value:'أصدقاء', text:'أصدقاء'},
+        {key:4, value:'غير محدد', text:'غير محدد'},
          
     ]
     return(<>
         <h5 className='mb-0 mt-0' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  مدة الحجز </h5>
         <small>من </small>
         <div className='row'>
-            <div className='col-6'><Input className='mb-3' type='date' fluid alue={commandeData.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setCommandeD({...commandeData, date: e.target.value })}  /></div> 
-            <div className='col-6'><Input className='mb-3' type='time' fluid alue={commandeData.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, time: e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-3' type='date' fluid value={commandeData.From_Date}   onChange={(e) => setCommandeD({...commandeData, From_Date: e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-3' type='time' fluid value={commandeData.From_Time}   onChange={(e) => setCommandeD({...commandeData, From_Time: e.target.value })}  /></div> 
         </div>
         <small> إلي </small>
         <div className='row'>
-            <div className='col-6'><Input className='mb-3' type='date' fluid alue={commandeData.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setCommandeD({...commandeData, date: e.target.value })}  /></div> 
-            <div className='col-6'><Input className='mb-3' type='time' fluid alue={commandeData.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setCommandeD({...commandeData, time: e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-3' type='date' fluid value={commandeData.To_Date}   onChange={(e) => setCommandeD({...commandeData, To_Date: e.target.value })}  /></div> 
+            <div className='col-6'><Input className='mb-3' type='time' fluid value={commandeData.To_Time}   onChange={(e) => setCommandeD({...commandeData, To_Time: e.target.value })}  /></div> 
         </div>
 
         <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> نوع الغرفة </h5>
         <small>  إختر نوع الغرفة التي تريد جحزها  </small> 
-        <Select fluid placeholder='نوع الغرفة' options={LitOptions} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
+        <Select fluid placeholder='نوع الغرفة' options={LitOptions} onChange={ (e,data) => setCommandeD({...commandeData, Room_Genre:data.value})} />
 
         <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> الوجبات </h5>
-        <Select  fluid placeholder=' الوجبات ' options={serviceOptions} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
+        <Select  fluid placeholder=' الوجبات ' options={serviceOptions} onChange={ (e,data) => setCommandeD({...commandeData, Repas_Choise:data.value})} />
 
         <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> عدد الأفراد معك </h5>
-        <Input className='mb-1' fluid icon='user' type='number' placeholder='عدد الأفراد معك ' value={commandeData.User_Name} onChange={(e) => setCommandeD({...commandeData, User_Name: e.target.value })} />
+        <Input className='mb-1' fluid icon='user' type='number' placeholder='عدد الأفراد معك ' value={commandeData.Total_Number} onChange={(e) => setCommandeD({...commandeData, Total_Number: e.target.value })} />
 
         <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> نوع الحجز </h5>
-        <Select fluid placeholder=' نوع الحجز ' options={reservationOptions} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
+        <Select fluid placeholder=' نوع الحجز ' options={reservationOptions} onChange={ (e,data) => setCommandeD({...commandeData, Res_Genre:data.value})} />
 
 
-        <h5 className='mb-0 mt-1' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>
+        <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>
         <Form className='mb-3'>
-            <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={commandeData.comment} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
+            <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={commandeData.Comment} onChange={ (e,value) => setCommandeD({...commandeData, Comment:e.target.value})} />
         </Form>
 
         <div className='text-end'>
-            <Button className='rounded-pill' onClick={SaveCMDFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل الحجز  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+            <Button fluid className='rounded-pill' onClick={SaveCMDFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل الحجز  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
         </div>
  
     </>)
@@ -69,31 +69,31 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
 
 const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, tag, loaderState }) =>{
     const reservationOptions = [
-        {key:1, value:'A1', text:'طلب وجبة'},
-        {key:2, value:'A', text:'طلب عامل'},
-        {key:3, value:'BH', text:'صيانة سريعة'},
-        {key:4, value:'G', text:'غير محدد'},
+        {key:1, value:'طلب وجبة', text:'طلب وجبة'},
+        {key:2, value:'طلب عامل', text:'طلب عامل'},
+        {key:3, value:'صيانة سريعة', text:'صيانة سريعة'},
+        {key:4, value:'غير محدد', text:'غير محدد'},
          
     ]
     
     return(<>
             <h5 className='mb-0 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> رمز الحجز </h5>
             <small>سيتم آليا رفض رقم الحجز الخاطئ</small>
-            <Input className='mb-1' fluid icon='user' type='number'  placeholder='رمز الحجز' value={rendyVousD.User_Name} onChange={(e) => setRdvData({...rendyVousD, User_Name: e.target.value })} />
+            <Input className='mb-1' fluid icon='user' type='number'  placeholder='رمز الحجز' value={rendyVousD.Res_Code} onChange={(e) => setRdvData({...rendyVousD, Res_Code: e.target.value })} />
 
             <h5 className='mb-1 mt-3 ' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  رقم الغرفة </h5>
-            <Input className='mb-1' fluid icon='user'   placeholder=' رقم الغرفة ' value={rendyVousD.User_Name} onChange={(e) => setRdvData({...rendyVousD, User_Name: e.target.value })} />
+            <Input className='mb-1' fluid icon='user'   placeholder=' رقم الغرفة ' value={rendyVousD.Room_Num} onChange={(e) => setRdvData({...rendyVousD, Room_Num: e.target.value })} />
 
             <h5 className='mb-1 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> نوع الطلب </h5>
-            <Select fluid placeholder=' نوع الطلب ' options={reservationOptions} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+            <Select fluid placeholder=' نوع الطلب ' options={reservationOptions} onChange={ (e,data) => setRdvData({...rendyVousD, Req_Genre: data.value})} />
 
             <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات و تفاصيل   </h5>
             <Form className='mb-3'>
-                <TextArea placeholder=' ملاحضات و تفاصيل' className='font-droid'  rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                <TextArea placeholder=' ملاحضات و تفاصيل' className='font-droid'  rows={2} value={rendyVousD.Comment} onChange={ (e,value) => setRdvData({...rendyVousD, Comment:e.target.value})} />
             </Form>
 
             <div className='text-end'>
-                <Button className='rounded-pill' onClick={RendyVousFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل الطلب  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+                <Button fluid className='rounded-pill' onClick={RendyVousFunc} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[tag].themeColor, color:'white'}} > <Icon name='save' />  تسجيل الطلب  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
             </div>
 
   
@@ -102,7 +102,7 @@ const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, 
 
 function HotelsSpecific(props) {
     /* ############### Const #################*/
-    const [commandeData, setCommandeD] = useState({Wanted_Day: new Date().toISOString().split('T')[0] , articles:[]})
+    const [commandeData, setCommandeD] = useState({From_Date: new Date().toISOString().split('T')[0] , From_Time: new Date().toLocaleTimeString('fr-FR') , To_Date: new Date().toISOString().split('T')[0] , To_Time: new Date().toLocaleTimeString('fr-FR')})
     const [rendyVousD, setRdvData] = useState([])
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
@@ -132,12 +132,18 @@ function HotelsSpecific(props) {
 
     /* ############### Functions #################*/
     const SaveCMDFunc = () =>{
-        if (commandeData.articles.length == 0 ) {toast.error("أدخل  منتجات   !", GConf.TostErrorGonf)}
-        else if (!commandeData.Wanted_Day  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        if (!commandeData.From_Date ) {toast.error("أدخل  يوم بدلية الحجز   !", GConf.TostErrorGonf)}
+        else if (!commandeData.From_Time  ) {toast.error("أدخل  وقت بداية الحجز   !", GConf.TostErrorGonf)}
+        else if (!commandeData.To_Date  ) {toast.error("أدخل  يوم إنتهاء الحجز   !", GConf.TostErrorGonf)}
+        else if (!commandeData.To_Time  ) {toast.error("أدخل  وقت إنتهاء الحجز   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Room_Genre  ) {toast.error("أدخل  نوع الغرفة   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Repas_Choise  ) {toast.error("أدخل  إختيار الوجبات   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Total_Number  ) {toast.error("أدخل  عدد الأفراد الجملي   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Res_Genre  ) {toast.error("أدخل  نوع الحجز   !", GConf.TostErrorGonf)}
         else{
             console.log(commandeData)
             setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/pharmacie-shop`, {
+            axios.post(`${GConf.ApiLink}/Action/hotels-reserver`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,
@@ -155,12 +161,14 @@ function HotelsSpecific(props) {
         } 
     }
     const RendyVousFunc = () =>{
-        if (!rendyVousD.comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
-        else if (!rendyVousD.date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        if (!rendyVousD.Res_Code) {toast.error("أدخل رمز الحجز !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Room_Num) {toast.error("ادخل رقم الغرفة  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Req_Genre) {toast.error("ادخل نوع الطلب  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Comment) {toast.error("ادخل التفاصيل  !", GConf.TostErrorGonf)}
         else{
             setLS(true)
             console.log(rendyVousD)
-            axios.post(`${GConf.ApiLink}/Action/pharmacie-rdv`, {
+            axios.post(`${GConf.ApiLink}/Action/hotels-service`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,

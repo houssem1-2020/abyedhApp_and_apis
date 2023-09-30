@@ -317,3 +317,14 @@ Dropdown{text-align: right !important;}
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
+.floating-card-result-card{
+  position: absolute;
+  top: 2px !important;
+  left: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.3s ease-in-out;
+}
