@@ -1759,7 +1759,146 @@ const  SuivieRequestData  = {
         }
 
     },
+    avocat_rdv : {
+        icon:'bi-check-circle-fill text-success',
+        title:'حجز موعد مع طبيب',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>  
+                    <div className="mb-1"> <span className="bi bi-calendar"></span>  يوم الموعد  : {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                    <div className="mb-1"> <span className="bi bi-chat-square-dots"></span>  التشخيص  : {requestData.Comment}</div>  
+                </> )
+        },
+        stepsValues : [
+            {name: 'avocat_rdv_saved' , value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            {name :'avocat_rdv_seen', value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:1},
+            {name :'avocat_rdv_accepted ', value:'100', text:'قبول الموعد', icon:'calendar outline', color:'gray', line:'toAccept', step:2},
+            {name :'avocat_rdv_rejected ', value:'100', text:' رفض الموعد', icon:'calendar times outline', color:'gray', line:'toReject', step:2},
+            {name :'avocat_rdv_retarder ', value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'toRetarder', step:2},
+            {name :'avocat_rdv_redirected ', value:'80', text:' توجيه الموعد', icon:'doctor', color:'gray', line:'toRedirect', step:0},
+        ],
+        stepsValues2 : {
+            avocat_rdv_saved:{value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            avocat_rdv_seen:{value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:0},
+            avocat_rdv_accepted :{value:'100', text:'قبول الموعد', icon:'calendar-plus', color:'gray', line:'all', step:0},
+            avocat_rdv_rejected :{value:'100', text:' رفض الموعد', icon:'shield-x', color:'gray', line:'all', step:0},
+            avocat_rdv_retarder :{value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'all', step:0},
+            avocat_rdv_redirected :{value:'80', text:' توجيه الموعد', icon:'person', color:'gray', line:'all', step:0},
+        }
 
+    },
+    courtier_request : {
+        icon:'bi-check-circle-fill text-success',
+        title:'حجز موعد مع طبيب',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>  
+                    <div className="mb-1"> <span className="bi bi-calendar"></span>  يوم الموعد  : {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                    <div className="mb-1"> <span className="bi bi-chat-square-dots"></span>  التشخيص  : {requestData.Comment}</div>  
+                </> )
+        },
+        stepsValues : [
+            {name: 'courtier_request_saved' , value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            {name :'courtier_request_seen', value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:1},
+            {name :'courtier_request_accepted ', value:'100', text:'قبول الموعد', icon:'calendar outline', color:'gray', line:'toAccept', step:2},
+            {name :'courtier_request_rejected ', value:'100', text:' رفض الموعد', icon:'calendar times outline', color:'gray', line:'toReject', step:2},
+            {name :'courtier_request_retarder ', value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'toRetarder', step:2},
+            {name :'courtier_request_redirected ', value:'80', text:' توجيه الموعد', icon:'doctor', color:'gray', line:'toRedirect', step:0},
+        ],
+        stepsValues2 : {
+            courtier_request_saved:{value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            courtier_request_seen:{value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:0},
+            courtier_request_accepted :{value:'100', text:'قبول الموعد', icon:'calendar-plus', color:'gray', line:'all', step:0},
+            courtier_request_rejected :{value:'100', text:' رفض الموعد', icon:'shield-x', color:'gray', line:'all', step:0},
+            courtier_request_retarder :{value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'all', step:0},
+            courtier_request_redirected :{value:'80', text:' توجيه الموعد', icon:'person', color:'gray', line:'all', step:0},
+        }
+
+    },
+    courtier_torent : {
+        icon:'bi-check-circle-fill text-success',
+        title:'حجز موعد مع طبيب',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>  
+                    <div className="mb-1"> <span className="bi bi-calendar"></span>  يوم الموعد  : {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                    <div className="mb-1"> <span className="bi bi-chat-square-dots"></span>  التشخيص  : {requestData.Comment}</div>  
+                </> )
+        },
+        stepsValues : [
+            {name: 'courtier_torent_saved' , value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            {name :'courtier_torent_seen', value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:1},
+            {name :'courtier_torent_accepted ', value:'100', text:'قبول الموعد', icon:'calendar outline', color:'gray', line:'toAccept', step:2},
+            {name :'courtier_torent_rejected ', value:'100', text:' رفض الموعد', icon:'calendar times outline', color:'gray', line:'toReject', step:2},
+            {name :'courtier_torent_retarder ', value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'toRetarder', step:2},
+            {name :'courtier_torent_redirected ', value:'80', text:' توجيه الموعد', icon:'doctor', color:'gray', line:'toRedirect', step:0},
+        ],
+        stepsValues2 : {
+            courtier_torent_saved:{value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            courtier_torent_seen:{value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:0},
+            courtier_torent_accepted :{value:'100', text:'قبول الموعد', icon:'calendar-plus', color:'gray', line:'all', step:0},
+            courtier_torent_rejected :{value:'100', text:' رفض الموعد', icon:'shield-x', color:'gray', line:'all', step:0},
+            courtier_torent_retarder :{value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'all', step:0},
+            courtier_torent_redirected :{value:'80', text:' توجيه الموعد', icon:'person', color:'gray', line:'all', step:0},
+        }
+
+    },
+    contracteur_service : {
+        icon:'bi-check-circle-fill text-success',
+        title:'حجز موعد مع طبيب',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>  
+                    <div className="mb-1"> <span className="bi bi-calendar"></span>  يوم الموعد  : {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                    <div className="mb-1"> <span className="bi bi-chat-square-dots"></span>  التشخيص  : {requestData.Comment}</div>  
+                </> )
+        },
+        stepsValues : [
+            {name: 'contracteur_service_saved' , value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            {name :'contracteur_service_seen', value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:1},
+            {name :'contracteur_service_accepted ', value:'100', text:'قبول الموعد', icon:'calendar outline', color:'gray', line:'toAccept', step:2},
+            {name :'contracteur_service_rejected ', value:'100', text:' رفض الموعد', icon:'calendar times outline', color:'gray', line:'toReject', step:2},
+            {name :'contracteur_service_retarder ', value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'toRetarder', step:2},
+            {name :'contracteur_service_redirected ', value:'80', text:' توجيه الموعد', icon:'doctor', color:'gray', line:'toRedirect', step:0},
+        ],
+        stepsValues2 : {
+            contracteur_service_saved:{value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            contracteur_service_seen:{value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:0},
+            contracteur_service_accepted :{value:'100', text:'قبول الموعد', icon:'calendar-plus', color:'gray', line:'all', step:0},
+            contracteur_service_rejected :{value:'100', text:' رفض الموعد', icon:'shield-x', color:'gray', line:'all', step:0},
+            contracteur_service_retarder :{value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'all', step:0},
+            contracteur_service_redirected :{value:'80', text:' توجيه الموعد', icon:'person', color:'gray', line:'all', step:0},
+        }
+
+    },
+    architecture_service : {
+        icon:'bi-check-circle-fill text-success',
+        title:'حجز موعد مع طبيب',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>  
+                    <div className="mb-1"> <span className="bi bi-calendar"></span>  يوم الموعد  : {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                    <div className="mb-1"> <span className="bi bi-chat-square-dots"></span>  التشخيص  : {requestData.Comment}</div>  
+                </> )
+        },
+        stepsValues : [
+            {name: 'architecture_service_saved' , value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            {name :'architecture_service_seen', value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:1},
+            {name :'architecture_service_accepted ', value:'100', text:'قبول الموعد', icon:'calendar outline', color:'gray', line:'toAccept', step:2},
+            {name :'architecture_service_rejected ', value:'100', text:' رفض الموعد', icon:'calendar times outline', color:'gray', line:'toReject', step:2},
+            {name :'architecture_service_retarder ', value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'toRetarder', step:2},
+            {name :'architecture_service_redirected ', value:'80', text:' توجيه الموعد', icon:'doctor', color:'gray', line:'toRedirect', step:0},
+        ],
+        stepsValues2 : {
+            architecture_service_saved:{value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            architecture_service_seen:{value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:0},
+            architecture_service_accepted :{value:'100', text:'قبول الموعد', icon:'calendar-plus', color:'gray', line:'all', step:0},
+            architecture_service_rejected :{value:'100', text:' رفض الموعد', icon:'shield-x', color:'gray', line:'all', step:0},
+            architecture_service_retarder :{value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'all', step:0},
+            architecture_service_redirected :{value:'80', text:' توجيه الموعد', icon:'person', color:'gray', line:'all', step:0},
+        }
+
+    },
 
 }
 export default SuivieRequestData

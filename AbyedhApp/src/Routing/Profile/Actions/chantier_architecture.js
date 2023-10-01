@@ -23,12 +23,12 @@ const MapEventsHandler = ({ onLocationSelected }) => {
 
 function ChantierArchitectureSpecific(props) {
     /* ############### Const #################*/
-    const [rendyVousD, setRdvData] = useState([])
+    const [gouv ,setGouv] = useState('')
+    const [deleg ,setDeleg] = useState('')
+    const [rendyVousD, setRdvData] = useState({Depart_Date: new Date().toISOString().split('T')[0], Finish_Date: new Date().toISOString().split('T')[0], Immob_Position:{Gouv: gouv, Deleg: deleg, Lat:'', Lng:''}})
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
     const [delegList ,setDelegList] = useState([])
-    const [gouv ,setGouv] = useState('')
-    const [deleg ,setDeleg] = useState('')
     const [modalOpen, setModalOpen] = useState(false)
     const [myPosition, setMyPosition] = useState([36.17720,9.12337])
     const [targetPosition, setTragetPosition] = useState([36.17720,9.12337])
@@ -50,71 +50,75 @@ function ChantierArchitectureSpecific(props) {
     ]
 
    /* ############### Functions #################*/
-    const saveFunction = () =>{
-        if (!rendyVousD.comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
-        else if (!rendyVousD.date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
-        else{
-            setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/docteur-rdv`, {
-                UID : props.UID,
-                PID : props.PID ,
-                TAG : props.TAG ,
-                rendyVousData : rendyVousD,
-            }).then(function (response) {
-                toast.success(<><div><h5>تم تسجيل الموعد بنجاح </h5>  </div></>, GConf.TostInternetGonf)
-                setLS(false)
-                setDisabledBtn(true)
-            }).catch((error) => {
-                if(error.request) {
-                  toast.error(<><div><h5> لم يتم تسجيل الموعد</h5> حاول مرة أخري  </div></>, GConf.TostInternetGonf)   
-                  setLS(false)
-                }
-            });
-        } 
-    }
-    const GetDelegList = (value) =>{
-        setGouv(value)
-        const found = GConf.abyedhMap.Deleg.filter(element => element.tag === value)
-        setDelegList(found)
-         
-    }
-    const SelectPosition = () => {
+   const saveFunction = () =>{
+    if (!rendyVousD.Immob_Genre  ) {toast.error("أدخل  نوع العقار المطلوب   !", GConf.TostErrorGonf)}
+    else if (!rendyVousD.Immob_Position.Gouv  ) {toast.error("أدخل  ولاية العقار   !", GConf.TostErrorGonf)}
+    else if (!rendyVousD.Immob_Position.Deleg  ) {toast.error("أدخل  عمادة العقار   !", GConf.TostErrorGonf)}
+    else if (!rendyVousD.Immob_Position.Lat  ) {toast.error("أدخل  الموقع الجغرافي للعقار   !", GConf.TostErrorGonf)}
+    else if (!rendyVousD.Immob_Position.Lng  ) {toast.error("أدخل  الموقع الجغرافي للعقار   !", GConf.TostErrorGonf)}
+    else if (!rendyVousD.Depart_Date) {toast.error("ادخل موعد الإنطلاق  !", GConf.TostErrorGonf)}
+    else if (!rendyVousD.Finish_Date) {toast.error("ادخل موعد الإنتهاء  !", GConf.TostErrorGonf)}
+    else if (!rendyVousD.Surface) {toast.error("ادخل هل تملك تصميم   !", GConf.TostErrorGonf)}
+    else if (!rendyVousD.Budget) {toast.error("ادخل الميزانية القصوي  !", GConf.TostErrorGonf)}
+    else{
+        setLS(true)
+        axios.post(`${GConf.ApiLink}/Action/architecture-service`, {
+            UID : props.UID,
+            PID : props.PID ,
+            TAG : props.TAG ,
+            rendyVousData : rendyVousD,
+        }).then(function (response) {
+            toast.success(<><div><h5>تم تسجيل الموعد بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+            setLS(false)
+            setDisabledBtn(true)
+        }).catch((error) => {
+            if(error.request) {
+              toast.error(<><div><h5> لم يتم تسجيل الموعد</h5> حاول مرة أخري  </div></>, GConf.TostInternetGonf)   
+              setLS(false)
+            }
+        });
+    } 
+}
+const GetDelegList = (value) =>{
+    setGouv(value)
+    setRdvData({...rendyVousD, Immob_Position : {Gouv: value, Deleg: deleg, Lat:'', Lng:''} })
+    const found = GConf.abyedhMap.Deleg.filter(element => element.tag === value)
+    setDelegList(found)
+     
+}
+const GetPositionData = (value) =>{
+    setDeleg(value) 
+    setRdvData({...rendyVousD, Immob_Position : {Gouv: gouv, Deleg: value, Lat:'', Lng:''} })
+     
+}
+const SelectPosition = () => {
+    //setModalOpen(false)
+    if (!targetPosition) {  toast.error("أدخل   الموقع الجغرافي    !", GConf.TostErrorGonf) } 
+    else {
+        setRdvData({...rendyVousD, Immob_Position : {Gouv: gouv, Deleg: deleg, Lat: targetPosition[0], Lng:targetPosition[1]} })
         setModalOpen(false)
-        if (!searchForArticle || searchForArticle == '') {  toast.error("أدخل إسم المنتج    !", GConf.TostErrorGonf) } 
-        else {
-            // axios.post(`${GConf.ApiLink}/Action/pharmacie-shop/medicamment`, {
-            //     searchForArticle : searchForArticle,
-            // }).then(function (response) {
-            //     console.log(response.data)
-            //     setRendredMedicammentListe(response.data)
-            // }).catch((error) => {
-            //     if(error.request) {
-            //       toast.error(<><div><h5>   </h5> حاول مرة أخري  </div></>, GConf.TostInternetGonf)   
-                  
-            //     }
-            // });
-        }
     }
-    const handleLocationSelected = (location) => {
-        setTragetPosition([location.lat , location.lng])
-        rendyVousD.targetPosition = {Lat: location.lat , Lng : location.lng}
-    };
+}
+const handleLocationSelected = (location) => {
+    setTragetPosition([location.lat , location.lng])
+    rendyVousD.targetPosition = {Lat: location.lat , Lng : location.lng}
+};
 
     return ( <>
         <div className='m-0'>
                 <div   dir='rtl' className='card card-body shadow-sm pt-3 border-div'>
                     <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> ماذا تريد أن تبني </h5>
-                    <smal>حدد العقار الذي تود بناءه</smal>
-                    <Select fluid placeholder=' ' options={stayOptions} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                    <small>حدد العقار الذي تود بناءه</small>
+                    <Select fluid placeholder=' ' options={stayOptions} onChange={ (e,data) => setRdvData({...rendyVousD, Immob_Genre: data.value})} />
 
                     <h5 className='mb-0 mb-2' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> المساحة بالمتر مربع </h5>
-                    <Input icon='pin'   placeholder='المساحة' value={rendyVousD.NameS}  onChange={ (e) => setRdvData({...rendyVousD, NameS: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+                    <Input icon='pin'   placeholder='المساحة' value={rendyVousD.Surface}  onChange={ (e) => setRdvData({...rendyVousD, Surface: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
 
                     <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-calendar2'></span>  الموقع الجغرافي     </h5>
                     <Select fluid placeholder='إختر ولاية' className='mb-2 shadow-sm' options={GConf.abyedhMap.Gouv} value={gouv} onChange={(e, { value }) => GetDelegList(value)} />
-                    <Select fluid placeholder='إختر منطقة' className='shadow-sm' value={deleg} options={delegList} onChange={(e, { value }) => setDeleg(value)} />
+                    <Select fluid placeholder='إختر منطقة' className='shadow-sm' value={deleg} options={delegList} onChange={(e, { value }) => GetPositionData(value)} />
                     <div className='card p-2 shadow-sm rounded mt-2'  onClick={() => setModalOpen(true)}>
-                        {false ? <div className='text-center'>Sidi bouzid , Ben gali as ma thhhmj</div> : <div className='text-center'><Icon name='plus' /></div>}
+                        {rendyVousD.Immob_Position.Lat != '' ? <div className='text-center'><div></div><small>{rendyVousD.Immob_Position.Lat}, {rendyVousD.Immob_Position.Lng}</small></div> : <div className='text-center'><Icon name='map marker alternate' /></div>}
                     </div>
 
                     <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-calendar2'></span> للفترة الزمنية  </h5>
@@ -123,19 +127,17 @@ function ChantierArchitectureSpecific(props) {
                         <div className='col-6'><small>إلي </small><Input className='mb-3' type='date' fluid alue={rendyVousD.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, date: e.target.value })}  /></div>  
                     </div>
 
-                    
-
                     <h5 className='mb-0 mb-2' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> الميزانية المرصودة</h5>
-                    <Input icon='pin'   placeholder=' الميزانية المرصودة' value={rendyVousD.Name}  onChange={ (e) => setRdvData({...rendyVousD, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+                    <Input icon='pin'   placeholder=' الميزانية المرصودة' value={rendyVousD.Budget}  onChange={ (e) => setRdvData({...rendyVousD, Budget: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
 
 
                     <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>
                     <Form className='mb-3'>
-                        <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                        <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={rendyVousD.Comment} onChange={ (e,value) => setRdvData({...rendyVousD, Comment:e.target.value})} />
                     </Form>
 
                     <div className='text-end'>
-                        <Button className='rounded-pill' onClick={saveFunction} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[props.TAG].themeColor, color:'white'}} > <Icon name='save' />  تسجيل طلب  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+                        <Button fluid className='rounded-pill' onClick={saveFunction} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[props.TAG].themeColor, color:'white'}} > <Icon name='save' />  تسجيل طلب  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
                     </div>
 
                     <Modal

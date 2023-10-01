@@ -485,7 +485,6 @@ const  NotifGenres  = {
         }
 
     },
-
     restaurant_commande_saved: {
         icon:'bi-check-circle text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -530,7 +529,51 @@ const  NotifGenres  = {
                 </> )
         }
     }, 
-
+    avocat_rdv_saved : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم تسجيل طلب موعد مع المحامي {pidData.Name}  بنجاح  و ذلك بتاريخ {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                </> )
+        }
+    },
+    courtier_request_saved : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم تسجيل طلب {requestData.Req_Genre} {requestData.Immob_Genre} من الوسيط     {pidData.Name}  </div>  
+                </> )
+        }
+    },
+    courtier_torent_saved : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم تسجيل    {requestData.Immob_Genre} {requestData.Req_Genre} مع الوسيط     {pidData.Name}  </div>  
+                </> )
+        }
+    },
+    contracteur_service_saved : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم تسجيل    {requestData.Immob_Genre} {requestData.Req_Genre} مع الوسيط     {pidData.Name}  </div>  
+                </> )
+        }
+    },
+    architecture_service_saved : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم تسجيل    {requestData.Immob_Genre} {requestData.Req_Genre} مع الوسيط     {pidData.Name}  </div>  
+                </> )
+        }
+    },
 
 }
 export default NotifGenres

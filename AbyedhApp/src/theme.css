@@ -328,3 +328,12 @@ Dropdown{text-align: right !important;}
   font-size: 15px;
   transition: transform 0.3s ease-in-out;
 }
+.gridjs table td {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  /* text-overflow: ellipsis !important;  OUsed Old One  */
+  text-overflow: clip !important; /* Optional: Add ellipsis for long content */
+}
+.max-height-image{
+  max-height: 230px !important;
+}

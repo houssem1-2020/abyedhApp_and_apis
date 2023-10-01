@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState , useRef } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { Button, Icon, Rating, Table, Comment, Menu,Form, TabPane, Placeholder, TextArea } from 'semantic-ui-react';
+import { Button, Icon, Rating, Table, Comment, Menu,Form, TabPane, Placeholder, TextArea, Modal } from 'semantic-ui-react';
 import GConf from '../../AssetsM/generalConf';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -253,6 +253,7 @@ const AddComment = ({rateValue,setRateValue,SaveRating}) =>{
 }
 
 const CommentsCard = ({tag, profileData,rateValue,setRateValue,SaveRating }) =>{
+        let [commeningIsActive, setCommeningIsActive] = useState(false)
     const CommentPlacholer = () =>{
         const ProfilePlacholder = () => {
                 return(<>
@@ -272,7 +273,7 @@ const CommentsCard = ({tag, profileData,rateValue,setRateValue,SaveRating }) =>{
                         </div>
                     </div>
                 </>)
-            }
+        }
         return(<>
                 <div className='row card-body'>
                     <div className='col-12 mb-2'> <ProfilePlacholder /></div>
@@ -295,7 +296,7 @@ const CommentsCard = ({tag, profileData,rateValue,setRateValue,SaveRating }) =>{
                 </div>
         </>)
     }
-    const NotLooedIn = () =>{
+    const NotLogedIn = () =>{
         return(<>                    
                 <div className='card-body  p-2'>
                     <h5>قم بالتسجيل لتتمكن من تقييم العميل  </h5>
@@ -313,43 +314,44 @@ const CommentsCard = ({tag, profileData,rateValue,setRateValue,SaveRating }) =>{
 
     return(<>
             <div className='card card-body shadow-sm mb-2 h-100 border-div'>
-                <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> تعليقات </h5>
-                <div style={{height:'230px', overflowX:'auto', overflowX:'hidden'}} dir='rtl'>
-                            <Swiper
-                                spaceBetween={30}
-                                pagination={{
-                                    dynamicBullets: true,
-                                }}
-                                modules={[Pagination]}
-                                className="mySwiper pb-4 mb-1"
-                            >
-                                <SwiperSlide key={0}> 
-                                    {profileData.rating ?
-                                        <>
-                                            {
-                                                profileData.rating.length != 0 ?
+                
+                <div className='row mb-4'>
+                    <div className='col-5'> <small className='  p-1 ps-2 pe-2 border-div' onClick={() => setCommeningIsActive(!commeningIsActive)}> <b>  أضف تعليق </b> <span className='bi bi-chat-left-dots-fill d-none'> </span></small> </div>
+                    <div className='col-7'><h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> تعليقات </h5></div>
+                </div>
 
-                                                    <Comment.Group>
-                                                        { profileData.rating.map( (data,index) =>  <CommentsCardI key={index} data={data} /> )}
-                                                    </Comment.Group>
-                                                    
-                                                    : <NoDataCard genre={2} /> 
+                <div style={{height:'230px', overflowX:'auto', overflowX:'hidden'}} dir='rtl'>
+ 
+                        {commeningIsActive ? 
+                        <>
+                        {GConf.UserData.Logged ? 
+                                         <AddComment rateValue={rateValue} setRateValue={setRateValue} SaveRating={SaveRating} />  
+                                        : 
+                                        <NotLogedIn />
+                                    }
+                        </>
+                        :
+                        <>
+                            {profileData.rating ?
+                                    <>
+                                            {
+                                            profileData.rating.length != 0 ?
+
+                                                <Comment.Group >
+                                                    { profileData.rating.map( (data,index) =>  <CommentsCardI key={index} data={data} /> )}
+                                                
+                                                </Comment.Group>
+                                                
+                                                : <NoDataCard genre={2} /> 
                                             }
+
                                         </>
                                         :
                                         <CommentPlacholer />
-                                    }
-                                </SwiperSlide>
-                                <SwiperSlide key={1}> 
-                                    {GConf.UserData.Logged ? 
-                                         <AddComment rateValue={rateValue} setRateValue={setRateValue} SaveRating={SaveRating} />  
-                                        : 
-                                        <NotLooedIn />
-                                    }
-                                </SwiperSlide>
-                                
-                            </Swiper>
+                            }
+                        </>
                         
+                        }    
                            
                         
                 </div>
@@ -367,6 +369,7 @@ function ProfilePage() {
         let [isFavorite,setIsFavorite] =useState(false)
         let [profileData, setProfileData] = useState({photoes:[]})
         let [clientActivated, setClientActivated] = useState(false)
+        let [calendarActive, setCalendarActive] = useState(false)
         L.Icon.Default.mergeOptions(GConf.LeafleftIcon);
         let UID = localStorage.getItem('UID')
         const panes = [
@@ -516,14 +519,13 @@ function ProfilePage() {
             else if (!rateValue.comment) { toast.error("أدخل التعليق  ", GConf.TostErrorGonf)}
             else {
                 console.log(rateValue)
-                axios.post(`${GConf.ApiLink}/search`, {
-                    PID: '',
-                    UID:'',
+                axios.post(`${GConf.ApiLink}/Search/add-comment`, {
+                    PID:PID,
+                    UID: GConf.UserData.UData.UID,
                     rateValue: rateValue,
                 })
                 .then(function (response) {
-                    // setResultList(response.data)
-                    // setLoading(false)
+                    toast.success(<><div><h5>  تم   </h5> </div></>, GConf.TostInternetGonf)
                 }).catch((error) => {
                     if(error.request) {
                     toast.error(<><div><h5>مشل في الإتصال </h5> </div></>, GConf.TostInternetGonf) 
@@ -568,6 +570,25 @@ function ProfilePage() {
         }
 
         const HeaderCard = (props) =>{
+            const HalfStarRating = ({ rating }) => {
+                const wholeStars = Math.floor(rating);
+                const hasHalfStar = rating - wholeStars !== 0;
+
+                return (
+                    <span className="five-star-rating">
+                    {[...Array(wholeStars)].map((_, index) => (
+                        <Icon key={index} size='small' name="star" color="yellow" />
+                    ))}
+                    {hasHalfStar && (
+                        <Icon name="star half" size='small' color="yellow" />
+                    )}
+                    {[...Array(5 - Math.ceil(rating))].map((_, index) => (
+                        <Icon key={index} size='small' name="star outline" color="grey" />
+                    ))}
+                    </span>
+                );
+            };
+
             return(<>
 
                 {/* <div className="card-header  border-div" style={{marginBottom:'50px', marginTop:'30px', backgroundColor: ConverColorToHsl(GConf.ADIL[tag].themeColor) , color: "black"}}> */}
@@ -604,7 +625,8 @@ function ProfilePage() {
                         <></>
                         :
                         <>
-                            <span className=" m-2 text-dark"> {profileData.genrale[0].Rating_Resume == '' ? props.randomRate : profileData.genrale[0].Rating_Resume} <Rating className='d-inline' maxRating={5} defaultRating={props.randomRate} icon='star' disabled size='small' /> ({Math.floor(Math.random() * (400 - 1 + 1)) + 1})</span>
+                            <span className=" m-2 text-dark"> {Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} <HalfStarRating rating={Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} icon='star' disabled size='small' /> ({Math.floor(Math.random() * (40 - 1 + 1)) + 1})</span>
+                               
                             <span className=" m-2 text-dark">| <span className='bi bi-hand-thumbs-up-fill'></span> {profileData.genrale[0].Likes_Num} </span>
                             <span className=" m-2 text-dark">| <span className='bi bi-eye-fill'></span> {profileData.genrale[0].Views_Num >= 1000 ? (parseInt(profileData.genrale[0].Views_Num.toString().substring(0, 4)) / 1000).toFixed(1) + 'K' :  profileData.genrale[0].Views_Num}</span>
                         </>
@@ -626,8 +648,8 @@ function ProfilePage() {
                                     {
                                         GConf.ADIL[tag].cardProfile.map( (data,index) => 
                                         <tr key={index}> 
-                                            <td className='col-11 text-end'><b className='text-secondary'>{profileData.genrale ? <> { profileData.genrale[0][data.resultTag]  ? profileData.genrale[0][data.resultTag] : 'غير معروف' }</> : ''}</b></td> 
-                                            <td className='col-1' scope="row" > <b style={{color:GConf.ADIL[tag].themeColor}}><span className={`bi bi-${data.icon}`}></span>  </b></td>
+                                            <td className='col-10 text-end'><b className='text-secondary'>{profileData.genrale ? <> { profileData.genrale[0][data.resultTag]  ? profileData.genrale[0][data.resultTag] : <small className='text-secondary-inportant small'> معلومة غير متوفرة حاليا  </small> }</> : ''}</b></td> 
+                                            <td className='col-2 text-center' scope="row" > <b style={{color:GConf.ADIL[tag].themeColor}}><span className={`bi bi-${data.icon}`}></span>  </b></td>
                                         </tr> )
                                     }
                                     
@@ -651,19 +673,69 @@ function ProfilePage() {
                     ))
                 return reternedListe
             }
+            const CalendarSuggested = () =>{
+                return(<>
+                    <table className="table table-borderless" dir='rtl'>
+                        <tbody>
+                            <tr>
+                                <th scope="row">الأحد</th>
+                                <td className='text-center'>08:00 -- 12:00 </td>
+                                <td className='text-center'>14:00 -- 16:00 </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">الأثنين</th>
+                                <td className='text-center'>08:00 -- 12:00 </td>
+                                <td className='text-center'>14:00 -- 16:00 </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">الثلاثاء</th>
+                                <td className='text-center'>08:00 -- 12:00 </td>
+                                <td className='text-center'>14:00 -- 16:00 </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">الإربعاء</th>
+                                <td className='text-center'>08:00 -- 12:00 </td>
+                                <td className='text-center'>14:00 -- 16:00 </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">الخميس</th>
+                                <td className='text-center'>08:00 -- 12:00 </td>
+                                <td className='text-center'>14:00 -- 16:00 </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">الجمعة</th>
+                                <td className='text-center'>08:00 -- 12:00 </td>
+                                <td className='text-center'>14:00 -- 16:00 </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">السبت</th>
+                                <td className='text-center'>08:00 -- 12:00 </td>
+                                <td className='text-center'>14:00 -- 16:00 </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </>)
+            }
             return(<>
                     <div className='card card-body shadow-sm mb-2 h-100 border-div'>
-                        <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>أوقات العمل  </h5>
-                        <FullCalendar 
-                            plugins={[ timeGridPlugin ]}
-                            initialView="timeGridWeek"
-                            locale='fr' 
-                            dayHeaderFormat = {{weekday: 'short'}}
-                            events={loading || !profileData.horaire[0]  ?  defaultEvents : GeneratedTime()}
-                            headerToolbar='false'
-                            height='250px'
-                            allDaySlot= {false}
-                        />
+                        <div className='row mb-2'>
+                            <div className='col-3'> <Button size='small' icon color={calendarActive ? 'orange' : 'grey'} className='rounded-circle mb-0' onClick={() => setCalendarActive(!calendarActive)}> <Icon name='calendar alternate' /> </Button> </div>
+                            <div className='col-9'><h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>أوقات العمل  </h5></div>
+                        </div>
+                        {calendarActive ? 
+                            <FullCalendar 
+                                plugins={[ timeGridPlugin ]}
+                                initialView="timeGridWeek"
+                                locale='fr' 
+                                dayHeaderFormat = {{weekday: 'short'}}
+                                events={loading || !profileData.horaire[0]  ?  defaultEvents : GeneratedTime()}
+                                headerToolbar='false'
+                                height='250px'
+                                allDaySlot= {false}
+                            />
+                            :
+                            <CalendarSuggested />
+                        }
                     </div>
             </>)
         }
@@ -685,15 +757,19 @@ function ProfilePage() {
             }
             return(<>
                     <div className='card card-body shadow-sm mb-2 h-100 border-div'>
-                        <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>الموقع الجعرافي  </h5>
-                        <MapContainer center={GetPosition()} zoom={9} scrollWheelZoom={false} className="map-height">
+                        <div className='row mb-4'>
+                            <div className='col-3'> <a href='https://maps.google.com/' target='c_blank'><span className='bi bi-geo-alt-fill bi-sm'></span></a></div>
+                            <div className='col-9'><h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>الموقع الجعرافي  </h5></div>
+                        </div>
+                        
+                        <MapContainer center={GetPosition()} zoom={15} scrollWheelZoom={false} className="map-height">
                             <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             />
                             <Marker position={GetPosition()}>
                                 <Popup>
-                                    الموقع الجغرافي 
+                                    {profileData.genrale ?  profileData.genrale[0].Name  : '...' }
                                 </Popup>
                             </Marker>
                         </MapContainer>
@@ -701,6 +777,8 @@ function ProfilePage() {
             </>)
         }
         const ImagesCard = () =>{
+            const [openImageModal, setOIM] = useState(false)
+            const [selectedImage, setSelectedImage] = useState('')
             const settings = {
             dots: true,
             infinite: true,
@@ -716,6 +794,11 @@ function ProfilePage() {
                 {src:'https://cdn.abyedh.tn/images/required/profile-img3.gif'},
                 {src:'https://cdn.abyedh.tn/images/required/not-f-4.svg'},
             ]
+            const OpenModalToShowImage = (image) =>{
+                setSelectedImage(image)
+                setOIM(true)
+
+            }
             return(<>
                     <div className='card card-body shadow-sm mb-2 h-100 border-div'>
                         <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> الصور</h5>
@@ -731,8 +814,8 @@ function ProfilePage() {
                             :
                             <Slider {...settings} >
                                 {profileData.photoes.map((data,index) => 
-                                    <div key={index}>
-                                        <img src={`https://cdn.abyedh.tn/images/Directory/${data.ImageLink}`} width="100%" height="210"/>
+                                    <div key={index} className='max-height-image' onClick={() => OpenModalToShowImage(data.ImageLink)}>
+                                        <img src={`https://cdn.abyedh.tn/images/Directory/${data.ImageLink}`} className='d-block' width="100%" height="auto"/>
                                     </div>
                                 )}
                             </Slider>
@@ -740,6 +823,20 @@ function ProfilePage() {
                             
                     
                     </div>
+                    <Modal
+                        size='fullscreen'
+                        open={openImageModal}
+                        onClose={() => setOIM(false)}
+                        onOpen={() => setOIM(true)}
+                        className='fullscreen-profile-modal-5'
+                    >
+                        <Modal.Content  >
+                            <img src={`https://cdn.abyedh.tn/images/Directory/${selectedImage}`} className='d-block border-div' width="100%" height="auto"/>                  
+                        </Modal.Content>
+                        <Modal.Actions>
+                                    <Button className='rounded-pill' negative onClick={ () => setOIM(false)}>   غلق</Button>
+                        </Modal.Actions>
+                </Modal>
             </>)
         }
         

@@ -43,37 +43,43 @@ const CommandeCard = ({commandeData, setCommandeD, SaveCMDFunc , disabledSaveBtn
     ]
     const GetDelegList = (value) =>{
         setGouv(value)
+        setCommandeD({...commandeData, Immob_Position : {Gouv: value, Deleg: deleg} })
         const found = GConf.abyedhMap.Deleg.filter(element => element.tag === value)
         setDelegList(found)
+         
+    }
+    const GetPositionData = (value) =>{
+        setDeleg(value) 
+        setCommandeD({...commandeData, Immob_Position : {Gouv: gouv, Deleg: value} })
          
     }
 
     return(<>
 
             <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  كراء أو شراء   </h5>
-            <Select options={Livraisonoptions} fluid placeholder=' كراء أو شراء ' className='mb-3' onChange={(e, data) => setCommandeD({...commandeData, Livraison_Par: data.value })}  />
+            <Select options={Livraisonoptions} fluid placeholder=' كراء أو شراء ' className='mb-3' onChange={(e, data) => setCommandeD({...commandeData, Req_Genre: data.value })}  />
 
             <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  نوع العقار  </h5>
-            <Select options={homeptions} fluid placeholder=' نوع العقار' className='mb-3' onChange={(e, data) => setCommandeD({...commandeData, Livraison_Par: data.value })}  />
+            <Select options={homeptions} fluid placeholder=' نوع العقار' className='mb-3' onChange={(e, data) => setCommandeD({...commandeData, Immob_Genre: data.value })}  />
 
 
             <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  الموقع الجغرافي     </h5>
             <Select fluid placeholder='إختر ولاية' className='mb-2 shadow-sm' options={GConf.abyedhMap.Gouv} value={gouv} onChange={(e, { value }) => GetDelegList(value)} />
-            <Select fluid placeholder='إختر منطقة' className='shadow-sm' value={deleg} options={delegList} onChange={(e, { value }) => setDeleg(value)} />
+            <Select fluid placeholder='إختر منطقة' className='shadow-sm' value={deleg} options={delegList} onChange={(e, { value }) => GetPositionData(value)} />
 
             <h5 className='mb-0 mb-2' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  عدد الغرف المطلوب</h5>
-            <Input icon='pin'   placeholder='  عدد الغرف ' value={commandeData.Name}  onChange={ (e) => setCommandeD({...commandeData, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+            <Input icon='pin'   placeholder='  عدد الغرف ' value={commandeData.Room_Num}  onChange={ (e) => setCommandeD({...commandeData, Room_Num: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
 
             <h5 className='mt-3 mb-2' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> السعر الأقصي </h5>
-            <Input icon='pin'   placeholder=' السعر الأقصي' value={commandeData.Name}  onChange={ (e) => setCommandeD({...commandeData, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+            <Input icon='pin'   placeholder=' السعر الأقصي' value={commandeData.Max_Prix}  onChange={ (e) => setCommandeD({...commandeData, Max_Prix: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
             
             <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>        
             <Form className='mb-3'>
-                <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={commandeData.comment} onChange={ (e,value) => setCommandeD({...commandeData, comment:e.target.value})} />
+                <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={commandeData.Comment} onChange={ (e,value) => setCommandeD({...commandeData, Comment:e.target.value})} />
             </Form>
 
             <div className='col-12'>
-                <Button  className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[tag].themeColor}} disabled={disabledSaveBtn}   onClick={SaveCMDFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
+                <Button fluid className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[tag].themeColor}} disabled={disabledSaveBtn}   onClick={SaveCMDFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
             </div>
     </>)
 }
@@ -88,8 +94,8 @@ const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, 
     const [searchForArticle, setSearchForArticle] = useState('')
 
     const Livraisonoptions = [
-        { key: '1', value: 'كراء', text: 'للكراء '  },
-        { key: '2', value: 'شراء', text: 'للبيع '  },
+        { key: '1', value: 'للكراء', text: 'للكراء '  },
+        { key: '2', value: 'للبيع', text: 'للبيع '  },
  
     ]
     const homeptions = [
@@ -104,25 +110,22 @@ const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, 
     ]
     const GetDelegList = (value) =>{
         setGouv(value)
+        setRdvData({...rendyVousD, Immob_Position : {Gouv: value, Deleg: deleg, Lat:'', Lng:''} })
         const found = GConf.abyedhMap.Deleg.filter(element => element.tag === value)
         setDelegList(found)
          
     }
+    const GetPositionData = (value) =>{
+        setDeleg(value) 
+        setRdvData({...rendyVousD, Immob_Position : {Gouv: gouv, Deleg: value, Lat:'', Lng:''} })
+         
+    }
     const SelectPosition = () => {
-        setModalOpen(false)
-        if (!searchForArticle || searchForArticle == '') {  toast.error("أدخل إسم المنتج    !", GConf.TostErrorGonf) } 
+        //setModalOpen(false)
+        if (!targetPosition) {  toast.error("أدخل   الموقع الجغرافي    !", GConf.TostErrorGonf) } 
         else {
-            // axios.post(`${GConf.ApiLink}/Action/pharmacie-shop/medicamment`, {
-            //     searchForArticle : searchForArticle,
-            // }).then(function (response) {
-            //     console.log(response.data)
-            //     setRendredMedicammentListe(response.data)
-            // }).catch((error) => {
-            //     if(error.request) {
-            //       toast.error(<><div><h5>   </h5> حاول مرة أخري  </div></>, GConf.TostInternetGonf)   
-                  
-            //     }
-            // });
+            setRdvData({...rendyVousD, Immob_Position : {Gouv: gouv, Deleg: deleg, Lat: targetPosition[0], Lng:targetPosition[1]} })
+            setModalOpen(false)
         }
     }
     const handleLocationSelected = (location) => {
@@ -133,33 +136,33 @@ const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, 
     return(<>
 
             <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  كراء أو شراء   </h5>
-            <Select options={Livraisonoptions} fluid placeholder=' كراء أو شراء ' className='mb-3' onChange={(e, data) => setRdvData({...rendyVousD, Livraison_Par: data.value })}  />
+            <Select options={Livraisonoptions} fluid placeholder=' كراء أو شراء ' className='mb-3' onChange={(e, data) => setRdvData({...rendyVousD, Req_Genre: data.value })}  />
 
             <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  نوع العقار  </h5>
-            <Select options={homeptions} fluid placeholder=' نوع العقار' className='mb-3' onChange={(e, data) => setRdvData({...rendyVousD, Livraison_Par: data.value })}  />
+            <Select options={homeptions} fluid placeholder=' نوع العقار' className='mb-3' onChange={(e, data) => setRdvData({...rendyVousD, Immob_Genre: data.value })}  />
 
 
             <h5 className='mb-2 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-calendar2'></span>  الموقع الجغرافي     </h5>
             <Select fluid placeholder='إختر ولاية' className='mb-2 shadow-sm' options={GConf.abyedhMap.Gouv} value={gouv} onChange={(e, { value }) => GetDelegList(value)} />
-            <Select fluid placeholder='إختر منطقة' className='shadow-sm' value={deleg} options={delegList} onChange={(e, { value }) => setDeleg(value)} />
+            <Select fluid placeholder='إختر منطقة' className='shadow-sm' value={deleg} options={delegList} onChange={(e, { value }) => GetPositionData(value)} />
             <div className='card p-2 shadow-sm rounded mt-2'  onClick={() => setModalOpen(true)}>
-                {false ? <div className='text-center'>Sidi bouzid , Ben gali as ma thhhmj</div> : <div className='text-center'><Icon name='plus' /></div>}
+                {rendyVousD.Immob_Position.Lat != '' ? <div className='text-center'><div></div><small>{rendyVousD.Immob_Position.Lat}, {rendyVousD.Immob_Position.Lng}</small></div> : <div className='text-center'><Icon name='map marker alternate' /></div>}
             </div>
 
 
             <h5 className='mb-0 mb-2' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  عدد الغرف المطلوب</h5>
-            <Input icon='pin'   placeholder='  عدد الغرف ' value={rendyVousD.Name}  onChange={ (e) => setRdvData({...rendyVousD, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+            <Input icon='pin'   placeholder='  عدد الغرف ' value={rendyVousD.Room_Num}  onChange={ (e) => setRdvData({...rendyVousD, Room_Num: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
 
             <h5 className='mt-3 mb-2' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span> السعر   </h5>
-            <Input icon='pin'   placeholder=' السعر  ' value={rendyVousD.Name}  onChange={ (e) => setRdvData({...rendyVousD, Name: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+            <Input icon='pin'   placeholder=' السعر  ' value={rendyVousD.Max_Prix}  onChange={ (e) => setRdvData({...rendyVousD, Max_Prix: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
             
             <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[tag].themeColor}}> <span className='bi bi-person-x-fill'></span>  ملاحضات   </h5>        
             <Form className='mb-3'>
-                <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                <TextArea placeholder='ملاحضات' className='font-droid'  rows={2} value={rendyVousD.Comment} onChange={ (e,value) => setRdvData({...rendyVousD, Comment:e.target.value})} />
             </Form>
 
             <div className='col-12'>
-                <Button  className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[tag].themeColor}} disabled={disabledSaveBtn}   onClick={RendyVousFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
+                <Button fluid className='rounded-pill text-white' style={{backgroundColor: GConf.ADIL[tag].themeColor}} disabled={disabledSaveBtn}   onClick={RendyVousFunc}><Icon name='save' className='ms-2' /> تسجيل <Loader inverted active={loaderState} inline size='tiny' className='ms-2'/></Button>
             </div>
             <Modal
                 onClose={() => setModalOpen(false)}
@@ -195,13 +198,14 @@ const RendyVousCard = ({rendyVousD, setRdvData, RendyVousFunc, disabledSaveBtn, 
 
 function SmasarSpecific(props) {
     /* ############### Const #################*/
-    const [commandeData, setCommandeD] = useState({Wanted_Day: new Date().toISOString().split('T')[0] , articles:[]})
-    const [rendyVousD, setRdvData] = useState([])
+    const [gouv ,setGouv] = useState('')
+    const [deleg ,setDeleg] = useState('')
+    const [commandeData, setCommandeD] = useState({Immob_Position:{Gouv: gouv, Deleg: deleg}})
+    const [rendyVousD, setRdvData] = useState({Immob_Position:{Gouv: gouv, Deleg: deleg, Lat:'', Lng:''}})
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
     const [delegList ,setDelegList] = useState([])
-    const [gouv ,setGouv] = useState('')
-    const [deleg ,setDeleg] = useState('')
+    
     const [modalOpen, setModalOpen] = useState(false)
     const panes = [
         {
@@ -228,12 +232,16 @@ function SmasarSpecific(props) {
 
     /* ############### Functions #################*/
     const SaveCMDFunc = () =>{
-        if (commandeData.articles.length == 0 ) {toast.error("أدخل  منتجات   !", GConf.TostErrorGonf)}
-        else if (!commandeData.Wanted_Day  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
+        if (!commandeData.Req_Genre ) {toast.error("أدخل  نوع الطلب   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Immob_Genre  ) {toast.error("أدخل  نوع العقار المطلوب   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Immob_Position.Gouv  ) {toast.error("أدخل  ولاية العقار   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Immob_Position.Deleg  ) {toast.error("أدخل  عمادة العقار   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Room_Num  ) {toast.error("أدخل  عدد الغرف   !", GConf.TostErrorGonf)}
+        else if (!commandeData.Max_Prix  ) {toast.error("أدخل  السعر الأقصي   !", GConf.TostErrorGonf)}
         else{
-            console.log(commandeData)
+ 
             setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/pharmacie-shop`, {
+            axios.post(`${GConf.ApiLink}/Action/courtier-request`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,
@@ -251,12 +259,18 @@ function SmasarSpecific(props) {
         } 
     }
     const RendyVousFunc = () =>{
-        if (!rendyVousD.comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
-        else if (!rendyVousD.date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        if (!rendyVousD.Req_Genre ) {toast.error("أدخل  نوع الطلب   !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Immob_Genre  ) {toast.error("أدخل  نوع العقار المطلوب   !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Immob_Position.Gouv  ) {toast.error("أدخل  ولاية العقار   !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Immob_Position.Deleg  ) {toast.error("أدخل  عمادة العقار   !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Immob_Position.Lat  ) {toast.error("أدخل  الموقع الجغرافي للعقار   !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Immob_Position.Lng  ) {toast.error("أدخل  الموقع الجغرافي للعقار   !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Room_Num  ) {toast.error("أدخل  عدد الغرف   !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.Max_Prix  ) {toast.error("أدخل  السعر الأقصي   !", GConf.TostErrorGonf)}
         else{
             setLS(true)
-            console.log(rendyVousD)
-            axios.post(`${GConf.ApiLink}/Action/pharmacie-rdv`, {
+            
+            axios.post(`${GConf.ApiLink}/Action/courtier-torent`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,
@@ -274,12 +288,7 @@ function SmasarSpecific(props) {
         } 
     }
     
-    const GetDelegList = (value) =>{
-        setGouv(value)
-        const found = GConf.abyedhMap.Deleg.filter(element => element.tag === value)
-        setDelegList(found)
-         
-    }
+ 
 
     /* ############### Card #################*/
      

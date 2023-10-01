@@ -9,19 +9,19 @@ import { toast } from 'react-toastify';
 function AvocatSpecific(props) {
 
     /* ############### Const #################*/
-    const [rendyVousD, setRdvData] = useState({date:new Date().toISOString().split('T')[0] , time: new Date().toLocaleTimeString('fr-FR')})
+    const [rendyVousD, setRdvData] = useState({RDV_Date:new Date().toISOString().split('T')[0] , RDV_Time: new Date().toLocaleTimeString('fr-FR')})
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
 
 
    /* ############### Functions #################*/
     const saveFunction = () =>{
-        if (!rendyVousD.comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
-        else if (!rendyVousD.date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
-        else if (!rendyVousD.time) {toast.error("ادخل الوقت  !", GConf.TostErrorGonf)}
+        if (!rendyVousD.Comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.RDV_Date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
+        else if (!rendyVousD.RDV_Time) {toast.error("ادخل الوقت  !", GConf.TostErrorGonf)}
         else{
             setLS(true)
-            axios.post(`${GConf.ApiLink}/Action/docteur-rdv`, {
+            axios.post(`${GConf.ApiLink}/Action/avocat-rdv`, {
                 UID : props.UID,
                 PID : props.PID ,
                 TAG : props.TAG ,
@@ -46,14 +46,14 @@ function AvocatSpecific(props) {
                     <h5 className='mb-0 ' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-person-x-fill'></span> وصف سريع للقضية </h5>
                     <small>   عدم ذكر التفاصيل مهم للحفاض علي أمن معلوماتكم </small> 
                         <Form className='mb-3'>
-                            <TextArea   rows={2} value={rendyVousD.comment} onChange={ (e,value) => setRdvData({...rendyVousD, comment:e.target.value})} />
+                            <TextArea placeholder='موجز للقضية التي تريد تسجيلها ' className='font-droid' rows={2} value={rendyVousD.Comment} onChange={ (e,value) => setRdvData({...rendyVousD, Comment:e.target.value})} />
                         </Form>
                     <h5 className='mb-0 mt-3' style={{color: GConf.ADIL[props.TAG].themeColor}}> <span className='bi bi-calendar2'></span>  تاريخ الموعد </h5>
                     <small> متي تريد أن تحجز الموعد ؟</small>
-                        <Input className='mb-3' type='date' fluid alue={rendyVousD.date}  defaultValue={new Date().toISOString().split('T')[0]} onChange={(e) => setRdvData({...rendyVousD, date: e.target.value })}  />
-                        <Input className='mb-3' type='time' fluid alue={rendyVousD.time}  defaultValue={new Date().toLocaleTimeString('fr-FR')} onChange={(e) => setRdvData({...rendyVousD, time: e.target.value })}  />
+                        <Input className='mb-3' type='date' fluid value={rendyVousD.RDV_Date}  onChange={(e) => setRdvData({...rendyVousD, RDV_Date: e.target.value })}  />
+                        <Input className='mb-3' type='time' fluid value={rendyVousD.RDV_Time}  onChange={(e) => setRdvData({...rendyVousD, RDV_Time: e.target.value })}  />
                     <div className='text-end'>
-                        <Button className='rounded-pill' onClick={saveFunction} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[props.TAG].themeColor, color:'white'}} > <Icon name='save' />  تسجيل موعد  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+                        <Button fluid className='rounded-pill' onClick={saveFunction} disabled={disabledSaveBtn} size='small' icon style={{backgroundColor:GConf.ADIL[props.TAG].themeColor, color:'white'}} > <Icon name='save' />  تسجيل موعد  <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
                     </div>
                 </div>
         </div>      

@@ -191,6 +191,25 @@ function ResultPage() {
     }
 
     const ResultCard = (props) => {
+        const HalfStarRating = ({ rating }) => {
+            const wholeStars = Math.floor(rating);
+            const hasHalfStar = rating - wholeStars !== 0;
+
+            return (
+                <span className="five-star-rating">
+                {[...Array(wholeStars)].map((_, index) => (
+                    <Icon key={index} name="star" size='small' color="yellow" />
+                ))}
+                {hasHalfStar && (
+                    <Icon name="star half" size='small' color="yellow" />
+                )}
+                {[...Array(5 - Math.ceil(rating))].map((_, index) => (
+                    <Icon key={index} size='small' name="star outline" color="grey" />
+                ))}
+                </span>
+            );
+        };
+
         return (<>
                 <div className='col-12 col-lg-4 mb-3'>
                     <div className='card shadow-sm h-100 border-div' style={{position:'relative'}}>
@@ -212,7 +231,7 @@ function ResultPage() {
                             
                         </div>
                         <div className='floating-card-result-card'>
-                            <span className=" m-2 text-dark"> {props.data.Rating_Resume == '' ? props.randomRate : props.data.Rating_Resume} <Rating className='d-inline' maxRating={5} defaultRating={props.randomRate} icon='star' disabled size='small' /> ({Math.floor(Math.random() * (400 - 1 + 1)) + 1})</span>
+                            <span className=" m-2 text-dark"> {Math.min(Math.max(parseFloat(`${Math.abs(props.data.PID)}`[0] + '.' + `${Math.abs(props.data.PID)}`.slice(-1)), 1), 5)} <HalfStarRating rating={Math.min(Math.max(parseFloat(`${Math.abs(props.data.PID)}`[0] + '.' + `${Math.abs(props.data.PID)}`.slice(-1)), 1), 5)} icon='star' disabled size='small' /> ({Math.floor(Math.random() * (40 - 1 + 1)) + 1})</span>
                             <span className=" m-2 text-dark">| <span className='bi bi-hand-thumbs-up-fill'></span> {props.data.Likes_Num} </span>
                             <span className=" m-2 text-dark">| <span className='bi bi-eye-fill'></span> {props.data.Views_Num >= 1000 ? (parseInt(props.data.Views_Num.toString().substring(0, 4)) / 1000).toFixed(1) + 'K' :  props.data.Views_Num}</span>
                         </div>
