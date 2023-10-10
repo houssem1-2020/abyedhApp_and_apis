@@ -163,15 +163,15 @@ function MainLandingPage() {
         return(<>
                 <div className="rounded-0 border-0 p-2 m-0  bg-white" >
                     <div className='row m-0'>
-                        <div className='col-4 col-lg-6 text-start align-self-center'>
+                        <div className='col-3 col-lg-6 text-start align-self-center'>
                             <NavLink exact='true' to='/' className="m-0 p-0 ms-3">
                                 <img  className="  bg-danger border border-danger"   src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
                             </NavLink>
                         </div>
-                        <div className='col-4 col-lg-6  d-lg-none align-self-center'>
+                        <div className='col-6 col-lg-6 text-center d-lg-none align-self-center'>
                             <h3 className='text-danger mt-5'>مِنَصَّـة أَبْيَـضْ </h3>
                         </div>
-                        <div className='col-4 col-lg-6 text-end align-self-center'>
+                        <div className='col-3 col-lg-6 text-end align-self-center'>
                             {GConf.UserData.Logged  ? <UserCard />  : <NavLink exact='true' to='/Profile' className="m-0 p-0 ms-3 text-danger">    <img  className="rounded-circle9 p-0 m-0 me-1" src={`https://cdn.abyedh.tn/images/p_pic/logIn.gif`}   alt="Logo" style={{width:'30px', height:'30px'}} />   </NavLink>}
                         </div>
                     </div>

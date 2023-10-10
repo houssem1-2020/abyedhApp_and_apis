@@ -12,8 +12,13 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد  الإختصاص  المطلوب ', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
+        adsText2: [
+            [' منصة أبيض تنجم تلقي أكثر من  1800 <span style="color:#dc3545 !important;"> طبيب</span>  وتنجم  تاخو معاهم موعد ..',
+            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
+        ],
         adsText: [
             ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
             'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
@@ -112,6 +117,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'الصيدلية',
         businesOwner: 'صاحب صيدلية',
+        selectText: 'حدد  نوع الصيدلية ', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -162,6 +168,7 @@ const AbyedhADIL = {
         adsImage: 'clinique',
         businesName: 'المصحة',
         businesOwner: 'صاحب مصحة خاصة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -221,6 +228,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'المخبر',
         businesOwner: 'صاحب مخبر تحاليل',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -279,6 +287,7 @@ const AbyedhADIL = {
         adsImage: 'centreMD',
         businesName: 'المركز الطبي',
         businesOwner: 'صاحب مركز طبي',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -337,6 +346,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -396,6 +406,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -450,6 +461,7 @@ const AbyedhADIL = {
         adsImage: 'garderie',
         businesName: 'روضة الأطفال',
         businesOwner: 'صاحب روضة أطفال',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -501,6 +513,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: ' المدرسة الخاصة',
         businesOwner: 'صاحب مدرسة خاصة ',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -554,6 +567,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: ' المعهد الخاص ',
         businesOwner: 'صاحب معهد خاص ',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -607,6 +621,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'الجامعة الخاصة ',
         businesOwner: 'صاحب جامعة خاصة ',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -676,6 +691,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'المطبعة',
         businesOwner: 'صاحب مطبعة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -729,6 +745,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'الكتبية',
         businesOwner: 'صاحب كتبية',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -782,6 +799,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -835,6 +853,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -888,6 +907,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -941,6 +961,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -994,6 +1015,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1063,6 +1085,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1118,6 +1141,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'شركة نقل البضائع',
         businesOwner: 'صاحب شركة نقل بطائع',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1171,6 +1195,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'مدرسة تعليم السياقة',
         businesOwner: 'صاحب مدرسة تعليم السياقة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1233,6 +1258,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'المقهي',
         businesOwner: 'صاحب مقهي',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1290,6 +1316,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'المطعم',
         businesOwner: 'صاحب مطعم',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1349,6 +1376,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'المغازة',
         businesOwner: 'صاحب مغازة ',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1406,6 +1434,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'المخبزة',
         businesOwner: 'صاحب مخبزة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1463,6 +1492,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'جزّار',
         businesOwner: 'صاحب نقطة بيع اللحوة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1522,6 +1552,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'خظّار',
         businesOwner: 'صاحب نقطة بيع الخضر',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1575,6 +1606,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'مخبرة المرطبات',
         businesOwner: 'صاحب نقطة بيع المرطبات',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1628,6 +1660,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'البقالة',
         businesOwner: 'صاحب بقالة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1685,6 +1718,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'المغازة',
         businesOwner: 'صاحب مغازة ',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1742,6 +1776,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'المخبزة',
         businesOwner: 'صاحب مخبزة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1799,6 +1834,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'نقطة بيع اللحوم',
         businesOwner: 'صاحب نقطة بيع اللحوم',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1858,6 +1894,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'نقطة بيع الخضر',
         businesOwner: 'صاحب نقطة بيع الخضر',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1911,6 +1948,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: '  نقطة بيع المرطبات',
         businesOwner: 'صاحب نقطة بيع المرطبات',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -1964,6 +2002,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'البقالة',
         businesOwner: 'صاحب بقالة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2023,6 +2062,7 @@ const AbyedhADIL = {
         adsImage: 'house_electro',
         businesName: 'نقطة بيع الكهروإلكترونيات',
         businesOwner: 'صاحب نقطة بيع الكهروإلكترونيات',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2076,6 +2116,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'نقطة بيع الأثاث',
         businesOwner: 'صاحب نقطة بيع الأثاث',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2129,6 +2170,7 @@ const AbyedhADIL = {
         adsImage: 'house_electro',
         businesName: 'نقطة بيع الكهروإلكترونيات',
         businesOwner: 'صاحب نقطة بيع الكهروإلكترونيات',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2182,6 +2224,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'نقطة بيع الأثاث',
         businesOwner: 'صاحب نقطة بيع الأثاث',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2223,6 +2266,227 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
+    location: {
+        tag: 'car_location',
+        themeColor: '#2d4664',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ كِرَاءْ السَيَّارَاتْ',
+        systemLink: 'https://system.abyedh.tn/Landing/car_location',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: ' وكالة كراء السيارات ',
+        businesOwner: 'صاحب وكالة كراء السيارات ',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'كِرَاءْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 2, name: 'كِرَاءْ الشَاحِنَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+            ],
+            [
+                { id: 3, name: 'كِرَاءْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'كِرَاءْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 2, name: 'كِرَاءْ الشَاحِنَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 3, name: 'كِرَاءْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'كراء السيارت', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 2, name: 'كراء الشاحنات', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 3, name: 'كراء الدراجات', value: 'dentiste', imgSrc: 'car_selling' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    parking: {
+        tag: 'docteur',
+        themeColor: '#2d4664',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ مَوَاقِفْ السَيَّارَاتْ',
+        systemLink: 'https://system.abyedh.tn/Landing/car_parking',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'الـ Parking ',
+        businesOwner: 'صاحب Parking ',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'مَأْوَي عُمُومِي', value: 'dentiste', imgSrc: 'parking' },
+                { id: 2, name: 'مَأْوَي خَاصْ', value: 'dentiste', imgSrc: 'parking' }, 
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'مَأْوَي عُمُومِي' , value: 'dentiste', imgSrc: 'parking' },
+                { id: 2, name: 'مَأْوَي خَاصْ' , value: 'dentiste', imgSrc: 'parking' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'مأوي عمومي', value: 'dentiste', imgSrc: 'parking' },
+                { id: 2, name: 'مأوي خاص', value: 'dentiste', imgSrc: 'parking' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    qiosque: {
+        tag: 'docteur',
+        themeColor: '#2d4664',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ مَحَطَّةْ وَقُودْ',
+        systemLink: 'https://system.abyedh.tn/Landing/car_qiosque',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'الـ Qiosque',
+        businesOwner: 'صاحب Qiosque',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'Qiosque', value: 'dentiste', imgSrc: 'qiosque' },
+                { id: 2, name: 'غَسِيلْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'qiosque' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'Qiosque', value: 'dentiste', imgSrc: 'qiosque' },
+                { id: 2, name: 'غَسِيلْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'qiosque' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'Qiosque', value: 'dentiste', imgSrc: 'qiosque' },
+                { id: 2, name: 'غسيل السيارات', value: 'dentiste', imgSrc: 'qiosque' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    mecanicien: {
+        tag: 'docteur',
+        themeColor: '#2d4664',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ وَرْشَةْ مِيكَانِيكِي',
+        systemLink: 'https://system.abyedh.tn/Landing/car_parking',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'ورشة الميكانيك',
+        businesOwner: 'ميكانيكي',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
+            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'مِيكَانِيكْ السَّيَارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 2, name: 'مِيكَانِيكْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'مِيكَانِيكْ السَّيَارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 2, name: 'مِيكَانِيكْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'ميكانيك السيارات', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 2, name: 'ميكانيك الدراجات', value: 'dentiste', imgSrc: 'car_selling' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
     car_location: {
         tag: 'car_location',
         themeColor: '#2d4664',
@@ -2235,6 +2499,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: ' وكالة كراء السيارات ',
         businesOwner: 'صاحب وكالة كراء السيارات ',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2293,6 +2558,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'الـ Parking ',
         businesOwner: 'صاحب Parking ',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2346,6 +2612,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'الـ Qiosque',
         businesOwner: 'صاحب Qiosque',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2399,6 +2666,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'ورشة الميكانيك',
         businesOwner: 'ميكانيكي',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2454,6 +2722,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'الوكالة',
         businesOwner: 'وسيط عقاري',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2508,6 +2777,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'مكتب المقاولة',
         businesOwner: 'مقاول',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2561,6 +2831,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'مكتب المقاولة',
         businesOwner: 'مقاول',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2614,6 +2885,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'مكتب المهندس المعماري',
         businesOwner: 'مهندس معماري',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2667,6 +2939,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'الـ Quincaillerie',
         businesOwner: 'صاحب Quincaillerie',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2720,6 +2993,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'ورشة الحدادة',
         businesOwner: 'حذّاد',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2773,6 +3047,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'ورشة النجارة',
         businesOwner: 'نجّار',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2826,6 +3101,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'شركة الدهان',
         businesOwner: 'دهان',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2879,6 +3155,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2932,6 +3209,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'شركة السباكة',
         businesOwner: 'سبّاك',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -2985,6 +3263,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'ورشة تركيب البلور',
         businesOwner: 'صاحب ورشة تركيب البلور',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3038,6 +3317,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'ورشة بيع الرخام',
         businesOwner: 'صاحب ورشة بيع الرخام',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3093,6 +3373,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'قاعة الحلاقة',
         businesOwner: 'صاحب قاعة حلاقة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3146,6 +3427,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'محل الملابس',
         businesOwner: 'صاحب محل ملابس',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3205,6 +3487,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'قاعة الأفراح',
         businesOwner: 'صاحب قاعة أفراح',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3258,6 +3541,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'الفرقة الموسيقية',
         businesOwner: 'صاحب فرقة موسيقية',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3316,6 +3600,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'الطباخ',
         businesOwner: 'طباخ',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3369,6 +3654,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'إستديو التصوير',
         businesOwner: 'مصور',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3422,6 +3708,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'نقطة بيع لوازم الأفراج',
         businesOwner: 'صاحب نقطة بيع لوازم الأفراح',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3475,6 +3762,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'نقطة بيع المجوهرات',
         businesOwner: 'صاحب نقطة بيع المجوهرات',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3530,6 +3818,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'القاعة الرياضية',
         businesOwner: 'صاحب قاعة رياضية',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3587,6 +3876,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'المسبح',
         businesOwner: 'صاحب مسبح خاص',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3644,6 +3934,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'الملعب',
         businesOwner: 'صاحب ملعب خاص',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3710,6 +4001,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'قاعة السنما',
         businesOwner: 'صاحب قاعة سنما',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3763,6 +4055,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'قاعة المسرح',
         businesOwner: 'صاحب قاعة مسرح',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3816,6 +4109,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'المتحف',
         businesOwner: 'صاحب متحف خاص',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3869,6 +4163,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3922,6 +4217,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -3975,6 +4271,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4030,6 +4327,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'مكتب المحامي',
         businesOwner: 'محامي',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4090,6 +4388,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'نقطة البيع بالجملة',
         businesOwner: 'صاحب نقطة بيع بالجملة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4157,6 +4456,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'نقطة البيع بالجملة',
         businesOwner: 'صاحب نقطة بيع بالجملة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4224,6 +4524,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'مكتب المحاسبة',
         businesOwner: 'محاسب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4277,6 +4578,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'الشركة القابضة',
         businesOwner: 'صاحب شركة قابضة',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4344,6 +4646,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4397,6 +4700,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4452,6 +4756,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4506,6 +4811,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4560,6 +4866,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4617,6 +4924,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'النزل أو الفندق',
         businesOwner: 'صاحب نزل أو فندق',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4671,6 +4979,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'وكالة الأسفار',
         businesOwner: 'صاحب وكالة أسفار',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4726,6 +5035,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4784,6 +5094,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4843,6 +5154,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4895,6 +5207,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -4952,6 +5265,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -5002,7 +5316,8 @@ const AbyedhADIL = {
     //     iconName: '',
     //     WiconName: '',
     //     adsImage: '',
-    //     xxxxxxxxxx: '',
+    //selectText: 'حدد الإختيار', //     
+    //xxxxxxxxxx: '',
     //     yyyyyyyyyy: '',
     //     adsText: [
     //         ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
@@ -5055,6 +5370,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [
@@ -5126,6 +5442,7 @@ const AbyedhADIL = {
         adsImage: '',
         businesName: 'العيادة',
         businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
         xxxxxxxxxx: '',
         yyyyyyyyyy: '',
         adsText: [

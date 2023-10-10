@@ -198,7 +198,7 @@ function SearchLandingPage() {
             </>)
         }
         return(<>
-                <div className="card card-body shadow-sm mb-4 sticky-top border-div" style={{top:'70px'}}>
+                <div className="card card-body shadow-sm mb-4   border-div" >
                      
                     
                     {/* <h5 className='text-end text-secondary'> {GConf.UserData.Logged ?  'أو' : ''}  حدد الموقع  </h5>  */}
@@ -242,7 +242,8 @@ function SearchLandingPage() {
                     </div>
                     <div className='col-9 align-self-center text-center'>
                         <p >   <b style={{color:GConf.ADIL[tag].themeColor}}>{GConf.ADIL[tag].systemName}</b> يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ  </p>
-                        <Button className='rounded-pill text-white' style={{backgroundColor:GConf.ADIL[tag].themeColor}} size='tiny' onClick={() => navigate(`/S/I/add/${tag}`)}>إضغط هنا للتسجيل </Button> 
+                        <Button className='rounded-pill text-white mb-2' style={{backgroundColor:GConf.ADIL[tag].themeColor}} size='tiny' onClick={() => navigate(`/S/I/add/${tag}`)}>إضغط هنا للتسجيل </Button> 
+                        {localStorage.getItem('AddToDirectory') ? <Button className='rounded-pill text-secondary' style={{backgroundColor:'white'}} size='tiny' onClick={() => navigate(`/S/I/user/${tag}`)}> متابعة عملية التسجيل </Button>  : <></>} 
                     </div>
                 </div>
                 
@@ -336,7 +337,9 @@ function SearchLandingPage() {
                                 <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className='img-responsive  ' width='60%' height='auto'  />
                             </div>
 
+
                             <div className='col-12 col-lg-8 align-self-center text-center'>
+                                <h5 className='text-end mb-2 me-3 text-secondary'>{GConf.ADIL[tag].selectText}</h5>
                                 <div className='d-none d-lg-flex '>
                                         <Swiper
                                             spaceBetween={30}

@@ -68,7 +68,7 @@ const GeneralProfileData = ({inscData, setInscData, PDL, tag, GConf, GouvChanged
                         <div className='mb-2'>
                             <small>  عنوان {targetSystem.businesName} </small>
                             <Form>
-                                <TextArea placeholder='العنوان'  value={inscData.adresse} onChange={(e) => setInscData({...inscData, adresse: e.target.value })} />
+                                <TextArea className='font-droid' placeholder='العنوان'  value={inscData.adresse} onChange={(e) => setInscData({...inscData, adresse: e.target.value })} />
                             </Form>
                         </div>
                     </div>
@@ -251,18 +251,18 @@ function ProfileAction() {
             if (GConf.UserData.Logged) {
                 setUserData({name :GConf.UserData.UData.Name , phone:GConf.UserData.UData.PhoneNum , Sex :GConf.UserData.UData.Sex , birthday: GConf.UserData.UData.BirthDay , gouv: GConf.UserData.UData.BirthGouv ,deleg: GConf.UserData.UData.BirthDeleg}) 
             }
-            axios.post(`${GConf.ApiLink}/systems/fromfcb`,{
-                PID :GConf.PID,
-                isFromFcb: localStorage.getItem('userEnter') ? localStorage.getItem('userEnter')  : Math.floor(Math.random() * (999999 - 111111 + 1)) + 111111,
-                Genre: tag
-            })
-            .then(function (response) {
-                //if (!localStorage.getItem('userEnter')) { localStorage.setItem('userEnter', response.data.Req_ID); }
-            }).catch((error) => {
-            if(error.request) {
-                 console.log('error-52478')
-            }
-            });
+            // axios.post(`${GConf.ApiLink}/systems/fromfcb`,{
+            //     PID :GConf.PID,
+            //     isFromFcb: localStorage.getItem('userEnter') ? localStorage.getItem('userEnter')  : Math.floor(Math.random() * (999999 - 111111 + 1)) + 111111,
+            //     Genre: tag
+            // })
+            // .then(function (response) {
+            //     //if (!localStorage.getItem('userEnter')) { localStorage.setItem('userEnter', response.data.Req_ID); }
+            // }).catch((error) => {
+            // if(error.request) {
+            //      console.log('error-52478')
+            // }
+            // });
 
             //ReactGA.pageview(window.location.pathname);
             //if (localStorage.getItem('AddToDirectory')) {window.location.href = "/S/I";}
@@ -508,7 +508,7 @@ function ProfileAction() {
                             <span className='bi bi-arrow-right-short bi-md'></span>
                         </div>
                         <div className='col-8 align-self-center  text-center'>
-                            <h5>طلباتي التي تم تسجيلها  </h5> 
+                            <h5>  متابعة عملية التسجيل </h5> 
                         </div>
                         <div className='col-2 align-self-center  text-end'>
                             <span className='bi bi-person-circle bi-md'></span>
@@ -538,12 +538,17 @@ function ProfileAction() {
         <br />
         <br />
         <div className='container container-lg font-droid' dir='rtl'>
+                
+
                  {localStorage.getItem('AddToDirectory') ? <BottomCard />  : <></>}
+                 <h3 className='text-center ' style={{color:targetSystem.themeColor}}>  تسجيل    {targetSystem.businesName} في منصة أبيض </h3>
+
                  <h4 className='text-secondary'>1- منصة أبيض هي محرك بحث شامل تنجم تلقي فيه العديد من أصحاب الخدمات و نقاط البيع  و تنجم تتواصل معاهم باش تتمتع بخدماتهم و منتجاتهم  </h4>
                  <h4 className='text-secondary'>2- في المقابل توفر المنصة لأصحاب الخدمات و نقاط البيع هاذم أنظمة لإدارة الأعمال متاعهم و تساعدهم كذلك في التعريف بأنفسهم و بأعمالهم من أجل الوصل أكثر لعملائهم  ...</h4>
                  <h4 className='text-secondary'>3-  كانك من أصحاب الخدمات و نقاط البيع تنجم تسجل معانا و تتحصل علي منصة مجانية تعاونك  تستقبل الطلبات متاعك و تقوم بتنظيمها   ...</h4>
                  <br />
                  <br />
+
                  {GConf.UserData.Logged ? <UserCard />  : <GeneralUserData userData={userData}  setUserData={setUserData} GouvChanged={GouvChanged} UDL={UDL} targetSystem={targetSystem} />}
                  
                  <br />
