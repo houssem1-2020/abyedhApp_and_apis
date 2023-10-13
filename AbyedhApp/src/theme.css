@@ -10,6 +10,17 @@ body { background-color: #ffffff !important; } /*f9fafb*/
 ::-webkit-scrollbar-thumb:hover {  background: #595a5c; border-radius: 5px; }
 a { text-decoration: none !important; }
 
+/* Sepesific Scroll Bar*/
+.spesific-commp::-webkit-scrollbar { width: 20px !important;}
+.spesific-commp::-webkit-scrollbar-track { background-color: #f1f1f1 !important;}
+.spesific-commp::-webkit-scrollbar-thumb { background-color: #888 !important; border-radius: 5px !important; }
+
+/* Sepesific Scroll Bar*/
+.spesific-commp-2::-webkit-scrollbar { width: 13px !important;}
+.spesific-commp-2::-webkit-scrollbar-track { background-color: #f1f1f1 !important;}
+.spesific-commp-2::-webkit-scrollbar-thumb { background-color: #888 !important; border-radius: 5px !important; }
+
+
 @font-face {
   font-family: "Droid";
   src: url("../public/Fonts/Droid.ttf");
@@ -104,6 +115,8 @@ input[type="number"]:focus,
 .rounded-message-r{ border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-top-left-radius: 20px; border-bottom-left-radius: 20px; width: auto !important; text-align: justify; }
 .elevation { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important; transition: all 0.3s cubic-bezier(.25,.8,.25,1) !important; border-radius: 3px  !important; }
 .border-div{ border-radius: 10px !important; }
+.w-100-grijs-table { width: 'auto' !important;}
+@media only screen and (min-width: 768px) { .w-100-grijs-table { width:100% !important;} }
 
 /*map-height*/
 .map-height { height: 250px !important; }
@@ -334,6 +347,12 @@ Dropdown{text-align: right !important;}
   /* text-overflow: ellipsis !important;  OUsed Old One  */
   text-overflow: clip !important; /* Optional: Add ellipsis for long content */
 }
+
 .max-height-image{
   max-height: 230px !important;
 }
+.gridjs-wrapper{border: none !important; box-shadow: none !important;}
+.gridjs-table{border: none !important; box-shadow: none !important;}
+.gridjs-footer {border: none !important; box-shadow: none !important; padding-top: 10px !important;}
+.gridjs-tr:hover {background-color: #1559b3 !important;}
+.tab-right{ justify-content:  flex-end !important }

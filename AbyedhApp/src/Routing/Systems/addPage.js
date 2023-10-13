@@ -138,14 +138,14 @@ const Horaire = ({alwaysState, setAlwaysState, timming, setPauseDay , SetTimming
     const DayHoraire = (props) =>{
         return(<>
                 <div className={`row mb-1 ${props.data.dayOff ? 'd-none':''}`}>
-                    <div  className='col-4 col-lg-4 '>
+                    <div  className='col-3 col-lg-4 '>
                         <b>{ArabificationDate(props.data.day)}</b>
                     </div>
-                    <div  className='col-4 col-lg-4  '>
-                        <small>{props.data.matin.start} -- {props.data.matin.end}</small>
+                    <div  className='col-5 col-lg-4  '>
+                        <small>{props.data.matin.start} - {props.data.matin.end}</small>
                     </div>
                     <div  className='col-4 col-lg-4  '>
-                    <small>{props.data.soir.start} -- {props.data.soir.end}</small>
+                    <small>{props.data.soir.start} - {props.data.soir.end}</small>
                     </div>
                 </div>
         </>)
@@ -538,8 +538,8 @@ function ProfileAction() {
         <br />
         <br />
         <div className='container container-lg font-droid' dir='rtl'>
-                
-
+            {GConf.UserData.Logged ? 
+                <>
                  {localStorage.getItem('AddToDirectory') ? <BottomCard />  : <></>}
                  <h3 className='text-center ' style={{color:targetSystem.themeColor}}>  تسجيل    {targetSystem.businesName} في منصة أبيض </h3>
 
@@ -559,6 +559,19 @@ function ProfileAction() {
                     <Horaire alwaysState={alwaysState} setAlwaysState={setAlwaysState} timming={timming} setPauseDay={setPauseDay} SetTimmingData={SetTimmingData} setSelectedUpdateDay={setSelectedUpdateDay} selectedUpdateDay={selectedUpdateDay} UpdateTimmingData={UpdateTimmingData} />
                  </div>
                  <BtnCard /> 
+                </>
+                :    
+                <div className='text-center p-2 text-secondary'>
+                    <div className='row'>
+                        <div className='col-12 col-lg-4 align-self-center text-center'><img src='https://cdn.abyedh.tn/Images/required/log-in.png' className='img-responsive mb-4'  width='100%' height='auto' /></div> 
+                        <div className='col-12 col-lg-8 align-self-center text-center'>
+                            <h3> عليك أن تمتلك حساب في منصة أبيض أولا </h3> 
+                            <h5> قم بالتسجيل في المنصة أولا ثم عد لتقوم يتسجيل الإشتراك في النظام </h5> 
+                            <h5  className="btn  me-3  p-3 border-div border shadow-sm "><NavLink exact='true' to='/Profile/signUp'> <span className='bi bi-arrow-right-square'></span> تسجيل حساب في منصة أبيض  </NavLink></h5>
+                        </div> 
+                    </div>      
+                </div>
+            }
         </div>  
         <Modal
                 onClose={() => setOpenMoadal(false)}

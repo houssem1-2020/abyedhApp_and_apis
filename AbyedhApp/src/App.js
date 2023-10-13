@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 //Router & Routes
 import { BrowserRouter as Router,Routes,Route, Outlet} from "react-router-dom";
 import { Navigate } from 'react-router-dom';
-//import appRouter  from './AssetsM/Router/appRouter';
+import appRouter  from './AssetsM/Router/appRouter';
 import profileRouter  from './AssetsM/Router/profileRouter';
 import toolsRouter from './AssetsM/Router/toolsRouter'
 
@@ -35,7 +35,7 @@ import SystemUser from './Routing/Systems/userPage';
 
 function App() {
   //const and variables 
-  //const AppRouter = appRouter();
+  const AppRouter = appRouter();
   const ProfileRouter = profileRouter();
   const ToolsRouter = toolsRouter();
   const [progress, setProgress] = useState(2)
@@ -68,7 +68,7 @@ function App() {
           <Route path="S/I" element={<SystemPage />} />
           <Route path="S/I/add/:tag" element={<SystemAdd />} />
           <Route path="S/I/user/:tag" element={<SystemUser />} />
-          {/* {AppRouter} */}
+          {AppRouter}
           {ProfileRouter}
           {ToolsRouter}
           <Route path="About" element={<AboutPage />} />

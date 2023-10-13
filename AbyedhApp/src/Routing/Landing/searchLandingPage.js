@@ -235,17 +235,24 @@ function SearchLandingPage() {
         return(<>
             <div className='card p-2 shadow mb-2 border-div d-md-none'>
                 <h5 className='text-end text-secondary mb-1 mt-2' dir='rtl'> هَلْ أَنْتَ {GConf.ADIL[tag].businesOwner} ؟ </h5>
-                <a href={`/S/I/add/${tag}`} className=' text-secondary' ></a>
-                <div className='row'>
+                <a href={`/S/I/add/${tag}`} className=' text-secondary ' ></a>
+                <div className='row mt-0 pt-0 '>
                     <div className='col-3 align-self-center text-center'>
-                        <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className='img-responsive mb-1 ms-2' width='100%'  height='100px' />
+                        <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className=' mt-3 img-responsive mb-1 ms-2' width='100%'  height='auto' />
                     </div>
                     <div className='col-9 align-self-center text-center'>
-                        <p >   <b style={{color:GConf.ADIL[tag].themeColor}}>{GConf.ADIL[tag].systemName}</b> يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ  </p>
-                        <Button className='rounded-pill text-white mb-2' style={{backgroundColor:GConf.ADIL[tag].themeColor}} size='tiny' onClick={() => navigate(`/S/I/add/${tag}`)}>إضغط هنا للتسجيل </Button> 
-                        {localStorage.getItem('AddToDirectory') ? <Button className='rounded-pill text-secondary' style={{backgroundColor:'white'}} size='tiny' onClick={() => navigate(`/S/I/user/${tag}`)}> متابعة عملية التسجيل </Button>  : <></>} 
+                        <p>منصة أبيض توفر لك نظام إستقبال الطلبات  يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ   </p>
+                        {/* <p >   <b style={{color:GConf.ADIL[tag].themeColor}}>{GConf.ADIL[tag].systemName}</b> يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ  </p> */}
+                        {/* {localStorage.getItem('AddToDirectory') ? <Button className='rounded-pill text-secondary' style={{backgroundColor:'white'}} size='tiny' onClick={() => navigate(`/S/I/user/${tag}`)}> متابعة عملية التسجيل </Button>  : <></>}  */}
                     </div>
                 </div>
+                <div className='mt-3'>
+                    <div className='row'>
+                        <div className='col-6 align-self-center text-start'><Button className='rounded-pill mb-2' style={{backgroundColor:'#f0f0f0', color : GConf.ADIL[tag].themeColor}} size='tiny' onClick={() => navigate(`/S/I/add/${tag}`)}>إضغط هنا للتسجيل </Button></div>
+                        <div className='col-6 align-self-center text-end'><Button className='rounded-pill text-white mb-2' style={{backgroundColor:GConf.ADIL[tag].themeColor}} size='tiny' onClick={() => navigate(`/App/L/${tag}`)}>  الدخول للنظام </Button></div>
+                    </div>
+                </div>
+                 
                 
             </div> 
         </>)

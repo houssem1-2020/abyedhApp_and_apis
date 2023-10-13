@@ -2710,6 +2710,60 @@ const AbyedhADIL = {
     },
 
     /*construction*/
+    courtier: {
+        tag: 'docteur',
+        themeColor: '#455b7a',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ مكتب وسيط عقاري',
+        systemLink: 'https://system.abyedh.tn/Landing/samsar',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'الوكالة',
+        businesOwner: 'وسيط عقاري',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن وسيط عقاري علي الأنترنت كانك قاعد تلوج في حاجة معينة : دار , أستديو , كاراج لكرهبتك , ... و لا كانك طالب جامعي لوج هنا مليح تو تلقا الدار اللي حاجتك بيها بسهولة  </h5> ',
+            'في المقابل كانك وسيط عقاري المنصة هاذي توفرلك نضام إدارة للخدمة متاعك و تسهلك عملية إيصال العروض اللي عندك للحرفاء و تنجم توفرلك أداة تقييم للعقارات اللي تعرفها  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'للكِرَاءْ', value: 'dentiste', imgSrc: 'studio' },
+                { id: 2, name: 'شِرَاءْ', value: 'dentiste', imgSrc: 'garage' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'للكِرَاءْ', value: 'dentiste', imgSrc: 'studio' },
+                { id: 2, name: 'شِرَاءْ', value: 'dentiste', imgSrc: 'garage' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'للكراء', value: 'dentiste', imgSrc: 'studio' },
+            { id: 2, name: 'شراء', value: 'dentiste', imgSrc: 'garage' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
     samsar: {
         tag: 'docteur',
         themeColor: '#455b7a',
@@ -2765,6 +2819,600 @@ const AbyedhADIL = {
 
     },
     
+    contracteur: {
+        tag: 'docteur',
+        themeColor: '#406163',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ مَكْتَبْ مُقَاوِلْ',
+        systemLink: 'https://system.abyedh.tn/Landing/chantier_contracteur',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'مكتب المقاولة',
+        businesOwner: 'مقاول',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
+            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
+                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
+                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
+            { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    contrateur: {
+        tag: 'docteur',
+        themeColor: '#406163',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ مَكْتَبْ مُقَاوِلْ',
+        systemLink: 'https://system.abyedh.tn/Landing/chantier_contracteur',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'مكتب المقاولة',
+        businesOwner: 'مقاول',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
+            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
+                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
+                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
+            { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    architecture: {
+        tag: 'docteur',
+        themeColor: '#406163',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ مَكْتَبْ مُهَنْدِسْ مِعْمَارِي',
+        systemLink: 'https://system.abyedh.tn/Landing/chantier_architecture',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'مكتب المهندس المعماري',
+        businesOwner: 'مهندس معماري',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
+            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'شركة', value: 'dentiste', imgSrc: 'architect' },
+                { id: 2, name: 'مكتب مهندس', value: 'dentiste', imgSrc: 'architect' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'شركة', value: 'dentiste', imgSrc: 'architect' },
+                { id: 2, name: 'مكتب مهندس', value: 'dentiste', imgSrc: 'architect' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'شركة', value: 'dentiste', imgSrc: 'architect' },
+            { id: 2, name: 'مكتب مهندس', value: 'dentiste', imgSrc: 'architect' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    quincaillerie: {
+        tag: 'docteur',
+        themeColor: '#406163',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ مَحَلْ مُعِدَّاتْ',
+        systemLink: 'https://system.abyedh.tn/Landing/quincaillerie',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'الـ Quincaillerie',
+        businesOwner: 'صاحب Quincaillerie',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
+            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'قِطَعْ غِيَارْ', value: 'dentiste', imgSrc: 'truck' },
+                { id: 2, name: 'Quincaillerie', value: 'dentiste', imgSrc: 'truck' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'قِطَعْ غِيَارْ', value: 'dentiste', imgSrc: 'truck' },
+                { id: 2, name: 'Quincaillerie', value: 'dentiste', imgSrc: 'truck' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'قطع غيار', value: 'dentiste', imgSrc: 'truck' },
+            { id: 2, name: 'quincaillerie', value: 'dentiste', imgSrc: 'truck' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    forgeron: {
+        tag: 'docteur',
+        themeColor: '#cdb556',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ وَرْشَةْ حَدَّادْ',
+        systemLink: 'https://system.abyedh.tn/Landing/handmade_forgeron',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'ورشة الحدادة',
+        businesOwner: 'حذّاد',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'حَدَّادْ', value: 'dentiste', imgSrc: 'logo10' },
+                { id: 2, name: 'وَرْشَةْ حِدَادَةَ' , value: 'dentiste', imgSrc: 'logo10' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'حَدَّادْ', value: 'dentiste', imgSrc: 'logo10' },
+                { id: 2, name: 'وَرْشَةْ حِدَادَةَ' , value: 'dentiste', imgSrc: 'logo10' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'حداد', value: 'dentiste', imgSrc: 'logo10' },
+            { id: 2, name: 'ورشة حدادة', value: 'dentiste', imgSrc: 'logo10' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    menuisier: {
+        tag: 'docteur',
+        themeColor: '#cdb556',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ وَرَشَاتْ النِجَارَةَ',
+        systemLink: 'https://system.abyedh.tn/Landing/handmade_menuisier',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'ورشة النجارة',
+        businesOwner: 'نجّار',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'نَجَّارْ', value: 'dentiste', imgSrc: 'logo17' },
+                { id: 2, name: 'وَرْشَةْ نِجَارَة', value: 'dentiste', imgSrc: 'logo17' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'نَجَّارْ', value: 'dentiste', imgSrc: 'logo17' },
+                { id: 2, name: 'وَرْشَةْ نِجَارَة', value: 'dentiste', imgSrc: 'logo17' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'نجار', value: 'dentiste', imgSrc: 'logo17' },
+            { id: 2, name: 'ورشة نجارة', value: 'dentiste', imgSrc: 'logo17' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    peinture: {
+        tag: 'docteur',
+        themeColor: '#cdb556',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ شَرِكَاتْ الدِهَانْ',
+        systemLink: 'https://system.abyedh.tn/Landing/handmade_peinture',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'شركة الدهان',
+        businesOwner: 'دهان',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'دَهَّانْ', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'شَرِكَة دِهَانْ', value: 'dentiste', imgSrc: 'printer' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'دَهَّانْ', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'شَرِكَة دِهَانْ', value: 'dentiste', imgSrc: 'printer' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'دَهَّانْ', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
+                { id: 2, name: 'شَرِكَة دِهَانْ', value: 'dentiste', imgSrc: 'PEDIATRIE' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    electricien: {
+        tag: 'docteur',
+        themeColor: '#cdb556',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ وَرْشَةْ تَقْنِي كَهْرَبَائِي',
+        systemLink: 'https://system.abyedh.tn/Landing/handmade_electricien',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'العيادة',
+        businesOwner: 'طبيب',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'كَهْرَبَائِي', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'كَهْرَبَائِي', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'كَهْرَبَائِي', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
+                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'PEDIATRIE' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    plombier: {
+        tag: 'docteur',
+        themeColor: '#cdb556',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ وَرْشَة سَبَّاكْ',
+        systemLink: 'https://system.abyedh.tn/Landing/handmade_plombier',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'شركة السباكة',
+        businesOwner: 'سبّاك',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'سَبَّاكْ', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'شركة سِبَاكَة', value: 'dentiste', imgSrc: 'printer' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'سَبَّاكْ', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'شركة سِبَاكَة', value: 'dentiste', imgSrc: 'printer' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'سَبَّاكْ', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
+                { id: 2, name: 'شركة سِبَاكَة', value: 'dentiste', imgSrc: 'PEDIATRIE' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    cristal: {
+        tag: 'docteur',
+        themeColor: '#cdb556',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ ورشة بلور',
+        systemLink: 'https://system.abyedh.tn/Landing/handmade_cristal',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'ورشة تركيب البلور',
+        businesOwner: 'صاحب ورشة تركيب البلور',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'وَرْشَة', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'وَرْشَة', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'وَرْشَة', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
+                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'PEDIATRIE' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    marbre: {
+        tag: 'docteur',
+        themeColor: '#cdb556',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ وَرْشَة جَلِيزْ وَ رُخَامْ',
+        systemLink: 'https://system.abyedh.tn/Landing/handmade_marbre',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'ورشة بيع الرخام',
+        businesOwner: 'صاحب ورشة بيع الرخام',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
+            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'جَلِيزْ وَ رُخَامْ ', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'جَلِيزْ وَ رُخَامْ ', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'جَلِيزْ وَ رُخَامْ ', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
+                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'PEDIATRIE' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
     chantier_contracteur: {
         tag: 'docteur',
         themeColor: '#406163',
@@ -3475,6 +4123,335 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
+    salon_marriage: {
+        tag: 'docteur',
+        themeColor: '#c30052',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ قَاعَاتْ الأَفْرَاحْ ',
+        systemLink: 'https://system.abyedh.tn/Landing/wedding_salon_marriage',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'قاعة الأفراح',
+        businesOwner: 'صاحب قاعة أفراح',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'قَاعَة  مُغَطَّاةْ', value: 'dentiste', imgSrc: 'sallon' },
+                { id: 2, name: 'قَاعَة  مَفْتُوحَة', value: 'dentiste', imgSrc: 'sallon' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'قَاعَة  مُغَطَّاةْ', value: 'dentiste', imgSrc: 'sallon' },
+                { id: 2, name: 'قَاعَة  مَفْتُوحَة', value: 'dentiste', imgSrc: 'sallon' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'قاعة  مغطاة', value: 'dentiste', imgSrc: 'sallon' },
+            { id: 2, name: 'قاعة  مفتوحة', value: 'dentiste', imgSrc: 'sallon' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    orchestre: {
+        tag: 'docteur',
+        themeColor: '#c30052',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ فِرْقَة مُوسِيقِيَّة',
+        systemLink: 'https://system.abyedh.tn/Landing/wedding_orchestre',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'الفرقة الموسيقية',
+        businesOwner: 'صاحب فرقة موسيقية',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'فِرْقَة شَعْبِيَّة', value: 'dentiste', imgSrc: 'orqustre' },
+                { id: 2, name: 'فَنَّانْ', value: 'dentiste', imgSrc: 'orqustre' },
+            ],
+            [
+                { id: 3, name: 'أُورْكِسْتِرْ', value: 'dentiste', imgSrc: 'orqustre' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'فِرْقَة شَعْبِيَّة', value: 'dentiste', imgSrc: 'orqustre' },
+                { id: 2, name: 'فَنَّانْ', value: 'dentiste', imgSrc: 'orqustre' },
+                { id: 3, name: 'أُورْكِسْتِرْ', value: 'dentiste', imgSrc: 'orqustre' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'فرقة شعبية', value: 'dentiste', imgSrc: 'orqustre' },
+            { id: 2, name: 'فنان', value: 'dentiste', imgSrc: 'orqustre' },
+            { id: 3, name: 'أوركستر', value: 'dentiste', imgSrc: 'orqustre' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    chef: {
+        tag: 'docteur',
+        themeColor: '#c30052',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ مَوَاعِيدْ الطَبَّاخْ',
+        systemLink: 'https://system.abyedh.tn/Landing/wedding_chef',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'الطباخ',
+        businesOwner: 'طباخ',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'مَطْبَخْ أَجْنَبِي', value: 'dentiste', imgSrc: 'chef' },
+                { id: 2, name: 'المَطْبَخْ التًونِسِي', value: 'dentiste', imgSrc: 'chef' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'مَطْبَخْ أَجْنَبِي', value: 'dentiste', imgSrc: 'chef' },
+                { id: 2, name: 'المَطْبَخْ التًونِسِي', value: 'dentiste', imgSrc: 'chef' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'مطبخ أجنبي', value: 'dentiste', imgSrc: 'chef' },
+            { id: 2, name: 'المطبخ التونسي', value: 'dentiste', imgSrc: 'chef' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    photographe: {
+        tag: 'docteur',
+        themeColor: '#c30052',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ وَرْشَة مُصَوِّرْ',
+        systemLink: 'https://system.abyedh.tn/Landing/wedding_photographe',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'إستديو التصوير',
+        businesOwner: 'مصور',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'تَصْوِيرْ أَعْرَاسْ', value: 'dentiste', imgSrc: 'photographe' },
+                { id: 2, name: 'مًصَوِرْ فُوتُوغْرَافِي', value: 'dentiste', imgSrc: 'photographe' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'تَصْوِيرْ أَعْرَاسْ', value: 'dentiste', imgSrc: 'photographe' },
+                { id: 2, name: 'مًصَوِرْ فُوتُوغْرَافِي', value: 'dentiste', imgSrc: 'photographe' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'تصوير أعراس', value: 'dentiste', imgSrc: 'photographe' },
+            { id: 2, name: 'مصور فوتوغرافي', value: 'dentiste', imgSrc: 'photographe' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    fourniture_marriage: {
+        tag: 'docteur',
+        themeColor: '#c30052',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ كِرَاءْ لَوَازِمْ الأَفْرَاحْ',
+        systemLink: 'https://system.abyedh.tn/Landing/wedding_fourniture_marriage',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'نقطة بيع لوازم الأفراج',
+        businesOwner: 'صاحب نقطة بيع لوازم الأفراح',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'لَوَازِمْ أُخْرَي', value: 'dentiste', imgSrc: 'lawazem' },
+                { id: 2, name: 'فَسَاتِينْ', value: 'dentiste', imgSrc: 'lawazem' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'لَوَازِمْ أُخْرَي', value: 'dentiste', imgSrc: 'lawazem' },
+                { id: 2, name: 'فَسَاتِينْ', value: 'dentiste', imgSrc: 'lawazem' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'لوازم مادية', value: 'dentiste', imgSrc: 'lawazem' },
+            { id: 2, name: 'فساتين', value: 'dentiste', imgSrc: 'lawazem' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    bijouterie: {
+        tag: 'docteur',
+        themeColor: '#c30052',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ نُقْطَةَ بَيْعْ المُجَوْهَرَاتْ',
+        systemLink: 'https://system.abyedh.tn/Landing/wedding_bijoux',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'نقطة بيع المجوهرات',
+        businesOwner: 'صاحب نقطة بيع المجوهرات',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
+            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'مُجَوْهَرَاتْ جَاهِزَةَ', value: 'dentiste', imgSrc: 'bijoux' },
+                { id: 2, name: 'صَايْغِي', value: 'dentiste', imgSrc: 'bijoux' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'مُجَوْهَرَاتْ جَاهِزَةَ', value: 'dentiste', imgSrc: 'bijoux' },
+                { id: 2, name: 'صَايْغِي', value: 'dentiste', imgSrc: 'bijoux' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'مجوهرات جاهزة', value: 'dentiste', imgSrc: 'bijoux' },
+            { id: 2, name: 'صايغي', value: 'dentiste', imgSrc: 'bijoux' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
     wedding_salon_marriage: {
         tag: 'docteur',
         themeColor: '#c30052',
@@ -3989,6 +4966,168 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
+    cinema: {
+        tag: 'docteur',
+        themeColor: '#2c7177',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ قَاعَاتْ السِنِمَا',
+        systemLink: 'https://system.abyedh.tn/Landing/art_cinema',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'قاعة السنما',
+        businesOwner: 'صاحب قاعة سنما',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',
+            'في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'قَاعَةْ عَرْضَ', value: 'dentiste', imgSrc: 'cima' },
+                { id: 2, name: 'قَاعَةْ سِنِمَا', value: 'dentiste', imgSrc: 'cima' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'قَاعَةْ عَرْضَ', value: 'dentiste', imgSrc: 'cima' },
+                { id: 2, name: 'قَاعَةْ سِنِمَا', value: 'dentiste', imgSrc: 'cima' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'قاعة عرض', value: 'dentiste', imgSrc: 'cima' },
+                { id: 2, name: 'قاعة سنما', value: 'dentiste', imgSrc: 'cima' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    theatre: {
+        tag: 'docteur',
+        themeColor: '#2c7177',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ قَاعَةْ مَسْرَحْ',
+        systemLink: 'https://system.abyedh.tn/Landing/art_theatre',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'قاعة المسرح',
+        businesOwner: 'صاحب قاعة مسرح',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',        
+            'في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'مَسْرَحْ مَفْتٌوحْ', value: 'dentiste', imgSrc: 'theatre' },
+                { id: 2, name: 'مَسْرَحْ مُغْلَقْ', value: 'dentiste', imgSrc: 'theatre' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'مَسْرَحْ مَفْتٌوحْ', value: 'dentiste', imgSrc: 'theatre' },
+                { id: 2, name: 'مَسْرَحْ مُغْلَقْ', value: 'dentiste', imgSrc: 'theatre' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'مسرح مفتوح', value: 'dentiste', imgSrc: 'theatre' },
+                { id: 2, name: 'مسرح مغلق', value: 'dentiste', imgSrc: 'theatre' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    musee: {
+        tag: 'docteur',
+        themeColor: '#2c7177',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ المَتَاحِفْ',
+        systemLink: 'https://system.abyedh.tn/Landing/art_musee',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'المتحف',
+        businesOwner: 'صاحب متحف خاص',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',        
+            'في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون  ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'مَكَانْ أَثَرِي', value: 'dentiste', imgSrc: 'Musee' },
+                { id: 2, name: 'مَتْحَفْ', value: 'dentiste', imgSrc: 'Musee' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'مَكَانْ أَثَرِي', value: 'dentiste', imgSrc: 'Musee' },
+                { id: 2, name: 'مَتْحَفْ', value: 'dentiste', imgSrc: 'Musee' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'مكان أثري', value: 'dentiste', imgSrc: 'Musee' },
+                { id: 2, name: 'متحف', value: 'dentiste', imgSrc: 'Musee' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
     art_cinema: {
         tag: 'docteur',
         themeColor: '#2c7177',
@@ -4377,6 +5516,74 @@ const AbyedhADIL = {
 
     /*finance */
     ptvgros: {
+        tag: 'docteur',
+        themeColor: '#6f858f',
+        directoryTable: '01_docteur',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ نِقَاطْ بَيْعْ الجُمْلَة',
+        systemLink: 'https://system.abyedh.tn/Landing/storage',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'نقطة البيع بالجملة',
+        businesOwner: 'صاحب نقطة بيع بالجملة',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['المنصة هاذي موجهة للتجار بالأساس لأنها عبارة عن محرك بحث تلقي فيه المزودين بالجملة بمختلف أنواع السلع اللي تحتاجها , وكذاك تعتبر أداة للتواصل مع ها المزودين و تمرير طلبات المنتجات ...</h5> ',
+            'في المقابل كانك صاحب متجر بيع بالجملة أبيض توفرلك نظام إدارة و مراقبة للمتجر متاعك بالإظافة لإمكانية متابعة طلبات حرفائك و حاجيتهم للسلع و البضائع و ذلك من خلال منصة تواصل معهم   ']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'storage-nutrition' },
+                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'constraction' },
+                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'medical' },
+                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'clothes' },
+            ],
+            [
+                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'drink' },
+                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'storage-nutrition' },
+                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'constraction' },
+                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'medical' },
+                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'clothes' },
+                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'drink' },
+                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
+            ]
+        ],
+        subCateg: [
+            { id: 1, name: 'مَوَادْ غذائية', value: 'dentiste', imgSrc: 'storage-nutrition' },
+            { id: 2, name: 'مَوَادْ بناء', value: 'dentiste', imgSrc: 'constraction' },
+            { id: 3, name: 'مَوَادْ طبية', value: 'dentiste', imgSrc: 'medical' },
+            { id: 4, name: 'ملابس', value: 'dentiste', imgSrc: 'clothes' },
+            { id: 5, name: 'مشروبات', value: 'dentiste', imgSrc: 'drink' },
+            { id: 6, name: 'خضر غلال', value: 'dentiste', imgSrc: 'fruit' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    depot: {
         tag: 'docteur',
         themeColor: '#6f858f',
         directoryTable: '01_docteur',

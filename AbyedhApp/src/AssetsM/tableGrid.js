@@ -4,10 +4,12 @@ import "gridjs/dist/theme/mermaid.css";
 
 function TableGrid(props) {
     return ( <>
+        {/* <div className='table-responsive'> */}
             <Grid   
                 data={props.tableData}
                 columns={props.columns}
                 search = {true}
+                page={2}
                 resizable = {true}
                 sort = {true}                
                 pagination= {{
@@ -33,7 +35,7 @@ function TableGrid(props) {
                 }}
                 className= {{
                     search:'w-100-seach-input shadow-sm',
-                    table:'rounded-0 border-2  w-100-seach-input',
+                    table:`rounded-0 border-2  ${props.tableData.length == 0 ? 'w-100-seach-input' : 'w-100-grijs-table'} `,
                     paginationButtonNext:'bi bi-caret-right-fill text-success',
                     paginationButtonPrev :'bi bi-caret-left-fill text-danger' ,
                     container: 'card card-body border-div shadow-sm mb-2'
@@ -56,6 +58,7 @@ function TableGrid(props) {
                     }
                 }}     
             />
+        {/* </div> */}
     </> );
 }
 

@@ -1,49 +1,85 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes,Route, Outlet} from "react-router-dom";
+import React , { useEffect, useState }from 'react'
+import { BrowserRouter as Router, Routes,Route, Outlet, useParams} from "react-router-dom";
 import { Navigate } from 'react-router-dom';
-import LogInPage from '../../App/logInPage'
+import GConf from '../../App/AssetsM/APPConf';
 
-import ProfileLandingPage from '../../App/profileLandingPage'
+//navBar
+import NavBar from '../../App/Dashboard/navBar'
+import LeftSideCard from '../../App/Dashboard/leftSide';
 
-//camion
-import MainPage from "../../App/Main/mainPage";
-import SuiviePage from '../../App/Suivie/suiviePage';
-import FavoritePage from '../../App/Favorite/favoritePage';
-import DocummentPage from '../../App/Documments/docummentsPage';
-import CalendarPage from '../../App/Calendar/calendarPage';
-import SettingPage from '../../App/Setting/settingPage';
-import SignUpPage from '../../App/signUpPage';
-import DocummentLanding from '../../App/Documments/documentsLanding';
-import DocummentInfo from '../../App/Documments/docummentDate';
+import MainPage from '../../App/Dashboard/Main/mainPage';
+import SystemPage from '../../App/Dashboard/System/systemPage';
+import SpesificPage from '../../App/Dashboard/Spesific/spesificPage';
+
+//Commandes
+import RequestPage from '../../App/Dashboard/Requests/requestPage';
+import RequestReservationInfo from "../../App/Dashboard/Requests/requestInfo"; 
+import CalendarCommandes from '../../App/Dashboard/Requests/calendar';
+
+import MessagesPages from '../../App/Dashboard/Messages/messagesPage'
+import ProfilePage from '../../App/Dashboard/Profile/profilePage'
+
+//Login  & Auth
+import LogIn from '../../App/LogIn/logIn';
+import AuthPage from '../../App/LogIn/authPage';
 
 const RedirectingPage = () => {
-    const UIDisSet = localStorage.getItem('PID');
+    let {tag} = useParams()
+    const getPID = localStorage.getItem('PID');
     return (<>
         {
-            UIDisSet ? <Navigate to='/App/L'  /> : <Navigate to='/App/logIn'  />
+            getPID ? <Navigate to='/App/S'  /> : <Navigate to={`/App/Login/${tag}`}  />
         } 
-</>);}
+    </>);
+}
+
+const SystemLanding = () => {
+    useEffect(() => {
+        //CheckAuthentification()
+        CheckLogIn()
+    },[]);
+  
+    const CheckAuthentification = () =>{
+        const AuthenKey = localStorage.getItem(`${GConf.SystemTag}_AuthKeyISSet`);
+        if (!AuthenKey) {
+            window.location.href = "/Auth";
+        }
+    }
+  
+    const CheckLogIn = () =>{
+        const pidIsSet = localStorage.getItem('PID');
+        if (!pidIsSet) {window.location.href = "/login";}
+    }
+  
+    return (<>
+        <NavBar/>
+        <br />
+        <br />
+        <br />
+         
+        <div className='row pt-4 m-1'>
+                <div className='col-12 col-md-12 col-lg-2'><LeftSideCard /></div>
+                <div className='col-12 col-md-12 col-lg-10'><Outlet /></div>
+        </div>
+    </>);
+  }
 
 const UserRouter = () => (
+    
     <Route path="App" exact element={<Outlet />} >
-            <Route path="" exact element={<RedirectingPage />} />
-            <Route path="logIn" exact element={<LogInPage />} />
-            <Route path="signUp" exact element={<SignUpPage />} />
-            <Route path="L" exact element={<ProfileLandingPage />} >
+            <Route path="L/:tag" element={<RedirectingPage />} />
+            <Route path="Login/:tag" element={<LogIn />} />
+            <Route path="Auth" element={<AuthPage />} />
+            <Route path="S" exact element={<SystemLanding />} >
                     <Route path="" exact element={<MainPage />} />
-                    <Route path="ma" exact element={<MainPage />} />
-                    <Route path="sv" exact element={<SuiviePage />} />
-                    <Route path="fv" exact element={<FavoritePage />} >
-                        <Route path="" exact element={<MainPage />} />
-                        <Route path="info/:code" exact element={<MainPage />} />
+                    <Route path="System" exact element={<SystemPage />} />
+                    <Route path="Spesific" exact element={<SpesificPage />} />
+                    <Route path="rq" exact element={<Outlet />} >
+                        <Route path=":TAG" exact element={<RequestPage />} />
+                        <Route path="info/:TAG/:CID" exact element={<RequestReservationInfo />} />
                     </Route>
-                    <Route path="dc" exact element={<Outlet />} >
-                        <Route path='' exact element={<DocummentPage />} />
-                        <Route path='landing/:g' exact element={<DocummentLanding />} />
-                        <Route path='info/:g/:ID' exact element={<DocummentInfo />} />
-                    </Route>
-                    <Route path="cl" exact element={<CalendarPage />} />
-                    <Route path="st" exact element={<SettingPage />} />
+                    <Route path="Profile" exact element={<ProfilePage />} />
+                    <Route path="Message" exact element={<MessagesPages />} />
             </Route>
     </Route>
 )
