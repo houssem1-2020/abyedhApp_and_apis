@@ -15,7 +15,7 @@ import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import { Menu } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
-import ADIL from '../../../AssetsM/APPADIL';
+import ADIL from '../../../AssetsM/APPITEM';
 import CountUp from 'react-countup';
 
 
@@ -24,7 +24,7 @@ function DocteurSpecific() {
      const [addTarifActive, setAddTarifActive] = useState(false)
      const [addAssurance, setAddAssurance] = useState(false)
      const [addDiplome, setAddDiplome] = useState(false)
-     const [returnedProfileData, setReturnedProfileData] = useState({SP_Tarif:[], SP_Assurance:[], SP_Diplomes:[]})
+     const [returnedProfileData, setReturnedProfileData] = useState({SP_Tarif:[], SP_Promotion:[], SP_Diplomes:[]})
      const [loaderState, setLS] = useState(false)
    
 
@@ -35,7 +35,7 @@ function DocteurSpecific() {
            SystemTag : GConf.systemTag
         })
         .then(function (response) {
- 
+          console.log(response.data)
           setReturnedProfileData(response.data) 
         }).catch((error) => {
           if(error.request) {
@@ -155,14 +155,14 @@ function DocteurSpecific() {
           else if (dataNow.Prix == '') { toast.error("أدخل السعر  !", GConf.TostErrorGonf) } 
           else if (dataNow.Description == '') { toast.error("أدخل الوصف  !", GConf.TostErrorGonf) } 
           else {
-              if (returnedProfileData.SP_Assurance == '') {
+              if (returnedProfileData.SP_Promotion == '') {
                   let emptyArray = []
                   emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Assurance:JSON.stringify(emptyArray) })
+                  setReturnedProfileData({...returnedProfileData, SP_Promotion:JSON.stringify(emptyArray) })
               } else {    
-                  let emptyArray = JSON.parse(returnedProfileData.SP_Assurance)
+                  let emptyArray = JSON.parse(returnedProfileData.SP_Promotion)
                   emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Assurance: JSON.stringify(emptyArray) })
+                  setReturnedProfileData({...returnedProfileData, SP_Promotion: JSON.stringify(emptyArray) })
               }
           }
           
@@ -183,23 +183,23 @@ function DocteurSpecific() {
     }
     const AssuranceListeCard = (props) =>{
           return(<>
-            {returnedProfileData.SP_Assurance == '' ? 
-            <ListeVide icon='heart-pulse' /> 
+            {returnedProfileData.SP_Promotion == '' ? 
+            <ListeVide icon='megaphone' /> 
             :
             <>
               <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
-                {JSON.parse(returnedProfileData.SP_Assurance).map((data,index) => 
+                {JSON.parse(returnedProfileData.SP_Promotion).map((data,index) => 
                   <div className='card p-2 border-div mb-2' key={index}>
                       <div className='row'>
                           <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'>{data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
                           <div className='col-3 align-self-center'>{data.Prix}</div> 
-                          <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Assurance')}></Button></div> 
+                          <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Promotion')}></Button></div> 
                       </div>
                   </div>
                 )}
               </div>
               <br />
-              <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Assurance')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+              <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Promotion')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
             </> 
             } 
         </>)
@@ -281,7 +281,7 @@ function DocteurSpecific() {
           <br />
           <br />
           <div className='row mb-3'>
-              <div className='col-10 align-self-center'><h4>  Departemment d'assurance  : </h4></div>
+              <div className='col-10 align-self-center'><h4>  Promotions  : </h4></div>
               <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setAddAssurance(!addAssurance)}> <Icon name={addAssurance ? 'list ol' : 'plus'} /> </Button></div>
           </div>
           { addAssurance ? 

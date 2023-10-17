@@ -99,8 +99,6 @@ const AbyedhADIL = {
         profileBtns:[
                 {id:1, name:' حَجْزْ مَوْعِدْ   ' , icon:'calendar' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة مَوْعِدْ ' , icon:'eye' , link:'Suivie', bgColor:''},
-                // {id:2, name:' طلب إستشارة ' , icon:'eye' , link:'', bgColor:''},
-                // {id:2, name:' بحث عن دواء ' , icon:'eye' , link:'', bgColor:''},
         ],
         profileTarif:true,
 
@@ -151,7 +149,8 @@ const AbyedhADIL = {
                 {id:7, name:' فريق العمل ', resultTag:'' , icon:'star-half'},
         ],
         profileBtns:[
-                {id:1, name:' شِرَاءْ / مَوْعِدْ   ' , icon:'shop' , link:'Action', bgColor:''},
+                {id:1, name:' شِرَاءْ دَواءْ   ' , icon:'shop' , link:'Action', bgColor:''},
+                {id:1, name:' طَلَبْ مَوْعِدْ   ' , icon:'calendar' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة  ' , icon:'eye' , link:'Suivie', bgColor:''},
         ],
         profileTarif:true,
@@ -209,7 +208,7 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' حجز / تسجيل   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:1, name:'  تَسْجِيلْ حَجْزْ  ' , icon:'check' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -268,7 +267,7 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' حجز / تسجيل   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:1, name:'  تَسْجِيلْ مَوْعِدْ  ' , icon:'check circle' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -327,7 +326,7 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' حجز / تسجيل   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:1, name:'  تَسْجِيلْ حَجْزْ  ' , icon:'check circle' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -448,6 +447,7 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
+
     /*education*/ 
     garderie: {
         tag: 'garderie',
@@ -495,7 +495,8 @@ const AbyedhADIL = {
                 {id:1, name:' الطاقم التربوي ', resultTag:'' , icon:'star-half'},
         ],
         profileBtns:[
-            {id:1, name:' تسجيل / ترسيم    ' , icon:'edit outline' , link:'Action', bgColor:''},
+            {id:1, name:' تَسْجِيلْ  ' , icon:'edit outline' , link:'Action', bgColor:''},
+            {id:1, name:'  تَرْسِيمْ    ' , icon:'clipboard check' , link:'Action', bgColor:''},
             {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
         ],
         profileTarif:true,
@@ -548,8 +549,9 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:'  تسجيل / ترسيم   ' , icon:'edit outline' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+            {id:1, name:' تَسْجِيلْ  ' , icon:'edit outline' , link:'Action', bgColor:''},
+            {id:1, name:'  تَرْسِيمْ    ' , icon:'clipboard check' , link:'Action', bgColor:''},
+            {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
         profileTarif:true,
@@ -602,8 +604,9 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' تسجيل / ترسيم   ' , icon:'edit outline' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+            {id:1, name:' تَسْجِيلْ  ' , icon:'edit outline' , link:'Action', bgColor:''},
+            {id:1, name:'  تَرْسِيمْ    ' , icon:'clipboard check' , link:'Action', bgColor:''},
+            {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
         profileTarif:true,
@@ -672,8 +675,9 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' تسجيل / ترسيم   ' , icon:'edit outline' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+            {id:1, name:' تَسْجِيلْ  ' , icon:'edit outline' , link:'Action', bgColor:''},
+            {id:1, name:'  تَرْسِيمْ    ' , icon:'clipboard check' , link:'Action', bgColor:''},
+            {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
         profileTarif:true,
@@ -726,7 +730,8 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' طباعة / خدمة   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:1, name:' طِبَاعَةْ وَثَائِقْ   ' , icon:'print' , link:'Action', bgColor:''},
+                {id:1, name:' طَلَبْ خِدْمَة   ' , icon:'clipboard check' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -780,7 +785,7 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' شراء ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:1, name:'  شِرَاءْ أَدَوَاتْ مَدْرَسِيّة' , icon:'calendar' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -1176,7 +1181,7 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:1, name:'طَلَبْ نَقْلْ بَظَائِعْ  ' , icon:'truck' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -1236,7 +1241,7 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:1, name:' تَسْجِيلْ لِلْحٌصٌولْ عَلَي رُخْصِةْ قِيَادَة' , icon:'taxi' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -1297,7 +1302,7 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:1, name:' طَلَبْ مَشْرُوبْ ' , icon:'check' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -1357,7 +1362,8 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' حجز / طلب   ' , icon:'calendar' , link:'Action', bgColor:''},
+                {id:1, name:' طَلَبْ طًبَقْ' , icon:'food' , link:'Action', bgColor:''},
+                {id:1, name:' حَجْزْ طَاوْلَة' , icon:'calendar' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -2818,7 +2824,6 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    
     contracteur: {
         tag: 'docteur',
         themeColor: '#406163',
@@ -2976,7 +2981,6 @@ const AbyedhADIL = {
         profileBtns:[
                 {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
         ],
         profileTarif:true,
 
@@ -4123,13 +4127,13 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    salon_marriage: {
+    salle_marriage: {
         tag: 'docteur',
         themeColor: '#c30052',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ قَاعَاتْ الأَفْرَاحْ ',
-        systemLink: 'https://system.abyedh.tn/Landing/wedding_salon_marriage',
+        systemLink: 'https://system.abyedh.tn/Landing/wedding_salle_marriage',
         iconName: '',
         WiconName: '',
         adsImage: '',

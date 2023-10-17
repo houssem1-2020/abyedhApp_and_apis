@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Typed from 'react-typed';
 import { Grid, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -379,7 +379,25 @@ function MainLandingPage() {
             </div>
         </>)
     }
-
+    const DownloadTheApp = () =>{
+        return(<>
+            <div className="container text-end">
+                <a exact='true' target='c_blank'  href='https://play.google.com/store/apps/details?id=com.mycompany.abyedhtn'>  
+                    <div className="card p-3 border-div shadow-sm" >
+                        <div className="row">
+                            <div className="col-2 text-center align-self-center"> 
+                                <img src="https://cdn.abyedh.tn/images/About/gp.jpg" className="img-responsive  mb-2" style={{width:'50px'}}  />
+                            </div>
+                            <div className="col-10 align-self-center">
+                                <div className="text-end  text-secondary"><h4>حَمّلْ تَطْبِيقْ أَبْيَضْ الذي  يمنحك تجربة مستخدم أفضل    </h4>     </div>
+                                <div className="text-end  text-secondary">  <small dir='rtl'>الحجم : 2.85 MB | آخر تحديث : 05/10/2023 </small>    </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </>)
+    }
     return ( <>
             <TopNavBar />
             <AddsCard />
@@ -431,7 +449,8 @@ function MainLandingPage() {
                 </div>
             </div>
             <br />
-            <Tools />
+            {/* <Tools /> */}
+            <DownloadTheApp />
             <br />
             <br />
             <ButtomCard />

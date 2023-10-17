@@ -12,6 +12,15 @@ import { Dropdown, Input , Icon ,Divider, Header, Placeholder, Modal, Button, Di
 import SKLT from '../../AssetsM/usedSlk';
 
 
+const ScrollDelegCard = ({localiteList, tag, setFilterLoading}) =>{
+    return(<>
+        <div className="mt-0 p-1" dir='rtl' style={{width:'100%', overflowX: 'auto', overflowY : 'hidden', whiteSpace:'nowrap'}}>
+            <div className="d-flex"  >
+                {localiteList.map((data,index) =>  <div key={index} className='border rounded-pill shadow-sm mb-1 p-2 text-white text-end ms-2 btn-cursor' style={{backgroundColor:GConf.ADIL[tag].themeColor}} onClick={() => setFilterLoading(data.text)}> <b className='ms-1 me-1'> {data.text} </b></div>)} 
+            </div>
+        </div>
+    </>)
+}
 
 function ResultPage() {
     /*#########################[Const]##################################*/
@@ -165,11 +174,8 @@ function ResultPage() {
     }
     const ActionsBtnCard = (props) =>{
         return(<>
-        <Button    className='bg-white  border mb-2 ' icon style={{borderRadius:'18px', color: GConf.ADIL[tag].themeColor}}     >
-                <div className='row'>
-                    <div className='col-3 align-self-center'><Icon name={props.data.icon} /> </div>
-                    <div className='col-9 align-self-center'>{props.data.name}  </div>
-                </div>
+        <Button className='bg-white  border mb-2 '   style={{borderRadius:'18px', width:'auto', color: GConf.ADIL[tag].themeColor}}     > 
+                    <Icon name={props.data.icon} className='ms-1' />  {props.data.name}
         </Button>
  
             {/* <NavLink exact='true' to={`/S/P/${props.data.link}/${tag}/${PID}`}> 
@@ -231,7 +237,7 @@ function ResultPage() {
                             
                         </div>
                         <div className='floating-card-result-card'>
-                            <span className=" m-2 text-dark"> {Math.min(Math.max(parseFloat(`${Math.abs(props.data.PID)}`[0] + '.' + `${Math.abs(props.data.PID)}`.slice(-1)), 1), 5)} <HalfStarRating rating={Math.min(Math.max(parseFloat(`${Math.abs(props.data.PID)}`[0] + '.' + `${Math.abs(props.data.PID)}`.slice(-1)), 1), 5)} icon='star' disabled size='small' /> ({Math.floor(Math.random() * (40 - 1 + 1)) + 1})</span>
+                            <span className=" m-2 text-dark"> {Math.min(Math.max(parseFloat(`${Math.abs(props.data.PID)}`[0] + '.' + `${Math.abs(props.data.PID)}`.slice(-1)), 1), 5)} <HalfStarRating rating={Math.min(Math.max(parseFloat(`${Math.abs(props.data.PID)}`[0] + '.' + `${Math.abs(props.data.PID)}`.slice(-1)), 1), 5)} icon='star' disabled size='small' />  </span>
                             <span className=" m-2 text-dark">| <span className='bi bi-hand-thumbs-up-fill'></span> {props.data.Likes_Num} </span>
                             <span className=" m-2 text-dark">| <span className='bi bi-eye-fill'></span> {props.data.Views_Num >= 1000 ? (parseInt(props.data.Views_Num.toString().substring(0, 4)) / 1000).toFixed(1) + 'K' :  props.data.Views_Num}</span>
                         </div>
@@ -244,16 +250,16 @@ function ResultPage() {
                             {props.data.Deleg != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-geo-alt' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Deleg}</div> </> : <></> }
                             {props.data.Adress != '' ?  <><div className='text-end' style={{marginRight:'20px'}} dir='rtl'> <span className='bi bi-pin-map-fill' style={{color: GConf.ADIL[tag].themeColor}}></span> : {props.data.Adress}</div> </> : <></> }
                             </div>
-                            <div className='d-flex'>
+                            {/* <div className='d-flex '>
                                 <span className='ms-2 bi bi-award-fill bi-sm'></span>
                                 <span className='ms-2 bi bi-wifi bi-sm'></span>
                                 <span className='ms-2 bi bi-hourglass-split bi-sm'></span>
                                 <span className='ms-2 bi bi-x-diamond-fill bi-sm'></span>
-                            </div>
+                            </div> */}
                         </div>
                         
                         <div className='col-12 d-flex' dir='rtl'  >
-                            { GConf.ADIL[tag].systemActive ?  GConf.ADIL[tag].profileBtns.map( (data,index) => <ActionsBtnCard key={index} data={data} indexKey={index} /> ) : <></> }                        
+                            { GConf.ADIL[tag].systemActive ?  GConf.ADIL[tag].profileBtns.map( (data,index) => <ActionsBtnCard key={index} data={data} indexKey={index} /> ).slice(0, GConf.ADIL[tag].profileBtns.length - 1) : <></> }                        
                         </div>
                         {/* <div className="mt-0 p-1" dir='rtl' style={{width:'100%', overflowX: 'auto', overflowY : 'hidden', whiteSpace:'nowrap'}}>
                             <div className="d-flex"  >
@@ -358,15 +364,7 @@ function ResultPage() {
             </div>
         </>)
     }
-    const ScrollDelegCard = () =>{
-        return(<>
-            <div className="mt-0 p-1" dir='rtl' style={{width:'100%', overflowX: 'auto', overflowY : 'hidden', whiteSpace:'nowrap'}}>
-                <div className="d-flex"  >
-                    {localiteList.map((data,index) =>  <div key={index} className='border rounded-pill shadow-sm mb-1 p-2 text-white text-end ms-2 btn-cursor' style={{backgroundColor:GConf.ADIL[tag].themeColor}} onClick={() => setFilterLoading(data.text)}> <b className='ms-1 me-1'> {data.text} </b></div>)} 
-                </div>
-            </div>
-        </>)
-    }
+
     return ( <>
             <TopNavBar />  
             <br />
@@ -385,7 +383,7 @@ function ResultPage() {
                                 <FilterCard />
                             </div>
                             
-                            <ScrollDelegCard />
+                            <ScrollDelegCard tag={tag} localiteList={localiteList} setFilterLoading={setFilterLoading} />
                             {loading ?  <PlacHolderCard />
                             :
                             <>

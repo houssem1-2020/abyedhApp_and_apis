@@ -1,6 +1,6 @@
 import React, {useEffect,useState}  from 'react';
 import GConf from '../../AssetsM/APPConf';
-import ADIL from '../../AssetsM/APPADIL';
+import ADIL from '../../AssetsM/APPITEM';
 import { Button, Icon, Loader } from 'semantic-ui-react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -108,7 +108,7 @@ function RequestPage() {
     }
 
     return (<>
-             <div className='container' dir='rtl'>
+             <div className=' ' dir='rtl'>
                 <h2 className='text-center' style={{color: GConf.landing[GConf.systemTag].colorTheme}}>{GConf.landing[GConf.systemTag].systemTitle}</h2>
                 <h4>{GConf.landing[GConf.systemTag].adsText}</h4> 
                 <ul>

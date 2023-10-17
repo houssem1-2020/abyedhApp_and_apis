@@ -6,6 +6,25 @@ import { toast } from 'react-toastify';
 import { NavLink, useNavigate, useParams} from 'react-router-dom';
 import APPConf from '../AssetsM/APPConf';
 import dirItem from '../../AssetsM/Item'
+const FackeLogIn = ({tag}) => {
+    const [fakePID, setFakePID] = useState(0)
+    const AddFakeLogIn = () =>{
+        localStorage.setItem('PID', fakePID);
+        localStorage.setItem('APP_TAG', tag);
+        window.location.href = "/App/S";
+    }
+    return(<>
+        
+        <br />
+        <br />
+        <div className='mb-3'>
+            <Input  icon='key' fluid  iconPosition='left' type='number'   className='shadow-sm  '  onChange={(e) => setFakePID(e.target.value)}/>
+        </div>
+        <div className='mb-3'>
+            <Button  fluid onClick={AddFakeLogIn}    className='shadow-sm  '><Icon name='sign in' /> دخول  </Button>
+        </div>
+    </>)
+}
 function LogIn() {
     /*#########################[Const]##################################*/
     //const navigate = useNavigate();
@@ -38,14 +57,14 @@ function LogIn() {
 
     /*#########################[Functions]##################################*/
     const logIn = () =>{
-        console.log(APPConf.ADIL[tag].RequestTable)
+        console.log(APPConf.landing[tag].RequestTable)
         if (!loginD.Log) {toast.error("إدخل المعرف !", APPConf.TostErrorGonf)}
         else if (!loginD.Pwd) {toast.error("أدخل كلمة المرور  !", APPConf.TostErrorGonf)}
         else if (!tag) {toast.error("Entrer Le Un Metier  !", APPConf.TostErrorGonf)}
         else{
             setLS(true)
             axios.post(`${APPConf.ApiLink}/LogIn`, {
-                LoginData : {Log : loginD.Log, Pwd : loginD.Pwd, SystemTag : APPConf.ADIL[tag].RequestTable }, 
+                LoginData : {Log : loginD.Log, Pwd : loginD.Pwd, SystemTag : APPConf.landing[tag].RequestTable }, 
                 systemTag : APPConf.systemTag,
             }).then(function (response) {
                 if(response.data[0] == 'true') {
@@ -69,22 +88,22 @@ function LogIn() {
         }   
     }
     const GetDelegList = (value) =>{
-        const adminRecords = Object.keys(APPConf.ADIL)
-            .filter(key => APPConf.ADIL[key].FavoriteGenre === value)
-            .map(key => ({ key: key, value: APPConf.ADIL[key].RequestTable, text: APPConf.ADIL[key].directoryTable }));
+        const adminRecords = Object.keys(APPConf.landing)
+            .filter(key => APPConf.landing[key].FavoriteGenre === value)
+            .map(key => ({ key: key, value: APPConf.landing[key].RequestTable, text: APPConf.landing[key].directoryTable }));
             setSystemListe(adminRecords);
     }
 
     const GetSystemKey = (value) =>{
-        for (const key in APPConf.ADIL) {
-            if (APPConf.ADIL[key].RequestTable === value) {
+        for (const key in APPConf.landing) {
+            if (APPConf.landing[key].RequestTable === value) {
                 return key;
             }
         }
     }
     const GetSystemName = (value) =>{
-        for (const key in APPConf.ADIL) {
-            if (APPConf.ADIL[key].RequestTable === value) {
+        for (const key in APPConf.landing) {
+            if (APPConf.landing[key].RequestTable === value) {
                 return key;
             }
         }
@@ -144,7 +163,7 @@ function LogIn() {
                         <Select placeholder='ماهو قطاع عملك ' fluid className='mb-2' options={genreOptions}   onChange={(e, { value }) => GetDelegList(value)} />
                         <Select placeholder='إختر مهنتك' fluid value={loginD.SystemTag} options={systemListe} onChange={(e, { value }) => setLoginD({...loginD, SystemTag: value })} />
                     </div>
-                    {/* <h3 className='text-end' dir='rtl' style={{color:APPConf.landing[tag].colorTheme}}> الدخول لنظام إستقبال الطلبات الخاص بـ: {APPConf.ADIL[tag].directoryTable}</h3> */}
+                    {/* <h3 className='text-end' dir='rtl' style={{color:APPConf.landing[tag].colorTheme}}> الدخول لنظام إستقبال الطلبات الخاص بـ: {APPConf.landing[tag].directoryTable}</h3> */}
                     <br />
                     <div className='card p-2 shadow-sm border-div mb-3 text-center'><h3 style={{color:APPConf.landing[tag].colorTheme}}><span className='check-all'></span> {findElementByLink(tag)}</h3></div>
 
@@ -171,7 +190,7 @@ function LogIn() {
                         </div>
                                
                         {/* </Bounce> */}
-                        
+                        <FackeLogIn tag={tag}/>
                 </div>
             </div>
         </div> 

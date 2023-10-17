@@ -980,7 +980,7 @@ function ProfilePage() {
                 case 'qiosque': return <CarQiosqieSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'mecanicien': return <CarMecanicienSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'courtier': return <SmasarSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'contrateur': return <ChantierContracteurSpecific TAG={tag} PID={PID} UID={UID} /> ;
+                case 'contracteur': return <ChantierContracteurSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'architecture': return <ChantierArchitectureSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'quincaillerie': return <ChantierQuicaillerieSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'forgeron': return <HandmadeForferonSpecific TAG={tag} PID={PID} UID={UID} /> ;
@@ -992,7 +992,7 @@ function ProfilePage() {
                 case 'marbrerie': return <HandemadeMarbreSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'coiffure': return <CoiffureSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'boutique': return <BoutiqueSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'salon_marriage': return <WeddingSallonMariageSpecific TAG={tag} PID={PID} UID={UID} /> ;
+                case 'salle_marriage': return <WeddingSallonMariageSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'orchestre': return <WeddingOrchestreSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'chef': return <WeddingChefSpecific TAG={tag} PID={PID} UID={UID} /> ;
                 case 'photographe': return <WeddingPhotographeSpecific TAG={tag} PID={PID} UID={UID} /> ;
@@ -1121,7 +1121,7 @@ function ProfilePage() {
                 case 'qiosque': return <CarQiosqieActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'mecanicien': return <CarMecanicienActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'courtier': return <SmasarActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'contrateur': return <ChantierContracteurActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'contracteur': return <ChantierContracteurActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'architecture': return <ChantierArchitectureActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'quincaillerie': return <ChantierQuicaillerieActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'forgeron': return <HandmadeForferonActions TAG={tag} PID={PID} UID={UID} /> ;
@@ -1133,7 +1133,7 @@ function ProfilePage() {
                 case 'marbrerie': return <HandemadeMarbreActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'coiffure': return <CoiffureActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'boutique': return <BoutiqueActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'salon_marriage': return <WeddingSallonMariageActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'salle_marriage': return <WeddingSallonMariageActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'orchestre': return <WeddingOrchestreActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'chef': return <WeddingChefActions TAG={tag} PID={PID} UID={UID} /> ;
                 case 'photographe': return <WeddingPhotographeActions TAG={tag} PID={PID} UID={UID} /> ;
@@ -1192,7 +1192,7 @@ function ProfilePage() {
                 case 'qiosque': return <CarQiosqieSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'mecanicien': return <CarMecanicienSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'courtier': return <SmasarSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'contrateur': return <ChantierContracteurSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'contracteur': return <ChantierContracteurSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'architecture': return <ChantierArchitectureSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'quincaillerie': return <ChantierQuicaillerieSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'forgeron': return <HandmadeForferonSuivie TAG={tag} PID={PID} UID={UID} /> ;
@@ -1204,7 +1204,7 @@ function ProfilePage() {
                 case 'marbrerie': return <HandemadeMarbreSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'coiffure': return <CoiffureSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'boutique': return <BoutiqueSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'salon_marriage': return <WeddingSallonMariageSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'salle_marriage': return <WeddingSallonMariageSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'orchestre': return <WeddingOrchestreSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'chef': return <WeddingChefSuivie TAG={tag} PID={PID} UID={UID} /> ;
                 case 'photographe': return <WeddingPhotographeSuivie TAG={tag} PID={PID} UID={UID} /> ;

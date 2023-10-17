@@ -15,7 +15,7 @@ import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import { Menu } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
-import ADIL from '../../../AssetsM/APPADIL';
+import ADIL from '../../../AssetsM/APPITEM';
 import CountUp from 'react-countup';
 
 

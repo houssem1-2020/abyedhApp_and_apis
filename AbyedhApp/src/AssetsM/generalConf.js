@@ -19,7 +19,8 @@ const GConf = {
     Items : dirItem,
     abyedhMap : TunMap,
     UserData : GetUID(),
-    ApiLink : 'https://api.abyedh.tn/apiAbyedh/Search', //https://api.abyedh.tn/apiAbyedh
+    SoketLink : 'https://api.abyedh.tn/apiAbyedh', //https://api.abyedh.tn/apiAbyedh
+    ApiLink : 'http://localhost:3011/Search', //https://api.abyedh.tn/apiAbyedh
     ApiProfileLink : 'https://api.abyedh.tn/apiAbyedh/Profile', //https://api.abyedh.tn/apiAbyedh
     ApiToolsLink : 'https://api.abyedh.tn/apiAbyedh/Tools', //https://api.abyedh.tn/apiAbyedh
 

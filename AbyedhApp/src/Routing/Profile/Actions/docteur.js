@@ -1,17 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Tab } from 'semantic-ui-react'
 import GConf from '../../../AssetsM/generalConf';
 import { Form, TextArea, Input , Button, Icon, Loader} from 'semantic-ui-react'
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { io } from "socket.io-client"
+
 
 function DocteurActions(props) {
 
     /* ############### Const #################*/
+     
     const [rendyVousD, setRdvData] = useState({date:new Date().toISOString().split('T')[0] , time: new Date().toLocaleTimeString('fr-FR')})
     const [loaderState, setLS] = useState(false)
     const [disabledSaveBtn, setDisabledBtn] = useState(false)
+
+    //SOket-io : it works cool in localhost but the problem with domaine name 
+    // const [notification, setNotification] = useState({message : 'this message', toId: `${props.TAG}-${props.PID}`});
+    // const [userId, setUserId] = useState(`USER-${props.UID}`);
+    // const socket = io(GConf.SoketLink, { query: { userId: `USER-${props.UID}`, }, });
+    // socket.emit('saveRequest', { userId, message: notification });
+    //fin socket.io
+
 
 
    /* ############### Functions #################*/

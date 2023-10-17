@@ -18,7 +18,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import timeGridPlugin from '@fullcalendar/timegrid';
-import ADIL from '../../AssetsM/APPADIL';
+import ADIL from '../../AssetsM/APPITEM';
+import { NavLink } from 'react-router-dom';
 
 const EditProfile = ({generalData, setGeneralData, UpdateGeneralDataFunc, delegList,GetDelegList,loaderState}) =>{
     const genreOptions = [
@@ -39,7 +40,7 @@ const EditProfile = ({generalData, setGeneralData, UpdateGeneralDataFunc, delegL
       function GenerateGenreListe() {
         return GConf.landing[GConf.systemTag].genreListe.map(item => ({
             key: item.id.toString(),
-            value: item.value,
+            value: item.name,
             text: item.name,
             image: { src: `https://cdn.abyedh.tn/images/Search/Land_icons/${item.imgSrc}.gif`, avatar: true }
         }));
@@ -51,10 +52,10 @@ const EditProfile = ({generalData, setGeneralData, UpdateGeneralDataFunc, delegL
         {/* <Input icon='key' iconPosition='left' placeholder='Mtricule Fiscale' value={generalData.Matricule_F} onChange={(e) => setGeneralData({...generalData, Matricule_F: e.target.value })} fluid /> */}
         
         <h5 className='mb-1'>Nom  </h5>
-        <Input icon='user' iconPosition='left' placeholder='Nom' value={generalData.Name} onChange={(e) => setGeneralData({...generalData, Name: e.target.value })} fluid />
+        <Input icon='user' dir='ltr' className="left aligned" iconPosition='left' placeholder='Nom' value={generalData.Name} onChange={(e) => setGeneralData({...generalData, Name: e.target.value })} fluid />
         
         <h5 className='mb-1'>Telephone</h5>
-        <Input icon='phone' iconPosition='left' placeholder='telephone' value={generalData.Phone} onChange={(e) => setGeneralData({...generalData, Phone: e.target.value })} fluid />
+        <Input icon='phone'  iconPosition='left' placeholder='telephone' value={generalData.Phone} onChange={(e) => setGeneralData({...generalData, Phone: e.target.value })} fluid />
         <h5 className='mb-1'>Geolocation</h5>
         <div className='mb-2'>
             <Select placeholder='Selectionnez Gouvernorat' fluid className='mb-2' options={TunMap.Gouv} value={generalData.Gouv} onChange={(e, { value }) => GetDelegList(value)} />
@@ -500,10 +501,10 @@ function ProfilePage() {
                         <br />
                     </span>
 					<div className='d-grid gap-2'>
-						<a className='btn btn-danger btn btn-lg bnt-block rounded-pill text-white ' target="_blank" href={`https://abyedh.tn/S/P/${GConf.systemTag}/${GConf.PID}`}>
+						<NavLink className='btn btn-danger btn btn-lg bnt-block rounded-pill text-white '   to={`/S/P/${GConf.systemTag}/${GConf.PID}`}>
 							<span className='bi bi-person-circle me-2'></span>    
-							 Voir Profile Sur Abyedh.tn 
-						</a>
+							 Voir Profile 
+						</NavLink>
 					</div>
 	            </div>
             </div>

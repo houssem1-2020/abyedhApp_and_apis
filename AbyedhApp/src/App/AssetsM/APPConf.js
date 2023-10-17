@@ -1,4 +1,4 @@
-import APPADIL from "./APPADIL";
+//import APPADIL from "./APPADIL";
 import APPItem from "./APPITEM";
 
 const GetPID = () =>{
@@ -26,7 +26,7 @@ const APPConf = {
     systemTag: GetSystemTag(),
     settingValue : GetSettingValue(),
 
-    ApiLink : 'https://api.system.abyedh.tn/apiSystemAbyedh/app', //https://api.system.abyedh.tn/apiSystemAbyedh/System 
+    ApiLink : 'http://localhost:3010/app', //https://api.system.abyedh.tn/apiSystemAbyedh/System 
     ApiRequestLink : 'https://api.system.abyedh.tn/apiSystemAbyedh', //https://api.system.abyedh.tn/apiSystemAbyedh/System 
 
     
@@ -37,7 +37,7 @@ const APPConf = {
     //Offline : JSON.parse(localStorage.getItem("Offline")),
     
     landing: APPItem, 
-    ADIL :  APPADIL, 
+    //ADIL :  APPADIL, 
     //toast
     TostErrorGonf : {
         position: "bottom-right",

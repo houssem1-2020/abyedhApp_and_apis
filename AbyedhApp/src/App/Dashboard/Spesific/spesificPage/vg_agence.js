@@ -15,7 +15,7 @@ import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import { Menu } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
-import ADIL from '../../../AssetsM/APPADIL';
+import ADIL from '../../../AssetsM/APPITEM';
 import CountUp from 'react-countup';
 
 
@@ -24,7 +24,8 @@ function DocteurSpecific() {
      const [addTarifActive, setAddTarifActive] = useState(false)
      const [addAssurance, setAddAssurance] = useState(false)
      const [addDiplome, setAddDiplome] = useState(false)
-     const [returnedProfileData, setReturnedProfileData] = useState({SP_Tarif:[], SP_Assurance:[], SP_Diplomes:[]})
+     const [addStructure, setAddStructure] = useState(false)
+     const [returnedProfileData, setReturnedProfileData] = useState({SP_Tarif:[], SP_Payee:[], SP_Voyages:[], SP_Documment:[]})
      const [loaderState, setLS] = useState(false)
    
 
@@ -155,14 +156,14 @@ function DocteurSpecific() {
           else if (dataNow.Prix == '') { toast.error("أدخل السعر  !", GConf.TostErrorGonf) } 
           else if (dataNow.Description == '') { toast.error("أدخل الوصف  !", GConf.TostErrorGonf) } 
           else {
-              if (returnedProfileData.SP_Assurance == '') {
+              if (returnedProfileData.SP_Payee == '') {
                   let emptyArray = []
                   emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Assurance:JSON.stringify(emptyArray) })
+                  setReturnedProfileData({...returnedProfileData, SP_Payee:JSON.stringify(emptyArray) })
               } else {    
-                  let emptyArray = JSON.parse(returnedProfileData.SP_Assurance)
+                  let emptyArray = JSON.parse(returnedProfileData.SP_Payee)
                   emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Assurance: JSON.stringify(emptyArray) })
+                  setReturnedProfileData({...returnedProfileData, SP_Payee: JSON.stringify(emptyArray) })
               }
           }
           
@@ -183,23 +184,23 @@ function DocteurSpecific() {
     }
     const AssuranceListeCard = (props) =>{
           return(<>
-            {returnedProfileData.SP_Assurance == '' ? 
-            <ListeVide icon='heart-pulse' /> 
+            {returnedProfileData.SP_Payee == '' ? 
+            <ListeVide icon='globe' /> 
             :
             <>
               <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
-                {JSON.parse(returnedProfileData.SP_Assurance).map((data,index) => 
+                {JSON.parse(returnedProfileData.SP_Payee).map((data,index) => 
                   <div className='card p-2 border-div mb-2' key={index}>
                       <div className='row'>
                           <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'>{data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
                           <div className='col-3 align-self-center'>{data.Prix}</div> 
-                          <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Assurance')}></Button></div> 
+                          <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Payee')}></Button></div> 
                       </div>
                   </div>
                 )}
               </div>
               <br />
-              <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Assurance')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+              <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Payee')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
             </> 
             } 
         </>)
@@ -213,14 +214,14 @@ function DocteurSpecific() {
           else if (dataNow.Prix == '') { toast.error("أدخل السعر  !", GConf.TostErrorGonf) } 
           else if (dataNow.Description == '') { toast.error("أدخل الوصف  !", GConf.TostErrorGonf) } 
           else {
-              if (returnedProfileData.SP_Diplomes == '') {
+              if (returnedProfileData.SP_Voyages == '') {
                   let emptyArray = []
                   emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Diplomes:JSON.stringify(emptyArray) })
+                  setReturnedProfileData({...returnedProfileData, SP_Voyages:JSON.stringify(emptyArray) })
               } else {    
-                  let emptyArray = JSON.parse(returnedProfileData.SP_Diplomes)
+                  let emptyArray = JSON.parse(returnedProfileData.SP_Voyages)
                   emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Diplomes: JSON.stringify(emptyArray) })
+                  setReturnedProfileData({...returnedProfileData, SP_Voyages: JSON.stringify(emptyArray) })
               }
           }
           
@@ -241,23 +242,81 @@ function DocteurSpecific() {
     }
     const DiplomeListeCard = (props) =>{
         return(<>
-          {returnedProfileData.SP_Diplomes == '' ? 
-          <ListeVide icon='credit-card-2-front' /> 
+          {returnedProfileData.SP_Voyages == '' ? 
+          <ListeVide icon='airplane' /> 
           :
           <>
             <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
-            {JSON.parse(returnedProfileData.SP_Diplomes).map((data,index) => 
+            {JSON.parse(returnedProfileData.SP_Voyages).map((data,index) => 
               <div className='card p-2 border-div mb-2' key={index}>
                   <div className='row'>
                       <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'>{data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
                       <div className='col-3 align-self-center'>{data.Prix}</div> 
-                      <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Diplomes')}></Button></div> 
+                      <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Voyages')}></Button></div> 
                   </div>
               </div>
             )}
             </div>
             <br />
-            <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Diplomes')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+            <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Voyages')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+          </> 
+          } 
+      </>)
+    }
+
+    const AddStructure = (props) =>{
+      const [dataNow, setDataNow] = useState({PK: 1 , Name:'', Qte: ''}) 
+
+      const AddArticleToList = () =>{
+        if (dataNow.Forfait == '') { toast.error("أدخل  إسم العرض   !", GConf.TostErrorGonf) } 
+        else if (dataNow.Prix == '') { toast.error("أدخل السعر  !", GConf.TostErrorGonf) } 
+        else if (dataNow.Description == '') { toast.error("أدخل الوصف  !", GConf.TostErrorGonf) } 
+        else {
+            if (returnedProfileData.SP_Documment == '') {
+                let emptyArray = []
+                emptyArray.push(dataNow)
+                setReturnedProfileData({...returnedProfileData, SP_Documment:JSON.stringify(emptyArray) })
+            } else {    
+                let emptyArray = JSON.parse(returnedProfileData.SP_Documment)
+                emptyArray.push(dataNow)
+                setReturnedProfileData({...returnedProfileData, SP_Documment: JSON.stringify(emptyArray) })
+            }
+        }
+        
+      }
+
+
+      return(<>
+          <div className='card-body  mb-4'>
+              <Input icon='pin'   placeholder='Nom du Forfait' value={dataNow.Forfait}  onChange={ (e) => setDataNow({...dataNow, Forfait: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+              <Input icon='dropbox' type='number'  placeholder='Prix'  value={dataNow.Prix}   onChange={ (e) => setDataNow({...dataNow, Prix: e.target.value })} size="small" iconPosition='left'    fluid className='mb-1' />
+              <Input icon='comment alternate' placeholder='Description' value={dataNow.Description}   onChange={ (e) => setDataNow({...dataNow, Description: e.target.value })} size="small" iconPosition='left'  fluid className='mb-1' />
+              
+              <br />
+              <Button    fluid className='rounded-pill' size='small' color='blue' onClick={() => AddArticleToList()}>  <Icon name='plus' className='ms-2' /> Ajouter </Button>
+              
+          </div>
+      </>)
+    }
+    const StructureCard = (props) =>{
+        return(<>
+          {returnedProfileData.SP_Voyages == '' ? 
+          <ListeVide icon='folder-symlink' /> 
+          :
+          <>
+            <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
+            {JSON.parse(returnedProfileData.SP_Voyages).map((data,index) => 
+              <div className='card p-2 border-div mb-2' key={index}>
+                  <div className='row'>
+                      <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'>{data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
+                      <div className='col-3 align-self-center'>{data.Prix}</div> 
+                      <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Voyages')}></Button></div> 
+                  </div>
+              </div>
+            )}
+            </div>
+            <br />
+            <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Voyages')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
           </> 
           } 
       </>)
@@ -267,7 +326,7 @@ function DocteurSpecific() {
             
           
           <div className='row mb-3'>
-              <div className='col-10 align-self-center'><h4>Liste des Tarif : </h4></div>
+              <div className='col-10 align-self-center'><h4>Liste des chambres: </h4></div>
               <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() =>setAddTarifActive(!addTarifActive)}> <Icon name={addTarifActive ? 'list ol' : 'plus'} /> </Button></div>
           </div>
           { addTarifActive ? 
@@ -281,7 +340,7 @@ function DocteurSpecific() {
           <br />
           <br />
           <div className='row mb-3'>
-              <div className='col-10 align-self-center'><h4>  Departemment d'assurance  : </h4></div>
+              <div className='col-10 align-self-center'><h4> Payee  : </h4></div>
               <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setAddAssurance(!addAssurance)}> <Icon name={addAssurance ? 'list ol' : 'plus'} /> </Button></div>
           </div>
           { addAssurance ? 
@@ -294,13 +353,26 @@ function DocteurSpecific() {
           <br />
           <br />
           <div className='row mb-3'>
-              <div className='col-10 align-self-center'><h4>  Diplomes  : </h4></div>
+              <div className='col-10 align-self-center'><h4>  Voyages  : </h4></div>
               <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setAddDiplome(!addDiplome)}> <Icon name={addDiplome ? 'list ol' : 'plus'} /> </Button></div>
           </div>
           { addDiplome ? 
           <AddDiplome />
           :
           <DiplomeListeCard />
+          }
+
+          <br />
+          <br />
+          <br />
+          <div className='row mb-3'>
+              <div className='col-10 align-self-center'><h4> Documment  : </h4></div>
+              <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setAddStructure(!addStructure)}> <Icon name={addStructure ? 'list ol' : 'plus'} /> </Button></div>
+          </div>
+          { addStructure ? 
+          <AddStructure />
+          :
+          <StructureCard />
           }
 
     </>);

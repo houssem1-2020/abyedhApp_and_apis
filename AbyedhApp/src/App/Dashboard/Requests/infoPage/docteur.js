@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import usePrintFunction from '../../../AssetsM/Hooks/printFunction';
 import FrameForPrint from '../../../AssetsM/Cards/frameForPrint';
 import TunMap from '../../../../AssetsM/tunMap';
+import APPItem from '../../../AssetsM/APPITEM';
 
 const CustomTabs = ({activeIndex, setActiveIndex}) => {
     return(<>
@@ -42,14 +43,14 @@ const CustomTabs = ({activeIndex, setActiveIndex}) => {
                     <Menu.Item key={3} active={activeIndex == 3} className='rounded-pill' onClick={ () => setActiveIndex(3)}>
                         <span style={{color: "#ad059f"}}>
                             <b>
-                            <span className='bi bi-arrow-clockwise' ></span> Redirecter
+                                <span className='bi bi-compass-fill' ></span> Retarder
                             </b>
                         </span>
                     </Menu.Item>
                     <Menu.Item key={4} active={activeIndex == 4} className='rounded-pill' onClick={ () => setActiveIndex(4)}>
                         <span style={{color: "#92ab03"}}>
                             <b>
-                            <span className='bi bi-compass-fill' ></span> Retarder
+                            <span className='bi bi-arrow-clockwise' ></span> Redirecter
                             </b>
                         </span>
                     </Menu.Item>
@@ -71,6 +72,7 @@ function DocteurSpecific() {
     /*#########################[Const]##################################*/
     const {TAG,CID} = useParams()
     const [activeIndex, setActiveIndex] = useState(0)
+    const [reqState, setReqState] = useState('')
 
     const navigate = useNavigate();
     const [articleL, setArticleL] = useState([])
@@ -89,15 +91,15 @@ function DocteurSpecific() {
     const panesRigth = [
         {
             menuItem: { key: 'articles', icon: 'grab', content:  'Controle ' }, 
-            render: () => <BtnsCard /> ,
+            render: () => <VuCard /> ,
         },            
         {
             menuItem: { key: 'start', icon: 'user', content: 'Patient ' }, 
-            render: () => <UserCard />,
+            render: () => <AccepterCard />,
         },
         {
             menuItem: { key: 'ffff', icon: 'grab', content:  'Controle ' }, 
-            render: () => <RetarderCard />  ,
+            render: () => <RefuserCard />  ,
         },            
         {
             menuItem: { key: 'stdddart', icon: 'user', content: 'Patient ' }, 
@@ -105,32 +107,43 @@ function DocteurSpecific() {
         },
         {
             menuItem: { key: 'dddd', icon: 'user', content: 'Patient ' }, 
-            render: () => <CommentaireCard />,
+            render: () => <RetarderCard />,
         },
         {
             menuItem: { key: 'ffsd', icon: 'user', content: 'Patient ' }, 
-            render: () => <BtnsCard />,
+            render: () => <TerminerCard />,
         }
         
     ]
-
+    const panesInfo = [
+        {
+            menuItem: { key: 'articles', icon: 'file alternate', content:  'Demmande Info ' }, 
+            render: () => <ReqInfoCard />,
+        },            
+        {
+            menuItem: { key: 'start', icon: 'user', content: 'Info Client ' }, 
+            render: () => <UserCard />,
+        }
+        
+    ]
     /*#########################[useEffect]##################################*/ 
     useEffect(() => {
         axios.post(`${GConf.ApiLink}/request/info`, {
             PID : GConf.PID,
             CID: CID,
-            SystemTag : 'docteur_rdv'
+            SystemTag : TAG
           })
           .then(function (response) {
                  
                 if (!response.data[0]) {
                     toast.error('Commande Introuvable !', GConf.TostSuucessGonf)
-                    setTimeout(() => {  window.location.href = "/S/rq"; }, 2000)
+                    setTimeout(() => {  window.location.href = "/App/S"; }, 2000)
                 } else {
                     setCommandeD(response.data[0])
                     setLoading(true)
-                    if(response.data[0].State == 'A'  || response.data[0].State == 'R' || response.data[0].State == 'RD'){setBtnState(true)}
-                    if(response.data[0].State == 'W'){ UpdateState('S') }
+                    setReqState(response.data[0].State)
+                    //if(response.data[0].State == 'A'  || response.data[0].State == 'R' || response.data[0].State == 'RD'){setBtnState(true)}
+                    //if(response.data[0].State == 'W'){ UpdateState('S') }
                     
                     
                 }  
@@ -147,8 +160,32 @@ function DocteurSpecific() {
 
 
     /*#########################[Functions]##################################*/
-    const NavigateFunction = (link) => { navigate(link) }
+ 
     const PrintFunction = (frameId) =>{ usePrintFunction(frameId) }
+    const OnKeyPressFunc = (e) => {
+        if (!((e.charCode >= 65 && e.charCode <= 90) || (e.charCode >= 97 && e.charCode <= 122) || (e.charCode >= 48 && e.charCode <= 57) || e.charCode == 42 || e.charCode == 32 || e.charCode == 47 )) {
+            e.preventDefault();
+        }   
+    }
+    function findElementByLink(link) {
+        for (const category in APPItem) {
+          if (APPItem[category] && APPItem[category].itemsList) {
+            for (const slide of APPItem[category].itemsList) {
+              if (Array.isArray(slide)) {
+                for (const subSlide of slide) {
+                  if (subSlide.link === link) {
+                    return subSlide.itemName
+                  }
+                }
+              } else if (slide.link === link) {
+                return slide.itemName
+              }
+            }
+          }
+        }
+        return null;
+    }
+
     const UpdateState = (stateBtn) =>{
         axios.post(`${GConf.ApiLink}/request/controle`, {
             PID : GConf.PID,
@@ -171,6 +208,19 @@ function DocteurSpecific() {
               setBtnState(true)
             }
           });
+    }
+
+    const FindBtnState = (reqState) =>{
+        switch(reqState) {
+            case 'W': return {seenState: false, acceptState: false, refuseState: false, reterderState: false, redirectState:false , terminerState:false};  
+            case 'S': return {seenState: true, acceptState: false, refuseState: false, reterderState: false, redirectState:false , terminerState:false};    
+            case 'A': return {seenState: true, acceptState: true, refuseState: false, reterderState: false, redirectState:false , terminerState:false};  
+            case 'R': return {seenState: true, acceptState: true, refuseState: false, reterderState: false, redirectState:false , terminerState:false};  
+            case 'RT': return {seenState: true, acceptState: false, refuseState: false, reterderState: false, redirectState:false , terminerState:false};  
+            case 'RD': return {seenState: true, acceptState: false, refuseState: false, reterderState: false, redirectState:false , terminerState:false};  
+            case 'F': return {seenState: true, acceptState: true, refuseState: false, reterderState: false, redirectState:false , terminerState:false};  
+            default:  return {seenState: true, acceptState: true, refuseState: true, reterderState: true, redirectState:true , terminerState:true};      
+          }
     }
     const FacturerCommande = () =>{
         axios.post(`${GConf.ApiLink}/seances/ajouter`, {
@@ -218,16 +268,9 @@ function DocteurSpecific() {
           });
           
     }
-    
-
     const openEditModal = (selected) =>{
         setModalStateValue(selected) 
         setModalS(true)
-    }
-    const OnKeyPressFunc = (e) => {
-        if (!((e.charCode >= 65 && e.charCode <= 90) || (e.charCode >= 97 && e.charCode <= 122) || (e.charCode >= 48 && e.charCode <= 57) || e.charCode == 42 || e.charCode == 32 || e.charCode == 47 )) {
-            e.preventDefault();
-        }   
     }
     const GetDelegList = (value) =>{
         setAbonnemmentData({...abonnemmentData, Gouv: value })
@@ -264,101 +307,10 @@ function DocteurSpecific() {
           </div>
         );
     };
-    const CommentaireCard = () =>{
-        return(<>
-                <div className='card card-body shadow-sm mb-2 mt-3 border-div'>
-                    <div className='row mb-3'>
-                        <div className='col-6 text-start'><h5>Info Patient</h5></div>
-                        <div className='col-6 text-end'>{commandeData.Releted_UID ? <span className='badge bg-success p-2'>Déja Enregistreé</span> : <span className='badge bg-danger badge-lg'>Nouveaux Membre</span>}</div>
-                    </div>
-                    <div className='row mb-2'>
-                        <div className='col-12 col-lg-6'> Nom : {loading ? commandeData.Name : ''} </div> 
-                        <div className='col-12 col-lg-6'> Phone : {loading ? commandeData.PhoneNum : ''} </div> 
-                        <div className='col-12 col-lg-6'> Gouv : {loading ? commandeData.BirthGouv : ''} </div> 
-                        <div className='col-12 col-lg-6'> Deleg : {loading ? commandeData.BirthDeleg : ''} </div> 
-                    </div> 
-                    {commandeData.Releted_UID ? 
-                    <div className='row mb-2 mt-4'>
-                        <div className='col-4 border-end text-center'> <h2 className='mb-1'>0</h2><small>Rendy-Vous</small> </div> 
-                        <div className='col-4 border-end text-center'> <h2 className='mb-1'>0</h2><small>Seances</small> </div> 
-                        <div className='col-4 text-center'> <h2 className='mb-1'>0</h2><small>Ordonance</small> </div> 
-                    </div> 
-                    : <></> }
-                </div>
-        </>)
-    }
-    const BtnsCard = () =>{
-        return(<>
-                <div className='card card-body shadow-sm mb-2 border-div'>
-                    <h5>Controle</h5>
-                    <div className='row '>
-                        <div className='col-6 mb-2'>
-                            <Button disabled={btnState} className='rounded-pill bg-danger text-white'  fluid onClick={ () => UpdateState('R')}><Icon name='delete calendar' /> Annulée</Button>
-                        </div>
-                        <div className='col-6 mb-2'>
-                            <Button disabled={btnState} className='rounded-pill bg-success text-white'  fluid onClick={ () => UpdateState('A')}><Icon name='calendar check' /> Accepteé</Button>
-                        </div>
-                        <div className='col-6 mb-2'>
-                            <Button disabled={btnState} className='rounded-pill bg-primary  text-white'  fluid onClick={ () => openEditModal('RT')}><Icon name='delete calendar' /> Retardeé</Button>
-                        </div>
-                        <div className='col-6 mb-2'>
-                            <Button disabled={btnState} className='rounded-pill  bg-warning text-white'  fluid onClick={ () => openEditModal('RD')}><Icon name='delete calendar' /> Redirecteé</Button>
-                        </div>
-
-
-                        <div className='col-12 mb-2'>
-                            <Button as='a' onClick={ (e) => NavigateFunction(`/S/sa/ajouter?CID=${CID}`)} animated disabled={btnState && commandeData.State != 'A'} className='rounded-pill bg-system-btn'  fluid>
-                                <Button.Content visible><Icon name='calendar check' /> Accepteé </Button.Content>
-                                <Button.Content hidden >
-                                    <Icon name='arrow right' />
-                                </Button.Content>
-                            </Button>
-                            {/* <Button className='rounded-pill bg-system-btn' size='mini' onClick={ (e) => NavigateFunction(`/S/rq/rs/info/${CID}`)}><span className='d-none d-lg-inline'> Info </span><Icon  name='angle right' /></Button> 
-                            <Button   onClick={ (e) => NavigateFunction(`/S/sa/ajouter?CID=${CID}`)} className='rounded-pill bg-system-btn '  fluid  ><Icon name='check circle' /> Accepter </Button>*/}
-                        </div>
-                    </div>
-                     
-                </div>
-        </>)
-    }
-    const UserCard = () =>{
-        return(<>
-                <div className='card card-body shadow-sm mb-2 mt-3 border-div'>
-                    <h5>Info Client</h5>
-                    <div className='row mb-2'>
-                        <div className='text-center mb-3'> 
-                            <img src={`https://cdn.abyedh.tn/images/p_pic/${commandeData.PictureId}.gif`} className='rounded-circle' width='60px'/>
-                        </div>
-                        <div className='col-12 col-lg-6 mb-3'> Nom :  {loading ? commandeData.Name : ''}
-                            <Input icon='add user' onKeyPress={event => OnKeyPressFunc(event)} list="clientList" placeholder={loading ? commandeData.Name : ''} value={abonnemmentData.Name}  onBlur={ (e) => setAbonnemmentData({...abonnemmentData, Name: e.target.value })}  iconPosition='left'   fluid className='mb-1' />
-                        </div> 
-                        <div className='col-12 col-lg-6 mb-3'> Phone : {loading ? commandeData.PhoneNum : ''}
-                            <Input icon='add user' onKeyPress={event => OnKeyPressFunc(event)} list="clientList" placeholder={loading ? commandeData.PhoneNum : ''} value={abonnemmentData.PhoneNum}   onBlur={ (e) => setAbonnemmentData({...abonnemmentData, PhoneNum: e.target.value })}  iconPosition='left'   fluid className='mb-1' />
-                        </div> 
-                        <div className='col-12 col-lg-6 mb-3'> Gouv : {loading ? commandeData.BirthGouv : ''} 
-                            <Select placeholder=' Gouvernorat' fluid className='mb-2' options={TunMap.Gouv} value={abonnemmentData.Gouv} onChange={(e, { value }) => GetDelegList(value)} />
-                        </div> 
-                        <div className='col-12 col-lg-6 mb-3'> Deleg : {loading ? commandeData.BirthGouv : ''}
-                            <Select placeholder=' Delegation ' fluid value={abonnemmentData.Deleg} options={delegList} onChange={(e, { value }) => setAbonnemmentData({...abonnemmentData, Deleg: value })} />
-                        </div> 
-                        <div className='col-12 mb-3'>
-                            Deleg : {loading ? commandeData.BirthGouv : ''}
-                            <Form>
-                                <TextArea  rows="3" onKeyPress={event => OnKeyPressFunc(event)} placeholder='designer votre article' className='w-100 shadow-sm rounded mb-3' value={abonnemmentData.Adress} onChange={(e) => setAbonnemmentData({...abonnemmentData, Adress: e.target.value })}/>
-                            </Form> 
-                        </div>
-                    </div> 
-                    <div className='text-end'>
-                        <Button  className='rounded-pill text-secondary btn-imprimer' size='mini' disabled={commandeData.Releted_UID}   onClick={(e) => SaveClientFunction()}><Icon name='edit outline' /> Enregistrer Client</Button>
-                    </div>  
-                </div>
-        </>)
-    }
     const StateModalCard = ({ status }) => {
-         
         const statusCard = React.useCallback(() => {
           switch(status) {
-            case 'RT': return <RetarderCard />;  
+            case 'RT': return <RefuserCard />;  
             case 'RD': return <RedirecterCard />;  
             default:  return <>Introuvable</>;    
           }
@@ -370,24 +322,76 @@ function DocteurSpecific() {
           </div>
         );
     };
+
+    const VuCard = () =>{
+        return(<>
+                <div className='card card-body shadow-sm mb-2 border-div'>
+                    <h5>Marquer comme non Vu</h5>
+
+                    <div className='card-body'>
+                        Marquer cette demmande comme non Vu 
+                    </div> 
+                    <div className=' mb-2'>
+                        <Button fluid disabled={FindBtnState(reqState).seenState} className='rounded-pill bg-info text-white'    onClick={ () => UpdateState('R')}><Icon name='eye' /> Marquer comme non Vu </Button>
+                    </div>
+                </div>
+        </>)
+    }
+    const AccepterCard = () =>{
+        return(<>
+                <div className='card card-body shadow-sm mb-2 border-div'>
+                    <h5>Accepter Le RendyVous</h5>
+
+                    <div className='card-body'>
+                        Marquer cette demmande comme non Vu 
+                        <div className='mb-1'> Date : </div> 
+                        <div className='mb-1'> Temps : </div>
+                    </div>
+                     
+                    <div className=' mb-2'>
+                        <Button fluid disabled={FindBtnState(reqState).acceptState} className='rounded-pill bg-success text-white'    onClick={ () => UpdateState('A')}><Icon name='check square' /> Accepter </Button>
+                    </div>
+                </div>
+        </>)
+    }
+    const RefuserCard = () =>{
+        return<>
+            <div className='card card-body shadow-sm mb-2 border-div'>
+                <h5>Refuser Le RendyVous</h5>
+
+                <div className='card-body'>
+                    Marquer cette demmande comme non Vu 
+                </div> 
+                <div className='col-12 mb-3'>       
+                    <Form>
+                        <TextArea  rows="3" onKeyPress={event => OnKeyPressFunc(event)} placeholder='designer votre article' className='w-100 shadow-sm rounded mb-3' value={abonnemmentData.Adress} onChange={(e) => setAbonnemmentData({...abonnemmentData, Adress: e.target.value })}/>
+                    </Form> 
+                </div>
+                <div className=' mb-2'>
+                    <Button fluid disabled={FindBtnState(reqState).refuseState} className='rounded-pill bg-success text-white'    onClick={ () => UpdateState('A')}><Icon name='check square' /> Accepter </Button>
+                </div>
+            </div>
+
+        </>
+    }
     const RetarderCard = () =>{
         return<>
             <div className='card card-body border-div mb-4 shadow-sm'>
-                <h5 className='mb-1 mt-1'>Retarder Vers   </h5>
-                <Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-1' value={retarderData.RT_Date} onChange={(e) => setRetarderData({...retarderData, RT_Date: e.target.value })}/>
+                <h5 className='mb-1 mt-1'>Jour   </h5>
+                <Input icon='calendar alternate' type='text' size="small" iconPosition='left'   fluid className='mb-1' value={retarderData.RT_Date} onChange={(e) => setRetarderData({...retarderData, RT_Date: e.target.value })}/>
 
-                <h5 className='mb-1 mt-3'>Retarder Vers   </h5>
-                <Input icon='calendar alternate' type='time' size="small" iconPosition='left'   fluid className='mb-1' value={retarderData.RT_Date} onChange={(e) => setRetarderData({...retarderData, RT_Date: e.target.value })}/>
+                <h5 className='mb-1 mt-3'>Heur   </h5>
+                <Input icon='calendar alternate' type='text' size="small" iconPosition='left'   fluid className='mb-1' value={retarderData.RT_Date} onChange={(e) => setRetarderData({...retarderData, RT_Date: e.target.value })}/>
 
                 <div className='text-end mt-3'>
-                    <Button  className='rounded-pill text-secondary btn-imprimer'  onClick={(e) => RetarderFunction()}><Icon name='edit outline' /> Retarder</Button>
+                    <Button disabled={FindBtnState(reqState).reterderState}  className='rounded-pill text-secondary btn-imprimer'  onClick={(e) => RetarderFunction()}><Icon name='edit outline' /> Redirecter </Button>
                 </div>
-            </div>
+            </div> 
         </>
     }
     const RedirecterCard = () =>{
-        return<>
-            <div className='card card-body border-div mb-4 shadow-sm'>
+        return(<>
+                <div className='card card-body border-div mb-4 shadow-sm'>
                 <h5 className='mb-1 mt-1'>Nom de Docteur   </h5>
                 <Input icon='calendar alternate' type='text' size="small" iconPosition='left'   fluid className='mb-1' value={retarderData.RT_Date} onChange={(e) => setRetarderData({...retarderData, RT_Date: e.target.value })}/>
 
@@ -395,24 +399,32 @@ function DocteurSpecific() {
                 <Input icon='calendar alternate' type='text' size="small" iconPosition='left'   fluid className='mb-1' value={retarderData.RT_Date} onChange={(e) => setRetarderData({...retarderData, RT_Date: e.target.value })}/>
 
                 <div className='text-end mt-3'>
-                    <Button  className='rounded-pill text-secondary btn-imprimer'  onClick={(e) => RetarderFunction()}><Icon name='edit outline' /> Redirecter </Button>
+                    <Button disabled={FindBtnState(reqState).redirectState}  className='rounded-pill text-secondary btn-imprimer'  onClick={(e) => RetarderFunction()}><Icon name='edit outline' /> Redirecter </Button>
                 </div>
             </div> 
+        </>)
+    }
+    const TerminerCard = () =>{
+        return<>
+            <div className='card card-body shadow-sm mb-2 border-div'>
+                    <h5>Terminer Le RendyVous</h5>
+
+                    <div className='card-body'>
+                        Marquer cette demmande comme non Vu 
+                        <div className='mb-1'> Date : </div> 
+                        <div className='mb-1'> Temps : </div>
+                    </div>
+                     
+                    <div className=' mb-2'>
+                        <Button fluid disabled={FindBtnState(reqState).terminerState} className='rounded-pill bg-secondary text-white'    onClick={ () => UpdateState('A')}><Icon name='check square' /> Terminer </Button>
+                    </div>
+                </div> 
         </>
     }
 
-    return ( <> 
-        <BreadCrumb links={GConf.BreadCrumb.RequestInfo} />
-        <br />
-        <div className="row">
-            <div className="col-12 col-lg-8">
-                <div className='row'>
-                    <div className='col-5'><h3 className='text-center mb-4'>Rendy Vous </h3></div>
-                    <div className='col-7'><h3 className='text-end'><StateCard status={commandeData.State} /></h3></div>
-                </div> 
-
-                <div className='card card-body bg-transparent border-div mb-3 mt-2'>
-                    <h5>Info du rendy Vous</h5>
+    const ReqInfoCard = () =>{
+        return<>
+             <h5>Info du rendy Vous</h5>
                     <div className="table-responsive">
                         <table className="table table-striped">
                             <tbody>
@@ -438,21 +450,49 @@ function DocteurSpecific() {
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                     
+                    </div> 
+        </>
+    }
+    const UserCard = () =>{
+        return(<>
+ 
+                    <h5>Info Client</h5>
+                    <div className='row mb-2'>
+                        <div className='text-center mb-3'> 
+                            <img src={`https://cdn.abyedh.tn/images/p_pic/${commandeData.PictureId}.gif`} className='rounded-circle' width='60px'/>
+                        </div>
+                        <div className='col-12 col-lg-6 mb-3'> Nom :  {loading ? commandeData.Name : ''}</div> 
+                        <div className='col-12 mb-3'> Age : {loading ? new Date().getFullYear() -  new Date(commandeData.BirthDay).getFullYear()   : ''}</div>
+                        <div className='col-12 col-lg-6 mb-3'> Phone : {loading ? commandeData.PhoneNum : ''}</div> 
+                        <div className='col-12 col-lg-6 mb-3'> Gouv : {loading ? commandeData.BirthGouv : ''} </div> 
+                        <div className='col-12 col-lg-6 mb-3'> Deleg : {loading ? commandeData.BirthDeleg : ''}</div> 
+                    </div> 
+                    <div className='text-end'>
+                        <Button  className='rounded-pill text-secondary btn-imprimer' size='mini'     onClick={(e) => alert('Impossible d\'enregister le client, Car vous etes sur la version alfa du system ')}><Icon name='edit outline' /> Enregistrer Client</Button>
+                    </div>  
+        </>)
+    }
+    return ( <> 
+        <BreadCrumb links={[ {id:1, name:'Comminication', linkable:true, link:"/App/S"}, {id:2, name:'Info', linkable:false} ]} />
+        <br />
+        <div className="row">
+            <div className="col-12 col-lg-8">
+                <div className='row'>
+                    <div className='col-5'><h3 className='text-center mb-4'> { findElementByLink(`rq/${TAG}`) } </h3></div>
+                    <div className='col-7'><h3 className='text-end'><StateCard status={commandeData.State} /></h3></div>
+                </div> 
+                <div className='card card-body bg-transparent border-div mb-3 mt-2'>
+                    <Tab menu={{widths: panesInfo.length , secondary: true, pointing: true  }} panes={panesInfo} />      
                 </div>
                 <br />
                 <br />
             </div>
             
             <div className="col-12 col-lg-4">
-                {/* <Bounce bottom> */}
                     <div className="sticky-top" style={{top:'70px', zIndex:'999'}}>
                         <CustomTabs  activeIndex={activeIndex} setActiveIndex={setActiveIndex}   />
                         <Tab menu={{ secondary: true }} activeIndex={activeIndex} panes={panesRigth}  className='no-menu-tabs mt-2' /> 
-                        {/* <Tab menu={{widths: panesRigth.length , secondary: true, pointing: true  }} panes={panesRigth} />  */}
                     </div>
-                {/* </Bounce> */}
             </div>
         </div>
         <Modal

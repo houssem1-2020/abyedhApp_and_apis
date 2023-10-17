@@ -189,8 +189,9 @@ function SearchLandingPage() {
                 <NavLink exact='true' to={`/S/R/${tag}/${GConf.ADIL[tag].subCateg[isSelected].value}/${props.gouv}/${props.deleg}`} >
                             <div className='card p-3 mb-2 shadow-sm rounded-pill text-center'>
                                <div className='row' style={{color:GConf.ADIL[tag].themeColor}}>
-                                    <div className='col-10 align-text-center' dir='rtl'><b> بحث في {props.deleg} , {props.gouv} </b></div>
-                                    <div className='col-2 align-text-center'><b> <span className='bi bi-arrow-right-short'></span> </b></div>
+                                    <div className='col-2 align-text-center align-self-center'><img  className="rounded-circle " src={`https://cdn.abyedh.tn/images/p_pic/${GConf.UserData.UData.PictureId}.gif`}   alt="Logo" style={{width:'20px', height:'20px'}} /></div>
+                                    <div className='col-9 align-text-center' dir='rtl'> <b> بحث في  {props.gouv} , {props.deleg}</b>    </div>
+                                    <div className='col-1 align-text-center align-self-center'><b> <span className='bi bi-arrow-right-short'></span> </b></div>
                                </div>
                             </div>
                 </NavLink>
@@ -333,7 +334,13 @@ function SearchLandingPage() {
             {/* <LoadingBar color={GConf.themeColor} progress={loadingTo}  
                 //onLoaderFinished={() => setProgress(0)} 
             /> */}
-            <AdsLanding  />
+            {/* <AdsLanding  /> */}
+            <div className='d-lg-none'>
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
             
             <div className='container '>
                 <AdsLanding displylg />

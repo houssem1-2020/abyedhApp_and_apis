@@ -167,7 +167,7 @@ const dirItem = {
         slides: [
             [
                 { id: 1, image: 'courtier', name: 'وَسِيطْ عَقَّارِي', link: 'courtier' },
-                { id: 2, image: 'contracteur', name: ' مٌقَاوِلْ', link: 'contrateur' },
+                { id: 2, image: 'contracteur', name: ' مٌقَاوِلْ', link: 'contracteur' },
                 { id: 3, image: 'architecture', name: 'مٌهَنْدِسْ مِعْمَارِي ', link: 'architecture' },
                 { id: 4, image: 'quincaillerie', name: 'Quncaillerie ', link: 'quincaillerie' },
                 { id: 5, image: 'forgeron', name: 'حَدَّادْ', link: 'forgeron' },
@@ -185,7 +185,7 @@ const dirItem = {
         smallDisplay:[
             [
                 { id: 1, image: 'courtier', name: 'وَسِيطْ عَقَّارِي', link: 'courtier' },
-                { id: 2, image: 'contracteur', name: ' مٌقَاوِلْ', link: 'contrateur' },
+                { id: 2, image: 'contracteur', name: ' مٌقَاوِلْ', link: 'contracteur' },
                 { id: 3, image: 'architecture', name: 'مٌهَنْدِسْ مِعْمَارِي ', link: 'architecture' },
                 { id: 4, image: 'quincaillerie', name: 'Quncaillerie ', link: 'quincaillerie' },
             ],
@@ -210,7 +210,7 @@ const dirItem = {
         slides: [
             { id: 1, image: 'coiffure', name: 'قَاعَةْ حِلاَقَة', link: 'coiffure' },
             { id: 2, image: 'boutique', name: 'Boutique', link: 'boutique' },
-            { id: 3, image: 'salon_marriage', name: 'قَاعَةْ أَفْرَاحْ', link: 'salon_marriage' },
+            { id: 3, image: 'salle_marriage', name: 'قَاعَةْ أَفْرَاحْ', link: 'salle_marriage' },
             { id: 8, image: 'bijouterie', name: ' مُجَوْهَرَاتْ ', link: 'bijouterie' },
             { id: 5, image: 'chef', name: 'طَبَّاخْ', link: 'chef' },
             { id: 6, image: 'photographe', name: 'مَصَوِّرْ', link: 'photographe' },
@@ -222,7 +222,7 @@ const dirItem = {
             [
                 { id: 1, image: 'coiffure', name: 'قَاعَةْ حِلاَقَة', link: 'coiffure' },
                 { id: 2, image: 'boutique', name: 'Boutique', link: 'boutique' },
-                { id: 3, image: 'salon_marriage', name: 'قَاعَةْ أَفْرَاحْ', link: 'salon_marriage' },
+                { id: 3, image: 'salle_marriage', name: 'قَاعَةْ أَفْرَاحْ', link: 'salle_marriage' },
                 { id: 8, image: 'bijouterie', name: ' مُجَوْهَرَاتْ ', link: 'bijouterie' },
             ],
             [
@@ -292,7 +292,7 @@ const dirItem = {
         slider: true,
         slides: [
             [
-                { id: 1, image: 'storage', name: 'بَيْعْ بِالجٌمْلَة', link: 'storage' },
+                { id: 1, image: 'depot', name: 'بَيْعْ بِالجٌمْلَة', link: 'depot' },
                 { id: 2, image: 'comptable', name: ' مٌحَاسِبْ', link: 'comptable' },
                 { id: 3, image: 'socite', name: ' شَرِكَة قَابِضَة', link: 'socite' },
                 { id: 4, image: 'admin_f_poste', name: ' مَكْتَبْ بَرِيدْ', link: 'admin_f_poste' },
@@ -304,7 +304,7 @@ const dirItem = {
         smallSlider: true,
         smallDisplay:[
             [
-                { id: 1, image: 'storage', name: 'بَيْعْ بِالجٌمْلَة', link: 'storage' },
+                { id: 1, image: 'depot', name: 'بَيْعْ بِالجٌمْلَة', link: 'depot' },
                 { id: 2, image: 'comptable', name: ' مٌحَاسِبْ', link: 'comptable' },
                 { id: 3, image: 'socite', name: ' شَرِكَة قَابِضَة', link: 'socite' },
                 { id: 4, image: 'admin_f_poste', name: ' مَكْتَبْ بَرِيدْ', link: 'admin_f_poste' },

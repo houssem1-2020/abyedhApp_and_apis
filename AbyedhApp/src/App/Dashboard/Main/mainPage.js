@@ -1,5 +1,4 @@
 import React, {useEffect,useState}  from 'react';
- 
 import APPConf from '../../AssetsM/APPConf';
 import axios from 'axios';
 import SKLT from '../../../AssetsM/Cards/usedSlk';
@@ -7,14 +6,23 @@ import { Button , Statistic} from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import CountUp from 'react-countup';
+import { io } from "socket.io-client"
+import GConf from '../../../AssetsM/generalConf';
 
 function RequestPage() {
     /*#########################[Const]##################################*/
     let [reservationList, setReservationList] = useState([SKLT.TableSlt]); 
     let [requestListe, setRequestListe] = useState([]); 
+    
+    //SOket-io : it works cool in localhost but the problem with domaine name 
+    // let [userView, setUserVew] = useState(0); 
+    // const socket = io(GConf.SoketLink, {query: { userId: `${APPConf.systemTag}-${APPConf.PID}`, }, });
+    // socket.on(`${APPConf.systemTag}-${APPConf.PID}` , (data) => { receiveNewMessage() ; setUserVew(userView + 1) })
+    //fin socket.io
 
   /*#########################[UseEfeect]##################################*/
    useEffect(() => {
+        //requestNotificationPermission()
        axios.post(`${APPConf.ApiLink}/main`, {
           PID : APPConf.PID,
           SystemTag : APPConf.landing[APPConf.systemTag].itemsList[0].link.replace("rq/", "") 
@@ -30,6 +38,45 @@ function RequestPage() {
    }, [])
    
   /*#########################[Function]##################################*/
+
+   /* ############### Notofication System #################
+        const [unreadMessages, setUnreadMessages] = useState(0);
+        // Function to request notification permission
+        const requestNotificationPermission = () => {
+            if (Notification.permission !== "granted") {
+            Notification.requestPermission().then((permission) => {
+                if (permission === "granted") {
+                // Permission granted, you can now send notifications.
+                }
+            });
+            }
+        };
+        // Function to create and display a new notification
+        const showNotification = () => {
+            if (Notification.permission === "granted") {
+            const notification = new Notification("New Message", {
+                body: "You have a new message.",
+                icon: "https://cdn.abyedh.tn/images/logo/mlogo.gif", // Replace with your icon path
+            });
+
+            // Play a sound
+            const audio = new Audio("https://cdn.abyedh.tn/Sounds/notif.mp3"); // Replace with your audio file
+            audio.play();
+
+            // Handle click event on the notification (e.g., open a chat window)
+            notification.onclick = function () {
+                // Handle the click event (e.g., open a chat window).
+                // For now, we'll just close the notification.
+                notification.close();
+            };
+            }
+        };
+        // Function to simulate receiving a new message
+        const receiveNewMessage = () => {
+            setUnreadMessages(unreadMessages + 1);
+            showNotification();
+        };
+    */
      const GetRequestValue = (genre) =>{
        const elementToFind = requestListe.find(item => item.State === genre);
        if (elementToFind) {
@@ -64,19 +111,20 @@ function RequestPage() {
     const AdsCard = (props) =>{
         return(<>
             <div className='card card-body shadow-sm mb-4 border-div pt-2  font-Expo-book'>
+                <div className='row'>
+                    <div className='col-1 text-center  '><b onClick={() => RemoveToday()} className='shadow  rounded-circle  pt-1 pb-1 ps-2 pe-2'>x</b></div>
+                    <div className='col-11 text-end '><span className='bi bi-badge-ad-fill bi-md text-danger'></span></div>
+                </div>
                 
-                <div className='text-start m-0 p-0'><b onClick={() => RemoveToday()} className='shadow  rounded-circle  pt-1 pb-1 ps-2 pe-2'>x</b></div>
                 <div className='row'>
                     <div className='col-4 align-self-center'><img className="rounded-circle mb-3" src={`https://cdn.abyedh.tn/images/ads/${APPConf.systemTag}.svg`} width="90px" height="90px"/></div>
                     <div className='col-8 align-self-center text-secondary' dir='rtl'>
-                    {APPConf.landing[APPConf.systemTag].systemTitle} يمكنك من : 
+                        <span className='text-warning'>  هل تريد أن تجرب {APPConf.landing[APPConf.systemTag].systemTitle}  الذي يمكنك من :  </span>
                         <ul>
-                           <li>إدارة الحصص</li> 
-                           <li>إدارة الوصفات الطبية</li> 
-                           <li>إدارة المرضي</li> 
+                            {APPConf.landing[APPConf.systemTag].systemPos.map((data,index) =>  <li key={index}> {data.posName} </li>)} 
                         </ul>
                         <NavLink exact='true' to='/App/S/System'  >
-                        <Button fluid className='rounded-pill font-Expo-book' size='mini'>  {APPConf.landing[APPConf.systemTag].systemTitle} </Button>
+                            <Button fluid className='rounded-pill font-Expo-book' size='mini'> إكتشف  {APPConf.landing[APPConf.systemTag].systemTitle} </Button>
                         </NavLink>
                         
                     </div>
@@ -135,8 +183,8 @@ function RequestPage() {
         </>)
     }
     return (<>
-            {APPConf.ADIL[APPConf.systemTag].systemReady && localStorage.getItem('removedCard') != new Date().toLocaleDateString('fr-FR') ? <AdsCard data={APPConf.systemTag} /> : ''}
- 
+            {APPConf.landing[APPConf.systemTag].systemReady && localStorage.getItem('removedCard') != new Date().toLocaleDateString('fr-FR') ? <AdsCard data={APPConf.systemTag} /> : ''}
+             
             <div className='row mt-5'>
               <div className='col-12 mb-4'>
                   <div className='row'>
@@ -164,8 +212,8 @@ function RequestPage() {
                 </div>
                 
             </div>
-            {APPConf.ADIL[APPConf.systemTag].systemReady && localStorage.getItem('removedCard') == new Date().toLocaleDateString('fr-FR') ? <AdsCardSmall data={APPConf.systemTag} /> : ''}
-            {!APPConf.ADIL[APPConf.systemTag].systemReady  ? <CammingSoonSystem data={APPConf.systemTag} /> : ''}
+            {APPConf.landing[APPConf.systemTag].systemReady && localStorage.getItem('removedCard') == new Date().toLocaleDateString('fr-FR') ? <AdsCardSmall data={APPConf.systemTag} /> : ''}
+            {!APPConf.landing[APPConf.systemTag].systemReady  ? <CammingSoonSystem data={APPConf.systemTag} /> : ''}
     </>);
 }
 
