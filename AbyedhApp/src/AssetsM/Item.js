@@ -294,7 +294,7 @@ const dirItem = {
             [
                 { id: 1, image: 'depot', name: 'بَيْعْ بِالجٌمْلَة', link: 'depot' },
                 { id: 2, image: 'comptable', name: ' مٌحَاسِبْ', link: 'comptable' },
-                { id: 3, image: 'socite', name: ' شَرِكَة قَابِضَة', link: 'socite' },
+                { id: 3, image: 'bank', name: ' بَنْكْ', link: 'bank' },
                 { id: 4, image: 'admin_f_poste', name: ' مَكْتَبْ بَرِيدْ', link: 'admin_f_poste' },
             ],
             [
@@ -306,7 +306,7 @@ const dirItem = {
             [
                 { id: 1, image: 'depot', name: 'بَيْعْ بِالجٌمْلَة', link: 'depot' },
                 { id: 2, image: 'comptable', name: ' مٌحَاسِبْ', link: 'comptable' },
-                { id: 3, image: 'socite', name: ' شَرِكَة قَابِضَة', link: 'socite' },
+                { id: 3, image: 'bank', name: ' بَنْكْ', link: 'bank' },
                 { id: 4, image: 'admin_f_poste', name: ' مَكْتَبْ بَرِيدْ', link: 'admin_f_poste' },
             ],
             [

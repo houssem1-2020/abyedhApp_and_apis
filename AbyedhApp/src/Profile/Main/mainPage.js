@@ -39,7 +39,7 @@ function MainPage() {
    /* ###########################[Card]############################# */
     const NotificationCard = (props) =>{
         return(<>
-            <div className='card p-2 shadow-sm mb-3 border-div'>
+            <div className='card p-2 shadow-sm mb-3 border-div ' style={{position: 'relative !important'}} >
                 <div className=' row'>
                     <div className='col-10  '>
                         <div className="d-flex align-items-center">
@@ -70,13 +70,15 @@ function MainPage() {
                     </div>
                 </div>
                 
-                <div className='card-body row'>
+                <div className='card-body row ' >
                     <div className='col-12 align-self-center text-end'>
                             {NotifGenres[props.data.Notif_Name].GenTextFunction(props.data.RequestData,props.data.PidData)}
-                    </div>
-                    <div className='col-4 align-self-center text-start d-none'>
-                            <span className={`bi ${NotifGenres[props.data.Notif_Name].icon} bi-md text-success`}></span>
-                    </div>
+                    </div> 
+                </div>
+                <div className=' ' style={{zIndex: 1, left:10, bottom: 10, position: 'absolute'}} >
+                    <NavLink to={`/Profile/L/ma/${props.data.RequestData.R_ID}`}>
+                        <Button className='rounded-circle bg-transparent border p-2' size='small' icon> <Icon name='arrow left' /> </Button>
+                    </NavLink>
                 </div>
             </div>
         </>)

@@ -56,7 +56,7 @@ TableCell,
 .bi-lg { font-size: 50px; }
 .bi-md { font-size: 30px; }
 .bi-xlg { font-size: 100px; }
-
+.bi-profile { font-size: 35 !important;}
 /*boostrap modification*/
 btn:focus,
 textarea:focus,
@@ -356,3 +356,10 @@ Dropdown{text-align: right !important;}
 .gridjs-footer {border: none !important; box-shadow: none !important; padding-top: 10px !important;}
 .gridjs-tr:hover {background-color: #1559b3 !important;}
 .tab-right{ justify-content:  flex-end !important }
+.ltr-force {direction: ltr !important;}
+.main-input-costum:focus{
+  border: 1px solid #e6e9ec !important;
+  border-left: 0px !important;
+ }
+ .bg-retarder{background-color:  #ad059f !important;}
+ .bg-redirecter{background-color:  #92ab03 !important;}

@@ -187,16 +187,22 @@ function RequestPage() {
              
             <div className='row mt-5'>
               <div className='col-12 mb-4'>
-                  <div className='row'>
-                      <div className='col-4 mb-4 text-center border-end'>
-                          <StatCard title='Accepteé' value={GetRequestValue('A')} color='teal'/>
-                      </div>
-                      <div className='col-4 mb-4 text-center border-end'>
+                  <div className='rows d-flex' style={{width:'100%', overflowX: 'auto', overflowY : 'hidden', whiteSpace:'nowrap'}}>
+                      <span className='col-4 col-lg-3 mb-4 text-center border-end'>
                           <StatCard title='En Attent' value={GetRequestValue('W')} color='yellow' />
-                      </div>
-                      <div className='col-4 mb-4 text-center'>
+                      </span>
+                      <span className='col-4 col-lg-3 mb-4 text-center border-end'>
+                          <StatCard title='Vu' value={GetRequestValue('S')} color='blue' />
+                      </span>
+                      <span className='col-4 col-lg-3 mb-4 text-center border-end'>
+                          <StatCard title='Accepteé' value={GetRequestValue('A')} color='teal'/>
+                      </span>
+                      <span className='col-4 col-lg-3 mb-4 text-center border-end'>
                           <StatCard title='Refuseé' value={GetRequestValue('R')} color='red' />
-                      </div>
+                      </span>
+                      <span className='col-4 col-lg-3 mb-4 text-center'>
+                          <StatCard title='Termineé' value={GetRequestValue('T')} color='brown' />
+                      </span>
                   </div>
               </div>
             </div>

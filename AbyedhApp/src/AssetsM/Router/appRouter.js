@@ -22,6 +22,7 @@ import ProfilePage from '../../App/Dashboard/Profile/profilePage'
 //Login  & Auth
 import LogIn from '../../App/LogIn/logIn';
 import AuthPage from '../../App/LogIn/authPage';
+import ProfilePID from '../../App/Dashboard/Profile/profilePID';
 
 const RedirectingPage = () => {
     let {tag} = useParams()
@@ -79,8 +80,10 @@ const UserRouter = () => (
                         <Route path="info/:TAG/:CID" exact element={<RequestReservationInfo />} />
                     </Route>
                     <Route path="Profile" exact element={<ProfilePage />} />
+                    
                     <Route path="Message" exact element={<MessagesPages />} />
             </Route>
+            <Route path="Profile/ProfilePrint" exact element={<ProfilePID />} />
     </Route>
 )
 

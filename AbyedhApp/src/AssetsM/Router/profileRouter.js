@@ -8,6 +8,7 @@ import ProfileLandingPage from '../../Profile/profileLandingPage'
 //camion
 import MainPage from "../../Profile/Main/mainPage";
 import SuiviePage from '../../Profile/Suivie/suiviePage';
+import SuivieSelectPage from '../../Profile/Suivie/suivieSelectPage';
 import FavoritePage from '../../Profile/Favorite/favoritePage';
 import DocummentPage from '../../Profile/Documments/docummentsPage';
 import CalendarPage from '../../Profile/Calendar/calendarPage';
@@ -32,6 +33,7 @@ const UserRouter = () => (
             <Route path="L" exact element={<ProfileLandingPage />} >
                     <Route path="" exact element={<MainPage />} />
                     <Route path="ma" exact element={<MainPage />} />
+                    <Route path="ma/:RID" exact element={<SuivieSelectPage />} />
                     <Route path="sv" exact element={<SuiviePage />} />
                     <Route path="fv" exact element={<FavoritePage />} >
                         <Route path="" exact element={<MainPage />} />

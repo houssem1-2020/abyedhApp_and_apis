@@ -21,7 +21,7 @@ const CustomTabs = ({activeIndex, setActiveIndex, TAG}) => {
 
            <div className="mt-1 p-1 mb-4"   style={{width:'100%', overflowX: 'auto', overflowY : 'hidden', whiteSpace:'nowrap'}}> 
                 <Menu secondary >
-                    {APPConf.landing[APPConf.systemTag].navItemList.map((data,index) =>
+                    {APPConf.landing[APPConf.systemTag].navItemList2[TAG].map((data,index) =>
                             <Menu.Item key={index} active={activeIndex == data.navIndex} className='rounded-pill' onClick={ () => setActiveIndex(data.navIndex)}>
                                 <span style={{color: data.color}}>
                                     <b>
@@ -45,31 +45,31 @@ function RequestPage() {
     const panesRes = [
         {
           menuItem: { key: 'attent',  content: <span className='text-warning'><b><span className='bi bi-hourglass-split'></span> En Attent</b></span> , className:'rounded-pill'},
-          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList[0].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
+          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList2[TAG][0].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
         },
         {
           menuItem: { key: 'vu',  content: <span className='text-warning'><b><span className='bi bi-hourglass-split'></span> En Attent</b></span> , className:'rounded-pill'},
-          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList[1].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
+          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList2[TAG][1].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
         },
         {
           menuItem: { key: 'accept',  content: <span className='text-success'><b><span className='bi bi-check-square-fill'></span> Accepteé</b></span> , className:'rounded-pill' },
-          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList[2].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
+          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList2[TAG][2].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
         },
         {
           menuItem: { key: 'refuse',  content: <span className='text-danger'><b><span className='bi bi-x-square-fill'></span> Refuseé</b></span>, className:'rounded-pill' },
-          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList[3].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
+          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList2[TAG][3].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
         },
         {
-          menuItem: { key: 'terminer',  content: <span className='text-danger'><b><span className='bi bi-x-square-fill'></span> Retardeé</b></span>, className:'rounded-pill' },
-          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList[4].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
+          menuItem: { key: 'retarder',  content: <span className='text-danger'><b><span className='bi bi-x-square-fill'></span> Retardeé</b></span>, className:'rounded-pill' },
+          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList2[TAG][4].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
         },
         {
-          menuItem: { key: 'retarde',  content: <span className='text-danger'><b><span className='bi bi-x-square-fill'></span> Redirecte</b></span>, className:'rounded-pill' },
-          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList[5].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
+          menuItem: { key: 'redireter',  content: <span className='text-danger'><b><span className='bi bi-x-square-fill'></span> Redirecte</b></span>, className:'rounded-pill' },
+          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList2[TAG][5].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
         },
         {
-          menuItem: { key: 'redirecte',  content: <span className='text-danger'><b><span className='bi bi-x-square-fill'></span> Refuseé</b></span>, className:'rounded-pill' },
-          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList[6].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
+          menuItem: { key: 'terminer',  content: <span className='text-danger'><b><span className='bi bi-x-square-fill'></span> Refuseé</b></span>, className:'rounded-pill' },
+          render: () => <TableGrid tableData={FetchByGenreReserv(APPConf.landing[APPConf.systemTag].navItemList2[TAG][6].navIndexName)} columns={APPConf.landing[APPConf.systemTag].tableHeader[TAG]} />,
         },
     ]
  
@@ -102,7 +102,7 @@ function RequestPage() {
     const LengthFunction = (value) => {  return JSON.parse(value).length }
     const PropFunction = (value, wantedProp) => {  return JSON.parse(value)[wantedProp] }
 
-    const FetchByGenreReserv = (genre) => {      
+    const FetchByGenreReserv = (genre) => {    
         let found = reservationList.filter(element => element.State === genre);
         let commandeContainer = [];
         found.forEach(commandeDate => {
@@ -173,9 +173,13 @@ function RequestPage() {
                 case 'S': return <StateCard color='info' text='Vu' />;  
                 case 'A': return <StateCard color='success' text='Acepteé' /> ;
                 case 'R': return <StateCard color='danger' text='Refuseé' />;
+
                 case 'RT': return <StateCard color='retarder' text='Retardeé' />;
                 case 'RD': return <StateCard color='rederecter' text='Redirecteé' />;
-                case 'F': return <StateCard color='secondary' text='Termineé' />;
+                case 'LV': return <StateCard color='retarder' text='Livreé' />;
+                case 'MD': return <StateCard color='redirecter' text='Modifieé' />;
+
+                case 'T': return <StateCard color='secondary' text='Termineé' />;
                 default:  return <StateCard color='dark' text='Indefinie' />;    
               }
             }, [status]);

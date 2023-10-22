@@ -1,4 +1,7 @@
-import DoctorRefuseRdv from './NotifAction/docteur'
+import DoctorAcceptRdv from './NotifAction/docteur_accepted'
+import DoctorReatartedRdv from './NotifAction/docteur_retarted'
+import PharmacieAcceptShop from './NotifAction/pharmacie_shop_accepted'
+
 
 const  NotifGenres  = {
     promting_pub : {
@@ -10,8 +13,9 @@ const  NotifGenres  = {
                 </> )
         }
     }, 
+
     docteur_rdv_saved : {
-        icon:'bi-calendar-check text-success',
+        icon:'bi-calendar2-plus text-warning',
         titleIcon:'bi-receipt-cutoff',
         GenTextFunction : function(requestData,pidData){
             return (<>
@@ -19,13 +23,39 @@ const  NotifGenres  = {
                 </> )
         }
     },
-    docteur_rdv_retarder : {
+    docteur_rdv_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
+        }
+    }, 
+    docteur_rdv_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    docteur_rdv_retarted : {
         icon:'bi-arrow-clockwise text-info',
         titleIcon:'bi-receipt-cutoff',
         GenTextFunction : function(requestData,pidData){
-            return <DoctorRefuseRdv requestData={requestData} pidData={pidData} />
+            return <DoctorReatartedRdv requestData={requestData} pidData={pidData} />
         }
     },  
+    docteur_rdv_redirected : {
+        icon:'bi-arrow-90deg-right text-secondary',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم توجيه طلب موعد مع الطبيب {pidData.Name}   إلي الطبيب {JSON.parse(requestData.Redirected_To).Name}  ( الهاتف :  {JSON.parse(requestData.Redirected_To).Phone} , العنوان : {JSON.parse(requestData.Redirected_To).Adresse} ) </div>  
+                </> )
+        }
+    },
+
     pharmacie_shop_saved: {
         icon:'bi-cart-check text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -35,6 +65,40 @@ const  NotifGenres  = {
                 </> )
         }
     }, 
+    pharmacie_shop_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <PharmacieAcceptShop requestData={requestData} pidData={pidData} />
+        }
+    }, 
+    pharmacie_shop_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    pharmacie_shop_livred : {
+        icon:'bi-arrow-clockwise text-info',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return '<DoctorReatartedRdv requestData={requestData} pidData={pidData} />'
+        }
+    },  
+    pharmacie_shop_edited : {
+        icon:'bi-arrow-90deg-right text-secondary',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم توجيه طلب موعد مع الطبيب {pidData.Name}   إلي الطبيب   </div>  
+                </> )
+        }
+    },
+
+
     pharmacie_rdv_saved: {
         icon:'bi-calendar-check text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -485,6 +549,7 @@ const  NotifGenres  = {
         }
 
     },
+
     restaurant_commande_saved: {
         icon:'bi-check-circle text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -498,6 +563,13 @@ const  NotifGenres  = {
                 </> )
         }
     }, 
+    restaurant_commande_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
+        }
+    },
     restaurant_reservation_saved: {
         icon:'bi-check-circle text-success',
         titleIcon:'bi-receipt-cutoff',

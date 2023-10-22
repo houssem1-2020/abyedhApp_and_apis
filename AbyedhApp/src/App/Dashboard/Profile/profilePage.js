@@ -188,6 +188,7 @@ function ProfilePage() {
             SystemTag : GConf.systemTag
         })
         .then(function (response) {
+            console.log(response.data)
             setGeneralData(response.data.general[0])
             setProfileData(response.data)
             setPasswordData(response.data.password[0]) 
@@ -452,7 +453,7 @@ function ProfilePage() {
             <Divider />
             <div className="d-flex">
                 <div className="flex-shrink-0">
-                <QRCode value={`S/P/${GConf.systemTag}/${GConf.PID}`} size={130} />
+                <QRCode value={`${GConf.systemTag}/${GConf.PID}`} size={130} />
                 </div>
                 <div className="flex-grow-1 ms-3">
                     Imprimez ce lien qui peut être accroché à la porte de votre magasin afin que vos clients puissent vous joindre facilement, et il peut également être partagé directement sur les réseaux sociaux
@@ -938,7 +939,7 @@ function ProfilePage() {
                     </div>
         </div>
         {/* </Bounce> */}
-        <FrameForPrint frameId='printPID' src={`/Pr/ProfilePrint/pid`} />
+        <FrameForPrint frameId='printPID' src={`/App/Profile/ProfilePrint`} />
     </>);
 }
 

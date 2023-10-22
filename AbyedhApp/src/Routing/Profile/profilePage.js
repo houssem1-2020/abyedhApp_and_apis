@@ -604,7 +604,7 @@ function ProfilePage() {
                             }}
                             className="card-img shadow"
                         >   
-                            <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white' width='100px'  height='100px' />
+                            <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white p-3' width='100px'  height='100px' />
                             
                         </span>
                         <span
@@ -625,7 +625,7 @@ function ProfilePage() {
                         <></>
                         :
                         <>
-                            <span className=" m-2 text-dark"> {Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} <HalfStarRating rating={Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} icon='star' disabled size='small' /> ({Math.floor(Math.random() * (40 - 1 + 1)) + 1})</span>
+                            <span className=" m-2 text-dark"> {Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} <HalfStarRating rating={Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} icon='star' disabled size='small' /> </span>
                                
                             <span className=" m-2 text-dark">| <span className='bi bi-hand-thumbs-up-fill'></span> {profileData.genrale[0].Likes_Num} </span>
                             <span className=" m-2 text-dark">| <span className='bi bi-eye-fill'></span> {profileData.genrale[0].Views_Num >= 1000 ? (parseInt(profileData.genrale[0].Views_Num.toString().substring(0, 4)) / 1000).toFixed(1) + 'K' :  profileData.genrale[0].Views_Num}</span>

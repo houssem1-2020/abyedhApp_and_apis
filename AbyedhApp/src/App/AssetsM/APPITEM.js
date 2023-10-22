@@ -19,15 +19,26 @@ const APPItem = {
             {id: 2 , colLg:6, colSm:6, itemName:'Tarifs' , icon:'cash-coin', link:'Spesific'},
             
         ],
-       navItemList : [
+       navItemListold : [
         {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
         {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
         {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
         {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
-        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
-        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
+        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
         {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
             { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
@@ -75,15 +86,35 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/pharmacie_rdv'},
             {id: 3 , colLg:6, colSm:6, itemName:'Traif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
             {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
-            {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
-            {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
+            {id: 5 , navName:'Modifier' , color:'#92ab03',  icon:'pencil-square', navIndex: 4, navIndexName:'MD'},
+            {id: 6 , navName:'Livreé' , color:'#ad059f',  icon:'truck', navIndex: 5, navIndexName:'LV'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            pharmacie_shop : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Modifier' , color:'#92ab03',  icon:'pencil-square', navIndex: 4, navIndexName:'MD'},
+                {id: 6 , navName:'Livreé' , color:'#ad059f',  icon:'truck', navIndex: 5, navIndexName:'LV'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            pharmacie_rdv : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             {id:1, name:'ليل', value:'nuit', imgSrc:'nuit'},
             {id:2, name:'نهار', value:'jour', imgSrc:'jour'}   
@@ -117,7 +148,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-range', link:'rq/clinique_reserver'},
             {id: 3 , colLg:6, colSm:6, itemName:'Traif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -126,6 +157,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            clinique_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'نسائية', value: 'femme', imgSrc: 'female' },
             { id: 2, name: 'عقلية', value: 'mentale', imgSrc: 'mentale' },
@@ -160,7 +202,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Rendy Vous' , icon:'check-all', link:'rq/labo_rdv'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -169,6 +211,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            labo_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'تحليل وراثي خلوي', value: 'ANATOMIE_PATHOLOGIE', imgSrc: 'dna' },
             { id: 2, name: 'تحليل بيولوجي طبي', value: 'ANALYSES DE BIOLOGIE', imgSrc: 'blod' },
@@ -201,7 +254,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-range', link:'rq/centre_reserver'},
             {id: 3 , colLg:6, colSm:6, itemName:'Traif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -210,6 +263,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            centre_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أشعة', value: 'radio', imgSrc: 'radio' },
             { id: 2, name: 'غسيل الكلي', value: 'dialyse', imgSrc: 'dialyse' },
@@ -246,7 +310,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Souscription' , icon:'calendar-week', link:'rq/garderie_souscription'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -255,6 +319,26 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            garderie_inscription : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            garderie_souscription : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Modifier' , color:'#92ab03',  icon:'pencil-square', navIndex: 4, navIndexName:'MD'},
+                {id: 6 , navName:'Livreé' , color:'#ad059f',  icon:'truck', navIndex: 5, navIndexName:'LV'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'تَحْضِيرِي', value: 'dentiste', imgSrc: 'nursery' },
             { id: 2, name: 'مِحْضَنَة', value: 'dentiste', imgSrc: 'nurserya' },    
@@ -298,7 +382,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Souscription' , icon:'calendar-week', link:'rq/garderie_souscription'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -307,6 +391,26 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            garderie_inscription : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            garderie_souscription : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Modifier' , color:'#92ab03',  icon:'pencil-square', navIndex: 4, navIndexName:'MD'},
+                {id: 6 , navName:'Livreé' , color:'#ad059f',  icon:'truck', navIndex: 5, navIndexName:'LV'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'تَحْضِيرِي', value: 'dentiste', imgSrc: 'nursery' },
             { id: 2, name: 'مِحْضَنَة', value: 'dentiste', imgSrc: 'nurserya' },    
@@ -341,7 +445,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Souscription' , icon:'calendar-week', link:'rq/garderie_souscription'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -350,6 +454,26 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            garderie_inscription : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            garderie_souscription : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Modifier' , color:'#92ab03',  icon:'pencil-square', navIndex: 4, navIndexName:'MD'},
+                {id: 6 , navName:'Livreé' , color:'#ad059f',  icon:'truck', navIndex: 5, navIndexName:'LV'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'تَحْضِيرِي', value: 'dentiste', imgSrc: 'nursery' },
             { id: 2, name: 'مِحْضَنَة', value: 'dentiste', imgSrc: 'nurserya' },    
@@ -384,7 +508,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Souscription' , icon:'calendar-week', link:'rq/garderie_souscription'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -393,6 +517,26 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            garderie_inscription : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            garderie_souscription : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Modifier' , color:'#92ab03',  icon:'pencil-square', navIndex: 4, navIndexName:'MD'},
+                {id: 6 , navName:'Livreé' , color:'#ad059f',  icon:'truck', navIndex: 5, navIndexName:'LV'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'تَحْضِيرِي', value: 'dentiste', imgSrc: 'nursery' },
             { id: 2, name: 'مِحْضَنَة', value: 'dentiste', imgSrc: 'nurserya' },    
@@ -426,7 +570,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/librairie_shop'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -435,6 +579,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            librairie_shop : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'كتبية', value: 'dentiste', imgSrc: 'biblio' },
             { id: 2, name: 'أدوات مذرسية', value: 'dentiste', imgSrc: 'biblio' },    
@@ -467,7 +622,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -476,6 +631,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
             { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
@@ -523,7 +689,7 @@ const APPItem = {
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/transporteur_request'},
             {id: 3 , colLg:6, colSm:6, itemName:'Traif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -532,6 +698,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            transporteur_request : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'agence', value: 'dentiste', imgSrc: 'tr-agence' },
             { id: 2, name: 'Transporteur', value: 'dentiste', imgSrc: 'transporteur' },    
@@ -564,7 +741,7 @@ const APPItem = {
             {id: 1 , colLg:6, colSm:12, itemName:'Inscription' , icon:'check-all', link:'rq/autoecole_inscrie'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -573,6 +750,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            autoecole_inscrie : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'صنف ب', value: 'صنف ب', imgSrc: 'tourism' },
             { id: 2, name: 'كار', value: 'شاحنة', imgSrc: 'car' },
@@ -611,7 +799,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:6, colSm:6, itemName:'Menu' , icon:'list-columns-reverse', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -620,6 +808,26 @@ const APPItem = {
             // {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 4 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 4, navIndexName:'T'},
         ],
+        navItemList2 : {
+            restaurant_commande : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            restaurant_reservation : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Modifier' , color:'#92ab03',  icon:'pencil-square', navIndex: 4, navIndexName:'MD'},
+                {id: 6 , navName:'Livreé' , color:'#ad059f',  icon:'truck', navIndex: 5, navIndexName:'LV'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: '5 نجوم', value: 'dentiste', imgSrc: 'kaftaji' },
             { id: 2, name: 'أكلة خفيفة', value: 'dentiste', imgSrc: 'resto1' },
@@ -657,7 +865,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/cafe_reservation'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -666,6 +874,26 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            cafe_commande : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            cafe_reservation : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+    ],
+        },
         genreListe : [
             { id: 1, name: 'مقهي', value: 'dentiste', imgSrc: 'populaire' },
             { id: 2, name: 'فطاء عائلي', value: 'dentiste', imgSrc: 'mixte' },
@@ -709,7 +937,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/magazin_commande'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -718,6 +946,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            magazin_commande : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'magazin', value: 'dentiste', imgSrc: 'bread' },
             { id: 2, name: 'superette', value: 'dentiste', imgSrc: 'bread' },
@@ -758,7 +997,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/fruiterie_shop'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -767,6 +1006,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            fruiterie_shop : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'خُضَرْ', value: 'dentiste', imgSrc: 'fruit' },
             { id: 2, name: 'غِلَالْ', value: 'dentiste', imgSrc: 'fruit' },   
@@ -798,7 +1048,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/boucheries_shop'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -807,6 +1057,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            boucheries_shop : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'لُحُومْ حَمْرَاءْ', value: 'dentiste', imgSrc: 'viande' },
             { id: 2, name: 'سَكَالُوبْ', value: 'dentiste', imgSrc: 'viande' },
@@ -840,7 +1101,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/boulangerie_shop'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -849,6 +1110,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            boulangerie_shop : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'طَابُونَة', value: 'dentiste', imgSrc: 'pain' },
             { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'pain' },    
@@ -880,7 +1152,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/patisserie_shop'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -889,6 +1161,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            patisserie_shop : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patt' },
             { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patt' },    
@@ -920,7 +1203,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/epicerie_shop'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -929,6 +1212,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            epicerie_shop : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'سَجَائِرْ', value: 'dentiste', imgSrc: 'hmas' },
             { id: 2, name: 'بُقُولْ', value: 'dentiste', imgSrc: 'hmas' },    
@@ -962,7 +1256,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/electromenager_shop'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -971,6 +1265,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            electromenager_shop : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أجهزة كهرومنزلية', value: 'electro', imgSrc: 'electro' },
             { id: 2, name: 'هواتف و حواسيب', value: 'electro', imgSrc: 'electro' },    
@@ -1002,7 +1307,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/meubles_shop'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1011,6 +1316,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            meubles_shop : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أَثَاثْ مَنْزِلِي', value: 'fourniture', imgSrc: 'furniture' },
             { id: 2, name: 'أَثَاثْ مَكْتَبِي', value: 'fourniture', imgSrc: 'furniture' },    
@@ -1043,7 +1359,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Souscription' , icon:'check2-circle', link:'rq/parking_souscrire'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1052,6 +1368,26 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            parking_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            parking_souscrire : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+    ],
+        },
         genreListe : [
             { id: 1, name: 'مَأْوَي عُمُومِي' , value: 'dentiste', imgSrc: 'parking' },
             { id: 2, name: 'مَأْوَي خَاصْ' , value: 'dentiste', imgSrc: 'parking' },    
@@ -1086,7 +1422,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Lavage' , icon:'calendar-week', link:'rq/qiosque_lavage'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1095,6 +1431,26 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            qiosque_request : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            qiosque_lavage : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+    ],
+        },
         genreListe : [
             { id: 1, name: 'Qiosque', value: 'dentiste', imgSrc: 'qiosque' },
             { id: 2, name: 'غَسِيلْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'qiosque' },    
@@ -1128,7 +1484,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Demandes de Location' , icon:'check2-circle', link:'rq/location_request'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1137,6 +1493,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            location_request : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'كِرَاءْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
             { id: 2, name: 'كِرَاءْ الشَاحِنَاتْ', value: 'dentiste', imgSrc: 'car_selling' },    
@@ -1171,7 +1538,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Vente/à Louer' , icon:'box-arrow-in-down-left', link:'rq/courtier_torent'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1180,6 +1547,26 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            courtier_request : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            courtier_torent : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+    ],
+        },
         genreListe : [
             { id: 1, name: 'للكِرَاءْ', value: 'dentiste', imgSrc: 'studio' },
             { id: 2, name: 'شِرَاءْ', value: 'dentiste', imgSrc: 'garage' },    
@@ -1213,7 +1600,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Demmande' , icon:'check-all', link:'rq/contracteur_service'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1222,6 +1609,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            contracteur_service : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
             { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },  
@@ -1253,7 +1651,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Demmandes' , icon:'check-all', link:'rq/architecture_service'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1262,6 +1660,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            architecture_service : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'شركة', value: 'dentiste', imgSrc: 'architect' },
             { id: 2, name: 'مكتب مهندس', value: 'dentiste', imgSrc: 'architect' },    
@@ -1294,7 +1703,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/librairie_shop'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1303,6 +1712,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            librairie_shop : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'كتبية', value: 'dentiste', imgSrc: 'biblio' },
             { id: 2, name: 'أدوات مذرسية', value: 'dentiste', imgSrc: 'biblio' },    
@@ -1335,7 +1755,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1344,6 +1764,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
             { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
@@ -1391,7 +1822,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1400,6 +1831,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
             { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
@@ -1447,7 +1889,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1456,6 +1898,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
             { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
@@ -1503,7 +1956,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1512,6 +1965,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
             { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
@@ -1559,7 +2023,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1568,6 +2032,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
             { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
@@ -1615,7 +2090,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1624,6 +2099,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
             { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
@@ -1673,7 +2159,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Reservation' , icon:'check2-circle', link:'rq/coiffure_reserver'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1682,6 +2168,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            coiffure_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'رجال', value: 'dentiste', imgSrc: 'coiffure-man' },
             { id: 2, name: 'نساء', value: 'dentiste', imgSrc: 'woumen' },    
@@ -1714,7 +2211,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/boutique_shop'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1723,6 +2220,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            boutique_shop : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'رِجَالْ', value: '1', imgSrc: 'man' },
             { id: 2, name: 'نِسَاءْ', value: 'dentiste', imgSrc: 'woumen' },
@@ -1764,7 +2272,7 @@ const APPItem = {
             {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/photographe_reserver'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1773,6 +2281,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            photographe_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'تَصْوِيرْ أَعْرَاسْ', value: 'dentiste', imgSrc: 'photographe' },
             { id: 2, name: 'مًصَوِرْ فُوتُوغْرَافِي', value: 'dentiste', imgSrc: 'photographe' },    
@@ -1804,7 +2323,7 @@ const APPItem = {
             {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/chef_reserver'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1813,6 +2332,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            chef_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'مَطْبَخْ أَجْنَبِي', value: 'dentiste', imgSrc: 'chef' },
             { id: 2, name: 'المَطْبَخْ التًونِسِي', value: 'dentiste', imgSrc: 'chef' },    
@@ -1844,7 +2374,7 @@ const APPItem = {
             {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/orchestre_reserver'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1853,6 +2383,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            orchestre_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'فِرْقَة شَعْبِيَّة', value: 'dentiste', imgSrc: 'orqustre' },
             { id: 2, name: 'فَنَّانْ', value: 'dentiste', imgSrc: 'orqustre' },    
@@ -1884,7 +2425,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Reservations' , icon:'calendar-week', link:'rq/salon_marriage_reserver'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1893,6 +2434,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            salon_marriage_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'قَاعَة  مُغَطَّاةْ', value: 'dentiste', imgSrc: 'sallon' },
             { id: 2, name: 'قَاعَة  مَفْتُوحَة', value: 'dentiste', imgSrc: 'sallon' },    
@@ -1924,7 +2476,7 @@ const APPItem = {
             {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/fourniture_marriage_location'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1933,6 +2485,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            fourniture_marriage_location : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'لَوَازِمْ أُخْرَي', value: 'dentiste', imgSrc: 'lawazem' },
             { id: 2, name: 'فَسَاتِينْ', value: 'dentiste', imgSrc: 'lawazem' },    
@@ -1965,7 +2528,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/bijouterie_shop'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -1974,6 +2537,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            bijouterie_shop : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'مُجَوْهَرَاتْ جَاهِزَةَ', value: 'dentiste', imgSrc: 'bijoux' },
             { id: 2, name: 'صَايْغِي', value: 'dentiste', imgSrc: 'bijoux' },    
@@ -2015,7 +2589,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/gym_souscription'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2024,6 +2598,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            gym_souscription : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'GYM', value: 'dentiste', imgSrc: 'gym' },
             { id: 2, name: 'رياضات فردية', value: 'dentiste', imgSrc: 'karate' },
@@ -2065,7 +2650,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Abonnemment' , icon:'calendar-week', link:'rq/pyscine_souscrire'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2074,6 +2659,26 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            pyscine_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            pyscine_souscrire : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+    ],
+        },
         genreListe : [
             { id: 1, name: 'مُغَطَي', value: 'dentiste', imgSrc: 'closed' },
             { id: 2, name: 'مَفْتُوحْ', value: 'dentiste', imgSrc: 'open' },
@@ -2109,7 +2714,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Abonnemment' , icon:'calendar-week', link:'rq/stade_souscrire'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2118,6 +2723,26 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            stade_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            stade_souscrire : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+    ],
+        },
         genreListe : [
             { id: 1, name: 'كُرَةْ قَدَمْ', value: 'dentiste', imgSrc: 'foot' },
             { id: 2, name: 'كُرَةْ سَلَّة', value: 'dentiste', imgSrc: 'basquette' },
@@ -2155,7 +2780,7 @@ const APPItem = {
             {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/cinema_reserver'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2164,6 +2789,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            cinema_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'قاعة عرض', value: 'dentiste', imgSrc: 'cima' },
             { id: 2, name: 'قاعة سنما', value: 'dentiste', imgSrc: 'cima' },    
@@ -2195,7 +2831,7 @@ const APPItem = {
             {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/theatre_reserver'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2204,6 +2840,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            theatre_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'مسرح مفتوح', value: 'dentiste', imgSrc: 'theatre' },
             { id: 2, name: 'مسرح مغلق', value: 'dentiste', imgSrc: 'theatre' },    
@@ -2235,7 +2882,7 @@ const APPItem = {
             {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/musee_reserver'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2244,6 +2891,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            musee_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'مَكَانْ أَثَرِي', value: 'dentiste', imgSrc: 'Musee' },
             { id: 2, name: 'مَتْحَفْ', value: 'dentiste', imgSrc: 'Musee' },   
@@ -2277,7 +2935,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Resndy Vous' , icon:'calendar-week', link:'rq/avocat_rdv'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2286,6 +2944,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            avocat_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'تَمْرِينْ', value: 'dentiste', imgSrc: 'avo1' },
             { id: 2, name: 'تَعْقِيبْ', value: 'dentiste', imgSrc: 'avo2' },
@@ -2320,7 +2989,7 @@ const APPItem = {
             {id: 1 , colLg:6, colSm:12, itemName:'Service' , icon:'check-all', link:'rq/hotels_service'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2329,6 +2998,26 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            hotels_reserver : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+            hotels_service : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+    ],
+        },
         genreListe : [
             { id: 1, name: 'Hotel', value: 'dentiste', imgSrc: 'hotel' },
             { id: 2, name: 'Maison de Hote', value: 'dentiste', imgSrc: 'maison' },    
@@ -2362,7 +3051,7 @@ const APPItem = {
             {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/agence_service'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2371,6 +3060,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            agence_service : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'مَكْتَبْ سِيَاحَة', value: 'dentiste', imgSrc: 'bureaux' },
             { id: 2, name: 'وِكَالَة أَسْفَارْ', value: 'dentiste', imgSrc: 'agence' },    
@@ -2404,7 +3104,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/depot_commande'},
             {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
         ],
-        navItemList : [
+        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2413,6 +3113,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            depot_commande : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'storage-nutrition' },
             { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'constraction' },
@@ -2448,7 +3159,7 @@ const APPItem = {
             {id: 1 , colLg:12, colSm:12, itemName:'Demmandes' , icon:'check-all', link:'rq/comptable_service'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2457,6 +3168,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            comptable_service : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'تدْقِيقَ مُحَاسِبْ', value: 'dentiste', imgSrc: 'compt-bureaux' },
             { id: 2, name: 'مًحَاسِبْ', value: 'dentiste', imgSrc: 'compt-logo' },    
@@ -2489,7 +3211,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2498,6 +3220,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
             { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
@@ -2545,7 +3278,7 @@ const APPItem = {
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
         ],
-       navItemList : [
+       navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
             {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
             {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -2554,6 +3287,17 @@ const APPItem = {
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
         ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
         genreListe : [
             { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
             { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },

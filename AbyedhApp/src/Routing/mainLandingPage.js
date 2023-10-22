@@ -11,51 +11,38 @@ import GConf from '../AssetsM/generalConf';
 import { Button, Icon, Input, Modal } from 'semantic-ui-react';
 import { useNavigate} from 'react-router-dom';
 
+const CostumInput = ({searchKey, setSearchKey}) =>{
+    return(<input  value={searchKey} onChange={(e) => setSearchKey(e.target.value)} className='text-end main-input-costum' icon='user' />)
+}
 const SearchBar = ({open, setOpen, searchKey, setSearchKey,SearchFunction,GoToQrCodeFunction, data, setData}) =>{
-    return(<>
-        <div className='rounded-0 border-0 bg-white p-3 sticky-top shadow-bottom-card'>
-           {/* <div className='row'>
-                <div className='col-3  col-lg -1'>
-                    <Modal
-                        onClose={() => setOpen(false)}
-                        onOpen={() => setOpen(true)}
-                        open={open}
-                        dimmer= 'blurring'
-                        trigger={<Button className='border-0' icon ><Icon name='qrcode' /></Button>}
-                        >
-                        <Modal.Content image>
-                            <QrReader
-                                    constraints={{
-                                        facingMode: 'environment'
-                                    }}
-                                    scanDelay={3000}
-                                    onResult={(result, error) => {
-                                    if (!!result) {
-                                        //setData(result?.text);
-                                        console.log(result.text)
-                                        GoToQrCodeFunction(result.text)
-                                    }
+    const navigate = useNavigate();
 
-                                    if (!!error) {
-                                        console.info(error);
-                                    }
-                                    }}
-                                    style={{ width: '100%',height: "100%" }}
-                            />
-                            <p>{data}</p>
-                        </Modal.Content>
-                    </Modal>
-                 <Button onClick={SearchFunction} icon ><Icon name='arrow right' /></Button></div>
-                <div className='col-9 col-lg-11'><Input fluid  onChange={(e) => setSearchKey(e.target.value)} icon='search' placeholder='Search...' /></div>
-           </div> */}
-            
+    const [qrCodeValue, setQRCodeValue] = useState(null)
+    const [selectedListeTag, setSelectedListeTag] = useState([])
+
+    const ShowUpLinks = (value) =>{
+        const resultArray = value.split('/');
+        setSelectedListeTag(GConf.ADIL[resultArray[0]].profileBtns.slice(0, GConf.ADIL[resultArray[0]].profileBtns.length - 1))
+    }
+    const ActionsBtnCard = (props) =>{
+        return(<>
+            <Button  onClick={() => navigate(`/S/P/${qrCodeValue}?action=true`)} className='bg-white  border mb-2 '   style={{borderRadius:'18px', width:'auto'}}     > 
+                    <Icon name={props.data.icon} className='ms-1' />  {props.data.name}
+            </Button>
+        </>)
+    }
+
+    return(<>
+        <div className='rounded-0 border-0 bg-white p-3  sticky-top shadow-bottom-card'>
             <Input
                 placeholder=' ... بَحْثْ'
                 fluid
                 action
                 actionPosition='left'
                 onChange={(e) => setSearchKey(e.target.value)}
+                className='main-page-input '
             >
+                {/* <Button className='border-0 bg-white border-top border-bottom border-start ' onClick={() => setOpen(!open)} icon ><Icon name='qrcode' /></Button> */}
                 <Modal
                     onClose={() => setOpen(false)}
                     onOpen={() => setOpen(true)}
@@ -71,23 +58,30 @@ const SearchBar = ({open, setOpen, searchKey, setSearchKey,SearchFunction,GoToQr
                                 scanDelay={3000}
                                 onResult={(result, error) => {
                                 if (!!result) {
-                                    GoToQrCodeFunction(result.text)
+                                    ShowUpLinks(result.text)
+                                    //GoToQrCodeFunction(result.text)
+                                    setQRCodeValue(result.text)
                                 }
 
                                 if (!!error) {
                                     console.info(error);
                                 }
                                 }}
-                                style={{ width: '100%',height: "100%" }}
+                                style={{ width: '100%',height: "300px" }}
+                                className='mb-3'
                         />
-                        <p>{data}</p>
+                         
+                        <Button size='big' className='bg-danger text-white mb-3 rounded-pill' disabled={qrCodeValue == null} onClick={() => GoToQrCodeFunction(qrCodeValue)}> زيارة الملف </Button>
+                        <div className='col-12 d-flex' dir='rtl'  >
+                            { selectedListeTag.map( (data,index) => <ActionsBtnCard key={index} data={data} indexKey={index} /> )  }                        
+                        </div>
                     </Modal.Content>
                 </Modal>
                 
                 <Button className='bg-white border-top border-bottom' onClick={() => SearchFunction()} icon ><Icon name='arrow right' /></Button>
-                <input  value={searchKey} className='text-end' icon='user' />
-            </Input>
-            
+                <input   className='text-end main-input-costum' icon='user' />
+                {/* <CostumInput searchKey={searchKey} setSearchKey={setSearchKey} /> */}
+            </Input>   
         </div>
     </>)
     }
@@ -137,6 +131,20 @@ function MainLandingPage() {
     //     showNotification();
     // };
 
+    const [qrCodeValue, setQRCodeValue] = useState(null)
+    const [selectedListeTag, setSelectedListeTag] = useState([])
+
+    const ShowUpLinks = (value) =>{
+        const resultArray = value.split('/');
+        setSelectedListeTag(GConf.ADIL[resultArray[0]].profileBtns.slice(0, GConf.ADIL[resultArray[0]].profileBtns.length - 1))
+    }
+    const ActionsBtnCard = (props) =>{
+        return(<>
+            <Button  onClick={() => navigate(`/S/P/${qrCodeValue}?action=true`)} className='bg-white  border mb-2 '   style={{borderRadius:'18px', width:'auto'}}     > 
+                    <Icon name={props.data.icon} className='ms-1' />  {props.data.name}
+            </Button>
+        </>)
+    }
 
     /* ############### UseEffect #################*/
     /* ############### Functions #################*/
@@ -382,7 +390,7 @@ function MainLandingPage() {
     const DownloadTheApp = () =>{
         return(<>
             <div className="container text-end">
-                <a exact='true' target='c_blank'  href='https://play.google.com/store/apps/details?id=com.mycompany.abyedhtn'>  
+                <a exact='true' target='c_blank'  href='https://play.google.com/store/apps/details?id=tn.abyedh.twa'>  
                     <div className="card p-3 border-div shadow-sm" >
                         <div className="row">
                             <div className="col-2 text-center align-self-center"> 
@@ -402,9 +410,42 @@ function MainLandingPage() {
             <TopNavBar />
             <AddsCard />
             <SearchBar open={open} setOpen={setOpen} searchKey={searchKey} setSearchKey={setSearchKey} SearchFunction={SearchFunction} GoToQrCodeFunction={GoToQrCodeFunction} data={data} setData={setData} />
-            <br />
-            <br />
 
+            {/* {
+                open ? 
+                <>
+                    <QrReader
+                            constraints={{
+                                facingMode: 'environment'
+                            }}
+                            scanDelay={3000}
+                            onResult={(result, error) => {
+                            if (!!result) {
+                                ShowUpLinks(result.text)
+                                //GoToQrCodeFunction(result.text)
+                                setQRCodeValue(result.text)
+                            }
+
+                            if (!!error) {
+                                console.info(error);
+                            }
+                            }}
+                            style={{ width: '100%',height: "300px" }}
+                            className='m-0-force'
+                    />
+                    <div className='card-body pt-0'>
+                        <Button size='big' fluid className='bg-danger text-white rounded-pill' disabled={qrCodeValue == null} onClick={() => GoToQrCodeFunction(qrCodeValue)}> زيارة الملف </Button>
+                    </div>    
+                    <div className='card-body d-flex' dir='rtl'  >
+                        { selectedListeTag.map( (data,index) => <ActionsBtnCard key={index} data={data} indexKey={index} /> )  }                        
+                    </div>
+                </>
+                :
+                <></>
+                        
+            } */}
+            <br />
+            <br />
             <div className='container' dir='rtl'>
                 <IntroducingCard />
                 <br />

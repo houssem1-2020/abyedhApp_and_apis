@@ -1,42 +1,191 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Bounce } from 'react-reveal';
- 
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
-import { Button, Dropdown, Form, Icon, Input, List, Modal, Select, Tab, TextArea } from 'semantic-ui-react';
-import GConf from '../../../AssetsM/generalConf';
+import { Button, Dropdown, Form, Icon, Input, List, Menu, Modal, Select, Tab, TextArea } from 'semantic-ui-react';
+import GConf from '../../../AssetsM/APPConf';
 import BreadCrumb from '../../../AssetsM/Cards/breadCrumb'
 import SKLT from '../../../AssetsM/Cards/usedSlk';
 import { toast } from 'react-toastify';
-import usePrintFunction from '../../../AssetsM/Hooks/printFunction';
-import FrameForPrint from '../../../AssetsM/Cards/frameForPrint';
-import TunMap from '../../../AssetsM/tunMap';
+import APPItem from '../../../AssetsM/APPITEM';
+import APPConf from '../../../AssetsM/APPConf';
 
+const CustomTabs = ({activeIndex, setActiveIndex,TAG}) => {
+    return(<>
+
+           <div className="mt-1 p-1 mb-4"   style={{width:'100%', overflowX: 'auto', overflowY : 'hidden', whiteSpace:'nowrap'}}> 
+                <Menu secondary >
+                    
+                    <Menu.Item key={0} active={activeIndex == 0} className='rounded-pill' onClick={ () => setActiveIndex(0)}>
+                        <span style={{color: "#1070fd"}}>
+                            <b>
+                            <span className='bi bi-eye-fill' ></span> Non Vu
+                            </b>
+                        </span>
+                    </Menu.Item>
+                    {APPConf.landing[APPConf.systemTag].navItemList2[TAG].slice(2).map((data,index) =>
+                            <Menu.Item key={index} active={activeIndex == data.navIndex -1} className='rounded-pill' onClick={ () => setActiveIndex(data.navIndex -1)}>
+                                <span style={{color: data.color}}>
+                                    <b>
+                                    <span className={`bi bi-${data.icon}`}></span> {data.navName}
+                                    </b>
+                                </span>
+                            </Menu.Item>
+                     )}
+                </Menu>
+          </div>
+    </>)
+}
+
+const VuCard = ({requestData, setRequestData, reqState, FindBtnState, UpdateRequestState, OnKeyPressFunc}) =>{
+    return(<>
+            <div className='card card-body shadow-sm mb-2 border-div'>
+                <h5>Marquer comme non Vu</h5>
+
+                <div className='card-body'>
+                        Marquer cette demande comme non Vu, Ceci vous permettra de le traiter ultérieurement 
+                </div> 
+                <div className=' mb-2'>
+                    <Button fluid disabled={FindBtnState(reqState).seenState} className='rounded-pill bg-info text-white'    onClick={ () => UpdateRequestState('W',false,false,false,false)}><Icon name='eye' /> Marquer comme non Vu </Button>
+                </div>
+            </div>
+    </>)
+}
+const AccepterCard = ({requestData, setRequestData, reqState, FindBtnState, UpdateRequestState, OnKeyPressFunc}) =>{
+    return(<>
+            <div className='card card-body shadow-sm mb-2 border-div'>
+                <h5>Accepter Le RendyVous</h5>
+
+                <div className='card-body'>
+                    Lorsque vous accepter la demande l'utilisateur sera notifié..
+                    <br />
+                    Veuillez verifier les donnees de demande : 
+                    <div className='mb-1'> Date : {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div> 
+                    <div className='mb-1'> Temps : {requestData.RDV_Time}</div>
+                </div>
+                 
+                <div className=' mb-2'>
+                    <Button fluid disabled={FindBtnState(reqState).acceptState} className='rounded-pill bg-success text-white'    onClick={ () => UpdateRequestState('A',false,false,true,'accepted')}><Icon name='check square' /> Accepter </Button>
+                </div>
+            </div>
+    </>)
+}
+const RefuserCard = ({requestData, setRequestData, reqState, FindBtnState, UpdateRequestState, OnKeyPressFunc}) =>{
+    return<>
+        <div className='card card-body shadow-sm mb-2 border-div'>
+            <h5>Refuser Le RendyVous</h5>
+
+            <div className='card-body'>
+                Veuillez entrer la cause de la rejection : 
+            </div> 
+            <div className='col-12 mb-3'>       
+                <Form>
+                    <TextArea  rows="3" onKeyPress={event => OnKeyPressFunc(event)} placeholder='Cause de Rejection' className='w-100 shadow-sm rounded mb-3' value={requestData.Refuser_Cause} onChange={(e) => setRequestData({...requestData, Refuser_Cause: e.target.value })}/>
+                </Form> 
+            </div>
+            <div className=' mb-2'>
+                <Button fluid disabled={FindBtnState(reqState).refuseState} className='rounded-pill bg-danger text-white'    onClick={ () => UpdateRequestState('R','Refuser_Cause',requestData.Refuser_Cause,true,'rejected')}><Icon name='trash alternate' /> Refuser </Button>
+            </div>
+        </div>
+
+    </>
+}
+const RetarderCard = ({requestData, setRequestData, reqState, FindBtnState, UpdateRequestState, OnKeyPressFunc}) =>{
+    return<>
+        <div className='card card-body border-div mb-4 shadow-sm ltr-force' dir='ltr'>
+            <div className='card-body'> Retarder Vers  :  
+                <h5 className='mb-1 mt-1'>Date   </h5>
+                <Input icon='calendar' type='date' defaultValue={new Date().toISOString().split('T')[0]} size="small" iconPosition='left'   fluid className='mb-1'  onChange={(e) => setRequestData({...requestData, Retarder_Vers: { ...requestData.Retarder_Vers, Date : e.target.value  } })}/>
+
+                <h5 className='mb-1 mt-3'>Temps   </h5>
+                <Input icon='time' defaultValue={new Date().toLocaleTimeString('fr-FR')} type='time' size="small" iconPosition='left'   fluid className='mb-1'  onChange={(e) => setRequestData({...requestData, Retarder_Vers: { ...requestData.Retarder_Vers, Temps: e.target.value }  })}/>
+            </div>
+            <div className='text-end mt-3'>
+                <Button disabled={FindBtnState(reqState).reterderState} fluid className='rounded-pill text-secondary btn-imprimer'  onClick={(e) => UpdateRequestState('RT','Retarder_Vers',JSON.stringify(requestData.Retarder_Vers),true,'retarted')}><Icon name='time' /> Retarder  </Button>  
+            </div>
+        </div>
+    </>
+}
+const RedirecterCard = ({requestData, setRequestData, reqState, FindBtnState, UpdateRequestState, OnKeyPressFunc}) =>{
+    return(<>
+        <div className='card card-body border-div mb-4 shadow-sm ltr-force' dir='ltr'>
+            <div className='card-body'> Entrer les info de docteur :  
+                <h5 className='mb-1 mt-1'>Nom de Docteur   </h5>
+                <Input icon='user' type='text' size="small" iconPosition='left'   fluid className='mb-1'  onChange={(e) => setRequestData({...requestData, Redirected_To: { ...requestData.Redirected_To, Name : e.target.value  } })}/>
+
+                <h5 className='mb-1 mt-1'>Telephone   </h5>
+                <Input icon='phone' type='text' size="small" iconPosition='left'   fluid className='mb-1'  onChange={(e) => setRequestData({...requestData, Redirected_To: { ...requestData.Redirected_To, Phone : e.target.value }  })}/>
+
+
+                <h5 className='mb-1 mt-3'>Adresse   </h5>
+                <Input icon='map marker alternate' type='text' size="small" iconPosition='left'   fluid className='mb-1'  onChange={(e) => setRequestData({...requestData, Redirected_To: { ...requestData.Redirected_To, Adresse: e.target.value }  })}/>
+            </div>
+            <div className='text-end mt-3'>
+                <Button disabled={FindBtnState(reqState).redirectState} fluid className='rounded-pill text-secondary btn-imprimer'  onClick={(e) => UpdateRequestState('RD','Redirected_To',JSON.stringify(requestData.Redirected_To),true,'redirected')}><Icon name='edit outline' /> Redirecter </Button>  
+            </div>
+        </div> 
+    </>)
+}
+const TerminerCard = ({requestData, setRequestData, reqState, FindBtnState, UpdateRequestState, OnKeyPressFunc}) =>{
+    return<>
+        <div className='card card-body shadow-sm mb-2 border-div'>
+                <h5>Terminer Le RendyVous</h5>
+
+                <div className='card-body'>
+                    Marquer cette demande comme Terminier empêche toute opération ultérieure
+                    <br />
+                    <small>Il est recommandé d'utiliser cette option lorsque toutes les autres opérations sont terminées</small>
+                </div>
+                 
+                <div className=' mb-2'>
+                    <Button fluid disabled={FindBtnState(reqState).terminerState} className='rounded-pill bg-secondary text-white'    onClick={ () => UpdateRequestState('T',false,false,true,'terminer')}><Icon name='check square' /> Terminer </Button>
+                </div>
+            </div> 
+    </>
+}
 
 function DocteurSpecific() {
     /*#########################[Const]##################################*/
     const {TAG,CID} = useParams()
-    const navigate = useNavigate();
-    const [articleL, setArticleL] = useState([])
-    const [commandeData, setCommandeD] = useState([])
-    const [facturerData, setFacturerD] = useState([])
+    const [activeIndex, setActiveIndex] = useState(0)
+    const [reqState, setReqState] = useState('')
     const [loading , setLoading] = useState(false)
-    const [btnState, setBtnState] = useState(false)
-    const [printLink, setPrintLink] = useState(`/Pr/commande/${CID}`)
-    const [loaderState, setLS] = useState(false)
-    const [abonnemmentData, setAbonnemmentData] = useState({ CommandeID : CID, totale: 0 , articles:[]})
-    const [retarderData, setRetarderData] = useState({RT_Date:'2022-02-08'})
-    const [redirecterData, setRedirecterData] = useState()
-    const [modalS, setModalS] = useState(false)
-    const [modalStateValue, setModalStateValue] = useState()
-    const [delegList ,setDelegList] = useState([])
+    const [requestData, setRequestData] = useState([])
+    
     const panesRigth = [
         {
             menuItem: { key: 'articles', icon: 'grab', content:  'Controle ' }, 
-            render: () => <><BtnsCard /> <CommentaireCard /></>,
+            render: () => <VuCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} /> ,
         },            
         {
             menuItem: { key: 'start', icon: 'user', content: 'Patient ' }, 
+            render: () => <AccepterCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
+        },
+        {
+            menuItem: { key: 'ffff', icon: 'grab', content:  'Controle ' }, 
+            render: () => <RefuserCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />  ,
+        },  
+        {
+            menuItem: { key: 'dddd', icon: 'user', content: 'Patient ' }, 
+            render: () => <RetarderCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
+        },          
+        {
+            menuItem: { key: 'stdddart', icon: 'user', content: 'Patient ' }, 
+            render: () => <RedirecterCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
+        },
+        {
+            menuItem: { key: 'ffsd', icon: 'user', content: 'Patient ' }, 
+            render: () => <TerminerCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
+        }
+        
+    ]
+    const panesInfo = [
+        {
+            menuItem: { key: 'articles', icon: 'file alternate', content: `${ findElementByLink(`rq/${TAG}`) } Info` }, 
+            render: () => <ReqInfoCard />,
+        },            
+        {
+            menuItem: { key: 'start', icon: 'user', content: 'Info Client ' }, 
             render: () => <UserCard />,
         }
         
@@ -46,27 +195,23 @@ function DocteurSpecific() {
         axios.post(`${GConf.ApiLink}/request/info`, {
             PID : GConf.PID,
             CID: CID,
-            SystemTag : 'docteur_rdv'
+            SystemTag : TAG
           })
           .then(function (response) {
-                 
-                if (!response.data[0]) {
-                    toast.error('Commande Introuvable !', GConf.TostSuucessGonf)
-                    setTimeout(() => {  window.location.href = "/S/rq"; }, 2000)
+                 console.log(response.data)
+                if (!response.data.PID) {
+                    toast.error('Demmande Introuvable !', GConf.TostSuucessGonf)
+                    setTimeout(() => {  window.location.href = "/App/S"; }, 2000)
                 } else {
-                    setCommandeD(response.data[0])
+                    setRequestData(response.data)
                     setLoading(true)
-                    if(response.data[0].State == 'A'  || response.data[0].State == 'R' || response.data[0].State == 'RD'){setBtnState(true)}
-                    if(response.data[0].State == 'W'){ UpdateState('S') }
-                    
-                    
+                    setReqState(response.data.State)  
+                    if (response.data.State == 'W') { UpdateRequestState('S',false,false,false,false)} 
                 }  
           }).catch((error) => {
             if(error.request) {
               toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de charger la commande   </div></>, GConf.TostInternetGonf)   
-              setBtnState(true)
-              setArticleL([])
-              setCommandeD([])
+              setRequestData([])
               setLoading(true)
             }
           });
@@ -74,114 +219,80 @@ function DocteurSpecific() {
 
 
     /*#########################[Functions]##################################*/
-    const NavigateFunction = (link) => { navigate(link) }
-    const PrintFunction = (frameId) =>{ usePrintFunction(frameId) }
-    const UpdateState = (stateBtn) =>{
-        axios.post(`${GConf.ApiLink}/request/controle`, {
-            PID : GConf.PID,
-            RID: CID,
-            state: stateBtn,
-            SystemTag : 'docteur_rdv'
-          })
-          .then(function (response) {
-            //setCommandeD({ ...commandeData, State: stateBtn}) 
-           // console.log(commandeData) 
-           if (stateBtn != 'S') {
-            toast.success(<><div> Etat Modifier  </div></>, GConf.TostInternetGonf)   
-           } 
-           if (stateBtn == 'A' || stateBtn == 'R' ||  stateBtn == 'RD') {
-            setBtnState(true)   
-           }           
-          }).catch((error) => {
-            if(error.request) {
-              toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de modifier L'etat du commande  </div></>, GConf.TostInternetGonf)   
-              setBtnState(true)
-            }
-          });
-    }
-    const FacturerCommande = () =>{
-        axios.post(`${GConf.ApiLink}/seances/ajouter`, {
-            PID : GConf.PID,
-            factD: facturerData,
-        })
-        .then(function (response) { 
-            if(response.status = 200) {
-                UpdateState('A')
-                toast.success("Factureé !", GConf.TostSuucessGonf)
-                setBtnState(true)
-            }
-            else{
-                toast.error('Erreur esseyez de nouveaux', GConf.TostSuucessGonf)
-            }           
-        }).catch((error) => {
-            if(error.request) {
-              toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de Facturer la commande  </div></>, GConf.TostInternetGonf)   
-              setBtnState(true)
-            }
-          });
-        
-    }
-    const SaveClientFunction = () =>{
-        console.log(commandeData)
-        setLS(true)
-        axios.post(`${GConf.ApiLink}/patient/ajouter`, {
-            PID : GConf.PID,
-            clientD : {CIN: '', Name:commandeData.Name, Phone:commandeData.PhoneNum , Gouv:commandeData.BirthGouv, Deleg:commandeData.BirthDeleg, Adress:'', Releted_UID:commandeData.UID},
-        }).then(function (response) {
-            if(response.data.affectedRows) {
-                //setSaveBtnState(true)
-                toast.success("Client Ajouter !", GConf.TostSuucessGonf)
-                //SaveNotification('clientAjouter',GConf.PID, clientD)
-                setLS(false)
-            }
-            else{
-                toast.error('Erreur esseyez de nouveaux', GConf.TostSuucessGonf)
-                setLS(false)
-                }
-        }).catch((error) => {
-            if(error.request) {
-              toast.error(<><div><h5>Probleme de Connextion</h5> Le client sera enregistrer sur votre ordinateur   </div></>, GConf.TostInternetGonf)   
-            }
-          });
-          
-    }
-    
-
-    const openEditModal = (selected) =>{
-        setModalStateValue(selected) 
-        setModalS(true)
-    }
     const OnKeyPressFunc = (e) => {
         if (!((e.charCode >= 65 && e.charCode <= 90) || (e.charCode >= 97 && e.charCode <= 122) || (e.charCode >= 48 && e.charCode <= 57) || e.charCode == 42 || e.charCode == 32 || e.charCode == 47 )) {
             e.preventDefault();
         }   
     }
-    const GetDelegList = (value) =>{
-        setAbonnemmentData({...abonnemmentData, Gouv: value })
-        let found = TunMap.Deleg.filter(element => element.tag === value)
-        setDelegList([])
-        setDelegList(found)
+    function findElementByLink(link) {
+        for (const category in APPItem) {
+          if (APPItem[category] && APPItem[category].itemsList) {
+            for (const slide of APPItem[category].itemsList) {
+              if (Array.isArray(slide)) {
+                for (const subSlide of slide) {
+                  if (subSlide.link === link) {
+                    return subSlide.itemName
+                  }
+                }
+              } else if (slide.link === link) {
+                return slide.itemName
+              }
+            }
+          }
+        }
+        return null;
     }
-    const RetarderFunction = () =>{
+    const FindBtnState = (reqState) =>{
+        switch(reqState) {
+            case 'W': return {seenState: true, acceptState: false, refuseState: false, reterderState: false, redirectState:false , terminerState:true};  
+            case 'S': return {seenState: false, acceptState: false, refuseState: false, reterderState: false, redirectState:false , terminerState:true};    
+            case 'A': return {seenState: true, acceptState: true, refuseState: true, reterderState: true, redirectState:true , terminerState:false};  
+            case 'R': return {seenState: true, acceptState: true, refuseState: true, reterderState: true, redirectState:true , terminerState:true};  
+            case 'RT': return {seenState: true, acceptState: false, refuseState: false, reterderState: false, redirectState:true , terminerState:true};  
+            case 'RD': return {seenState: true, acceptState: false, refuseState: false, reterderState: true, redirectState:false , terminerState:false};  
+            case 'T': return {seenState: true, acceptState: true, refuseState: true, reterderState: true, redirectState:true , terminerState:true};  
+            default:  return {seenState: true, acceptState: true, refuseState: true, reterderState: true, redirectState:true , terminerState:true};      
+          }
+    }
 
+    const UpdateRequestState = (stateBtn,dataGenre,selectedData,saveNotif,actionName) =>{
+        axios.post(`${GConf.ApiLink}/request/controle`, {
+            PID : GConf.PID,
+            UID : requestData.UID,
+            TAG : APPConf.systemTag,
+            RID: CID,
+            genreTag : TAG,
+            state: stateBtn,
+            data: selectedData,
+            dataGenre: dataGenre,
+            saveNotif : saveNotif,
+            actionName : `${TAG}_${actionName}`,
+          })
+          .then(function (response) { 
+            setReqState(stateBtn)
+            if (stateBtn == 'S') { console.log('Vu') } else { toast.success(<><div> C'est Fait   </div></>, GConf.TostInternetGonf)   }
+          }).catch((error) => {
+            if(error.request) {
+              toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de modifier L'etat du commande  </div></>, GConf.TostInternetGonf)   
+               
+            }
+          });
     }
-    const RedirecterFunction = () =>{
-        
-    }
+
 
     /*#########################[Card]##################################*/
     const StateCard = ({ status }) => {
         const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
         const statusCard = React.useCallback(() => {
-          switch(status) {
+          switch(reqState) {
             case 'W': return <StateCard color='warning' text='En Attent' />;  
             case 'S': return <StateCard color='info' text='Vu' />;  
             case 'A': return <StateCard color='success' text='Acepteé' /> ;
             case 'R': return <StateCard color='danger' text='Refuseé' />;
             case 'RT': return <StateCard color='retarder' text='Retardeé' />;
-            case 'RD': return <StateCard color='rederecter' text='Redirecteé' />;
-            case 'F': return <StateCard color='secondary' text='Termineé' />;
-            default:  return <StateCard color='secondary' text='Indefinie' />;    
+            case 'RD': return <StateCard color='redirecter' text='Redirecteé' />;
+            case 'T': return <StateCard color='secondary' text='Termineé' />;
+            default:  return <StateCard color='dark' text='Indefinie' />;    
           }
         }, [status]);
       
@@ -191,210 +302,81 @@ function DocteurSpecific() {
           </div>
         );
     };
-    const CommentaireCard = () =>{
-        return(<>
-                <div className='card card-body shadow-sm mb-2 mt-3 border-div'>
-                    <div className='row mb-3'>
-                        <div className='col-6 text-start'><h5>Info Patient</h5></div>
-                        <div className='col-6 text-end'>{commandeData.Releted_UID ? <span className='badge bg-success p-2'>Déja Enregistreé</span> : <span className='badge bg-danger badge-lg'>Nouveaux Membre</span>}</div>
-                    </div>
-                    <div className='row mb-2'>
-                        <div className='col-12 col-lg-6'> Nom : {loading ? commandeData.Name : ''} </div> 
-                        <div className='col-12 col-lg-6'> Phone : {loading ? commandeData.PhoneNum : ''} </div> 
-                        <div className='col-12 col-lg-6'> Gouv : {loading ? commandeData.BirthGouv : ''} </div> 
-                        <div className='col-12 col-lg-6'> Deleg : {loading ? commandeData.BirthDeleg : ''} </div> 
-                    </div> 
-                    {commandeData.Releted_UID ? 
-                    <div className='row mb-2 mt-4'>
-                        <div className='col-4 border-end text-center'> <h2 className='mb-1'>0</h2><small>Rendy-Vous</small> </div> 
-                        <div className='col-4 border-end text-center'> <h2 className='mb-1'>0</h2><small>Seances</small> </div> 
-                        <div className='col-4 text-center'> <h2 className='mb-1'>0</h2><small>Ordonance</small> </div> 
-                    </div> 
-                    : <></> }
-                </div>
-        </>)
-    }
-    const BtnsCard = () =>{
-        return(<>
-                <div className='card card-body shadow-sm mb-2 border-div'>
-                    <h5>Controle</h5>
-                    <div className='row '>
-                        <div className='col-6 mb-2'>
-                            <Button disabled={btnState} className='rounded-pill bg-danger text-white'  fluid onClick={ () => UpdateState('R')}><Icon name='delete calendar' /> Annulée</Button>
-                        </div>
-                        <div className='col-6 mb-2'>
-                            <Button disabled={btnState} className='rounded-pill bg-success text-white'  fluid onClick={ () => UpdateState('A')}><Icon name='calendar check' /> Accepteé</Button>
-                        </div>
-                        <div className='col-6 mb-2'>
-                            <Button disabled={btnState} className='rounded-pill bg-primary  text-white'  fluid onClick={ () => openEditModal('RT')}><Icon name='delete calendar' /> Retardeé</Button>
-                        </div>
-                        <div className='col-6 mb-2'>
-                            <Button disabled={btnState} className='rounded-pill  bg-warning text-white'  fluid onClick={ () => openEditModal('RD')}><Icon name='delete calendar' /> Redirecteé</Button>
-                        </div>
 
-
-                        <div className='col-12 mb-2'>
-                            <Button as='a' onClick={ (e) => NavigateFunction(`/S/sa/ajouter?CID=${CID}`)} animated disabled={btnState && commandeData.State != 'A'} className='rounded-pill bg-system-btn'  fluid>
-                                <Button.Content visible><Icon name='calendar check' /> Accepteé </Button.Content>
-                                <Button.Content hidden >
-                                    <Icon name='arrow right' />
-                                </Button.Content>
-                            </Button>
-                            {/* <Button className='rounded-pill bg-system-btn' size='mini' onClick={ (e) => NavigateFunction(`/S/rq/rs/info/${CID}`)}><span className='d-none d-lg-inline'> Info </span><Icon  name='angle right' /></Button> 
-                            <Button   onClick={ (e) => NavigateFunction(`/S/sa/ajouter?CID=${CID}`)} className='rounded-pill bg-system-btn '  fluid  ><Icon name='check circle' /> Accepter </Button>*/}
-                        </div>
-                    </div>
-                     
-                </div>
-        </>)
+    const ReqInfoCard = () =>{
+        return<>
+             <h5>Info du { findElementByLink(`rq/${TAG}`) }</h5>
+                    <div className="table-responsive">
+                        <table className="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Nom  </td>
+                                    <td>{loading ? requestData.Name : ''}</td>
+                                </tr>
+                                <tr>
+                                    <td className='col-5 text-secondary'><span className='bi bi-calendar me-2'></span> Date </td>
+                                    <td>{loading ? new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                </tr>
+                                <tr>
+                                    <td className='col-5 text-secondary'><span className='bi bi-clock me-2'></span> Temps </td>
+                                    <td>{loading ? requestData.RDV_Time : ''}</td>
+                                </tr>
+                                <tr>
+                                    <td className='col-5 text-secondary'><span className='bi bi-calendar-check me-2'></span> Passe Le</td>
+                                    <td>{loading ? new Date(requestData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                </tr>
+                                <tr>
+                                    <td className='col-5 text-secondary'><span className='bi bi-chat-dots-fill me-2'></span> Commentaire</td>
+                                    <td>{loading ? requestData.Comment : ''}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+        </>
     }
     const UserCard = () =>{
         return(<>
-                <div className='card card-body shadow-sm mb-2 mt-3 border-div'>
+ 
                     <h5>Info Client</h5>
                     <div className='row mb-2'>
                         <div className='text-center mb-3'> 
-                            <img src={`https://cdn.abyedh.tn/images/p_pic/${commandeData.PictureId}.gif`} className='rounded-circle' width='60px'/>
+                            <img src={`https://cdn.abyedh.tn/images/p_pic/${requestData.PictureId}.gif`} className='rounded-circle' width='60px'/>
                         </div>
-                        <div className='col-12 col-lg-6 mb-3'> Nom :  {loading ? commandeData.Name : ''}
-                            <Input icon='add user' onKeyPress={event => OnKeyPressFunc(event)} list="clientList" placeholder={loading ? commandeData.Name : ''} value={abonnemmentData.Name}  onBlur={ (e) => setAbonnemmentData({...abonnemmentData, Name: e.target.value })}  iconPosition='left'   fluid className='mb-1' />
-                        </div> 
-                        <div className='col-12 col-lg-6 mb-3'> Phone : {loading ? commandeData.PhoneNum : ''}
-                            <Input icon='add user' onKeyPress={event => OnKeyPressFunc(event)} list="clientList" placeholder={loading ? commandeData.PhoneNum : ''} value={abonnemmentData.PhoneNum}   onBlur={ (e) => setAbonnemmentData({...abonnemmentData, PhoneNum: e.target.value })}  iconPosition='left'   fluid className='mb-1' />
-                        </div> 
-                        <div className='col-12 col-lg-6 mb-3'> Gouv : {loading ? commandeData.BirthGouv : ''} 
-                            <Select placeholder=' Gouvernorat' fluid className='mb-2' options={TunMap.Gouv} value={abonnemmentData.Gouv} onChange={(e, { value }) => GetDelegList(value)} />
-                        </div> 
-                        <div className='col-12 col-lg-6 mb-3'> Deleg : {loading ? commandeData.BirthGouv : ''}
-                            <Select placeholder=' Delegation ' fluid value={abonnemmentData.Deleg} options={delegList} onChange={(e, { value }) => setAbonnemmentData({...abonnemmentData, Deleg: value })} />
-                        </div> 
-                        <div className='col-12 mb-3'>
-                            Deleg : {loading ? commandeData.BirthGouv : ''}
-                            <Form>
-                                <TextArea  rows="3" onKeyPress={event => OnKeyPressFunc(event)} placeholder='designer votre article' className='w-100 shadow-sm rounded mb-3' value={abonnemmentData.Adress} onChange={(e) => setAbonnemmentData({...abonnemmentData, Adress: e.target.value })}/>
-                            </Form> 
-                        </div>
+                        <div className='col-12 col-lg-6 mb-2'><span className='bi bi-person-fill'></span> Nom :  {loading ? requestData.Name : ''}</div> 
+                        <div className='col-12 mb-2'><span className='bi bi-calendar-fill'></span> Age : {loading ? new Date().getFullYear() -  new Date(requestData.BirthDay).getFullYear()   : ''}</div>
+                        <div className='col-12 col-lg-6 mb-2'><span className='bi bi-phone-fill'></span> Phone : {loading ? requestData.PhoneNum : ''}</div> 
+                        <div className='col-12 col-lg-6 mb-2'><span className='bi bi-geo-alt-fill'></span> Gouv : {loading ? requestData.BirthGouv : ''} </div> 
+                        <div className='col-12 col-lg-6 mb-2'><span className='bi bi-map-fill'></span> Deleg : {loading ? requestData.BirthDeleg : ''}</div> 
                     </div> 
                     <div className='text-end'>
-                        <Button  className='rounded-pill text-secondary btn-imprimer' size='mini' disabled={commandeData.Releted_UID}   onClick={(e) => SaveClientFunction()}><Icon name='edit outline' /> Enregistrer Client</Button>
+                        <Button  className='rounded-pill text-secondary btn-imprimer' size='mini'     onClick={(e) => alert('Impossible d\'enregister le client, Car vous etes sur la version alfa du system ')}><Icon name='edit outline' /> Enregistrer Client</Button>
                     </div>  
-                </div>
         </>)
-    }
-    const StateModalCard = ({ status }) => {
-         
-        const statusCard = React.useCallback(() => {
-          switch(status) {
-            case 'RT': return <RetarderCard />;  
-            case 'RD': return <RedirecterCard />;  
-            default:  return <>Introuvable</>;    
-          }
-        }, [status]);
-      
-        return (
-          <div >
-            {statusCard()}
-          </div>
-        );
-    };
-    const RetarderCard = () =>{
-        return<>
-                <h5 className='mb-1 mt-1'>Retarder Vers   </h5>
-                <Input icon='calendar alternate' type='date' size="small" iconPosition='left'   fluid className='mb-1' value={retarderData.RT_Date} onChange={(e) => setRetarderData({...retarderData, RT_Date: e.target.value })}/>
-
-                <h5 className='mb-1 mt-3'>Retarder Vers   </h5>
-                <Input icon='calendar alternate' type='time' size="small" iconPosition='left'   fluid className='mb-1' value={retarderData.RT_Date} onChange={(e) => setRetarderData({...retarderData, RT_Date: e.target.value })}/>
-
-                <div className='text-end mt-3'>
-                    <Button  className='rounded-pill text-secondary btn-imprimer'  onClick={(e) => RetarderFunction()}><Icon name='edit outline' /> Retarder</Button>
-                </div>
-
-        </>
-    }
-    const RedirecterCard = () =>{
-        return<>
-                <h5 className='mb-1 mt-1'>Nom de Docteur   </h5>
-                <Input icon='calendar alternate' type='text' size="small" iconPosition='left'   fluid className='mb-1' value={retarderData.RT_Date} onChange={(e) => setRetarderData({...retarderData, RT_Date: e.target.value })}/>
-
-                <h5 className='mb-1 mt-3'>Position   </h5>
-                <Input icon='calendar alternate' type='text' size="small" iconPosition='left'   fluid className='mb-1' value={retarderData.RT_Date} onChange={(e) => setRetarderData({...retarderData, RT_Date: e.target.value })}/>
-
-                <div className='text-end mt-3'>
-                    <Button  className='rounded-pill text-secondary btn-imprimer'  onClick={(e) => RetarderFunction()}><Icon name='edit outline' /> Redirecter </Button>
-                </div>
-
-        </>
     }
 
     return ( <> 
-        <BreadCrumb links={GConf.BreadCrumb.RequestInfo} />
+        <BreadCrumb links={[ {id:1, name:'Communication', linkable:true, link:"/App/S"}, {id:2, name:'Info', linkable:false} ]} />
         <br />
         <div className="row">
             <div className="col-12 col-lg-8">
                 <div className='row'>
-                    <div className='col-5'><h3 className='text-center mb-4'>Rendy Vous </h3></div>
-                    <div className='col-7'><h3 className='text-end'><StateCard status={commandeData.State} /></h3></div>
+                    <div className='col-5'><h3 className='text-center mb-4'> { findElementByLink(`rq/${TAG}`) } </h3></div>
+                    <div className='col-7'><h3 className='text-end'><StateCard status={requestData.State} /></h3></div>
                 </div> 
-
                 <div className='card card-body bg-transparent border-div mb-3 mt-2'>
-                    <h5>Info du rendy Vous</h5>
-                    <div className="table-responsive">
-                        <table className="table table-striped">
-                        <tbody>
-                            <tr>
-                                <th scope="row"><span className='bi bi-person'></span> Nom Et Prenon </th>
-                                <td>{loading ? commandeData.Name : ''}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span className='bi bi-calendar'></span> Date Volu</th>
-                                <td>{loading ? new Date(commandeData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span className='bi bi-clock'></span> Temps Volu</th>
-                                <td>{loading ? commandeData.RDV_Time : ''}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span className='bi bi-calendar-check'></span> Passe Le</th>
-                                <td>{loading ? new Date(commandeData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span className='bi bi-chat-dots-fill'></span> Commentaire</th>
-                                <td>{loading ? commandeData.Comment : ''}</td>
-                            </tr>
-                        </tbody>
-                        </table>
-                    </div>
-                     
+                    <Tab menu={{widths: panesInfo.length , secondary: true, pointing: true  }} panes={panesInfo} />      
                 </div>
                 <br />
                 <br />
             </div>
             
             <div className="col-12 col-lg-4">
-                <Bounce bottom>
                     <div className="sticky-top" style={{top:'70px', zIndex:'999'}}>
-                        <Tab menu={{widths: panesRigth.length , secondary: true, pointing: true  }} panes={panesRigth} /> 
+                        <CustomTabs  activeIndex={activeIndex} setActiveIndex={setActiveIndex} TAG={TAG}  />
+                        <Tab menu={{ secondary: true }} activeIndex={activeIndex} panes={panesRigth}  className='no-menu-tabs mt-2' /> 
                     </div>
-                </Bounce>
             </div>
-        </div>
-        <Modal
-              size='small'
-              open={modalS}
-              closeIcon
-              onClose={() => setModalS(false)}
-              onOpen={() => setModalS(true)}
-          >
-              <Modal.Header><h4> Retarder & Redirecter </h4></Modal.Header>
-              <Modal.Content scrolling>
-                    <StateModalCard status={modalStateValue} />
-              </Modal.Content>
-              <Modal.Actions>
-                          <Button className='rounded-pill' negative onClick={ () => setModalS(false)}> <span className='bi bi-x' ></span> Fermer</Button>
-              </Modal.Actions>
-        </Modal>
- 
-        {/* <FrameForPrint frameId='framed' src={printLink} /> */}
+        </div> 
     </> );
 }
 
