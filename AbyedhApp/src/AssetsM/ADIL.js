@@ -57,7 +57,7 @@ const AbyedhADIL = {
                 { id: 5, name: 'العُيُونْ', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
                 { id: 6, name: 'أًذًنْ أَنْفْ حُنْجُرَة', value: 'ORL', imgSrc: 'ORL' },
                 { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
-                { id: 8, name: 'الكلي', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
+                { id: 8, name: 'الكلي', value: 'NEPHROLOGIE', imgSrc: 'NEPHROLOGIE' },
             ],
             [
                 { id: 9, name: 'نِسَاءْ وَ تَوْلِيدْ', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
@@ -274,6 +274,65 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
+    infirmier: {
+        tag: 'labo',
+        themeColor: '#093587',
+        directoryTable: '01_labo',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ مَخْبَرْ طِبِّي   ',
+        systemLink: 'https://system.abyedh.tn/Landing/labo',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'المخبر',
+        businesOwner: 'صاحب مخبر تحاليل',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['تلوج في مخبر تحليل ؟ مخبر تشريح ؟ و إلا اي نوع أخر من المخابر الطبية ؟ أبيض توفرلك محرك البحث هاذا اللي تلقا فيه المخبر اللي تلوج عليه و اللي تنجم تاخو مواعيدك و تحاليلك من خلالو بطريقة رقمية',
+            'في المقابل كلنك صاحب ولا مدير ولا تشتغل في مركز طبي و تلوج علي أداة تكنولوجية تعاونك في أداء عملك بطريقة تضمن تحسين  جودة الخدمة الصحية , فأنت في المكان الصحيح : منصة ابيض للمخابر الطبية']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'تَحْلِيلْ وِرَاثِي خَلَوِي', value: 'ANATOMIE_PATHOLOGIE', imgSrc: 'dna' },
+                { id: 2, name: 'تَحْلِيلْ بيُولُوجِي طِبِّي', value: 'ANALYSES DE BIOLOGIE', imgSrc: 'blod' },
+            ],
+            [
+                { id: 3, name: 'تَشْرِيحْ وَ عِلْمْ الخَلاَيَا', value: 'CYTOGENETIQUE', imgSrc: 'cellule' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'تَحْلِيلْ وِرَاثِي خَلَوِي', value: 'ANATOMIE_PATHOLOGIE', imgSrc: 'dna' },
+                { id: 2, name: 'تَحْلِيلْ بيُولُوجِي طِبِّي', value: 'ANALYSES DE BIOLOGIE', imgSrc: 'blod' },
+                { id: 3, name: 'تَشْرِيحْ وَ عِلْمْ الخَلاَيَا', value: 'CYTOGENETIQUE', imgSrc: 'cellule' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'تحليل وراثي خلوي', value: 'ANATOMIE_PATHOLOGIE', imgSrc: 'dna' },
+                { id: 2, name: 'تحليل بيولوجي طبي', value: 'ANALYSES DE BIOLOGIE', imgSrc: 'blod' },
+                { id: 3, name: ' تشريح وعلم الخلايا', value: 'CYTOGENETIQUE', imgSrc: 'cellule' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:'مخبر ', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:'  تَسْجِيلْ مَوْعِدْ  ' , icon:'check circle' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
     centreMD: {
         tag: 'centreMD',
         themeColor: '#1dd3b0',
@@ -354,24 +413,24 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مُسْتَشْفَي جَامِعِي', value: 'dentiste', imgSrc: 'hospital' },
-                { id: 2, name: 'مُسْتَشْفَي جِهَوِي', value: 'dentiste', imgSrc: 'hospital' },
+                { id: 1, name: 'مُسْتَشْفَي جَامِعِي', value: 'dentiste', imgSrc: 'admin_s_hospital' },
+                { id: 2, name: 'مُسْتَشْفَي جِهَوِي', value: 'dentiste', imgSrc: 'admin_s_hospital' },
             ],
             [
-                { id: 3, name: ' مُسْتَشْفَي عَسْكَرِي', value: 'dentiste', imgSrc: 'hospital' },
+                { id: 3, name: ' مُسْتَشْفَي عَسْكَرِي', value: 'dentiste', imgSrc: 'admin_s_hospital' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مُسْتَشْفَي جَامِعِي', value: 'dentiste', imgSrc: 'hospital' },
-                { id: 2, name: 'مُسْتَشْفَي جِهَوِي', value: 'dentiste', imgSrc: 'hospital' },
-                { id: 3, name: ' مُسْتَشْفَي عَسْكَرِي', value: 'dentiste', imgSrc: 'hospital' },
+                { id: 1, name: 'مُسْتَشْفَي جَامِعِي', value: 'dentiste', imgSrc: 'admin_s_hospital' },
+                { id: 2, name: 'مُسْتَشْفَي جِهَوِي', value: 'dentiste', imgSrc: 'admin_s_hospital' },
+                { id: 3, name: ' مُسْتَشْفَي عَسْكَرِي', value: 'dentiste', imgSrc: 'admin_s_hospital' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'مستشفي جامعي', value: 'dentiste', imgSrc: 'hospital' },
-                { id: 2, name: 'مستشفي جهوي', value: 'dentiste', imgSrc: 'hospital' },
-                { id: 3, name: ' مستشفي عسكري', value: 'dentiste', imgSrc: 'hospital' },
+                { id: 1, name: 'مستشفي جامعي', value: 'dentiste', imgSrc: 'admin_s_hospital' },
+                { id: 2, name: 'مستشفي جهوي', value: 'dentiste', imgSrc: 'admin_s_hospital' },
+                { id: 3, name: ' مستشفي عسكري', value: 'dentiste', imgSrc: 'admin_s_hospital' },
 
         ],
         profileImg:'',
@@ -414,19 +473,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مُسْتَوْصَفْ', value: 'dentiste', imgSrc: 'C_soins' },
-                { id: 2, name: 'مَرْكَزْ صِحَّة', value: 'dentiste', imgSrc: 'C_soins' },
+                { id: 1, name: 'مُسْتَوْصَفْ', value: 'dentiste', imgSrc: 'admin_s_csb' },
+                { id: 2, name: 'مَرْكَزْ صِحَّة', value: 'dentiste', imgSrc: 'admin_s_csb' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مُسْتَوْصَفْ', value: 'dentiste', imgSrc: 'C_soins' },
-                { id: 2, name: 'مَرْكَزْ صِحَّة', value: 'dentiste', imgSrc: 'C_soins' },
+                { id: 1, name: 'مُسْتَوْصَفْ', value: 'dentiste', imgSrc: 'admin_s_csb' },
+                { id: 2, name: 'مَرْكَزْ صِحَّة', value: 'dentiste', imgSrc: 'admin_s_csb' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'مستوصف', value: 'dentiste', imgSrc: 'C_soins' },
-                { id: 2, name: 'مركز صحة', value: 'dentiste', imgSrc: 'C_soins' },
+                { id: 1, name: 'مستوصف', value: 'dentiste', imgSrc: 'admin_s_csb' },
+                { id: 2, name: 'مركز صحة', value: 'dentiste', imgSrc: 'admin_s_csb' },
         ],
         profileImg:'',
         cardProfile:[
@@ -523,19 +582,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                {id:1, name:'نِظَامْ عَرَبِي', value:'nuit', imgSrc:'primaire'},
-                {id:2, name:'نِظَامْ فِرَنْسِي', value:'jour', imgSrc:'primaire'}
+                {id:1, name:'نِظَامْ عَرَبِي', value:'nuit', imgSrc:'ecole_arab'},
+                {id:2, name:'نِظَامْ فِرَنْسِي', value:'jour', imgSrc:'ecole_frensh'}
             ]   
         ],
         subCatagLarge:[
             [
-                {id:1, name:'نِظَامْ عَرَبِي', value:'nuit', imgSrc:'primaire'},
-                {id:2, name:'نِظَامْ فِرَنْسِي', value:'jour', imgSrc:'primaire'}
+                {id:1, name:'نِظَامْ عَرَبِي', value:'nuit', imgSrc:'ecole_arab'},
+                {id:2, name:'نِظَامْ فِرَنْسِي', value:'jour', imgSrc:'ecole_frensh'}
             ]
         ],
         subCateg: [
-                { id: 1, name: 'نظام عربي', value: 'dentiste', imgSrc: 'primaire' },
-                { id: 2, name: 'نظام فرنسي', value: 'dentiste', imgSrc: 'primaire' },
+                { id: 1, name: 'نظام عربي', value: 'dentiste', imgSrc: 'ecole_arab' },
+                { id: 2, name: 'نظام فرنسي', value: 'dentiste', imgSrc: 'ecole_frensh' },
         ],
         profileImg:'',
         cardProfile:[
@@ -559,7 +618,7 @@ const AbyedhADIL = {
     },
     lycee: {
         tag: 'lycee',
-        themeColor: '#218281',
+        themeColor: '#913461',
         directoryTable: '01_lycee',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ المَعَاهِدْ الخَاصَّة',
@@ -579,18 +638,18 @@ const AbyedhADIL = {
         subCatagSmall: [
             [
                 {id:1, name:'مَدْرَسَة إِعْدَادِيَّة', value:'nuit', imgSrc:'college'},
-                {id:2, name:'مَعْهَدْ ثَانَوِي', value:'jour', imgSrc:'college'}
+                {id:2, name:'مَعْهَدْ ثَانَوِي', value:'jour', imgSrc:'lycee'}
             ]   
         ],
         subCatagLarge:[
             [
                 {id:1, name:'مَدْرَسَة إِعْدَادِيَّة', value:'nuit', imgSrc:'college'},
-                {id:2, name:'مَعْهَدْ ثَانَوِي', value:'jour', imgSrc:'college'}
+                {id:2, name:'مَعْهَدْ ثَانَوِي', value:'jour', imgSrc:'lycee'}
             ]
         ],
         subCateg: [
                 { id: 1, name: 'مدرسة إعدادية', value: 'dentiste', imgSrc: 'college' },
-                { id: 2, name: 'معهد ثانوي', value: 'dentiste', imgSrc: 'college' },
+                { id: 2, name: 'معهد ثانوي', value: 'dentiste', imgSrc: 'lycee' },
         ],
         profileImg:'',
         cardProfile:[
@@ -614,7 +673,7 @@ const AbyedhADIL = {
     },
     universite: {
         tag: 'universite',
-        themeColor: '#218281',
+        themeColor: '#553491',
         directoryTable: '01_universite',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ الجَامِعَاتْ الخَاصَّة',
@@ -633,25 +692,25 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'أَدَابْ وَلُغَاتْ', value: 'dentiste', imgSrc: 'univ' },
-                { id: 2, name: 'عُلُومْ إِنْسَانِيَّة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 3, name: ' عُلُومْ طَبِيعِيَّة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 4, name: 'حُقُوقْ وَ قَانُونْ', value: 'dentiste', imgSrc: 'univ' },
+                { id: 1, name: 'أَدَابْ وَلُغَاتْ', value: 'dentiste', imgSrc: 'univ_language' },
+                { id: 2, name: 'عُلُومْ إِنْسَانِيَّة', value: 'dentiste', imgSrc: 'univ_hs' },
+                { id: 3, name: ' عُلُومْ طَبِيعِيَّة', value: 'dentiste', imgSrc: 'univ_sn' },
+                { id: 4, name: 'حُقُوقْ وَ قَانُونْ', value: 'dentiste', imgSrc: 'univ_droit' },
             ],[
-                { id: 5, name: 'إِقْتِصَادْ وَ تَصَرُّفْ', value: 'dentiste', imgSrc: 'univ' },
-                { id: 6, name: ' صَيْدَلَة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 7, name: 'طِبْ', value: 'dentiste', imgSrc: 'univ' },
+                { id: 5, name: 'إِقْتِصَادْ وَ تَصَرُّفْ', value: 'dentiste', imgSrc: 'univ_economy' },
+                { id: 6, name: ' صَيْدَلَة', value: 'dentiste', imgSrc: 'univ_pharmacie' },
+                { id: 7, name: 'طِبْ', value: 'dentiste', imgSrc: 'univ_medcine' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'أَدَابْ وَلُغَاتْ', value: 'dentiste', imgSrc: 'univ' },
-                { id: 2, name: 'عُلُومْ إِنْسَانِيَّة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 3, name: ' عُلُومْ طَبِيعِيَّة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 4, name: 'حُقُوقْ وَ قَانُونْ', value: 'dentiste', imgSrc: 'univ' },
-                { id: 5, name: 'إِقْتِصَادْ وَ تَصَرُّفْ', value: 'dentiste', imgSrc: 'univ' },
-                { id: 6, name: ' صَيْدَلَة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 7, name: 'طِبْ', value: 'dentiste', imgSrc: 'univ' },
+                { id: 1, name: 'أَدَابْ وَلُغَاتْ', value: 'dentiste', imgSrc: 'univ_language' },
+                { id: 2, name: 'عُلُومْ إِنْسَانِيَّة', value: 'dentiste', imgSrc: 'univ_hs' },
+                { id: 3, name: ' عُلُومْ طَبِيعِيَّة', value: 'dentiste', imgSrc: 'univ_sn' },
+                { id: 4, name: 'حُقُوقْ وَ قَانُونْ', value: 'dentiste', imgSrc: 'univ_droit' },
+                { id: 5, name: 'إِقْتِصَادْ وَ تَصَرُّفْ', value: 'dentiste', imgSrc: 'univ_economy' },
+                { id: 6, name: ' صَيْدَلَة', value: 'dentiste', imgSrc: 'univ_pharmacie' },
+                { id: 7, name: 'طِبْ', value: 'dentiste', imgSrc: 'univ_medcine' },
             ]
         ],
         subCateg: [
@@ -678,6 +737,61 @@ const AbyedhADIL = {
             {id:1, name:' تَسْجِيلْ  ' , icon:'edit outline' , link:'Action', bgColor:''},
             {id:1, name:'  تَرْسِيمْ    ' , icon:'clipboard check' , link:'Action', bgColor:''},
             {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
+
+        ],
+        profileTarif:true,
+
+    },
+    formation: {
+        tag: 'impremerie',
+        themeColor: '#919034',
+        directoryTable: '01_impremerie',
+        systemActive: true,
+        systemName: 'نِظَامْ إِدَارًةْ المَطَابِعْ',
+        systemLink: 'https://system.abyedh.tn/Landing/impremerie',
+        iconName: '',
+        WiconName: '',
+        adsImage: '',
+        businesName: 'المطبعة',
+        businesOwner: 'صاحب مطبعة',
+        selectText: 'حدد الإختيار', 
+        xxxxxxxxxx: '',
+        yyyyyyyyyy: '',
+        adsText: [
+            ['كانك تلوج في خدمات عامة مناسبة لصغيرك المنصة هاذي توفر دليل كامل لرياض الأطفال في تونس و تمكنك زادا من التسجيل عن بعد في الخدمات عامة و تعطيك الفرصة باش تبقي ديما متصل و متابع لعملية تعلم ولدك ولا بنتك ',
+            'في المقابل كانك صاحب ولا صاحبة رياض أطفال أبيض توفرلك نِظَامْ إِدَارًةْ و متابعة لمختلف الانشطة اللي تصير داخل المؤسسة متاعك , و بالتالي مزيد من التحكم و الإدارة الذكية لجعل عملية التعلم أكثر جودة و تطور .']
+        ],
+        subCatagSmall: [
+            [
+                { id: 1, name: 'مَطْبَعَة', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'بُحُوثْ', value: 'dentiste', imgSrc: 'printer' },
+            ]   
+        ],
+        subCatagLarge:[
+            [
+                { id: 1, name: 'مَطْبَعَة', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'بُحُوثْ', value: 'dentiste', imgSrc: 'printer' },
+            ]
+        ],
+        subCateg: [
+                { id: 1, name: 'مطبعة', value: 'dentiste', imgSrc: 'printer' },
+                { id: 2, name: 'بحوث', value: 'dentiste', imgSrc: 'printer' },
+        ],
+        profileImg:'',
+        cardProfile:[
+                {id:1, name:' مطبعة', resultTag:'Name' , icon:'person-circle'},
+                {id:2, name:' النوع ', resultTag:'Genre' , icon:'arrows-move'},
+                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
+                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
+                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
+                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
+                {id:7, name:' نوع الخدمات ', resultTag:'' , icon:'star-half'},
+
+        ],
+        profileBtns:[
+                {id:1, name:' طِبَاعَةْ وَثَائِقْ   ' , icon:'print' , link:'Action', bgColor:''},
+                {id:1, name:' طَلَبْ خِدْمَة   ' , icon:'clipboard check' , link:'Action', bgColor:''},
+                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
         profileTarif:true,
@@ -759,19 +873,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'كُتُبِيًّة', value: 'dentiste', imgSrc: 'biblio' },
-                { id: 2, name: 'أَدَوَاتْ مَذْرَسِيًّة', value: 'dentiste', imgSrc: 'biblio' },
+                { id: 1, name: 'كُتُبِيًّة', value: 'dentiste', imgSrc: 'biblio_bug' },
+                { id: 2, name: 'أَدَوَاتْ مَذْرَسِيًّة', value: 'dentiste', imgSrc: 'biblio_tools' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'كُتُبِيًّة', value: 'dentiste', imgSrc: 'biblio' },
-                { id: 2, name: 'أَدَوَاتْ مَذْرَسِيًّة', value: 'dentiste', imgSrc: 'biblio' },
+                { id: 1, name: 'كُتُبِيًّة', value: 'dentiste', imgSrc: 'biblio_bug' },
+                { id: 2, name: 'أَدَوَاتْ مَذْرَسِيًّة', value: 'dentiste', imgSrc: 'biblio_tools' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'كتبية', value: 'dentiste', imgSrc: 'biblio' },
-                { id: 2, name: 'أدوات مذرسية', value: 'dentiste', imgSrc: 'biblio' },
+                { id: 1, name: 'كتبية', value: 'dentiste', imgSrc: 'biblio_bug' },
+                { id: 2, name: 'أدوات مذرسية', value: 'dentiste', imgSrc: 'biblio_tools' },
         ],
         profileImg:'',
         cardProfile:[
@@ -813,19 +927,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'تَقْنِيَّة', value: 'dentiste', imgSrc: 'centref' },
-                { id: 2, name: 'مِهَنْ', value: 'dentiste', imgSrc: 'centref' },
+                { id: 1, name: 'تَقْنِيَّة', value: 'dentiste', imgSrc: 'admin_e_centre' },
+                { id: 2, name: 'مِهَنْ', value: 'dentiste', imgSrc: 'admin_e_centre' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'تَقْنِيَّة', value: 'dentiste', imgSrc: 'centref' },
-                { id: 2, name: 'مِهَنْ', value: 'dentiste', imgSrc: 'centref' },
+                { id: 1, name: 'تَقْنِيَّة', value: 'dentiste', imgSrc: 'admin_e_centre' },
+                { id: 2, name: 'مِهَنْ', value: 'dentiste', imgSrc: 'admin_e_centre' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'تقنية', value: 'dentiste', imgSrc: 'centref' },
-                { id: 2, name: 'مهن', value: 'dentiste', imgSrc: 'centref' },
+                { id: 1, name: 'تقنية', value: 'dentiste', imgSrc: 'admin_e_centre' },
+                { id: 2, name: 'مهن', value: 'dentiste', imgSrc: 'admin_e_centre' },
         ],
         profileImg:'',
         cardProfile:[
@@ -867,19 +981,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مَكْتَبَة وَطَنِيَّة', value: 'dentiste', imgSrc: 'Bibliotheque' },
-                { id: 2, name: 'مَكْتَبَة عُمُومِيَّة', value: 'dentiste', imgSrc: 'Bibliotheque' },
+                { id: 1, name: 'مَكْتَبَة وَطَنِيَّة', value: 'dentiste', imgSrc: 'admin_e_biblio' },
+                { id: 2, name: 'مَكْتَبَة عُمُومِيَّة', value: 'dentiste', imgSrc: 'admin_e_biblio' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مَكْتَبَة وَطَنِيَّة', value: 'dentiste', imgSrc: 'Bibliotheque' },
-                { id: 2, name: 'مَكْتَبَة عُمُومِيَّة', value: 'dentiste', imgSrc: 'Bibliotheque' },
+                { id: 1, name: 'مَكْتَبَة وَطَنِيَّة', value: 'dentiste', imgSrc: 'admin_e_biblio' },
+                { id: 2, name: 'مَكْتَبَة عُمُومِيَّة', value: 'dentiste', imgSrc: 'admin_e_biblio' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'مكتبة وطنية', value: 'dentiste', imgSrc: 'Bibliotheque' },
-                { id: 2, name: 'مكتبة عمومية', value: 'dentiste', imgSrc: 'Bibliotheque' },
+                { id: 1, name: 'مكتبة وطنية', value: 'dentiste', imgSrc: 'admin_e_biblio' },
+                { id: 2, name: 'مكتبة عمومية', value: 'dentiste', imgSrc: 'admin_e_biblio' },
         ],
         profileImg:'',
         cardProfile:[
@@ -921,19 +1035,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'م. إِبْتِدَائِيَّة', value: 'dentiste', imgSrc: 'ecole' },
-                { id: 2, name: 'م. نَمُوذَجِيَّة', value: 'dentiste', imgSrc: 'ecole' },
+                { id: 1, name: 'م. إِبْتِدَائِيَّة', value: 'dentiste', imgSrc: 'admin_e_ecole' },
+                { id: 2, name: 'م. نَمُوذَجِيَّة', value: 'dentiste', imgSrc: 'admin_e_ecole' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'م. إِبْتِدَائِيَّة', value: 'dentiste', imgSrc: 'ecole' },
-                { id: 2, name: 'م. نَمُوذَجِيَّة', value: 'dentiste', imgSrc: 'ecole' },
+                { id: 1, name: 'م. إِبْتِدَائِيَّة', value: 'dentiste', imgSrc: 'admin_e_ecole' },
+                { id: 2, name: 'م. نَمُوذَجِيَّة', value: 'dentiste', imgSrc: 'admin_e_ecole' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'م. إبتدائية', value: 'dentiste', imgSrc: 'ecole' },
-                { id: 2, name: 'م. إبتذائية', value: 'dentiste', imgSrc: 'ecole' },
+                { id: 1, name: 'م. إبتدائية', value: 'dentiste', imgSrc: 'admin_e_ecole' },
+                { id: 2, name: 'م. إبتذائية', value: 'dentiste', imgSrc: 'admin_e_ecole' },
         ],
         profileImg:'',
         cardProfile:[
@@ -975,19 +1089,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'إِعْدَادِي', value: 'dentiste', imgSrc: 'lycee' },
-                { id: 2, name: 'ثَانَوْي', value: 'dentiste', imgSrc: 'lycee' },
+                { id: 1, name: 'إِعْدَادِي', value: 'dentiste', imgSrc: 'admin_e_lycee' },
+                { id: 2, name: 'ثَانَوْي', value: 'dentiste', imgSrc: 'admin_e_lycee' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'إِعْدَادِي', value: 'dentiste', imgSrc: 'lycee' },
-                { id: 2, name: 'ثَانَوْي', value: 'dentiste', imgSrc: 'lycee' },
+                { id: 1, name: 'إِعْدَادِي', value: 'dentiste', imgSrc: 'admin_e_lycee' },
+                { id: 2, name: 'ثَانَوْي', value: 'dentiste', imgSrc: 'admin_e_lycee' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'إعدادي', value: 'dentiste', imgSrc: 'lycee' },
-                { id: 2, name: 'ثانوي', value: 'dentiste', imgSrc: 'lycee' },
+                { id: 1, name: 'إعدادي', value: 'dentiste', imgSrc: 'admin_e_lycee' },
+                { id: 2, name: 'ثانوي', value: 'dentiste', imgSrc: 'admin_e_lycee' },
         ],
         profileImg:'',
         cardProfile:[
@@ -1029,25 +1143,25 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'أَدَابْ وَلُغَاتْ', value: 'dentiste', imgSrc: 'univ' },
-                { id: 2, name: 'عُلُومْ إِنْسَانِيَّة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 3, name: ' عُلُومْ طَبِيعِيَّة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 4, name: 'حُقُوقْ وَ قَانُونْ', value: 'dentiste', imgSrc: 'univ' },
+                { id: 1, name: 'أَدَابْ وَلُغَاتْ', value: 'dentiste', imgSrc: 'admin_e_universite' },
+                { id: 2, name: 'عُلُومْ إِنْسَانِيَّة', value: 'dentiste', imgSrc: 'admin_e_universite' },
+                { id: 3, name: ' عُلُومْ طَبِيعِيَّة', value: 'dentiste', imgSrc: 'admin_e_universite' },
+                { id: 4, name: 'حُقُوقْ وَ قَانُونْ', value: 'dentiste', imgSrc: 'admin_e_universite' },
             ],[
-                { id: 5, name: 'إِقْتِصَادْ وَ تَصَرُّفْ', value: 'dentiste', imgSrc: 'univ' },
-                { id: 6, name: ' صَيْدَلَة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 7, name: 'طِبْ', value: 'dentiste', imgSrc: 'univ' },
+                { id: 5, name: 'إِقْتِصَادْ وَ تَصَرُّفْ', value: 'dentiste', imgSrc: 'admin_e_universite' },
+                { id: 6, name: ' صَيْدَلَة', value: 'dentiste', imgSrc: 'admin_e_universite' },
+                { id: 7, name: 'طِبْ', value: 'dentiste', imgSrc: 'admin_e_universite' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'أَدَابْ وَلُغَاتْ', value: 'dentiste', imgSrc: 'univ' },
-                { id: 2, name: 'عُلُومْ إِنْسَانِيَّة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 3, name: ' عُلُومْ طَبِيعِيَّة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 4, name: 'حُقُوقْ وَ قَانُونْ', value: 'dentiste', imgSrc: 'univ' },
-                { id: 5, name: 'إِقْتِصَادْ وَ تَصَرُّفْ', value: 'dentiste', imgSrc: 'univ' },
-                { id: 6, name: ' صَيْدَلَة', value: 'dentiste', imgSrc: 'univ' },
-                { id: 7, name: 'طِبْ', value: 'dentiste', imgSrc: 'univ' },
+                { id: 1, name: 'أَدَابْ وَلُغَاتْ', value: 'dentiste', imgSrc: 'admin_e_universite' },
+                { id: 2, name: 'عُلُومْ إِنْسَانِيَّة', value: 'dentiste', imgSrc: 'admin_e_universite' },
+                { id: 3, name: ' عُلُومْ طَبِيعِيَّة', value: 'dentiste', imgSrc: 'admin_e_universite' },
+                { id: 4, name: 'حُقُوقْ وَ قَانُونْ', value: 'dentiste', imgSrc: 'admin_e_universite' },
+                { id: 5, name: 'إِقْتِصَادْ وَ تَصَرُّفْ', value: 'dentiste', imgSrc: 'admin_e_universite' },
+                { id: 6, name: ' صَيْدَلَة', value: 'dentiste', imgSrc: 'admin_e_universite' },
+                { id: 7, name: 'طِبْ', value: 'dentiste', imgSrc: 'admin_e_universite' },
             ]
         ],
         subCateg: [
@@ -1099,19 +1213,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مَدْرَسِي', value: 'dentgiste', imgSrc: 'univ' },
-                { id: 2, name: 'جَامِعِي', value: 'dentgiste', imgSrc: 'univ' },
+                { id: 1, name: 'مَدْرَسِي', value: 'dentgiste', imgSrc: 'admin_e_ss' },
+                { id: 2, name: 'جَامِعِي', value: 'dentgiste', imgSrc: 'admin_e_ss' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'جَامِعِي', value: 'dentiste', imgSrc: 'univ' },
-                { id: 2, name: 'مَدْرَسِي', value: 'dentiste', imgSrc: 'univ' },
+                { id: 1, name: 'جَامِعِي', value: 'dentiste', imgSrc: 'admin_e_ss' },
+                { id: 2, name: 'مَدْرَسِي', value: 'dentiste', imgSrc: 'admin_e_ss' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'مدرسي', value: 'dentiste', imgSrc: 'univ' },
-                { id: 2, name: 'جامعي', value: 'dentiste', imgSrc: 'univ' },
+                { id: 1, name: 'مدرسي', value: 'dentiste', imgSrc: 'admin_e_ss' },
+                { id: 2, name: 'جامعي', value: 'dentiste', imgSrc: 'admin_e_ss' },
         ],
         profileImg:'',
         cardProfile:[
@@ -1391,23 +1505,23 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'Magazin', value: 'dentiste', imgSrc: 'bread' },
-                { id: 2, name: 'Superette', value: 'dentiste', imgSrc: 'bread' },
+                { id: 1, name: 'Magazin', value: 'dentiste', imgSrc: 'magazin' },
+                { id: 2, name: 'Superette', value: 'dentiste', imgSrc: 'suppertte' },
             ],[
-                { id: 3, name: 'عَطَّارْ ', value: 'dentiste', imgSrc: 'bread' },
+                { id: 3, name: 'عَطَّارْ ', value: 'dentiste', imgSrc: 'small_shop' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'Magazin', value: 'dentiste', imgSrc: 'bread' },
-                { id: 2, name: 'Superette', value: 'dentiste', imgSrc: 'bread' },
-                { id: 3, name: 'عَطَّارْ ', value: 'dentiste', imgSrc: 'bread' },
+                { id: 1, name: 'Magazin', value: 'dentiste', imgSrc: 'magazin' },
+                { id: 2, name: 'Superette', value: 'dentiste', imgSrc: 'suppertte' },
+                { id: 3, name: 'عَطَّارْ ', value: 'dentiste', imgSrc: 'small_shop' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'magazin', value: 'dentiste', imgSrc: 'bread' },
-                { id: 2, name: 'superette', value: 'dentiste', imgSrc: 'bread' },
-                { id: 3, name: 'عطار ', value: 'dentiste', imgSrc: 'bread' },
+                { id: 1, name: 'magazin', value: 'dentiste', imgSrc: 'magazin' },
+                { id: 2, name: 'superette', value: 'dentiste', imgSrc: 'suppertte' },
+                { id: 3, name: 'عطار ', value: 'dentiste', imgSrc: 'small_shop' },
         ],
         profileImg:'',
         cardProfile:[
@@ -1430,7 +1544,7 @@ const AbyedhADIL = {
     },
     boulengerie: {
         tag: 'docteur',
-        themeColor: '#5e7968',
+        themeColor: '#bf990d',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ المَخَابِزْ',
@@ -1449,23 +1563,23 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'طَابُونَة', value: 'dentiste', imgSrc: 'pain' },
-                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'pain' },
+                { id: 1, name: 'طَابُونَة', value: 'dentiste', imgSrc: 'tabouna' },
+                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'Baguette' },
             ],[
-                { id: 3, name: 'عَرْبِي', value: 'dentiste', imgSrc: 'pain' },
+                { id: 3, name: 'عَرْبِي', value: 'dentiste', imgSrc: 'pain_arabe' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'طَابُونَة', value: 'dentiste', imgSrc: 'pain' },
-                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'pain' },
-                { id: 3, name: 'عَرْبِي', value: 'dentiste', imgSrc: 'pain' },
+                { id: 1, name: 'طَابُونَة', value: 'dentiste', imgSrc: 'tabouna' },
+                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'Baguette' },
+                { id: 3, name: 'عَرْبِي', value: 'dentiste', imgSrc: 'pain_arabe' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'طابونة', value: 'dentiste', imgSrc: 'pain' },
-                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'pain' },
-                { id: 3, name: ' عربي', value: 'dentiste', imgSrc: 'pain' },
+                { id: 1, name: 'طابونة', value: 'dentiste', imgSrc: 'tabouna' },
+                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'Baguette' },
+                { id: 3, name: ' عربي', value: 'dentiste', imgSrc: 'pain_arabe' },
         ],
         profileImg:'',
         cardProfile:[
@@ -1488,7 +1602,7 @@ const AbyedhADIL = {
     },
     boucherie: {
         tag: 'docteur',
-        themeColor: '#5e7968',
+        themeColor: '#bd1304',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ بَيْعْ اللُحُومْ',
@@ -1507,25 +1621,32 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'لُحُومْ حَمْرَاءْ', value: 'dentiste', imgSrc: 'viande' },
-                { id: 2, name: 'سَكَالُوبْ', value: 'dentiste', imgSrc: 'viande' },
-                { id: 3, name: 'مَزْرَعَة', value: 'dentiste', imgSrc: 'viande' },
-                { id: 4, name: 'سَمَـكْ', value: 'dentiste', imgSrc: 'viande' },
+                { id: 1, name: 'لُحُومْ حَمْرَاءْ', value: 'dentiste', imgSrc: 'viande_rouge' },
+                { id: 2, name: 'سَكَالُوبْ', value: 'dentiste', imgSrc: 'viande_escaloppe' },
+                { id: 4, name: 'سَمَـكْ', value: 'dentiste', imgSrc: 'viande_fish' },
+                { id: 3, name: 'مَزْرَعَة', value: 'dentiste', imgSrc: 'viande_mazeraa' },
+            ],
+            [
+                { id: 5, name: 'شَهِيّة', value: 'dentiste', imgSrc: 'viande_chahia' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'لُحُومْ حَمْرَاءْ', value: 'dentiste', imgSrc: 'viande' },
-                { id: 2, name: 'سَكَالُوبْ', value: 'dentiste', imgSrc: 'viande' },
-                { id: 3, name: 'مَزْرَعَة', value: 'dentiste', imgSrc: 'viande' },
+                { id: 1, name: 'لُحُومْ حَمْرَاءْ', value: 'dentiste', imgSrc: 'viande_rouge' },
+                { id: 2, name: 'سَكَالُوبْ', value: 'dentiste', imgSrc: 'viande_escaloppe' },
                 { id: 4, name: 'سَمَـكْ' , value: 'dentiste', imgSrc: 'viande' },
-            ]
+                { id: 3, name: 'مَزْرَعَة', value: 'dentiste', imgSrc: 'viande_mazeraa' },
+            ],
+            [
+                { id: 5, name: 'شَهِيّة', value: 'dentiste', imgSrc: 'viande_chahia' },
+            ] 
         ],
         subCateg: [
-                { id: 1, name: 'لحوم حمراء', value: 'dentiste', imgSrc: 'viande' },
-                { id: 2, name: 'سكالوب', value: 'dentiste', imgSrc: 'viande' },
-                { id: 3, name: 'مزرعة', value: 'dentiste', imgSrc: 'viande' },
-                { id: 4, name: ' سمك', value: 'dentiste', imgSrc: 'viande' },
+                { id: 1, name: 'لحوم حمراء', value: 'dentiste', imgSrc: 'viande_rouge' },
+                { id: 2, name: 'سكالوب', value: 'dentiste', imgSrc: 'viande_escaloppe' },
+                { id: 3, name: 'مزرعة', value: 'dentiste', imgSrc: 'viande_mazeraa' },
+                { id: 4, name: ' سمك', value: 'dentiste', imgSrc: 'viande_fish' },
+                { id: 5, name: 'شَهِيّة', value: 'dentiste', imgSrc: 'viande_chahia' },
         ],
         profileImg:'',
         cardProfile:[
@@ -1548,7 +1669,7 @@ const AbyedhADIL = {
     },
     fruiterie: {
         tag: 'docteur',
-        themeColor: '#5e7968',
+        themeColor: '#488720',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ بَيْعَ الخُضَرْ',
@@ -1567,19 +1688,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'خُضَرْ', value: 'dentiste', imgSrc: 'fruit' },
-                { id: 2, name: 'غِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
+                { id: 1, name: 'خُضَرْ', value: 'dentiste', imgSrc: 'fruit_tomate' },
+                { id: 2, name: 'غِلَالْ', value: 'dentiste', imgSrc: 'fruit_bananas' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'خُضَرْ', value: 'dentiste', imgSrc: 'fruit' },
-                { id: 2, name: 'غِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
+                { id: 1, name: 'خُضَرْ', value: 'dentiste', imgSrc: 'fruit_tomate' },
+                { id: 2, name: 'غِلَالْ', value: 'dentiste', imgSrc: 'fruit_bananas' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'خضر', value: 'dentiste', imgSrc: 'fruit' },
-                { id: 2, name: 'غلال', value: 'dentiste', imgSrc: 'fruit' },
+                { id: 1, name: 'خضر', value: 'dentiste', imgSrc: 'fruit_tomate' },
+                { id: 2, name: 'غلال', value: 'dentiste', imgSrc: 'fruit_bananas' },
         ],
         profileImg:'',
         cardProfile:[
@@ -1602,7 +1723,7 @@ const AbyedhADIL = {
     },
     patesserie: {
         tag: 'docteur',
-        themeColor: '#5e7968',
+        themeColor: '#a33464',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ بَيْعْ المُرَطَبَاتْ',
@@ -1621,19 +1742,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patt' },
-                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patt' },
+                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patiss_croissant' },
+                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patiss_gateux' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patt' },
-                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patt' },
+                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patiss_croissant' },
+                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patiss_gateux' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patt' },
-                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patt' },
+                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patiss_croissant' },
+                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patiss_gateux' },
         ],
         profileImg:'',
         cardProfile:[
@@ -1656,7 +1777,7 @@ const AbyedhADIL = {
     },
     epicerie: {
         tag: 'docteur',
-        themeColor: '#5e7968',
+        themeColor: '#6b462e',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ البَقَّالاَتْ',
@@ -1675,23 +1796,23 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'سَجَائِرْ', value: 'dentiste', imgSrc: 'hmas' },
-                { id: 2, name: 'بُقُولْ', value: 'dentiste', imgSrc: 'hmas' },
+                { id: 1, name: 'سَجَائِرْ', value: 'dentiste', imgSrc: 'epic_cigare' },
+                { id: 2, name: 'بُقُولْ', value: 'dentiste', imgSrc: 'epic_beans' },
             ],[
-                { id: 3, name: 'فَوَاكِهْ جَافَّة', value: 'dentiste', imgSrc: 'hmas' },
+                { id: 3, name: 'فَوَاكِهْ جَافَّة', value: 'dentiste', imgSrc: 'epic_nuts' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'سَجَائِرْ', value: 'dentiste', imgSrc: 'hmas' },
-                { id: 2, name: 'بُقُولْ', value: 'dentiste', imgSrc: 'hmas' },
-                { id: 3, name: 'فَوَاكِهْ جَافَّة', value: 'dentiste', imgSrc: 'hmas' },
+                { id: 1, name: 'سَجَائِرْ', value: 'dentiste', imgSrc: 'epic_cigare' },
+                { id: 2, name: 'بُقُولْ', value: 'dentiste', imgSrc: 'epic_beans' },
+                { id: 3, name: 'فَوَاكِهْ جَافَّة', value: 'dentiste', imgSrc: 'epic_nuts' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'سجائر', value: 'dentiste', imgSrc: 'hmas' },
-                { id: 2, name: 'بقول', value: 'dentiste', imgSrc: 'hmas' },
-                { id: 3, name: ' فواكه جافة', value: 'dentiste', imgSrc: 'hmas' },
+                { id: 1, name: 'سجائر', value: 'dentiste', imgSrc: 'epic_cigare' },
+                { id: 2, name: 'بقول', value: 'dentiste', imgSrc: 'epic_beans' },
+                { id: 3, name: ' فواكه جافة', value: 'dentiste', imgSrc: 'epic_nuts' },
         ],
         profileImg:'',
         cardProfile:[
@@ -1712,353 +1833,12 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    ptvente_shop: {
-        tag: 'docteur',
-        themeColor: '#5e7968',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ المَغَازَاتْ',
-        systemLink: 'https://system.abyedh.tn/Landing/ptvMagazin',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'المغازة',
-        businesOwner: 'صاحب مغازة ',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
-            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'Magazin', value: 'dentiste', imgSrc: 'bread' },
-                { id: 2, name: 'Superette', value: 'dentiste', imgSrc: 'bread' },
-            ],[
-                { id: 3, name: 'عَطَّارْ ', value: 'dentiste', imgSrc: 'bread' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'Magazin', value: 'dentiste', imgSrc: 'bread' },
-                { id: 2, name: 'Superette', value: 'dentiste', imgSrc: 'bread' },
-                { id: 3, name: 'عَطَّارْ ', value: 'dentiste', imgSrc: 'bread' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'magazin', value: 'dentiste', imgSrc: 'bread' },
-                { id: 2, name: 'superette', value: 'dentiste', imgSrc: 'bread' },
-                { id: 3, name: 'عطار ', value: 'dentiste', imgSrc: 'bread' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
 
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    ptvente_boulengerie: {
-        tag: 'docteur',
-        themeColor: '#5e7968',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ المَخَابِزْ',
-        systemLink: 'https://system.abyedh.tn/Landing/ptvBoulengerie',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'المخبزة',
-        businesOwner: 'صاحب مخبزة',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
-            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'طَابُونَة', value: 'dentiste', imgSrc: 'pain' },
-                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'pain' },
-            ],[
-                { id: 3, name: 'عَرْبِي', value: 'dentiste', imgSrc: 'pain' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'طَابُونَة', value: 'dentiste', imgSrc: 'pain' },
-                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'pain' },
-                { id: 3, name: 'عَرْبِي', value: 'dentiste', imgSrc: 'pain' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'طابونة', value: 'dentiste', imgSrc: 'pain' },
-                { id: 2, name: 'Baguette', value: 'dentiste', imgSrc: 'pain' },
-                { id: 3, name: ' عربي', value: 'dentiste', imgSrc: 'pain' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    ptvente_viande: {
-        tag: 'docteur',
-        themeColor: '#5e7968',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ بَيْعْ اللُحُومْ',
-        systemLink: 'https://system.abyedh.tn/Landing/ptvBoucherie',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'نقطة بيع اللحوم',
-        businesOwner: 'صاحب نقطة بيع اللحوم',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
-            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'لُحُومْ حَمْرَاءْ', value: 'dentiste', imgSrc: 'viande' },
-                { id: 2, name: 'سَكَالُوبْ', value: 'dentiste', imgSrc: 'viande' },
-                { id: 3, name: 'مَزْرَعَة', value: 'dentiste', imgSrc: 'viande' },
-                { id: 4, name: 'سَمَـكْ', value: 'dentiste', imgSrc: 'viande' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'لُحُومْ حَمْرَاءْ', value: 'dentiste', imgSrc: 'viande' },
-                { id: 2, name: 'سَكَالُوبْ', value: 'dentiste', imgSrc: 'viande' },
-                { id: 3, name: 'مَزْرَعَة', value: 'dentiste', imgSrc: 'viande' },
-                { id: 4, name: 'سَمَـكْ' , value: 'dentiste', imgSrc: 'viande' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'لحوم حمراء', value: 'dentiste', imgSrc: 'viande' },
-                { id: 2, name: 'سكالوب', value: 'dentiste', imgSrc: 'viande' },
-                { id: 3, name: 'مزرعة', value: 'dentiste', imgSrc: 'viande' },
-                { id: 4, name: ' سمك', value: 'dentiste', imgSrc: 'viande' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    ptvente_fruit: {
-        tag: 'docteur',
-        themeColor: '#5e7968',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ بَيْعَ الخُضَرْ',
-        systemLink: 'https://system.abyedh.tn/Landing/ptvFruiterie',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'نقطة بيع الخضر',
-        businesOwner: 'صاحب نقطة بيع الخضر',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
-            'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'خُضَرْ', value: 'dentiste', imgSrc: 'fruit' },
-                { id: 2, name: 'غِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'خُضَرْ', value: 'dentiste', imgSrc: 'fruit' },
-                { id: 2, name: 'غِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'خضر', value: 'dentiste', imgSrc: 'fruit' },
-                { id: 2, name: 'غلال', value: 'dentiste', imgSrc: 'fruit' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    ptvente_patesserie: {
-        tag: 'docteur',
-        themeColor: '#5e7968',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ بَيْعْ المُرَطَبَاتْ',
-        systemLink: 'https://system.abyedh.tn/Landing/ptvPatesserie',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: '  نقطة بيع المرطبات',
-        businesOwner: 'صاحب نقطة بيع المرطبات',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
-            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patt' },
-                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patt' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patt' },
-                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patt' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'Croissant', value: 'dentiste', imgSrc: 'patt' },
-                { id: 2, name: 'Gateaux', value: 'dentiste', imgSrc: 'patt' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    ptvente_small_shop: {
-        tag: 'docteur',
-        themeColor: '#5e7968',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ البَقَّالاَتْ',
-        systemLink: 'https://system.abyedh.tn/Landing/ptvGrocery',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'البقالة',
-        businesOwner: 'صاحب بقالة',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث لمختلف نقاط بيع المنتجات الغذائية , أبيض توفرلك المعلومات اللي تحتاجها الكل و تمكنك كذلك إنك تقارن بيع مختلف المنتجات و تعطي رايك فيها من أجل تحسين جودتها </h5> ',
-            'في المقابل كانك من الأشخاص اللي يقدمو في منتجات غذائية فإنو منصة أبيض توفرلك نظام لعرض و إدارة منتجاتك من أجل وصول أكثر للحرفاء و الزيائن متاعك و تمكن كذلك من التواصل الفعال مع مختلف مزوديك  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'سَجَائِرْ', value: 'dentiste', imgSrc: 'hmas' },
-                { id: 2, name: 'بُقُولْ', value: 'dentiste', imgSrc: 'hmas' },
-            ],[
-                { id: 3, name: 'فَوَاكِهْ جَافَّة', value: 'dentiste', imgSrc: 'hmas' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'سَجَائِرْ', value: 'dentiste', imgSrc: 'hmas' },
-                { id: 2, name: 'بُقُولْ', value: 'dentiste', imgSrc: 'hmas' },
-                { id: 3, name: 'فَوَاكِهْ جَافَّة', value: 'dentiste', imgSrc: 'hmas' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'سجائر', value: 'dentiste', imgSrc: 'hmas' },
-                { id: 2, name: 'بقول', value: 'dentiste', imgSrc: 'hmas' },
-                { id: 3, name: ' فواكه جافة', value: 'dentiste', imgSrc: 'hmas' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
 
     /*houseCar*/
     electromenager: {
         tag: 'docteur',
-        themeColor: '#0078d7',
+        themeColor: '#03a3a1',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ نقطة بَيْعْ الإِلِكْتُرُونِيَّاتْ',
@@ -2077,19 +1857,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'أَجْهِزَةَ كَهْرُومَنْزِلِيَّة', value: 'electro', imgSrc: 'electro' },
-                { id: 2, name: 'هَوَاتِفْ وَ حَوَاسْيبْ', value: 'electro', imgSrc: 'electro' },
+                { id: 1, name: 'أَجْهِزَةَ كَهْرُومَنْزِلِيَّة', value: 'electro', imgSrc: 'electro_fridge' },
+                { id: 2, name: 'هَوَاتِفْ وَ حَوَاسْيبْ', value: 'electro', imgSrc: 'electro_phone' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'أَجْهِزَةَ كَهْرُومَنْزِلِيَّة', value: 'electro', imgSrc: 'electro' },
-                { id: 2, name: 'هَوَاتِفْ وَ حَوَاسْيبْ', value: 'electro', imgSrc: 'electro' },
+                { id: 1, name: 'أَجْهِزَةَ كَهْرُومَنْزِلِيَّة', value: 'electro', imgSrc: 'electro_fridge' },
+                { id: 2, name: 'هَوَاتِفْ وَ حَوَاسْيبْ', value: 'electro', imgSrc: 'electro_phone' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'أجهزة كهرومنزلية', value: 'electro', imgSrc: 'electro' },
-            { id: 2, name: 'هواتف و حواسيب', value: 'electro', imgSrc: 'electro' },
+            { id: 1, name: 'أجهزة كهرومنزلية', value: 'electro', imgSrc: 'electro_fridge' },
+            { id: 2, name: 'هواتف و حواسيب', value: 'electro', imgSrc: 'electro_phone' },
         ],
         profileImg:'',
         cardProfile:[
@@ -2131,19 +1911,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'أَثَاثْ مَنْزِلِي', value: 'fourniture', imgSrc: 'furniture' },
-                { id: 2, name: 'أَثَاثْ مَكْتَبِي', value: 'fourniture', imgSrc: 'furniture' },
+                { id: 1, name: 'أَثَاثْ مَنْزِلِي', value: 'fourniture', imgSrc: 'meuble_maison' },
+                { id: 2, name: 'أَثَاثْ مَكْتَبِي', value: 'fourniture', imgSrc: 'meuble_bureaux' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'أَثَاثْ مَنْزِلِي', value: 'fourniture', imgSrc: 'furniture' },
-                { id: 2, name: 'أَثَاثْ مَكْتَبِي', value: 'fourniture', imgSrc: 'furniture' },
+                { id: 1, name: 'أَثَاثْ مَنْزِلِي', value: 'fourniture', imgSrc: 'meuble_maison' },
+                { id: 2, name: 'أَثَاثْ مَكْتَبِي', value: 'fourniture', imgSrc: 'meuble_bureaux' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'أثاث منزلي', value: 'fourniture', imgSrc: 'furniture' },
-            { id: 2, name: 'أثاث مكتبي', value: 'fourniture', imgSrc: 'furniture' },
+            { id: 1, name: 'أثاث منزلي', value: 'fourniture', imgSrc: 'meuble_maison' },
+            { id: 2, name: 'أثاث مكتبي', value: 'fourniture', imgSrc: 'meuble_bureaux' },
         ],
         profileImg:'',
         cardProfile:[
@@ -2158,114 +1938,6 @@ const AbyedhADIL = {
         ],
         profileBtns:[
                 {id:1, name:' شِرَاءْ أَثَاثْ  ' , icon:'shop'  , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    house_electro: {
-        tag: 'docteur',
-        themeColor: '#0078d7',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ نقطة بَيْعْ الإِلِكْتُرُونِيَّاتْ',
-        systemLink: 'https://system.abyedh.tn/Landing/ptvElectro',
-        iconName: '',
-        WiconName: '',
-        adsImage: 'house_electro',
-        businesName: 'نقطة بيع الكهروإلكترونيات',
-        businesOwner: 'صاحب نقطة بيع الكهروإلكترونيات',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['تلوج في خدمات مختلفة للمنزل متاعك ؟ أبيض تمكنك أنك تلقي المنتجات اللي تحتاجها للمنزل الكل : آلات كهربيائية , مفروشات متنوعة و تمكنك تختار المنتج بالخاصيات اللي تحب عليها ببساطة و سهولة ', 
-            'في المقابل كانك صاحب محل بيع منتجات منزلية المنصة هاذي توفرلك النظام اللي تحتاجو باش تدير العمل متاعك بصفة رقمية و تعاونك تتصل بالحرفاء و المزودين بسهولة و سرعة </h5>  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'أَجْهِزَةَ كَهْرُومَنْزِلِيَّة', value: 'electro', imgSrc: 'electro' },
-                { id: 2, name: 'هَوَاتِفْ وَ حَوَاسْيبْ', value: 'electro', imgSrc: 'electro' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'أَجْهِزَةَ كَهْرُومَنْزِلِيَّة', value: 'electro', imgSrc: 'electro' },
-                { id: 2, name: 'هَوَاتِفْ وَ حَوَاسْيبْ', value: 'electro', imgSrc: 'electro' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'أجهزة كهرومنزلية', value: 'electro', imgSrc: 'electro' },
-            { id: 2, name: 'هواتف و حواسيب', value: 'electro', imgSrc: 'electro' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    house_meuble: {
-        tag: 'docteur',
-        themeColor: '#0078d7',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ الأَثَاثْ',
-        systemLink: 'https://system.abyedh.tn/Landing/ptvMeuble',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'نقطة بيع الأثاث',
-        businesOwner: 'صاحب نقطة بيع الأثاث',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['تلوج في خدمات مختلفة للمنزل متاعك ؟ أبيض تمكنك أنك تلقي المنتجات اللي تحتاجها للمنزل الكل : آلات كهربيائية , مفروشات متنوعة و تمكنك تختار المنتج بالخاصيات اللي تحب عليها ببساطة و سهولة </h5> ',
-            'في المقابل كانك صاحب محل بيع منتجات منزلية المنصة هاذي توفرلك النظام اللي تحتاجو باش تدير العمل متاعك بصفة رقمية و تعاونك تتصل بالحرفاء و المزودين بسهولة و سرعة ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'أَثَاثْ مَنْزِلِي', value: 'fourniture', imgSrc: 'furniture' },
-                { id: 2, name: 'أَثَاثْ مَكْتَبِي', value: 'fourniture', imgSrc: 'furniture' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'أَثَاثْ مَنْزِلِي', value: 'fourniture', imgSrc: 'furniture' },
-                { id: 2, name: 'أَثَاثْ مَكْتَبِي', value: 'fourniture', imgSrc: 'furniture' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'أثاث منزلي', value: 'fourniture', imgSrc: 'furniture' },
-            { id: 2, name: 'أثاث مكتبي', value: 'fourniture', imgSrc: 'furniture' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -2293,24 +1965,24 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'كِرَاءْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'كِرَاءْ الشَاحِنَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 1, name: 'كِرَاءْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'location_voiture' },
+                { id: 2, name: 'كِرَاءْ الشَاحِنَاتْ', value: 'dentiste', imgSrc: 'location_camion' },
             ],
             [
-                { id: 3, name: 'كِرَاءْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 3, name: 'كِرَاءْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'location_moto' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'كِرَاءْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'كِرَاءْ الشَاحِنَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 3, name: 'كِرَاءْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 1, name: 'كِرَاءْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'location_voiture' },
+                { id: 2, name: 'كِرَاءْ الشَاحِنَاتْ', value: 'dentiste', imgSrc: 'location_camion' },
+                { id: 3, name: 'كِرَاءْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'location_moto' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'كراء السيارت', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'كراء الشاحنات', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 3, name: 'كراء الدراجات', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 1, name: 'كراء السيارت', value: 'dentiste', imgSrc: 'location_voiture' },
+                { id: 2, name: 'كراء الشاحنات', value: 'dentiste', imgSrc: 'location_camion' },
+                { id: 3, name: 'كراء الدراجات', value: 'dentiste', imgSrc: 'location_moto' },
         ],
         profileImg:'',
         cardProfile:[
@@ -2333,7 +2005,7 @@ const AbyedhADIL = {
     },
     parking: {
         tag: 'docteur',
-        themeColor: '#2d4664',
+        themeColor: '#6a4a37',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ مَوَاقِفْ السَيَّارَاتْ',
@@ -2352,19 +2024,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مَأْوَي عُمُومِي', value: 'dentiste', imgSrc: 'parking' },
-                { id: 2, name: 'مَأْوَي خَاصْ', value: 'dentiste', imgSrc: 'parking' }, 
+                { id: 1, name: 'مَأْوَي عُمُومِي', value: 'dentiste', imgSrc: 'parking_publique' },
+                { id: 2, name: 'مَأْوَي خَاصْ', value: 'dentiste', imgSrc: 'parking_privee' }, 
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مَأْوَي عُمُومِي' , value: 'dentiste', imgSrc: 'parking' },
-                { id: 2, name: 'مَأْوَي خَاصْ' , value: 'dentiste', imgSrc: 'parking' },
+                { id: 1, name: 'مَأْوَي عُمُومِي' , value: 'dentiste', imgSrc: 'parking_publique' },
+                { id: 2, name: 'مَأْوَي خَاصْ' , value: 'dentiste', imgSrc: 'parking_privee' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'مأوي عمومي', value: 'dentiste', imgSrc: 'parking' },
-                { id: 2, name: 'مأوي خاص', value: 'dentiste', imgSrc: 'parking' },
+                { id: 1, name: 'مأوي عمومي', value: 'dentiste', imgSrc: 'parking_publique' },
+                { id: 2, name: 'مأوي خاص', value: 'dentiste', imgSrc: 'parking_privee' },
         ],
         profileImg:'',
         cardProfile:[
@@ -2387,7 +2059,7 @@ const AbyedhADIL = {
     },
     qiosque: {
         tag: 'docteur',
-        themeColor: '#2d4664',
+        themeColor: '#853d07',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ مَحَطَّةْ وَقُودْ',
@@ -2407,18 +2079,18 @@ const AbyedhADIL = {
         subCatagSmall: [
             [
                 { id: 1, name: 'Qiosque', value: 'dentiste', imgSrc: 'qiosque' },
-                { id: 2, name: 'غَسِيلْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'qiosque' },
+                { id: 2, name: 'غَسِيلْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'qiosque_lavage' },
             ]   
         ],
         subCatagLarge:[
             [
                 { id: 1, name: 'Qiosque', value: 'dentiste', imgSrc: 'qiosque' },
-                { id: 2, name: 'غَسِيلْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'qiosque' },
+                { id: 2, name: 'غَسِيلْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'qiosque_lavage' },
             ]
         ],
         subCateg: [
                 { id: 1, name: 'Qiosque', value: 'dentiste', imgSrc: 'qiosque' },
-                { id: 2, name: 'غسيل السيارات', value: 'dentiste', imgSrc: 'qiosque' },
+                { id: 2, name: 'غسيل السيارات', value: 'dentiste', imgSrc: 'qiosque_lavage' },
         ],
         profileImg:'',
         cardProfile:[
@@ -2441,7 +2113,7 @@ const AbyedhADIL = {
     },
     mecanicien: {
         tag: 'docteur',
-        themeColor: '#2d4664',
+        themeColor: '#5e5e5e',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ وَرْشَةْ مِيكَانِيكِي',
@@ -2460,19 +2132,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مِيكَانِيكْ السَّيَارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'مِيكَانِيكْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 1, name: 'مِيكَانِيكْ السَّيَارَاتْ', value: 'dentiste', imgSrc: 'mec_voiture' },
+                { id: 2, name: 'مِيكَانِيكْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'mec_bike' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مِيكَانِيكْ السَّيَارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'مِيكَانِيكْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 1, name: 'مِيكَانِيكْ السَّيَارَاتْ', value: 'dentiste', imgSrc: 'mec_voiture' },
+                { id: 2, name: 'مِيكَانِيكْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'mec_bike' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'ميكانيك السيارات', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'ميكانيك الدراجات', value: 'dentiste', imgSrc: 'car_selling' },
+                { id: 1, name: 'ميكانيك السيارات', value: 'dentiste', imgSrc: 'mec_voiture' },
+                { id: 2, name: 'ميكانيك الدراجات', value: 'dentiste', imgSrc: 'mec_bike' },
         ],
         profileImg:'',
         cardProfile:[
@@ -2493,227 +2165,7 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    car_location: {
-        tag: 'car_location',
-        themeColor: '#2d4664',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ كِرَاءْ السَيَّارَاتْ',
-        systemLink: 'https://system.abyedh.tn/Landing/car_location',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: ' وكالة كراء السيارات ',
-        businesOwner: 'صاحب وكالة كراء السيارات ',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
-            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'كِرَاءْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'كِرَاءْ الشَاحِنَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-            ],
-            [
-                { id: 3, name: 'كِرَاءْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'كِرَاءْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'كِرَاءْ الشَاحِنَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 3, name: 'كِرَاءْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'كراء السيارت', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'كراء الشاحنات', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 3, name: 'كراء الدراجات', value: 'dentiste', imgSrc: 'car_selling' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
 
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    car_parking: {
-        tag: 'docteur',
-        themeColor: '#2d4664',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ مَوَاقِفْ السَيَّارَاتْ',
-        systemLink: 'https://system.abyedh.tn/Landing/car_parking',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'الـ Parking ',
-        businesOwner: 'صاحب Parking ',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
-            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'مَأْوَي عُمُومِي', value: 'dentiste', imgSrc: 'parking' },
-                { id: 2, name: 'مَأْوَي خَاصْ', value: 'dentiste', imgSrc: 'parking' }, 
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'مَأْوَي عُمُومِي' , value: 'dentiste', imgSrc: 'parking' },
-                { id: 2, name: 'مَأْوَي خَاصْ' , value: 'dentiste', imgSrc: 'parking' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'مأوي عمومي', value: 'dentiste', imgSrc: 'parking' },
-                { id: 2, name: 'مأوي خاص', value: 'dentiste', imgSrc: 'parking' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    car_qiosque: {
-        tag: 'docteur',
-        themeColor: '#2d4664',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ مَحَطَّةْ وَقُودْ',
-        systemLink: 'https://system.abyedh.tn/Landing/car_qiosque',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'الـ Qiosque',
-        businesOwner: 'صاحب Qiosque',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
-            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'Qiosque', value: 'dentiste', imgSrc: 'qiosque' },
-                { id: 2, name: 'غَسِيلْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'qiosque' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'Qiosque', value: 'dentiste', imgSrc: 'qiosque' },
-                { id: 2, name: 'غَسِيلْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'qiosque' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'Qiosque', value: 'dentiste', imgSrc: 'qiosque' },
-                { id: 2, name: 'غسيل السيارات', value: 'dentiste', imgSrc: 'qiosque' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    car_mecanicien: {
-        tag: 'docteur',
-        themeColor: '#2d4664',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ وَرْشَةْ مِيكَانِيكِي',
-        systemLink: 'https://system.abyedh.tn/Landing/car_parking',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'ورشة الميكانيك',
-        businesOwner: 'ميكانيكي',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['أنت من الناس المهتمين بالسيارات متاعهم و تحب تقدملها أفضل الخدمات للحفاض علي سلامتها , أبيض توفر محرك بحث تلقي فيه جميع مزودي خدمات السيارات : Qiosque , كراء السيارات , Parking ...</h5> ',
-            'في المقابل أبيض توفر للأشخاص اللي يقدمو خدمات للسيارات نظام إدارة و متابعة للأعمال متاعهم من أجل تحسين جودة الخدمات و المنتجات اللي يقدموها للحرفاء متاهم  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'مِيكَانِيكْ السَّيَارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'مِيكَانِيكْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'مِيكَانِيكْ السَّيَارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'مِيكَانِيكْ الدَرَّاجَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'ميكانيك السيارات', value: 'dentiste', imgSrc: 'car_selling' },
-                { id: 2, name: 'ميكانيك الدراجات', value: 'dentiste', imgSrc: 'car_selling' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
 
     /*construction*/
     courtier: {
@@ -2737,19 +2189,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'للكِرَاءْ', value: 'dentiste', imgSrc: 'studio' },
-                { id: 2, name: 'شِرَاءْ', value: 'dentiste', imgSrc: 'garage' },
+                { id: 1, name: 'للكِرَاءْ', value: 'dentiste', imgSrc: 'courtier_looking' },
+                { id: 2, name: 'شِرَاءْ', value: 'dentiste', imgSrc: 'courtier_buying' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'للكِرَاءْ', value: 'dentiste', imgSrc: 'studio' },
-                { id: 2, name: 'شِرَاءْ', value: 'dentiste', imgSrc: 'garage' },
+                { id: 1, name: 'للكِرَاءْ', value: 'dentiste', imgSrc: 'courtier_looking' },
+                { id: 2, name: 'شِرَاءْ', value: 'dentiste', imgSrc: 'courtier_buying' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'للكراء', value: 'dentiste', imgSrc: 'studio' },
-            { id: 2, name: 'شراء', value: 'dentiste', imgSrc: 'garage' },
+            { id: 1, name: 'للكراء', value: 'dentiste', imgSrc: 'courtier_looking' },
+            { id: 2, name: 'شراء', value: 'dentiste', imgSrc: 'courtier_buying' },
         ],
         profileImg:'',
         cardProfile:[
@@ -2771,63 +2223,9 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    samsar: {
-        tag: 'docteur',
-        themeColor: '#455b7a',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ مكتب وسيط عقاري',
-        systemLink: 'https://system.abyedh.tn/Landing/samsar',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'الوكالة',
-        businesOwner: 'وسيط عقاري',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن وسيط عقاري علي الأنترنت كانك قاعد تلوج في حاجة معينة : دار , أستديو , كاراج لكرهبتك , ... و لا كانك طالب جامعي لوج هنا مليح تو تلقا الدار اللي حاجتك بيها بسهولة  </h5> ',
-            'في المقابل كانك وسيط عقاري المنصة هاذي توفرلك نضام إدارة للخدمة متاعك و تسهلك عملية إيصال العروض اللي عندك للحرفاء و تنجم توفرلك أداة تقييم للعقارات اللي تعرفها  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'للكِرَاءْ', value: 'dentiste', imgSrc: 'studio' },
-                { id: 2, name: 'شِرَاءْ', value: 'dentiste', imgSrc: 'garage' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'للكِرَاءْ', value: 'dentiste', imgSrc: 'studio' },
-                { id: 2, name: 'شِرَاءْ', value: 'dentiste', imgSrc: 'garage' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'للكراء', value: 'dentiste', imgSrc: 'studio' },
-            { id: 2, name: 'شراء', value: 'dentiste', imgSrc: 'garage' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
     contracteur: {
         tag: 'docteur',
-        themeColor: '#406163',
+        themeColor: '#808080',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ مَكْتَبْ مُقَاوِلْ',
@@ -2879,63 +2277,9 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    contrateur: {
-        tag: 'docteur',
-        themeColor: '#406163',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ مَكْتَبْ مُقَاوِلْ',
-        systemLink: 'https://system.abyedh.tn/Landing/chantier_contracteur',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'مكتب المقاولة',
-        businesOwner: 'مقاول',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
-            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
-                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
-                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
-            { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
     architecture: {
         tag: 'docteur',
-        themeColor: '#406163',
+        themeColor: '#1b9476',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ مَكْتَبْ مُهَنْدِسْ مِعْمَارِي',
@@ -2988,7 +2332,7 @@ const AbyedhADIL = {
     },
     quincaillerie: {
         tag: 'docteur',
-        themeColor: '#406163',
+        themeColor: '#941b76',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ مَحَلْ مُعِدَّاتْ',
@@ -3007,19 +2351,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'قِطَعْ غِيَارْ', value: 'dentiste', imgSrc: 'truck' },
-                { id: 2, name: 'Quincaillerie', value: 'dentiste', imgSrc: 'truck' },
+                { id: 1, name: 'قِطَعْ غِيَارْ', value: 'dentiste', imgSrc: 'quinc_tools' },
+                { id: 2, name: 'Quincaillerie', value: 'dentiste', imgSrc: 'quinc_quinc' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'قِطَعْ غِيَارْ', value: 'dentiste', imgSrc: 'truck' },
-                { id: 2, name: 'Quincaillerie', value: 'dentiste', imgSrc: 'truck' },
+                { id: 1, name: 'قِطَعْ غِيَارْ', value: 'dentiste', imgSrc: 'quinc_tools' },
+                { id: 2, name: 'Quincaillerie', value: 'dentiste', imgSrc: 'quinc_quinc' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'قطع غيار', value: 'dentiste', imgSrc: 'truck' },
-            { id: 2, name: 'quincaillerie', value: 'dentiste', imgSrc: 'truck' },
+            { id: 1, name: 'قطع غيار', value: 'dentiste', imgSrc: 'quinc_tools' },
+            { id: 2, name: 'quincaillerie', value: 'dentiste', imgSrc: 'quinc_quinc' },
         ],
         profileImg:'',
         cardProfile:[
@@ -3042,7 +2386,7 @@ const AbyedhADIL = {
     },
     forgeron: {
         tag: 'docteur',
-        themeColor: '#cdb556',
+        themeColor: '#545452',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ وَرْشَةْ حَدَّادْ',
@@ -3150,7 +2494,7 @@ const AbyedhADIL = {
     },
     peinture: {
         tag: 'docteur',
-        themeColor: '#cdb556',
+        themeColor: '#28568f',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ شَرِكَاتْ الدِهَانْ',
@@ -3204,7 +2548,7 @@ const AbyedhADIL = {
     },
     electricien: {
         tag: 'docteur',
-        themeColor: '#cdb556',
+        themeColor: '#5e091c',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ وَرْشَةْ تَقْنِي كَهْرَبَائِي',
@@ -3258,7 +2602,7 @@ const AbyedhADIL = {
     },
     plombier: {
         tag: 'docteur',
-        themeColor: '#cdb556',
+        themeColor: '#445563',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ وَرْشَة سَبَّاكْ',
@@ -3310,9 +2654,9 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    cristal: {
+    cristalerie: {
         tag: 'docteur',
-        themeColor: '#cdb556',
+        themeColor: '#f0c400',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ ورشة بلور',
@@ -3364,603 +2708,9 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    marbre: {
+    marbrerie: {
         tag: 'docteur',
-        themeColor: '#cdb556',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ وَرْشَة جَلِيزْ وَ رُخَامْ',
-        systemLink: 'https://system.abyedh.tn/Landing/handmade_marbre',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'ورشة بيع الرخام',
-        businesOwner: 'صاحب ورشة بيع الرخام',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'جَلِيزْ وَ رُخَامْ ', value: 'dentiste', imgSrc: 'printer' },
-                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'جَلِيزْ وَ رُخَامْ ', value: 'dentiste', imgSrc: 'printer' },
-                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'جَلِيزْ وَ رُخَامْ ', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
-                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'PEDIATRIE' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    chantier_contracteur: {
-        tag: 'docteur',
-        themeColor: '#406163',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ مَكْتَبْ مُقَاوِلْ',
-        systemLink: 'https://system.abyedh.tn/Landing/chantier_contracteur',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'مكتب المقاولة',
-        businesOwner: 'مقاول',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
-            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
-                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
-                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
-            { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    chantier_contrateur: {
-        tag: 'docteur',
-        themeColor: '#406163',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ مَكْتَبْ مُقَاوِلْ',
-        systemLink: 'https://system.abyedh.tn/Landing/chantier_contracteur',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'مكتب المقاولة',
-        businesOwner: 'مقاول',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
-            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
-                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
-                { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'شركة مقاولات', value: 'dentiste', imgSrc: 'moukawel' },
-            { id: 2, name: 'مقاول', value: 'dentiste', imgSrc: 'moukawel' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    chantier_architecture: {
-        tag: 'docteur',
-        themeColor: '#406163',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ مَكْتَبْ مُهَنْدِسْ مِعْمَارِي',
-        systemLink: 'https://system.abyedh.tn/Landing/chantier_architecture',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'مكتب المهندس المعماري',
-        businesOwner: 'مهندس معماري',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
-            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'شركة', value: 'dentiste', imgSrc: 'architect' },
-                { id: 2, name: 'مكتب مهندس', value: 'dentiste', imgSrc: 'architect' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'شركة', value: 'dentiste', imgSrc: 'architect' },
-                { id: 2, name: 'مكتب مهندس', value: 'dentiste', imgSrc: 'architect' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'شركة', value: 'dentiste', imgSrc: 'architect' },
-            { id: 2, name: 'مكتب مهندس', value: 'dentiste', imgSrc: 'architect' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    chantier_quincaillerie: {
-        tag: 'docteur',
-        themeColor: '#406163',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ مَحَلْ مُعِدَّاتْ',
-        systemLink: 'https://system.abyedh.tn/Landing/quincaillerie',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'الـ Quincaillerie',
-        businesOwner: 'صاحب Quincaillerie',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['كان عندك "مرمة"  و تحب تنضمها و تكون العملية ساهلة و بسيطة , المنصة هاذي تعاونك باش تلقا المقاول و البناي و الصانع و المعماري و اللي تحتاجو الكل ... بإعتبارها أداة تعاونك علي إتخاذ القرار المناسب اللي يصلح بيك</h5> ',
-            'في المقابل كانك تشتغل في ميدان البناء و الإنشاء توفرلك منصة أبيض نضام إدارة للعمل متاعك سواء كنت معماري , مقاول , صاحب محل بيع مواد البناء ولا كانك صانع و تلوج في خدمة نتجم تلوج لنا ... ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'قِطَعْ غِيَارْ', value: 'dentiste', imgSrc: 'truck' },
-                { id: 2, name: 'Quincaillerie', value: 'dentiste', imgSrc: 'truck' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'قِطَعْ غِيَارْ', value: 'dentiste', imgSrc: 'truck' },
-                { id: 2, name: 'Quincaillerie', value: 'dentiste', imgSrc: 'truck' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'قطع غيار', value: 'dentiste', imgSrc: 'truck' },
-            { id: 2, name: 'quincaillerie', value: 'dentiste', imgSrc: 'truck' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    handmade_forgeron: {
-        tag: 'docteur',
-        themeColor: '#cdb556',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ وَرْشَةْ حَدَّادْ',
-        systemLink: 'https://system.abyedh.tn/Landing/handmade_forgeron',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'ورشة الحدادة',
-        businesOwner: 'حذّاد',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'حَدَّادْ', value: 'dentiste', imgSrc: 'logo10' },
-                { id: 2, name: 'وَرْشَةْ حِدَادَةَ' , value: 'dentiste', imgSrc: 'logo10' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'حَدَّادْ', value: 'dentiste', imgSrc: 'logo10' },
-                { id: 2, name: 'وَرْشَةْ حِدَادَةَ' , value: 'dentiste', imgSrc: 'logo10' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'حداد', value: 'dentiste', imgSrc: 'logo10' },
-            { id: 2, name: 'ورشة حدادة', value: 'dentiste', imgSrc: 'logo10' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    handmade_menuisier: {
-        tag: 'docteur',
-        themeColor: '#cdb556',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ وَرَشَاتْ النِجَارَةَ',
-        systemLink: 'https://system.abyedh.tn/Landing/handmade_menuisier',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'ورشة النجارة',
-        businesOwner: 'نجّار',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'نَجَّارْ', value: 'dentiste', imgSrc: 'logo17' },
-                { id: 2, name: 'وَرْشَةْ نِجَارَة', value: 'dentiste', imgSrc: 'logo17' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'نَجَّارْ', value: 'dentiste', imgSrc: 'logo17' },
-                { id: 2, name: 'وَرْشَةْ نِجَارَة', value: 'dentiste', imgSrc: 'logo17' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'نجار', value: 'dentiste', imgSrc: 'logo17' },
-            { id: 2, name: 'ورشة نجارة', value: 'dentiste', imgSrc: 'logo17' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    handmade_peinture: {
-        tag: 'docteur',
-        themeColor: '#cdb556',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ شَرِكَاتْ الدِهَانْ',
-        systemLink: 'https://system.abyedh.tn/Landing/handmade_peinture',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'شركة الدهان',
-        businesOwner: 'دهان',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'دَهَّانْ', value: 'dentiste', imgSrc: 'printer' },
-                { id: 2, name: 'شَرِكَة دِهَانْ', value: 'dentiste', imgSrc: 'printer' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'دَهَّانْ', value: 'dentiste', imgSrc: 'printer' },
-                { id: 2, name: 'شَرِكَة دِهَانْ', value: 'dentiste', imgSrc: 'printer' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'دَهَّانْ', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
-                { id: 2, name: 'شَرِكَة دِهَانْ', value: 'dentiste', imgSrc: 'PEDIATRIE' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    handmade_electricien: {
-        tag: 'docteur',
-        themeColor: '#cdb556',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ وَرْشَةْ تَقْنِي كَهْرَبَائِي',
-        systemLink: 'https://system.abyedh.tn/Landing/handmade_electricien',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'العيادة',
-        businesOwner: 'طبيب',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'كَهْرَبَائِي', value: 'dentiste', imgSrc: 'printer' },
-                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'كَهْرَبَائِي', value: 'dentiste', imgSrc: 'printer' },
-                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'كَهْرَبَائِي', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
-                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'PEDIATRIE' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    handmade_plombier: {
-        tag: 'docteur',
-        themeColor: '#cdb556',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ وَرْشَة سَبَّاكْ',
-        systemLink: 'https://system.abyedh.tn/Landing/handmade_plombier',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'شركة السباكة',
-        businesOwner: 'سبّاك',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'سَبَّاكْ', value: 'dentiste', imgSrc: 'printer' },
-                { id: 2, name: 'شركة سِبَاكَة', value: 'dentiste', imgSrc: 'printer' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'سَبَّاكْ', value: 'dentiste', imgSrc: 'printer' },
-                { id: 2, name: 'شركة سِبَاكَة', value: 'dentiste', imgSrc: 'printer' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'سَبَّاكْ', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
-                { id: 2, name: 'شركة سِبَاكَة', value: 'dentiste', imgSrc: 'PEDIATRIE' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    handmade_cristal: {
-        tag: 'docteur',
-        themeColor: '#cdb556',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ ورشة بلور',
-        systemLink: 'https://system.abyedh.tn/Landing/handmade_cristal',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'ورشة تركيب البلور',
-        businesOwner: 'صاحب ورشة تركيب البلور',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث يعاونك تلقي أشخاص يقدمولك خدمات مختلفة تعاونك في حياتك اليومية , المنصة عبارة عن أداة تمكنك من التعرف علي محترفيين و كذلك التواص معهم و طلب مختلف خدماتهم  </h5> ',
-            'في المقابل كانك من الأشخاص اللي يقدمو خدمة معينة أبيض توفرلك نظام و أداة تواصل مع حرفائك و زبائنك , النظام هو أداة تمكنك من عرض خدماتك للعموم للوصول لشريحة أكبر من الأشخاص اللي تستهدفهم خدماتك']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'وَرْشَة', value: 'dentiste', imgSrc: 'printer' },
-                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'وَرْشَة', value: 'dentiste', imgSrc: 'printer' },
-                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'printer' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'وَرْشَة', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
-                { id: 2, name: 'شَرِكَة', value: 'dentiste', imgSrc: 'PEDIATRIE' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    handmade_marbre: {
-        tag: 'docteur',
-        themeColor: '#cdb556',
+        themeColor: '#0ec2cb',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ وَرْشَة جَلِيزْ وَ رُخَامْ',
@@ -4035,19 +2785,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'رِجَالْ', value: 'dentiste', imgSrc: 'coiffure-man' },
-                { id: 2, name: 'نِسَاءْ', value: 'dentiste', imgSrc: 'woumen' },
+                { id: 1, name: 'رِجَالْ', value: 'dentiste', imgSrc: 'coiffure_man' },
+                { id: 2, name: 'نِسَاءْ', value: 'dentiste', imgSrc: 'coiffure_woumen' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'رِجَالْ', value: 'dentiste', imgSrc: 'coiffure-man' },
-                { id: 2, name: 'نِسَاءْ', value: 'dentiste', imgSrc: 'woumen' },
+                { id: 1, name: 'رِجَالْ', value: 'dentiste', imgSrc: 'coiffure_man' },
+                { id: 2, name: 'نِسَاءْ', value: 'dentiste', imgSrc: 'coiffure_woumen' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'رجال', value: 'dentiste', imgSrc: 'coiffure-man' },
-            { id: 2, name: 'نساء', value: 'dentiste', imgSrc: 'woumen' },
+            { id: 1, name: 'رجال', value: 'dentiste', imgSrc: 'coiffure_man' },
+            { id: 2, name: 'نساء', value: 'dentiste', imgSrc: 'coiffure_woumen' },
         ],
         profileImg:'',
         cardProfile:[
@@ -4089,25 +2839,25 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'رِجَالْ', value: '1', imgSrc: 'man' },
-                { id: 2, name: 'نِسَاءْ', value: 'dentiste', imgSrc: 'woumen' },
-                { id: 3, name: 'صِغَارْ', value: 'dentiste', imgSrc: 'child' },
-                { id: 4, name: 'أَحْذِيَة', value: 'dentiste', imgSrc: 'shoes' },
+                { id: 1, name: 'رِجَالْ', value: '1', imgSrc: 'boutique_man' },
+                { id: 2, name: 'نِسَاءْ', value: 'dentiste', imgSrc: 'boutique_woumen' },
+                { id: 3, name: 'صِغَارْ', value: 'dentiste', imgSrc: 'boutique_child' },
+                { id: 4, name: 'أَحْذِيَة', value: 'dentiste', imgSrc: 'boutique_shoes' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'رِجَالْ', value: '1', imgSrc: 'man' },
-                { id: 2, name: 'نِسَاءْ', value: '2', imgSrc: 'woumen' },
-                { id: 3, name: 'صِغَارْ', value: '3', imgSrc: 'child' },
-                { id: 4, name: 'أَحْذِيَة', value: '4', imgSrc: 'shoes' },
+                { id: 1, name: 'رِجَالْ', value: '1', imgSrc: 'boutique_man' },
+                { id: 2, name: 'نِسَاءْ', value: '2', imgSrc: 'boutique_woumen' },
+                { id: 3, name: 'صِغَارْ', value: '3', imgSrc: 'boutique_child' },
+                { id: 4, name: 'أَحْذِيَة', value: '4', imgSrc: 'boutique_shoes' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'رجال', value: 'Homme', imgSrc: 'man' },
-            { id: 2, name: 'نساء', value: 'Femme', imgSrc: 'woumen' },
-            { id: 3, name: 'صغار', value: 'enfant', imgSrc: 'child' },
-            { id: 4, name: 'أحذية', value: 'chaussures', imgSrc: 'shoes' },
+            { id: 1, name: 'رجال', value: 'Homme', imgSrc: 'boutique_man' },
+            { id: 2, name: 'نساء', value: 'Femme', imgSrc: 'boutique_woumen' },
+            { id: 3, name: 'صغار', value: 'enfant', imgSrc: 'boutique_child' },
+            { id: 4, name: 'أحذية', value: 'chaussures', imgSrc: 'boutique_shoes' },
         ],
         profileImg:'',
         cardProfile:[
@@ -4149,19 +2899,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'قَاعَة  مُغَطَّاةْ', value: 'dentiste', imgSrc: 'sallon' },
-                { id: 2, name: 'قَاعَة  مَفْتُوحَة', value: 'dentiste', imgSrc: 'sallon' },
+                { id: 1, name: 'قَاعَة  مُغَطَّاةْ', value: 'dentiste', imgSrc: 'sallon_covert' },
+                { id: 2, name: 'قَاعَة  مَفْتُوحَة', value: 'dentiste', imgSrc: 'sallon_ouvert' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'قَاعَة  مُغَطَّاةْ', value: 'dentiste', imgSrc: 'sallon' },
-                { id: 2, name: 'قَاعَة  مَفْتُوحَة', value: 'dentiste', imgSrc: 'sallon' },
+                { id: 1, name: 'قَاعَة  مُغَطَّاةْ', value: 'dentiste', imgSrc: 'sallon_covert' },
+                { id: 2, name: 'قَاعَة  مَفْتُوحَة', value: 'dentiste', imgSrc: 'sallon_ouvert' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'قاعة  مغطاة', value: 'dentiste', imgSrc: 'sallon' },
-            { id: 2, name: 'قاعة  مفتوحة', value: 'dentiste', imgSrc: 'sallon' },
+            { id: 1, name: 'قاعة  مغطاة', value: 'dentiste', imgSrc: 'sallon_covert' },
+            { id: 2, name: 'قاعة  مفتوحة', value: 'dentiste', imgSrc: 'sallon_ouvert' },
         ],
         profileImg:'',
         cardProfile:[
@@ -4184,7 +2934,7 @@ const AbyedhADIL = {
     },
     orchestre: {
         tag: 'docteur',
-        themeColor: '#c30052',
+        themeColor: '#3c2961',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ فِرْقَة مُوسِيقِيَّة',
@@ -4203,24 +2953,24 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'فِرْقَة شَعْبِيَّة', value: 'dentiste', imgSrc: 'orqustre' },
-                { id: 2, name: 'فَنَّانْ', value: 'dentiste', imgSrc: 'orqustre' },
+                { id: 1, name: 'فِرْقَة شَعْبِيَّة', value: 'dentiste', imgSrc: 'orqustre_populaire' },
+                { id: 2, name: 'فَنَّانْ', value: 'dentiste', imgSrc: 'orqustre_artiste' },
             ],
             [
-                { id: 3, name: 'أُورْكِسْتِرْ', value: 'dentiste', imgSrc: 'orqustre' },
+                { id: 3, name: 'أُورْكِسْتِرْ', value: 'dentiste', imgSrc: 'orqustre_band' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'فِرْقَة شَعْبِيَّة', value: 'dentiste', imgSrc: 'orqustre' },
-                { id: 2, name: 'فَنَّانْ', value: 'dentiste', imgSrc: 'orqustre' },
-                { id: 3, name: 'أُورْكِسْتِرْ', value: 'dentiste', imgSrc: 'orqustre' },
+                { id: 1, name: 'فِرْقَة شَعْبِيَّة', value: 'dentiste', imgSrc: 'orqustre_populaire' },
+                { id: 2, name: 'فَنَّانْ', value: 'dentiste', imgSrc: 'orqustre_artiste' },
+                { id: 3, name: 'أُورْكِسْتِرْ', value: 'dentiste', imgSrc: 'orqustre_band' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'فرقة شعبية', value: 'dentiste', imgSrc: 'orqustre' },
-            { id: 2, name: 'فنان', value: 'dentiste', imgSrc: 'orqustre' },
-            { id: 3, name: 'أوركستر', value: 'dentiste', imgSrc: 'orqustre' },
+            { id: 1, name: 'فرقة شعبية', value: 'dentiste', imgSrc: 'orqustre_populaire' },
+            { id: 2, name: 'فنان', value: 'dentiste', imgSrc: 'orqustre_artiste' },
+            { id: 3, name: 'أوركستر', value: 'dentiste', imgSrc: 'orqustre_band' },
         ],
         profileImg:'',
         cardProfile:[
@@ -4243,7 +2993,7 @@ const AbyedhADIL = {
     },
     chef: {
         tag: 'docteur',
-        themeColor: '#c30052',
+        themeColor: '#17b000',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ مَوَاعِيدْ الطَبَّاخْ',
@@ -4262,19 +3012,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مَطْبَخْ أَجْنَبِي', value: 'dentiste', imgSrc: 'chef' },
-                { id: 2, name: 'المَطْبَخْ التًونِسِي', value: 'dentiste', imgSrc: 'chef' },
+                { id: 1, name: 'مَطْبَخْ أَجْنَبِي', value: 'dentiste', imgSrc: 'chef_externe' },
+                { id: 2, name: 'المَطْبَخْ التًونِسِي', value: 'dentiste', imgSrc: 'chef_interne' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مَطْبَخْ أَجْنَبِي', value: 'dentiste', imgSrc: 'chef' },
-                { id: 2, name: 'المَطْبَخْ التًونِسِي', value: 'dentiste', imgSrc: 'chef' },
+                { id: 1, name: 'مَطْبَخْ أَجْنَبِي', value: 'dentiste', imgSrc: 'chef_externe' },
+                { id: 2, name: 'المَطْبَخْ التًونِسِي', value: 'dentiste', imgSrc: 'chef_interne' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'مطبخ أجنبي', value: 'dentiste', imgSrc: 'chef' },
-            { id: 2, name: 'المطبخ التونسي', value: 'dentiste', imgSrc: 'chef' },
+            { id: 1, name: 'مطبخ أجنبي', value: 'dentiste', imgSrc: 'chef_externe' },
+            { id: 2, name: 'المطبخ التونسي', value: 'dentiste', imgSrc: 'chef_interne' },
         ],
         profileImg:'',
         cardProfile:[
@@ -4297,7 +3047,7 @@ const AbyedhADIL = {
     },
     photographe: {
         tag: 'docteur',
-        themeColor: '#c30052',
+        themeColor: '#424d40',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ وَرْشَة مُصَوِّرْ',
@@ -4316,19 +3066,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'تَصْوِيرْ أَعْرَاسْ', value: 'dentiste', imgSrc: 'photographe' },
-                { id: 2, name: 'مًصَوِرْ فُوتُوغْرَافِي', value: 'dentiste', imgSrc: 'photographe' },
+                { id: 1, name: 'تَصْوِيرْ أَعْرَاسْ', value: 'dentiste', imgSrc: 'photographe_marriage' },
+                { id: 2, name: 'مًصَوِرْ فُوتُوغْرَافِي', value: 'dentiste', imgSrc: 'photographe_photo' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'تَصْوِيرْ أَعْرَاسْ', value: 'dentiste', imgSrc: 'photographe' },
-                { id: 2, name: 'مًصَوِرْ فُوتُوغْرَافِي', value: 'dentiste', imgSrc: 'photographe' },
+                { id: 1, name: 'تَصْوِيرْ أَعْرَاسْ', value: 'dentiste', imgSrc: 'photographe_marriage' },
+                { id: 2, name: 'مًصَوِرْ فُوتُوغْرَافِي', value: 'dentiste', imgSrc: 'photographe_photo' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'تصوير أعراس', value: 'dentiste', imgSrc: 'photographe' },
-            { id: 2, name: 'مصور فوتوغرافي', value: 'dentiste', imgSrc: 'photographe' },
+            { id: 1, name: 'تصوير أعراس', value: 'dentiste', imgSrc: 'photographe_marriage' },
+            { id: 2, name: 'مصور فوتوغرافي', value: 'dentiste', imgSrc: 'photographe_photo' },
         ],
         profileImg:'',
         cardProfile:[
@@ -4351,7 +3101,7 @@ const AbyedhADIL = {
     },
     fourniture_marriage: {
         tag: 'docteur',
-        themeColor: '#c30052',
+        themeColor: '#29615f',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ كِرَاءْ لَوَازِمْ الأَفْرَاحْ',
@@ -4370,19 +3120,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'لَوَازِمْ أُخْرَي', value: 'dentiste', imgSrc: 'lawazem' },
-                { id: 2, name: 'فَسَاتِينْ', value: 'dentiste', imgSrc: 'lawazem' },
+                { id: 1, name: 'لَوَازِمْ أُخْرَي', value: 'dentiste', imgSrc: 'fourniture_autres' },
+                { id: 2, name: 'فَسَاتِينْ', value: 'dentiste', imgSrc: 'fourniture_robes' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'لَوَازِمْ أُخْرَي', value: 'dentiste', imgSrc: 'lawazem' },
-                { id: 2, name: 'فَسَاتِينْ', value: 'dentiste', imgSrc: 'lawazem' },
+                { id: 1, name: 'لَوَازِمْ أُخْرَي', value: 'dentiste', imgSrc: 'fourniture_autres' },
+                { id: 2, name: 'فَسَاتِينْ', value: 'dentiste', imgSrc: 'fourniture_robes' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'لوازم مادية', value: 'dentiste', imgSrc: 'lawazem' },
-            { id: 2, name: 'فساتين', value: 'dentiste', imgSrc: 'lawazem' },
+            { id: 1, name: 'لوازم مادية', value: 'dentiste', imgSrc: 'fourniture_autres' },
+            { id: 2, name: 'فساتين', value: 'dentiste', imgSrc: 'fourniture_robes' },
         ],
         profileImg:'',
         cardProfile:[
@@ -4405,7 +3155,7 @@ const AbyedhADIL = {
     },
     bijouterie: {
         tag: 'docteur',
-        themeColor: '#c30052',
+        themeColor: '#fade0a',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ نُقْطَةَ بَيْعْ المُجَوْهَرَاتْ',
@@ -4424,19 +3174,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مُجَوْهَرَاتْ جَاهِزَةَ', value: 'dentiste', imgSrc: 'bijoux' },
-                { id: 2, name: 'صَايْغِي', value: 'dentiste', imgSrc: 'bijoux' },
+                { id: 1, name: 'مُجَوْهَرَاتْ جَاهِزَةَ', value: 'dentiste', imgSrc: 'bijoux_pret' },
+                { id: 2, name: 'صَايْغِي', value: 'dentiste', imgSrc: 'bijoux_fabriquant' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مُجَوْهَرَاتْ جَاهِزَةَ', value: 'dentiste', imgSrc: 'bijoux' },
-                { id: 2, name: 'صَايْغِي', value: 'dentiste', imgSrc: 'bijoux' },
+                { id: 1, name: 'مُجَوْهَرَاتْ جَاهِزَةَ', value: 'dentiste', imgSrc: 'bijoux_pret' },
+                { id: 2, name: 'صَايْغِي', value: 'dentiste', imgSrc: 'bijoux_fabriquant' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'مجوهرات جاهزة', value: 'dentiste', imgSrc: 'bijoux' },
-            { id: 2, name: 'صايغي', value: 'dentiste', imgSrc: 'bijoux' },
+            { id: 1, name: 'مجوهرات جاهزة', value: 'dentiste', imgSrc: 'bijoux_pret' },
+            { id: 2, name: 'صايغي', value: 'dentiste', imgSrc: 'bijoux_fabriquant' },
         ],
         profileImg:'',
         cardProfile:[
@@ -4451,335 +3201,6 @@ const AbyedhADIL = {
         ],
         profileBtns:[
                 {id:1, name:' شِرَاءْ مُجَوْهَرَاتْ  ' , icon:'shop'  , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    wedding_salon_marriage: {
-        tag: 'docteur',
-        themeColor: '#c30052',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ قَاعَاتْ الأَفْرَاحْ ',
-        systemLink: 'https://system.abyedh.tn/Landing/wedding_salon_marriage',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'قاعة الأفراح',
-        businesOwner: 'صاحب قاعة أفراح',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
-            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'قَاعَة  مُغَطَّاةْ', value: 'dentiste', imgSrc: 'sallon' },
-                { id: 2, name: 'قَاعَة  مَفْتُوحَة', value: 'dentiste', imgSrc: 'sallon' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'قَاعَة  مُغَطَّاةْ', value: 'dentiste', imgSrc: 'sallon' },
-                { id: 2, name: 'قَاعَة  مَفْتُوحَة', value: 'dentiste', imgSrc: 'sallon' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'قاعة  مغطاة', value: 'dentiste', imgSrc: 'sallon' },
-            { id: 2, name: 'قاعة  مفتوحة', value: 'dentiste', imgSrc: 'sallon' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    wedding_orchestre: {
-        tag: 'docteur',
-        themeColor: '#c30052',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ فِرْقَة مُوسِيقِيَّة',
-        systemLink: 'https://system.abyedh.tn/Landing/wedding_orchestre',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'الفرقة الموسيقية',
-        businesOwner: 'صاحب فرقة موسيقية',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
-            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'فِرْقَة شَعْبِيَّة', value: 'dentiste', imgSrc: 'orqustre' },
-                { id: 2, name: 'فَنَّانْ', value: 'dentiste', imgSrc: 'orqustre' },
-            ],
-            [
-                { id: 3, name: 'أُورْكِسْتِرْ', value: 'dentiste', imgSrc: 'orqustre' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'فِرْقَة شَعْبِيَّة', value: 'dentiste', imgSrc: 'orqustre' },
-                { id: 2, name: 'فَنَّانْ', value: 'dentiste', imgSrc: 'orqustre' },
-                { id: 3, name: 'أُورْكِسْتِرْ', value: 'dentiste', imgSrc: 'orqustre' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'فرقة شعبية', value: 'dentiste', imgSrc: 'orqustre' },
-            { id: 2, name: 'فنان', value: 'dentiste', imgSrc: 'orqustre' },
-            { id: 3, name: 'أوركستر', value: 'dentiste', imgSrc: 'orqustre' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    wedding_chef: {
-        tag: 'docteur',
-        themeColor: '#c30052',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ مَوَاعِيدْ الطَبَّاخْ',
-        systemLink: 'https://system.abyedh.tn/Landing/wedding_chef',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'الطباخ',
-        businesOwner: 'طباخ',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
-            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'مَطْبَخْ أَجْنَبِي', value: 'dentiste', imgSrc: 'chef' },
-                { id: 2, name: 'المَطْبَخْ التًونِسِي', value: 'dentiste', imgSrc: 'chef' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'مَطْبَخْ أَجْنَبِي', value: 'dentiste', imgSrc: 'chef' },
-                { id: 2, name: 'المَطْبَخْ التًونِسِي', value: 'dentiste', imgSrc: 'chef' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'مطبخ أجنبي', value: 'dentiste', imgSrc: 'chef' },
-            { id: 2, name: 'المطبخ التونسي', value: 'dentiste', imgSrc: 'chef' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    wedding_photographe: {
-        tag: 'docteur',
-        themeColor: '#c30052',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ وَرْشَة مُصَوِّرْ',
-        systemLink: 'https://system.abyedh.tn/Landing/wedding_photographe',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'إستديو التصوير',
-        businesOwner: 'مصور',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
-            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'تَصْوِيرْ أَعْرَاسْ', value: 'dentiste', imgSrc: 'photographe' },
-                { id: 2, name: 'مًصَوِرْ فُوتُوغْرَافِي', value: 'dentiste', imgSrc: 'photographe' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'تَصْوِيرْ أَعْرَاسْ', value: 'dentiste', imgSrc: 'photographe' },
-                { id: 2, name: 'مًصَوِرْ فُوتُوغْرَافِي', value: 'dentiste', imgSrc: 'photographe' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'تصوير أعراس', value: 'dentiste', imgSrc: 'photographe' },
-            { id: 2, name: 'مصور فوتوغرافي', value: 'dentiste', imgSrc: 'photographe' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    wedding_fourniture_marriage: {
-        tag: 'docteur',
-        themeColor: '#c30052',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ كِرَاءْ لَوَازِمْ الأَفْرَاحْ',
-        systemLink: 'https://system.abyedh.tn/Landing/wedding_fourniture_marriage',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'نقطة بيع لوازم الأفراج',
-        businesOwner: 'صاحب نقطة بيع لوازم الأفراح',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
-            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'لَوَازِمْ أُخْرَي', value: 'dentiste', imgSrc: 'lawazem' },
-                { id: 2, name: 'فَسَاتِينْ', value: 'dentiste', imgSrc: 'lawazem' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'لَوَازِمْ أُخْرَي', value: 'dentiste', imgSrc: 'lawazem' },
-                { id: 2, name: 'فَسَاتِينْ', value: 'dentiste', imgSrc: 'lawazem' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'لوازم مادية', value: 'dentiste', imgSrc: 'lawazem' },
-            { id: 2, name: 'فساتين', value: 'dentiste', imgSrc: 'lawazem' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    wedding_bijoux: {
-        tag: 'docteur',
-        themeColor: '#c30052',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ نُقْطَةَ بَيْعْ المُجَوْهَرَاتْ',
-        systemLink: 'https://system.abyedh.tn/Landing/wedding_bijoux',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'نقطة بيع المجوهرات',
-        businesOwner: 'صاحب نقطة بيع المجوهرات',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['كانك قادم علي عرس ولا عندك أي فرحة أخري و تلوج في أداة تعاونك علي إيجاد أفظل الخدمات و المنتجات فأنو أبيض هي الحل لأنها توفر محرك بحث لجميع الخدمات من أجل تيسير العملية و توفير التعب و الوقت  ', 
-            'في المقابل كانك شخص تقدم خدمات للمقبلين علي الزواج و تلوج في أداة تعرض فيها خدمتك فإنت في المكان المناسب , أبيض منصة توفر للأشخاص اللي كيفك نظام يمكنهم من إدارة أعمالهم بطريقة عصرية و رقمية  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'مُجَوْهَرَاتْ جَاهِزَةَ', value: 'dentiste', imgSrc: 'bijoux' },
-                { id: 2, name: 'صَايْغِي', value: 'dentiste', imgSrc: 'bijoux' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'مُجَوْهَرَاتْ جَاهِزَةَ', value: 'dentiste', imgSrc: 'bijoux' },
-                { id: 2, name: 'صَايْغِي', value: 'dentiste', imgSrc: 'bijoux' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'مجوهرات جاهزة', value: 'dentiste', imgSrc: 'bijoux' },
-            { id: 2, name: 'صايغي', value: 'dentiste', imgSrc: 'bijoux' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -4992,19 +3413,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'قَاعَةْ عَرْضَ', value: 'dentiste', imgSrc: 'cima' },
-                { id: 2, name: 'قَاعَةْ سِنِمَا', value: 'dentiste', imgSrc: 'cima' },
+                { id: 1, name: 'قَاعَةْ عَرْضَ', value: 'dentiste', imgSrc: 'cinema_salle' },
+                { id: 2, name: 'قَاعَةْ سِنِمَا', value: 'dentiste', imgSrc: 'cinema_cinema' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'قَاعَةْ عَرْضَ', value: 'dentiste', imgSrc: 'cima' },
-                { id: 2, name: 'قَاعَةْ سِنِمَا', value: 'dentiste', imgSrc: 'cima' },
+                { id: 1, name: 'قَاعَةْ عَرْضَ', value: 'dentiste', imgSrc: 'cinema_salle' },
+                { id: 2, name: 'قَاعَةْ سِنِمَا', value: 'dentiste', imgSrc: 'cinema_cinema' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'قاعة عرض', value: 'dentiste', imgSrc: 'cima' },
-                { id: 2, name: 'قاعة سنما', value: 'dentiste', imgSrc: 'cima' },
+                { id: 1, name: 'قاعة عرض', value: 'dentiste', imgSrc: 'cinema_salle' },
+                { id: 2, name: 'قاعة سنما', value: 'dentiste', imgSrc: 'cinema_cinema' },
         ],
         profileImg:'',
         cardProfile:[
@@ -5027,7 +3448,7 @@ const AbyedhADIL = {
     },
     theatre: {
         tag: 'docteur',
-        themeColor: '#2c7177',
+        themeColor: '#402e6b',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ قَاعَةْ مَسْرَحْ',
@@ -5046,19 +3467,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مَسْرَحْ مَفْتٌوحْ', value: 'dentiste', imgSrc: 'theatre' },
-                { id: 2, name: 'مَسْرَحْ مُغْلَقْ', value: 'dentiste', imgSrc: 'theatre' },
+                { id: 1, name: 'مَسْرَحْ مَفْتٌوحْ', value: 'dentiste', imgSrc: 'theatre_open' },
+                { id: 2, name: 'مَسْرَحْ مُغْلَقْ', value: 'dentiste', imgSrc: 'theatre_close' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مَسْرَحْ مَفْتٌوحْ', value: 'dentiste', imgSrc: 'theatre' },
-                { id: 2, name: 'مَسْرَحْ مُغْلَقْ', value: 'dentiste', imgSrc: 'theatre' },
+                { id: 1, name: 'مَسْرَحْ مَفْتٌوحْ', value: 'dentiste', imgSrc: 'theatre_open' },
+                { id: 2, name: 'مَسْرَحْ مُغْلَقْ', value: 'dentiste', imgSrc: 'theatre_close' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'مسرح مفتوح', value: 'dentiste', imgSrc: 'theatre' },
-                { id: 2, name: 'مسرح مغلق', value: 'dentiste', imgSrc: 'theatre' },
+                { id: 1, name: 'مسرح مفتوح', value: 'dentiste', imgSrc: 'theatre_open' },
+                { id: 2, name: 'مسرح مغلق', value: 'dentiste', imgSrc: 'theatre_close' },
         ],
         profileImg:'',
         cardProfile:[
@@ -5081,7 +3502,7 @@ const AbyedhADIL = {
     },
     musee: {
         tag: 'docteur',
-        themeColor: '#2c7177',
+        themeColor: '#b3424b',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ المَتَاحِفْ',
@@ -5100,19 +3521,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مَكَانْ أَثَرِي', value: 'dentiste', imgSrc: 'Musee' },
-                { id: 2, name: 'مَتْحَفْ', value: 'dentiste', imgSrc: 'Musee' },
+                { id: 1, name: 'مَكَانْ أَثَرِي', value: 'dentiste', imgSrc: 'Musee_place' },
+                { id: 2, name: 'مَتْحَفْ', value: 'dentiste', imgSrc: 'Musee_musee' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مَكَانْ أَثَرِي', value: 'dentiste', imgSrc: 'Musee' },
-                { id: 2, name: 'مَتْحَفْ', value: 'dentiste', imgSrc: 'Musee' },
+                { id: 1, name: 'مَكَانْ أَثَرِي', value: 'dentiste', imgSrc: 'Musee_place' },
+                { id: 2, name: 'مَتْحَفْ', value: 'dentiste', imgSrc: 'Musee_musee' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'مكان أثري', value: 'dentiste', imgSrc: 'Musee' },
-                { id: 2, name: 'متحف', value: 'dentiste', imgSrc: 'Musee' },
+                { id: 1, name: 'مكان أثري', value: 'dentiste', imgSrc: 'Musee_place' },
+                { id: 2, name: 'متحف', value: 'dentiste', imgSrc: 'Musee_musee' },
         ],
         profileImg:'',
         cardProfile:[
@@ -5127,168 +3548,6 @@ const AbyedhADIL = {
         ],
         profileBtns:[
                 {id:1, name:'حَجْزْ تَذْكِرة' , icon:'tag' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    art_cinema: {
-        tag: 'docteur',
-        themeColor: '#2c7177',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ قَاعَاتْ السِنِمَا',
-        systemLink: 'https://system.abyedh.tn/Landing/art_cinema',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'قاعة السنما',
-        businesOwner: 'صاحب قاعة سنما',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',
-            'في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'قَاعَةْ عَرْضَ', value: 'dentiste', imgSrc: 'cima' },
-                { id: 2, name: 'قَاعَةْ سِنِمَا', value: 'dentiste', imgSrc: 'cima' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'قَاعَةْ عَرْضَ', value: 'dentiste', imgSrc: 'cima' },
-                { id: 2, name: 'قَاعَةْ سِنِمَا', value: 'dentiste', imgSrc: 'cima' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'قاعة عرض', value: 'dentiste', imgSrc: 'cima' },
-                { id: 2, name: 'قاعة سنما', value: 'dentiste', imgSrc: 'cima' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    art_theatre: {
-        tag: 'docteur',
-        themeColor: '#2c7177',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ قَاعَةْ مَسْرَحْ',
-        systemLink: 'https://system.abyedh.tn/Landing/art_theatre',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'قاعة المسرح',
-        businesOwner: 'صاحب قاعة مسرح',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',        
-            'في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'مَسْرَحْ مَفْتٌوحْ', value: 'dentiste', imgSrc: 'theatre' },
-                { id: 2, name: 'مَسْرَحْ مُغْلَقْ', value: 'dentiste', imgSrc: 'theatre' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'مَسْرَحْ مَفْتٌوحْ', value: 'dentiste', imgSrc: 'theatre' },
-                { id: 2, name: 'مَسْرَحْ مُغْلَقْ', value: 'dentiste', imgSrc: 'theatre' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'مسرح مفتوح', value: 'dentiste', imgSrc: 'theatre' },
-                { id: 2, name: 'مسرح مغلق', value: 'dentiste', imgSrc: 'theatre' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    art_musee: {
-        tag: 'docteur',
-        themeColor: '#2c7177',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ المَتَاحِفْ',
-        systemLink: 'https://system.abyedh.tn/Landing/art_musee',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'المتحف',
-        businesOwner: 'صاحب متحف خاص',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي عبارة عن محرك بحث للعروض الفنية القريبة بالمواعيد متاعها بكافة التفاصيل, المنصة موجهة للمهتمين بميدان الفن و الثقافة و تمكنهم زادا يقصو تذاكر عن طريق الأنترنت و حجز مقاعد ...</h5> ',        
-            'في المقابل كانك كانك مدير لأحد المنشآت اللي تقدم عروض فنية : مسرح , سينما ... منصة أبيض توفرلك أداة تعاونك في تنظيم العروض اللي تقدها و إيصالها لأكبر شريحة مهتمة بالثقافة و بالفنون  ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'مَكَانْ أَثَرِي', value: 'dentiste', imgSrc: 'Musee' },
-                { id: 2, name: 'مَتْحَفْ', value: 'dentiste', imgSrc: 'Musee' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'مَكَانْ أَثَرِي', value: 'dentiste', imgSrc: 'Musee' },
-                { id: 2, name: 'مَتْحَفْ', value: 'dentiste', imgSrc: 'Musee' },
-            ]
-        ],
-        subCateg: [
-                { id: 1, name: 'مكان أثري', value: 'dentiste', imgSrc: 'Musee' },
-                { id: 2, name: 'متحف', value: 'dentiste', imgSrc: 'Musee' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -5316,19 +3575,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'دَارْ شَبَابْ', value: 'dentiste', imgSrc: 'Msjeune' },
-                { id: 2, name: 'دَارْ شَبَابْ', value: 'dentiste', imgSrc: 'Msjeune' },
+                { id: 1, name: 'دَارْ شَبَابْ', value: 'dentiste', imgSrc: 'admin_c_mj' },
+                { id: 2, name: 'دَارْ شَبَابْ', value: 'dentiste', imgSrc: 'admin_c_mj' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'دَارْ شَبَابْ', value: 'dentiste', imgSrc: 'Msjeune' },
-                { id: 2, name: 'دَارْ شَبَابْ', value: 'dentiste', imgSrc: 'Msjeune' },
+                { id: 1, name: 'دَارْ شَبَابْ', value: 'dentiste', imgSrc: 'admin_c_mj' },
+                { id: 2, name: 'دَارْ شَبَابْ', value: 'dentiste', imgSrc: 'admin_c_mj' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'دار شباب', value: 'dentiste', imgSrc: 'Msjeune' },
-                { id: 2, name: 'دار شباب', value: 'dentiste', imgSrc: 'Msjeune' },
+                { id: 1, name: 'دار شباب', value: 'dentiste', imgSrc: 'admin_c_mj' },
+                { id: 2, name: 'دار شباب', value: 'dentiste', imgSrc: 'admin_c_mj' },
         ],
         profileImg:'',
         cardProfile:[
@@ -5370,19 +3629,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'Mculture' },
-                { id: 2, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'Mculture' },
+                { id: 1, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'admin_c_mc' },
+                { id: 2, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'admin_c_mc' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'Mculture' },
-                { id: 2, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'Mculture' },
+                { id: 1, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'admin_c_mc' },
+                { id: 2, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'admin_c_mc' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'Mculture' },
-                { id: 2, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'Mculture' },
+                { id: 1, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'admin_c_mc' },
+                { id: 2, name: 'دَارْ ثَقَافَة', value: 'dentiste', imgSrc: 'admin_c_mc' },
         ],
         profileImg:'',
         cardProfile:[
@@ -5424,19 +3683,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'ClubEnf' },
-                { id: 2, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'ClubEnf' },
+                { id: 1, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'admin_c_me' },
+                { id: 2, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'admin_c_me' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'ClubEnf' },
-                { id: 2, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'ClubEnf' },
+                { id: 1, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'admin_c_me' },
+                { id: 2, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'admin_c_me' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'ClubEnf' },
-                { id: 2, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'ClubEnf' },
+                { id: 1, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'admin_c_me' },
+                { id: 2, name: 'نَادِي أَطْفَالْ', value: 'dentiste', imgSrc: 'admin_c_me' },
         ],
         profileImg:'',
         cardProfile:[
@@ -5480,24 +3739,24 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'تَمْرِينْ', value: 'dentiste', imgSrc: 'avo1' },
-                { id: 2, name: 'تَعْقِيبْ', value: 'dentiste', imgSrc: 'avo2' },
+                { id: 1, name: 'تَمْرِينْ', value: 'dentiste', imgSrc: 'avocat' },
+                { id: 2, name: 'تَعْقِيبْ', value: 'dentiste', imgSrc: 'avocat' },
             ],
             [
-                { id: 3, name: 'إِسْتِئْنَافْ', value: 'dentiste', imgSrc: 'avo3' },
+                { id: 3, name: 'إِسْتِئْنَافْ', value: 'dentiste', imgSrc: 'avocat' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'تَمْرِينْ', value: 'dentiste', imgSrc: 'avo1' },
-                { id: 2, name: 'تَعْقِيبْ', value: 'dentiste', imgSrc: 'avo2' },
-                { id: 3, name: 'إِسْتِئْنَافْ', value: 'dentiste', imgSrc: 'avo3' },
+                { id: 1, name: 'تَمْرِينْ', value: 'dentiste', imgSrc: 'avocat' },
+                { id: 2, name: 'تَعْقِيبْ', value: 'dentiste', imgSrc: 'avocat' },
+                { id: 3, name: 'إِسْتِئْنَافْ', value: 'dentiste', imgSrc: 'avocat' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'تَمْرِينْ', value: 'dentiste', imgSrc: 'avo1' },
-            { id: 2, name: 'تَعْقِيبْ', value: 'dentiste', imgSrc: 'avo2' },
-            { id: 3, name: 'إِسْتِئْنَافْ', value: 'dentiste', imgSrc: 'avo3' },
+            { id: 1, name: 'تَمْرِينْ', value: 'dentiste', imgSrc: 'avocat' },
+            { id: 2, name: 'تَعْقِيبْ', value: 'dentiste', imgSrc: 'avocat' },
+            { id: 3, name: 'إِسْتِئْنَافْ', value: 'dentiste', imgSrc: 'avocat' },
         ],
         profileImg:'',
         cardProfile:[
@@ -5520,74 +3779,6 @@ const AbyedhADIL = {
     },
 
     /*finance */
-    ptvgros: {
-        tag: 'docteur',
-        themeColor: '#6f858f',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ نِقَاطْ بَيْعْ الجُمْلَة',
-        systemLink: 'https://system.abyedh.tn/Landing/storage',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'نقطة البيع بالجملة',
-        businesOwner: 'صاحب نقطة بيع بالجملة',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي موجهة للتجار بالأساس لأنها عبارة عن محرك بحث تلقي فيه المزودين بالجملة بمختلف أنواع السلع اللي تحتاجها , وكذاك تعتبر أداة للتواصل مع ها المزودين و تمرير طلبات المنتجات ...</h5> ',
-            'في المقابل كانك صاحب متجر بيع بالجملة أبيض توفرلك نظام إدارة و مراقبة للمتجر متاعك بالإظافة لإمكانية متابعة طلبات حرفائك و حاجيتهم للسلع و البضائع و ذلك من خلال منصة تواصل معهم   ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'storage-nutrition' },
-                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'constraction' },
-                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'medical' },
-                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'clothes' },
-            ],
-            [
-                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'drink' },
-                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'storage-nutrition' },
-                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'constraction' },
-                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'medical' },
-                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'clothes' },
-                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'drink' },
-                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'مَوَادْ غذائية', value: 'dentiste', imgSrc: 'storage-nutrition' },
-            { id: 2, name: 'مَوَادْ بناء', value: 'dentiste', imgSrc: 'constraction' },
-            { id: 3, name: 'مَوَادْ طبية', value: 'dentiste', imgSrc: 'medical' },
-            { id: 4, name: 'ملابس', value: 'dentiste', imgSrc: 'clothes' },
-            { id: 5, name: 'مشروبات', value: 'dentiste', imgSrc: 'drink' },
-            { id: 6, name: 'خضر غلال', value: 'dentiste', imgSrc: 'fruit' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
     depot: {
         tag: 'docteur',
         themeColor: '#6f858f',
@@ -5609,33 +3800,33 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'storage-nutrition' },
-                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'constraction' },
-                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'medical' },
-                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'clothes' },
+                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'depot_nutrition' },
+                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'depot_constraction' },
+                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'depot_medicale' },
+                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'depot_clothes' },
             ],
             [
-                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'drink' },
-                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
+                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'depot_boissons' },
+                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'depot_fruit' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'storage-nutrition' },
-                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'constraction' },
-                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'medical' },
-                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'clothes' },
-                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'drink' },
-                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
+                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'depot_nutrition' },
+                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'depot_constraction' },
+                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'depot_medicale' },
+                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'depot_clothes' },
+                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'depot_boissons' },
+                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'depot_fruit' },
             ]
         ],
         subCateg: [
             { id: 1, name: 'مَوَادْ غذائية', value: 'dentiste', imgSrc: 'storage-nutrition' },
-            { id: 2, name: 'مَوَادْ بناء', value: 'dentiste', imgSrc: 'constraction' },
-            { id: 3, name: 'مَوَادْ طبية', value: 'dentiste', imgSrc: 'medical' },
-            { id: 4, name: 'ملابس', value: 'dentiste', imgSrc: 'clothes' },
-            { id: 5, name: 'مشروبات', value: 'dentiste', imgSrc: 'drink' },
-            { id: 6, name: 'خضر غلال', value: 'dentiste', imgSrc: 'fruit' },
+            { id: 2, name: 'مَوَادْ بناء', value: 'dentiste', imgSrc: 'depot_constraction' },
+            { id: 3, name: 'مَوَادْ طبية', value: 'dentiste', imgSrc: 'depot_medicale' },
+            { id: 4, name: 'ملابس', value: 'dentiste', imgSrc: 'depot_clothes' },
+            { id: 5, name: 'مشروبات', value: 'dentiste', imgSrc: 'depot_boissons' },
+            { id: 6, name: 'خضر غلال', value: 'dentiste', imgSrc: 'depot_fruit' },
         ],
         profileImg:'',
         cardProfile:[
@@ -5650,74 +3841,6 @@ const AbyedhADIL = {
         ],
         profileBtns:[
                 {id:1, name:' طَلَبْ شِرَاءْ   ' , icon:'shop'  , link:'Action', bgColor:''},
-                {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-
-        ],
-        profileTarif:true,
-
-    },
-    storage: {
-        tag: 'docteur',
-        themeColor: '#6f858f',
-        directoryTable: '01_docteur',
-        systemActive: true,
-        systemName: 'نِظَامْ إِدَارًةْ نِقَاطْ بَيْعْ الجُمْلَة',
-        systemLink: 'https://system.abyedh.tn/Landing/storage',
-        iconName: '',
-        WiconName: '',
-        adsImage: '',
-        businesName: 'نقطة البيع بالجملة',
-        businesOwner: 'صاحب نقطة بيع بالجملة',
-        selectText: 'حدد الإختيار', 
-        xxxxxxxxxx: '',
-        yyyyyyyyyy: '',
-        adsText: [
-            ['المنصة هاذي موجهة للتجار بالأساس لأنها عبارة عن محرك بحث تلقي فيه المزودين بالجملة بمختلف أنواع السلع اللي تحتاجها , وكذاك تعتبر أداة للتواصل مع ها المزودين و تمرير طلبات المنتجات ...</h5> ',
-            'في المقابل كانك صاحب متجر بيع بالجملة أبيض توفرلك نظام إدارة و مراقبة للمتجر متاعك بالإظافة لإمكانية متابعة طلبات حرفائك و حاجيتهم للسلع و البضائع و ذلك من خلال منصة تواصل معهم   ']
-        ],
-        subCatagSmall: [
-            [
-                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'storage-nutrition' },
-                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'constraction' },
-                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'medical' },
-                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'clothes' },
-            ],
-            [
-                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'drink' },
-                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
-            ]   
-        ],
-        subCatagLarge:[
-            [
-                { id: 1, name: 'مَوَادْ غِذَائِيَّة', value: 'dentiste', imgSrc: 'storage-nutrition' },
-                { id: 2, name: 'مَوَادْ بِنَاءْ', value: 'dentiste', imgSrc: 'constraction' },
-                { id: 3, name: 'مَوَادْ طِبِيَّة', value: 'dentiste', imgSrc: 'medical' },
-                { id: 4, name: 'مَلَابِسْ', value: 'dentiste', imgSrc: 'clothes' },
-                { id: 5, name: 'مَشْرُوبَاتْ', value: 'dentiste', imgSrc: 'drink' },
-                { id: 6, name: 'خًضَرْ و َغِلَالْ', value: 'dentiste', imgSrc: 'fruit' },
-            ]
-        ],
-        subCateg: [
-            { id: 1, name: 'مَوَادْ غذائية', value: 'dentiste', imgSrc: 'storage-nutrition' },
-            { id: 2, name: 'مَوَادْ بناء', value: 'dentiste', imgSrc: 'constraction' },
-            { id: 3, name: 'مَوَادْ طبية', value: 'dentiste', imgSrc: 'medical' },
-            { id: 4, name: 'ملابس', value: 'dentiste', imgSrc: 'clothes' },
-            { id: 5, name: 'مشروبات', value: 'dentiste', imgSrc: 'drink' },
-            { id: 6, name: 'خضر غلال', value: 'dentiste', imgSrc: 'fruit' },
-        ],
-        profileImg:'',
-        cardProfile:[
-                {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-                {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-                {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-                {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-                {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-                {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-                {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-
-        ],
-        profileBtns:[
-                {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 
         ],
@@ -5745,19 +3868,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'تدْقِيقَ مُحَاسِبْ', value: 'dentiste', imgSrc: 'compt-bureaux' },
-                { id: 2, name: 'مًحَاسِبْ', value: 'dentiste', imgSrc: 'compt-logo' },
+                { id: 1, name: 'تدْقِيقَ مُحَاسِبْ', value: 'dentiste', imgSrc: 'compt_bureaux' },
+                { id: 2, name: 'مًحَاسِبْ', value: 'dentiste', imgSrc: 'compt_comptable' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'تدْقِيقَ مُحَاسِبْ', value: 'dentiste', imgSrc: 'compt-bureaux' },
-                { id: 2, name: 'مًحَاسِبْ', value: 'dentiste', imgSrc: 'compt-logo' },
+                { id: 1, name: 'تدْقِيقَ مُحَاسِبْ', value: 'dentiste', imgSrc: 'compt_bureaux' },
+                { id: 2, name: 'مًحَاسِبْ', value: 'dentiste', imgSrc: 'compt_comptable' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'تدقيق محاسب', value: 'dentiste', imgSrc: 'compt-bureaux' },
-            { id: 2, name: 'محاسب', value: 'dentiste', imgSrc: 'compt-logo' },
+            { id: 1, name: 'تدقيق محاسب', value: 'dentiste', imgSrc: 'compt_bureaux' },
+            { id: 2, name: 'محاسب', value: 'dentiste', imgSrc: 'compt_comptable' },
         ],
         profileImg:'',
         cardProfile:[
@@ -5935,14 +4058,14 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مَكْتَبْ بَرِيدْ', value: 'dentiste', imgSrc: 'Poste' },
-                { id: 2, name: 'مَكْتَبْ مَرْكَزِي', value: 'dentiste', imgSrc: 'Poste' },
+                { id: 1, name: 'مَكْتَبْ بَرِيدْ', value: 'dentiste', imgSrc: 'admin_f_poste' },
+                { id: 2, name: 'مَكْتَبْ مَرْكَزِي', value: 'dentiste', imgSrc: 'admin_f_poste' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مَكْتَبْ بَرِيدْ', value: 'dentiste', imgSrc: 'Poste' },
-                { id: 2, name: 'مَكْتَبْ مَرْكَزِي', value: 'dentiste', imgSrc: 'Poste' },
+                { id: 1, name: 'مَكْتَبْ بَرِيدْ', value: 'dentiste', imgSrc: 'admin_f_poste' },
+                { id: 2, name: 'مَكْتَبْ مَرْكَزِي', value: 'dentiste', imgSrc: 'admin_f_poste' },
             ]
         ],
         subCateg: [
@@ -5989,19 +4112,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مَكْتَبْ مُرَاقَبَة', value: 'dentiste', imgSrc: 'Recipe' },
-                { id: 2, name: 'قَبَاضَة مَالِيَّة', value: 'dentiste', imgSrc: 'Recipe' },
+                { id: 1, name: 'مَكْتَبْ مُرَاقَبَة', value: 'dentiste', imgSrc: 'admin_f_rf' },
+                { id: 2, name: 'قَبَاضَة مَالِيَّة', value: 'dentiste', imgSrc: 'admin_f_rf' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مَكْتَبْ مُرَاقَبَة' , value: 'dentiste', imgSrc: 'Recipe' },
-                { id: 2, name: 'قَبَاضَة مَالِيَّة' , value: 'dentiste', imgSrc: 'Recipe' },
+                { id: 1, name: 'مَكْتَبْ مُرَاقَبَة' , value: 'dentiste', imgSrc: 'admin_f_rf' },
+                { id: 2, name: 'قَبَاضَة مَالِيَّة' , value: 'dentiste', imgSrc: 'admin_f_rf' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'مكتب مراقبة', value: 'dentiste', imgSrc: 'Recipe' },
-            { id: 2, name: 'قباضة مالية', value: 'dentiste', imgSrc: 'Recipe' },
+            { id: 1, name: 'مكتب مراقبة', value: 'dentiste', imgSrc: 'admin_f_rf' },
+            { id: 2, name: 'قباضة مالية', value: 'dentiste', imgSrc: 'admin_f_rf' },
         ],
         profileImg:'',
         cardProfile:[
@@ -6024,9 +4147,9 @@ const AbyedhADIL = {
     },
 
     /*agricole */
-    animals: {
+    veterinaire: {
         tag: 'docteur',
-        themeColor: '#087159',
+        themeColor: '#f07800',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ العيادات',
@@ -6079,9 +4202,9 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    champ: {
+    fourragerie: {
         tag: 'docteur',
-        themeColor: '#087159',
+        themeColor: '#59a0b2',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ العيادات',
@@ -6134,9 +4257,9 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    agritoolsOld: {
+    agritools: {
         tag: 'docteur',
-        themeColor: '#087159',
+        themeColor: '#019104',
         directoryTable: '01_docteur',
         systemActive: true,
         systemName: 'نِظَامْ إِدَارًةْ العيادات',
@@ -6324,24 +4447,24 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'وِلَايَة', value: 'dentiste', imgSrc: 'baladia' },
-                { id: 2, name: 'بَلَدِيَّة', value: 'dentiste', imgSrc: 'baladia' },
+                { id: 1, name: 'وِلَايَة', value: 'dentiste', imgSrc: 'admin_a_mu' },
+                { id: 2, name: 'بَلَدِيَّة', value: 'dentiste', imgSrc: 'admin_a_mu' },
             ],
             [
-                { id: 3, name: 'مُعْتَمْدِيَّة', value: 'dentiste', imgSrc: 'baladia' },
+                { id: 3, name: 'مُعْتَمْدِيَّة', value: 'dentiste', imgSrc: 'admin_a_mu' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مُعْتَمْدِيَّة', value: 'dentiste', imgSrc: 'baladia' },
-                { id: 2, name: 'بَلَدِيَّة', value: 'dentiste', imgSrc: 'baladia' },
-                { id: 3, name: 'وِلَايَة' , value: 'dentiste', imgSrc: 'baladia' },
+                { id: 1, name: 'مُعْتَمْدِيَّة', value: 'dentiste', imgSrc: 'admin_a_mu' },
+                { id: 2, name: 'بَلَدِيَّة', value: 'dentiste', imgSrc: 'admin_a_mu' },
+                { id: 3, name: 'وِلَايَة' , value: 'dentiste', imgSrc: 'admin_a_mu' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'مُعْتَمْدِيَّة', value: 'dentiste', imgSrc: 'baladia' },
-                { id: 2, name: 'بَلَدِيَّة', value: 'dentiste', imgSrc: 'baladia' },
-                { id: 3, name: 'وِلَايَة' , value: 'dentiste', imgSrc: 'baladia' },
+                { id: 1, name: 'مُعْتَمْدِيَّة', value: 'dentiste', imgSrc: 'admin_a_mu' },
+                { id: 2, name: 'بَلَدِيَّة', value: 'dentiste', imgSrc: 'admin_a_mu' },
+                { id: 3, name: 'وِلَايَة' , value: 'dentiste', imgSrc: 'admin_a_mu' },
         ],
         profileImg:'',
         cardProfile:[
@@ -6383,25 +4506,25 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مَرْكِزْ تَجْنِيدْ', value: 'dentiste', imgSrc: 'police' },
-                { id: 2, name: 'أَمْنْ', value: 'dentiste', imgSrc: 'police' },
-                { id: 3, name: 'حَرَسْ', value: 'dentiste', imgSrc: 'police' },
-                { id: 4, name: 'شُرْطَة', value: 'dentiste', imgSrc: 'police' },
+                { id: 1, name: 'مَرْكِزْ تَجْنِيدْ', value: 'dentiste', imgSrc: 'admin_a_police' },
+                { id: 2, name: 'أَمْنْ', value: 'dentiste', imgSrc: 'admin_a_police' },
+                { id: 3, name: 'حَرَسْ', value: 'dentiste', imgSrc: 'admin_a_police' },
+                { id: 4, name: 'شُرْطَة', value: 'dentiste', imgSrc: 'admin_a_police' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مَرْكِزْ تَجْنِيدْ', value: 'dentiste', imgSrc: 'police' },
-                { id: 2, name: 'أَمْنْ', value: 'dentiste', imgSrc: 'police' },
-                { id: 3, name: 'حَرَسْ', value: 'dentiste', imgSrc: 'police' },
-                { id: 4, name: 'شُرْطَة', value: 'dentiste', imgSrc: 'police' },
+                { id: 1, name: 'مَرْكِزْ تَجْنِيدْ', value: 'dentiste', imgSrc: 'admin_a_police' },
+                { id: 2, name: 'أَمْنْ', value: 'dentiste', imgSrc: 'admin_a_police' },
+                { id: 3, name: 'حَرَسْ', value: 'dentiste', imgSrc: 'admin_a_police' },
+                { id: 4, name: 'شُرْطَة', value: 'dentiste', imgSrc: 'admin_a_police' },
             ]
         ],
         subCateg: [
-                { id: 1, name: 'مَرْكِزْ تَجْنِيدْ', value: 'dentiste', imgSrc: 'police' },
-                { id: 2, name: 'أَمْنْ', value: 'dentiste', imgSrc: 'police' },
-                { id: 3, name: 'حَرَسْ', value: 'dentiste', imgSrc: 'police' },
-                { id: 4, name: 'شُرْطَة', value: 'dentiste', imgSrc: 'police' },
+                { id: 1, name: 'مَرْكِزْ تَجْنِيدْ', value: 'dentiste', imgSrc: 'admin_a_police' },
+                { id: 2, name: 'أَمْنْ', value: 'dentiste', imgSrc: 'admin_a_police' },
+                { id: 3, name: 'حَرَسْ', value: 'dentiste', imgSrc: 'admin_a_police' },
+                { id: 4, name: 'شُرْطَة', value: 'dentiste', imgSrc: 'admin_a_police' },
         ],
         profileImg:'',
         cardProfile:[
@@ -6443,19 +4566,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'إِدَارَة جِهَوِيَّة', value: 'dentiste', imgSrc: 'admin' },
-                { id: 2, name: 'مَنْدُوبِيَّة جِهَوَيَّة', value: 'dentiste', imgSrc: 'admin' },
+                { id: 1, name: 'إِدَارَة جِهَوِيَّة', value: 'dentiste', imgSrc: 'admin_a_ar' },
+                { id: 2, name: 'مَنْدُوبِيَّة جِهَوَيَّة', value: 'dentiste', imgSrc: 'admin_a_ar' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'إِدَارَة جِهَوِيَّة', value: 'dentiste', imgSrc: 'admin' },
-                { id: 2, name: 'مَنْدُوبِيَّة جِهَوَيَّة', value: 'dentiste', imgSrc: 'admin' },
+                { id: 1, name: 'إِدَارَة جِهَوِيَّة', value: 'dentiste', imgSrc: 'admin_a_ar' },
+                { id: 2, name: 'مَنْدُوبِيَّة جِهَوَيَّة', value: 'dentiste', imgSrc: 'admin_a_ar' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'إِدَارَة جِهَوِيَّة', value: 'dentiste', imgSrc: 'admin' },
-            { id: 2, name: 'مَنْدُوبِيَّة جِهَوَيَّة', value: 'dentiste', imgSrc: 'admin' },
+            { id: 1, name: 'إِدَارَة جِهَوِيَّة', value: 'dentiste', imgSrc: 'admin_a_ar' },
+            { id: 2, name: 'مَنْدُوبِيَّة جِهَوَيَّة', value: 'dentiste', imgSrc: 'admin_a_ar' },
         ],
         profileImg:'',
         cardProfile:[
@@ -6496,24 +4619,24 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'مَحْكَمَة تَعْقِيبْ', value: 'dentiste', imgSrc: 'Cour' },
-                { id: 2, name: 'مَحْكَمَة إِسْتِئْنَافَ', value: 'dentiste', imgSrc: 'Cour' },
+                { id: 1, name: 'مَحْكَمَة تَعْقِيبْ', value: 'dentiste', imgSrc: 'admin_a_court' },
+                { id: 2, name: 'مَحْكَمَة إِسْتِئْنَافَ', value: 'dentiste', imgSrc: 'admin_a_court' },
             ],
             [
-                { id: 3, name: 'مَحْكَمَة إِبْتِدَائِيَّة ', value: 'dentiste', imgSrc: 'Cour' },
+                { id: 3, name: 'مَحْكَمَة إِبْتِدَائِيَّة ', value: 'dentiste', imgSrc: 'admin_a_court' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'مَحْكَمَة تَعْقِيبْ', value: 'dentiste', imgSrc: 'Cour' },
-                { id: 2, name: 'مَحْكَمَة إِسْتِئْنَافَ', value: 'dentiste', imgSrc: 'Cour' },
-                { id: 3, name: 'مَحْكَمَة إِبْتِدَائِيَّة ', value: 'dentiste', imgSrc: 'Cour' },
+                { id: 1, name: 'مَحْكَمَة تَعْقِيبْ', value: 'dentiste', imgSrc: 'admin_a_court' },
+                { id: 2, name: 'مَحْكَمَة إِسْتِئْنَافَ', value: 'dentiste', imgSrc: 'admin_a_court' },
+                { id: 3, name: 'مَحْكَمَة إِبْتِدَائِيَّة ', value: 'dentiste', imgSrc: 'admin_a_court' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'مَحْكَمَة تَعْقِيبْ', value: 'dentiste', imgSrc: 'Cour' },
-            { id: 2, name: 'مَحْكَمَة إِسْتِئْنَافَ', value: 'dentiste', imgSrc: 'Cour' },
-            { id: 3, name: 'مَحْكَمَة إِبْتِدَائِيَّة ', value: 'dentiste', imgSrc: 'Cour' },
+            { id: 1, name: 'مَحْكَمَة تَعْقِيبْ', value: 'dentiste', imgSrc: 'admin_a_court' },
+            { id: 2, name: 'مَحْكَمَة إِسْتِئْنَافَ', value: 'dentiste', imgSrc: 'admin_a_court' },
+            { id: 3, name: 'مَحْكَمَة إِبْتِدَائِيَّة ', value: 'dentiste', imgSrc: 'admin_a_court' },
         ],
         profileImg:'',
         cardProfile:[
@@ -6554,19 +4677,19 @@ const AbyedhADIL = {
         ],
         subCatagSmall: [
             [
-                { id: 1, name: 'جَامَعْ', value: 'dentiste', imgSrc: 'Mosquee' },
-                { id: 2, name: 'مَسْجَدْ', value: 'dentiste', imgSrc: 'Mosquee' },
+                { id: 1, name: 'جَامَعْ', value: 'dentiste', imgSrc: 'admin_a_mosq' },
+                { id: 2, name: 'مَسْجَدْ', value: 'dentiste', imgSrc: 'admin_a_mosq' },
             ]   
         ],
         subCatagLarge:[
             [
-                { id: 1, name: 'جَامَعْ', value: 'dentiste', imgSrc: 'Mosquee' },
-                { id: 2, name: 'مَسْجَدْ' , value: 'dentiste', imgSrc: 'Mosquee' },
+                { id: 1, name: 'جَامَعْ', value: 'dentiste', imgSrc: 'admin_a_mosq' },
+                { id: 2, name: 'مَسْجَدْ' , value: 'dentiste', imgSrc: 'admin_a_mosq' },
             ]
         ],
         subCateg: [
-            { id: 1, name: 'جَامَعْ', value: 'dentiste', imgSrc: 'Mosquee' },
-            { id: 2, name: 'مَسْجَدْ' , value: 'dentiste', imgSrc: 'Mosquee' },
+            { id: 1, name: 'جَامَعْ', value: 'dentiste', imgSrc: 'admin_a_mosq' },
+            { id: 2, name: 'مَسْجَدْ' , value: 'dentiste', imgSrc: 'admin_a_mosq' },
         ],
         profileImg:'',
         cardProfile:[
@@ -6586,58 +4709,8 @@ const AbyedhADIL = {
         profileTarif:true,
 
     },
-    // ambassade: {
-    //     tag: 'docteur',
-    //     themeColor: '#0275c5',
-    //     directoryTable: '01_docteur',
-    //     system trueActive:,
-    //      systemName: 'نِظَامْ إِدَارًةْ العيادات',
-    //     systemLink: 'https://system.abyedh.tn/Landing/docteur',
-    //     iconName: '',
-    //     WiconName: '',
-    //     adsImage: '',
-    //selectText: 'حدد الإختيار', //     
-    //xxxxxxxxxx: '',
-    //     yyyyyyyyyy: '',
-    //     adsText: [
-    //         ['بوابة <span style="color:#dc3545 !important;"> طبيب</span> عبارة عن محرك بحث تفاعلي . تنجم تلوج علي أي طبيب حسب الإختصاص اللي تحتاجو و تنجم تاخو معاه موعد و تعرف المعلومات اللي تحتاجها الكل و تنضم مواعيدك مع طبيبك ...',
-    //         'في المقابل كانك طبيب البوابة هاذي توفرلك <span style="color:#dc3545 !important;"> نظام محاسبة و إدارة </span> للعيادة متاعك و تخليك ديما متصل بيها من خلال برنامج إدارة سحابي يربط العيادة بالطبيب بالعاملين فيها بالمريض و بأي جهة أخري حسب الطلب .']
-    //     ],
-    //     subCatagSmall: [
-    //         [
-    //             { id: 1, name: 'مطبعة', value: 'dentiste', imgSrc: 'printer' },
-    //             { id: 2, name: 'بحوث', value: 'dentiste', imgSrc: 'printer' },
-    //         ]   
-    //     ],
-    //     subCatagLarge:[
-    //         [
-    //             { id: 1, name: 'مطبعة', value: 'dentiste', imgSrc: 'printer' },
-    //             { id: 2, name: 'بحوث', value: 'dentiste', imgSrc: 'printer' },
-    //         ]
-    //     ],
-    //     subCateg: [
-    //             { id: 1, name: 'أسنان', value: 'dentiste', imgSrc: 'STOMATOLOGIE' },
-    //             { id: 2, name: 'أطفال', value: 'dentiste', imgSrc: 'PEDIATRIE' },
-    //             { id: 3, name: 'المجاري البولية', value: 'dentiste', imgSrc: 'UROLOGIE' },
-    //     ],
-    //     profileImg:'',
-    //     cardProfile:[
-    //             {id:1, name:'الاسم و اللقب ', resultTag:'Name' , icon:'person-circle'},
-    //             {id:2, name:' الاختصاص ', resultTag:'Genre' , icon:'arrows-move'},
-    //             {id:3, name:' الهاتف ', resultTag:'Phone' , icon:'telephone-forward-fill'},
-    //             {id:4, name:' الولاية ', resultTag:'Gouv' , icon:'geo-alt-fill'},
-    //             {id:5, name:' المنطقة ', resultTag:'Deleg' , icon:'geo-alt'},
-    //             {id:6, name:' العنوان ', resultTag:'Adress' , icon:'pin-map-fill'},
-    //             {id:7, name:' الخبرة ', resultTag:'' , icon:'star-half'},
-    //     ],
-    //     profileBtns:[
-    //         {id:1, name:' حجز موعد   ' , icon:'calendar' , link:'Action', bgColor:''},
-    //         {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
-    //     ],
-    //     profileTarif:true,
-    // },
-
-     /* Tools */
+    
+    /* Tools */
     rentingHouse: {
         tag: 'docteur',
         themeColor: '#6f92d9',

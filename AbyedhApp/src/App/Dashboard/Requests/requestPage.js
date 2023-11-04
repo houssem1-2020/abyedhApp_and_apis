@@ -178,6 +178,8 @@ function RequestPage() {
                 case 'RD': return <StateCard color='rederecter' text='Redirecteé' />;
                 case 'LV': return <StateCard color='retarder' text='Livreé' />;
                 case 'MD': return <StateCard color='redirecter' text='Modifieé' />;
+                case 'PR': return <StateCard color='redirecter' text='Pret' />;
+                case 'PI': return <StateCard color='retarder' text='Plus d info' />;
 
                 case 'T': return <StateCard color='secondary' text='Termineé' />;
                 default:  return <StateCard color='dark' text='Indefinie' />;    

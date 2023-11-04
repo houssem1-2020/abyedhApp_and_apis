@@ -6,25 +6,28 @@ const dirItem = {
         slider: false,
         slides: [
             { id: 1, image: 'docteur', name: 'طَبِيبْ', link: 'docteur' },
-            { id: 2, image: 'pharmacie', name: 'صَيْدَلِية', link: 'pharmacie' },
-            { id: 3, image: 'clinique', name: 'مِصَحَّة', link: 'clinique' },
-            { id: 4, image: 'labo', name: 'مَخْبَرْ', link: 'labo' },
-            { id: 5, image: 'centremedi', name: 'مَرْكَزْ', link: 'centreMD' },
-            { id: 6, image: 'admin_s_hospital', name: 'مٌسْتَشْفَي', link: 'admin_s_hospital' },
-            { id: 7, image: 'admin_s_csb', name: 'مَرْكِزْ صِحَّة', link: 'admin_s_csb' },
+            { id: 2, image: 'infirmier', name: 'infirmier', link: 'infirmier' },
+            { id: 3, image: 'pharmacie', name: 'صَيْدَلِية', link: 'pharmacie' },
+            { id: 4, image: 'clinique', name: 'مِصَحَّة', link: 'clinique' },
+            { id: 5, image: 'labo', name: 'مَخْبَرْ', link: 'labo' },
+            { id: 6, image: 'centremedi', name: 'مَرْكَزْ', link: 'centreMD' },
+            { id: 7, image: 'admin_s_hospital', name: 'مٌسْتَشْفَي', link: 'admin_s_hospital' },
+            { id: 8, image: 'admin_s_csb', name: 'مَرْكِزْ صِحَّة', link: 'admin_s_csb' },
         ],
         smallSlider: true,
         smallDisplay:[
             [
                 { id: 1, image: 'docteur', name: 'طَبِيبْ', link: 'docteur' },
-                { id: 2, image: 'pharmacie', name: 'صَيْدَلِية', link: 'pharmacie' },
-                { id: 3, image: 'clinique', name: 'مِصَحَّة', link: 'clinique' },
-                { id: 4, image: 'labo', name: 'مَخْبَرْ', link: 'labo' },
+                { id: 2, image: 'infirmier', name: 'infirmier', link: 'infirmier' },
+                { id: 3, image: 'pharmacie', name: 'صَيْدَلِية', link: 'pharmacie' },
+                { id: 4, image: 'clinique', name: 'مِصَحَّة', link: 'clinique' },
+                
             ],
-            [
-                { id: 5, image: 'centremedi', name: 'مَرْكَزْ', link: 'centreMD' },
-                { id: 6, image: 'admin_s_hospital', name: 'مٌسْتَشْفَي', link: 'admin_s_hospital' },
-                { id: 7, image: 'admin_s_csb', name: 'مَرْكِزْ صِحَّة', link: 'admin_s_csb' },
+            [   
+                { id: 5, image: 'labo', name: 'مَخْبَرْ', link: 'labo' },
+                { id: 6, image: 'centremedi', name: 'مَرْكَزْ', link: 'centreMD' },
+                { id: 7, image: 'admin_s_hospital', name: 'مٌسْتَشْفَي', link: 'admin_s_hospital' },
+                { id: 8, image: 'admin_s_csb', name: 'مَرْكِزْ صِحَّة', link: 'admin_s_csb' },
             ]
         ]
     },
@@ -39,7 +42,7 @@ const dirItem = {
                 { id: 2, image: 'ecole', name: 'مَدْرَسَة خَاصَّة', link: 'ecole' },
                 { id: 3, image: 'lycee', name: 'مَعْهِدْ خَاصْ', link: 'lycee' },
                 { id: 4, image: 'universite', name: 'جَامِعَة خَاصَّة', link: 'universite' },
-                { id: 5, image: 'impremerie', name: 'مَطْبَعَة', link: 'impremerie' },
+                { id: 5, image: 'formation', name: 'تَكْوِينْ خَاصْ', link: 'formation' },
                 { id: 6, image: 'librairie', name: 'كٌتٌبٍيَّة', link: 'librairie' },
                 { id: 7, image: 'admin_e_centre', name: 'مَرْكِزْ تَكْوِينْ', link: 'admin_e_centre' },
                 { id: 8, image: 'admin_e_biblio', name: 'مَكْتَبَة عٌمٌومِيًّة', link: 'admin_e_biblio' },
@@ -60,7 +63,7 @@ const dirItem = {
                 { id: 4, image: 'universite', name: 'جَامِعَة خَاصَّة', link: 'universite' },
             ],
             [
-                { id: 5, image: 'eduser', name: 'مَطْبَعَة', link: 'impremerie' },
+                { id: 5, image: 'formation', name: 'تَكْوِينْ خَاصْ', link: 'formation' },
                 { id: 6, image: 'librairie', name: 'كٌتٌبٍيَّة', link: 'librairie' },
                 { id: 7, image: 'admin_e_centre', name: 'مَرْكِزْ تَكْوِينْ', link: 'admin_e_centre' },
                 { id: 8, image: 'admin_e_biblio', name: 'مَكْتَبَة عٌمٌومِيًّة', link: 'admin_e_biblio' },
@@ -320,18 +323,18 @@ const dirItem = {
         themeColor: '#795549',
         slider: false,
         slides: [
-            { id: 2, image: 'champ', name: 'بَيْعْ العَلَفْ', link: 'champ'},
-            { id: 1, image: 'animals', name: 'حَيَوَانَاتْ أَلِيفَة', link: 'Tools', tools:true }, 
-            { id: 3, image: 'agtool', name: 'أَدَاةْ فِلاَحِيَّة', link: 'Tools/agritools' , tools:true },
+            { id: 2, image: 'fourragerie', name: 'بَيْعْ العَلَفْ', link: 'fourragerie'},
+            { id: 1, image: 'veterinaire', name: 'بَيْطَرِي', link: 'veterinaire' }, 
+            { id: 3, image: 'agritools', name: 'أَدَاةْ فِلاَحِيَّة', link: 'agritools'  },
         ],
         smallSlider: true,
         smallDisplay:[
             [
-                { id: 1, image: 'animals', name: 'حَيَوَانَاتْ أَلِيفَة', link: 'Tools' , tools:true },
-                { id: 2, image: 'champ', name: 'بَيْعْ العَلَفْ', link: 'champ'   },
+                { id: 1, image: 'veterinaire', name: ' بَيْطَرِي', link: 'veterinaire'  },
+                { id: 2, image: 'fourragerie', name: 'بَيْعْ العَلَفْ', link: 'fourragerie'   },
             ],
             [
-                { id: 3, image: 'agtool', name: 'أَدَاةْ فِلاَحِيَّة', link: 'Tools/agritools' , tools:true },
+                { id: 3, image: 'agritools', name: 'أَدَاةْ فِلاَحِيَّة', link: 'agritools'  },
             ]
         ]
     },
@@ -379,7 +382,7 @@ const dirItem = {
             ],
             [
                 { id: 5, image: 'admin_a_mosq', name: 'جَامَعْ', link: 'admin_a_mosq' },
-                { id: 6, image: 'embassy', name: 'سَفَارَة', link: 'ambassade', tools:true },
+                { id: 6, image: 'embassy', name: 'سَفَارَة', link: 'Tools/ambassade', tools:true },
             ]
         ]
     },

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
 import GConf from '../../AssetsM/generalConf';
+import dirItem from '../../AssetsM/Item'
 import axios from 'axios';
 import { useEffect } from 'react';
-import { Input, Select , Checkbox,  Button, Icon, Divider, Form, TextArea, Loader, Modal} from 'semantic-ui-react';
+import { Input, Select , Checkbox,  Button, Icon, Divider, Form, TextArea, Loader, Modal, Dropdown} from 'semantic-ui-react';
 import { toast } from 'react-toastify';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -11,6 +12,17 @@ import { MapContainer, Marker, Popup, TileLayer, useMapEvents  } from 'react-lea
 import { useNavigate} from 'react-router-dom';
 import ReactGA from 'react-ga';
 ReactGA.initialize('G-JHPD6D9RGH');
+
+const MapEventsHandler = ({ onLocationSelected }) => {
+    useMapEvents({
+      click: (e) => {
+        const { lat, lng } = e.latlng;
+        onLocationSelected({ lat, lng });
+      },
+    });
+  
+    return null;
+};
 
 const GeneralUserData = ({userData, setUserData, UDL, GouvChanged, targetSystem}) =>{
     return(<>
@@ -47,6 +59,14 @@ const GeneralUserData = ({userData, setUserData, UDL, GouvChanged, targetSystem}
     </>)
 }
 const GeneralProfileData = ({inscData, setInscData, PDL, tag, GConf, GouvChanged, targetSystem}) =>{
+    const GenerateGenreListe = () =>  {
+       return GConf.ADIL[tag].subCateg.map(item => ({
+            key: item.id.toString(),
+            value: item.name,
+            text: item.name,
+            image: { src: `https://cdn.abyedh.tn/images/Search/Land_icons/${item.imgSrc}.gif`, avatar: true }
+        }));
+    }
     return(<>
         {/* <div className='card card-body shadow-sm border-div mb-3'> */}
                 <h5 className='text-end text-secondary ' dir='rtl'> <span className='bi bi-house-heart-fill'></span>  معلومات عامة عن {targetSystem.businesName}  </h5>
@@ -56,6 +76,18 @@ const GeneralProfileData = ({inscData, setInscData, PDL, tag, GConf, GouvChanged
                             <small> إسم {targetSystem.businesName} </small>
                             <Input fluid icon='users' className='w-100 text-end font-droid' placeholder={`${targetSystem.businesName}`} value={inscData.name} onChange={(e) => setInscData({...inscData, name: e.target.value })}   />
                         </div>
+                        <small>نوع {targetSystem.businesName} </small>
+                        <Dropdown
+                            search
+                            selection
+                            fluid
+                            wrapSelection={false}
+                            options={GenerateGenreListe()}
+                            placeholder={` تحديد نوع ${targetSystem.businesName}   `}
+                            className='mb-1'
+                            onChange={(e, { value }) => setInscData({...setInscData, Genre: value })}
+                            value={setInscData.Genre}
+                        />
                         <div className='mb-2'>
                             <small> رقم الهاتف  </small>
                             <Input fluid icon='phone' className='w-100 '  placeholder={` رقم هاتف ${targetSystem.businesName}`}   value={inscData.phone} onChange={(e) => setInscData({...inscData, phone: e.target.value })}  />
@@ -78,7 +110,9 @@ const GeneralProfileData = ({inscData, setInscData, PDL, tag, GConf, GouvChanged
         {/* </div> */}
     </>)
 }
-const Horaire = ({alwaysState, setAlwaysState, timming, setPauseDay , SetTimmingData,UpdateTimmingData, setSelectedUpdateDay, selectedUpdateDay}) =>{
+const Horaire = ({alwaysState, setAlwaysState, timming, setTimming, setPauseDay , SetTimmingData,UpdateTimmingData, setSelectedUpdateDay, selectedUpdateDay}) =>{
+    let [addInput, setAddInput] = useState(false)
+    let [dateDataToChange, setDateDataToChange] = useState({pauseDay: false, matinStart:'08:00', matinFinsh:'12:00', soirStart:'14:00', soirFinsh:'18:00'})
     const weekDays = [
         { key: 'af', value: 'Lun', text: 'الانثنين' },
         { key: 'ax', value: 'Mar', text: 'الثلاثاء' },
@@ -87,7 +121,7 @@ const Horaire = ({alwaysState, setAlwaysState, timming, setPauseDay , SetTimming
         { key: 'as', value: 'Vend', text: 'الجمعة' },
         { key: 'ad', value: 'Sam', text: 'السبت' },
         { key: 'ao', value: 'Dim', text: 'الاحد' },
-      ]
+    ]
     const ArabificationDate = (dateName) =>{
         switch (dateName) {
             case 'Lun' : return 'الإثــنين' 
@@ -109,81 +143,88 @@ const Horaire = ({alwaysState, setAlwaysState, timming, setPauseDay , SetTimming
                 break;
         }
     }
-    const DayHoraireOLD = (props) =>{
-        return(<>
-                <div className='row mb-1' >
-                    <div  className='col-6 col-lg-3 order-1 order-lg-1 align-self-center mb-2'>
-                        <b>{ArabificationDate(props.data.day)}</b>
-                    </div>
-                    <div  className='col-12 col-lg-4 order-2'>
-                        <div className='row'>
-                            <div className='col-6'><Input  type='time' size='mini'   disabled={props.data.dayOff}  fluid className='mb-1 w-100' defaultValue={props.data.matin.start} onChange={(e) => SetTimmingData(props.data.day,'matin','start',e.target.value)} /></div>
-                            <div className='col-6'><Input  type='time' size="mini"   disabled={props.data.dayOff}  fluid className='mb-1 w-100' defaultValue={props.data.matin.end} onChange={(e) => SetTimmingData(props.data.day,'matin','end',e.target.value)}/></div>
-                        </div>
-                    </div>
-                    <div  className='col-12 col-lg-4 order-3'>
-                        <div className='row'>
-                            <div className='col-6'><Input  type='time' size="mini"   disabled={props.data.dayOff}  fluid className='mb-1 w-100' defaultValue={props.data.soir.start} onChange={(e) => SetTimmingData(props.data.day,'soir','start',e.target.value)}/></div>
-                            <div className='col-6'><Input  type='time' size="mini"   disabled={props.data.dayOff}  fluid className='mb-1 w-100' defaultValue={props.data.soir.end} onChange={(e) => SetTimmingData(props.data.day,'soir','end',e.target.value)} /></div>
-                        </div>
-                    </div>
-                    <div  className='col-6 col-lg-1 align-self-center order-1 order-lg-4 mb-2'>
-                        <div className="form-check form-switch">
-                            <input className="form-check-input form-check-input-lg" type="checkbox"  onChange={() => setPauseDay(props.data.day,props.data.dayOff)}   />
-                        </div>
-                    </div>
-                </div>
-        </>)
-    }
     const DayHoraire = (props) =>{
         return(<>
-                <div className={`row mb-1 ${props.data.dayOff ? 'd-none':''}`}>
-                    <div  className='col-3 col-lg-4 '>
+                <div className={`row  mb-1 ${props.data.dayOff ? 'text-danger':''}`}>
+                    <div  className='col-3 col-lg-3 m-0 p-1'>
                         <b>{ArabificationDate(props.data.day)}</b>
                     </div>
-                    <div  className='col-5 col-lg-4  '>
+                    <div  className='col-4 col-lg-4  m-0 p-1'>
                         <small>{props.data.matin.start} - {props.data.matin.end}</small>
                     </div>
-                    <div  className='col-4 col-lg-4  '>
-                    <small>{props.data.soir.start} - {props.data.soir.end}</small>
+                    <div  className='col-4 col-lg-4  m-0 p-1'>
+                        <small>{props.data.soir.start} - {props.data.soir.end}</small>
+                    </div>
+                    <div className='col-1 m-0 p-1'>
+                        <span className='bi bi-pencil-square bi-xsm text-secondary' onClick={() => OpenEditTime(props.data.day)}></span>
                     </div>
                 </div>
         </>)
     }
-
+    const OpenEditTime = (value) =>{
+        setSelectedUpdateDay(value)
+        setAddInput(true)
+    }
+    const UpdateTimingFunc = () =>{
+        const targetIndex = timming.findIndex(element => element.day === selectedUpdateDay)
+        let copyOfHoraire = timming
+        copyOfHoraire[targetIndex] = {day: selectedUpdateDay , dayOff: dateDataToChange.pauseDay , matin:{start: dateDataToChange.matinStart ,end: dateDataToChange.matinFinsh},soir:{start: dateDataToChange.soirStart,end: dateDataToChange.soirFinsh}}
+        setTimming(copyOfHoraire)
+        //SetTimmingData()
+        setAddInput(!addInput)
+    }
     return(<>
         <br />
-        <br />
-        <br />
-        <div className='card-body'>
+        <div className=' '>
             <h5 className='text-end text-secondary ' dir='rtl'> <span className='bi bi-calendar-week-fill'></span>   أوقات العمل  </h5>
             <div className='row'>
                 <div className='col-12 col-lg-7'>
-                    <div className='card-body'>
+                    <div className=' '>
                         <div className='row'>
-                            <div className='col-8 col-lg-9 align-self-center'> 
-                                <h5 className='mb-0'>مفتوح دائما</h5>  
+                            <div className='col-10 col-lg-9 align-self-center'> 
+                                <h5 className='mb-0 text-success'>مفتوح دائما</h5>  
                                 <small>عند تفعيل هذه الخاصية ستضهر في حالة مفتوح دائما </small>
                             </div>
-                            <div className='col-4 col-lg-3  align-self-center '> 
+                            <div className='col-2 col-lg-3  align-self-center '> 
                                 <div className="form-check form-switch">
                                     <input className="form-check-input form-check-input-lg" type="checkbox"  onChange={() => setAlwaysState(!alwaysState)}  checked={alwaysState} />
                                 </div>
                             </div>
                         </div>
                         <Divider />
-                        <div className='row text-danger mb-2'>
-                            <div  className='col-4 col-lg-4'> <b>اليوم</b> </div>
-                            <div  className='col-4 col-lg-4'> <small>صباح</small> </div>
-                            <div  className='col-4 col-lg-4'> <small>مساء</small> </div>
-                        </div>
-                        
-                        {
-                            timming.map( (data,index) => <DayHoraire key={index} data={data} />)
+                        {addInput ? 
+                                <div className=' card card-body border-div  '>
+                                    <div className='text-start'><span className='bi bi-x-circle-fill  text-danger text-secondary mb-2' onClick={() => setAddInput(!addInput)}></span></div>
+                                    <h5 className='mt-0'> هل يوم {ArabificationDate(selectedUpdateDay)} يوم راحة ؟  </h5>
+                                    <Select options={[ { key: 'af', value: false, text: 'لا' }, { key: 'ax', value: true, text: 'نعم' }]} onChange={(e, {value}) => setDateDataToChange({... dateDataToChange, pauseDay : value})} className='mb-3'/>
+                                    <div className='row mb-3 '>
+                                        <div className='col-6'><Input  type='time' size='mini'  value={dateDataToChange.matinStart}  fluid className='mb-1 w-100'  onChange={(e) => setDateDataToChange({... dateDataToChange, matinStart : e.target.value})} /></div>
+                                        <div className='col-6'><Input  type='time' size="mini"  value={dateDataToChange.matinFinsh} fluid className='mb-1 w-100'  onChange={(e) => setDateDataToChange({... dateDataToChange, matinFinsh : e.target.value})}/></div>
+                                    </div>
+                                    <div className='row mb-3'>
+                                        <div className='col-6'><Input  type='time' size='mini'  value={dateDataToChange.soirStart}   fluid className='mb-1 w-100'  onChange={(e) => setDateDataToChange({... dateDataToChange, soirStart : e.target.value})} /></div>
+                                        <div className='col-6'><Input  type='time' size="mini"  value={dateDataToChange.soirFinsh}  fluid className='mb-1 w-100'  onChange={(e) => setDateDataToChange({... dateDataToChange, soirFinsh : e.target.value})}/></div>
+                                    </div>
+                                    <Button size='mini'     className='rounded-pill    font-droid' onClick={() => UpdateTimingFunc()} fluid  >   <Icon name='time' /> تعديل وقت يوم  {ArabificationDate(selectedUpdateDay)}  </Button>
+                                </div>
+
+                        :
+                                <>
+                                    <div className='row text-secondary mb-2'>
+                                        <div  className='col-4 col-lg-4'> <b>اليوم</b> </div>
+                                        <div  className='col-4 col-lg-4'> <small>صباح</small> </div>
+                                        <div  className='col-4 col-lg-4'> <small>مساء</small> </div>
+                                    </div>
+                                    
+                                    {
+                                        timming.map( (data,index) => <DayHoraire key={index} data={data} />)
+                                    }
+                                </>
                         }
+                        
                     </div>
                 </div>
-                <div className='col-12 col-lg-5'>
+                <div className='col-12 col-lg-5 d-none'>
                     <div className='card card-body border-div'>
                         <h5>قم باختيار يوم لتعديل الوقت </h5>
                         <Select options={weekDays} onChange={(e, { value }) => setSelectedUpdateDay(value)} className='mb-3'/>
@@ -212,6 +253,30 @@ const Horaire = ({alwaysState, setAlwaysState, timming, setPauseDay , SetTimming
         </div>
     </>)
 }
+const Location = ({position,handleLocationSelected,GetMyLocation}) =>{
+    return(<>
+        <br />
+        <div className='  mb-3'>
+                <div className='row'>
+                        <div className='col-6 align-self-center text-end'><h5 className='text-end text-secondary ' dir='rtl'> <span className='bi bi-geo-alt-fill'></span>   الموقع الجغرافي </h5></div>
+                        <div className='col-6 align-self-center text-start'><Button icon='map pin' className='rounded-circle' onClick={() => GetMyLocation()}></Button></div>
+                </div> 
+                
+                <small className='mb-3'> قم بالنقر علي الزر لتحديد مكانك الحاليا إفتراضيا  </small>
+                <MapContainer center={[position.Lat,position.Lng]} zoom={6} scrollWheelZoom={false} className="map-height  border-div">
+                    <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <MapEventsHandler onLocationSelected={handleLocationSelected} />
+                    <Marker position={[position.Lat,position.Lng]}>
+                        <Popup> </Popup>
+                    </Marker>
+                </MapContainer> 
+                {/* <LocationPicker    />*/}
+        </div>
+    </>)
+}
 
 function ProfileAction() {
 
@@ -235,7 +300,7 @@ function ProfileAction() {
 
     let [selectedUpdateDay , setSelectedUpdateDay] = useState('Lun')
     let [alwaysState , setAlwaysState] = useState(false)
-    let [timming, setTimming] = useState([{day:"Lun",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"16:00"}},{day:"Mar",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"16:00"}},{day:"Mer",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"16:00"}},{day:"Jeu",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"16:00"}},{day:"Vend",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"16:00"}},{day:"Sam",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"16:00"}},{day:"Dim",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"16:00"}}])
+    let [timming, setTimming] = useState([{day:"Lun",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Mar",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Mer",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Jeu",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Vend",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Sam",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Dim",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}}])
     
     let [loaderState, setLS] = useState(false)
     let [saveBtnState, setSaveBtnState] = useState(false)
@@ -290,6 +355,8 @@ function ProfileAction() {
             setInscData({...inscData, gouv: value })
             const found = GConf.abyedhMap.Deleg.filter(element => element.tag === value)
             setPDL(found)
+            const gouvCord = GConf.abyedhMap.GouvData.filter(element => element.name === value)
+            setPosition({Lat: gouvCord[0].lan, Lng: gouvCord[0].lng})
         }
     }
     const SetTimmingData = (day,time,genre,value) => {
@@ -334,7 +401,7 @@ function ProfileAction() {
           action: 'SystemGenre',
           label: targetSystem
         });
-      }
+    }
 
     const Inscription = () =>{
             handleClick(tag)
@@ -410,6 +477,24 @@ function ProfileAction() {
             }
         );
     }
+    function findElementByLink(link) {
+        for (const category in dirItem) {
+          if (dirItem[category] && dirItem[category].slides) {
+            for (const slide of dirItem[category].slides) {
+              if (Array.isArray(slide)) {
+                for (const subSlide of slide) {
+                  if (subSlide.link === link) {
+                    return subSlide.name
+                  }
+                }
+              } else if (slide.link === link) {
+                return slide.name
+              }
+            }
+          }
+        }
+        return null;
+    }
 
     /* ############### Card #################*/
     const TopNavBar = () =>{
@@ -438,34 +523,7 @@ function ProfileAction() {
                 </nav>
             </>)
     }
-    const Location = () =>{
-        return(<>
-            <br />
-            <br />
-            <br />
-            <div className='  mb-3'>
-                    <div className='row'>
-                            <div className='col-6 align-self-center text-end'><h5 className='text-end text-secondary ' dir='rtl'> <span className='bi bi-geo-alt-fill'></span>   الموقع الجغرافي </h5></div>
-                            <div className='col-6 align-self-center text-start'><Button icon='map pin' className='rounded-circle' onClick={() => GetMyLocation()}></Button></div>
-                    </div> 
-                    
-                    <small className='mb-3'> قم بالنقر علي الزر لتحديد مكانك الحاليا إفتراضيا  </small>
-                    <MapContainer center={[position.Lat,position.Lng]} zoom={15} scrollWheelZoom={false} className="map-height cursor-map-crosshair border-div">
-                        <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
-                        <MapEventsHandler onLocationSelected={handleLocationSelected} />
-                        <Marker position={[position.Lat,position.Lng]}>
-                            <Popup>
-                                
-                            </Popup>
-                        </Marker>
-                    </MapContainer> 
-                    {/* <LocationPicker    />*/}
-            </div>
-        </>)
-    }
+
 
     const BtnCard = () =>{
         return(<>
@@ -477,7 +535,7 @@ function ProfileAction() {
                         <div className='text-secondary'>
                             <ul>
                                 <li> بعد إستكمال التسجيل سنحاول الإتصال بكم في أقرب وقت ممكن من أجل مساعدتكم في عملية التفعيل </li>
-                                <li>   يتمتع كل مسجل بواجهة مجانية و دون رسوم  لإستقبال الطلبات و المواعيد و التواصل مع العملاء  </li>
+                                <li>   يتمتع كل مشترك بنسخة مصغرة و مجانية من  النظام  لإستقبال الطلبات و التواصل مع العملاء  </li>
                                 <li> <span className='bi bi-exclamation-triangle-fill text-danger'></span> أي طلب تسجيل يحتوي علي معلومات خاطئة أو مضللة سيلغي آليا </li>
                             </ul>
                         </div>
@@ -523,12 +581,15 @@ function ProfileAction() {
 
     const UserCard = () =>{
         return(<>
+            <NavLink exact='true' to={`/S/I/user/${tag}`}  >
                 <div className='card card-body border-div shadow-sm'>
                     <div className='row'>
+                        <div className='col-2 align-self-center text-secondary'><span className='bi bi-arrow-right'></span></div>
+                        <div className='col-8 align-self-center text-secondary'><b>  تسجيل بإسم : {GConf.UserData.UData.Name}</b></div>
                         <div className='col-2'><img  className="rounded-circle p-0 m-0 me-1" src={`https://cdn.abyedh.tn/images/p_pic/${GConf.UserData.UData.PictureId}.gif`}   alt="Logo" style={{width:'30px', height:'30px'}} /></div>
-                        <div className='col-10 align-self-center text-secondary'><b>سيتم التسجيل بإسم : {GConf.UserData.UData.Name}</b></div>
                     </div>
                 </div>
+            </NavLink>
         </>)
     }
     return ( <>
@@ -540,23 +601,21 @@ function ProfileAction() {
         <div className='container container-lg font-droid' dir='rtl'>
             {GConf.UserData.Logged ? 
                 <>
-                 {localStorage.getItem('AddToDirectory') ? <BottomCard />  : <></>}
-                 <h3 className='text-center ' style={{color:targetSystem.themeColor}}>  تسجيل    {targetSystem.businesName} في منصة أبيض </h3>
-
-                 <h4 className='text-secondary'>1- منصة أبيض هي محرك بحث شامل تنجم تلقي فيه العديد من أصحاب الخدمات و نقاط البيع  و تنجم تتواصل معاهم باش تتمتع بخدماتهم و منتجاتهم  </h4>
+                 {/* {localStorage.getItem('AddToDirectory') ? <BottomCard />  : <></>} */}
+                 <h3 className='text-center ' style={{color:targetSystem.themeColor}}>  تَسْجِيلْ     {findElementByLink(tag)}   فِي مِنَصّةْ أَبْيَضْ </h3>
+                 <br /><UserCard /> <br />
+                 {/* <h4 className='text-secondary'>1- منصة أبيض هي محرك بحث شامل تنجم تلقي فيه العديد من أصحاب الخدمات و نقاط البيع  و تنجم تتواصل معاهم باش تتمتع بخدماتهم و منتجاتهم  </h4>
                  <h4 className='text-secondary'>2- في المقابل توفر المنصة لأصحاب الخدمات و نقاط البيع هاذم أنظمة لإدارة الأعمال متاعهم و تساعدهم كذلك في التعريف بأنفسهم و بأعمالهم من أجل الوصل أكثر لعملائهم  ...</h4>
                  <h4 className='text-secondary'>3-  كانك من أصحاب الخدمات و نقاط البيع تنجم تسجل معانا و تتحصل علي منصة مجانية تعاونك  تستقبل الطلبات متاعك و تقوم بتنظيمها   ...</h4>
-                 <br />
-                 <br />
+                   */}
 
-                 {GConf.UserData.Logged ? <UserCard />  : <GeneralUserData userData={userData}  setUserData={setUserData} GouvChanged={GouvChanged} UDL={UDL} targetSystem={targetSystem} />}
+                 {/* {GConf.UserData.Logged ? <UserCard />  : <GeneralUserData userData={userData}  setUserData={setUserData} GouvChanged={GouvChanged} UDL={UDL} targetSystem={targetSystem} />} */}
                  
-                 <br />
-                 <br />
+                  
                  <div className='  card-body   border-div mb-3'>
                     <GeneralProfileData tag={tag} GConf={GConf} inscData={inscData} setInscData={setInscData} PDL={PDL}  targetSystem={targetSystem}  GouvChanged={GouvChanged}   />
-                    <Location />
-                    <Horaire alwaysState={alwaysState} setAlwaysState={setAlwaysState} timming={timming} setPauseDay={setPauseDay} SetTimmingData={SetTimmingData} setSelectedUpdateDay={setSelectedUpdateDay} selectedUpdateDay={selectedUpdateDay} UpdateTimmingData={UpdateTimmingData} />
+                    <Location position={position} handleLocationSelected={handleLocationSelected} GetMyLocation={GetMyLocation} />
+                    <Horaire alwaysState={alwaysState} setAlwaysState={setAlwaysState} timming={timming} setTimming={setTimming} setPauseDay={setPauseDay} SetTimmingData={SetTimmingData} setSelectedUpdateDay={setSelectedUpdateDay} selectedUpdateDay={selectedUpdateDay} UpdateTimmingData={UpdateTimmingData} />
                  </div>
                  <BtnCard /> 
                 </>
@@ -586,7 +645,7 @@ function ProfileAction() {
                         <h4 className='text-center text-سثؤخىيضقغ'> إضغط ليتم تمريرك لصفحة متابعة عملية القبول</h4>
                         <Button fluid className='rounded-pill' onClick={() => navigate(`/S/I/user/${tag}`)}> صفحة المتابعة  </Button>
                 </Modal.Content>
-            </Modal>
+        </Modal>
         <br />
         <br />
 

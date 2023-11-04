@@ -138,7 +138,7 @@ const TerminerCard = ({requestData, setRequestData, reqState, FindBtnState, Upda
                 </div>
                  
                 <div className=' mb-2'>
-                    <Button fluid disabled={FindBtnState(reqState).terminerState} className='rounded-pill bg-secondary text-white'    onClick={ () => UpdateRequestState('T',false,false,true,'terminer')}><Icon name='check square' /> Terminer </Button>
+                    <Button fluid disabled={FindBtnState(reqState).terminerState} className='rounded-pill bg-secondary text-white'    onClick={ () => UpdateRequestState('T',false,false,false,false)}><Icon name='check square' /> Terminer </Button>
                 </div>
             </div> 
     </>
@@ -169,10 +169,10 @@ function DocteurSpecific() {
             menuItem: { key: 'dddd', icon: 'user', content: 'Patient ' }, 
             render: () => <RetarderCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
         },          
-        {
-            menuItem: { key: 'stdddart', icon: 'user', content: 'Patient ' }, 
-            render: () => <RedirecterCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
-        },
+        // {
+        //     menuItem: { key: 'stdddart', icon: 'user', content: 'Patient ' }, 
+        //     render: () => <RedirecterCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
+        // },
         {
             menuItem: { key: 'ffsd', icon: 'user', content: 'Patient ' }, 
             render: () => <TerminerCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
@@ -324,6 +324,10 @@ function DocteurSpecific() {
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-calendar-check me-2'></span> Passe Le</td>
                                     <td>{loading ? new Date(requestData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                </tr>
+                                <tr>
+                                    <td className='col-5 text-secondary'><span className='bi bi-card-checklist me-2'></span> Cause du Rdv</td>
+                                    <td>{loading ? requestData.RDV_Cause : ''}</td>
                                 </tr>
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-chat-dots-fill me-2'></span> Commentaire</td>

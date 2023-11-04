@@ -105,7 +105,7 @@ input[type="number"]:focus,
 .active.item { border-color: var(--main-bg-color) !important; }
 .rounded-system{ border-radius: 20px; }
 .form-check-input{ width: 35px !important; height: 17px !important;}
-.form-check-input:checked { background-color: var(--main-bg-color) !important; border-color: pink; }
+.form-check-input:checked { background-color: var(--main-bg-color) !important; border-color: var(--main-bg-color); }
 .sub-sys-round{ border-radius: 15px !important; }
 .main-big-card{ background-image: linear-gradient(to right top, var(--main-bg-color),  #ffffff); border: 0px solid; }
 .w-100-seach-input input, .w-100-seach-input{ width:100% !important;}

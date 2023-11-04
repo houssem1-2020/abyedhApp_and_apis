@@ -164,15 +164,15 @@ function DocteurSpecific() {
         {
             menuItem: { key: 'ffff', icon: 'grab', content:  'Controle ' }, 
             render: () => <RefuserCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />  ,
-        },  
-        {
-            menuItem: { key: 'dddd', icon: 'user', content: 'Patient ' }, 
-            render: () => <LivrerCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
-        },          
+        },           
         {
             menuItem: { key: 'stdddart', icon: 'user', content: 'Patient ' }, 
             render: () => <ModifierCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
         },
+        {
+            menuItem: { key: 'dddd', icon: 'user', content: 'Patient ' }, 
+            render: () => <LivrerCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
+        }, 
         {
             menuItem: { key: 'ffsd', icon: 'user', content: 'Patient ' }, 
             render: () => <TerminerCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,

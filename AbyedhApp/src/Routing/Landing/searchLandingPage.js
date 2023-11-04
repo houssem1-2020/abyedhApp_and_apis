@@ -216,7 +216,7 @@ function SearchLandingPage() {
                             <h5 className='text-end text-secondary m-1 mb-3 d-lg-none'>  {GConf.UserData.Logged ?  'أو إبحث في ' : 'حدد موقع البحث'}  </h5>
                             <SelectGouv />
                         </div>
-                        <div className='col-12 col-lg-3 align-self-center order-lg-3'>
+                        <div className={`col-12 col-lg-3 align-self-center order-lg-3 ${gouv ? '' : 'd-none'}`}>
                             <h5 className='text-end text-secondary m-1'>   </h5>
                             <SelectDeleg />
                         </div>
@@ -242,7 +242,7 @@ function SearchLandingPage() {
                         <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className=' mt-3 img-responsive mb-1 ms-2' width='100%'  height='auto' />
                     </div>
                     <div className='col-9 align-self-center text-center'>
-                        <p>منصة أبيض توفر لك نظام إستقبال الطلبات  يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ   </p>
+                        <p> إِكْتَشِفْ {GConf.ADIL[tag].systemName} اللّي  يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ   </p>
                         {/* <p >   <b style={{color:GConf.ADIL[tag].themeColor}}>{GConf.ADIL[tag].systemName}</b> يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ  </p> */}
                         {/* {localStorage.getItem('AddToDirectory') ? <Button className='rounded-pill text-secondary' style={{backgroundColor:'white'}} size='tiny' onClick={() => navigate(`/S/I/user/${tag}`)}> متابعة عملية التسجيل </Button>  : <></>}  */}
                     </div>
@@ -253,6 +253,27 @@ function SearchLandingPage() {
                         <div className='col-6 align-self-center text-end'><Button className='rounded-pill text-white mb-2' style={{backgroundColor:GConf.ADIL[tag].themeColor}} size='tiny' onClick={() => navigate(`/App/L/${tag}`)}>  الدخول للنظام </Button></div>
                     </div>
                 </div>
+                 
+                
+            </div> 
+        </>)
+    }
+    const AdminSoon = () =>{
+        return(<>
+            <div className='card p-2 shadow mb-2 border-div d-md-none'>
+                <h5 className='text-end text-secondary mb-1 mt-2' dir='rtl'> منصة الإدارة الرقمية </h5>
+                <a href={`/S/I/add/${tag}`} className=' text-secondary ' ></a>
+                <div className='row mt-0 pt-0 '>
+                    <div className='col-3 align-self-center text-center'>
+                        <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className=' mt-3 img-responsive mb-1 ms-2' width='100%'  height='auto' />
+                    </div>
+                    <div className='col-9 align-self-center text-end'>
+                        <p className='mb-0' > منصة الإدارة الرقمية ستكون متوفرة قريبا   </p>
+                        <p className='mt-0'>  نحن نعمل علي ذلك   </p>
+                        
+                    </div>
+                </div>
+
                  
                 
             </div> 
@@ -346,12 +367,10 @@ function SearchLandingPage() {
                 <AdsLanding displylg />
                 <div className='row'> 
                     <div className='col-12 col-lg-12 align-self-center  ' dir='rtl'>
-                        <div className='row mb-4'>
+                        <div className='row mb-2'>
                             <div className='col-4 col-lg-4 align-self-center text-center d-none d-lg-block '>
                                 <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className='img-responsive  ' width='60%' height='auto'  />
                             </div>
-
-
                             <div className='col-12 col-lg-8 align-self-center text-center'>
                                 <h5 className='text-end mb-2 me-3 text-secondary'>{GConf.ADIL[tag].selectText}</h5>
                                 <div className='d-none d-lg-flex '>
@@ -414,10 +433,8 @@ function SearchLandingPage() {
                                             
                                         </Swiper>
                                 </div> 
-                            </div>
-                            
+                            </div> 
                         </div>
-                        
                     </div> 
                     <div className='col-12 col-lg-12 align-self-center'>
                         <div className='d-none d-lg-block lol-hhh'>
@@ -429,7 +446,7 @@ function SearchLandingPage() {
                     </div>
                 </div> 
                 <br />
-                {GConf.ADIL[tag].systemActive ? <SystemLinkCard /> : <></> }
+                {GConf.ADIL[tag].systemActive ? <SystemLinkCard /> : <AdminSoon /> }
             </div> 
             <br />
             <ButtomCard />
@@ -437,8 +454,7 @@ function SearchLandingPage() {
                 onClose={() => setOpen(false)}
                 onOpen={() => setOpen(true)}
                 open={open}
-                dimmer= 'blurring'
-                    
+                dimmer= 'blurring' 
                 >
                 <Modal.Content  >
                         <GouvListeToSelet />

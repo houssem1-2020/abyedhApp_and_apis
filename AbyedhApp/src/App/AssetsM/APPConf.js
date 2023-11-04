@@ -25,7 +25,7 @@ const APPConf = {
     PID: GetPID(),
     systemTag: GetSystemTag(),
     settingValue : GetSettingValue(),
-
+    //http://localhost:3010
     ApiLink : 'https://api.system.abyedh.tn/apiSystemAbyedh/app', //https://api.system.abyedh.tn/apiSystemAbyedh/System 
     ApiRequestLink : 'https://api.system.abyedh.tn/apiSystemAbyedh', //https://api.system.abyedh.tn/apiSystemAbyedh/System 
 

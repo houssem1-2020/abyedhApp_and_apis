@@ -26,11 +26,10 @@ function ProfileFollow() {
              
         })
         .then(function (response) {
-            console.log(response.data)
            if (response.data.length != 0) {  
             setSavedList(response.data)
-            setLoading(false)
            }
+           setLoading(false)
         })
         }, [])
 
@@ -60,7 +59,7 @@ function ProfileFollow() {
     const TopNavBar = () =>{
         const UserCard = () =>{
             return(<>
-                <NavLink exact='true' to='#' className="navbar-brand border-div m-0 p-0 ms-3">
+                <NavLink exact='true' to='/Profile' className="navbar-brand border-div m-0 p-0 ms-3">
                     {/* <span className='bi bi-person-circle bi-md text-white'></span> */}
                     <img  className="rounded-circle p-0 m-0 me-1" src={`https://cdn.abyedh.tn/images/p_pic/${GConf.UserData.UData.PictureId}.gif`}   alt="Logo" style={{width:'30px', height:'30px'}} />
                 </NavLink>
@@ -95,9 +94,12 @@ function ProfileFollow() {
         const DirectoryCard = (props) =>{
             return(<>
                     <div className='card card-body border-div shadow-sm mb-3'>
-                        <h5 className='mb-3 mt-1'>تمت إضافتك لمحرك البحث أبيض بنجاج يمكنك أن تقوم بزيارة ملفك  من <a href={`https://abyedh.tn/S/P/${props.Tag}/${props.PID}`} target='c_blank'>هنا</a>  </h5>
-                        <small className='mb-1 mt-1 text-secondary'>كما يمكنك أيضا أن تستقبل طلبات عملائك  من خلال واجهة إستقبال الطلبيات المجاني . كلمة المرور هي رقم هاتف العمل </small>
-                        <Button className='rounded-pill ' as='a' target='_blank'  fluid href={`https://app.abyedh.tn/?tag=${tag}`} > واجهة إستقبال الطلبيات  <span className='bi bi-google-play'></span></Button>
+                        <h5 className='mb-3 mt-1'>تمت إضافتك لمحرك البحث أبيض بنجاج يمكنك أن تقوم بزيارة ملفك  من <NavLink exact={true} to={`/S/P/${props.Tag}/${props.PID}`}>هنا</NavLink><a href={`https://abyedh.tn/S/P/${props.Tag}/${props.PID}`} target='c_blank'></a>  </h5>
+                        <small className='mb-1 mt-1 text-secondary' dir='rtl'>
+                                كما يمكنك أيضا أن تستقبل طلبات عملائك  من خلال واجهة إستقبال الطلبيات  . 
+                                <br />  معرف الدخول :  {JSON.parse(props.data.UserData).phone}
+                                <br />  كلمة المرور  :  {JSON.parse(props.data.UserData).phone} </small>
+                        <NavLink exact={true} to={`/App/Login/${props.data.Genre}`}><Button className='rounded-pill ' as='a' target='_blank'  fluid  > واجهة إستقبال الطلبيات  <span className='bi bi-google-play'></span></Button></NavLink>
                     </div>
             </>)
         }
@@ -106,11 +108,11 @@ function ProfileFollow() {
             <div className='card card-body border-div shadow-sm mb-2 text-end'>
                 <div className='text-start'><StateCard status={props.data.Req_State} /></div>
                 
-                {props.data.Req_State != 'A' ?  <h4>  تم تسجيلك بنجاح </h4>  : <h4>  تم قبول عمليةالتسجيل <span className='bi bi-check-circle-fill text-success'></span> </h4>}
+                {props.data.Req_State != 'A' ?  <h4>  تم تسجيلك بنجاح </h4>  : <h4>  تم قبول عملية التسجيل <span className='bi bi-check-circle-fill text-success'></span> </h4>}
                 
-                <div className='mb-1'>{props.data.Assigned_UID != 0  ?  GConf.UserData.Logged ? <UserCard />  : <Button className='rounded-pill mb-3'  size='tiny' onClick={() => logInSystem(props.data.Assigned_UID)}>   إضغط هنا لتسجيل الدخول لمنصة أبيض    </Button>     : <h4> ... جاري تسجيل معلومات الدخول   </h4> }</div>
+                {/* <div className='mb-1'>{props.data.Assigned_UID != 0  ?  GConf.UserData.Logged ? <UserCard />  : <Button className='rounded-pill mb-3'  size='tiny' onClick={() => logInSystem(props.data.Assigned_UID)}>   إضغط هنا لتسجيل الدخول لمنصة أبيض    </Button>     : <h4> ... جاري تسجيل معلومات الدخول   </h4> }</div> */}
  
-                <div className='mb-1'>{props.data.Assigned_PID ?  <DirectoryCard PID={props.data.Assigned_PID} Tag={props.data.Genre} /> : <h4>  ... جاري التسجيل في محرك البحث     </h4>}</div>
+                <div className='mb-1'>{props.data.Assigned_PID ?  <DirectoryCard PID={props.data.Assigned_PID} Tag={props.data.Genre} data={props.data} /> : <h4>  ...  جاري التسجيل في محرك البحث     </h4>}</div>
             </div>
         </>)
     }
@@ -157,6 +159,14 @@ function ProfileFollow() {
                 </div>
         </>)
     }
+    const EmptyResultCard = () =>{
+        return(<>
+                <div className='card-body mb-4 text-center '>
+                    <span className='bi bi-chat-square-text bi-lg text-secondary'></span>
+                    <h1 className='text-secondary'>لا توجد نتائج حاليا </h1>
+                </div>
+        </>)
+    }
 
     return ( <>
         <TopNavBar />
@@ -165,11 +175,18 @@ function ProfileFollow() {
         <br />
         <br />
         <div className='container'>
-            <h1>#{localStorage.getItem('AddToDirectory')}</h1>
+            {/* <h1>#{localStorage.getItem('AddToDirectory')}</h1> */}
             {loading ? 
             <PlacHolderCard /> 
             : 
-            <>{savedList.map((data,index) => <SavedListeCard key={index} data={data} />)}</>}
+            <> {
+                savedList.length == 0 ? 
+                <><EmptyResultCard /></>
+                :
+                <>{savedList.map((data,index) => <SavedListeCard key={index} data={data} />)} <br /></>
+                }
+                
+            </>}
             
         </div>
          

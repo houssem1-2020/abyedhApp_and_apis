@@ -231,6 +231,7 @@ function MainLandingPage() {
                     <div  className="text-center hvr-float mb-4">
                         <NavLink exact='true' to={props.cardData.tools ?  `${props.cardData.link}` : `S/L/${props.cardData.link}`} >
                             <img className='mb-0' src={`https://cdn.abyedh.tn/Images/Search/CIcons/${props.cardData.image}.gif`}  width='50px' height='50px' />
+                            {/* <small className='d-block text-secondary  mb-0 mt-0 d-none'>{Math.floor(1000 + Math.random() * 9000)}</small> */}
                             <h5 className="font-droid text-secondary mt-0"> {props.cardData.name} </h5>
                         </NavLink>
                     </div>

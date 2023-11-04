@@ -5,7 +5,7 @@ import GConf from '../../../AssetsM/generalConf';
 import { Form, TextArea, Input , Button, Icon, Loader} from 'semantic-ui-react'
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { io } from "socket.io-client"
+//import { io } from "socket.io-client"
 
 
 function DocteurActions(props) {

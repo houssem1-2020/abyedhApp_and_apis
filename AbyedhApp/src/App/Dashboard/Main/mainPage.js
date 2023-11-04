@@ -6,7 +6,7 @@ import { Button , Statistic} from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import CountUp from 'react-countup';
-import { io } from "socket.io-client"
+//import { io } from "socket.io-client"
 import GConf from '../../../AssetsM/generalConf';
 
 function RequestPage() {
