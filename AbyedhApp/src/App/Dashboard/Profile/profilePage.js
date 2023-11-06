@@ -283,8 +283,8 @@ function ProfilePage() {
     }
     const CalculateLikes = (table) =>{
         const WantedValue =  table.length ;
-        if ( WantedValue / 1000 > 1 && WantedValue / 1000000 < 1) { return parseFloat(WantedValue / 1000 ).toFixed(1) + 'K' }
-        else  if (WantedValue / 1000000 > 1) { return parseFloat(WantedValue / 1000000 ).toFixed(1) +'M' }
+        if ( (WantedValue / 1000) > 1 && (WantedValue / 1000000) < 1) { return parseFloat(WantedValue / 1000 ).toFixed(1) + 'K' }
+        else  if ( (WantedValue / 1000000) > 1) { return parseFloat(WantedValue / 1000000 ).toFixed(1) +'M' }
         else{ return parseInt(WantedValue)  }
     }
     const CalculateReview = (table, value ) =>{

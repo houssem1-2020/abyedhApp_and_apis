@@ -194,7 +194,7 @@ function AboutPage() {
                     <br />
                     <br />
                     <br />
-                    < ButtomCard />
+                    <ButtomCard />
             </div>
     </> );
 }

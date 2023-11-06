@@ -200,6 +200,49 @@ const APPItem = {
         xxxxxxxxxx: [],
         yyyyyyyyyy : []
     },
+    infirmier:{
+        colorTheme:'#1dd3b0',
+        adsImageUrl:'labo.svg',
+        systemTitle:' نظام إدارة المخابر ',
+        systemUrl:'#',
+        directoryTable:'صاحب مخبر طبي', 
+        RequestTable:'Labo', 
+        systemReady: false ,
+        adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
+        systemPos : [
+            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+        ],
+        itemsList : [
+            {id: 1 , colLg:12, colSm:12, itemName:'Rendy Vous' , icon:'check-all', link:'rq/labo_rdv'},
+            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+        ],
+        navItemList2 : {
+            labo_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Pret' , color:'#92ab03',  icon:'send-check', navIndex: 5, navIndexName:'PR'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
+        genreListe : [
+            { id: 1, name: 'تحليل وراثي خلوي', value: 'ANATOMIE_PATHOLOGIE', imgSrc: 'dna' },
+            { id: 2, name: 'تحليل بيولوجي طبي', value: 'ANALYSES DE BIOLOGIE', imgSrc: 'blod' },
+            { id: 3, name: ' تشريح وعلم الخلايا', value: 'CYTOGENETIQUE', imgSrc: 'cellule' },    
+        ],
+        tableItemList : {
+            labo_rdv :[{id:1, value: 'RDV_Cause', genre: 'text'}, {id:2, value: 'RDV_Date', genre: 'date'}, {id:2, value: 'RDV_Time', genre: 'text'}], 
+        },
+        tableHeader : {
+            labo_rdv : ['*', 'Client', 'Passé le','Passé à','Cause ','De','Vers','Etat','Voir'], 
+        },
+        xxxxxxxxxx: [],
+        yyyyyyyyyy : []
+    },
     centreMD:{
         colorTheme:'#52a3c9',
         adsImageUrl:'centre.svg',
@@ -528,6 +571,64 @@ const APPItem = {
         },
         tableHeader : {
             librairie_shop : ['*', 'Client', 'Passé le','Passé à','Totale','Livraison','Etat','Voir'], 
+        },
+        xxxxxxxxxx: [],
+        yyyyyyyyyy : []
+    },
+    formation:{
+        colorTheme:'#4c4a48',
+        adsImageUrl:'impremerie.svg',
+        systemTitle:'نظام إداراة المطابع',
+        systemUrl:'#',
+        directoryTable:'صاحب مطبعة', 
+        RequestTable:'Impremerie', 
+        systemReady: false ,
+        adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
+        systemPos : [
+            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+        ],
+        itemsList : [
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+        ],
+        navItemList2 : {
+            docteur_rdv : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
+        genreListe : [
+            { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
+            { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
+            { id: 3, name: 'المجاري البولية', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
+            { id: 4, name: 'امراض الرئة', value: 'PNEUMOLOGIE', imgSrc: 'PNEUMOLOGIE' },
+            { id: 5, name: 'العيون', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
+            { id: 6, name: 'أذن أنف حنجرة', value: 'ORL', imgSrc: 'ORL' },
+            { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
+            { id: 8, name: 'الكلي', value: 'NEPHROLOGIE', imgSrc: 'NEPHROLOGIE' },
+            { id: 9, name: 'نساء و توليد', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
+            { id: 10, name: 'الجهاز الهضمي', value: 'GASTROLOGIE', imgSrc: 'GASTROLOGIE' },
+            { id: 11, name: 'الغدد', value: 'ENDOCRINOLOGIE', imgSrc: 'ENDOCRINOLOGIE' },
+            { id: 12, name: 'البشرة', value: 'DERMATOLOGIE', imgSrc: 'DERMATOLOGIE' },
+            { id: 13, name: 'القلب', value: 'CARDIOLOGIE', imgSrc: 'CARDIOLOGIE' },
+            { id: 14, name: 'النفس', value: 'PSYCHIATRIE', imgSrc: 'PSYCHIATRIE' },
+            { id: 15, name: 'التغذية', value: 'NUTRITION', imgSrc: 'NUTRITION' },    
+        ],
+        tableItemList : {
+            restaurant_commande : [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}], 
+            restaurant_reservation :  [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}]
+        },
+        tableHeader : {
+            restaurant_commande : ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Voir'], 
+            restaurant_reservation :  ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Etat','Voir'],
         },
         xxxxxxxxxx: [],
         yyyyyyyyyy : []
@@ -1297,6 +1398,47 @@ const APPItem = {
         xxxxxxxxxx: [],
         yyyyyyyyyy : []
     },
+    mecanicien:{
+        colorTheme:'#2d4664',
+        adsImageUrl:'car_location.svg',
+        systemTitle:'نظام إداراة شركات كراء السيارات',
+        systemUrl:'#',
+        directoryTable:'صاحب شركة كراء السيارات', 
+        RequestTable:'LocationVoiture', 
+        systemReady: false ,
+        adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
+        systemPos : [
+            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+        ],
+        itemsList : [
+            {id: 1 , colLg:12, colSm:12, itemName:'Demandes de Location' , icon:'check2-circle', link:'rq/location_request'},
+            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+        ],
+        navItemList2 : {
+            location_request : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Modifier' , color:'#92ab03',  icon:'pencil-square', navIndex: 4, navIndexName:'MD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 5, navIndexName:'T'},
+            ],
+        },
+        genreListe : [
+            { id: 1, name: 'كِرَاءْ السَيَّارَاتْ', value: 'dentiste', imgSrc: 'car_selling' },
+            { id: 2, name: 'كِرَاءْ الشَاحِنَاتْ', value: 'dentiste', imgSrc: 'car_selling' },    
+        ],
+        tableItemList : {
+            location_request : [{id:1, value: 'Cause', genre: 'text'}, {id:2, value: 'Depart_Date', genre: 'date'}, {id:2, value: 'Finish_Date', genre: 'date'}], 
+        },
+        tableHeader : {
+            location_request : ['*', 'Client', 'Passé le','Passé à','Cause','Depart','Finish','Etat','Voir'], 
+        },
+        xxxxxxxxxx: [],
+        yyyyyyyyyy : []
+    },
 
 
     courtier:{
@@ -1608,7 +1750,7 @@ const APPItem = {
         xxxxxxxxxx: [],
         yyyyyyyyyy : []
     },
-    cristal:{
+    cristalerie:{
         colorTheme:'#cdb556',
         adsImageUrl:'handmade_cristal.svg',
         systemTitle:'نظام إداراة ورشة تركيب بلور',
@@ -1675,7 +1817,7 @@ const APPItem = {
         xxxxxxxxxx: [],
         yyyyyyyyyy : []
     },
-    marbre:{
+    marbrerie:{
         colorTheme:'#cdb556',
         adsImageUrl:'handmade_marbre.svg',
         systemTitle:'نظام إداراة ورشات الرخام',
@@ -1810,6 +1952,73 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     peinture:{
+        colorTheme:'#cdb556',
+        adsImageUrl:'handmade_peinture.svg',
+        systemTitle:'نظام إداراة شركات  الدهان',
+        systemUrl:'#',
+        directoryTable:'دهان', 
+        RequestTable:'Peintre', 
+        systemReady: false ,
+        adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
+        systemPos : [
+            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+        ],
+        itemsList : [
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+        ],
+       navItemListold : [
+            {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+            {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+            {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+            {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+            {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
+            {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
+            {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
+        genreListe : [
+            { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
+            { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
+            { id: 3, name: 'المجاري البولية', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
+            { id: 4, name: 'امراض الرئة', value: 'PNEUMOLOGIE', imgSrc: 'PNEUMOLOGIE' },
+            { id: 5, name: 'العيون', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
+            { id: 6, name: 'أذن أنف حنجرة', value: 'ORL', imgSrc: 'ORL' },
+            { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
+            { id: 8, name: 'الكلي', value: 'NEPHROLOGIE', imgSrc: 'NEPHROLOGIE' },
+            { id: 9, name: 'نساء و توليد', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
+            { id: 10, name: 'الجهاز الهضمي', value: 'GASTROLOGIE', imgSrc: 'GASTROLOGIE' },
+            { id: 11, name: 'الغدد', value: 'ENDOCRINOLOGIE', imgSrc: 'ENDOCRINOLOGIE' },
+            { id: 12, name: 'البشرة', value: 'DERMATOLOGIE', imgSrc: 'DERMATOLOGIE' },
+            { id: 13, name: 'القلب', value: 'CARDIOLOGIE', imgSrc: 'CARDIOLOGIE' },
+            { id: 14, name: 'النفس', value: 'PSYCHIATRIE', imgSrc: 'PSYCHIATRIE' },
+            { id: 15, name: 'التغذية', value: 'NUTRITION', imgSrc: 'NUTRITION' },    
+        ],
+        tableItemList : {
+            restaurant_commande : [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}], 
+            restaurant_reservation :  [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}]
+        },
+        tableHeader : {
+            restaurant_commande : ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Voir'], 
+            restaurant_reservation :  ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Etat','Voir'],
+        },
+        xxxxxxxxxx: [],
+        yyyyyyyyyy : []
+    },
+    plombier:{
         colorTheme:'#cdb556',
         adsImageUrl:'handmade_peinture.svg',
         systemTitle:'نظام إداراة شركات  الدهان',
@@ -2810,8 +3019,275 @@ const APPItem = {
         xxxxxxxxxx: [],
         yyyyyyyyyy : []
     },
+    bank:{
+        colorTheme:'#32a6c9',
+        adsImageUrl:'socite.svg',
+        systemTitle:'نظام إداراة الشركات القابضة',
+        systemUrl:'#',
+        directoryTable:'صاحب شركة قابضة', 
+        RequestTable:'Socite', 
+        systemReady: false ,
+        adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
+        systemPos : [
+            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+        ],
+        itemsList : [
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+        ],
+       navItemListold : [
+            {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+            {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+            {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+            {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+            {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
+            {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
+            {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
+        genreListe : [
+            { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
+            { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
+            { id: 3, name: 'المجاري البولية', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
+            { id: 4, name: 'امراض الرئة', value: 'PNEUMOLOGIE', imgSrc: 'PNEUMOLOGIE' },
+            { id: 5, name: 'العيون', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
+            { id: 6, name: 'أذن أنف حنجرة', value: 'ORL', imgSrc: 'ORL' },
+            { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
+            { id: 8, name: 'الكلي', value: 'NEPHROLOGIE', imgSrc: 'NEPHROLOGIE' },
+            { id: 9, name: 'نساء و توليد', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
+            { id: 10, name: 'الجهاز الهضمي', value: 'GASTROLOGIE', imgSrc: 'GASTROLOGIE' },
+            { id: 11, name: 'الغدد', value: 'ENDOCRINOLOGIE', imgSrc: 'ENDOCRINOLOGIE' },
+            { id: 12, name: 'البشرة', value: 'DERMATOLOGIE', imgSrc: 'DERMATOLOGIE' },
+            { id: 13, name: 'القلب', value: 'CARDIOLOGIE', imgSrc: 'CARDIOLOGIE' },
+            { id: 14, name: 'النفس', value: 'PSYCHIATRIE', imgSrc: 'PSYCHIATRIE' },
+            { id: 15, name: 'التغذية', value: 'NUTRITION', imgSrc: 'NUTRITION' },    
+        ],
+        tableItemList : {
+            restaurant_commande : [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}], 
+            restaurant_reservation :  [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}]
+        },
+        tableHeader : {
+            restaurant_commande : ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Voir'], 
+            restaurant_reservation :  ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Etat','Voir'],
+        },
+        xxxxxxxxxx: [],
+        yyyyyyyyyy : []
+    },
 
-
+    veterinaire:{
+        colorTheme:'#32a6c9',
+        adsImageUrl:'socite.svg',
+        systemTitle:'نظام إداراة الشركات القابضة',
+        systemUrl:'#',
+        directoryTable:'صاحب شركة قابضة', 
+        RequestTable:'Socite', 
+        systemReady: false ,
+        adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
+        systemPos : [
+            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+        ],
+        itemsList : [
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+        ],
+       navItemListold : [
+            {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+            {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+            {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+            {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+            {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
+            {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
+            {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
+        genreListe : [
+            { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
+            { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
+            { id: 3, name: 'المجاري البولية', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
+            { id: 4, name: 'امراض الرئة', value: 'PNEUMOLOGIE', imgSrc: 'PNEUMOLOGIE' },
+            { id: 5, name: 'العيون', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
+            { id: 6, name: 'أذن أنف حنجرة', value: 'ORL', imgSrc: 'ORL' },
+            { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
+            { id: 8, name: 'الكلي', value: 'NEPHROLOGIE', imgSrc: 'NEPHROLOGIE' },
+            { id: 9, name: 'نساء و توليد', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
+            { id: 10, name: 'الجهاز الهضمي', value: 'GASTROLOGIE', imgSrc: 'GASTROLOGIE' },
+            { id: 11, name: 'الغدد', value: 'ENDOCRINOLOGIE', imgSrc: 'ENDOCRINOLOGIE' },
+            { id: 12, name: 'البشرة', value: 'DERMATOLOGIE', imgSrc: 'DERMATOLOGIE' },
+            { id: 13, name: 'القلب', value: 'CARDIOLOGIE', imgSrc: 'CARDIOLOGIE' },
+            { id: 14, name: 'النفس', value: 'PSYCHIATRIE', imgSrc: 'PSYCHIATRIE' },
+            { id: 15, name: 'التغذية', value: 'NUTRITION', imgSrc: 'NUTRITION' },    
+        ],
+        tableItemList : {
+            restaurant_commande : [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}], 
+            restaurant_reservation :  [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}]
+        },
+        tableHeader : {
+            restaurant_commande : ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Voir'], 
+            restaurant_reservation :  ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Etat','Voir'],
+        },
+        xxxxxxxxxx: [],
+        yyyyyyyyyy : []
+    },
+    fourragerie:{
+        colorTheme:'#32a6c9',
+        adsImageUrl:'socite.svg',
+        systemTitle:'نظام إداراة الشركات القابضة',
+        systemUrl:'#',
+        directoryTable:'صاحب شركة قابضة', 
+        RequestTable:'Socite', 
+        systemReady: false ,
+        adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
+        systemPos : [
+            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+        ],
+        itemsList : [
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+        ],
+       navItemListold : [
+            {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+            {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+            {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+            {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+            {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
+            {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
+            {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
+        genreListe : [
+            { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
+            { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
+            { id: 3, name: 'المجاري البولية', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
+            { id: 4, name: 'امراض الرئة', value: 'PNEUMOLOGIE', imgSrc: 'PNEUMOLOGIE' },
+            { id: 5, name: 'العيون', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
+            { id: 6, name: 'أذن أنف حنجرة', value: 'ORL', imgSrc: 'ORL' },
+            { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
+            { id: 8, name: 'الكلي', value: 'NEPHROLOGIE', imgSrc: 'NEPHROLOGIE' },
+            { id: 9, name: 'نساء و توليد', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
+            { id: 10, name: 'الجهاز الهضمي', value: 'GASTROLOGIE', imgSrc: 'GASTROLOGIE' },
+            { id: 11, name: 'الغدد', value: 'ENDOCRINOLOGIE', imgSrc: 'ENDOCRINOLOGIE' },
+            { id: 12, name: 'البشرة', value: 'DERMATOLOGIE', imgSrc: 'DERMATOLOGIE' },
+            { id: 13, name: 'القلب', value: 'CARDIOLOGIE', imgSrc: 'CARDIOLOGIE' },
+            { id: 14, name: 'النفس', value: 'PSYCHIATRIE', imgSrc: 'PSYCHIATRIE' },
+            { id: 15, name: 'التغذية', value: 'NUTRITION', imgSrc: 'NUTRITION' },    
+        ],
+        tableItemList : {
+            restaurant_commande : [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}], 
+            restaurant_reservation :  [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}]
+        },
+        tableHeader : {
+            restaurant_commande : ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Voir'], 
+            restaurant_reservation :  ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Etat','Voir'],
+        },
+        xxxxxxxxxx: [],
+        yyyyyyyyyy : []
+    },
+    agritools:{
+        colorTheme:'#32a6c9',
+        adsImageUrl:'socite.svg',
+        systemTitle:'نظام إداراة الشركات القابضة',
+        systemUrl:'#',
+        directoryTable:'صاحب شركة قابضة', 
+        RequestTable:'Socite', 
+        systemReady: false ,
+        adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
+        systemPos : [
+            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+        ],
+        itemsList : [
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+        ],
+       navItemListold : [
+            {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+            {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+            {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+            {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+            {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
+            {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
+            {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        navItemList2 : {
+            docteur_rdv : [
+                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            ],
+        },
+        genreListe : [
+            { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
+            { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
+            { id: 3, name: 'المجاري البولية', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
+            { id: 4, name: 'امراض الرئة', value: 'PNEUMOLOGIE', imgSrc: 'PNEUMOLOGIE' },
+            { id: 5, name: 'العيون', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
+            { id: 6, name: 'أذن أنف حنجرة', value: 'ORL', imgSrc: 'ORL' },
+            { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
+            { id: 8, name: 'الكلي', value: 'NEPHROLOGIE', imgSrc: 'NEPHROLOGIE' },
+            { id: 9, name: 'نساء و توليد', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
+            { id: 10, name: 'الجهاز الهضمي', value: 'GASTROLOGIE', imgSrc: 'GASTROLOGIE' },
+            { id: 11, name: 'الغدد', value: 'ENDOCRINOLOGIE', imgSrc: 'ENDOCRINOLOGIE' },
+            { id: 12, name: 'البشرة', value: 'DERMATOLOGIE', imgSrc: 'DERMATOLOGIE' },
+            { id: 13, name: 'القلب', value: 'CARDIOLOGIE', imgSrc: 'CARDIOLOGIE' },
+            { id: 14, name: 'النفس', value: 'PSYCHIATRIE', imgSrc: 'PSYCHIATRIE' },
+            { id: 15, name: 'التغذية', value: 'NUTRITION', imgSrc: 'NUTRITION' },    
+        ],
+        tableItemList : {
+            restaurant_commande : [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}], 
+            restaurant_reservation :  [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}]
+        },
+        tableHeader : {
+            restaurant_commande : ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Voir'], 
+            restaurant_reservation :  ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Etat','Voir'],
+        },
+        xxxxxxxxxx: [],
+        yyyyyyyyyy : []
+    },
     farm:{
         colorTheme:'#72bcc7',
         adsImageUrl:'champ.svg',

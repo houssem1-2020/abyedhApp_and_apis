@@ -9,12 +9,12 @@ import LeftSideCard from '../../App/Dashboard/leftSide';
 
 import MainPage from '../../App/Dashboard/Main/mainPage';
 import SystemPage from '../../App/Dashboard/System/systemPage';
-import SpesificPage from '../../App/Dashboard/Spesific/spesificPage';
 
-//Commandes
+//Problems 
+import SpesificPage from '../../App/Dashboard/Spesific/spesificPage';
 import RequestPage from '../../App/Dashboard/Requests/requestPage';
 import RequestReservationInfo from "../../App/Dashboard/Requests/requestInfo"; 
-import CalendarCommandes from '../../App/Dashboard/Requests/calendar';
+
 
 import MessagesPages from '../../App/Dashboard/Messages/messagesPage'
 import ProfilePage from '../../App/Dashboard/Profile/profilePage'
@@ -69,7 +69,7 @@ const UserRouter = () => (
     
     <Route path="App" exact element={<Outlet />} >
             <Route path="L/:tag" element={<RedirectingPage />} />
-            <Route path="Login/:tag" element={<LogIn />} />
+             <Route path="Login/:tag" element={<LogIn />} />
             <Route path="Auth" element={<AuthPage />} />
             <Route path="S" exact element={<SystemLanding />} >
                     <Route path="" exact element={<MainPage />} />
@@ -80,10 +80,9 @@ const UserRouter = () => (
                         <Route path="info/:TAG/:CID" exact element={<RequestReservationInfo />} />
                     </Route>
                     <Route path="Profile" exact element={<ProfilePage />} />
-                    
                     <Route path="Message" exact element={<MessagesPages />} />
             </Route>
-            <Route path="Profile/ProfilePrint" exact element={<ProfilePID />} />
+            <Route path="Profile/ProfilePrint" exact element={<ProfilePID />} /> 
     </Route>
 )
 

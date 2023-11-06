@@ -1,18 +1,19 @@
 import React, {useEffect,useState}  from 'react';
 import GConf from '../../AssetsM/APPConf';
-import ADIL from '../../AssetsM/APPITEM';
+
 
 import DocteurSpecific from './spesificPage/docteur'; 
 import CliniqueSpecific from './spesificPage/clinique'; 
 import PharmacieSpecific from './spesificPage/pharmacie';
 import GarderieSpecific from './spesificPage/garderie';
 import RestaurantSpecific from './spesificPage/restaurant';
-import { Button } from 'semantic-ui-react';
+
 import AutoEcoleSpecific from './spesificPage/autoecole';
 import AvocatSpecific from './spesificPage/avocat';
 import BoutiqueSpecific from './spesificPage/boutique';
 import CafeSpecific from './spesificPage/cafe';
 import CentreMdSpecific from './spesificPage/centreMD';
+
 import GymSpecific from './spesificPage/gym';
 import EcoleSpecific from './spesificPage/ecole';
 import ComptableSpecific from './spesificPage/comptable';
@@ -21,8 +22,8 @@ import HotelsSpecific from './spesificPage/hotels';
 import LaboSpecific from './spesificPage/labo';
 import LibrairieSpecific from './spesificPage/librairie';
 import LyceeSpecific from './spesificPage/lycee';
+
 import StadeSpecific from './spesificPage/stade';
-import SociteSpecific from './spesificPage/socite';
 import SmasarSpecific from './spesificPage/samsar';
 import PyscineSpecific from './spesificPage/pyscine';
 import UniversiteSpecific from './spesificPage/universite';
@@ -32,7 +33,6 @@ import VgAgenceSpecific from './spesificPage/vg_agence';
 
 import HauseElectroSpecific from './spesificPage/house_electro';
 import HauseMeubleSpecific from './spesificPage/house_meuble';
-
 import PtvMagazinSpecific from './spesificPage/ptvente_shop';
 import PtvPatesserieSpecific from './spesificPage/ptvente_patesserie';
 import PtvFuiterieSpecific from './spesificPage/ptvente_fruit';
@@ -43,7 +43,6 @@ import PtvViandeSpecific from './spesificPage/ptvente_viande';
 import ChantierArchitectureSpecific from './spesificPage/chantier_architecture';
 import ChantierContracteurSpecific from './spesificPage/chantier_contrateur';
 import ChantierQuicaillerieSpecific from './spesificPage/chantier_quincaillerie';
-
 import HandmadeCristalSpecific from './spesificPage/handmade_cristal';
 import HandmadeElectricienSpecific from './spesificPage/handmade_electricien';
 import HandmadeForferonSpecific from './spesificPage/handmade_forgeron';
@@ -141,7 +140,6 @@ function RequestPage() {
           case 'avocat': return <AvocatSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'depot': return <StorageSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'comptable': return <ComptableSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'socite': return <SociteSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'hotels': return <HotelsSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'vg_agence': return <VgAgenceSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
            
@@ -157,9 +155,7 @@ function RequestPage() {
     }
  
     return (<>
-            
             <SpecificCard status={GConf.systemTag} />
-             
     </>);
 }
 

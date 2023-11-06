@@ -24,7 +24,7 @@ function DocteurSpecific() {
      const [addTarifActive, setAddTarifActive] = useState(false)
      const [addAssurance, setAddAssurance] = useState(false)
      const [addDiplome, setAddDiplome] = useState(false)
-     const [returnedProfileData, setReturnedProfileData] = useState({SP_Tarif:[], SP_Assurance:[], SP_Diplomes:[]})
+     const [returnedProfileData, setReturnedProfileData] = useState({SP_Tarif:[], SP_Classes:[], SP_Examain:[]})
      const [loaderState, setLS] = useState(false)
    
 
@@ -155,14 +155,14 @@ function DocteurSpecific() {
           else if (dataNow.Prix == '') { toast.error("أدخل السعر  !", GConf.TostErrorGonf) } 
           else if (dataNow.Description == '') { toast.error("أدخل الوصف  !", GConf.TostErrorGonf) } 
           else {
-              if (returnedProfileData.SP_Assurance == '') {
+              if (returnedProfileData.SP_Classes == '') {
                   let emptyArray = []
                   emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Assurance:JSON.stringify(emptyArray) })
+                  setReturnedProfileData({...returnedProfileData, SP_Classes:JSON.stringify(emptyArray) })
               } else {    
-                  let emptyArray = JSON.parse(returnedProfileData.SP_Assurance)
+                  let emptyArray = JSON.parse(returnedProfileData.SP_Classes)
                   emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Assurance: JSON.stringify(emptyArray) })
+                  setReturnedProfileData({...returnedProfileData, SP_Classes: JSON.stringify(emptyArray) })
               }
           }
           
@@ -183,23 +183,23 @@ function DocteurSpecific() {
     }
     const AssuranceListeCard = (props) =>{
           return(<>
-            {returnedProfileData.SP_Assurance == '' ? 
+            {returnedProfileData.SP_Classes == '' ? 
             <ListeVide icon='heart-pulse' /> 
             :
             <>
               <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
-                {JSON.parse(returnedProfileData.SP_Assurance).map((data,index) => 
+                {JSON.parse(returnedProfileData.SP_Classes).map((data,index) => 
                   <div className='card p-2 border-div mb-2' key={index}>
                       <div className='row'>
                           <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'>{data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
                           <div className='col-3 align-self-center'>{data.Prix}</div> 
-                          <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Assurance')}></Button></div> 
+                          <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Classes')}></Button></div> 
                       </div>
                   </div>
                 )}
               </div>
               <br />
-              <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Assurance')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+              <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Classes')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
             </> 
             } 
         </>)
@@ -213,14 +213,14 @@ function DocteurSpecific() {
           else if (dataNow.Prix == '') { toast.error("أدخل السعر  !", GConf.TostErrorGonf) } 
           else if (dataNow.Description == '') { toast.error("أدخل الوصف  !", GConf.TostErrorGonf) } 
           else {
-              if (returnedProfileData.SP_Diplomes == '') {
+              if (returnedProfileData.SP_Examain == '') {
                   let emptyArray = []
                   emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Diplomes:JSON.stringify(emptyArray) })
+                  setReturnedProfileData({...returnedProfileData, SP_Examain:JSON.stringify(emptyArray) })
               } else {    
-                  let emptyArray = JSON.parse(returnedProfileData.SP_Diplomes)
+                  let emptyArray = JSON.parse(returnedProfileData.SP_Examain)
                   emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Diplomes: JSON.stringify(emptyArray) })
+                  setReturnedProfileData({...returnedProfileData, SP_Examain: JSON.stringify(emptyArray) })
               }
           }
           
@@ -241,23 +241,23 @@ function DocteurSpecific() {
     }
     const DiplomeListeCard = (props) =>{
         return(<>
-          {returnedProfileData.SP_Diplomes == '' ? 
+          {returnedProfileData.SP_Examain == '' ? 
           <ListeVide icon='credit-card-2-front' /> 
           :
           <>
             <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
-            {JSON.parse(returnedProfileData.SP_Diplomes).map((data,index) => 
+            {JSON.parse(returnedProfileData.SP_Examain).map((data,index) => 
               <div className='card p-2 border-div mb-2' key={index}>
                   <div className='row'>
                       <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'>{data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
                       <div className='col-3 align-self-center'>{data.Prix}</div> 
-                      <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Diplomes')}></Button></div> 
+                      <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Examain')}></Button></div> 
                   </div>
               </div>
             )}
             </div>
             <br />
-            <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Diplomes')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+            <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Examain')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
           </> 
           } 
       </>)

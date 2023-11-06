@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { _ } from "gridjs-react";
-import Typed from 'react-typed';
-import { NavLink, Navigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+// import { _ } from "gridjs-react";
+import { NavLink, useParams } from 'react-router-dom';
 import GConf from '../../AssetsM/generalConf';
 import { toast } from 'react-toastify';
-import { Button, Icon, Select , Modal} from 'semantic-ui-react';
+import { Button, Icon, Modal} from 'semantic-ui-react';
 import { Pagination,Autoplay,Navigation } from "swiper";
 import { Swiper, SwiperSlide, } from "swiper/react";
 import "swiper/css";
@@ -12,13 +11,12 @@ import "swiper/css/grid";
 import "swiper/css/pagination";
 import Ripples from 'react-ripples'
 import { useNavigate} from 'react-router-dom';
-import LoadingBar from 'react-top-loading-bar'
+
 
 function SearchLandingPage() {
     /*#########################[Const]##################################*/
     let {tag} = useParams()
     const [isSelected, setisSelected] = useState(0);
-    const [loadingTo, setLoadingTo] = useState(0);
     const [delegList ,setDelegList] = useState([])
     const [open, setOpen] = useState(false)
     const [openD, setOpenD] = useState(false)
@@ -139,7 +137,7 @@ function SearchLandingPage() {
                 <Ripples className='shadow-sm  m-1 border-div d-block'>
                 <div className={`card p-2 ps-3 border-div ${selected ? 'border-selected' : ''}`}  selected={selected} onClick={onChange} style={{cursor:'pointer'}}>
                     <div className='row'>
-                        <div className='col-4 text-center m-0 p-0'><img src={`https://cdn.abyedh.tn/images/Search/Land_icons/${option.imgSrc}.gif`} className='img-responsive' width='40px' height='40px' /></div>
+                        <div className='col-4 text-center m-0 p-0'><img src={`https://cdn.abyedh.tn/images/Search/Land_icons/${option.imgSrc}.gif`} className='img-responsive' width='40px' height='40px' alt='abyedh.tn' /></div>
                         <div className='col-8 text-center m-0 p-0  align-self-center'><b>{option.name}</b></div>
                     </div>
                 </div>
@@ -151,7 +149,7 @@ function SearchLandingPage() {
         return(<>
         <div className='row'>
             {GConf.abyedhMap.Gouv.map((data, index) => <div key={index} className='col-6'>
-                <div  className={`card p-2  mb-2  ${data.value == gouv ? 'bg-dark text-white' : 'text-secondary'}`} onClick={() => GetDelegList(data.value)}>
+                <div  className={`card p-2  mb-2  ${data.value === gouv ? 'bg-dark text-white' : 'text-secondary'}`} onClick={() => GetDelegList(data.value)}>
                     <div className='row'>
                         <div className='col-3'><span className='bi bi-pin-map-fill'></span></div> 
                         <div className='col-9 align-self-center'> <b>{data.text}</b></div> 
@@ -165,7 +163,7 @@ function SearchLandingPage() {
     }
     const DelegListeToSelet = () =>{
         return(<>
-            {delegList.map((data, index) => <div key={index} className={`card p-2  mb-2  ${data.value == deleg ? 'bg-dark text-white' : 'text-secondary'}`} onClick={() => { setDeleg(data.value); setOpenD(false) }}><b>{data.text}</b></div> )}
+            {delegList.map((data, index) => <div key={index} className={`card p-2  mb-2  ${data.value === deleg ? 'bg-dark text-white' : 'text-secondary'}`} onClick={() => { setDeleg(data.value); setOpenD(false) }}><b>{data.text}</b></div> )}
         </>)
     }
     const SelectGouvCard = () =>{
@@ -236,10 +234,10 @@ function SearchLandingPage() {
         return(<>
             <div className='card p-2 shadow mb-2 border-div d-md-none'>
                 <h5 className='text-end text-secondary mb-1 mt-2' dir='rtl'> هَلْ أَنْتَ {GConf.ADIL[tag].businesOwner} ؟ </h5>
-                <a href={`/S/I/add/${tag}`} className=' text-secondary ' ></a>
+                {/* <a href={`/S/I/add/${tag}`} className=' text-secondary ' ></a> */}
                 <div className='row mt-0 pt-0 '>
                     <div className='col-3 align-self-center text-center'>
-                        <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className=' mt-3 img-responsive mb-1 ms-2' width='100%'  height='auto' />
+                        <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className=' mt-3 img-responsive mb-1 ms-2' width='100%'  height='auto' alt='abyedh.tn' />
                     </div>
                     <div className='col-9 align-self-center text-center'>
                         <p> إِكْتَشِفْ {GConf.ADIL[tag].systemName} اللّي  يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ   </p>
@@ -261,15 +259,15 @@ function SearchLandingPage() {
     const AdminSoon = () =>{
         return(<>
             <div className='card p-2 shadow mb-2 border-div d-md-none'>
-                <h5 className='text-end text-secondary mb-1 mt-2' dir='rtl'> منصة الإدارة الرقمية </h5>
-                <a href={`/S/I/add/${tag}`} className=' text-secondary ' ></a>
+                <h5 className='text-end text-secondary mb-1 mt-2' dir='rtl'> مِنَصّةْ الِإدَارَة الرَقْمِيَّة </h5>
+                {/* <a href={`/S/I/add/${tag}`} className=' text-secondary ' ></a> */}
                 <div className='row mt-0 pt-0 '>
                     <div className='col-3 align-self-center text-center'>
-                        <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className=' mt-3 img-responsive mb-1 ms-2' width='100%'  height='auto' />
+                        <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className=' mt-3 img-responsive mb-1 ms-2' width='100%'  height='auto' alt='abyedh.tn' />
                     </div>
                     <div className='col-9 align-self-center text-end'>
-                        <p className='mb-0' > منصة الإدارة الرقمية ستكون متوفرة قريبا   </p>
-                        <p className='mt-0'>  نحن نعمل علي ذلك   </p>
+                        <p className='mb-0'>   مِنَصّةْ الإِدَارَة الرَقْمِيَّة تَهْدِفُ لتبسيط العمليات الإدارية     </p>
+                        <p className='mt-0'>    سَتَكُونْ مُتَوَفِّرَة قَرِيبًأ   </p>
                         
                     </div>
                 </div>
@@ -369,7 +367,7 @@ function SearchLandingPage() {
                     <div className='col-12 col-lg-12 align-self-center  ' dir='rtl'>
                         <div className='row mb-2'>
                             <div className='col-4 col-lg-4 align-self-center text-center d-none d-lg-block '>
-                                <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className='img-responsive  ' width='60%' height='auto'  />
+                                <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className='img-responsive  ' width='60%' height='auto' alt='abyedh.tn'  />
                             </div>
                             <div className='col-12 col-lg-8 align-self-center text-center'>
                                 <h5 className='text-end mb-2 me-3 text-secondary'>{GConf.ADIL[tag].selectText}</h5>
