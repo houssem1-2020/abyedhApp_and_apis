@@ -19,7 +19,7 @@ import ADIL from '../../../AssetsM/APPITEM';
 import CountUp from 'react-countup';
 
 
-function DocteurSpecific() {
+function HotelsSpecific() {
      /*#########################[Const]##################################*/
      const [addTarifActive, setAddTarifActive] = useState(false)
      const [addAssurance, setAddAssurance] = useState(false)
@@ -378,4 +378,4 @@ function DocteurSpecific() {
     </>);
 }
 
-export default DocteurSpecific;
+export default HotelsSpecific;

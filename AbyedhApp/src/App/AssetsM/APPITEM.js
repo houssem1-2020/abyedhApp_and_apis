@@ -15,8 +15,8 @@ const APPItem = {
             {id: 3 , posName:'إدارة المرضي' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Rendy-Vous' , icon:'calendar-week', link:'rq/docteur_rdv'},
-            {id: 2 , colLg:6, colSm:6, itemName:'Tarifs' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Rendy-Vous' , itemDesc:'Suivez les Etat du rendy-Vous ',  icon:'calendar-week', link:'rq/docteur_rdv'},
+            {id: 2 , colLg:6, colSm:12, itemName:'Tarifs & Autres' , itemDesc:'Tarifs, Diplomes, Assurance ', icon:'cash-coin', link:'Spesific'},
             
         ],
         navItemList2 : {
@@ -73,9 +73,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/pharmacie_shop'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/pharmacie_rdv'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Traif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/pharmacie_shop'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/pharmacie_rdv'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Tarifs, Diplomes, Assurance ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             pharmacie_shop : [
@@ -127,8 +127,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-range', link:'rq/clinique_reserver'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Traif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Reservation' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-range', link:'rq/clinique_reserver'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Traif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             clinique_reserver : [
@@ -158,7 +158,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     labo:{
-        colorTheme:'#1dd3b0',
+        colorTheme:'#52a3c9',
         adsImageUrl:'labo.svg',
         systemTitle:' نظام إدارة المخابر ',
         systemUrl:'#',
@@ -172,8 +172,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Rendy Vous' , icon:'check-all', link:'rq/labo_rdv'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Rendy Vous' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/labo_rdv'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif & Autres' , itemDesc:'Entrez La Liste de Vos Traif ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             labo_rdv : [
@@ -201,7 +201,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     infirmier:{
-        colorTheme:'#1dd3b0',
+        colorTheme:'#093587',
         adsImageUrl:'labo.svg',
         systemTitle:' نظام إدارة المخابر ',
         systemUrl:'#',
@@ -215,8 +215,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Rendy Vous' , icon:'check-all', link:'rq/labo_rdv'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Rendy Vous' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/labo_rdv'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Tarifs, Diplomes, Assurance ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             labo_rdv : [
@@ -244,7 +244,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     centreMD:{
-        colorTheme:'#52a3c9',
+        colorTheme:'#1dd3b0',
         adsImageUrl:'centre.svg',
         systemTitle:'  نظام إدارة المراكز الطبية ',
         systemUrl:'#',
@@ -258,8 +258,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-range', link:'rq/centre_reserver'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Traif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-range', link:'rq/centre_reserver'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Traif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             centre_reserver : [
@@ -303,9 +303,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Inscription' , icon:'check-all', link:'rq/garderie_inscription'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Souscription' , icon:'calendar-week', link:'rq/garderie_souscription'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/garderie_inscription'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Souscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/garderie_souscription'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             garderie_inscription : [
@@ -347,7 +347,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     ecole:{
-        colorTheme:'#4a9998',
+        colorTheme:'#218281',
         adsImageUrl:'ecole.svg',
         systemTitle:'نظام إداراة المدارس الخاصة ',
         businesName:'المدرسة ',
@@ -362,9 +362,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Inscription' , icon:'check-all', link:'rq/garderie_inscription'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Souscription' , icon:'calendar-week', link:'rq/garderie_souscription'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/garderie_inscription'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Souscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/garderie_souscription'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -407,7 +407,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     lycee:{
-        colorTheme:'#4a9998',
+        colorTheme:'#913461',
         adsImageUrl:'lycee.svg',
         systemTitle:'نظام إدارة المعاهد الخاصة',
         directoryTable:'صاحب معهد خاص', 
@@ -421,9 +421,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Inscription' , icon:'check-all', link:'rq/garderie_inscription'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Souscription' , icon:'calendar-week', link:'rq/garderie_souscription'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/garderie_inscription'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Souscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/garderie_souscription'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -466,7 +466,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     universite:{
-        colorTheme:'#4a9998',
+        colorTheme:'#553491',
         adsImageUrl:'universite.svg',
         systemTitle:'نظام إداراة الجامعات الخاصة ',
         systemUrl:'#',
@@ -480,9 +480,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Inscription' , icon:'check-all', link:'rq/garderie_inscription'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Souscription' , icon:'calendar-week', link:'rq/garderie_souscription'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/garderie_inscription'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Souscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/garderie_souscription'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -539,8 +539,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/librairie_shop'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/librairie_shop'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ',  icon:'stars', link:'Spesific'},
         ],
         navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -576,7 +576,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     formation:{
-        colorTheme:'#4c4a48',
+        colorTheme:'#919034',
         adsImageUrl:'impremerie.svg',
         systemTitle:'نظام إداراة المطابع',
         systemUrl:'#',
@@ -590,9 +590,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -648,9 +648,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -707,8 +707,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/transporteur_request'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Traif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/transporteur_request'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Traif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             transporteur_request : [
@@ -750,8 +750,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Inscription' , icon:'check-all', link:'rq/autoecole_inscrie'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/autoecole_inscrie'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -768,7 +768,8 @@ const APPItem = {
                 {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
                 {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
                 {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
-                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 4, navIndexName:'T'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 4, navIndexName:'RT'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 5, navIndexName:'T'},
             ],
         },
         genreListe : [
@@ -805,9 +806,9 @@ const APPItem = {
             {id: 3 , posName:'إدارة الفواتير' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Menu' , icon:'list-columns-reverse', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Menu' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'list-columns-reverse', link:'Spesific'},
         ],
         navItemList2 : {
             restaurant_commande : [
@@ -859,9 +860,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/cafe_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/cafe_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/cafe_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/cafe_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             cafe_commande : [
@@ -920,8 +921,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/magazin_commande'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/magazin_commande'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             magazin_commande : [
@@ -957,7 +958,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     fruiterie:{
-        colorTheme:'#5e7968',
+        colorTheme:'#488720',
         adsImageUrl:'ptvente_shop.svg',
         systemTitle:'نظام إداراة نقاط  بيع الخضر ',
         systemUrl:'#',
@@ -971,8 +972,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/fruiterie_shop'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/fruiterie_shop'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             fruiterie_shop : [
@@ -999,7 +1000,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     boucherie:{
-        colorTheme:'#5e7968',
+        colorTheme:'#bd1304',
         adsImageUrl:'ptvente_shop.svg',
         systemTitle:'نظام إدارة المخابز  ',
         systemUrl:'#',
@@ -1013,8 +1014,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/boucheries_shop'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/boucheries_shop'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             boucheries_shop : [
@@ -1043,7 +1044,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     boulengerie:{
-        colorTheme:'#5e7968',
+        colorTheme:'#bf990d',
         adsImageUrl:'ptvente_shop.svg',
         systemTitle:'نظام إداراة نقاط  بيع اللحوم ',
         systemUrl:'#',
@@ -1057,8 +1058,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/boulangerie_shop'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/boulangerie_shop'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             boulangerie_shop : [
@@ -1085,7 +1086,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     patesserie:{
-        colorTheme:'#5e7968',
+        colorTheme:'#a33464',
         adsImageUrl:'ptvente_shop.svg',
         systemTitle:'نظام إداراة نقاط  بيع الحلويات ',
         systemUrl:'#',
@@ -1099,8 +1100,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/patisserie_shop'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/patisserie_shop'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             patisserie_shop : [
@@ -1127,7 +1128,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     epicerie:{
-        colorTheme:'#5e7968',
+        colorTheme:'#6b462e',
         adsImageUrl:'ptvente_shop.svg',
         systemTitle:'نظام إدارة البقالات ',
         systemUrl:'#',
@@ -1141,8 +1142,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/epicerie_shop'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/epicerie_shop'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             epicerie_shop : [
@@ -1171,7 +1172,7 @@ const APPItem = {
 
     
     electromenager:{
-        colorTheme:'#0078d7',
+        colorTheme:'#03a3a1',
         adsImageUrl:'house_electro.svg',
         systemTitle:'نظام إداراة نقاط  بيع الالكترونيات ',
         systemUrl:'#',
@@ -1185,8 +1186,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/electromenager_shop'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/electromenager_shop'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             electromenager_shop : [
@@ -1227,8 +1228,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/meubles_shop'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/meubles_shop'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             meubles_shop : [
@@ -1255,7 +1256,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     parking:{
-        colorTheme:'#2d4664',
+        colorTheme:'#6a4a37',
         adsImageUrl:'car_parking.svg',
         systemTitle:'Parking نظام إداراة ',
         systemUrl:'#',
@@ -1269,9 +1270,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-range', link:'rq/parking_reserver'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Souscription' , icon:'check2-circle', link:'rq/parking_souscrire'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-range', link:'rq/parking_reserver'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Souscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check2-circle', link:'rq/parking_souscrire'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             parking_reserver : [
@@ -1306,7 +1307,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     qiosque:{
-        colorTheme:'#2d4664',
+        colorTheme:'#853d07',
         adsImageUrl:'car_qiosque.svg',
         systemTitle:' Qiosque نظام إداراة',
         systemUrl:'#',
@@ -1320,9 +1321,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/qiosque_request'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Lavage' , icon:'calendar-week', link:'rq/qiosque_lavage'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/qiosque_request'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Lavage' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/qiosque_lavage'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             qiosque_request : [
@@ -1372,8 +1373,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Demandes de Location' , icon:'check2-circle', link:'rq/location_request'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Demandes de Location' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check2-circle', link:'rq/location_request'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             location_request : [
@@ -1399,7 +1400,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     mecanicien:{
-        colorTheme:'#2d4664',
+        colorTheme:'#5e5e5e',
         adsImageUrl:'car_location.svg',
         systemTitle:'نظام إداراة شركات كراء السيارات',
         systemUrl:'#',
@@ -1413,8 +1414,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Demandes de Location' , icon:'check2-circle', link:'rq/location_request'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Demandes de Location' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check2-circle', link:'rq/location_request'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             location_request : [
@@ -1456,9 +1457,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Achat/Louer' , icon:'box-arrow-up-right', link:'rq/courtier_request'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Vente/à Louer' , icon:'box-arrow-in-down-left', link:'rq/courtier_torent'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Achat/Louer' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'box-arrow-up-right', link:'rq/courtier_request'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Vente/à Louer' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'box-arrow-in-down-left', link:'rq/courtier_torent'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             courtier_request : [
@@ -1492,7 +1493,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     contracteur:{
-        colorTheme:'#406163',
+        colorTheme:'#808080',
         adsImageUrl:'chantier_contracteur.svg',
         systemTitle:'نظام إداراة شركات المقاولة',
         systemUrl:'#',
@@ -1506,8 +1507,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Demmande' , icon:'check-all', link:'rq/contracteur_service'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Demmande' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/contracteur_service'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             contracteur_service : [
@@ -1533,7 +1534,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     architecture:{
-        colorTheme:'#406163',
+        colorTheme:'#1b9476',
         adsImageUrl:'chantier_architecture.svg',
         systemTitle:'نظام إداراة مكتب مهندس معماري',
         systemUrl:'#',
@@ -1547,8 +1548,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Demmandes' , icon:'check-all', link:'rq/architecture_service'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Demmandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/architecture_service'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             architecture_service : [
@@ -1574,7 +1575,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     quincaillerie:{
-        colorTheme:'#406163',
+        colorTheme:'#941b76',
         adsImageUrl:'chantier_quincaillerie.svg',
         systemTitle:' Quancaillerie نظام إدارة  ',
         businesName:'المتجر ',
@@ -1589,8 +1590,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/quincaillerie_shop'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/quincaillerie_shop'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             quincaillerie_shop : [
@@ -1631,9 +1632,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -1684,7 +1685,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     forgeron:{
-        colorTheme:'#cdb556',
+        colorTheme:'#545452',
         adsImageUrl:'handmade_forgeron.svg',
         systemTitle:'نظام إداراة ورشة حدادة',
         systemUrl:'#',
@@ -1698,9 +1699,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -1751,7 +1752,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     cristalerie:{
-        colorTheme:'#cdb556',
+        colorTheme:'#f0c400',
         adsImageUrl:'handmade_cristal.svg',
         systemTitle:'نظام إداراة ورشة تركيب بلور',
         systemUrl:'#',
@@ -1765,9 +1766,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -1818,7 +1819,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     marbrerie:{
-        colorTheme:'#cdb556',
+        colorTheme:'#0ec2cb',
         adsImageUrl:'handmade_marbre.svg',
         systemTitle:'نظام إداراة ورشات الرخام',
         systemUrl:'#',
@@ -1832,9 +1833,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -1885,7 +1886,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     electricien:{
-        colorTheme:'#cdb556',
+        colorTheme:'#5e091c',
         adsImageUrl:'handmade_electricien.svg',
         systemTitle:'نظام إداراة شركات الكهرباء',
         systemUrl:'#',
@@ -1899,9 +1900,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -1952,7 +1953,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     peinture:{
-        colorTheme:'#cdb556',
+        colorTheme:'#28568f',
         adsImageUrl:'handmade_peinture.svg',
         systemTitle:'نظام إداراة شركات  الدهان',
         systemUrl:'#',
@@ -1966,9 +1967,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -2019,7 +2020,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     plombier:{
-        colorTheme:'#cdb556',
+        colorTheme:'#445563',
         adsImageUrl:'handmade_peinture.svg',
         systemTitle:'نظام إداراة شركات  الدهان',
         systemUrl:'#',
@@ -2033,9 +2034,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -2103,8 +2104,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Reservation' , icon:'check2-circle', link:'rq/coiffure_reserver'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check2-circle', link:'rq/coiffure_reserver'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             coiffure_reserver : [
@@ -2144,8 +2145,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/boutique_shop'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/boutique_shop'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             boutique_shop : [
@@ -2182,7 +2183,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     photographe:{
-        colorTheme:'#c30052',
+        colorTheme:'#424d40',
         adsImageUrl:'wedding_photographe.svg',
         systemTitle:'نظام إداراة إستديو تصوير',
         systemUrl:'#',
@@ -2196,8 +2197,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/photographe_reserver'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/photographe_reserver'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             photographe_reserver : [
@@ -2224,7 +2225,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     chef:{
-        colorTheme:'#c30052',
+        colorTheme:'#17b000',
         adsImageUrl:'wedding_photographe.svg',
         systemTitle:'نظام إداراة  مواعيد طباخ',
         systemUrl:'#',
@@ -2238,8 +2239,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/chef_reserver'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/chef_reserver'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             chef_reserver : [
@@ -2266,7 +2267,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     orchestre:{
-        colorTheme:'#c30052',
+        colorTheme:'#3c2961',
         adsImageUrl:'wedding_photographe.svg',
         systemTitle:'نظام إداراة إستديو تصوير',
         systemUrl:'#',
@@ -2280,8 +2281,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/orchestre_reserver'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/orchestre_reserver'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             orchestre_reserver : [
@@ -2321,8 +2322,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Reservations' , icon:'calendar-week', link:'rq/salon_marriage_reserver'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Reservations' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/salon_marriage_reserver'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             salon_marriage_reserver : [
@@ -2348,7 +2349,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     fourniture_marriage:{
-        colorTheme:'#c30052',
+        colorTheme:'#29615f',
         adsImageUrl:'wedding_fourniture_marriage.svg',
         systemTitle:'نظام إداراة نقاط  بيع لوازم الأفراح ',
         systemUrl:'#',
@@ -2362,8 +2363,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/fourniture_marriage_location'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/fourniture_marriage_location'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -2397,7 +2398,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     bijouterie:{
-        colorTheme:'#b146c2',
+        colorTheme:'#fade0a',
         adsImageUrl:'boutique.svg',
         systemTitle:'نظام إداراة  محلات  بيع المجوهرات ',
         businesName:'المتجر ',
@@ -2412,8 +2413,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/bijouterie_shop'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/bijouterie_shop'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             bijouterie_shop : [
@@ -2464,8 +2465,8 @@ const APPItem = {
             {id: 3 , posName:'إدارة الحصص ' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/gym_souscription'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/gym_souscription'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             gym_souscription : [
@@ -2513,9 +2514,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Reservation' , icon:'check-all', link:'rq/pyscine_reserver'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Abonnemment' , icon:'calendar-week', link:'rq/pyscine_souscrire'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/pyscine_reserver'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Abonnemment' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/pyscine_souscrire'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             pyscine_reserver : [
@@ -2564,9 +2565,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Reservation' , icon:'check-all', link:'rq/stade_reserver'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Abonnemment' , icon:'calendar-week', link:'rq/stade_souscrire'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/stade_reserver'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Abonnemment' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/stade_souscrire'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             stade_reserver : [
@@ -2618,8 +2619,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/cinema_reserver'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/cinema_reserver'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             cinema_reserver : [
@@ -2645,7 +2646,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     theatre:{
-        colorTheme:'#2c7177',
+        colorTheme:'#402e6b',
         adsImageUrl:'art_theatre.svg',
         systemTitle:'نظام إداراة قاعات المسرح',
         systemUrl:'#',
@@ -2659,8 +2660,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/theatre_reserver'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/theatre_reserver'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             theatre_reserver : [
@@ -2686,7 +2687,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     musee:{
-        colorTheme:'#2c7177',
+        colorTheme:'#b3424b',
         adsImageUrl:'art_theatre.svg',
         systemTitle:'نظام إداراة  المتاحف  ',
         systemUrl:'#',
@@ -2700,8 +2701,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/musee_reserver'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/musee_reserver'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             musee_reserver : [
@@ -2742,8 +2743,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 3 , colLg:6, colSm:12, itemName:'Resndy Vous' , icon:'calendar-week', link:'rq/avocat_rdv'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Resndy Vous' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/avocat_rdv'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             avocat_rdv : [
@@ -2787,9 +2788,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/hotels_reserver'},
-            {id: 1 , colLg:6, colSm:12, itemName:'Service' , icon:'check-all', link:'rq/hotels_service'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/hotels_reserver'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Service' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/hotels_service'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             hotels_reserver : [
@@ -2837,8 +2838,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 3 , colLg:12, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/agence_service'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/agence_service'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             agence_service : [
@@ -2880,8 +2881,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Commandes' , icon:'cart4', link:'rq/depot_commande'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Articles' , icon:'stars', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/depot_commande'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
         ],
         navItemList2 : {
             depot_commande : [
@@ -2926,8 +2927,8 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:12, colSm:12, itemName:'Demmandes' , icon:'check-all', link:'rq/comptable_service'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Demmandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/comptable_service'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             comptable_service : [
@@ -3034,9 +3035,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -3088,7 +3089,7 @@ const APPItem = {
     },
 
     veterinaire:{
-        colorTheme:'#32a6c9',
+        colorTheme:'#f07800',
         adsImageUrl:'socite.svg',
         systemTitle:'نظام إداراة الشركات القابضة',
         systemUrl:'#',
@@ -3102,9 +3103,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -3155,7 +3156,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     fourragerie:{
-        colorTheme:'#32a6c9',
+        colorTheme:'#59a0b2',
         adsImageUrl:'socite.svg',
         systemTitle:'نظام إداراة الشركات القابضة',
         systemUrl:'#',
@@ -3169,9 +3170,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -3222,7 +3223,7 @@ const APPItem = {
         yyyyyyyyyy : []
     },
     agritools:{
-        colorTheme:'#32a6c9',
+        colorTheme:'#019104',
         adsImageUrl:'socite.svg',
         systemTitle:'نظام إداراة الشركات القابضة',
         systemUrl:'#',
@@ -3236,9 +3237,9 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:6, colSm:6, itemName:'Tarif' , icon:'cash-coin', link:'Spesific'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},

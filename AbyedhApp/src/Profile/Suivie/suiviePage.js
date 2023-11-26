@@ -106,46 +106,49 @@ function SuiviePage() {
             </>)
         }
         return(<>
-            <div className='card p-2 pb-0 shadow-sm mb-3 border-div'>
-                    <div className='row'>
-                        <div className='col-10'> 
-                            <div className="d-flex align-items-center">
-                                <div className="flex-shrink-0">
-                                    <img src={`https://cdn.abyedh.tn/images/Search/CIcons/${props.data.P_Genre}.gif`} alt="..."  width='50px' height='50px'/>
-                                </div>
-                                <div className="flex-grow-1 ms-3">
-                                    <h4 className='mb-0 text-secondary'><NavLink exact='true' to={`/S/P/${props.data.P_Genre}/${props.data.PID}`}>{props.data.PidData.Name}</NavLink></h4>
-                                    <div><small>{new Date(props.data.Notif_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )} | {SuivieRequestData[props.data.Notif_Name].title} </small></div>
+            
+                <div className='card  p-3 pb-0 shadow-sm mb-3 border-div '>
+                        <NavLink to={`/Profile/L/sv/${props.data.RequestData.R_ID}`} className="stretched-link"></NavLink>
+                        <div className='row mb-3'>
+                            <div className='col-10'> 
+                                <div className="d-flex align-items-center">
+                                    <div className="flex-shrink-0">
+                                        <img src={`https://cdn.abyedh.tn/images/Search/CIcons/${props.data.P_Genre}.gif`} alt="..."  width='50px' height='50px'/>
+                                    </div>
+                                    <div className="flex-grow-1 ms-3">
+                                        <h4 className='mb-0 text-secondary'><NavLink exact='true' to={`/Profile/L/ma/${props.data.RequestData.R_ID}`}>{props.data.PidData.Name}</NavLink></h4>
+                                        <div><small>{new Date(props.data.Notif_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )} | {SuivieRequestData[props.data.Notif_Name].title} </small></div>
+                                    </div>
                                 </div>
                             </div>
+                            <div className='col-2 align-self-center text-center text-end'> <CircularPourcentage value={SuivieRequestData[props.data.Notif_Name].stepsValues2[props.data.State].value} /> </div>
                         </div>
-                        <div className='col-2 align-self-center text-center text-end'> <CircularPourcentage value={SuivieRequestData[props.data.Notif_Name].stepsValues2[props.data.State].value} /> </div>
+                    {/*<div className='card-body pb-0 d-none d-lg-block'>
+                        <div className='row'>
+                            <div className='col-6'> <RendredData /> </div>
+                            <div className='col-6 align-self-center'> <SetpsCard  /> </div>
+                            <div className='col-12 text-end pt-2 navshad-top'><ActionBtns /></div>
+                        </div>
                     </div>
-                <div className='card-body pb-0 d-none d-lg-block'>
-                    <div className='row'>
-                        <div className='col-6'> <RendredData /> </div>
-                        <div className='col-6 align-self-center'> <SetpsCard  /> </div>
-                        <div className='col-12 text-end pt-2 navshad-top'><ActionBtns /></div>
-                    </div>
+                    <div className='card-body d-lg-none pb-0'>
+                        <Swiper
+                            spaceBetween={1}
+                            pagination={{
+                                dynamicBullets: true,
+                            }}
+                            modules={[Pagination]}
+                            className="mySwiper pb-0 text-center"
+                        >
+                                    
+                                    <SwiperSlide key={2}> <SetpsCard  /> </SwiperSlide>
+                                    <SwiperSlide key={1}> <RendredData /> </SwiperSlide>
+                                    
+                                    // <SwiperSlide key={3}> <SmallActionBtns  /> </SwiperSlide> 
+                            
+                        </Swiper>
+                    </div> */}
                 </div>
-                <div className='card-body d-lg-none pb-0'>
-                    <Swiper
-                        spaceBetween={1}
-                        pagination={{
-                            dynamicBullets: true,
-                        }}
-                        modules={[Pagination]}
-                        className="mySwiper pb-0 text-center"
-                    >
-                                
-                                <SwiperSlide key={2}> <SetpsCard  /> </SwiperSlide>
-                                <SwiperSlide key={1}> <RendredData /> </SwiperSlide>
-                                
-                                {/* <SwiperSlide key={3}> <SmallActionBtns  /> </SwiperSlide> */}
-                        
-                    </Swiper>
-                </div>
-            </div>
+            
         </>)
     }
     const SekeltonCard = () =>{

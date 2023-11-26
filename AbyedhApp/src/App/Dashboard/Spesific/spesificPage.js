@@ -3,18 +3,19 @@ import GConf from '../../AssetsM/APPConf';
 
 
 import DocteurSpecific from './spesificPage/docteur'; 
-import CliniqueSpecific from './spesificPage/clinique'; 
 import PharmacieSpecific from './spesificPage/pharmacie';
-import GarderieSpecific from './spesificPage/garderie';
-import RestaurantSpecific from './spesificPage/restaurant';
+import CliniqueSpecific from './spesificPage/clinique'; 
 
-import AutoEcoleSpecific from './spesificPage/autoecole';
-import AvocatSpecific from './spesificPage/avocat';
-import BoutiqueSpecific from './spesificPage/boutique';
+ import GarderieSpecific from './spesificPage/garderie';
+ import RestaurantSpecific from './spesificPage/restaurant';
+
+ import AutoEcoleSpecific from './spesificPage/autoecole';
+ import AvocatSpecific from './spesificPage/avocat';
+ import BoutiqueSpecific from './spesificPage/boutique';
 import CafeSpecific from './spesificPage/cafe';
 import CentreMdSpecific from './spesificPage/centreMD';
 
-import GymSpecific from './spesificPage/gym';
+ import GymSpecific from './spesificPage/gym';
 import EcoleSpecific from './spesificPage/ecole';
 import ComptableSpecific from './spesificPage/comptable';
 import CoiffureSpecific from './spesificPage/coiffure';
@@ -89,6 +90,7 @@ function RequestPage() {
           case 'docteur': return <DocteurSpecific TAG={GConf.systemTag} PID={GConf.systemTag} />;  
           case 'pharmacie': return <PharmacieSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'clinique': return <CliniqueSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+        
           case 'labo': return <LaboSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'centreMD': return <CentreMdSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'garderie': return <GarderieSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
@@ -156,6 +158,7 @@ function RequestPage() {
  
     return (<>
             <SpecificCard status={GConf.systemTag} />
+
     </>);
 }
 

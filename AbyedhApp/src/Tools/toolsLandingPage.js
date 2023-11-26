@@ -48,12 +48,12 @@ function ToolsLandingPage() {
             </>)
         }
         return(<>
-                <nav className="p-2 fixed-top navshad" style={{backgroundColor: '#46d5e8'}}>
+                <nav className="p-2 fixed-top navshad" style={{backgroundColor: 'white'}}>
                     <div className='row'>
                         <div className='col-6 text-start align-self-center'>
-                            <NavLink exact='true' to='/Tools' className="m-0 p-0 ms-3">
-                                <img  className="border-div-s d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
-                                <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
+                            <NavLink exact='true' to='/' className="m-0 p-0 ms-3">
+                                <img  className="border-div-s d-none d-lg-inline border bg-danger" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
+                                <div  className="d-lg-none d-inline-block text-secondary p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
                         </div>
                         <div className='col-6 text-end align-self-center'>
@@ -75,7 +75,7 @@ function ToolsLandingPage() {
     }
     const AdsLanding = () =>{
         return(<>
-        <div className='card-body rounded-0' style={{height:'170px',   marginTop:'70px'}}>
+        <div className='card-body d-none d-lg-block rounded-0' style={{height:'170px',   marginTop:'70px'}}>
             <div className='row'>
                 <div className='col-12 col-lg-8 align-self-center text-center'>
                        <h3 className='' dir='rtl' style={{color:'#46d5e8'}}>إكتشف مجموعة أدوات أبيض الإبداعية التي تغنيك عن عديد الأدوات الأخري .</h3>
@@ -108,12 +108,12 @@ function ToolsLandingPage() {
             <div className='row' dir='rtl'>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='Blog' name='الإدارية' img='blog.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='Products' name='  المنتجات ' img='products.svg' /></div>
-                {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name='  القانونية ' img='politics.svg' /></div> */}
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name='  القانونية ' img='politics.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='Sport' name='الرياضية  ' img='sport.svg' /></div>
-                {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الإقتصادية ' img='finance.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الإقتصادية ' img='finance.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' السياحية ' img='images.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الصحافية ' img='images.svg' /></div> */}
-                {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='Art' name=' الثقافية ' img='art.svg' /></div> */}
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الصحافية ' img='journal.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Art' name=' الثقافية ' img='art.svg' /></div> 
             </div> 
         </>)
     }
@@ -132,19 +132,20 @@ function ToolsLandingPage() {
     const AppsCard = () =>{
         return(<>
             <div className='row' dir='rtl'>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Taxi' name=' تاكسي' img='taxi.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Louage' name=' سيارة اجرة' img='louage.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Taxi' name='تاكسي' img='taxi.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Louage' name='سيارة اجرة' img='louage.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='Public' name=' النقل ' img='public.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='Renting' name=' للكراء' img='rent_house.svg' /></div>
-                <div className='col-4 col-lg-2 mb-3'><LinkCard link='AgriTools' name=' أدات فلاحية' img='nature.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name='أدات فلاحية' img='nature.svg' /></div>
                 <div className='col-4 col-lg-2 mb-3'><LinkCard link='News' name=' الإخبار ' img='news.svg' /></div>
                 {/* <div className='col-4 col-lg-2 mb-3 '><LinkCard link='Data' name=' إحصائيات' img='data.svg' /></div> */}
                 {/* <div className='col-4 col-lg-1 mb-3'><LinkCard link='#' name=' إستدعاءات' img='invitation.svg' /></div> */}
-                <div className='col-4 col-lg-1 mb-3'><LinkCard link='#' name=' الدور التونسي' img='invitation.svg' /></div>
-                <div className='col-4 col-lg-1 mb-3'><LinkCard link='#' name='salaire' img='invitation.svg' /></div> 
-                <div className='col-4 col-lg-1 mb-3'><LinkCard link='#' name='خدمني' img='invitation.svg' /></div> 
-                <div className='col-4 col-lg-1 mb-3'><LinkCard link='#' name='حكايات' img='invitation.svg' /></div> 
-                <div className='col-4 col-lg-1 mb-3'><LinkCard link='#' name='كمبي' img='invitation.svg' /></div> 
+                <div className='col-4 col-lg-1 mb-3'><LinkCard link='#' name=' الدور التونسي' img='sport.svg' /></div>
+                <div className='col-4 col-lg-1 mb-3'><LinkCard link='#' name='salaire' img='salaire.svg' /></div> 
+                <div className='col-4 col-lg-1 mb-3'><LinkCard link='#' name='خدمني' img='jobs.svg' /></div> 
+                <div className='col-4 col-lg-1 mb-3'><LinkCard link='#' name='حكايات' img='stories.svg' /></div> 
+                <div className='col-4 col-lg-1 mb-3'><LinkCard link='#' name='كمبي' img='camping.svg' /></div> 
+                
             </div> 
         </>)
     }
@@ -157,7 +158,37 @@ function ToolsLandingPage() {
             <br />
             <br />
             <div className='container'>
-                <Tab dir='rtl' menu={{ secondary: true, style: {overflowX : 'auto', justifyContent: 'right',  overflowY : 'hidden', paddingBottom:'5px'} }} panes={panes} />
+                {/* <Tab dir='rtl' menu={{ secondary: true, style: {overflowX : 'auto', justifyContent: 'right',  overflowY : 'hidden', paddingBottom:'5px'} }} panes={panes} /> */}
+                <div className='row' dir='rtl'>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Taxi' name='تاكسي' img='taxi.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Louage' name='سيارة اجرة' img='louage.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Public' name=' النقل ' img='public.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Renting' name=' للكراء' img='rent_house.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='AgriTools' name='أدات فلاحية' img='nature.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='News' name=' الإخبار ' img='news.svg' /></div>
+                {/* <div className='col-4 col-lg-2 mb-3'><LinkCard link='#' name=' الدور التونسي' img='sport.svg' /></div> */}
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Salaire' name='salaire' img='salaire.svg' /></div> 
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Jobs' name='خدمني' img='jobs.svg' /></div> 
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Story' name='حكايات' img='stories.svg' /></div> 
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Camping' name='كمبي' img='camping.svg' /></div> 
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Blog' name='الإدارية' img='blog.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Products' name='  المنتجات ' img='products.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Jurdique' name='  القانونية ' img='politics.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Sport' name='الرياضية  ' img='sport.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Economique' name=' الإقتصادية ' img='finance.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Touristique' name=' السياحية ' img='images.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Art' name=' الثقافية ' img='art.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='ProgramScolair' name='البرنامج السنوي ' img='prog_annu.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='LivreScolair' name='الكتاب المدرسي ' img='livre_scolaire.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Devoirat' name='إمتحانات ' img='devoire.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'> <LinkCard link='Data' name=' إحصائيات' img='data.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Calendrier' name=' يومية ' img='calendar.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Forum' name=' المنتدي ' img='forum.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Invitation' name=' إستدعاءات' img='invitation.svg' /></div>
+                <div className='col-4 col-lg-2 mb-3'><LinkCard link='Automobile' name=' كرهبة' img='automobile.svg' /></div>
+
+            </div> 
+
             </div>
             {/* <ButtomCard /> */}
         </> );

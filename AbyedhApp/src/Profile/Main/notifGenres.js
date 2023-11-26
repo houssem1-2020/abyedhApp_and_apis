@@ -56,8 +56,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
-
-    //pharmacie
+    //pharmacie_shop
     pharmacie_shop_saved: {
         icon:'bi-cart-check text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -101,7 +100,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
-
+    //pharmacie_rdv
     pharmacie_rdv_saved: {
         icon:'bi-calendar-check text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -136,7 +135,6 @@ const  NotifGenres  = {
              </> )
         }
     },  
-
     //clinique
     clinique_reserver_saved: {
         icon:'bi-check-circle text-success',
@@ -147,7 +145,6 @@ const  NotifGenres  = {
                 </> )
         }
     },
-
     centre_reserver_saved: {
         icon:'bi-check-circle text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -157,7 +154,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
-    //docteur
+    //laboratoire 
     labo_rdv_saved : {
         icon:'bi-calendar2-plus text-warning',
         titleIcon:'bi-receipt-cutoff',
@@ -190,18 +187,16 @@ const  NotifGenres  = {
             return <DoctorReatartedRdv requestData={requestData} pidData={pidData} />
         }
     },  
-    labo_rdv_redirected : {
+    labo_rdv_pret : {
         icon:'bi-arrow-90deg-right text-secondary',
         titleIcon:'bi-receipt-cutoff',
         GenTextFunction : function(requestData,pidData){
             return (<>
-                   <div>تم توجيه طلب موعد مع الطبيب {pidData.Name}   إلي الطبيب {JSON.parse(requestData.Redirected_To).Name}  ( الهاتف :  {JSON.parse(requestData.Redirected_To).Phone} , العنوان : {JSON.parse(requestData.Redirected_To).Adresse} ) </div>  
+                   <div> نتيجة التحليل في مخبر  {pidData.Name} جاهزة :   </div>  
                 </> )
         }
     },
-
-
-
+    //garderie_inscription 
     garderie_inscription_saved : {
         icon:'bi-check-circle text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -211,6 +206,49 @@ const  NotifGenres  = {
                 </> )
         }
     }, 
+    garderie_inscription_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <PharmacieAcceptShop requestData={requestData} pidData={pidData} />
+        }
+    }, 
+    garderie_inscription_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب   طلب شراء الأدوية من صيدلية      {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    //garderie_souscription 
+    garderie_souscription_saved : {
+        icon:'bi-check-circle text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم تسجيل صغيرك {requestData.EL_Name} في روضة  {pidData.Name}  بنجاح  و ذلك بتاريخ {new Date(requestData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                </> )
+        }
+    }, 
+    garderie_souscription_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <PharmacieAcceptShop requestData={requestData} pidData={pidData} />
+        }
+    }, 
+    garderie_souscription_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب   طلب شراء الأدوية من صيدلية      {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    //librairie 
     librairie_shop_saved: {
         icon:'bi-basket',
         titleIcon:'bi-receipt-cutoff',
@@ -220,7 +258,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
-
+    //transporteur 
     transporteur_request_saved: {
         icon:'bi-clipboard-check',
         titleIcon:'bi-receipt-cutoff',
@@ -230,6 +268,39 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    transporteur_request_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
+        }
+    }, 
+    transporteur_request_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    transporteur_request_retarted : {
+        icon:'bi-arrow-clockwise text-info',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorReatartedRdv requestData={requestData} pidData={pidData} />
+        }
+    },  
+    transporteur_request_livree : {
+        icon:'bi-arrow-90deg-right text-secondary',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div> نتيجة التحليل في مخبر  {pidData.Name} جاهزة :   </div>  
+                </> )
+        }
+    },
+    //autoecole 
     autoecole_inscrie_saved : {
         icon:'bi-card-heading text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -239,6 +310,32 @@ const  NotifGenres  = {
                 </> )
         }
     },  
+    autoecole_inscrie_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
+        }
+    }, 
+    autoecole_inscrie_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },  
+    autoecole_inscrie_redirected : {
+        icon:'bi-arrow-90deg-right text-secondary',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم توجيه طلب موعد مع الطبيب {pidData.Name}   إلي الطبيب {JSON.parse(requestData.Redirected_To).Name}  ( الهاتف :  {JSON.parse(requestData.Redirected_To).Phone} , العنوان : {JSON.parse(requestData.Redirected_To).Adresse} ) </div>  
+                </> )
+        }
+    },
+    //taxi 
     taxi_request_saved : {
         icon:'bi-car-front text-warning',
         titleIcon:'bi-receipt-cutoff',
@@ -257,6 +354,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    //location 
     location_request_saved : {
         icon:'bi-clipboard-check text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -265,7 +363,33 @@ const  NotifGenres  = {
                    <div>تم التسجيل  لكراء سيارة من   :  {pidData.Name}  </div>  
                 </> )
         }
-    }, 
+    },  
+    location_request_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
+        }
+    },
+    location_request_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    location_request_edited : {
+        icon:'bi-pencil-square text-secondary',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم  تعديل طلب الشراء من الصيدلة  {pidData.Name}    </div>  
+                </> )
+        }
+    },
+    //parking 
     parking_reserver_saved : {
         icon:'bi-stopwatch text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -284,6 +408,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    //qiosque 
     qiosque_request_saved : {
         icon:'bi-cart-check text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -302,6 +427,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    //electromenager 
     electromenager_shop_saved: {
         icon:'bi-cart4',
         titleIcon:'bi-receipt-cutoff',
@@ -311,6 +437,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    //meuble 
     meubles_shop_saved: {
         icon:'bi-cart4',
         titleIcon:'bi-receipt-cutoff',
@@ -320,7 +447,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
-
+    //coiffure 
     coiffure_reserver_saved : {
         icon:'bi-scissors text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -330,6 +457,30 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    coiffure_reserver_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
+        }
+    }, 
+    coiffure_reserver_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    coiffure_reserver_retarted : {
+        icon:'bi-arrow-clockwise text-info',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorReatartedRdv requestData={requestData} pidData={pidData} />
+        }
+    },
+    //boutique 
     boutique_shop_saved : {
         icon:'bi-bag-heart text-success',
         titleIcon:'receipt-cutoff',
@@ -340,6 +491,7 @@ const  NotifGenres  = {
         }
 
     },
+    //bijouterie 
     bijouterie_shop_saved : {
         icon:'bi-gem text-success',
         titleIcon:'receipt-cutoff',
@@ -350,6 +502,7 @@ const  NotifGenres  = {
         }
 
     },
+    //sallon_marriage 
     salon_marriage_reserver_saved : {
         icon:'bi-calendar2-date text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -359,6 +512,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    //chef 
     chef_reserver_saved : {
         icon:'bi-calendar2-date text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -368,6 +522,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    //orchestre 
     orchestre_reserver_saved : {
         icon:'bi-calendar2-date text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -377,6 +532,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    //photographe 
     photographe_reserver_saved : {
         icon:'bi-calendar2-date text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -386,6 +542,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    //fourniture_marriage 
     fourniture_marriage_location_saved : {
         icon:'bi-calendar2-date text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -395,7 +552,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
-
+    //magazin 
     magazin_commande_saved : {
         icon:'bi-cart4 text-success',
         titleIcon:'receipt-cutoff',
@@ -406,6 +563,7 @@ const  NotifGenres  = {
         }
 
     },
+    //boulengerie 
     boulangerie_shop_saved : {
         icon:'bi-cart4 text-success',
         titleIcon:'receipt-cutoff',
@@ -416,6 +574,7 @@ const  NotifGenres  = {
         }
 
     },
+    //boucherie 
     boucheries_shop_saved : {
         icon:'bi-cart4 text-success',
         titleIcon:'receipt-cutoff',
@@ -426,6 +585,7 @@ const  NotifGenres  = {
         }
 
     },
+    //fruiterie 
     fruiterie_shop_saved : {
         icon:'bi-cart4 text-success',
         titleIcon:'receipt-cutoff',
@@ -436,6 +596,7 @@ const  NotifGenres  = {
         }
 
     },
+    //patisserie 
     patisserie_shop_saved : {
         icon:'bi-cart4 text-success',
         titleIcon:'receipt-cutoff',
@@ -446,6 +607,7 @@ const  NotifGenres  = {
         }
 
     },
+    //epicerie 
     epicerie_shop_saved : {
         icon:'bi-cart4 text-success',
         titleIcon:'receipt-cutoff',
@@ -456,6 +618,7 @@ const  NotifGenres  = {
         }
 
     },
+    //quicaillerie 
     quincaillerie_shop_saved : {
         icon:'bi-wrench text-success',
         titleIcon:'receipt-cutoff',
@@ -466,7 +629,7 @@ const  NotifGenres  = {
         }
 
     },
-
+    //avocat 
     avocat_souscrire_saved : {
         icon:'bi-pencil-square text-info',
         titleIcon:'receipt-cutoff',
@@ -475,6 +638,48 @@ const  NotifGenres  = {
         }
 
     },
+    avocat_souscrire_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
+        }
+    }, 
+    avocat_souscrire_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    avocat_souscrire_retarted : {
+        icon:'bi-arrow-clockwise text-info',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorReatartedRdv requestData={requestData} pidData={pidData} />
+        }
+    },  
+    avocat_souscrire_redirected : {
+        icon:'bi-arrow-90deg-right text-secondary',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم توجيه طلب موعد مع الطبيب {pidData.Name}   إلي الطبيب {JSON.parse(requestData.Redirected_To).Name}  ( الهاتف :  {JSON.parse(requestData.Redirected_To).Phone} , العنوان : {JSON.parse(requestData.Redirected_To).Adresse} ) </div>  
+                </> )
+        }
+    },
+    avocat_souscrire_informer : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+
     avocat_rdv_saved : {
         icon:'bi-pencil-square text-info',
         titleIcon:'receipt-cutoff',
@@ -483,8 +688,16 @@ const  NotifGenres  = {
         }
 
     },
- 
- 
+    avocat_rdv_saved_2 : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم تسجيل طلب موعد مع المحامي {pidData.Name}  بنجاح  و ذلك بتاريخ {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                </> )
+        }
+    },
+    //gym 
     gym_souscription_saved : {
         icon:'bi-card-checklist text-success',
         titleIcon:'receipt-cutoff',
@@ -494,7 +707,23 @@ const  NotifGenres  = {
              </> )}
 
     },
-    
+    gym_souscription_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
+        }
+    }, 
+    gym_souscription_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    //pyscine 
     pyscine_reserver_saved : {
         icon:'bi-card-checklist text-success',
         titleIcon:'receipt-cutoff',
@@ -513,6 +742,7 @@ const  NotifGenres  = {
              </> )}
 
     },
+    //stade 
     stade_reserver_saved : {
         icon:'bi-card-checklist text-success',
         titleIcon:'receipt-cutoff',
@@ -531,6 +761,7 @@ const  NotifGenres  = {
              </> )}
 
     },
+    //cinema 
     cinema_reserver_saved : {
         icon:'bi-card-checklist text-success',
         titleIcon:'receipt-cutoff',
@@ -540,6 +771,7 @@ const  NotifGenres  = {
              </> )}
 
     },
+    //theatre 
     theatre_reserver_saved : {
         icon:'bi-card-checklist text-success',
         titleIcon:'receipt-cutoff',
@@ -549,6 +781,7 @@ const  NotifGenres  = {
              </> )}
 
     },
+    //avis 
     art_avis_saved : {
         icon:'bi-card-checklist text-success',
         titleIcon:'receipt-cutoff',
@@ -558,6 +791,7 @@ const  NotifGenres  = {
              </> )}
 
     },
+    //musee 
     musee_reserver_saved : {
         icon:'bi-card-checklist text-success',
         titleIcon:'receipt-cutoff',
@@ -567,6 +801,7 @@ const  NotifGenres  = {
              </> )}
 
     },
+    //hotels_reserver 
     hotels_reserver_saved : {
         icon:'bi-card-checklist text-success',
         titleIcon:'receipt-cutoff',
@@ -576,6 +811,23 @@ const  NotifGenres  = {
              </> )}
 
     },
+    hotels_reserver_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
+        }
+    }, 
+    hotels_reserver_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    //hotels_service
     hotels_service_saved : {
         icon:'bi-card-checklist text-success',
         titleIcon:'receipt-cutoff',
@@ -585,6 +837,23 @@ const  NotifGenres  = {
              </> )}
 
     },
+    hotels_service_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
+        }
+    }, 
+    hotels_service_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    //agence 
     agence_service_saved : {
         icon:'bi-card-checklist text-success',
         titleIcon:'receipt-cutoff',
@@ -594,6 +863,7 @@ const  NotifGenres  = {
              </> )}
 
     },
+    //depot 
     depot_commande_saved : {
         icon:'bi-cart4 text-success',
         titleIcon:'receipt-cutoff',
@@ -604,6 +874,7 @@ const  NotifGenres  = {
         }
 
     },
+    //comptable 
     comptable_service_saved : {
         icon:'bi-cart4 text-success',
         titleIcon:'receipt-cutoff',
@@ -614,7 +885,7 @@ const  NotifGenres  = {
         }
 
     },
-
+    //restaurant_commande 
     restaurant_commande_saved: {
         icon:'bi-check-circle text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -635,6 +906,16 @@ const  NotifGenres  = {
             return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
         }
     },
+    restaurant_commande_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    //restaurant_reservation
     restaurant_reservation_saved: {
         icon:'bi-check-circle text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -644,6 +925,32 @@ const  NotifGenres  = {
                 </> )
         }
     }, 
+    restaurant_reservation_accepted : {
+        icon:'bi-calendar-check text-success',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return <DoctorAcceptRdv requestData={requestData} pidData={pidData} />
+        }
+    },
+    restaurant_reservation_rejected : {
+        icon:'bi-calendar-x text-danger',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم رفض طلب الموعد مع الطبيب {pidData.Name} <br /> <small>"{requestData.Refuser_Cause}"</small></div>  
+                </> )
+        }
+    },
+    restaurant_reservation_edited : {
+        icon:'bi-pencil-square text-secondary',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                   <div>تم  تعديل طلب الشراء من الصيدلة  {pidData.Name}    </div>  
+                </> )
+        }
+    },
+    //cafe 
     cafe_commande_saved: {
         icon:'bi-check-circle text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -666,15 +973,7 @@ const  NotifGenres  = {
                 </> )
         }
     }, 
-    avocat_rdv_saved : {
-        icon:'bi-calendar-check text-success',
-        titleIcon:'bi-receipt-cutoff',
-        GenTextFunction : function(requestData,pidData){
-            return (<>
-                   <div>تم تسجيل طلب موعد مع المحامي {pidData.Name}  بنجاح  و ذلك بتاريخ {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
-                </> )
-        }
-    },
+    //courtier 
     courtier_request_saved : {
         icon:'bi-calendar-check text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -693,6 +992,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    //contracteur 
     contracteur_service_saved : {
         icon:'bi-calendar-check text-success',
         titleIcon:'bi-receipt-cutoff',
@@ -702,6 +1002,7 @@ const  NotifGenres  = {
                 </> )
         }
     },
+    //architecte 
     architecture_service_saved : {
         icon:'bi-calendar-check text-success',
         titleIcon:'bi-receipt-cutoff',

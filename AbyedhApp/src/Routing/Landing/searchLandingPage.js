@@ -11,6 +11,7 @@ import "swiper/css/grid";
 import "swiper/css/pagination";
 import Ripples from 'react-ripples'
 import { useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 
 function SearchLandingPage() {
@@ -23,10 +24,17 @@ function SearchLandingPage() {
     const [gouv ,setGouv] = useState('')
     const [deleg ,setDeleg] = useState('')
     const navigate = useNavigate();
-    
+    const [suggestionListe , setSuggestionListe] = useState([])
     /* ############### UseEffect #################*/
     useEffect(() => {
         window.scrollTo(0, 0);
+        axios.post(`${GConf.ApiLink}/Search/suggestion`, {
+            tag: tag,
+            UID: GConf.UserData.Logged ? GConf.UserData.UData.UID : false,
+          })
+          .then(function (response) {
+            setSuggestionListe(response.data)
+        })
     }, [])
 
     /* ############### Functions #################*/
@@ -232,22 +240,22 @@ function SearchLandingPage() {
     }
     const SystemLinkCard = () =>{
         return(<>
-            <div className='card p-2 shadow mb-2 border-div d-md-none'>
-                <h5 className='text-end text-secondary mb-1 mt-2' dir='rtl'> هَلْ أَنْتَ {GConf.ADIL[tag].businesOwner} ؟ </h5>
+            <div className='card p-2 shadow-sm mb-2 border-div d-md-none'>
+                <h5 className='text-end text-secondary mb-1 mt-2' dir='rtl'> هَلْ أَنْتَ  {GConf.ADIL[tag].businesOwner} و تريد إضافة {GConf.ADIL[tag].businesNameRelatif} للمنصة   ؟ </h5>
                 {/* <a href={`/S/I/add/${tag}`} className=' text-secondary ' ></a> */}
                 <div className='row mt-0 pt-0 '>
                     <div className='col-3 align-self-center text-center'>
                         <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className=' mt-3 img-responsive mb-1 ms-2' width='100%'  height='auto' alt='abyedh.tn' />
                     </div>
                     <div className='col-9 align-self-center text-center'>
-                        <p> إِكْتَشِفْ {GConf.ADIL[tag].systemName} اللّي  يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ   </p>
+                        <p> إِكْتَشِفْ النسخة  المصغرة لـ {GConf.ADIL[tag].systemName} اللّي تعُاوْنِكْ  إِنّكْ تَعَرِّفْ بنَفْسِكْ و تستقبل طلبات عملائك    </p>
                         {/* <p >   <b style={{color:GConf.ADIL[tag].themeColor}}>{GConf.ADIL[tag].systemName}</b> يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ  </p> */}
                         {/* {localStorage.getItem('AddToDirectory') ? <Button className='rounded-pill text-secondary' style={{backgroundColor:'white'}} size='tiny' onClick={() => navigate(`/S/I/user/${tag}`)}> متابعة عملية التسجيل </Button>  : <></>}  */}
                     </div>
                 </div>
                 <div className='mt-3'>
                     <div className='row'>
-                        <div className='col-6 align-self-center text-start'><Button className='rounded-pill mb-2' style={{backgroundColor:'#f0f0f0', color : GConf.ADIL[tag].themeColor}} size='tiny' onClick={() => navigate(`/S/I/add/${tag}`)}>إضغط هنا للتسجيل </Button></div>
+                        <div className='col-6 align-self-center text-start'><Button className='rounded-pill mb-2' style={{backgroundColor:'#f0f0f0', color : GConf.ADIL[tag].themeColor}} size='tiny' onClick={() => navigate(`/S/I/add/${tag}`)}> التسجيل في النظام </Button></div>
                         <div className='col-6 align-self-center text-end'><Button className='rounded-pill text-white mb-2' style={{backgroundColor:GConf.ADIL[tag].themeColor}} size='tiny' onClick={() => navigate(`/App/L/${tag}`)}>  الدخول للنظام </Button></div>
                     </div>
                 </div>
@@ -258,7 +266,7 @@ function SearchLandingPage() {
     }
     const AdminSoon = () =>{
         return(<>
-            <div className='card p-2 shadow mb-2 border-div d-md-none'>
+            <div className='card p-2 shadow-sm mb-2 border-div d-md-none'>
                 <h5 className='text-end text-secondary mb-1 mt-2' dir='rtl'> مِنَصّةْ الِإدَارَة الرَقْمِيَّة </h5>
                 {/* <a href={`/S/I/add/${tag}`} className=' text-secondary ' ></a> */}
                 <div className='row mt-0 pt-0 '>
@@ -282,6 +290,38 @@ function SearchLandingPage() {
             <div className='card p-3 shadow-sm  border-div btn-cursor' onClick={() => navigate(`/S/I/add/${tag}`)}>
                 <p className='text-end'>   <b style={{color:GConf.ADIL[tag].themeColor}}>{GConf.ADIL[tag].systemName}</b>  يعُاوْنِكْ  بَاشْ تَعَرِّفْ بنَفْسِكْ و تَعَرِّفْ بخَدِمْتِكْ </p> 
             </div> 
+        </>)
+    }
+    const FvaoriteOrSuggestionCard = () =>{
+        const ItemCard = (props) =>{
+            return(<>
+            <NavLink exact='true' to={`/S/P/${tag}/${props.data.PID}`}>
+                <div className='card p-2 shadow-sm mb-2 border-div'>
+                    <div className='row '>
+                        <div className='col-2 align-self-center'><img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive ' width='50px'  height='50px' />   </div>
+                        <div className='col align-self-center '>
+                            <h5 className='mb-0   text-truncate' style={{maxWidth: '115px'}}><b className='mt-0 mb-0 text-secondary'>{props.data.Name} </b></h5>
+                            <div className='mt-0 mb-0 text-secondary   text-truncate' style={{maxWidth: '115px'}}> {props.data.UID ? <span> المفظلة <span className='bi bi-star-fill text-warning'> </span></span>   : `${props.data.Gouv}, ${props.data.Deleg}`} </div>
+                        </div>
+                    </div>
+                </div>
+            </NavLink>
+            </>)
+        }
+        return(<>
+            <Swiper
+                slidesPerView= {1.8}
+                centeredSlides = {false}
+                spaceBetween={10}
+                loop={true}
+                pagination={false}
+                modules={[Pagination]}
+                className="mySwiper pb-2 mb-0 "
+            >
+                {suggestionListe.map( (carouselData,index)=> 
+                    <SwiperSlide key={index}> <ItemCard  key={index} data={carouselData} index={index} /></SwiperSlide> 
+                 )}
+            </Swiper>
         </>)
     }
     /*const BigScreenItemCard = () =>{
@@ -366,7 +406,7 @@ function SearchLandingPage() {
                 <div className='row'> 
                     <div className='col-12 col-lg-12 align-self-center  ' dir='rtl'>
                         <div className='row mb-2'>
-                            <div className='col-4 col-lg-4 align-self-center text-center d-none d-lg-block '>
+                            <div className='col-4 col-lg-4  d-none d-lg-block '>
                                 <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} className='img-responsive  ' width='60%' height='auto' alt='abyedh.tn'  />
                             </div>
                             <div className='col-12 col-lg-8 align-self-center text-center'>
@@ -444,29 +484,50 @@ function SearchLandingPage() {
                     </div>
                 </div> 
                 <br />
+                <h5 className='text-end me-3 mt-0 mb-2' style={{color : GConf.ADIL[tag].themeColor}}> المفظلة و الإقتراحات <span className='bi bi-star-half'></span> </h5> 
+                <FvaoriteOrSuggestionCard />
+                <br />
                 {GConf.ADIL[tag].systemActive ? <SystemLinkCard /> : <AdminSoon /> }
             </div> 
+            
             <br />
             <ButtomCard />
             <Modal
                 onClose={() => setOpen(false)}
                 onOpen={() => setOpen(true)}
                 open={open}
-                dimmer= 'blurring' 
+                //dimmer= 'blurring' 
+                className='fullscreen-modal-gouv m-0 p-0'
                 >
-                <Modal.Content  >
+                <Modal.Content >
+                        <br />
+                        <br />
+                        <br />
+                        
+                        <Button color={undefined} className='rounded-circle' icon onClick={() => setOpen(false)}><Icon name='remove' /></Button>
+                        <br />
+                        <br />
                         <GouvListeToSelet />
+                        
                 </Modal.Content>
             </Modal>
             <Modal
                 onClose={() => setOpenD(false)}
                 onOpen={() => setOpenD(true)}
                 open={openD}
-                dimmer= 'blurring'
-                    
+                //dimmer= 'blurring'
+                className='fullscreen-modal-gouv m-0 p-0'  
                 >
                 <Modal.Content  >
+                        <br />
+                        <br />
+                        <br />
+                        
+                        <Button color={undefined} className='rounded-circle' icon onClick={() => setOpenD(false)}><Icon name='remove' /></Button>
+                        <br />
+                        <br />
                         <DelegListeToSelet />
+                        
                 </Modal.Content>
             </Modal>
         </> );

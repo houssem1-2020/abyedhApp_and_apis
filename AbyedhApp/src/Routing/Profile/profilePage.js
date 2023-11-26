@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState , useRef } from 'react';
+import { Suspense } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Button, Icon, Rating, Table, Comment, Menu,Form, TabPane, Placeholder, TextArea, Modal } from 'semantic-ui-react';
@@ -19,222 +20,395 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import { useLocation } from 'react-router-dom';
+//SPESIFIC
+// import CliniqueSpecific from './Specific/clinique'; 
+// import PharmacieSpecific from './Specific/pharmacie';
+// import GarderieSpecific from './Specific/garderie';
+// import RestaurantSpecific from './Specific/restaurant';
+// import AutoEcoleSpecific from './Specific/autoecole';
+// import AvocatSpecific from './Specific/avocat';
+// import BoutiqueSpecific from './Specific/boutique';
+// import CafeSpecific from './Specific/cafe';
+// import CentreMdSpecific from './Specific/centreMD';
+// import GymSpecific from './Specific/gym';
+// import EcoleSpecific from './Specific/ecole';
+// import ComptableSpecific from './Specific/comptable';
+// import CoiffureSpecific from './Specific/coiffure';
+// import HotelsSpecific from './Specific/hotels';
+// import LaboSpecific from './Specific/labo';
+// import LibrairieSpecific from './Specific/librairie';
+// import LyceeSpecific from './Specific/lycee';
+// import StadeSpecific from './Specific/stade';
+// import SociteSpecific from './Specific/socite';
+// import SmasarSpecific from './Specific/samsar';
+// import PyscineSpecific from './Specific/pyscine';
+// import UniversiteSpecific from './Specific/universite';
+// import TransporteurSpecific from './Specific/transporteur';
+// import StorageSpecific from './Specific/storage';
+// import VgAgenceSpecific from './Specific/vg_agence';
+// import HauseElectroSpecific from './Specific/house_electro';
+// import HauseMeubleSpecific from './Specific/house_meuble';
+// import PtvMagazinSpecific from './Specific/ptvente_shop';
+// import PtvPatesserieSpecific from './Specific/ptvente_patesserie';
+// import PtvFuiterieSpecific from './Specific/ptvente_fruit';
+// import PtvVBoulengerieSpecific from './Specific/ptvente_boulengerie';
+// import PtvEpecerieSpecific from './Specific/ptvente_small_shop';
+// import PtvViandeSpecific from './Specific/ptvente_viande';
+// import ChantierArchitectureSpecific from './Specific/chantier_architecture';
+// import ChantierContracteurSpecific from './Specific/chantier_contrateur';
+// import ChantierQuicaillerieSpecific from './Specific/chantier_quincaillerie';
+// import HandmadeCristalSpecific from './Specific/handmade_cristal';
+// import HandmadeElectricienSpecific from './Specific/handmade_electricien';
+// import HandmadeForferonSpecific from './Specific/handmade_forgeron';
+// import HandemadeMarbreSpecific from './Specific/handmade_marbre';
+// import HandemadeMenuisierSpecific from './Specific/handmade_menuisier';
+// import HandemadePeintureSpecific from './Specific/handmade_peinture';
+// import HandemadePlombierSpecific from './Specific/handmade_plombier';
+// import CarQiosqieSpecific from './Specific/car_qiosque';
+// import CarMecanicienSpecific from './Specific/car_mecanicien';
+// import CarLocationSpecific from './Specific/car_location';
+// import CarParkingSpecific from './Specific/car_parking';
+// import ArtCinemaSpecific from './Specific/art_cinema';
+// import ArtMuseeSpecific from './Specific/art_musee';
+// import ArtTheatreSpecific from './Specific/art_theatre';
+// import WeddingOrchestreSpecific from './Specific/wedding_orchestre';
+// import WeddingFournitureMarriageSpecific from './Specific/wedding_fourniture_marriage';
+// import WeddingPhotographeSpecific from './Specific/wedding_photographe';
+// import WeddingBijouxSpecific from './Specific/wedding_bijoux';
+// import WeddingChefSpecific from './Specific/wedding_chef';
+// import WeddingSallonMariageSpecific from './Specific/wedding_salon_marriage';
+// import AdminAMosqSpecific from './Specific/admin_a_mosq';
+// import AdminACourtSpecific from './Specific/admin_a_court';
+// import AdminAArSpecific from './Specific/admin_a_ar';
+// import AdminAMuSpecific from './Specific/admin_a_mu';
+// import AdminAPoliceSpecific from './Specific/admin_a_police';
+// import AdminCMcSpecific from './Specific/admin_c_mc';
+// import AdminCmjSpecific from './Specific/admin_c_mj';
+// import AdminEBiblioSpecific from './Specific/admin_e_biblio';
+// import AdminECentreSpecific from './Specific/admin_e_centre';
+// import AdminEEcoleSpecific from './Specific/admin_e_ecole';
+// import AdminELyceeSpecific from './Specific/admin_e_lycee';
+// import AdminESsSpecific from './Specific/admin_e_ss';
+// import AdminEUniversiteSpecific from './Specific/admin_e_universite';
+// import AdminFPosteSpecific from './Specific/admin_f_poste';
+// import AdminFRfSpecific from './Specific/admin_f_rf';
+// import AdminSScbSpecific from './Specific/admin_s_csb';
+// import AdminSHospitalSpecific from './Specific/admin_s_hospital';
 
-import DocteurSpecific from './Specific/docteur'; 
-import CliniqueSpecific from './Specific/clinique'; 
-import PharmacieSpecific from './Specific/pharmacie';
-import GarderieSpecific from './Specific/garderie';
-import RestaurantSpecific from './Specific/restaurant';
-import AutoEcoleSpecific from './Specific/autoecole';
-import AvocatSpecific from './Specific/avocat';
-import BoutiqueSpecific from './Specific/boutique';
-import CafeSpecific from './Specific/cafe';
-import CentreMdSpecific from './Specific/centreMD';
-import GymSpecific from './Specific/gym';
-import EcoleSpecific from './Specific/ecole';
-import ComptableSpecific from './Specific/comptable';
-import CoiffureSpecific from './Specific/coiffure';
-import HotelsSpecific from './Specific/hotels';
-import LaboSpecific from './Specific/labo';
-import LibrairieSpecific from './Specific/librairie';
-import LyceeSpecific from './Specific/lycee';
-import StadeSpecific from './Specific/stade';
-import SociteSpecific from './Specific/socite';
-import SmasarSpecific from './Specific/samsar';
-import PyscineSpecific from './Specific/pyscine';
-import UniversiteSpecific from './Specific/universite';
-import TransporteurSpecific from './Specific/transporteur';
-import StorageSpecific from './Specific/storage';
-import VgAgenceSpecific from './Specific/vg_agence';
 
-import HauseElectroSpecific from './Specific/house_electro';
-import HauseMeubleSpecific from './Specific/house_meuble';
+// ///ACTION
+// // const DocteurActions = React.lazy(() => import('./Actions/docteur'));
+// import GarderieActions from './Actions/garderie';
+// import PharmacieActions from './Actions/pharmacie';
+// import RestaurantActions from './Actions/restaurant';
+// import CliniqueActions from './Actions/clinique'; 
+// import AutoEcoleActions from './Actions/autoecole';
+// import AvocatActions from './Actions/avocat';
+// import BoutiqueActions from './Actions/boutique';
+// import CafeActions from './Actions/cafe';
+// import CentreMdActions from './Actions/centreMD';
+// import GymActions from './Actions/gym';
+// import EcoleActions from './Actions/ecole';
+// import ComptableActions from './Actions/comptable';
+// import CoiffureActions from './Actions/coiffure';
+// import HotelsActions from './Actions/hotels';
+// import LaboActions from './Actions/labo';
+// import LibrairieActions from './Actions/librairie';
+// import LyceeActions from './Actions/lycee';
+// import StadeActions from './Actions/stade';
+// import SociteActions from './Actions/socite';
+// import SmasarActions from './Actions/samsar';
+// import PyscineActions from './Actions/pyscine';
+// import UniversiteActions from './Actions/universite';
+// import TransporteurActions from './Actions/transporteur';
+// import StorageActions from './Actions/storage';
+// import VgAgenceActions from './Actions/vg_agence';
+// import HauseElectroActions from './Actions/house_electro';
+// import HauseMeubleActions from './Actions/house_meuble';
+// import PtvMagazinActions from './Actions/ptvente_shop';
+// import PtvPatesserieActions from './Actions/ptvente_patesserie';
+// import PtvFuiterieActions from './Actions/ptvente_fruit';
+// import PtvVBoulengerieActions from './Actions/ptvente_boulengerie';
+// import PtvEpecerieActions from './Actions/ptvente_small_shop';
+// import PtvViandeActions from './Actions/ptvente_viande';
+// import ChantierArchitectureActions from './Actions/chantier_architecture';
+// import ChantierContracteurActions from './Actions/chantier_contrateur';
+// import ChantierQuicaillerieActions from './Actions/chantier_quincaillerie';
+// import HandmadeCristalActions from './Actions/handmade_cristal';
+// import HandmadeElectricienActions from './Actions/handmade_electricien';
+// import HandmadeForferonActions from './Actions/handmade_forgeron';
+// import HandemadeMarbreActions from './Actions/handmade_marbre';
+// import HandemadeMenuisierActions from './Actions/handmade_menuisier';
+// import HandemadePeintureActions from './Actions/handmade_peinture';
+// import HandemadePlombierActions from './Actions/handmade_plombier';
+// import CarQiosqieActions from './Actions/car_qiosque';
+// import CarMecanicienActions from './Actions/car_mecanicien';
+// import CarLocationActions from './Actions/car_location';
+// import CarParkingActions from './Actions/car_parking';
+// import ArtCinemaActions from './Actions/art_cinema';
+// import ArtMuseeActions from './Actions/art_musee';
+// import ArtTheatreActions from './Actions/art_theatre';
+// import WeddingOrchestreActions from './Actions/wedding_orchestre';
+// import WeddingFournitureMarriageActions from './Actions/wedding_fourniture_marriage';
+// import WeddingPhotographeActions from './Actions/wedding_photographe';
+// import WeddingBijouxActions from './Actions/wedding_bijoux';
+// import WeddingChefActions from './Actions/wedding_chef';
+// import WeddingSallonMariageActions from './Actions/wedding_salon_marriage';
 
-import PtvMagazinSpecific from './Specific/ptvente_shop';
-import PtvPatesserieSpecific from './Specific/ptvente_patesserie';
-import PtvFuiterieSpecific from './Specific/ptvente_fruit';
-import PtvVBoulengerieSpecific from './Specific/ptvente_boulengerie';
-import PtvEpecerieSpecific from './Specific/ptvente_small_shop';
-import PtvViandeSpecific from './Specific/ptvente_viande';
+///Suivie
+// const DocteurSuivie = React.lazy(() => import('./Suivie/docteur'));
+// import GarderieSuivie from './Suivie/garderie';
+// import PharmacieSuivie from './Suivie/pharmacie';
+// import RestaurantSuivie from './Suivie/restaurant';
+// import CliniqueSuivie from './Suivie/clinique'; 
+// import AutoEcoleSuivie from './Suivie/autoecole';
+// import AvocatSuivie from './Suivie/avocat';
+// import BoutiqueSuivie from './Suivie/boutique';
+// import CafeSuivie from './Suivie/cafe';
+// import CentreMdSuivie from './Suivie/centreMD';
+// import GymSuivie from './Suivie/gym';
+// import EcoleSuivie from './Suivie/ecole';
+// import ComptableSuivie from './Suivie/comptable';
+// import CoiffureSuivie from './Suivie/coiffure';
+// import HotelsSuivie from './Suivie/hotels';
+// import LaboSuivie from './Suivie/labo';
+// import LibrairieSuivie from './Suivie/librairie';
+// import LyceeSuivie from './Suivie/lycee';
+// import StadeSuivie from './Suivie/stade';
+// import SociteSuivie from './Suivie/socite';
+// import SmasarSuivie from './Suivie/samsar';
+// import PyscineSuivie from './Suivie/pyscine';
+// import UniversiteSuivie from './Suivie/universite';
+// import TransporteurSuivie from './Suivie/transporteur';
+// import StorageSuivie from './Suivie/storage';
+// import VgAgenceSuivie from './Suivie/vg_agence';
+// import HauseElectroSuivie from './Suivie/house_electro';
+// import HauseMeubleSuivie from './Suivie/house_meuble';
+// import PtvMagazinSuivie from './Suivie/ptvente_shop';
+// import PtvPatesserieSuivie from './Suivie/ptvente_patesserie';
+// import PtvFuiterieSuivie from './Suivie/ptvente_fruit';
+// import PtvVBoulengerieSuivie from './Suivie/ptvente_boulengerie';
+// import PtvEpecerieSuivie from './Suivie/ptvente_small_shop';
+// import PtvViandeSuivie from './Suivie/ptvente_viande';
+// import ChantierArchitectureSuivie from './Suivie/chantier_architecture';
+// import ChantierContracteurSuivie from './Suivie/chantier_contrateur';
+// import ChantierQuicaillerieSuivie from './Suivie/chantier_quincaillerie';
+// import HandmadeCristalSuivie from './Suivie/handmade_cristal';
+// import HandmadeElectricienSuivie from './Suivie/handmade_electricien';
+// import HandmadeForferonSuivie from './Suivie/handmade_forgeron';
+// import HandemadeMarbreSuivie from './Suivie/handmade_marbre';
+// import HandemadeMenuisierSuivie from './Suivie/handmade_menuisier';
+// import HandemadePeintureSuivie from './Suivie/handmade_peinture';
+// import HandemadePlombierSuivie from './Suivie/handmade_plombier';
+// import CarQiosqieSuivie from './Suivie/car_qiosque';
+// import CarMecanicienSuivie from './Suivie/car_mecanicien';
+// import CarLocationSuivie from './Suivie/car_location';
+// import CarParkingSuivie from './Suivie/car_parking';
+// import ArtCinemaSuivie from './Suivie/art_cinema';
+// import ArtMuseeSuivie from './Suivie/art_musee';
+// import ArtTheatreSuivie from './Suivie/art_theatre';
+// import WeddingOrchestreSuivie from './Suivie/wedding_orchestre';
+// import WeddingFournitureMarriageSuivie from './Suivie/wedding_fourniture_marriage';
+// import WeddingPhotographeSuivie from './Suivie/wedding_photographe';
+// import WeddingBijouxSuivie from './Suivie/wedding_bijoux';
+// import WeddingChefSuivie from './Suivie/wedding_chef';
+// import WeddingSallonMariageSuivie from './Suivie/wedding_salon_marriage';
 
-import ChantierArchitectureSpecific from './Specific/chantier_architecture';
-import ChantierContracteurSpecific from './Specific/chantier_contrateur';
-import ChantierQuicaillerieSpecific from './Specific/chantier_quincaillerie';
-
-import HandmadeCristalSpecific from './Specific/handmade_cristal';
-import HandmadeElectricienSpecific from './Specific/handmade_electricien';
-import HandmadeForferonSpecific from './Specific/handmade_forgeron';
-import HandemadeMarbreSpecific from './Specific/handmade_marbre';
-import HandemadeMenuisierSpecific from './Specific/handmade_menuisier';
-import HandemadePeintureSpecific from './Specific/handmade_peinture';
-import HandemadePlombierSpecific from './Specific/handmade_plombier';
-
-import CarQiosqieSpecific from './Specific/car_qiosque';
-import CarMecanicienSpecific from './Specific/car_mecanicien';
-import CarLocationSpecific from './Specific/car_location';
-import CarParkingSpecific from './Specific/car_parking';
-
-import ArtCinemaSpecific from './Specific/art_cinema';
-import ArtMuseeSpecific from './Specific/art_musee';
-import ArtTheatreSpecific from './Specific/art_theatre';
-
-import WeddingOrchestreSpecific from './Specific/wedding_orchestre';
-import WeddingFournitureMarriageSpecific from './Specific/wedding_fourniture_marriage';
-import WeddingPhotographeSpecific from './Specific/wedding_photographe';
-import WeddingBijouxSpecific from './Specific/wedding_bijoux';
-import WeddingChefSpecific from './Specific/wedding_chef';
-import WeddingSallonMariageSpecific from './Specific/wedding_salon_marriage';
-
-import AdminAMosqSpecific from './Specific/admin_a_mosq';
-import AdminACourtSpecific from './Specific/admin_a_court';
-import AdminAArSpecific from './Specific/admin_a_ar';
-import AdminAMuSpecific from './Specific/admin_a_mu';
-import AdminAPoliceSpecific from './Specific/admin_a_police';
-import AdminCMcSpecific from './Specific/admin_c_mc';
-import AdminCmjSpecific from './Specific/admin_c_mj';
-import AdminEBiblioSpecific from './Specific/admin_e_biblio';
-import AdminECentreSpecific from './Specific/admin_e_centre';
-import AdminEEcoleSpecific from './Specific/admin_e_ecole';
-import AdminELyceeSpecific from './Specific/admin_e_lycee';
-import AdminESsSpecific from './Specific/admin_e_ss';
-import AdminEUniversiteSpecific from './Specific/admin_e_universite';
-import AdminFPosteSpecific from './Specific/admin_f_poste';
-import AdminFRfSpecific from './Specific/admin_f_rf';
-import AdminSScbSpecific from './Specific/admin_s_csb';
-import AdminSHospitalSpecific from './Specific/admin_s_hospital';
-
+//SPESIFIC
+const DocteurSpecific = React.lazy(() => import('./Specific/docteur'));
+const CliniqueSpecific = React.lazy(() => import('./Specific/clinique')); 
+const PharmacieSpecific = React.lazy(() => import('./Specific/pharmacie'));
+const GarderieSpecific = React.lazy(() => import('./Specific/garderie'));
+const RestaurantSpecific = React.lazy(() => import('./Specific/restaurant'));
+const AutoEcoleSpecific = React.lazy(() => import('./Specific/autoecole'));
+const AvocatSpecific = React.lazy(() => import('./Specific/avocat'));
+const BoutiqueSpecific = React.lazy(() => import('./Specific/boutique'));
+const CafeSpecific = React.lazy(() => import('./Specific/cafe'));
+const CentreMdSpecific = React.lazy(() => import('./Specific/centreMD'));
+const GymSpecific = React.lazy(() => import('./Specific/gym'));
+const EcoleSpecific = React.lazy(() => import('./Specific/ecole'));
+const ComptableSpecific = React.lazy(() => import('./Specific/comptable'));
+const CoiffureSpecific = React.lazy(() => import('./Specific/coiffure'));
+const HotelsSpecific = React.lazy(() => import('./Specific/hotels'));
+const LaboSpecific = React.lazy(() => import('./Specific/labo'));
+const LibrairieSpecific = React.lazy(() => import('./Specific/librairie'));
+const LyceeSpecific = React.lazy(() => import('./Specific/lycee'));
+const StadeSpecific = React.lazy(() => import('./Specific/stade'));
+const SociteSpecific = React.lazy(() => import('./Specific/socite'));
+const SmasarSpecific = React.lazy(() => import('./Specific/samsar'));
+const PyscineSpecific = React.lazy(() => import('./Specific/pyscine'));
+const UniversiteSpecific = React.lazy(() => import('./Specific/universite'));
+const TransporteurSpecific = React.lazy(() => import('./Specific/transporteur'));
+const StorageSpecific = React.lazy(() => import('./Specific/storage'));
+const VgAgenceSpecific = React.lazy(() => import('./Specific/vg_agence'));
+const HauseElectroSpecific = React.lazy(() => import('./Specific/house_electro'));
+const HauseMeubleSpecific = React.lazy(() => import('./Specific/house_meuble'));
+const PtvMagazinSpecific = React.lazy(() => import('./Specific/ptvente_shop'));
+const PtvPatesserieSpecific = React.lazy(() => import('./Specific/ptvente_patesserie'));
+const PtvFuiterieSpecific = React.lazy(() => import('./Specific/ptvente_fruit'));
+const PtvVBoulengerieSpecific = React.lazy(() => import('./Specific/ptvente_boulengerie'));
+const PtvEpecerieSpecific = React.lazy(() => import('./Specific/ptvente_small_shop'));
+const PtvViandeSpecific = React.lazy(() => import('./Specific/ptvente_viande'));
+const ChantierArchitectureSpecific = React.lazy(() => import('./Specific/chantier_architecture'));
+const ChantierContracteurSpecific = React.lazy(() => import('./Specific/chantier_contrateur'));
+const ChantierQuicaillerieSpecific = React.lazy(() => import('./Specific/chantier_quincaillerie'));
+const HandmadeCristalSpecific = React.lazy(() => import('./Specific/handmade_cristal'));
+const HandmadeElectricienSpecific = React.lazy(() => import('./Specific/handmade_electricien'));
+const HandmadeForferonSpecific = React.lazy(() => import('./Specific/handmade_forgeron'));
+const HandemadeMarbreSpecific = React.lazy(() => import('./Specific/handmade_marbre'));
+const HandemadeMenuisierSpecific = React.lazy(() => import('./Specific/handmade_menuisier'));
+const HandemadePeintureSpecific = React.lazy(() => import('./Specific/handmade_peinture'));
+const HandemadePlombierSpecific = React.lazy(() => import('./Specific/handmade_plombier'));
+const CarQiosqieSpecific = React.lazy(() => import('./Specific/car_qiosque'));
+const CarMecanicienSpecific = React.lazy(() => import('./Specific/car_mecanicien'));
+const CarLocationSpecific = React.lazy(() => import('./Specific/car_location'));
+const CarParkingSpecific = React.lazy(() => import('./Specific/car_parking'));
+const ArtCinemaSpecific = React.lazy(() => import('./Specific/art_cinema'));
+const ArtMuseeSpecific = React.lazy(() => import('./Specific/art_musee'));
+const ArtTheatreSpecific = React.lazy(() => import('./Specific/art_theatre'));
+const WeddingOrchestreSpecific = React.lazy(() => import('./Specific/wedding_orchestre'));
+const WeddingFournitureMarriageSpecific = React.lazy(() => import('./Specific/wedding_fourniture_marriage'));
+const WeddingPhotographeSpecific = React.lazy(() => import('./Specific/wedding_photographe'));
+const WeddingBijouxSpecific = React.lazy(() => import('./Specific/wedding_bijoux'));
+const WeddingChefSpecific = React.lazy(() => import('./Specific/wedding_chef'));
+const WeddingSallonMariageSpecific = React.lazy(() => import('./Specific/wedding_salon_marriage'));
+const AdminAMosqSpecific = React.lazy(() => import('./Specific/admin_a_mosq'));
+const AdminACourtSpecific = React.lazy(() => import('./Specific/admin_a_court'));
+const AdminAArSpecific = React.lazy(() => import('./Specific/admin_a_ar'));
+const AdminAMuSpecific = React.lazy(() => import('./Specific/admin_a_mu'));
+const AdminAPoliceSpecific = React.lazy(() => import('./Specific/admin_a_police'));
+const AdminCMcSpecific = React.lazy(() => import('./Specific/admin_c_mc'));
+const AdminCmjSpecific = React.lazy(() => import('./Specific/admin_c_mj'));
+const AdminEBiblioSpecific = React.lazy(() => import('./Specific/admin_e_biblio'));
+const AdminECentreSpecific = React.lazy(() => import('./Specific/admin_e_centre'));
+const AdminEEcoleSpecific = React.lazy(() => import('./Specific/admin_e_ecole'));
+const AdminELyceeSpecific = React.lazy(() => import('./Specific/admin_e_lycee'));
+const AdminESsSpecific = React.lazy(() => import('./Specific/admin_e_ss'));
+const AdminEUniversiteSpecific = React.lazy(() => import('./Specific/admin_e_universite'));
+const AdminFPosteSpecific = React.lazy(() => import('./Specific/admin_f_poste'));
+const AdminFRfSpecific = React.lazy(() => import('./Specific/admin_f_rf'));
+const AdminSScbSpecific = React.lazy(() => import('./Specific/admin_s_csb'));
+const AdminSHospitalSpecific = React.lazy(() => import('./Specific/admin_s_hospital'));
 
 ///ACTION
-import DocteurActions from './Actions/docteur'; 
-import GarderieActions from './Actions/garderie';
-import PharmacieActions from './Actions/pharmacie';
-import RestaurantActions from './Actions/restaurant';
-import CliniqueActions from './Actions/clinique'; 
-import AutoEcoleActions from './Actions/autoecole';
-import AvocatActions from './Actions/avocat';
-import BoutiqueActions from './Actions/boutique';
-import CafeActions from './Actions/cafe';
-import CentreMdActions from './Actions/centreMD';
-import GymActions from './Actions/gym';
-import EcoleActions from './Actions/ecole';
-import ComptableActions from './Actions/comptable';
-import CoiffureActions from './Actions/coiffure';
-import HotelsActions from './Actions/hotels';
-import LaboActions from './Actions/labo';
-import LibrairieActions from './Actions/librairie';
-import LyceeActions from './Actions/lycee';
-import StadeActions from './Actions/stade';
-import SociteActions from './Actions/socite';
-import SmasarActions from './Actions/samsar';
-import PyscineActions from './Actions/pyscine';
-import UniversiteActions from './Actions/universite';
-import TransporteurActions from './Actions/transporteur';
-import StorageActions from './Actions/storage';
-import VgAgenceActions from './Actions/vg_agence';
+const DocteurActions = React.lazy(() => import('./Actions/docteur'));
+const GarderieActions = React.lazy(() => import('./Actions/garderie'));
+const PharmacieActions = React.lazy(() => import('./Actions/pharmacie'));
+const RestaurantActions = React.lazy(() => import('./Actions/restaurant'));
+const CliniqueActions = React.lazy(() => import('./Actions/clinique')); 
+const AutoEcoleActions = React.lazy(() => import('./Actions/autoecole'));
+const AvocatActions = React.lazy(() => import('./Actions/avocat'));
+const BoutiqueActions = React.lazy(() => import('./Actions/boutique'));
+const CafeActions = React.lazy(() => import('./Actions/cafe'));
+const CentreMdActions = React.lazy(() => import('./Actions/centreMD'));
+const GymActions = React.lazy(() => import('./Actions/gym'));
+const EcoleActions = React.lazy(() => import('./Actions/ecole'));
+const ComptableActions = React.lazy(() => import('./Actions/comptable'));
+const CoiffureActions = React.lazy(() => import('./Actions/coiffure'));
+const HotelsActions = React.lazy(() => import('./Actions/hotels'));
+const LaboActions = React.lazy(() => import('./Actions/labo'));
+const LibrairieActions = React.lazy(() => import('./Actions/librairie'));
+const LyceeActions = React.lazy(() => import('./Actions/lycee'));
+const StadeActions = React.lazy(() => import('./Actions/stade'));
+const SociteActions = React.lazy(() => import('./Actions/socite'));
+const SmasarActions = React.lazy(() => import('./Actions/samsar'));
+const PyscineActions = React.lazy(() => import('./Actions/pyscine'));
+const UniversiteActions = React.lazy(() => import('./Actions/universite'));
+const TransporteurActions = React.lazy(() => import('./Actions/transporteur'));
+const StorageActions = React.lazy(() => import('./Actions/storage'));
+const VgAgenceActions = React.lazy(() => import('./Actions/vg_agence'));
+const HauseElectroActions = React.lazy(() => import('./Actions/house_electro'));
+const HauseMeubleActions = React.lazy(() => import('./Actions/house_meuble'));
+const PtvMagazinActions = React.lazy(() => import('./Actions/ptvente_shop'));
+const PtvPatesserieActions = React.lazy(() => import('./Actions/ptvente_patesserie'));
+const PtvFuiterieActions = React.lazy(() => import('./Actions/ptvente_fruit'));
+const PtvVBoulengerieActions = React.lazy(() => import('./Actions/ptvente_boulengerie'));
+const PtvEpecerieActions = React.lazy(() => import('./Actions/ptvente_small_shop'));
+const PtvViandeActions = React.lazy(() => import('./Actions/ptvente_viande'));
+const ChantierArchitectureActions = React.lazy(() => import('./Actions/chantier_architecture'));
+const ChantierContracteurActions = React.lazy(() => import('./Actions/chantier_contrateur'));
+const ChantierQuicaillerieActions = React.lazy(() => import('./Actions/chantier_quincaillerie'));
+const HandmadeCristalActions = React.lazy(() => import('./Actions/handmade_cristal'));
+const HandmadeElectricienActions = React.lazy(() => import('./Actions/handmade_electricien'));
+const HandmadeForferonActions = React.lazy(() => import('./Actions/handmade_forgeron'));
+const HandemadeMarbreActions = React.lazy(() => import('./Actions/handmade_marbre'));
+const HandemadeMenuisierActions = React.lazy(() => import('./Actions/handmade_menuisier'));
+const HandemadePeintureActions = React.lazy(() => import('./Actions/handmade_peinture'));
+const HandemadePlombierActions = React.lazy(() => import('./Actions/handmade_plombier'));
+const CarQiosqieActions = React.lazy(() => import('./Actions/car_qiosque'));
+const CarMecanicienActions = React.lazy(() => import('./Actions/car_mecanicien'));
+const CarLocationActions = React.lazy(() => import('./Actions/car_location'));
+const CarParkingActions = React.lazy(() => import('./Actions/car_parking'));
+const ArtCinemaActions = React.lazy(() => import('./Actions/art_cinema'));
+const ArtMuseeActions = React.lazy(() => import('./Actions/art_musee'));
+const ArtTheatreActions = React.lazy(() => import('./Actions/art_theatre'));
+const WeddingOrchestreActions = React.lazy(() => import('./Actions/wedding_orchestre'));
+const WeddingFournitureMarriageActions = React.lazy(() => import('./Actions/wedding_fourniture_marriage'));
+const WeddingPhotographeActions = React.lazy(() => import('./Actions/wedding_photographe'));
+const WeddingBijouxActions = React.lazy(() => import('./Actions/wedding_bijoux'));
+const WeddingChefActions = React.lazy(() => import('./Actions/wedding_chef'));
+const WeddingSallonMariageActions = React.lazy(() => import('./Actions/wedding_salon_marriage'));
 
-import HauseElectroActions from './Actions/house_electro';
-import HauseMeubleActions from './Actions/house_meuble';
+//Suivie
+const DocteurSuivie = React.lazy(() => import('./Suivie/docteur'));
+const GarderieSuivie = React.lazy(() => import('./Suivie/garderie'));
+const PharmacieSuivie = React.lazy(() => import('./Suivie/pharmacie'));
+const RestaurantSuivie = React.lazy(() => import('./Suivie/restaurant'));
+const CliniqueSuivie = React.lazy(() => import('./Suivie/clinique')); 
+const AutoEcoleSuivie = React.lazy(() => import('./Suivie/autoecole'));
+const AvocatSuivie = React.lazy(() => import('./Suivie/avocat'));
+const BoutiqueSuivie = React.lazy(() => import('./Suivie/boutique'));
+const CafeSuivie = React.lazy(() => import('./Suivie/cafe'));
+const CentreMdSuivie = React.lazy(() => import('./Suivie/centreMD'));
+const GymSuivie = React.lazy(() => import('./Suivie/gym'));
+const EcoleSuivie = React.lazy(() => import('./Suivie/ecole'));
+const ComptableSuivie = React.lazy(() => import('./Suivie/comptable'));
+const CoiffureSuivie = React.lazy(() => import('./Suivie/coiffure'));
+const HotelsSuivie = React.lazy(() => import('./Suivie/hotels'));
+const LaboSuivie = React.lazy(() => import('./Suivie/labo'));
+const LibrairieSuivie = React.lazy(() => import('./Suivie/librairie'));
+const LyceeSuivie = React.lazy(() => import('./Suivie/lycee'));
+const StadeSuivie = React.lazy(() => import('./Suivie/stade'));
+const SociteSuivie = React.lazy(() => import('./Suivie/socite'));
+const SmasarSuivie = React.lazy(() => import('./Suivie/samsar'));
+const PyscineSuivie = React.lazy(() => import('./Suivie/pyscine'));
+const UniversiteSuivie = React.lazy(() => import('./Suivie/universite'));
+const TransporteurSuivie = React.lazy(() => import('./Suivie/transporteur'));
+const StorageSuivie = React.lazy(() => import('./Suivie/storage'));
+const VgAgenceSuivie = React.lazy(() => import('./Suivie/vg_agence'));
+const HauseElectroSuivie = React.lazy(() => import('./Suivie/house_electro'));
+const HauseMeubleSuivie = React.lazy(() => import('./Suivie/house_meuble'));
+const PtvMagazinSuivie = React.lazy(() => import('./Suivie/ptvente_shop'));
+const PtvPatesserieSuivie = React.lazy(() => import('./Suivie/ptvente_patesserie'));
+const PtvFuiterieSuivie = React.lazy(() => import('./Suivie/ptvente_fruit'));
+const PtvVBoulengerieSuivie = React.lazy(() => import('./Suivie/ptvente_boulengerie'));
+const PtvEpecerieSuivie = React.lazy(() => import('./Suivie/ptvente_small_shop'));
+const PtvViandeSuivie = React.lazy(() => import('./Suivie/ptvente_viande'));
+const ChantierArchitectureSuivie = React.lazy(() => import('./Suivie/chantier_architecture'));
+const ChantierContracteurSuivie = React.lazy(() => import('./Suivie/chantier_contrateur'));
+const ChantierQuicaillerieSuivie = React.lazy(() => import('./Suivie/chantier_quincaillerie'));
+const HandmadeCristalSuivie = React.lazy(() => import('./Suivie/handmade_cristal'));
+const HandmadeElectricienSuivie = React.lazy(() => import('./Suivie/handmade_electricien'));
+const HandmadeForferonSuivie = React.lazy(() => import('./Suivie/handmade_forgeron'));
+const HandemadeMarbreSuivie = React.lazy(() => import('./Suivie/handmade_marbre'));
+const HandemadeMenuisierSuivie = React.lazy(() => import('./Suivie/handmade_menuisier'));
+const HandemadePeintureSuivie = React.lazy(() => import('./Suivie/handmade_peinture'));
+const HandemadePlombierSuivie = React.lazy(() => import('./Suivie/handmade_plombier'));
+const CarQiosqieSuivie = React.lazy(() => import('./Suivie/car_qiosque'));
+const CarMecanicienSuivie = React.lazy(() => import('./Suivie/car_mecanicien'));
+const CarLocationSuivie = React.lazy(() => import('./Suivie/car_location'));
+const CarParkingSuivie = React.lazy(() => import('./Suivie/car_parking'));
+const ArtCinemaSuivie = React.lazy(() => import('./Suivie/art_cinema'));
+const ArtMuseeSuivie = React.lazy(() => import('./Suivie/art_musee'));
+const ArtTheatreSuivie = React.lazy(() => import('./Suivie/art_theatre'));
+const WeddingOrchestreSuivie = React.lazy(() => import('./Suivie/wedding_orchestre'));
+const WeddingFournitureMarriageSuivie = React.lazy(() => import('./Suivie/wedding_fourniture_marriage'));
+const WeddingPhotographeSuivie = React.lazy(() => import('./Suivie/wedding_photographe'));
+const WeddingBijouxSuivie = React.lazy(() => import('./Suivie/wedding_bijoux'));
+const WeddingChefSuivie = React.lazy(() => import('./Suivie/wedding_chef'));
+const WeddingSallonMariageSuivie = React.lazy(() => import('./Suivie/wedding_salon_marriage'));
 
-import PtvMagazinActions from './Actions/ptvente_shop';
-import PtvPatesserieActions from './Actions/ptvente_patesserie';
-import PtvFuiterieActions from './Actions/ptvente_fruit';
-import PtvVBoulengerieActions from './Actions/ptvente_boulengerie';
-import PtvEpecerieActions from './Actions/ptvente_small_shop';
-import PtvViandeActions from './Actions/ptvente_viande';
 
-import ChantierArchitectureActions from './Actions/chantier_architecture';
-import ChantierContracteurActions from './Actions/chantier_contrateur';
-import ChantierQuicaillerieActions from './Actions/chantier_quincaillerie';
-
-import HandmadeCristalActions from './Actions/handmade_cristal';
-import HandmadeElectricienActions from './Actions/handmade_electricien';
-import HandmadeForferonActions from './Actions/handmade_forgeron';
-import HandemadeMarbreActions from './Actions/handmade_marbre';
-import HandemadeMenuisierActions from './Actions/handmade_menuisier';
-import HandemadePeintureActions from './Actions/handmade_peinture';
-import HandemadePlombierActions from './Actions/handmade_plombier';
-
-import CarQiosqieActions from './Actions/car_qiosque';
-import CarMecanicienActions from './Actions/car_mecanicien';
-import CarLocationActions from './Actions/car_location';
-import CarParkingActions from './Actions/car_parking';
-
-import ArtCinemaActions from './Actions/art_cinema';
-import ArtMuseeActions from './Actions/art_musee';
-import ArtTheatreActions from './Actions/art_theatre';
-
-import WeddingOrchestreActions from './Actions/wedding_orchestre';
-import WeddingFournitureMarriageActions from './Actions/wedding_fourniture_marriage';
-import WeddingPhotographeActions from './Actions/wedding_photographe';
-import WeddingBijouxActions from './Actions/wedding_bijoux';
-import WeddingChefActions from './Actions/wedding_chef';
-import WeddingSallonMariageActions from './Actions/wedding_salon_marriage';
-
-///
-import DocteurSuivie from './Suivie/docteur'; 
-import GarderieSuivie from './Suivie/garderie';
-import PharmacieSuivie from './Suivie/pharmacie';
-import RestaurantSuivie from './Suivie/restaurant';
-import CliniqueSuivie from './Suivie/clinique'; 
-import AutoEcoleSuivie from './Suivie/autoecole';
-import AvocatSuivie from './Suivie/avocat';
-import BoutiqueSuivie from './Suivie/boutique';
-import CafeSuivie from './Suivie/cafe';
-import CentreMdSuivie from './Suivie/centreMD';
-import GymSuivie from './Suivie/gym';
-import EcoleSuivie from './Suivie/ecole';
-import ComptableSuivie from './Suivie/comptable';
-import CoiffureSuivie from './Suivie/coiffure';
-import HotelsSuivie from './Suivie/hotels';
-import LaboSuivie from './Suivie/labo';
-import LibrairieSuivie from './Suivie/librairie';
-import LyceeSuivie from './Suivie/lycee';
-import StadeSuivie from './Suivie/stade';
-import SociteSuivie from './Suivie/socite';
-import SmasarSuivie from './Suivie/samsar';
-import PyscineSuivie from './Suivie/pyscine';
-import UniversiteSuivie from './Suivie/universite';
-import TransporteurSuivie from './Suivie/transporteur';
-import StorageSuivie from './Suivie/storage';
-import VgAgenceSuivie from './Suivie/vg_agence';
-
-import HauseElectroSuivie from './Suivie/house_electro';
-import HauseMeubleSuivie from './Suivie/house_meuble';
-
-import PtvMagazinSuivie from './Suivie/ptvente_shop';
-import PtvPatesserieSuivie from './Suivie/ptvente_patesserie';
-import PtvFuiterieSuivie from './Suivie/ptvente_fruit';
-import PtvVBoulengerieSuivie from './Suivie/ptvente_boulengerie';
-import PtvEpecerieSuivie from './Suivie/ptvente_small_shop';
-import PtvViandeSuivie from './Suivie/ptvente_viande';
-
-import ChantierArchitectureSuivie from './Suivie/chantier_architecture';
-import ChantierContracteurSuivie from './Suivie/chantier_contrateur';
-import ChantierQuicaillerieSuivie from './Suivie/chantier_quincaillerie';
-
-import HandmadeCristalSuivie from './Suivie/handmade_cristal';
-import HandmadeElectricienSuivie from './Suivie/handmade_electricien';
-import HandmadeForferonSuivie from './Suivie/handmade_forgeron';
-import HandemadeMarbreSuivie from './Suivie/handmade_marbre';
-import HandemadeMenuisierSuivie from './Suivie/handmade_menuisier';
-import HandemadePeintureSuivie from './Suivie/handmade_peinture';
-import HandemadePlombierSuivie from './Suivie/handmade_plombier';
-
-import CarQiosqieSuivie from './Suivie/car_qiosque';
-import CarMecanicienSuivie from './Suivie/car_mecanicien';
-import CarLocationSuivie from './Suivie/car_location';
-import CarParkingSuivie from './Suivie/car_parking';
-
-import ArtCinemaSuivie from './Suivie/art_cinema';
-import ArtMuseeSuivie from './Suivie/art_musee';
-import ArtTheatreSuivie from './Suivie/art_theatre';
-
-import WeddingOrchestreSuivie from './Suivie/wedding_orchestre';
-import WeddingFournitureMarriageSuivie from './Suivie/wedding_fourniture_marriage';
-import WeddingPhotographeSuivie from './Suivie/wedding_photographe';
-import WeddingBijouxSuivie from './Suivie/wedding_bijoux';
-import WeddingChefSuivie from './Suivie/wedding_chef';
-import WeddingSallonMariageSuivie from './Suivie/wedding_salon_marriage';
 
 
 const AddComment = ({rateValue,setRateValue,SaveRating}) =>{
@@ -316,7 +490,7 @@ const CommentsCard = ({tag, profileData,rateValue,setRateValue,SaveRating }) =>{
             <div className='card card-body shadow-sm mb-2 h-100 border-div'>
                 
                 <div className='row mb-4'>
-                    <div className='col-5'> <small className='  p-1 ps-2 pe-2 border-div' onClick={() => setCommeningIsActive(!commeningIsActive)}> <b>  أضف تعليق </b> <span className='bi bi-chat-left-dots-fill d-none'> </span></small> </div>
+                    <div className='col-5'> <small className='  p-1 ps-2 pe-2 border-div' onClick={() => setCommeningIsActive(!commeningIsActive)}> {commeningIsActive ?  <><b>  التعليقات</b> <span className='bi bi-chat-left-dots-fill  '> </span> </> : <><b> أضف تعليق </b> <span className='bi bi-pencil-square  '> </span></> } </small> </div>
                     <div className='col-7'><h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}> تعليقات </h5></div>
                 </div>
 
@@ -358,6 +532,29 @@ const CommentsCard = ({tag, profileData,rateValue,setRateValue,SaveRating }) =>{
                
             </div>
     </>)
+}
+
+const ForLazyLoading = () =>{
+    return (<>
+            <br />            
+            <br />            
+            <br />
+            <div className="loader-container-small">
+              <div className="loader-small"></div>
+            </div>          
+            <br />            
+            <br />            
+            <br />            
+            <br />            
+            <br />            
+            <br />            
+            <br />            
+            <br />            
+            <br />            
+            <br />            
+            <br />            
+            <br />                       
+        </>);
 }
 
 function ProfilePage() {
@@ -464,7 +661,52 @@ function ProfilePage() {
             }
             
         }
- 
+        const ConverColorToHsl = (color) =>{
+            //"hsl(166, 87%, 24%, 0.4)"
+        // Convert hex to RGB first
+            let r = 0, g = 0, b = 0;
+            if (color.length == 4) {
+                r = "0x" + color[1] + color[1];
+                g = "0x" + color[2] + color[2];
+                b = "0x" + color[3] + color[3];
+            } else if (color.length == 7) {
+                r = "0x" + color[1] + color[2];
+                g = "0x" + color[3] + color[4];
+                b = "0x" + color[5] + color[6];
+            }
+            // Then to HSL
+            r /= 255;
+            g /= 255;
+            b /= 255;
+            let cmin = Math.min(r,g,b),
+                cmax = Math.max(r,g,b),
+                delta = cmax - cmin,
+                h = 0,
+                s = 0,
+                l = 0;
+
+            if (delta == 0)
+                h = 0;
+            else if (cmax == r)
+                h = ((g - b) / delta) % 6;
+            else if (cmax == g)
+                h = (b - r) / delta + 2;
+            else
+                h = (r - g) / delta + 4;
+
+            h = Math.round(h * 60);
+
+            if (h < 0)
+                h += 360;
+
+            l = (cmax + cmin) / 2;
+            s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+            s = +(s * 100).toFixed(1);
+            l = +(l * 100).toFixed(1);
+
+            return "hsl(" + h + "," + s + "%," + l + "% " + ", 0.6 )";
+
+        }
         const CalculateRating = (table) =>{
             let tot = 0;
             let tabLength = table.length;
@@ -607,6 +849,7 @@ function ProfilePage() {
                             <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white p-3' width='100px'  height='100px' />
                             
                         </span>
+                        
                         <span
                             style={{
                             width: '50px',
@@ -631,9 +874,9 @@ function ProfilePage() {
                             <span className=" m-2 text-dark">| <span className='bi bi-eye-fill'></span> {profileData.genrale[0].Views_Num >= 1000 ? (parseInt(profileData.genrale[0].Views_Num.toString().substring(0, 4)) / 1000).toFixed(1) + 'K' :  profileData.genrale[0].Views_Num}</span>
                         </>
                         }
-                        
-                        
+                        {/* <h3 className='text-center'> { profileData.genrale  ? profileData.genrale[0].Name : '' } </h3> */}
                     </div>
+                    
                 </div>
             </>)
         }
@@ -643,7 +886,7 @@ function ProfilePage() {
                     <div className='card card-body shadow-sm mb-2 h-100 border-div'>
                         <h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>معلومات عامة</h5>
                         <div className="table-responsive">
-                            <table className="table table-hover table-striped">
+                            <table className="table table-hover  ">
                                 <tbody dir='rtl'>
                                     {
                                         GConf.ADIL[tag].cardProfile.map( (data,index) => 
@@ -673,44 +916,51 @@ function ProfilePage() {
                     ))
                 return reternedListe
             }
+            const CheckToday = (date) =>{
+                if (new Date().toLocaleDateString('en-US', { weekday: 'short' }) == date) {
+                    return true
+                } else {
+                    return false
+                }
+            }
             const CalendarSuggested = () =>{
                 return(<>
                     <table className="table table-borderless" dir='rtl'>
                         <tbody>
-                            <tr>
-                                <th scope="row">الأحد</th>
-                                <td className='text-center'>08:00 -- 12:00 </td>
-                                <td className='text-center'>14:00 -- 16:00 </td>
+                            <tr style={{color: CheckToday('Sun') ? 'white' : GConf.ADIL[tag].themeColor , backgroundColor : CheckToday('Sun') ? ConverColorToHsl(GConf.ADIL[tag].themeColor) : ''}}>
+                                <th scope="row" >الأحد</th>
+                                <td className='text-center'>08:00 - 12:00 </td>
+                                <td className='text-center'>14:00 - 18:00 </td>
                             </tr>
-                            <tr>
+                            <tr style={{color: CheckToday('Mon') ? 'white' : GConf.ADIL[tag].themeColor , backgroundColor : CheckToday('Mon') ? ConverColorToHsl(GConf.ADIL[tag].themeColor) : ''}}>
                                 <th scope="row">الأثنين</th>
-                                <td className='text-center'>08:00 -- 12:00 </td>
-                                <td className='text-center'>14:00 -- 16:00 </td>
+                                <td className='text-center'>08:00 - 12:00 </td>
+                                <td className='text-center'>14:00 - 18:00 </td>
                             </tr>
-                            <tr>
+                            <tr style={{color: CheckToday('Tue') ? 'white' : GConf.ADIL[tag].themeColor , backgroundColor : CheckToday('Tue') ? ConverColorToHsl(GConf.ADIL[tag].themeColor) : ''}}>
                                 <th scope="row">الثلاثاء</th>
-                                <td className='text-center'>08:00 -- 12:00 </td>
-                                <td className='text-center'>14:00 -- 16:00 </td>
+                                <td className='text-center'>08:00 - 12:00 </td>
+                                <td className='text-center'>14:00 - 18:00 </td>
                             </tr>
-                            <tr>
+                            <tr style={{color: CheckToday('Wed') ? 'white' : GConf.ADIL[tag].themeColor , backgroundColor : CheckToday('Wed') ? ConverColorToHsl(GConf.ADIL[tag].themeColor) : ''}}>
                                 <th scope="row">الإربعاء</th>
-                                <td className='text-center'>08:00 -- 12:00 </td>
-                                <td className='text-center'>14:00 -- 16:00 </td>
+                                <td className='text-center'>08:00 - 12:00 </td>
+                                <td className='text-center'>14:00 - 18:00 </td>
                             </tr>
-                            <tr>
+                            <tr style={{color: CheckToday('Thu') ? 'white' : GConf.ADIL[tag].themeColor , backgroundColor : CheckToday('Thu') ? ConverColorToHsl(GConf.ADIL[tag].themeColor) : ''}}>
                                 <th scope="row">الخميس</th>
-                                <td className='text-center'>08:00 -- 12:00 </td>
-                                <td className='text-center'>14:00 -- 16:00 </td>
+                                <td className='text-center'>08:00 - 12:00 </td>
+                                <td className='text-center'>14:00 - 18:00 </td>
                             </tr>
-                            <tr>
+                            <tr style={{color: CheckToday('Fri') ? 'white' : GConf.ADIL[tag].themeColor , backgroundColor : CheckToday('Fri') ? ConverColorToHsl(GConf.ADIL[tag].themeColor) : ''}}>
                                 <th scope="row">الجمعة</th>
-                                <td className='text-center'>08:00 -- 12:00 </td>
-                                <td className='text-center'>14:00 -- 16:00 </td>
+                                <td className='text-center'>08:00 - 12:00 </td>
+                                <td className='text-center'>14:00 - 18:00 </td>
                             </tr>
-                            <tr>
+                            <tr style={{color: CheckToday('Sat') ? 'white' : GConf.ADIL[tag].themeColor , backgroundColor : CheckToday('Sat') ? ConverColorToHsl(GConf.ADIL[tag].themeColor) : ''}}>
                                 <th scope="row">السبت</th>
-                                <td className='text-center'>08:00 -- 12:00 </td>
-                                <td className='text-center'>14:00 -- 16:00 </td>
+                                <td className='text-center'>08:00 - 12:00 </td>
+                                <td className='text-center'>14:00 - 18:00 </td>
                             </tr>
                         </tbody>
                     </table>
@@ -719,7 +969,7 @@ function ProfilePage() {
             return(<>
                     <div className='card card-body shadow-sm mb-2 h-100 border-div'>
                         <div className='row mb-2'>
-                            <div className='col-3'> <Button size='small' icon color={calendarActive ? 'orange' : 'grey'} className='rounded-circle mb-0' onClick={() => setCalendarActive(!calendarActive)}> <Icon name='calendar alternate' /> </Button> </div>
+                            <div className='col-3'> <Button  icon  className='rounded-circle mb-0' style={{backgroundColor:'white'}} onClick={() => setCalendarActive(!calendarActive)}> <Icon color={calendarActive ? 'orange' : 'grey'} name='calendar alternate' /> </Button> </div>
                             <div className='col-9'><h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>أوقات العمل  </h5></div>
                         </div>
                         {calendarActive ? 
@@ -768,8 +1018,9 @@ function ProfilePage() {
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             />
                             <Marker position={GetPosition()}>
-                                <Popup>
-                                    {profileData.genrale ?  profileData.genrale[0].Name  : '...' }
+                                <Popup >
+                                    <h4 className='text-start mb-0'>{profileData.genrale ?  profileData.genrale[0].Name  : '...' }</h4>
+                                    <Button size='mini' className='rounded ' onClick={() => setActiveIndex(2)}> تسجيل طلب </Button>
                                 </Popup>
                             </Marker>
                         </MapContainer>
@@ -806,8 +1057,8 @@ function ProfilePage() {
                             {profileData.photoes.length == 0 ?
                             <Slider {...settings} >
                                 {DefaultImages.map((data,index) => 
-                                    <div key={index}>
-                                        <img src={data.src} width="100%" height="210"/>
+                                    <div key={index} className='max-height-image'>
+                                        <img src={data.src} className='d-block' width="100%" height="auto"/>
                                     </div>
                                 )}
                             </Slider>
@@ -953,80 +1204,80 @@ function ProfilePage() {
             const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
             const statusCard = React.useCallback(() => {
             switch(status) {
-                case 'docteur': return <DocteurSpecific TAG={tag} PID={PID} UID={UID} />;  
-                case 'pharmacie': return <PharmacieSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'clinique': return <CliniqueSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'labo': return <LaboSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'centreMD': return <CentreMdSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'garderie': return <GarderieSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'autoecole': return <AutoEcoleSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'ecole': return <EcoleSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'lycee': return <LyceeSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'universite': return <UniversiteSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'librairie': return <LibrairieSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'transporteur': return <TransporteurSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'cafe': return <CafeSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'restaurant': return <RestaurantSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'magazin': return <PtvMagazinSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'boulengerie': return <PtvVBoulengerieSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'boucherie': return <PtvViandeSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'fruiterie': return <PtvFuiterieSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'patesserie': return <PtvPatesserieSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'epicerie': return <PtvEpecerieSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'electromenager': return <HauseElectroSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'meublerie': return <HauseMeubleSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'location': return <CarLocationSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'parking': return <CarParkingSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'qiosque': return <CarQiosqieSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'mecanicien': return <CarMecanicienSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'courtier': return <SmasarSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'contracteur': return <ChantierContracteurSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'architecture': return <ChantierArchitectureSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'quincaillerie': return <ChantierQuicaillerieSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'forgeron': return <HandmadeForferonSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'menuisier': return <HandemadeMenuisierSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'peinture': return <HandemadePeintureSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'electricien': return <HandmadeElectricienSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'plombier': return <HandemadePlombierSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'cristalerie': return <HandmadeCristalSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'marbrerie': return <HandemadeMarbreSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'coiffure': return <CoiffureSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'boutique': return <BoutiqueSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'salle_marriage': return <WeddingSallonMariageSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'orchestre': return <WeddingOrchestreSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'chef': return <WeddingChefSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'photographe': return <WeddingPhotographeSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'fourniture_marriage': return <WeddingFournitureMarriageSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'bijouterie': return <WeddingBijouxSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'gym': return <GymSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'pyscine': return <PyscineSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'stade': return <StadeSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'cinema': return <ArtCinemaSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'theatre': return <ArtTheatreSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'musee': return <ArtMuseeSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'avocat': return <AvocatSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'depot': return <StorageSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'comptable': return <ComptableSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'socite': return <SociteSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'hotels': return <HotelsSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'vg_agence': return <VgAgenceSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_s_hospital': return <AdminSHospitalSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_s_csb': return <AdminSScbSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_e_centre': return <AdminECentreSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_e_biblio': return <AdminEBiblioSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_e_ecole': return <AdminEEcoleSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_e_lycee': return <AdminELyceeSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_e_universite': return <AdminEUniversiteSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_e_ss': return <AdminESsSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_c_mj': return <AdminCmjSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_c_mc': return <AdminCMcSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_f_poste': return <AdminFPosteSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_f_rf': return <AdminFRfSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_a_mu': return <AdminAMuSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_a_police': return <AdminAPoliceSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_a_ar': return <AdminAArSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_a_court': return <AdminACourtSpecific TAG={tag} PID={PID} UID={UID} /> ;
-                case 'admin_a_mosq': return <AdminAMosqSpecific TAG={tag} PID={PID} UID={UID} /> ;
+                case 'docteur': return  <Suspense fallback={<ForLazyLoading />}><DocteurSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>;  
+                case 'pharmacie': return <Suspense fallback={<ForLazyLoading />}><PharmacieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'clinique': return <Suspense fallback={<ForLazyLoading />}><CliniqueSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'labo': return <Suspense fallback={<ForLazyLoading />}><LaboSpecific TAG={tag} PID={PID} UID={UID} /></Suspense> ;
+                case 'centreMD': return <Suspense fallback={<ForLazyLoading />}><CentreMdSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'garderie': return <Suspense fallback={<ForLazyLoading />}><GarderieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'autoecole': return <Suspense fallback={<ForLazyLoading />}><AutoEcoleSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'ecole': return <Suspense fallback={<ForLazyLoading />}><EcoleSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'lycee': return <Suspense fallback={<ForLazyLoading />}><LyceeSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'universite': return <Suspense fallback={<ForLazyLoading />}><UniversiteSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'librairie': return <Suspense fallback={<ForLazyLoading />}><LibrairieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'transporteur': return <Suspense fallback={<ForLazyLoading />}><TransporteurSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'cafe': return <Suspense fallback={<ForLazyLoading />}><CafeSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'restaurant': return <Suspense fallback={<ForLazyLoading />}><RestaurantSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'magazin': return <Suspense fallback={<ForLazyLoading />}><PtvMagazinSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'boulengerie': return <Suspense fallback={<ForLazyLoading />}><PtvVBoulengerieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'boucherie': return <Suspense fallback={<ForLazyLoading />}><PtvViandeSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'fruiterie': return <Suspense fallback={<ForLazyLoading />}><PtvFuiterieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'patesserie': return <Suspense fallback={<ForLazyLoading />}><PtvPatesserieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'epicerie': return <Suspense fallback={<ForLazyLoading />}><PtvEpecerieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'electromenager': return <Suspense fallback={<ForLazyLoading />}><HauseElectroSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'meublerie': return <Suspense fallback={<ForLazyLoading />}><HauseMeubleSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'location': return <Suspense fallback={<ForLazyLoading />}><CarLocationSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'parking': return <Suspense fallback={<ForLazyLoading />}><CarParkingSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'qiosque': return <Suspense fallback={<ForLazyLoading />}><CarQiosqieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'mecanicien': return <Suspense fallback={<ForLazyLoading />}><CarMecanicienSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'courtier': return <Suspense fallback={<ForLazyLoading />}><SmasarSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'contracteur': return <Suspense fallback={<ForLazyLoading />}><ChantierContracteurSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>   ;
+                case 'architecture': return <Suspense fallback={<ForLazyLoading />}><ChantierArchitectureSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'quincaillerie': return <Suspense fallback={<ForLazyLoading />}><ChantierQuicaillerieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'forgeron': return <Suspense fallback={<ForLazyLoading />}><HandmadeForferonSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'menuisier': return <Suspense fallback={<ForLazyLoading />}><HandemadeMenuisierSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'peinture': return <Suspense fallback={<ForLazyLoading />}><HandemadePeintureSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'electricien': return <Suspense fallback={<ForLazyLoading />}><HandmadeElectricienSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'plombier': return <Suspense fallback={<ForLazyLoading />}><HandemadePlombierSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'cristalerie': return <Suspense fallback={<ForLazyLoading />}><HandmadeCristalSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'marbrerie': return <Suspense fallback={<ForLazyLoading />}><HandemadeMarbreSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'coiffure': return <Suspense fallback={<ForLazyLoading />}><CoiffureSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'boutique': return <Suspense fallback={<ForLazyLoading />}><BoutiqueSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'salle_marriage': return <Suspense fallback={<ForLazyLoading />}><WeddingSallonMariageSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'orchestre': return <Suspense fallback={<ForLazyLoading />}><WeddingOrchestreSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'chef': return <Suspense fallback={<ForLazyLoading />}><WeddingChefSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'photographe': return <Suspense fallback={<ForLazyLoading />}><WeddingPhotographeSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'fourniture_marriage': return <Suspense fallback={<ForLazyLoading />}><WeddingFournitureMarriageSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'bijouterie': return <Suspense fallback={<ForLazyLoading />}><WeddingBijouxSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'gym': return <Suspense fallback={<ForLazyLoading />}><GymSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'pyscine': return <Suspense fallback={<ForLazyLoading />}><PyscineSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'stade': return <Suspense fallback={<ForLazyLoading />}><StadeSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'cinema': return <Suspense fallback={<ForLazyLoading />}><ArtCinemaSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'theatre': return <Suspense fallback={<ForLazyLoading />}><ArtTheatreSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'musee': return <Suspense fallback={<ForLazyLoading />}><ArtMuseeSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'avocat': return <Suspense fallback={<ForLazyLoading />}><AvocatSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'depot': return <Suspense fallback={<ForLazyLoading />}><StorageSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'comptable': return <Suspense fallback={<ForLazyLoading />}><ComptableSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'socite': return <Suspense fallback={<ForLazyLoading />}><SociteSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'hotels': return <Suspense fallback={<ForLazyLoading />}><HotelsSpecific TAG={tag} PID={PID} UID={UID} /></Suspense> ;
+                case 'vg_agence': return <Suspense fallback={<ForLazyLoading />}><VgAgenceSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'admin_s_hospital': return <Suspense fallback={<ForLazyLoading />}><AdminSHospitalSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'admin_s_csb': return <Suspense fallback={<ForLazyLoading />}><AdminSScbSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'admin_e_centre': return <Suspense fallback={<ForLazyLoading />}><AdminECentreSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'admin_e_biblio': return <Suspense fallback={<ForLazyLoading />}><AdminEBiblioSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'admin_e_ecole': return <Suspense fallback={<ForLazyLoading />}><AdminEEcoleSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'admin_e_lycee': return <Suspense fallback={<ForLazyLoading />}><AdminELyceeSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'admin_e_universite': return <Suspense fallback={<ForLazyLoading />}><AdminEUniversiteSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'admin_e_ss': return <Suspense fallback={<ForLazyLoading />}><AdminESsSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>   ;
+                case 'admin_c_mj': return <Suspense fallback={<ForLazyLoading />}><AdminCmjSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>   ;
+                case 'admin_c_mc': return <Suspense fallback={<ForLazyLoading />}><AdminCMcSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>   ;
+                case 'admin_f_poste': return <Suspense fallback={<ForLazyLoading />}><AdminFPosteSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>   ;
+                case 'admin_f_rf': return <Suspense fallback={<ForLazyLoading />}><AdminFRfSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'admin_a_mu': return <Suspense fallback={<ForLazyLoading />}><AdminAMuSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>   ;
+                case 'admin_a_police': return <Suspense fallback={<ForLazyLoading />}><AdminAPoliceSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'admin_a_ar': return <Suspense fallback={<ForLazyLoading />}><AdminAArSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>   ;
+                case 'admin_a_court': return <Suspense fallback={<ForLazyLoading />}><AdminACourtSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'admin_a_mosq': return <Suspense fallback={<ForLazyLoading />}><AdminAMosqSpecific TAG={tag} PID={PID} UID={UID} /></Suspense> ;
                 default:  return <IndefinieCard />;    
             }
             }, [status]);
@@ -1094,63 +1345,64 @@ function ProfilePage() {
             const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
             const statusCard = React.useCallback(() => {
               switch(status) {
-                case 'docteur': return <DocteurActions TAG={tag} PID={PID} UID={UID} />;  
-                case 'pharmacie': return <PharmacieActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'clinique': return <CliniqueActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'labo': return <LaboActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'centreMD': return <CentreMdActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'garderie': return <GarderieActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'autoecole': return <AutoEcoleActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'ecole': return <EcoleActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'lycee': return <LyceeActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'universite': return <UniversiteActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'librairie': return <LibrairieActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'transporteur': return <TransporteurActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'cafe': return <CafeActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'restaurant': return <RestaurantActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'magazin': return <PtvMagazinActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'boulengerie': return <PtvVBoulengerieActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'boucherie': return <PtvViandeActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'fruiterie': return <PtvFuiterieActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'patesserie': return <PtvPatesserieActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'epicerie': return <PtvEpecerieActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'electromenager': return <HauseElectroActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'meublerie': return <HauseMeubleActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'location': return <CarLocationActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'parking': return <CarParkingActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'qiosque': return <CarQiosqieActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'mecanicien': return <CarMecanicienActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'courtier': return <SmasarActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'contracteur': return <ChantierContracteurActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'architecture': return <ChantierArchitectureActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'quincaillerie': return <ChantierQuicaillerieActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'forgeron': return <HandmadeForferonActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'menuisier': return <HandemadeMenuisierActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'peinture': return <HandemadePeintureActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'electricien': return <HandmadeElectricienActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'plombier': return <HandemadePlombierActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'cristalerie': return <HandmadeCristalActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'marbrerie': return <HandemadeMarbreActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'coiffure': return <CoiffureActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'boutique': return <BoutiqueActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'salle_marriage': return <WeddingSallonMariageActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'orchestre': return <WeddingOrchestreActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'chef': return <WeddingChefActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'photographe': return <WeddingPhotographeActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'fourniture_marriage': return <WeddingFournitureMarriageActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'bijouterie': return <WeddingBijouxActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'gym': return <GymActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'pyscine': return <PyscineActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'stade': return <StadeActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'cinema': return <ArtCinemaActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'theatre': return <ArtTheatreActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'musee': return <ArtMuseeActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'avocat': return <AvocatActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'depot': return <StorageActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'comptable': return <ComptableActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'socite': return <SociteActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'hotels': return <HotelsActions TAG={tag} PID={PID} UID={UID} /> ;
-                case 'vg_agence': return <VgAgenceActions TAG={tag} PID={PID} UID={UID} /> ;
+                case 'docteur': return  <Suspense fallback={<ForLazyLoading />}><DocteurActions TAG={tag} PID={PID} UID={UID} /></Suspense>;  
+                case 'pharmacie': return <Suspense fallback={<ForLazyLoading />}><PharmacieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'clinique': return <Suspense fallback={<ForLazyLoading />}><CliniqueActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'labo': return <Suspense fallback={<ForLazyLoading />}><LaboActions TAG={tag} PID={PID} UID={UID} /></Suspense> ;
+                case 'centreMD': return <Suspense fallback={<ForLazyLoading />}><CentreMdActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'garderie': return <Suspense fallback={<ForLazyLoading />}><GarderieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'autoecole': return <Suspense fallback={<ForLazyLoading />}><AutoEcoleActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'ecole': return <Suspense fallback={<ForLazyLoading />}><EcoleActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'lycee': return <Suspense fallback={<ForLazyLoading />}><LyceeActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'universite': return <Suspense fallback={<ForLazyLoading />}><UniversiteActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'librairie': return <Suspense fallback={<ForLazyLoading />}><LibrairieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'transporteur': return <Suspense fallback={<ForLazyLoading />}><TransporteurActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'cafe': return <Suspense fallback={<ForLazyLoading />}><CafeActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'restaurant': return <Suspense fallback={<ForLazyLoading />}><RestaurantActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'magazin': return <Suspense fallback={<ForLazyLoading />}><PtvMagazinActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'boulengerie': return <Suspense fallback={<ForLazyLoading />}><PtvVBoulengerieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'boucherie': return <Suspense fallback={<ForLazyLoading />}><PtvViandeActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'fruiterie': return <Suspense fallback={<ForLazyLoading />}><PtvFuiterieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'patesserie': return <Suspense fallback={<ForLazyLoading />}><PtvPatesserieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'epicerie': return <Suspense fallback={<ForLazyLoading />}><PtvEpecerieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'electromenager': return <Suspense fallback={<ForLazyLoading />}><HauseElectroActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'meublerie': return <Suspense fallback={<ForLazyLoading />}><HauseMeubleActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'location': return <Suspense fallback={<ForLazyLoading />}><CarLocationActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'parking': return <Suspense fallback={<ForLazyLoading />}><CarParkingActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'qiosque': return <Suspense fallback={<ForLazyLoading />}><CarQiosqieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'mecanicien': return <Suspense fallback={<ForLazyLoading />}><CarMecanicienActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'courtier': return <Suspense fallback={<ForLazyLoading />}><SmasarActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'contracteur': return <Suspense fallback={<ForLazyLoading />}><ChantierContracteurActions TAG={tag} PID={PID} UID={UID} /></Suspense>   ;
+                case 'architecture': return <Suspense fallback={<ForLazyLoading />}><ChantierArchitectureActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'quincaillerie': return <Suspense fallback={<ForLazyLoading />}><ChantierQuicaillerieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'forgeron': return <Suspense fallback={<ForLazyLoading />}><HandmadeForferonActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'menuisier': return <Suspense fallback={<ForLazyLoading />}><HandemadeMenuisierActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'peinture': return <Suspense fallback={<ForLazyLoading />}><HandemadePeintureActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'electricien': return <Suspense fallback={<ForLazyLoading />}><HandmadeElectricienActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'plombier': return <Suspense fallback={<ForLazyLoading />}><HandemadePlombierActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'cristalerie': return <Suspense fallback={<ForLazyLoading />}><HandmadeCristalActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'marbrerie': return <Suspense fallback={<ForLazyLoading />}><HandemadeMarbreActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'coiffure': return <Suspense fallback={<ForLazyLoading />}><CoiffureActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'boutique': return <Suspense fallback={<ForLazyLoading />}><BoutiqueActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'salle_marriage': return <Suspense fallback={<ForLazyLoading />}><WeddingSallonMariageActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'orchestre': return <Suspense fallback={<ForLazyLoading />}><WeddingOrchestreActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'chef': return <Suspense fallback={<ForLazyLoading />}><WeddingChefActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'photographe': return <Suspense fallback={<ForLazyLoading />}><WeddingPhotographeActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'fourniture_marriage': return <Suspense fallback={<ForLazyLoading />}><WeddingFournitureMarriageActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'bijouterie': return <Suspense fallback={<ForLazyLoading />}><WeddingBijouxActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'gym': return <Suspense fallback={<ForLazyLoading />}><GymActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'pyscine': return <Suspense fallback={<ForLazyLoading />}><PyscineActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'stade': return <Suspense fallback={<ForLazyLoading />}><StadeActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'cinema': return <Suspense fallback={<ForLazyLoading />}><ArtCinemaActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'theatre': return <Suspense fallback={<ForLazyLoading />}><ArtTheatreActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'musee': return <Suspense fallback={<ForLazyLoading />}><ArtMuseeActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'avocat': return <Suspense fallback={<ForLazyLoading />}><AvocatActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'depot': return <Suspense fallback={<ForLazyLoading />}><StorageActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'comptable': return <Suspense fallback={<ForLazyLoading />}><ComptableActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'socite': return <Suspense fallback={<ForLazyLoading />}><SociteActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'hotels': return <Suspense fallback={<ForLazyLoading />}><HotelsActions TAG={tag} PID={PID} UID={UID} /></Suspense> ;
+                case 'vg_agence': return <Suspense fallback={<ForLazyLoading />}><VgAgenceActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+
                 default:  return <IndefinieCard />;    
               }
             }, [status]);
@@ -1165,63 +1417,63 @@ function ProfilePage() {
             const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
             const statusCard = React.useCallback(() => {
               switch(status) {
-                case 'docteur': return <DocteurSuivie TAG={tag} PID={PID} UID={UID} />;  
-                case 'pharmacie': return <PharmacieSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'clinique': return <CliniqueSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'labo': return <LaboSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'centreMD': return <CentreMdSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'garderie': return <GarderieSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'autoecole': return <AutoEcoleSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'ecole': return <EcoleSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'lycee': return <LyceeSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'universite': return <UniversiteSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'librairie': return <LibrairieSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'transporteur': return <TransporteurSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'cafe': return <CafeSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'restaurant': return <RestaurantSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'magazin': return <PtvMagazinSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'boulengerie': return <PtvVBoulengerieSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'boucherie': return <PtvViandeSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'fruiterie': return <PtvFuiterieSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'patesserie': return <PtvPatesserieSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'epicerie': return <PtvEpecerieSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'electromenager': return <HauseElectroSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'meublerie': return <HauseMeubleSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'location': return <CarLocationSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'parking': return <CarParkingSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'qiosque': return <CarQiosqieSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'mecanicien': return <CarMecanicienSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'courtier': return <SmasarSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'contracteur': return <ChantierContracteurSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'architecture': return <ChantierArchitectureSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'quincaillerie': return <ChantierQuicaillerieSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'forgeron': return <HandmadeForferonSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'menuisier': return <HandemadeMenuisierSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'peinture': return <HandemadePeintureSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'electricien': return <HandmadeElectricienSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'plombier': return <HandemadePlombierSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'cristalerie': return <HandmadeCristalSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'marbrerie': return <HandemadeMarbreSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'coiffure': return <CoiffureSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'boutique': return <BoutiqueSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'salle_marriage': return <WeddingSallonMariageSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'orchestre': return <WeddingOrchestreSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'chef': return <WeddingChefSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'photographe': return <WeddingPhotographeSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'fourniture_marriage': return <WeddingFournitureMarriageSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'bijouterie': return <WeddingBijouxSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'gym': return <GymSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'pyscine': return <PyscineSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'stade': return <StadeSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'cinema': return <ArtCinemaSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'theatre': return <ArtTheatreSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'musee': return <ArtMuseeSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'avocat': return <AvocatSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'depot': return <StorageSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'comptable': return <ComptableSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'socite': return <SociteSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'hotels': return <HotelsSuivie TAG={tag} PID={PID} UID={UID} /> ;
-                case 'vg_agence': return <VgAgenceSuivie TAG={tag} PID={PID} UID={UID} /> ;
+                case 'docteur': return  <Suspense fallback={<ForLazyLoading />}><DocteurSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>;  
+                case 'pharmacie': return <Suspense fallback={<ForLazyLoading />}><PharmacieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'clinique': return <Suspense fallback={<ForLazyLoading />}><CliniqueSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'labo': return <Suspense fallback={<ForLazyLoading />}><LaboSuivie TAG={tag} PID={PID} UID={UID} /></Suspense> ;
+                case 'centreMD': return <Suspense fallback={<ForLazyLoading />}><CentreMdSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'garderie': return <Suspense fallback={<ForLazyLoading />}><GarderieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'autoecole': return <Suspense fallback={<ForLazyLoading />}><AutoEcoleSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'ecole': return <Suspense fallback={<ForLazyLoading />}><EcoleSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'lycee': return <Suspense fallback={<ForLazyLoading />}><LyceeSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'universite': return <Suspense fallback={<ForLazyLoading />}><UniversiteSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'librairie': return <Suspense fallback={<ForLazyLoading />}><LibrairieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'transporteur': return <Suspense fallback={<ForLazyLoading />}><TransporteurSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'cafe': return <Suspense fallback={<ForLazyLoading />}><CafeSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'restaurant': return <Suspense fallback={<ForLazyLoading />}><RestaurantSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'magazin': return <Suspense fallback={<ForLazyLoading />}><PtvMagazinSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'boulengerie': return <Suspense fallback={<ForLazyLoading />}><PtvVBoulengerieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'boucherie': return <Suspense fallback={<ForLazyLoading />}><PtvViandeSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'fruiterie': return <Suspense fallback={<ForLazyLoading />}><PtvFuiterieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'patesserie': return <Suspense fallback={<ForLazyLoading />}><PtvPatesserieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'epicerie': return <Suspense fallback={<ForLazyLoading />}><PtvEpecerieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'electromenager': return <Suspense fallback={<ForLazyLoading />}><HauseElectroSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'meublerie': return <Suspense fallback={<ForLazyLoading />}><HauseMeubleSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'location': return <Suspense fallback={<ForLazyLoading />}><CarLocationSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'parking': return <Suspense fallback={<ForLazyLoading />}><CarParkingSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'qiosque': return <Suspense fallback={<ForLazyLoading />}><CarQiosqieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'mecanicien': return <Suspense fallback={<ForLazyLoading />}><CarMecanicienSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'courtier': return <Suspense fallback={<ForLazyLoading />}><SmasarSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'contracteur': return <Suspense fallback={<ForLazyLoading />}><ChantierContracteurSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>   ;
+                case 'architecture': return <Suspense fallback={<ForLazyLoading />}><ChantierArchitectureSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'quincaillerie': return <Suspense fallback={<ForLazyLoading />}><ChantierQuicaillerieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'forgeron': return <Suspense fallback={<ForLazyLoading />}><HandmadeForferonSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'menuisier': return <Suspense fallback={<ForLazyLoading />}><HandemadeMenuisierSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'peinture': return <Suspense fallback={<ForLazyLoading />}><HandemadePeintureSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'electricien': return <Suspense fallback={<ForLazyLoading />}><HandmadeElectricienSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'plombier': return <Suspense fallback={<ForLazyLoading />}><HandemadePlombierSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'cristalerie': return <Suspense fallback={<ForLazyLoading />}><HandmadeCristalSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'marbrerie': return <Suspense fallback={<ForLazyLoading />}><HandemadeMarbreSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'coiffure': return <Suspense fallback={<ForLazyLoading />}><CoiffureSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'boutique': return <Suspense fallback={<ForLazyLoading />}><BoutiqueSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'salle_marriage': return <Suspense fallback={<ForLazyLoading />}><WeddingSallonMariageSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'orchestre': return <Suspense fallback={<ForLazyLoading />}><WeddingOrchestreSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'chef': return <Suspense fallback={<ForLazyLoading />}><WeddingChefSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'photographe': return <Suspense fallback={<ForLazyLoading />}><WeddingPhotographeSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'fourniture_marriage': return <Suspense fallback={<ForLazyLoading />}><WeddingFournitureMarriageSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'bijouterie': return <Suspense fallback={<ForLazyLoading />}><WeddingBijouxSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'gym': return <Suspense fallback={<ForLazyLoading />}><GymSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'pyscine': return <Suspense fallback={<ForLazyLoading />}><PyscineSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'stade': return <Suspense fallback={<ForLazyLoading />}><StadeSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'cinema': return <Suspense fallback={<ForLazyLoading />}><ArtCinemaSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'theatre': return <Suspense fallback={<ForLazyLoading />}><ArtTheatreSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'musee': return <Suspense fallback={<ForLazyLoading />}><ArtMuseeSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'avocat': return <Suspense fallback={<ForLazyLoading />}><AvocatSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'depot': return <Suspense fallback={<ForLazyLoading />}><StorageSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'comptable': return <Suspense fallback={<ForLazyLoading />}><ComptableSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'socite': return <Suspense fallback={<ForLazyLoading />}><SociteSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'hotels': return <Suspense fallback={<ForLazyLoading />}><HotelsSuivie TAG={tag} PID={PID} UID={UID} /></Suspense> ;
+                case 'vg_agence': return <Suspense fallback={<ForLazyLoading />}><VgAgenceSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 default:  return <><div className='col-12 col-md-4 mb-4 order-1 order-lg-2 text-center align-self-center'>
                             <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} width='60%' heigth='60%' className='img-responsive' />
                             </div><IndefinieCard /></>;    

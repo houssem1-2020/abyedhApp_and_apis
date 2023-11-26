@@ -115,6 +115,7 @@ input[type="number"]:focus,
 .rounded-message-r{ border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-top-left-radius: 20px; border-bottom-left-radius: 20px; width: auto !important; text-align: justify; }
 .elevation { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important; transition: all 0.3s cubic-bezier(.25,.8,.25,1) !important; border-radius: 3px  !important; }
 .border-div{ border-radius: 10px !important; }
+.border-div-main{ border-radius: 20px !important; }
 .w-100-grijs-table { width: 'auto' !important;}
 @media only screen and (min-width: 768px) { .w-100-grijs-table { width:100% !important;} }
 
@@ -363,3 +364,99 @@ Dropdown{text-align: right !important;}
  }
  .bg-retarder{background-color:  #ad059f !important;}
  .bg-redirecter{background-color:  #92ab03 !important;}
+ .no-text-decoration {
+  text-decoration: none !important;
+}
+.dir-ltr{ text-align: left !important; direction: ltr !important;}
+.progress-bar-loading {
+  height: 2.5px;
+  background-color: rgba(5, 114, 206, 0.2);
+  width: 100%;
+  overflow: hidden;
+  border-radius: 50% 50% 0 0  !important;
+}
+
+.progress-bar-loading-value {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(5, 114, 206);
+  animation: indeterminateAnimation 1s infinite linear;
+  transform-origin: 0% 50%;
+}
+
+@keyframes indeterminateAnimation {
+  0% {
+    transform:  translateX(0) scaleX(0);
+  }
+  40% {
+    transform:  translateX(0) scaleX(0.4);
+  }
+  100% {
+    transform:  translateX(100%) scaleX(0.5);
+  }
+}
+
+.loader-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100vh !important; /* Make container cover the entire viewport height */
+}
+.loader-container-small {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  
+}
+
+/* Circular loader styles */
+.loader-small {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #dc3545; /* Change the color as needed */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(150deg);
+  }
+  75% {
+    transform: rotate(250deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fullscreen-modal-gouv {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  overflow-x: 'hidden' !important;
+  animation: modalOpenAnimation 0.2s ease-out;
+  z-index: 999999999 !important;
+}
+@keyframes modalOpenAnimation {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

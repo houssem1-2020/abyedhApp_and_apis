@@ -437,23 +437,31 @@ function ProfilePage() {
     /*###############################[Card]################################# */
     const PrintProfile = () =>{ 
         return(<>
-            <div className="d-flex">
-                <div className="flex-shrink-0">
-                <QRCode value={GConf.PID} size={130} />
+            <div className="row">
+                <div className="col-12 col-lg-3 text-center mb-3 ">
+                    <QRCode value={GConf.PID} size={130} />
                 </div>
-                <div className="flex-grow-1 ms-3">
+                <div className="col-12 col-lg-9" dir='rtl'>
+
                         <h1> {GConf.PID} </h1>
-                        Cet identifiant vous distinguera des autres inscrits sur la plateforme. Cela peut aussi être un court moyen de faire de la publicité pour vous
+                        هذا المعرف سوف يميزك عن الآخرين المسجلين على المنصة. يمكن أن تكون هذه أيضًا طريقة قصيرة للإعلان لك
                         <div>
-                        <Button size='mini' className='rounded-pill' onClick={() => navigator.clipboard.writeText(localStorage.getItem('PID'))}><Icon name='copy'  /> Copier PID</Button>
+                        <Button size='mini' className='rounded-pill' onClick={() => navigator.clipboard.writeText(localStorage.getItem('PID'))}><Icon name='copy'  />  نسخ  PID</Button>
                         </div>
+                        <br /> 
+                        اطبع هذا الرابط الذي يمكن تعليقه على باب متجرك حتى يتمكن عملاؤك من الوصول إليك بسهولة، كما يمكن مشاركته مباشرة على وسائل التواصل الاجتماعي
+                        <div className='mt-2'>
+                            <Button size='mini' positive onClick={(e) => PrintFunction('printPID')}> <Icon name='print'  />  طباعة </Button>
+                            <Button size='mini' primary target="_blank" href={`https://www.facebook.com/sharer/sharer.php?u=https://abyedh.tn/S/P/${GConf.systemTag}/${GConf.PID}`} >  <Icon name='facebook f' /> إعلان علي الفايسبوك  </Button>
+                        </div>
+
                         
                 </div>
             </div>
-            <Divider />
-            <div className="d-flex">
+            {/* <Divider /> */}
+            <div className="d-flex d-none">
                 <div className="flex-shrink-0">
-                <QRCode value={`${GConf.systemTag}/${GConf.PID}`} size={130} />
+                {/* <QRCode value={`${GConf.systemTag}/${GConf.PID}`} size={130} /> */}
                 </div>
                 <div className="flex-grow-1 ms-3">
                     Imprimez ce lien qui peut être accroché à la porte de votre magasin afin que vos clients puissent vous joindre facilement, et il peut également être partagé directement sur les réseaux sociaux

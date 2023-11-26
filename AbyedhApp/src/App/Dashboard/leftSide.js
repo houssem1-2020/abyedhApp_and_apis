@@ -69,13 +69,13 @@ function LeftSideCard() {
         <div className='col-12 col-lg-2  text-center d-none d-lg-block fixed-top border-end bg-white' style={{backgroundColor: 'transparent', height:'100vh', zIndex: 999, top:'60px' }}>
         <h1 className='text-white mt-0'><img src={`https://cdn.abyedh.tn/images/ads/${GConf.systemTag}.svg`} alt="." className="p-0" width="120px" height="120px"/></h1>
             
-            <div  className='pt-2' style={{height:'51%', overflowX:'auto', overflowX:'hidden'}}>
+            <div  className='pt-2' style={{height:'55%', overflowX:'auto', overflowX:'hidden'}}>
                 {/* <StateCard status = {GetPathName(location.pathname)} />              */}
                 {/* <h5>PID : {localStorage.getItem('PID')} <Button size='mini' icon='copy' className='rounded-circle' onClick={() => navigator.clipboard.writeText(localStorage.getItem('PID'))}></Button> </h5> */}
             </div>
             <div className="list-group list-group-flush text-start ps-1">
                 <NavLink to='Profile' exact="true" className={({ isActive }) => isActive ? "ps-1 pe-1 abyedh-list list-group-item list-group-item-action" : "ps-1 pe-1 abyedh-list list-group-item list-group-item-action"}><i className="bi bi-person me-2" style={{color: GConf.themeColor}}></i> Profile</NavLink>
-                <NavLink to='Message' exact="true" className={({ isActive }) => isActive ? "ps-1 pe-1 abyedh-list list-group-item list-group-item-action" : "ps-1 pe-1 abyedh-list list-group-item list-group-item-action"}><i className="bi bi-envelope me-2" style={{color: GConf.themeColor}}></i> Messages</NavLink>
+                {/* <NavLink to='Message' exact="true" className={({ isActive }) => isActive ? "ps-1 pe-1 abyedh-list list-group-item list-group-item-action" : "ps-1 pe-1 abyedh-list list-group-item list-group-item-action"}><i className="bi bi-envelope me-2" style={{color: GConf.themeColor}}></i> Messages</NavLink> */}
                 {/*<NavLink to='Parametre' exact="true" className={({ isActive }) => isActive ? "ps-1 pe-1 abyedh-list list-group-item list-group-item-action" : "ps-1 pe-1 abyedh-list list-group-item list-group-item-action"}><i className="bi bi-sliders me-2" style={{color: GConf.themeColor}}></i> Paramétre</NavLink>
                 <NavLink to='up' exact="true" className={({ isActive }) => isActive ? "ps-1 pe-1 abyedh-list list-group-item list-group-item-action" : "ps-1 pe-1 abyedh-list list-group-item list-group-item-action"}><i className="bi bi-arrow-repeat me-2" style={{color: GConf.themeColor}}></i> Synchroniser</NavLink>
                 <NavLink to='ot/dbbu' exact="true" className={({ isActive }) => isActive ? "ps-1 pe-1 abyedh-list list-group-item list-group-item-action" : "ps-1 pe-1 abyedh-list list-group-item list-group-item-action"}><i className="bi bi-cloud-download me-2" style={{color: GConf.themeColor}}></i> Sauvegarder</NavLink>

@@ -6,11 +6,11 @@ const dirItem = {
         slider: false,
         slides: [
             { id: 1, image: 'docteur', name: 'طَبِيبْ', link: 'docteur' },
-            { id: 2, image: 'infirmier', name: 'infirmier', link: 'infirmier' },
+            { id: 2, image: 'infirmier', name: 'مَمَرٍّضْ', link: 'infirmier' },
             { id: 3, image: 'pharmacie', name: 'صَيْدَلِية', link: 'pharmacie' },
-            { id: 4, image: 'clinique', name: 'مِصَحَّة', link: 'clinique' },
-            { id: 5, image: 'labo', name: 'مَخْبَرْ', link: 'labo' },
-            { id: 6, image: 'centremedi', name: 'مَرْكَزْ', link: 'centreMD' },
+            { id: 4, image: 'labo', name: 'مَخْبَرْ تَحَالِيلْ', link: 'labo' },
+            { id: 5, image: 'clinique', name: 'مِصَحَّة', link: 'clinique' },
+            { id: 6, image: 'centremedi', name: 'مَرْكَزْ عِلاَجْ', link: 'centreMD' },
             { id: 7, image: 'admin_s_hospital', name: 'مٌسْتَشْفَي', link: 'admin_s_hospital' },
             { id: 8, image: 'admin_s_csb', name: 'مَرْكِزْ صِحَّة', link: 'admin_s_csb' },
         ],
@@ -18,18 +18,23 @@ const dirItem = {
         smallDisplay:[
             [
                 { id: 1, image: 'docteur', name: 'طَبِيبْ', link: 'docteur' },
-                { id: 2, image: 'infirmier', name: 'infirmier', link: 'infirmier' },
+                { id: 2, image: 'infirmier', name: 'مَمَرٍّضْ', link: 'infirmier' },
                 { id: 3, image: 'pharmacie', name: 'صَيْدَلِية', link: 'pharmacie' },
-                { id: 4, image: 'clinique', name: 'مِصَحَّة', link: 'clinique' },
+                { id: 4, image: 'labo', name: 'مَخْبَرْ تَحَالِيلْ', link: 'labo' },
                 
             ],
             [   
-                { id: 5, image: 'labo', name: 'مَخْبَرْ', link: 'labo' },
-                { id: 6, image: 'centremedi', name: 'مَرْكَزْ', link: 'centreMD' },
+                { id: 5, image: 'clinique', name: 'مِصَحَّة', link: 'clinique' },
+                { id: 6, image: 'centremedi', name: 'مَرْكَزْ عِلاَجْ', link: 'centreMD' },
                 { id: 7, image: 'admin_s_hospital', name: 'مٌسْتَشْفَي', link: 'admin_s_hospital' },
                 { id: 8, image: 'admin_s_csb', name: 'مَرْكِزْ صِحَّة', link: 'admin_s_csb' },
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: 'Tools/Products', name: '  أدوية ', img: 'medicamment.svg' },
+            // { id: 2, link: 'Tools/', name: '  موسوعة الأمراض ', img: 'medicamment.svg' },
+        ],
     },
     education: {
         tag: 'تَعْلِيمْ',
@@ -74,7 +79,15 @@ const dirItem = {
                 { id: 11, image: 'admin_e_universite', name: 'جَامِعَة', link: 'admin_e_universite' },
                 { id: 12, image: 'admin_e_ss', name: 'دِيوًانْ خَدَمَاتْ', link: 'admin_e_ss' }
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: 'Tools/ProgramScolair', name: 'البرنامج السنوي', img: 'prog_annu.svg' },
+            { id: 1, link: 'Tools/LivreScolair', name: 'الكتاب المدرسي ', img: 'livre_scolaire.svg' },
+            { id: 1, link: 'Tools/Devoirat', name: 'إمتحانات ', img: 'devoire.svg' },
+            // { id: 1, link: 'Tools/', name: 'توجيه مدرسي ', img: 'devoire.svg' },
+            // { id: 1, link: 'Tools/', name: 'توجيه جامعي ', img: 'devoire.svg' },
+        ],
     },
     trasnportation: {
         tag: 'نَقْلْ, تَنَقٌلْ',
@@ -82,22 +95,28 @@ const dirItem = {
         themeColor:'#f44236',
         slider: false,
         slides: [
-                { id: 1, image: 'transp', name: 'نَقْلْ بَضَائِعْ', link: 'transporteur' },
-                { id: 2, image: 'autoecole', name: 'تَعْلِيمْ سِيَاقَة', link: 'autoecole' },
+                { id: 1, image: 'transp', name: 'وِكَالَةْ نَقْلْ بَضَائِعْ', link: 'transporteur' },
+                { id: 2, image: 'autoecole', name: 'مَدْرَسةْ تَعْلِيمْ سِيَاقَة', link: 'autoecole' },
                 { id: 3, image: 'taxi', name: 'تَاكْسِي', link: 'Tools/Taxi', tools:true },
                 { id: 4, image: 'louage', name: 'لٌوَّاجْ', link: 'Tools/Louage', tools:true }
         ],
         smallSlider: false,
         smallDisplay:[
             [
-                { id: 1, image: 'transp', name: 'نَقْلْ بَضَائِعْ', link: 'transporteur' },
-                { id: 2, image: 'autoecole', name: 'تَعْلِيمْ سِيَاقَة', link: 'autoecole' },
+                { id: 1, image: 'transp', name: 'وِكَالَةْ نَقْلْ بَضَائِعْ', link: 'transporteur' },
+                { id: 2, image: 'autoecole', name: 'مَدْرَسةْ تَعْلِيمْ سِيَاقَة', link: 'autoecole' },
             ],
             [
                 { id: 3, image: 'taxi', name: 'تَاكْسِي', link: 'taxi' , tools:true},
                 { id: 4, image: 'louage', name: 'لٌوَّاجْ', link: 'louage', tools:true }
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: '/Tools/Public', name: 'موسوعة النقل', img: 'public.svg' },
+            { id: 1, link: '/Tools/Taxi', name: 'تاكسي', img: 'taxi.svg' },
+            { id: 1, link: '/Tools/Louage', name:  'سيارة اجرة' , img: 'louage.svg' },
+        ],
         
     },
     nutrition:{
@@ -129,7 +148,11 @@ const dirItem = {
                 { id: 7, image: 'patesserie', name: 'بَيْعْ المٌرَطَبَاتْ', link: 'patesserie' },
                 { id: 8, image: 'epicerie', name: 'بَقَّالَة', link: 'epicerie' },
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: '/Tools/Products', name: 'موسوعة المنتجات', img: 'products.svg' },
+        ],
     },
     houseCar: {
         tag: 'المنزل , السيارة ',
@@ -141,26 +164,30 @@ const dirItem = {
                 { id: 1, image: 'electromenager', name: 'بَيْعْ الإِلِكْتْرٌونِيَاتْ', link: 'electromenager' },
                 { id: 2, image: 'meublerie', name: ' بَيْعْ الأَثَاثْ ', link: 'meublerie' },
                 { id: 3, image: 'location', name: ' كِرَاءْ السَيَّارَاتْ ', link: 'location' },
-                { id: 4, image: 'parking', name: 'Parking ', link: 'parking' },
+                { id: 4, image: 'parking', name: 'مَوْقِفْ سَيّارَاتْ', link: 'parking' },
             ],
             [
-                { id: 9, image: 'qiosque', name: 'Qiosque', link: 'qiosque' },
-                { id: 10, image: 'mecanicien', name: 'Mecanicien', link: 'mecanicien' },
+                { id: 9, image: 'qiosque', name: 'مَحَطَةْ وَقُودْ', link: 'qiosque' },
+                { id: 10, image: 'mecanicien', name: 'مِيكَانِيكِي', link: 'mecanicien' },
             ]
         ],
         smallSlider: true,
         smallDisplay:[
             [
                 { id: 3, image: 'location', name: ' كِرَاءْ السَيَّارَاتْ ', link: 'location' },
-                { id: 4, image: 'parking', name: 'Parking ', link: 'parking' },
-                { id: 9, image: 'qiosque', name: 'Qiosque', link: 'qiosque' },
-                { id: 10, image: 'mecanicien', name: 'Mecanicien', link: 'mecanicien' },
+                { id: 4, image: 'parking', name: 'مَوْقِفْ سَيّارَاتْ', link: 'parking' },
+                { id: 9, image: 'qiosque', name: 'مَحَطَةْ وَقُودْ', link: 'qiosque' },
+                { id: 10, image: 'mecanicien', name: 'مِيكَانِيكِي', link: 'mecanicien' },
             ],
             [
                 { id: 1, image: 'electromenager', name: 'بَيْعْ الإِلِكْتْرٌونِيَاتْ', link: 'electromenager' },
                 { id: 2, image: 'meublerie', name: ' بَيْعْ الأَثَاثْ ', link: 'meublerie' },
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: 'Tools/Automobile', name: 'كرهبة', img: 'automobile.svg' },
+        ],
     },
     construction: {
         tag: 'خَدَمَاتْ عَقّارِية',
@@ -203,7 +230,11 @@ const dirItem = {
                 { id: 10, image: 'cristalerie', name: 'تًرْكِيبْ البِلٌوْرْ', link: 'cristalerie' },
                 { id: 11, image: 'marbrerie', name: 'جَلِيزْ وَ رٌخَامْ', link: 'marbrerie' },
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: '/Tools/Renting', name: 'للكراء', img: 'rent_house.svg' },
+        ],
     },
     life:{
         tag: 'حَيَاةْ , جَمَالْ',
@@ -212,7 +243,7 @@ const dirItem = {
         slider: false,
         slides: [
             { id: 1, image: 'coiffure', name: 'قَاعَةْ حِلاَقَة', link: 'coiffure' },
-            { id: 2, image: 'boutique', name: 'Boutique', link: 'boutique' },
+            { id: 2, image: 'boutique', name: 'مَحلْ مَلابِسْ', link: 'boutique' },
             { id: 3, image: 'salle_marriage', name: 'قَاعَةْ أَفْرَاحْ', link: 'salle_marriage' },
             { id: 8, image: 'bijouterie', name: ' مُجَوْهَرَاتْ ', link: 'bijouterie' },
             { id: 5, image: 'chef', name: 'طَبَّاخْ', link: 'chef' },
@@ -224,7 +255,7 @@ const dirItem = {
         smallDisplay:[
             [
                 { id: 1, image: 'coiffure', name: 'قَاعَةْ حِلاَقَة', link: 'coiffure' },
-                { id: 2, image: 'boutique', name: 'Boutique', link: 'boutique' },
+                { id: 2, image: 'boutique', name: 'مَحلْ مَلابِسْ', link: 'boutique' },
                 { id: 3, image: 'salle_marriage', name: 'قَاعَةْ أَفْرَاحْ', link: 'salle_marriage' },
                 { id: 8, image: 'bijouterie', name: ' مُجَوْهَرَاتْ ', link: 'bijouterie' },
             ],
@@ -234,7 +265,11 @@ const dirItem = {
                 { id: 7, image: 'fourniture_marriage', name: ' لَوَازِمْ أَفْرَاجْ', link: 'fourniture_marriage' },
                 { id: 4, image: 'orchestre', name: 'فِرْقَة مٌوسِيقِيَّة', link: 'orchestre' },
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: 'Tools/Story', name: 'حكايات', img: 'stories.svg' },
+        ],
     },
     culture: {
         tag: 'ثَقَافَة , رِيَاضَة , شَبَابْ',
@@ -273,7 +308,11 @@ const dirItem = {
             [
                 { id: 9, image: 'admin_c_ce', name: 'نَادِي أَطْفَالْ', link: 'admin_c_me' },
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: 'Tools/Sport', name: ' الدور التونسي', img: 'sport.svg' },
+        ],
     },
     politique:{
         tag: 'حٌقٌوقْ , سِيَاسَة , مٌنَظّمَاتْ',
@@ -286,7 +325,11 @@ const dirItem = {
         smallSlider: false,
         smallDisplay:[
                 { id: 1, image: 'avocat', name: 'مُحَامِي', link: 'avocat' },
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: '/Tools/News', name: 'الأخبار', img: 'news.svg' },
+        ],
     },
     finance: {
         tag: 'مَالِيّة و أَعْمَالْ',
@@ -315,7 +358,12 @@ const dirItem = {
             [
                 { id: 5, image: 'admin_f_rf', name: 'قَبَاضَة مَالِيَّة', link: 'admin_f_rf' },
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: 'Tools/Salaire', name: 'salaires', img: 'salaire.svg' },
+            { id: 1, link: 'Tools/Jobs', name: 'خدمني', img: 'jobs.svg' },
+        ],
     },
     agricole:{
         tag: 'فِلاَحَة',
@@ -336,7 +384,11 @@ const dirItem = {
             [
                 { id: 3, image: 'agritools', name: 'أَدَاةْ فِلاَحِيَّة', link: 'agritools'  },
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: 'Tools/AgriTools', name: 'أدات فلاحية', img: 'nature.svg' },
+        ],
     },
     tourizme:{
         tag: 'سِيَاحَة , سَفَرْ ,تَرْفِيهْ',
@@ -344,16 +396,20 @@ const dirItem = {
         themeColor: '#607d8b',
         slider: false,
         slides: [
-            { id: 1, image: 'Hotels', name: 'Hotels', link: 'hotels' },
+            { id: 1, image: 'Hotels', name: 'فُنْدُقْ', link: 'hotels' },
             { id: 2, image: 'travel', name: 'وِكَالَةْ أَسْفَارْ', link: 'vg_agence' },
         ],
         smallSlider: false,
         smallDisplay:[
             [
-                { id: 1, image: 'Hotels', name: 'Hotels', link: 'hotels' },
+                { id: 1, image: 'Hotels', name: 'فُنْدُقْ', link: 'hotels' },
                 { id: 2, image: 'travel', name: 'وِكَالَةْ أَسْفَارْ', link: 'vg_agence' },
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: 'Tools/Camping', name: 'كمبي', img: 'camping.svg' },
+        ],
     },
     generale: {
         tag: 'خَدَمَاتْ عَامّة و مَعْلٌومَاتْ',
@@ -384,7 +440,11 @@ const dirItem = {
                 { id: 5, image: 'admin_a_mosq', name: 'جَامَعْ', link: 'admin_a_mosq' },
                 { id: 6, image: 'embassy', name: 'سَفَارَة', link: 'Tools/ambassade', tools:true },
             ]
-        ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: '/Tools/Blog', name: ' الموسوعة الإدارية', img: 'blog.svg' },
+        ],
     },
 }
 export default dirItem

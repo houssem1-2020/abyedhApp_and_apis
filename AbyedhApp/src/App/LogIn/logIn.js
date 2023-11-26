@@ -6,12 +6,16 @@ import { toast } from 'react-toastify';
 import { NavLink, useNavigate, useParams} from 'react-router-dom';
 import APPConf from '../AssetsM/APPConf';
 import dirItem from '../../AssetsM/Item'
+import GConf from '../../AssetsM/generalConf';
 const FackeLogIn = ({tag}) => {
     const [fakePID, setFakePID] = useState(0)
     const AddFakeLogIn = () =>{
-        localStorage.setItem('PID', fakePID);
-        localStorage.setItem('APP_TAG', tag);
-        window.location.href = "/App/S";
+        if (fakePID != 0 ) {
+            localStorage.setItem('PID', fakePID);
+            localStorage.setItem('APP_TAG', tag);
+            window.location.href = "/App/S";
+        }  
+        
     }
     return(<>
         
@@ -32,6 +36,7 @@ function LogIn() {
     const [loginD, setLoginD] = useState([])
     const [loaderState, setLS] = useState(false)
     const [systemListe, setSystemListe] = useState([])
+    const [fakeLoginDisp, setFakeLoginDisp] = useState('none')
   
     const genreOptions = [
         { key: 1 , value: 'Sante', text: 'القطاع الصحي' },
@@ -134,14 +139,14 @@ function LogIn() {
             <div className="fixed-top">
                 <div className="rounded-0 p-3 pb-0 bg-white border-bottom blur-bckg-st">
                     <div className="row">
-                        <div className="col-3 col-md-2 mb-3 align-self-center text-left">
+                        <div className="col-2 col-md-2 mb-3 align-self-center text-left">
                             <NavLink exact="true"  to={'/'}>  
                                 <div  className="p-0" style={{width:'17px', height:'35px',}} > <span className='bi bi-arrow-left-short bi-md' ></span> </div>
                             </NavLink> 
                         </div>
                         
-                        <div className="col-9 col-md-10  mb-3  align-self-center text-center">
-                            <h3 className='text-center' dir='rtl' style={{color: '#7e7f80'}}> نظام إستقبال الطلبات  </h3>
+                        <div className="col-10 col-md-10  mb-3  align-self-center text-center">
+                            <h3 className='text-center' dir='rtl' style={{color: '#7e7f80'}}>  {findElementByLink(tag)} </h3>
                         </div>
             
                     </div>
@@ -158,20 +163,9 @@ function LogIn() {
             <div className='col-12  col-lg-4'></div>
             <div className='col-12  col-lg-4'>
                 <div className='card-body mt-4' >
-
-                    <div className='mb-2 mt-3 d-none'>
-                        <Select placeholder='ماهو قطاع عملك ' fluid className='mb-2' options={genreOptions}   onChange={(e, { value }) => GetDelegList(value)} />
-                        <Select placeholder='إختر مهنتك' fluid value={loginD.SystemTag} options={systemListe} onChange={(e, { value }) => setLoginD({...loginD, SystemTag: value })} />
-                    </div>
-                    {/* <h3 className='text-end' dir='rtl' style={{color:APPConf.landing[tag].colorTheme}}> الدخول لنظام إستقبال الطلبات الخاص بـ: {APPConf.landing[tag].directoryTable}</h3> */}
-                    <br />
-                    <div className='card p-2 shadow-sm border-div mb-3 text-center'><h3 style={{color:APPConf.landing[tag].colorTheme}}><span className='check-all'></span> {findElementByLink(tag)}</h3></div>
-
-                    {/* {localStorage.getItem('AddToDirectory') ? 'Waiting ?? or accpected '  : <></>} */}
-                    {/* <Bounce bottom> */}
                         <br />
-                        <h2 className='text-end' dir='rtl'><Icon name='linkify' /> تسجيل الدخول :</h2>
-                        <br />
+                        <div className='card p-2 shadow-sm border-div mb-4 text-center'><h3 style={{color:APPConf.landing[tag].colorTheme}}><span className='check-all'></span> {GConf.ADIL[tag].systemName} <br /> (<small className='text-secondary'> <small>النسخة المصغرة </small></small>)</h3></div>
+                        <h2 className='text-end mt-5' dir='rtl'><Icon name='linkify' onClick={() => setFakeLoginDisp('block')} /> تسجيل الدخول :</h2>
                         <div className='mb-3'>
                             <Input   icon='user'  fluid iconPosition='left' placeholder='المعرف' className='shadow-sm  '  onChange={(e) => setLoginD({...loginD, Log: e.target.value })} />
                         </div>
@@ -186,11 +180,17 @@ function LogIn() {
                         <hr />
                         <br />
                         <div className='' dir='rtl'>
+                            {localStorage.getItem('AddToDirectory') ? 
+                            <h5 className='mb-0 text-warning  '> *  جاري عملية التسجيل , يمكنك المتابعة من <NavLink exact='true' to={`/S/I/user/docteur`}>   هنا </NavLink>  </h5>
+                            : 
                             <h5 className='mb-0 text-secondary'> *   إذا لم تكن تملك حساب,  قم بتسجيل  الإشتراك في النظام من <NavLink exact='true' to={`/S/I/add/${tag}`}>   هنا </NavLink>  </h5> 
+                            }
+                             
+                            
                         </div>
                                
                         {/* </Bounce> */}
-                        <FackeLogIn tag={tag}/>
+                        <div style={{display: fakeLoginDisp}}><FackeLogIn tag={tag}/></div>
                 </div>
             </div>
         </div> 

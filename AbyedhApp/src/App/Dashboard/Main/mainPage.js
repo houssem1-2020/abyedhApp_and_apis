@@ -119,12 +119,12 @@ function RequestPage() {
                 <div className='row'>
                     <div className='col-4 align-self-center'><img className="rounded-circle mb-3" src={`https://cdn.abyedh.tn/images/ads/${APPConf.systemTag}.svg`} width="90px" height="90px"/></div>
                     <div className='col-8 align-self-center text-secondary' dir='rtl'>
-                        <span className='text-warning'>  هل تريد أن تجرب {APPConf.landing[APPConf.systemTag].systemTitle}  الذي يمكنك من :  </span>
+                        <span className='text-warning'>   هل تريد أن تجرب  <b className='text-danger '>النسخة الكاملة </b>  لـ {APPConf.landing[APPConf.systemTag].systemTitle}  التي تمكنك من :  </span>
                         <ul>
                             {APPConf.landing[APPConf.systemTag].systemPos.map((data,index) =>  <li key={index}> {data.posName} </li>)} 
                         </ul>
                         <NavLink exact='true' to='/App/S/System'  >
-                            <Button fluid className='rounded-pill font-Expo-book' size='mini'> إكتشف  {APPConf.landing[APPConf.systemTag].systemTitle} </Button>
+                            <Button fluid className='rounded-pill font-Expo-book' size='mini'> إكتشف   {APPConf.landing[APPConf.systemTag].systemTitle} </Button>
                         </NavLink>
                         
                     </div>
@@ -135,13 +135,13 @@ function RequestPage() {
     const AdsCardSmall = (props) =>{
         return(<>
          
-        <div className='col-12 col-lg-12  mb-4 mt-5 font-Expo-book'>
-            <div className='card  p-4 shadow  border-div '>
+        <div className='col-12 col-lg-12  mb-4 mt-4 font-Expo-book'>
+            <div className='card  p-4 shadow-sm  border-div '>
                 <NavLink exact='true' to='/App/S/System' className="stretched-link"></NavLink>
                 <div className='row'>
                     <div className='col-3 align-self-center text-center'><img className="rounded-circle  " src={`https://cdn.abyedh.tn/images/ads/${APPConf.systemTag}.svg`} width="50px" height="50px"/></div>
                     <div className='col-8 align-self-center text-secondary pe-4' dir='rtl'>
-                    {APPConf.landing[APPConf.systemTag].systemTitle} 
+                     النسخة الكاملة لـ {APPConf.landing[APPConf.systemTag].systemTitle} 
                     </div>
                     <div className='col-1 align-self-center text-secondary' dir='rtl'>
                       <span className='bi bi-arrow-right-short bi-md'></span> 
@@ -154,14 +154,14 @@ function RequestPage() {
     const CammingSoonSystem = (props) =>{
         return(<>
          
-        <div className='col-12 col-lg-12  mb-4 mt-5 font-Expo-book'>
-            <div className='card  p-4 shadow  border-div '>
+        <div className='col-12 col-lg-12  mb-4 mt-4 font-Expo-book'>
+            <div className='card  p-4 shadow-sm  border-div '>
                 {/* <NavLink exact='true' to='/S/System' className="stretched-link"></NavLink> */}
                 <div className='row'>
-                    <div className='col-3 align-self-center text-center'><img className="rounded-circle  " src={`https://cdn.abyedh.tn/images/ads/${APPConf.systemTag}.svg`} width="50px" height="50px"/></div>
-                    <div className='col-9 align-self-center text-secondary pe-4' dir='rtl'>
-                        <div>{APPConf.landing[APPConf.systemTag].systemTitle} </div>
-                        <small className='text-danger'>سيكون متوفر قريبا ... </small>
+                    <div className='col-2 align-self-center text-center'><img className="rounded-circle  " src={`https://cdn.abyedh.tn/images/ads/${APPConf.systemTag}.svg`} width="50px" height="50px"/></div>
+                    <div className='col-10 align-self-center text-secondary pe-4' dir='rtl'>
+                        <div>النسخة الكاملة لـ {APPConf.landing[APPConf.systemTag].systemTitle} </div>
+                        <small className='text-danger'>ستكون متوفرة قريبا ... </small>
                     </div>
                     {/* <div className='col-1 align-self-center text-secondary' dir='rtl'>
                       <span className='bi bi-arrow-right-short bi-md'></span> 
@@ -173,11 +173,13 @@ function RequestPage() {
     }
     const ItemCard = (props) =>{
         return(<>
-            <div className={`col-${props.data.colSm} col-lg-${props.data.colLg} mb-4`}>
-                <div className='card card-body shadow  border-div text-center h-100' style={{color: APPConf.themeColor}}>
+            <div className={`col-${props.data.colSm} col-lg-${props.data.colLg} `}>
+                <div className='card card-body shadow-sm  border-div text-center mb-3' style={{color: APPConf.themeColor}}>
                     <NavLink exact='true' to={`/App/S/${props.data.link}`} className="stretched-link"></NavLink>
-                    <h1 className={`bi bi-${props.data.icon} bi-lg mb-0 mt-0`} ></h1> 
-                    <h3 className='mt-0'>{props.data.itemName}</h3>
+                    <div className='row'>
+                        <div className='col-3 align-self-center '> <span className={`bi bi-${props.data.icon} bi-lg ` } style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}></span> </div>
+                        <div className='col-9 align-self-center'><h3 className='mt-0 mb-1'>{props.data.itemName}</h3> <small>{props.data.itemDesc}   </small></div>
+                    </div>
                 </div> 
             </div>
         </>)
@@ -209,11 +211,16 @@ function RequestPage() {
 
             <div className='row'>
                  {APPConf.landing[APPConf.systemTag].itemsList.map((data,index) => <ItemCard key={index} data={data} /> )}
-                <div className='col-6 col-lg-6 mb-4'>
-                    <div className='card card-body shadow  border-div text-center h-100' style={{color: APPConf.themeColor}}>
+                <div className='col-12 col-lg-12 mb-4 mt-4' >
+                    <div className='card p-3 shadow-sm  border-div text-center  ' style={{color: APPConf.themeColor}}>
                         <NavLink exact='true' to='/App/S/profile' className="stretched-link"></NavLink>
-                        <h1 className='bi bi-person bi-lg mb-0 mt-0' ></h1> 
-                        <h3 className='mt-0'>Profile</h3>
+                        <div className='row' style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}>
+                            <div className='col-2 align-self-center'><h1 className='bi bi-gear bi-md mt-1' ></h1></div>
+                            <div className='col-8 align-self-center'><h3 className='mt-0'>Paramétre de Profile</h3></div>
+                            <div className='col-2 align-self-center'><h1 className='bi bi-arrow-right-short bi-md mt-1' ></h1></div>
+                        </div>
+                         
+                        
                     </div>
                 </div>
                 

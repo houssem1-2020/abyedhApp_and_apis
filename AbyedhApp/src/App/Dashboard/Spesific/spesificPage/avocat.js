@@ -19,7 +19,7 @@ import ADIL from '../../../AssetsM/APPITEM';
 import CountUp from 'react-countup';
 
 
-function DocteurSpecific() {
+function AvocatSpecific() {
      /*#########################[Const]##################################*/
      const [addTarifActive, setAddTarifActive] = useState(false)
      const [addAssurance, setAddAssurance] = useState(false)
@@ -229,13 +229,13 @@ function DocteurSpecific() {
 
         return(<>
             <div className='card-body  mb-4'>
-                <Input icon='pin'   placeholder='Nom du Forfait' value={dataNow.Forfait}  onChange={ (e) => setDataNow({...dataNow, Forfait: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
+                {/* <Input icon='pin'   placeholder='Nom du Forfait' value={dataNow.Forfait}  onChange={ (e) => setDataNow({...dataNow, Forfait: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
                 <Input icon='dropbox' type='number'  placeholder='Prix'  value={dataNow.Prix}   onChange={ (e) => setDataNow({...dataNow, Prix: e.target.value })} size="small" iconPosition='left'    fluid className='mb-1' />
                 <Input icon='comment alternate' placeholder='Description' value={dataNow.Description}   onChange={ (e) => setDataNow({...dataNow, Description: e.target.value })} size="small" iconPosition='left'  fluid className='mb-1' />
                 
                 <br />
                 <Button    fluid className='rounded-pill' size='small' color='blue' onClick={() => AddArticleToList()}>  <Icon name='plus' className='ms-2' /> Ajouter </Button>
-                
+                 */}
             </div>
         </>)
     }
@@ -245,11 +245,11 @@ function DocteurSpecific() {
           <ListeVide icon='credit-card-2-front' /> 
           :
           <>
-            <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
+          <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
             {JSON.parse(returnedProfileData.SP_Diplomes).map((data,index) => 
               <div className='card p-2 border-div mb-2' key={index}>
                   <div className='row'>
-                      <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'>{data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
+                      <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'>{data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div>
                       <div className='col-3 align-self-center'>{data.Prix}</div> 
                       <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Diplomes')}></Button></div> 
                   </div>
@@ -257,18 +257,16 @@ function DocteurSpecific() {
             )}
             </div>
             <br />
-            <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Diplomes')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+            <Button fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Diplomes')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
           </> 
           } 
       </>)
     }
 
-    return (<>
-            
-          
-          <div className='row mb-3'>
+    return (<> 
+           <div className='row mb-3'>
               <div className='col-10 align-self-center'><h4>Liste des Tarif : </h4></div>
-              <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() =>setAddTarifActive(!addTarifActive)}> <Icon name={addTarifActive ? 'list ol' : 'plus'} /> </Button></div>
+              <div className='col-2 align-self-center'><Button className='rounded-circle' icon onClick={() => setAddTarifActive(!addTarifActive)}> <Icon name={addTarifActive ? 'list ol' : 'plus'} /> </Button></div>
           </div>
           { addTarifActive ? 
           <AddTarifCard />
@@ -276,7 +274,7 @@ function DocteurSpecific() {
           <TarifListeCard />
            
           }
-
+        
           <br />
           <br />
           <br />
@@ -289,7 +287,7 @@ function DocteurSpecific() {
           :
           <AssuranceListeCard />
           }
-
+      
           <br />
           <br />
           <br />
@@ -301,9 +299,9 @@ function DocteurSpecific() {
           <AddDiplome />
           :
           <DiplomeListeCard />
-          }
+          } 
 
     </>);
 }
 
-export default DocteurSpecific;
+export default AvocatSpecific;

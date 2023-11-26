@@ -4,9 +4,10 @@ import GConf from '../../AssetsM/APPConf';
  
 
 import Docteur from './infoPage/docteur'; 
-import Clinique from './infoPage/clinique_reserver'; 
 import PharmacieRdv from './infoPage/pharmacie_rdv';
 import PharmacieShop from './infoPage/pharmacie_shop';
+import Clinique from './infoPage/clinique_reserver'; 
+
 import GarderieInscription from './infoPage/garderie_inscription';
 import GarderieSouscrie from './infoPage/garderie_souscrire';
 import RestaurantReservation from './infoPage/restaurant';
@@ -62,13 +63,13 @@ import Forferon from './infoPage/handmade_forgeron';
 import Marbrerie from './infoPage/handmade_marbre';
 import Menuisier from './infoPage/handmade_menuisier';
 import Peinture from './infoPage/handmade_peinture';
-import Plombier from './infoPage/handmade_plombier';
+ import Plombier from './infoPage/handmade_plombier';
 
 import Qiosqie from './infoPage/qiosque_lavage';
 // import Mecanicien from './infoPage/mecanicien';
-import Location from './infoPage/location_request';
-import ParkingReserver from './infoPage/parking_reserver';
-import ParkingSouscrie from './infoPage/parking_souscrire';
+ import Location from './infoPage/location_request';
+ import ParkingReserver from './infoPage/parking_reserver';
+ import ParkingSouscrie from './infoPage/parking_souscrire';
 
 import Cinema from './infoPage/cinema_reserver';
 import Musee from './infoPage/musee_reserver';
@@ -104,15 +105,16 @@ function RequestInfo() {
       const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
       const statusCard = React.useCallback(() => {
       switch(status) {
-          case 'docteur_rdv': return <Docteur TAG={GConf.systemTag} PID={GConf.systemTag} />;  
-          case 'pharmacie_shop': return <PharmacieShop TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'pharmacie_rdv': return <PharmacieRdv TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'clinique_reserver': return <Clinique TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'labo_rdv': return <Labo TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'docteur_rdv': return <Docteur TAG={GConf.systemTag} PID={GConf.systemTag} />;  
+         case 'pharmacie_shop': return <PharmacieShop TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+         case 'pharmacie_rdv': return <PharmacieRdv TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+         case 'clinique_reserver': return <Clinique TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+
+            case 'labo_rdv': return <Labo TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'centre_reserver': return <CentreMd TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'garderie_inscription': return <GarderieInscription TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'garderie_souscription': return <GarderieSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'autoecole_inscrie': return <AutoEcole TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'garderie_inscription': return <GarderieInscription TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'garderie_souscription': return <GarderieSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'autoecole_inscrie': return <AutoEcole TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'ecole_inscription': return <EcoleInscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'ecole_souscription': return <EcoleSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'lycee_inscription': return <LyceeInscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
@@ -120,11 +122,11 @@ function RequestInfo() {
           case 'universite_inscription': return <UniversiteInscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'universite_souscription': return <UniversiteSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'librairie_shop': return <Librairie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'transporteur_request': return <Transporteur TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'transporteur_request': return <Transporteur TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'cafe_commande': return <CafeCommande TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'cafe_reservation': return <CafeReservation TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'restaurant_reservation': return <RestaurantReservation TAG={GConf.systemTag} PID={GConf.systemTag}  /> ;
-          case 'restaurant_commande': return <RestaurantCommande TAG={GConf.systemTag} PID={GConf.systemTag}  /> ;
+            case 'restaurant_reservation': return <RestaurantReservation TAG={GConf.systemTag} PID={GConf.systemTag}  /> ;
+            case 'restaurant_commande': return <RestaurantCommande TAG={GConf.systemTag} PID={GConf.systemTag}  /> ;
           case 'magazin_commande': return <Magazin TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'boulangerie_shop': return <Boulengerie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'boucheries_shop': return <Boucherie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
@@ -133,12 +135,12 @@ function RequestInfo() {
           case 'epicerie_shop': return <Epecerie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'electromenager_shop': return <Electromenager TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'meubles_shop': return <Meublerie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'location_request': return <Location TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'parking_reserver': return <ParkingReserver TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'parking_souscrire': return <ParkingSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'location_request': return <Location TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'parking_reserver': return <ParkingReserver TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'parking_souscrire': return <ParkingSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'qiosque_request': return <Qiosqie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'qiosque_lavage': return <Qiosqie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          //case 'mecanicien': return <Mecanicien TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+        //   case 'mecanicien': return <Mecanicien TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'courtier_request': return <CourtierRequest TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'courtier_torent': return <CourtierTorent TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'contracteur_service': return <Contracteur TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
@@ -148,18 +150,18 @@ function RequestInfo() {
           case 'menuisier': return <Menuisier TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'peinture': return <Peinture TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'electricien': return <Electricien TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'plombier': return <Plombier TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'plombier': return <Plombier TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'cristal': return <Cristalerie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'marbre': return <Marbrerie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'coiffure_reserver': return <Coiffure TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'boutique_shop': return <Boutique TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'salon_marriage_reserver': return <SallonMariage TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'coiffure_reserver': return <Coiffure TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'boutique_shop': return <Boutique TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'salon_marriage_reserver': return <SallonMariage TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'orchestre_reserver': return <Orchestre TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'chef_reserver': return <Chef TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'photographe_reserver': return <Photographe TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'fourniture_marriage_location': return <FournitureMarriage TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'bijouterie_commande': return <Bijouterie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'gym_souscription': return <Gym TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'gym_souscription': return <Gym TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'pyscine_reserver': return <PyscineReserver TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'pyscine_souscrire': return <PyscineSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'stade_reserver': return <StadeReserver TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
@@ -167,12 +169,12 @@ function RequestInfo() {
           case 'cinema_reserver': return <Cinema TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'theatre_reserver': return <Theatre TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'musee_reserver': return <Musee TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'avocat_rdv': return <Avocat TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'avocat_rdv': return <Avocat TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'depot_commande': return <Depot TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'comptable_service': return <Comptable TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'socite': return <Socite TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'hotels_reserver': return <HotelsReserver TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'hotels_service': return <HotelsService TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'hotels_reserver': return <HotelsReserver TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'hotels_service': return <HotelsService TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'agence_service': return <VgAgence TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           default:  return <IndefinieCard />;    
       }

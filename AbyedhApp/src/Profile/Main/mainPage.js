@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import GConf from '../../AssetsM/generalConf';
 import {Grid, _ } from "gridjs-react";
-import { Button, Icon, Placeholder } from 'semantic-ui-react';
+import { Button, Dimmer, Icon, Loader, Placeholder } from 'semantic-ui-react';
 import { Select } from 'semantic-ui-react'
 import { Bounce } from 'react-reveal';
 import { NavLink } from 'react-router-dom';
@@ -12,30 +12,71 @@ function MainPage() {
     
    /* ###########################[const]############################ */
    let userData = JSON.parse(localStorage.getItem("UID"));
-   let [loading, SetLoading] = useState(true)
+   let [loading, setLoading] = useState(true)
    let [feedData, setFeedData] = useState([])
+   let [loadMoreSpinner, setLoadMoreSpinner] = useState(false)
+   let [lastFeedOrder, setLastFeedOrder] = useState(7)
+   let [reachTheEnd, setReachTheEnd] = useState(false)
 
    /*#########################[UseEffect]###########################*/
    useEffect(() => {
-       window.scrollTo(0, 0);
-       axios.post(`${GConf.ApiProfileLink}/main`, {
+       //window.scrollTo(0, 0);
+        axios.post(`${GConf.ApiProfileLink}/main`, {
            UID : userData,
-         })
-         .then(function (response) {
+        })
+        .then(function (response) {
                setFeedData(response.data)
-               SetLoading(false)
-         }).catch((error) => {
+               setLoading(false)
+        }).catch((error) => {
            if(error.request) {
              toast.error(<><div><h5>مشكل في الإتصال</h5> لم نتمكن من الوصول لقاعدة البيانات </div></>, GConf.TostInternetGonf)   
-             SetLoading(false)
+             setLoading(false)
              setFeedData([])
            }
-         });
-
+        });
+    
    }, [])
 
-   /* ###########################[Function]############################# */
+   
 
+   /* ###########################[Function]############################# */
+   const LoadMoreFunction = () => {
+        setLoadMoreSpinner(true)
+        axios.post(`${GConf.ApiProfileLink}/main/limitted`, {
+            UID : userData,
+            lastUpdate : feedData.length,
+        })
+        .then(function (response) {
+            setLoadMoreSpinner(false)
+            if (response.data.length != 0) { 
+                setFeedData(prevResults => [...prevResults, ...response.data])
+                setLastFeedOrder(prevLastFeedOrder => prevLastFeedOrder + 3)
+            } else {
+                //setLoadMoreSpinner(false)
+                setReachTheEnd(true)
+            }
+
+        }).catch((error) => {
+            if(error.request) {
+            toast.error(<><div><h5>مشكل في الإتصال</h5> لم نتمكن من الوصول لقاعدة البيانات </div></>, GConf.TostInternetGonf)   
+            setLoadMoreSpinner(false)
+            }
+        });
+    }
+
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    //     const atBottom = scrollTop + clientHeight >= scrollHeight - 100;  
+    //     if (atBottom && !reachTheEnd) { LoadMoreFunction();}
+
+    //     };
+    //     // Function to check if scrollbar is at the end of the page
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => { window.removeEventListener('scroll', handleScroll); };
+    // }, [LoadMoreFunction]);
+
+    
    /* ###########################[Card]############################# */
     const NotificationCard = (props) =>{
         return(<>
@@ -76,7 +117,7 @@ function MainPage() {
                     </div> 
                 </div>
                 <div className=' ' style={{zIndex: 1, left:10, bottom: 10, position: 'absolute'}} >
-                    <NavLink to={`/Profile/L/ma/${props.data.RequestData.R_ID}`}>
+                    <NavLink to={`/Profile/L/sv/${props.data.RequestData.R_ID}`}>
                         <Button className='rounded-circle bg-transparent border p-2' size='small' icon> <Icon name='arrow left' /> </Button>
                     </NavLink>
                 </div>
@@ -106,6 +147,7 @@ function MainPage() {
         </>)
     }
     return (  <>
+     
         {
             loading ? 
             <SekeltonCard /> 
@@ -117,11 +159,15 @@ function MainPage() {
                     :
                     <>
                        { feedData.map((data,i) => <NotificationCard key={i} data={data} />)}
+                        <div className='text-center p-2'>
+                            {loadMoreSpinner  ? <Loader active={!reachTheEnd} inline /> : <Button disabled={reachTheEnd} fluid onClick={() => LoadMoreFunction()} className='rounded-pill' size='tiny'>تحميل</Button>}    
+                        </div>
                     </>
                 }
             </>
         }
- 
+        
+        
     </>);
 }
 

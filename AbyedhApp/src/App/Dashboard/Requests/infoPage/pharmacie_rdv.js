@@ -144,7 +144,7 @@ const TerminerCard = ({requestData, setRequestData, reqState, FindBtnState, Upda
     </>
 }
 
-function DocteurSpecific() {
+function PharmacieSpesific() {
     /*#########################[Const]##################################*/
     const {TAG,CID} = useParams()
     const [activeIndex, setActiveIndex] = useState(0)
@@ -384,4 +384,4 @@ function DocteurSpecific() {
     </> );
 }
 
-export default DocteurSpecific;
+export default PharmacieSpesific;

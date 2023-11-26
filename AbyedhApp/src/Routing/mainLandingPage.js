@@ -6,15 +6,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
+import 'swiper/css/pagination';
 import { QrReader } from 'react-qr-reader';
 import GConf from '../AssetsM/generalConf';
 import { Button, Icon, Input, Modal } from 'semantic-ui-react';
 import { useNavigate} from 'react-router-dom';
+import { Suspense } from 'react';
+
+const ToolsModal = React.lazy(() => import('./MainPageAssets/toolsModal'));
+const QrCodeModal = React.lazy(() => import('./MainPageAssets/qrCodeModal'));
 
 const CostumInput = ({searchKey, setSearchKey}) =>{
     return(<input  value={searchKey} onChange={(e) => setSearchKey(e.target.value)} className='text-end main-input-costum' icon='user' />)
 }
-const SearchBar = ({open, setOpen, searchKey, setSearchKey,SearchFunction,GoToQrCodeFunction, data, setData}) =>{
+const SearchBar = ({open, setOpen, searchKey, setSearchKey,SearchFunction,GoToQrCodeFunction, data, setData }) =>{
     const navigate = useNavigate();
 
     const [qrCodeValue, setQRCodeValue] = useState(null)
@@ -31,9 +36,15 @@ const SearchBar = ({open, setOpen, searchKey, setSearchKey,SearchFunction,GoToQr
             </Button>
         </>)
     }
-
+    const ForLazyLoading = () =>{
+        return (<>
+                 
+                <div className='loader-container-small'><div className="loader"></div></div>  
+                 
+            </>);
+      }
     return(<>
-        <div className='rounded-0 border-0 bg-white p-3  sticky-top shadow-bottom-card'>
+        <div className='rounded-0 border-0 bg-white p-3  sticky-top shadow-bottom-card' style={{zIndex: 10}}>
             <Input
                 placeholder=' ... بَحْثْ'
                 fluid
@@ -49,9 +60,12 @@ const SearchBar = ({open, setOpen, searchKey, setSearchKey,SearchFunction,GoToQr
                     open={open}
                     dimmer= 'blurring'
                     trigger={<Button className='border-0 bg-white border-top border-bottom border-start ' icon ><Icon name='qrcode' /></Button>}
-                    >
+                    className='fullscreen-modal-gouv'
+                >
                     <Modal.Content image>
-                        <QrReader
+                    <div className='text-end'><Button color={undefined} className='rounded-circle' icon onClick={() => setOpen(false)}><Icon name='remove' /></Button></div>
+                    <Suspense fallback={<ForLazyLoading />}><QrCodeModal ShowUpLinks={ShowUpLinks} qrCodeValue={qrCodeValue} GoToQrCodeFunction={GoToQrCodeFunction} selectedListeTag={selectedListeTag} ActionsBtnCard={<ActionsBtnCard />} /></Suspense>
+                        {/* <QrReader
                                 constraints={{
                                     facingMode: 'environment'
                                 }}
@@ -74,7 +88,7 @@ const SearchBar = ({open, setOpen, searchKey, setSearchKey,SearchFunction,GoToQr
                         <Button size='big' className='bg-danger text-white mb-3 rounded-pill' disabled={qrCodeValue == null} onClick={() => GoToQrCodeFunction(qrCodeValue)}> زيارة الملف </Button>
                         <div className='col-12 d-flex' dir='rtl'  >
                             { selectedListeTag.map( (data,index) => <ActionsBtnCard key={index} data={data} indexKey={index} /> )  }                        
-                        </div>
+                        </div> */}
                     </Modal.Content>
                 </Modal>
                 
@@ -84,12 +98,14 @@ const SearchBar = ({open, setOpen, searchKey, setSearchKey,SearchFunction,GoToQr
             </Input>   
         </div>
     </>)
-    }
+}
 
 function MainLandingPage() {
     /* ############### Const #################*/
     const navigate = useNavigate();
     const [open, setOpen] = useState(false)
+    const [toolsModal, setToolsModal] = useState(false)
+    const [selectedToolsModal, setSelectedToolsModal] = useState([])
     const [searchKey, setSearchKey] = useState('')
     const [data, setData] = useState('');
 
@@ -230,7 +246,7 @@ function MainLandingPage() {
                 <>
                     <div  className="text-center hvr-float mb-4">
                         <NavLink exact='true' to={props.cardData.tools ?  `${props.cardData.link}` : `S/L/${props.cardData.link}`} >
-                            <img className='mb-0' src={`https://cdn.abyedh.tn/Images/Search/CIcons/${props.cardData.image}.gif`}  width='50px' height='50px' />
+                            <img className='mb-0' src={`https://cdn.abyedh.tn/Images/Search/CIconsS/${props.cardData.image}.gif`}  width='50px' height='50px' />
                             {/* <small className='d-block text-secondary  mb-0 mt-0 d-none'>{Math.floor(1000 + Math.random() * 9000)}</small> */}
                             <h5 className="font-droid text-secondary mt-0"> {props.cardData.name} </h5>
                         </NavLink>
@@ -292,6 +308,7 @@ function MainLandingPage() {
                     }}
                     modules={[Pagination]}
                     className="mySwiper pb-4 mb-0"
+                    
                 >
                     {
                         props.data.smallDisplay.map((smallDisplay,index) => (
@@ -326,12 +343,19 @@ function MainLandingPage() {
                 </>
             )
         }
-    
+        
+        const OpenToolsModal = (targetGenre) => {
+            setToolsModal(true)
+            setSelectedToolsModal(targetGenre)
+        }
     
         return (<>
-            <div className='card mb-3 border-div shadow-sm'>
-               <div className='border-bottom pe-2 text-end'>
-                   <h4 className='p-4' style={{color:props.data.themeColor}}><span className={`bi bi-${props.data.icon}`}></span> {props.data.tag}</h4> 
+            <div className='card mb-3 border-div-main '>
+               <div className='border-bottom pe-2 text-end '>
+                    <div className='row'>
+                            <div className='col-9'> <h4 className='p-4' style={{color:props.data.themeColor}}><span className={`bi bi-${props.data.icon}`}></span> {props.data.tag}</h4></div>
+                            <div className='col-3 align-self-center text-start ps-4' >{ props.data.haveTools ? <Button  size='mini' icon  className='rounded-circle  ' onClick={() => OpenToolsModal(props.data.toolsList)} style={{color :props.data.themeColor, backgroundColor:'white'}}> <Icon name='plus'   /> </Button> : <></>}</div>
+                    </div> 
                 </div> 
                <div className='card-body pb-0'>
                     {props.smallDisplay ?  
@@ -398,8 +422,8 @@ function MainLandingPage() {
                                 <img src="https://cdn.abyedh.tn/images/About/gp.jpg" className="img-responsive  mb-2" style={{width:'50px'}}  />
                             </div>
                             <div className="col-10 align-self-center">
-                                <div className="text-end  text-secondary"><h4>حَمّلْ تَطْبِيقْ أَبْيَضْ الذي  يمنحك تجربة مستخدم أفضل    </h4>     </div>
-                                <div className="text-end  text-secondary">  <small dir='rtl'>الحجم : 2.85 MB | آخر تحديث : 05/10/2023 </small>    </div>
+                                <div className="text-end  text-secondary"><h4>حَمّلْ تَطْبِيقْ أَبْيَضْ الذِي  يَمْنَحُكَ تَجْرِبَة مُسْتَخْدِمْ أَفْضَلْ    </h4>     </div>
+                                <div className="text-end  text-secondary">  <small dir='rtl'>الحجم : 2.85 MB  | آخر تحديث  25/11/2023 </small>    </div>
                             </div>
                         </div>
                     </div>
@@ -407,10 +431,17 @@ function MainLandingPage() {
             </div>
         </>)
     }
+    const ForLazyLoading = () =>{
+        return (<>
+                 
+                <div className='loader-container-small'><div className="loader"></div></div>  
+                 
+            </>);
+      }
     return ( <>
             <TopNavBar />
             <AddsCard />
-            <SearchBar open={open} setOpen={setOpen} searchKey={searchKey} setSearchKey={setSearchKey} SearchFunction={SearchFunction} GoToQrCodeFunction={GoToQrCodeFunction} data={data} setData={setData} />
+            <SearchBar open={open} setOpen={setOpen} searchKey={searchKey} setSearchKey={setSearchKey} SearchFunction={SearchFunction} GoToQrCodeFunction={GoToQrCodeFunction} data={data} setData={setData}  />
 
             {/* {
                 open ? 
@@ -450,8 +481,6 @@ function MainLandingPage() {
             <div className='container' dir='rtl'>
                 <IntroducingCard />
                 <br />
-                {/* <button onClick={requestNotificationPermission}>Enable Notifications</button>
-                <button onClick={receiveNewMessage}>Receive New Message</button> */}
                 <div className='row'>
                     <div className='col-12 col-lg-6 d-none d-lg-inline'>
                         <DisplayedCard smallDisplay={false} data={GConf.Items.sante} />
@@ -496,6 +525,37 @@ function MainLandingPage() {
             <br />
             <br />
             <ButtomCard />
+            <Modal
+                    onClose={() => setToolsModal(false)}
+                    onOpen={() => setToolsModal(true)}
+                    open={toolsModal}
+                    className='fullscreen-modal-gouv m-0 p-0'
+            >
+                    <Modal.Content className='border-div'>
+                        <div className='row'>
+                          <div className='col-10 align-self-center'><h3 className='text-center'>تَطْبِيقَاتْ أَبْيَضْ </h3></div>  
+                          <div className='col-2 align-self-center'><Button color={undefined} className='rounded-circle' icon onClick={() => setToolsModal(false)}><Icon name='remove' /></Button></div>  
+                        </div>
+                        <br />
+                        <br />
+                        <div className='row' dir='rtl'>
+                            <Suspense fallback={<ForLazyLoading />}><ToolsModal selectedToolsModal={selectedToolsModal} /></Suspense>
+                            
+                            {/* {selectedToolsModal.map((data,index) => 
+                                <div className='col-4 col-lg-2 mb-3' key={index}>
+                                    <NavLink exact='true' to={`${data.link}`} >
+                                        <div className='card p-0 shadow-sm mb-3 text-center border-div  '>
+                                        <div className='mb-2'><img src={`https://cdn.abyedh.tn/images/Tools/${data.img}`} className='img-responsive ' width='60px' height='60px' /></div>    
+                                        </div>
+                                        <div className='mb-2 text-center text-secondary'><h6><b>{data.name}</b></h6></div> 
+                                    </NavLink>
+                                </div>
+                            )} */}
+                        </div>
+                        
+                        
+                    </Modal.Content>
+            </Modal>
         </> );
 }
 

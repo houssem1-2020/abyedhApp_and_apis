@@ -25,12 +25,12 @@ function TaxiPage() {
             </>)
         }
         return(<>
-                <nav className="p-2 fixed-top navshad" style={{backgroundColor: GConf.Tools.taxi.themeColor}}>
+                <nav className="p-2 fixed-top navshad" style={{backgroundColor: 'white'}}>
                     <div className='row'>
                         <div className='col-6 text-start align-self-center'>
                             <NavLink exact='true' to='/Tools' className="m-0 p-0 ms-3">
-                                <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
-                                <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
+                                <img  className="border-div-s d-none d-lg-inline border bg-danger " src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
+                                <div  className="d-lg-none d-inline-block text-secondary p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
                         </div>
                         <div className='col-6 text-end align-self-center'>
@@ -43,7 +43,7 @@ function TaxiPage() {
 
     const AdsLanding = () =>{
         return(<>
-        <div className='card-body rounded-0 pt-5' style={{height:'170px', backgroundColor:'#e9ecef'}}>
+        <div className='card-body rounded-0 pt-5' style={{height:'170px', backgroundColor:'white'}}>
             <div className='row'>
                 <div className='col-12 col-lg-8 align-self-center text-center'>
  
@@ -79,7 +79,7 @@ function TaxiPage() {
     }
     const ButtomCard = (props) =>{
         return(<>
-            <div className={`card-body rounded-bottom-card fixed-bottom`} style={{backgroundColor:GConf.Tools.taxi.themeColor}}>
+            <div className={`card-body rounded-bottom-card fixed-bottom`} style={{backgroundColor: '#dc3545'}}>
                 <div className='text-end text-white me-5'>
                     <b>منصة أبيض التونسية </b>
                 </div>

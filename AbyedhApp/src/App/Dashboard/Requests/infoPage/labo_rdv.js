@@ -106,22 +106,20 @@ const RetarderCard = ({requestData, setRequestData, reqState, FindBtnState, Upda
         </div>
     </>
 }
-const RedirecterCard = ({requestData, setRequestData, reqState, FindBtnState, UpdateRequestState, OnKeyPressFunc}) =>{
+const PretCard = ({requestData, setRequestData, reqState, FindBtnState, UpdateRequestState, OnKeyPressFunc}) =>{
     return(<>
         <div className='card card-body border-div mb-4 shadow-sm ltr-force' dir='ltr'>
-            <div className='card-body'> Entrer les info de docteur :  
-                <h5 className='mb-1 mt-1'>Nom de Docteur   </h5>
+            <div className='card-body'> Veuillez Entrez les doneé du Resultat de L'analyse  :  
+                <h5 className='mb-1 mt-1'>Grandeur    </h5>
                 <Input icon='user' type='text' size="small" iconPosition='left'   fluid className='mb-1'  onChange={(e) => setRequestData({...requestData, Redirected_To: { ...requestData.Redirected_To, Name : e.target.value  } })}/>
 
-                <h5 className='mb-1 mt-1'>Telephone   </h5>
+                <h5 className='mb-1 mt-1'>Valeur    </h5>
                 <Input icon='phone' type='text' size="small" iconPosition='left'   fluid className='mb-1'  onChange={(e) => setRequestData({...requestData, Redirected_To: { ...requestData.Redirected_To, Phone : e.target.value }  })}/>
 
 
-                <h5 className='mb-1 mt-3'>Adresse   </h5>
-                <Input icon='map marker alternate' type='text' size="small" iconPosition='left'   fluid className='mb-1'  onChange={(e) => setRequestData({...requestData, Redirected_To: { ...requestData.Redirected_To, Adresse: e.target.value }  })}/>
             </div>
             <div className='text-end mt-3'>
-                <Button disabled={FindBtnState(reqState).redirectState} fluid className='rounded-pill text-secondary btn-imprimer'  onClick={(e) => UpdateRequestState('RD','Redirected_To',JSON.stringify(requestData.Redirected_To),true,'redirected')}><Icon name='edit outline' /> Redirecter </Button>  
+                <Button disabled={FindBtnState(reqState).redirectState} fluid className='rounded-pill text-secondary btn-imprimer'  onClick={(e) => UpdateRequestState('PR','Pret_Data',JSON.stringify(requestData.Redirected_To),true,'pret')}><Icon name='edit outline' /> Resulktat </Button>  
             </div>
         </div> 
     </>)
@@ -144,7 +142,7 @@ const TerminerCard = ({requestData, setRequestData, reqState, FindBtnState, Upda
     </>
 }
 
-function DocteurSpecific() {
+function Labo() {
     /*#########################[Const]##################################*/
     const {TAG,CID} = useParams()
     const [activeIndex, setActiveIndex] = useState(0)
@@ -171,7 +169,7 @@ function DocteurSpecific() {
         },          
         {
             menuItem: { key: 'stdddart', icon: 'user', content: 'Patient ' }, 
-            render: () => <RedirecterCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
+            render: () => <PretCard requestData={requestData} setRequestData={setRequestData} reqState={reqState} FindBtnState={FindBtnState} UpdateRequestState={UpdateRequestState} OnKeyPressFunc={OnKeyPressFunc} />,
         },
         {
             menuItem: { key: 'ffsd', icon: 'user', content: 'Patient ' }, 
@@ -380,4 +378,4 @@ function DocteurSpecific() {
     </> );
 }
 
-export default DocteurSpecific;
+export default Labo;

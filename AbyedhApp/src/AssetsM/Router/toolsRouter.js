@@ -53,6 +53,50 @@ import DataProfilePage from '../../Tools/Data/Profile/profilePage';
 import NewsPage from '../../Tools/News/mainPage';
 import NewsLandingPage from '../../Tools/News/Landing/landingPage';
 import NewsProfilePage from '../../Tools/News/Profile/profilePage';
+//Salaire
+import SalairePage from '../../Tools/Salaire/mainPage';
+import SalaireLandingPage from '../../Tools/Salaire/Landing/landingPage';
+import SalaireProfilePage from '../../Tools/Salaire/Profile/profilePage';
+//Jobs
+import JobsPage from '../../Tools/Jobs/mainPage';
+import JobsLandingPage from '../../Tools/Jobs/Landing/landingPage';
+import JobsProfilePage from '../../Tools/Jobs/Profile/profilePage';
+//Story
+import StoryPage from '../../Tools/Story/mainPage';
+import StoryLandingPage from '../../Tools/Story/Landing/landingPage';
+import StoryProfilePage from '../../Tools/Story/Profile/profilePage';
+//Camping
+import CampingPage from '../../Tools/Camping/mainPage';
+import CampingLandingPage from '../../Tools/Camping/Landing/landingPage';
+import CampingProfilePage from '../../Tools/Camping/Profile/profilePage';
+//ProgramScolair
+import ProgramScolairPage from '../../Tools/ProgramScolair/mainPage';
+import ProgramScolairLandingPage from '../../Tools/ProgramScolair/Landing/landingPage';
+import ProgramScolairProfilePage from '../../Tools/ProgramScolair/Profile/profilePage';
+//LivreScolair
+import LivreScolairPage from '../../Tools/LivreScolair/mainPage';
+import LivreScolairLandingPage from '../../Tools/LivreScolair/Landing/landingPage';
+import LivreScolairProfilePage from '../../Tools/LivreScolair/Profile/profilePage';
+//Devoirat
+import DevoiratPage from '../../Tools/Devoirat/mainPage';
+import DevoiratLandingPage from '../../Tools/Devoirat/Landing/landingPage';
+import DevoiratProfilePage from '../../Tools/Devoirat/Profile/profilePage';
+//Calendrier
+import CalendrierPage from '../../Tools/Calendrier/mainPage';
+import CalendrierLandingPage from '../../Tools/Calendrier/Landing/landingPage';
+import CalendrierProfilePage from '../../Tools/Calendrier/Profile/profilePage';
+//Forum
+import ForumPage from '../../Tools/Forum/mainPage';
+import ForumLandingPage from '../../Tools/Forum/Landing/landingPage';
+import ForumProfilePage from '../../Tools/Forum/Profile/profilePage';
+//Automobile
+import AutomobilePage from '../../Tools/Automobile/mainPage';
+import AutomobileLandingPage from '../../Tools/Automobile/Landing/landingPage';
+import AutomobileProfilePage from '../../Tools/Automobile/Profile/profilePage';
+//Invitation
+import InvitationPage from '../../Tools/Invitation/mainPage';
+import InvitationLandingPage from '../../Tools/Invitation/Landing/landingPage';
+import InvitationProfilePage from '../../Tools/Invitation/Profile/profilePage';
 
 const ToolsRouter = () => (
     <Route path="Tools" exact element={<Outlet  />} >
@@ -105,6 +149,21 @@ const ToolsRouter = () => (
                 <Route path="landing/:genre" exact element={<SportLandingPage />} />
                 <Route path="profile" exact element={<SportProfilePage />} />
             </Route>
+            <Route path="Jurdique" exact element={<Outlet />} >
+                <Route path="" exact element={<SportPage />} />
+                <Route path="landing/:genre" exact element={<SportLandingPage />} />
+                <Route path="profile" exact element={<SportProfilePage />} />
+            </Route>
+            <Route path="Economique" exact element={<Outlet />} >
+                <Route path="" exact element={<SportPage />} />
+                <Route path="landing/:genre" exact element={<SportLandingPage />} />
+                <Route path="profile" exact element={<SportProfilePage />} />
+            </Route>
+            <Route path="Touristique" exact element={<Outlet />} >
+                <Route path="" exact element={<SportPage />} />
+                <Route path="landing/:genre" exact element={<SportLandingPage />} />
+                <Route path="profile" exact element={<SportProfilePage />} />
+            </Route>
 
 
             {/* Tolls */}
@@ -118,6 +177,62 @@ const ToolsRouter = () => (
                 <Route path="landing/:tag" exact element={<NewsLandingPage />} />
                 <Route path="page/:PAID" exact element={<NewsProfilePage />} />
             </Route>
+            <Route path="Salaire" exact element={<Outlet />} >
+                <Route path="" exact element={<SalairePage />} />
+                <Route path="landing/:tag" exact element={<SalaireLandingPage />} />
+                <Route path="page/:PAID" exact element={<SalaireProfilePage />} />
+            </Route>
+            <Route path="Jobs" exact element={<Outlet />} >
+                <Route path="" exact element={<JobsPage />} />
+                <Route path="landing/:tag" exact element={<JobsLandingPage />} />
+                <Route path="page/:PAID" exact element={<JobsProfilePage />} />
+            </Route>
+            <Route path="Story" exact element={<Outlet />} >
+                <Route path="" exact element={<StoryPage />} />
+                <Route path="landing/:tag" exact element={<StoryLandingPage />} />
+                <Route path="page/:PAID" exact element={<StoryProfilePage />} />
+            </Route>
+            <Route path="Camping" exact element={<Outlet />} >
+                <Route path="" exact element={<CampingPage />} />
+                <Route path="landing/:tag" exact element={<CampingLandingPage />} />
+                <Route path="page/:PAID" exact element={<CampingProfilePage />} />
+            </Route>
+            <Route path="ProgramScolair" exact element={<Outlet />} >
+                <Route path="" exact element={<ProgramScolairPage />} />
+                <Route path="landing/:tag" exact element={<ProgramScolairLandingPage />} />
+                <Route path="page/:PAID" exact element={<ProgramScolairProfilePage />} />
+            </Route>
+            <Route path="LivreScolair" exact element={<Outlet />} >
+                <Route path="" exact element={<LivreScolairPage />} />
+                <Route path="landing/:tag" exact element={<LivreScolairLandingPage />} />
+                <Route path="page/:PAID" exact element={<LivreScolairProfilePage />} />
+            </Route>
+            <Route path="Devoirat" exact element={<Outlet />} >
+                <Route path="" exact element={<DevoiratPage />} />
+                <Route path="landing/:tag" exact element={<DevoiratLandingPage />} />
+                <Route path="page/:PAID" exact element={<DevoiratProfilePage />} />
+            </Route>
+            <Route path="Calendrier" exact element={<Outlet />} >
+                <Route path="" exact element={<CalendrierPage />} />
+                <Route path="landing/:tag" exact element={<CalendrierLandingPage />} />
+                <Route path="page/:PAID" exact element={<CalendrierProfilePage />} />
+            </Route>
+            <Route path="Forum" exact element={<Outlet />} >
+                <Route path="" exact element={<ForumPage />} />
+                <Route path="landing/:tag" exact element={<ForumLandingPage />} />
+                <Route path="page/:PAID" exact element={<ForumProfilePage />} />
+            </Route>
+            <Route path="Invitation" exact element={<Outlet />} >
+                <Route path="" exact element={<InvitationPage />} />
+                <Route path="landing/:tag" exact element={<InvitationLandingPage />} />
+                <Route path="page/:PAID" exact element={<InvitationProfilePage />} />
+            </Route>
+            <Route path="Automobile" exact element={<Outlet />} >
+                <Route path="" exact element={<AutomobilePage />} />
+                <Route path="landing/:tag" exact element={<AutomobileLandingPage />} />
+                <Route path="page/:PAID" exact element={<AutomobileProfilePage />} />
+            </Route>
+             
         
     </Route>
 )

@@ -9,7 +9,7 @@ import SubNav from '../../../AssetsM/Cards/subNav';
 import GoBtn from '../../../AssetsM/Cards/goBtn';
 import TableImage from '../../../AssetsM/Cards/tableImg';
 import { toast } from 'react-toastify';
-import { Button , Icon, Modal, Tab, Statistic, Input} from 'semantic-ui-react';
+import { Button , Icon, Modal, Tab, Statistic, Input, Placeholder} from 'semantic-ui-react';
 import { useNavigate} from 'react-router-dom';
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
@@ -17,13 +17,21 @@ import { Menu } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import ADIL from '../../../AssetsM/APPITEM';
 import CountUp from 'react-countup';
+import APPConf from '../../../AssetsM/APPConf';
 
 
-function DocteurSpecific() {
+function LaboSpecific() {
      /*#########################[Const]##################################*/
+     const [loading, setLoading] = useState(true)
+     
      const [addTarifActive, setAddTarifActive] = useState(false)
      const [addAssurance, setAddAssurance] = useState(false)
      const [addDiplome, setAddDiplome] = useState(false)
+
+     const [addTarifWas, setAddTarifWas] = useState(false)
+     const [addAssuranceWas, setAddAssuranceWas] = useState(false)
+     const [addDiplomeWas, setAddDiplomeWas] = useState(false)
+
      const [returnedProfileData, setReturnedProfileData] = useState({SP_Tarif:[], SP_Assurance:[], SP_Analyses:[]})
      const [loaderState, setLS] = useState(false)
    
@@ -37,6 +45,8 @@ function DocteurSpecific() {
         .then(function (response) {
  
           setReturnedProfileData(response.data) 
+          setLoading(false)
+
         }).catch((error) => {
           if(error.request) {
             toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de Charger La Liste de  Commandes  </div></>, GConf.TostInternetGonf)   
@@ -46,12 +56,25 @@ function DocteurSpecific() {
     }, [])
     
    /*#########################[Function]##################################*/
-    const DeleteFromTarifList = (targetIndex, targetGenre) =>{
-      let emptyArray = JSON.parse(returnedProfileData[targetGenre])
-      emptyArray.splice(targetIndex, 1);
-      setReturnedProfileData({...returnedProfileData, [targetGenre] :JSON.stringify(emptyArray) })
-
+   const DeleteFromTarifList = (targetIndex, targetGenre) =>{
+    let emptyArray = JSON.parse(returnedProfileData[targetGenre])
+    emptyArray.splice(targetIndex, 1);
+    setReturnedProfileData({...returnedProfileData, [targetGenre] :JSON.stringify(emptyArray) })
+    switch (targetGenre) {
+      case 'SP_Tarif':
+        setAddTarifWas(true)
+        break;
+      case 'value':
+        setAddAssuranceWas(true)
+        break;
+      case 'SP_Analyses':
+        setAddDiplomeWas(true)
+          break;
+      default:
+        break;
     }
+
+  }
     const UpdateFunction = (targetGenre) =>{
       // if (commandeData.articles.length == 0 ) {toast.error("أدخل  منتجات   !", GConf.TostErrorGonf)}
       // else if (!commandeData.Wanted_Day  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
@@ -78,7 +101,20 @@ function DocteurSpecific() {
   }
 
     /*#########################[Card]##################################*/
-    
+    const SekeltonCard = () =>{
+      const PlaceHolderCard = () =>{
+          return(<>
+          <Placeholder className='mb-0 border-div' style={{ height: 30, width: '100%' }}>
+              <Placeholder.Image />
+          </Placeholder>
+          </>)
+      }
+      return(<>
+          <PlaceHolderCard />
+          <PlaceHolderCard />
+          <PlaceHolderCard />
+      </>)
+  }
     const ListeVide = (props) =>{
       return(<>
         <div className='text-center pt-4 text-secondary'>
@@ -90,62 +126,68 @@ function DocteurSpecific() {
     }
 
     const AddTarifCard = (props) =>{
-        const [dataNow, setDataNow] = useState({PK: 1 , Name:'', Qte: ''}) 
+      const [dataNow, setDataNow] = useState({PK: 1 , Name:'', Qte: ''}) 
 
-        const AddArticleToList = () =>{
-          if (dataNow.Forfait == '') { toast.error("أدخل  إسم العرض   !", GConf.TostErrorGonf) } 
-          else if (dataNow.Prix == '') { toast.error("أدخل السعر  !", GConf.TostErrorGonf) } 
-          else if (dataNow.Description == '') { toast.error("أدخل الوصف  !", GConf.TostErrorGonf) } 
-          else {
-              if (returnedProfileData.SP_Tarif == '') {
-                  let emptyArray = []
-                  emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Tarif:JSON.stringify(emptyArray) })
-              } else {    
-                  let emptyArray = JSON.parse(returnedProfileData.SP_Tarif)
-                  emptyArray.push(dataNow)
-                  setReturnedProfileData({...returnedProfileData, SP_Tarif: JSON.stringify(emptyArray) })
-              }
-          }
-          
+      const AddArticleToList = () =>{
+        if (!dataNow.Forfait) { toast.error("أدخل  إسم العرض   !", GConf.TostErrorGonf) } 
+        else if (!dataNow.Prix) { toast.error("أدخل السعر  !", GConf.TostErrorGonf) } 
+        else if (!dataNow.Description) { toast.error("أدخل الوصف  !", GConf.TostErrorGonf) } 
+        else {
+            if (returnedProfileData.SP_Tarif == '') {
+                let emptyArray = []
+                emptyArray.push(dataNow)
+                setReturnedProfileData({...returnedProfileData, SP_Tarif:JSON.stringify(emptyArray) })
+                setAddTarifWas(true)
+            } else {    
+                let emptyArray = JSON.parse(returnedProfileData.SP_Tarif)
+                emptyArray.push(dataNow)
+                setReturnedProfileData({...returnedProfileData, SP_Tarif: JSON.stringify(emptyArray) })
+                setAddTarifWas(true)
+            }
         }
+        
+      }
 
 
-        return(<>
-        <div className='card-body  mb-4'>
-            <Input icon='pin'   placeholder='Nom du Forfait' value={dataNow.Forfait}  onChange={ (e) => setDataNow({...dataNow, Forfait: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
-            <Input icon='dropbox' type='number'  placeholder='Prix'  value={dataNow.Prix}   onChange={ (e) => setDataNow({...dataNow, Prix: e.target.value })} size="small" iconPosition='left'    fluid className='mb-1' />
-            <Input icon='comment alternate' placeholder='Description' value={dataNow.Description}   onChange={ (e) => setDataNow({...dataNow, Description: e.target.value })} size="small" iconPosition='left'  fluid className='mb-1' />
-            
-            <br />
-            <Button    fluid className='rounded-pill' size='small' color='blue' onClick={() => AddArticleToList()}>  <Icon name='plus' className='ms-2' /> Ajouter </Button>
-            
-        </div>
-        </>)
-    }
-    const TarifListeCard = (props) =>{
-        return(<>
-            {returnedProfileData.SP_Tarif == '' ? 
-            <ListeVide icon='cash-coin' /> 
-            :
-            <>
-              <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
-              {JSON.parse(returnedProfileData.SP_Tarif).map((data,index) => 
-                <div className='card p-2 border-div mb-2' key={index}>
-                    <div className='row'>
-                        <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'>{data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
-                        <div className='col-3 align-self-center'>{data.Prix}</div> 
-                        <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Tarif')}></Button></div> 
-                    </div>
-                </div>
-              )}
+      return(<>
+      
+       <div className='card-body  mb-4 text-end' >
+          <input placeholder='Nom du Forfait'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, Forfait: e.target.value })} />
+          <input type='number' placeholder='Prix en D.T'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, Prix: e.target.value })} />
+          <input placeholder='Description'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, Description: e.target.value })} />
+          <br />
+          <Button  className='rounded-pill  '   size='small' basic={addTarifWas ? false : true}  color={addTarifWas ? 'blue' : undefined}  onClick={() => AddArticleToList()}>  <Icon name='plus' className='ms-2' /> Ajouter </Button>
+          
+      </div>
+      </>)
+  }
+  const TarifListeCard = (props) =>{
+      return(<>
+      {loading ? <SekeltonCard /> : 
+        <>
+          {returnedProfileData.SP_Tarif == '' ? <ListeVide icon='cash-coin' />
+          :
+          <>
+            <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
+            {JSON.parse(returnedProfileData.SP_Tarif).map((data,index) => 
+              <div className='  p-2 border-div mb-2' key={index}>
+                  <div className='row'>
+                      <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'> {index + 1 } - {data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
+                      <div className='col-3 align-self-center'>{data.Prix} D.T</div> 
+                      <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Tarif')}></Button></div> 
+                  </div>
               </div>
-              <br />
-              <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Tarif')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
-            </> 
-            } 
-        </>)
-    }
+            )}
+            </div>
+            <br />
+            <div className='text-end '>
+                <Button   className='rounded-pill ' size='tiny' disabled={addTarifWas ? false : true} basic={addTarifWas ? false : true} color={addTarifWas ? 'blue' : undefined}  onClick={() => UpdateFunction('SP_Tarif')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+            </div>
+          </>
+          } 
+        </>}
+      </>)
+  }
 
     const AddAssurance = (props) =>{
         const [dataNow, setDataNow] = useState({PK: 1 , Name:'', Qte: ''}) 
@@ -206,21 +248,22 @@ function DocteurSpecific() {
     }
 
     const AddDiplome = (props) =>{
-        const [dataNow, setDataNow] = useState({PK: 1 , Name:'', Qte: ''}) 
+        const [dataNow, setDataNow] = useState({PK: 1 , analyse:'', description: '' }) 
 
         const AddArticleToList = () =>{
-          if (dataNow.Forfait == '') { toast.error("أدخل  إسم العرض   !", GConf.TostErrorGonf) } 
-          else if (dataNow.Prix == '') { toast.error("أدخل السعر  !", GConf.TostErrorGonf) } 
-          else if (dataNow.Description == '') { toast.error("أدخل الوصف  !", GConf.TostErrorGonf) } 
+          if (dataNow.analyse == '') { toast.error("أدخل  نوع التحليل   !", GConf.TostErrorGonf) } 
+          else if (dataNow.description == '') { toast.error("أدخل الوصف       !", GConf.TostErrorGonf) } 
           else {
               if (returnedProfileData.SP_Analyses == '') {
                   let emptyArray = []
                   emptyArray.push(dataNow)
                   setReturnedProfileData({...returnedProfileData, SP_Analyses:JSON.stringify(emptyArray) })
+                  setAddDiplomeWas(true)
               } else {    
                   let emptyArray = JSON.parse(returnedProfileData.SP_Analyses)
                   emptyArray.push(dataNow)
                   setReturnedProfileData({...returnedProfileData, SP_Analyses: JSON.stringify(emptyArray) })
+                  setAddDiplomeWas(true)
               }
           }
           
@@ -228,38 +271,41 @@ function DocteurSpecific() {
 
 
         return(<>
-            <div className='card-body  mb-4'>
-                <Input icon='pin'   placeholder='Nom du Forfait' value={dataNow.Forfait}  onChange={ (e) => setDataNow({...dataNow, Forfait: e.target.value })} size="small" iconPosition='left'   fluid className='mb-1' />
-                <Input icon='dropbox' type='number'  placeholder='Prix'  value={dataNow.Prix}   onChange={ (e) => setDataNow({...dataNow, Prix: e.target.value })} size="small" iconPosition='left'    fluid className='mb-1' />
-                <Input icon='comment alternate' placeholder='Description' value={dataNow.Description}   onChange={ (e) => setDataNow({...dataNow, Description: e.target.value })} size="small" iconPosition='left'  fluid className='mb-1' />
-                
+            <div className='card-body  mb-4 text-end'>
+                <input placeholder='Analyse '   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, analyse: e.target.value })} />
+                {/* <input placeholder='Description'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, description: e.target.value })} /> */}
+                <textarea className="form-control" placeholder="Description"  onChange={ (e) => setDataNow({...dataNow, description: e.target.value })} />
                 <br />
-                <Button    fluid className='rounded-pill' size='small' color='blue' onClick={() => AddArticleToList()}>  <Icon name='plus' className='ms-2' /> Ajouter </Button>
+                <Button   className='rounded-pill' size='small' basic={addDiplomeWas ? false : true}   color={addDiplomeWas ? 'blue' : undefined} onClick={() => AddArticleToList()}>  <Icon name='plus' className='ms-2' /> Ajouter </Button>
                 
             </div>
         </>)
     }
     const DiplomeListeCard = (props) =>{
         return(<>
-          {returnedProfileData.SP_Analyses == '' ? 
-          <ListeVide icon='credit-card-2-front' /> 
+        {loading ? <SekeltonCard /> : 
+          <>
+          {returnedProfileData.SP_Analyses == '' ?  <ListeVide icon='capsule' /> 
           :
           <>
             <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
             {JSON.parse(returnedProfileData.SP_Analyses).map((data,index) => 
-              <div className='card p-2 border-div mb-2' key={index}>
+              <div className='  p-2 border-div mb-2' key={index}>
                   <div className='row'>
-                      <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'>{data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
-                      <div className='col-3 align-self-center'>{data.Prix}</div> 
+                      <div className='col-10 align-self-center'><h5 className='mt-0 mb-1'>{index + 1 } : {data.analyse}</h5> <small className='mb-0'>{data.description}</small></div> 
                       <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Analyses')}></Button></div> 
                   </div>
               </div>
             )}
             </div>
             <br />
-            <Button    fluid className='rounded-pill' size='tiny' color='blue' onClick={() => UpdateFunction('SP_Analyses')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+            <div className='text-end '>
+                <Button   className='rounded-pill' size='tiny' disabled={addDiplomeWas ? false : true} basic={addDiplomeWas ? false : true}  color={addDiplomeWas ? 'blue' : undefined} onClick={() => UpdateFunction('SP_Analyses')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+            </div>
+            
           </> 
           } 
+        </>}
       </>)
     }
 
@@ -267,17 +313,13 @@ function DocteurSpecific() {
             
           
           <div className='row mb-3'>
-              <div className='col-10 align-self-center'><h4>Liste des Tarif : </h4></div>
+              <div className='col-10 align-self-center'><h4 style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}> <span className='bi bi-cash-coin'></span> Liste des Tarif : </h4></div>
               <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() =>setAddTarifActive(!addTarifActive)}> <Icon name={addTarifActive ? 'list ol' : 'plus'} /> </Button></div>
           </div>
           { addTarifActive ? 
-          <AddTarifCard />
-          :
-          <TarifListeCard />
-           
-          }
+          <AddTarifCard /> : <TarifListeCard /> }
 
-          <br />
+          {/* <br />
           <br />
           <br />
           <div className='row mb-3'>
@@ -289,21 +331,18 @@ function DocteurSpecific() {
           :
           <AssuranceListeCard />
           }
-
+          */}
           <br />
           <br />
           <br />
           <div className='row mb-3'>
-              <div className='col-10 align-self-center'><h4>  Diplomes  : </h4></div>
+              <div className='col-10 align-self-center'><h4 style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}> <span className='bi bi-capsule'></span>  Types D'analyses   : </h4></div>
               <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setAddDiplome(!addDiplome)}> <Icon name={addDiplome ? 'list ol' : 'plus'} /> </Button></div>
           </div>
           { addDiplome ? 
-          <AddDiplome />
-          :
-          <DiplomeListeCard />
-          }
+          <AddDiplome /> : <DiplomeListeCard /> } 
 
     </>);
 }
 
-export default DocteurSpecific;
+export default LaboSpecific;

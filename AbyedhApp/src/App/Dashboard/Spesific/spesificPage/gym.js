@@ -19,7 +19,7 @@ import ADIL from '../../../AssetsM/APPITEM';
 import CountUp from 'react-countup';
 
 
-function DocteurSpecific() {
+function GymSpecific() {
      /*#########################[Const]##################################*/
      const [addTarifActive, setAddTarifActive] = useState(false)
      const [addAssurance, setAddAssurance] = useState(false)
@@ -377,4 +377,4 @@ function DocteurSpecific() {
     </>);
 }
 
-export default DocteurSpecific;
+export default GymSpecific;
