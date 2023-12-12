@@ -460,3 +460,13 @@ Dropdown{text-align: right !important;}
     transform: translateY(0);
   }
 }
+
+.card-header-for-profile {
+  height: 110px;
+  /* background-color: hsl(184, 63%, 64%); */
+  display: flex;
+  justify-content: center;
+  border-radius: 10px 10px 0px 0px !important;
+}
+
+ 

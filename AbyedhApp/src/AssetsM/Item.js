@@ -32,7 +32,7 @@ const dirItem = {
         ],
         haveTools: true,
         toolsList: [
-            { id: 1, link: 'Tools/Products', name: '  أدوية ', img: 'medicamment.svg' },
+            { id: 1, link: 'Tools/Products/landing/sante', name: '  أدوية ', img: 'medicamment.svg' },
             // { id: 2, link: 'Tools/', name: '  موسوعة الأمراض ', img: 'medicamment.svg' },
         ],
     },
@@ -82,9 +82,9 @@ const dirItem = {
         ],
         haveTools: true,
         toolsList: [
+            { id: 1, link: 'Tools/LivreScolair', name: 'دروس خصوصية', img: 'livre_scolaire.svg' },
+            { id: 1, link: 'Tools/Devoirat', name: 'مطبعة ', img: 'devoire.svg' },
             { id: 1, link: 'Tools/ProgramScolair', name: 'البرنامج السنوي', img: 'prog_annu.svg' },
-            { id: 1, link: 'Tools/LivreScolair', name: 'الكتاب المدرسي ', img: 'livre_scolaire.svg' },
-            { id: 1, link: 'Tools/Devoirat', name: 'إمتحانات ', img: 'devoire.svg' },
             // { id: 1, link: 'Tools/', name: 'توجيه مدرسي ', img: 'devoire.svg' },
             // { id: 1, link: 'Tools/', name: 'توجيه جامعي ', img: 'devoire.svg' },
         ],
@@ -151,7 +151,7 @@ const dirItem = {
         ],
         haveTools: true,
         toolsList: [
-            { id: 1, link: '/Tools/Products', name: 'موسوعة المنتجات', img: 'products.svg' },
+            { id: 1, link: 'Tools/Products/landing/alimentaire', name: 'مواد غذائية', img: 'products.svg' },
         ],
     },
     houseCar: {
@@ -186,7 +186,7 @@ const dirItem = {
         ],
         haveTools: true,
         toolsList: [
-            { id: 1, link: 'Tools/Automobile', name: 'كرهبة', img: 'automobile.svg' },
+            { id: 1, link: 'Tools/Products/landing/transport', name: 'كرهبة', img: 'automobile.svg' },
         ],
     },
     construction: {
@@ -268,7 +268,8 @@ const dirItem = {
         ],
         haveTools: true,
         toolsList: [
-            { id: 1, link: 'Tools/Story', name: 'حكايات', img: 'stories.svg' },
+            // { id: 1, link: 'Tools/Story', name: 'حكايات', img: 'stories.svg' },
+            { id: 1, link: 'Tools/Invitation', name: 'إستدعاء', img: 'invitation.svg' },
         ],
     },
     culture: {

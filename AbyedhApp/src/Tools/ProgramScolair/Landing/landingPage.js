@@ -7,23 +7,34 @@ import { toast } from 'react-toastify';
 import GConf from '../../../AssetsM/generalConf';
 import { Button, Placeholder } from 'semantic-ui-react';
 
+const ScrollDelegCard = ({localiteList}) =>{
+    return(<>
+        <div className="mt-0 p-1" dir='rtl' style={{width:'100%', overflowX: 'auto', overflowY : 'hidden', whiteSpace:'nowrap'}}>
+            <div className="d-flex"  >
+                {localiteList.map((data,index) =>  <div key={index} className='border rounded-pill shadow-sm mb-1 p-2 text-white text-end ms-2 btn-cursor' style={{backgroundColor:GConf.Tools.news.themeColor}} onClick={() => alert(data.ArabName)}> <b className='ms-1 me-1'> {data.ArabName} </b></div>)} 
+            </div>
+        </div>
+    </>)
+}
+
 function BlogLandingPage() {
     /* ###########################[const]############################ */
-    let {tag} = useParams()
+    let {Gouv} = useParams()
     let [loading, SetLoading] = useState(true)
-    let [blogListe, setBlogListe] = useState([])
+    let [blogListe, setNewsListe] = useState([])
     let [subCategListe, setSubCategListe] = useState([])
+    let [localiteList,setLocaliteL] = useState([])
 
     /*#########################[UseEffect]###########################*/
     useEffect(() => {
+        GetLocaliteList()
         window.scrollTo(0, 0);
-        axios.post(`${GConf.ApiToolsLink}/blog`, {
-            categ: tag,
+        axios.post(`${GConf.ApiToolsLink}/news`, {
+            gouv: Gouv,
           })
           .then(function (response) {
-                setBlogListe(response.data.posts)
-                setSubCategListe(response.data.subCtaeg)
-                console.log(response.data)
+                setNewsListe(response.data)
+                setSubCategListe(response.data)
                 SetLoading(false)
           }).catch((error) => {
             if(error.request) {
@@ -35,7 +46,11 @@ function BlogLandingPage() {
     }, [])
 
     /* ###########################[Function]############################# */
-
+    const GetLocaliteList = () =>{
+        const found = GConf.abyedhMap.DelegData.filter(element => element.Gouv === Gouv)
+        setLocaliteL(found)  
+    
+    }
     /* ###########################[Card]############################# */
     const TopNavBar = () =>{
         const UserCard = () =>{
@@ -46,12 +61,12 @@ function BlogLandingPage() {
             </>)
         }
         return(<>
-                <nav className="p-2 fixed-top navshad" style={{backgroundColor: GConf.Tools.news.themeColor}}>
+                <nav className="p-2 fixed-top navshad" style={{backgroundColor: 'white'}}>
                     <div className='row'>
                         <div className='col-6 text-start align-self-center'>
-                            <NavLink exact='true' to='/Tools/News' className="m-0 p-0 ms-3">
-                                <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
-                                <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
+                            <NavLink exact='true' to='../' className="m-0 p-0 ms-3">
+                                <img  className="border-div-s d-none d-lg-inline border bg-danger" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
+                                <div  className="d-lg-none d-inline-block text-secondary p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
                         </div>
                         <div className='col-6 text-end align-self-center'>
@@ -73,7 +88,7 @@ function BlogLandingPage() {
                 <div className="sticky-top" style={{top:'70px'}}> 
                     {
                         loading ? 
-                        <>***</>
+                        <>....</>
                         :
                         <>
                             {
@@ -84,16 +99,16 @@ function BlogLandingPage() {
                 </div>  
         </>)
     }
-    const BlogCard = (props)=>{
+    const NewsCard = (props)=>{
         return(<>
-        <div className='col-12 col-lg-4'>
-                <NavLink exact='true' to={`/tools/News/page/${props.data.Blog_ID}`} className="navbar-brand border-div m-0 p-0 ms-3">
-                    <div className='card card-body shadow-sm mb-2 border-div text-center '>
-                        <img src={`https://cdn.abyedh.tn/images/Tools/News/${props.data.Img_Url}`} className='text-center' width={'70%'} height={'150px'} /> 
-                        <h5>{props.data.Title}</h5>
-                    </div>   
-                </NavLink>
-            </div>     
+                
+                    <div className='card card-body shadow-sm mb-2 border-div text-secondary' dir='rtl'>
+                        <h5>{props.data.Title}</h5> 
+                        
+                        <div className='p-2'>
+                            {props.data.Description}
+                        </div>
+                    </div>      
         </>)
     }
     const SekeltonCard = () =>{
@@ -122,23 +137,21 @@ function BlogLandingPage() {
             <br />
             <br />
             <br />
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row  ">
                     <div className="col-12 col-lg-4 d-none d-lg-block">
                         <LefSubCateg  /> 
                     </div>
                     <div className="col-12 col-lg-8">
-                        <Link exaxt='true' to='/tools/News'><Button className='rounded-circle' icon='arrow left' /></Link>
+                        <ScrollDelegCard   localiteList={localiteList}  />
                         <br />
-                        <br />
-
                         {
                             loading ? 
                             <SekeltonCard />
                             :
-                            <div className='row'>
+                            <div >
                                 {
-                                    blogListe.map((data,index) => <BlogCard key={index} data={data} /> )
+                                    blogListe.map((data,index) => <NewsCard key={index} data={data} /> )
                                 }
                             </div> 
                         }

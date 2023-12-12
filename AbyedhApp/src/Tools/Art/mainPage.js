@@ -6,12 +6,12 @@ import { Icon, Input } from 'semantic-ui-react'
 function ArtPage() {
     /* ###########################[const]############################ */
     const Items = [
-        {id:1, size:4 , link:'sante',  icon:'person-hearts',  iconColor:'#d469b9', text:'ممثلين', smallText:'بطاقة علاج , جواز صحي, وصفة طبية , ...'},
-        {id:1, size:4 , link:'transport',  icon:'film',  iconColor:'#fcba03', text:'أفلام', smallText:'رخصة سياقة , البطاقة الرمادية ...'},
-        {id:1, size:4 , link:'finance',  icon:'file-music',  iconColor:'#0de089', text:'أغاني', smallText:'البريد , البنوك التونسية ...'},
-        {id:1, size:4 , link:'droit',  icon:'tv',  iconColor:'#810de0', text:' مسلسلات ', smallText:'أنواع المحاكم , مجلات قانونية ...'},
-        {id:1, size:4 , link:'religious',  icon:'person-heart',  iconColor:'#e0420d', text:'فنانين ', smallText:'التسجيل للحج , رخصة بناء جامع ...'},
-        {id:1, size:4 , link:'commerce',  icon:'incognito',  iconColor:'#8a0c79', text:' مخرجين', smallText:'كراس الشروط , أنشاء شركة تونسية ...'},
+        {id:1, size:4 , link:'sante',  icon:'person-hearts',  iconColor:'#d469b9', text:'ممثلين', smallText:' لطفي الدزيري, حسن الخلصي, فتحي         , ...'},
+        {id:1, size:4 , link:'transport',  icon:'film',  iconColor:'#fcba03', text:'أفلام', smallText:'    صيف حلق الوادي , صراع   ...'},
+        {id:1, size:4 , link:'finance',  icon:'file-music',  iconColor:'#0de089', text:'أغاني', smallText:'  ريتك مانعرف وين , صندوق عجب ...'},
+        {id:1, size:4 , link:'droit',  icon:'tv',  iconColor:'#810de0', text:' مسلسلات ', smallText:'  قمرة سيدي المحروس , حسابات و عقابات ...'},
+        {id:1, size:4 , link:'religious',  icon:'person-heart',  iconColor:'#e0420d', text:'فنانين ', smallText:'  لطفي بوشناق , زياد غرسة ...'},
+        {id:1, size:4 , link:'commerce',  icon:'incognito',  iconColor:'#8a0c79', text:' مخرجين', smallText:'   عبد القادر الجربي , صلاح الدين الصيد...'},
     ]
 
     /*#########################[UseEffect]###########################*/
@@ -46,7 +46,7 @@ function ArtPage() {
     }
     const AdsLanding = () =>{
         return(<>
-        <div className='card-body rounded-0' style={{height:'170px', backgroundColor:'white', marginTop:'55px'}}>
+        <div className='card-body rounded-0' style={{height:'120px', backgroundColor:'white', marginTop:'55px'}}>
             <div className='row'>
                 <div className='col-12 col-lg-8 align-self-center text-center'>
                        <h3  dir='rtl' style={{color:GConf.Tools.art.themeColor}}> {GConf.Tools.art.textAds} </h3>
@@ -102,9 +102,8 @@ function ArtPage() {
     }
     return ( <>
         <TopNavBar />
+        <br />
         <AdsLanding /> 
-        <br />
-        <br />
         <br />
         <div className='container' dir='rtl'>
             <SearchBarCard />

@@ -7,17 +7,21 @@ import { toast } from 'react-toastify';
 import GConf from '../../../AssetsM/generalConf';
 import { Button, Placeholder } from 'semantic-ui-react';
 
+
+
 function BlogProfilePage() {
         /* ###########################[const]############################ */
-        let {PAID} = useParams()
+        let {Gouv} = useParams()
         let [loading, SetLoading] = useState(true)
         let [postData, setPostData] = useState([])
-    
+        
+
         /*#########################[UseEffect]###########################*/
         useEffect(() => {
+           
             window.scrollTo(0, 0);
             axios.post(`${GConf.ApiToolsLink}/blog/select`, {
-                PAID: PAID,
+                PAID: Gouv,
               })
               .then(function (response) {
                     setPostData(response.data)
@@ -32,7 +36,8 @@ function BlogProfilePage() {
         }, [])
     
         /* ###########################[Function]############################# */
-    
+        
+
         /* ###########################[Card]############################# */
         const TopNavBar = () =>{
             const UserCard = () =>{
@@ -43,12 +48,12 @@ function BlogProfilePage() {
                 </>)
             }
             return(<>
-                    <nav className="p-2 fixed-top navshad" style={{backgroundColor: GConf.Tools.news.themeColor}}>
+                    <nav className="p-2 fixed-top navshad" style={{backgroundColor: 'white'}}>
                         <div className='row'>
                             <div className='col-6 text-start align-self-center'>
-                                <NavLink exact='true' to='/Tools/News' className="m-0 p-0 ms-3">
-                                    <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
-                                    <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
+                                <NavLink exact='true' to='/Tools' className="m-0 p-0 ms-3">
+                                    <img  className="border-div-s d-none d-lg-inline border bg-danger" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
+                                    <div  className="d-lg-none d-inline-block text-secondary p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                                 </NavLink>
                             </div>
                             <div className='col-6 text-end align-self-center'>
@@ -92,9 +97,7 @@ function BlogProfilePage() {
             <br />
             <br />
             <div className='container' >
-                <Link exaxt='true' to='/Tools/News'><Button className='rounded-circle' icon='arrow left' /></Link>
-                <br />
-                <br />
+            
                 {
                     loading ? 
                     <SekeltonCard />

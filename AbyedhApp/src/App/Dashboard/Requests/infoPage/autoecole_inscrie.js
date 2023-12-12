@@ -307,23 +307,40 @@ function AutoEcole() {
         return<>
              <h5>Info du { findElementByLink(`rq/${TAG}`) }</h5>
                     <div className="table-responsive">
-                        <table className="table table-striped">
+                        <table className="table table-striped text-nowrap">
                             <tbody>
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Nom  </td>
                                     <td>{loading ? requestData.Name : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-calendar me-2'></span> Date </td>
-                                    <td>{loading ? new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                    <td className='col-5 text-secondary'><span className='bi bi-calendar me-2'></span>  Naissance</td>
+                                    <td>{loading ? new Date(requestData.BirthDay_Check).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-clock me-2'></span> Temps </td>
-                                    <td>{loading ? requestData.RDV_Time : ''}</td>
+                                    <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Renouvel.  </td>
+                                    <td>{loading ? requestData.Renouvellemment : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-calendar-check me-2'></span> Passe Le</td>
-                                    <td>{loading ? new Date(requestData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                    <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Genre  </td>
+                                    <td>{loading ? requestData.Genre : ''}</td>
+                                </tr>
+                                <tr>
+                                    <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Conduit déjà  </td>
+                                    <td>{loading ? requestData.Drive_Befor : ''}</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-secondary'><span className='bi bi-star me-2'></span> Seances </td>
+                                    <td>
+                                        <ul>
+                                            {loading ? 
+                                            <>
+                                            {JSON.parse(requestData.Wanted_Times).map((data,index) => <li key={index}>De : {data.Wanted_Time_D.slice(0, -3)} à : {data.Wanted_Time_F.slice(0, -3)}</li>)}
+                                            </> 
+                                            : ''}
+                                        </ul>
+                                        
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-chat-dots-fill me-2'></span> Commentaire</td>

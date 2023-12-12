@@ -20,199 +20,6 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import { useLocation } from 'react-router-dom';
-//SPESIFIC
-// import CliniqueSpecific from './Specific/clinique'; 
-// import PharmacieSpecific from './Specific/pharmacie';
-// import GarderieSpecific from './Specific/garderie';
-// import RestaurantSpecific from './Specific/restaurant';
-// import AutoEcoleSpecific from './Specific/autoecole';
-// import AvocatSpecific from './Specific/avocat';
-// import BoutiqueSpecific from './Specific/boutique';
-// import CafeSpecific from './Specific/cafe';
-// import CentreMdSpecific from './Specific/centreMD';
-// import GymSpecific from './Specific/gym';
-// import EcoleSpecific from './Specific/ecole';
-// import ComptableSpecific from './Specific/comptable';
-// import CoiffureSpecific from './Specific/coiffure';
-// import HotelsSpecific from './Specific/hotels';
-// import LaboSpecific from './Specific/labo';
-// import LibrairieSpecific from './Specific/librairie';
-// import LyceeSpecific from './Specific/lycee';
-// import StadeSpecific from './Specific/stade';
-// import SociteSpecific from './Specific/socite';
-// import SmasarSpecific from './Specific/samsar';
-// import PyscineSpecific from './Specific/pyscine';
-// import UniversiteSpecific from './Specific/universite';
-// import TransporteurSpecific from './Specific/transporteur';
-// import StorageSpecific from './Specific/storage';
-// import VgAgenceSpecific from './Specific/vg_agence';
-// import HauseElectroSpecific from './Specific/house_electro';
-// import HauseMeubleSpecific from './Specific/house_meuble';
-// import PtvMagazinSpecific from './Specific/ptvente_shop';
-// import PtvPatesserieSpecific from './Specific/ptvente_patesserie';
-// import PtvFuiterieSpecific from './Specific/ptvente_fruit';
-// import PtvVBoulengerieSpecific from './Specific/ptvente_boulengerie';
-// import PtvEpecerieSpecific from './Specific/ptvente_small_shop';
-// import PtvViandeSpecific from './Specific/ptvente_viande';
-// import ChantierArchitectureSpecific from './Specific/chantier_architecture';
-// import ChantierContracteurSpecific from './Specific/chantier_contrateur';
-// import ChantierQuicaillerieSpecific from './Specific/chantier_quincaillerie';
-// import HandmadeCristalSpecific from './Specific/handmade_cristal';
-// import HandmadeElectricienSpecific from './Specific/handmade_electricien';
-// import HandmadeForferonSpecific from './Specific/handmade_forgeron';
-// import HandemadeMarbreSpecific from './Specific/handmade_marbre';
-// import HandemadeMenuisierSpecific from './Specific/handmade_menuisier';
-// import HandemadePeintureSpecific from './Specific/handmade_peinture';
-// import HandemadePlombierSpecific from './Specific/handmade_plombier';
-// import CarQiosqieSpecific from './Specific/car_qiosque';
-// import CarMecanicienSpecific from './Specific/car_mecanicien';
-// import CarLocationSpecific from './Specific/car_location';
-// import CarParkingSpecific from './Specific/car_parking';
-// import ArtCinemaSpecific from './Specific/art_cinema';
-// import ArtMuseeSpecific from './Specific/art_musee';
-// import ArtTheatreSpecific from './Specific/art_theatre';
-// import WeddingOrchestreSpecific from './Specific/wedding_orchestre';
-// import WeddingFournitureMarriageSpecific from './Specific/wedding_fourniture_marriage';
-// import WeddingPhotographeSpecific from './Specific/wedding_photographe';
-// import WeddingBijouxSpecific from './Specific/wedding_bijoux';
-// import WeddingChefSpecific from './Specific/wedding_chef';
-// import WeddingSallonMariageSpecific from './Specific/wedding_salon_marriage';
-// import AdminAMosqSpecific from './Specific/admin_a_mosq';
-// import AdminACourtSpecific from './Specific/admin_a_court';
-// import AdminAArSpecific from './Specific/admin_a_ar';
-// import AdminAMuSpecific from './Specific/admin_a_mu';
-// import AdminAPoliceSpecific from './Specific/admin_a_police';
-// import AdminCMcSpecific from './Specific/admin_c_mc';
-// import AdminCmjSpecific from './Specific/admin_c_mj';
-// import AdminEBiblioSpecific from './Specific/admin_e_biblio';
-// import AdminECentreSpecific from './Specific/admin_e_centre';
-// import AdminEEcoleSpecific from './Specific/admin_e_ecole';
-// import AdminELyceeSpecific from './Specific/admin_e_lycee';
-// import AdminESsSpecific from './Specific/admin_e_ss';
-// import AdminEUniversiteSpecific from './Specific/admin_e_universite';
-// import AdminFPosteSpecific from './Specific/admin_f_poste';
-// import AdminFRfSpecific from './Specific/admin_f_rf';
-// import AdminSScbSpecific from './Specific/admin_s_csb';
-// import AdminSHospitalSpecific from './Specific/admin_s_hospital';
-
-
-// ///ACTION
-// // const DocteurActions = React.lazy(() => import('./Actions/docteur'));
-// import GarderieActions from './Actions/garderie';
-// import PharmacieActions from './Actions/pharmacie';
-// import RestaurantActions from './Actions/restaurant';
-// import CliniqueActions from './Actions/clinique'; 
-// import AutoEcoleActions from './Actions/autoecole';
-// import AvocatActions from './Actions/avocat';
-// import BoutiqueActions from './Actions/boutique';
-// import CafeActions from './Actions/cafe';
-// import CentreMdActions from './Actions/centreMD';
-// import GymActions from './Actions/gym';
-// import EcoleActions from './Actions/ecole';
-// import ComptableActions from './Actions/comptable';
-// import CoiffureActions from './Actions/coiffure';
-// import HotelsActions from './Actions/hotels';
-// import LaboActions from './Actions/labo';
-// import LibrairieActions from './Actions/librairie';
-// import LyceeActions from './Actions/lycee';
-// import StadeActions from './Actions/stade';
-// import SociteActions from './Actions/socite';
-// import SmasarActions from './Actions/samsar';
-// import PyscineActions from './Actions/pyscine';
-// import UniversiteActions from './Actions/universite';
-// import TransporteurActions from './Actions/transporteur';
-// import StorageActions from './Actions/storage';
-// import VgAgenceActions from './Actions/vg_agence';
-// import HauseElectroActions from './Actions/house_electro';
-// import HauseMeubleActions from './Actions/house_meuble';
-// import PtvMagazinActions from './Actions/ptvente_shop';
-// import PtvPatesserieActions from './Actions/ptvente_patesserie';
-// import PtvFuiterieActions from './Actions/ptvente_fruit';
-// import PtvVBoulengerieActions from './Actions/ptvente_boulengerie';
-// import PtvEpecerieActions from './Actions/ptvente_small_shop';
-// import PtvViandeActions from './Actions/ptvente_viande';
-// import ChantierArchitectureActions from './Actions/chantier_architecture';
-// import ChantierContracteurActions from './Actions/chantier_contrateur';
-// import ChantierQuicaillerieActions from './Actions/chantier_quincaillerie';
-// import HandmadeCristalActions from './Actions/handmade_cristal';
-// import HandmadeElectricienActions from './Actions/handmade_electricien';
-// import HandmadeForferonActions from './Actions/handmade_forgeron';
-// import HandemadeMarbreActions from './Actions/handmade_marbre';
-// import HandemadeMenuisierActions from './Actions/handmade_menuisier';
-// import HandemadePeintureActions from './Actions/handmade_peinture';
-// import HandemadePlombierActions from './Actions/handmade_plombier';
-// import CarQiosqieActions from './Actions/car_qiosque';
-// import CarMecanicienActions from './Actions/car_mecanicien';
-// import CarLocationActions from './Actions/car_location';
-// import CarParkingActions from './Actions/car_parking';
-// import ArtCinemaActions from './Actions/art_cinema';
-// import ArtMuseeActions from './Actions/art_musee';
-// import ArtTheatreActions from './Actions/art_theatre';
-// import WeddingOrchestreActions from './Actions/wedding_orchestre';
-// import WeddingFournitureMarriageActions from './Actions/wedding_fourniture_marriage';
-// import WeddingPhotographeActions from './Actions/wedding_photographe';
-// import WeddingBijouxActions from './Actions/wedding_bijoux';
-// import WeddingChefActions from './Actions/wedding_chef';
-// import WeddingSallonMariageActions from './Actions/wedding_salon_marriage';
-
-///Suivie
-// const DocteurSuivie = React.lazy(() => import('./Suivie/docteur'));
-// import GarderieSuivie from './Suivie/garderie';
-// import PharmacieSuivie from './Suivie/pharmacie';
-// import RestaurantSuivie from './Suivie/restaurant';
-// import CliniqueSuivie from './Suivie/clinique'; 
-// import AutoEcoleSuivie from './Suivie/autoecole';
-// import AvocatSuivie from './Suivie/avocat';
-// import BoutiqueSuivie from './Suivie/boutique';
-// import CafeSuivie from './Suivie/cafe';
-// import CentreMdSuivie from './Suivie/centreMD';
-// import GymSuivie from './Suivie/gym';
-// import EcoleSuivie from './Suivie/ecole';
-// import ComptableSuivie from './Suivie/comptable';
-// import CoiffureSuivie from './Suivie/coiffure';
-// import HotelsSuivie from './Suivie/hotels';
-// import LaboSuivie from './Suivie/labo';
-// import LibrairieSuivie from './Suivie/librairie';
-// import LyceeSuivie from './Suivie/lycee';
-// import StadeSuivie from './Suivie/stade';
-// import SociteSuivie from './Suivie/socite';
-// import SmasarSuivie from './Suivie/samsar';
-// import PyscineSuivie from './Suivie/pyscine';
-// import UniversiteSuivie from './Suivie/universite';
-// import TransporteurSuivie from './Suivie/transporteur';
-// import StorageSuivie from './Suivie/storage';
-// import VgAgenceSuivie from './Suivie/vg_agence';
-// import HauseElectroSuivie from './Suivie/house_electro';
-// import HauseMeubleSuivie from './Suivie/house_meuble';
-// import PtvMagazinSuivie from './Suivie/ptvente_shop';
-// import PtvPatesserieSuivie from './Suivie/ptvente_patesserie';
-// import PtvFuiterieSuivie from './Suivie/ptvente_fruit';
-// import PtvVBoulengerieSuivie from './Suivie/ptvente_boulengerie';
-// import PtvEpecerieSuivie from './Suivie/ptvente_small_shop';
-// import PtvViandeSuivie from './Suivie/ptvente_viande';
-// import ChantierArchitectureSuivie from './Suivie/chantier_architecture';
-// import ChantierContracteurSuivie from './Suivie/chantier_contrateur';
-// import ChantierQuicaillerieSuivie from './Suivie/chantier_quincaillerie';
-// import HandmadeCristalSuivie from './Suivie/handmade_cristal';
-// import HandmadeElectricienSuivie from './Suivie/handmade_electricien';
-// import HandmadeForferonSuivie from './Suivie/handmade_forgeron';
-// import HandemadeMarbreSuivie from './Suivie/handmade_marbre';
-// import HandemadeMenuisierSuivie from './Suivie/handmade_menuisier';
-// import HandemadePeintureSuivie from './Suivie/handmade_peinture';
-// import HandemadePlombierSuivie from './Suivie/handmade_plombier';
-// import CarQiosqieSuivie from './Suivie/car_qiosque';
-// import CarMecanicienSuivie from './Suivie/car_mecanicien';
-// import CarLocationSuivie from './Suivie/car_location';
-// import CarParkingSuivie from './Suivie/car_parking';
-// import ArtCinemaSuivie from './Suivie/art_cinema';
-// import ArtMuseeSuivie from './Suivie/art_musee';
-// import ArtTheatreSuivie from './Suivie/art_theatre';
-// import WeddingOrchestreSuivie from './Suivie/wedding_orchestre';
-// import WeddingFournitureMarriageSuivie from './Suivie/wedding_fourniture_marriage';
-// import WeddingPhotographeSuivie from './Suivie/wedding_photographe';
-// import WeddingBijouxSuivie from './Suivie/wedding_bijoux';
-// import WeddingChefSuivie from './Suivie/wedding_chef';
-// import WeddingSallonMariageSuivie from './Suivie/wedding_salon_marriage';
 
 //SPESIFIC
 const DocteurSpecific = React.lazy(() => import('./Specific/docteur'));
@@ -836,36 +643,31 @@ function ProfilePage() {
                 {/* <div className="card-header  border-div" style={{marginBottom:'50px', marginTop:'30px', backgroundColor: ConverColorToHsl(GConf.ADIL[tag].themeColor) , color: "black"}}> */}
                 {/* <div className="card-header   rounded-0" style={{marginBottom:'35px', marginTop:'30px', background: `linear-gradient(to top, ${ConverColorToHsl(GConf.ADIL[tag].themeColor)},  #ffffff` , border: '0px solid' , color: "black"}}> */}
                 <div  style={{ position:'relative'}}>
-                    <div className="card-header  border rounded-0" style={{marginBottom:'35px', marginTop:'30px',  backgroundImage: `url(https://cdn.abyedh.tn/images/ads/${tag}.svg)` , backgroundSize: 'auto', backgroundPosition: 'center', backgroundColor: 'rgba(255, 255, 255, 0.1)',  border: '0px solid' , color: "black"}}>
-                        <div style={{ content: '',  background: 'rgba(255, 255, 255, 0.7)',  position: 'absolute', top: 0, left: 0, width: '100%', height: '150px', }}></div>
-                        <span
-                            style={{
-                            width: '100px',
-                            height: '100px',
-                            borderRadius: '50%',
-                            }}
-                            className="card-img shadow"
-                        >   
-                            <img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white p-3' width='100px'  height='100px' />
-                            
-                        </span>
+                    <div className="card-header-for-profile  border rounded-0" style={{marginBottom:'35px', marginTop:'30px',  backgroundImage: `url(https://cdn.abyedh.tn/images/ads/${tag}.svg)` , backgroundSize: 'auto', backgroundPosition: 'center', backgroundColor: 'rgba(255, 255, 255, 0.1)',  border: '0px solid' , color: "black"}}>
+                        <div style={{ content: '',  background: 'rgba(255, 255, 255, 0.7)',  position: 'absolute', top: 0, left: 0, width: '100%', height: '120px', }}></div>
                         
-                        <span
-                            style={{
-                            width: '50px',
-                            height: '50px',
-                            borderRadius: '50%',
-                            }}
-                            className="card-img-icon d-lg-none"
-                        >   
-                            <Button className='rounded-circle border shadow-sm' disabled={!GConf.UserData.Logged} onClick={() => AddToFarite()} icon size='large' style={{backgroundColor: isFavorite ?  GConf.ADIL[tag].themeColor : '#ffffff' }} > <Icon name='heart' style={{color: isFavorite ? '#ffffff' : GConf.ADIL[tag].themeColor}} /> </Button>
-                            
-                        </span>
+                        <div 
+                            style={{marginTop:'55px',  zIndex:300}}
+                            className='row ps-0 ms-0 pe-0 me-0'
+                        >
+                            <div className='col-10 col-lg-12 align-self-center text-lg-center text-center'>
+                                <div className='row'>
+                                    <div className='col-5 col-lg-12'><img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white p-3 shadow-sm' width='100px'  height='100px' /></div>
+                                    <div className='col-7 d-lg-none align-self-center ps-2'><h3 className='text-truncate' style={{maxWidth: '250px'}}  >{profileData.genrale ?   profileData.genrale[0].Name  : '' }</h3></div>
+                                </div>
+                                
+                                
+                            </div>
+                            <div className='col-2 align-self-center text-center d-lg-none'> 
+                                    <Button className='rounded-circle border shadow-sm' disabled={!GConf.UserData.Logged} onClick={() => AddToFarite()} icon size='large' style={{backgroundColor: isFavorite ?  GConf.ADIL[tag].themeColor : '#ffffff' }} > <Icon name='heart' style={{color: isFavorite ? '#ffffff' : GConf.ADIL[tag].themeColor}} /> </Button>
+                            </div>
+
+                        </div>
                         
                     </div>
                     <div className='floating-card-result-card pt-4 ms-2 '>
                         {loading ? 
-                        <></>
+                        <>...</>
                         :
                         <>
                             <span className=" m-2 text-dark"> {Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} <HalfStarRating rating={Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} icon='star' disabled size='small' /> </span>
@@ -874,9 +676,7 @@ function ProfilePage() {
                             <span className=" m-2 text-dark">| <span className='bi bi-eye-fill'></span> {profileData.genrale[0].Views_Num >= 1000 ? (parseInt(profileData.genrale[0].Views_Num.toString().substring(0, 4)) / 1000).toFixed(1) + 'K' :  profileData.genrale[0].Views_Num}</span>
                         </>
                         }
-                        {/* <h3 className='text-center'> { profileData.genrale  ? profileData.genrale[0].Name : '' } </h3> */}
                     </div>
-                    
                 </div>
             </>)
         }

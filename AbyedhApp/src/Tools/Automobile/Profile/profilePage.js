@@ -1,34 +1,40 @@
-import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
-import { useState } from 'react';
-import { Link, NavLink, useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { NavLink, useParams } from 'react-router-dom';
 import GConf from '../../../AssetsM/generalConf';
-import { Button, Placeholder } from 'semantic-ui-react';
+import { Suspense } from 'react';
 
+const MedicammentCrad = React.lazy(() => import('./ToSelectFrom/medicamment'));
+
+const ForLazyLoading = () =>{
+    return (<>
+            <br />            
+            <br />            
+            <br />
+            <div className="loader-container-small">
+              <div className="loader-small"></div>
+            </div>          
+            <br />            
+            <br />            
+            <br />            
+            <br />                                   
+        </>);
+}
+const IndefinieCard = (props) =>{
+    return(<>
+        <div className='text-center p-2 text-secondary'>
+                <span className='bi bi-file-earmark-lock bi-lg '></span>
+                <h5>صفحة غير متوفرة</h5> 
+        </div>
+    </>)
+}
 function BlogProfilePage() {
         /* ###########################[const]############################ */
-        let {PAID} = useParams()
-        let [loading, SetLoading] = useState(true)
-        let [postData, setPostData] = useState([])
-    
+        let {genre,tag,code} = useParams()
+
         /*#########################[UseEffect]###########################*/
         useEffect(() => {
             window.scrollTo(0, 0);
-            axios.post(`${GConf.ApiToolsLink}/blog/select`, {
-                PAID: PAID,
-              })
-              .then(function (response) {
-                    setPostData(response.data)
-                    SetLoading(false)
-              }).catch((error) => {
-                if(error.request) {
-                  toast.error(<><div><h5>مشكل في الإتصال</h5> لم نتمكن من الوصول لقاعدة البيانات </div></>, GConf.TostInternetGonf)   
-                  SetLoading(false)
-                }
-              });
-    
         }, [])
     
         /* ###########################[Function]############################# */
@@ -43,12 +49,12 @@ function BlogProfilePage() {
                 </>)
             }
             return(<>
-                    <nav className="p-2 fixed-top navshad" style={{backgroundColor: GConf.Tools.news.themeColor}}>
+                    <nav className="p-2 fixed-top navshad" style={{backgroundColor: 'white'}}>
                         <div className='row'>
                             <div className='col-6 text-start align-self-center'>
-                                <NavLink exact='true' to='/Tools/News' className="m-0 p-0 ms-3">
-                                    <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
-                                    <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
+                                <NavLink exact='true' to='../' className="m-0 p-0 ms-3">
+                                    <img  className="border-div-s d-none d-lg-inline border bg-danger" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
+                                    <div  className="d-lg-none d-inline-block text-secondary p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                                 </NavLink>
                             </div>
                             <div className='col-6 text-end align-self-center'>
@@ -58,51 +64,29 @@ function BlogProfilePage() {
                     </nav>
                 </>)
         }
-        const ContenetCatd = ()=>{
-            return(<>
-                <div className='card card-body shadow-sm mb-4 border-div' dir='rtl'>
-                      <h2 className='text-center'>{postData.Title}</h2>
-                      <div className='card-footer border-0 border-div'>
-                            <div dangerouslySetInnerHTML={{ __html: postData.Sub_Navs }}></div>
-                      </div>
-                      <div dangerouslySetInnerHTML={{ __html: postData.Content }}></div>
-                </div>
-            </>)
-        }
-        const SekeltonCard = () =>{
-            const PlaceHolderCard = () =>{
-                return(<>
-                <Placeholder className='mb-0 border-div' style={{ height: 120, width: '100%' }}>
-                    <Placeholder.Image />
-                </Placeholder>
-                </>)
+        const SpecificCard = ({ genre }) => {
+            const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
+            const statusCard = React.useCallback(() => {
+            switch(genre) {
+                case 'sante': return  <Suspense fallback={<ForLazyLoading />}><MedicammentCrad TAG={tag} tag={tag} code={code} /></Suspense>;  
+                default:  return <IndefinieCard />;    
             }
-            return(<>
-                <PlaceHolderCard />
-                <PlaceHolderCard />
-                <PlaceHolderCard />
-            </>)
+            }, [genre]);
+        
+            return (
+            <div className="">
+                {statusCard()}
+            </div>
+            );
         }
-
         return ( <>
             <TopNavBar />
             <br />
             <br />
             <br />
             <br />
-            <br />
             <div className='container' >
-                <Link exaxt='true' to='/Tools/News'><Button className='rounded-circle' icon='arrow left' /></Link>
-                <br />
-                <br />
-                {
-                    loading ? 
-                    <SekeltonCard />
-                    :
-                    <div>
-                       <ContenetCatd />
-                    </div>
-                }
+                <SpecificCard genre={genre} />
             </div>
             
     </> );

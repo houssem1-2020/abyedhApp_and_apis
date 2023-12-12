@@ -6,16 +6,16 @@ import { Icon, Input } from 'semantic-ui-react'
 function BlogPage() {
     /* ###########################[const]############################ */
     const Items = [
-        {id:1, size:4 , link:'sante',  icon:'heart-pulse',  iconColor:'#4287f5', text:'صحة', smallText:'بطاقة علاج , جواز صحي, وصفة طبية , ...'},
-        {id:1, size:4 , link:'transport',  icon:'car-front-fill',  iconColor:'#fcba03', text:'نقل', smallText:'رخصة سياقة , البطاقة الرمادية ...'},
-        {id:1, size:4 , link:'finance',  icon:'currency-dollar',  iconColor:'#0de089', text:'مالية', smallText:'البريد , البنوك التونسية ...'},
-        {id:1, size:4 , link:'droit',  icon:'bank',  iconColor:'#810de0', text:'عدل و قضاء ', smallText:'أنواع المحاكم , مجلات قانونية ...'},
-        {id:1, size:4 , link:'religious',  icon:'moon-fill',  iconColor:'#e0420d', text:'شؤون دينية', smallText:'التسجيل للحج , رخصة بناء جامع ...'},
-        {id:1, size:4 , link:'commerce',  icon:'cart4',  iconColor:'#8a0c79', text:'شغل و تجارة', smallText:'كراس الشروط , أنشاء شركة تونسية ...'},
-        {id:1, size:4 , link:'education',  icon:'briefcase-fill',  iconColor:'#0d96e0', text:'تعليم ', smallText:'النقلة المدرسية , الباكالوريا, المنحة الجامعية ...'},
-        {id:1, size:4 , link:'tourisme',  icon:'airplane-fill',  iconColor:'#0de0b9', text:'سياحة - سفر', smallText:'جواز السفر ,الحصول علي فيزا ...'},
-        {id:1, size:4 , link:'generale',  icon:'lightbulb-fill',  iconColor:'#423e42', text:'مواضيع عامة ', smallText:'بطاقة التعريف , مضمو ولادة ...'},
-        {id:1, size:4 , link:'sociale',  icon:'people-fill',  iconColor:'#0de089', text:'شؤون إجتماعية ', smallText:'المنح الإجتماعية , التأمين ...'},
+        {id:1, size:4 , link:'generale',  icon:'lightbulb-fill',  iconColor:'#423e42', text:'إحصائيات عامة', smallText:'بطاقة التعريف , مضمو ولادة ...'},
+        {id:1, size:4 , link:'sante',  icon:'heart-pulse',  iconColor:'#4287f5', text:' قطاع الصحة', smallText:'بطاقة علاج , جواز صحي, وصفة طبية , ...'},
+        {id:1, size:4 , link:'transport',  icon:'car-front-fill',  iconColor:'#fcba03', text:'قطاع النقل', smallText:'رخصة سياقة , البطاقة الرمادية ...'},
+        {id:1, size:4 , link:'finance',  icon:'currency-dollar',  iconColor:'#0de089', text:' قطاع المالية', smallText:'البريد , البنوك التونسية ...'},
+        {id:1, size:4 , link:'droit',  icon:'bank',  iconColor:'#810de0', text:' القطاع القضائي ', smallText:'أنواع المحاكم , مجلات قانونية ...'},
+        {id:1, size:4 , link:'religious',  icon:'moon-fill',  iconColor:'#e0420d', text:' الشؤون الثقافية', smallText:'التسجيل للحج , رخصة بناء جامع ...'},
+        {id:1, size:4 , link:'commerce',  icon:'cart4',  iconColor:'#8a0c79', text:'القطاع الصناعي و التجاري', smallText:'كراس الشروط , أنشاء شركة تونسية ...'},
+        {id:1, size:4 , link:'education',  icon:'briefcase-fill',  iconColor:'#0d96e0', text:' قطاع التعليم ', smallText:'النقلة المدرسية , الباكالوريا, المنحة الجامعية ...'},
+        {id:1, size:4 , link:'tourisme',  icon:'airplane-fill',  iconColor:'#0de0b9', text:'  القطاع السياحي ', smallText:'جواز السفر ,الحصول علي فيزا ...'},
+        {id:1, size:4 , link:'sociale',  icon:'people-fill',  iconColor:'#0de089', text:' القطاع الإجتماعي ', smallText:'المنح الإجتماعية , التأمين ...'},
     ]
 
     /*#########################[UseEffect]###########################*/
@@ -54,7 +54,7 @@ function BlogPage() {
         <div className='card-body rounded-0' style={{height:'170px', backgroundColor:'white', marginTop:'55px'}}>
             <div className='row'>
                 <div className='col-12 col-lg-8 align-self-center text-center'>
-                       <h3  dir='rtl' style={{color:GConf.Tools.blog.themeColor}}> {GConf.Tools.blog.textAds} </h3>
+                       <h3  dir='rtl' style={{color:GConf.Tools.Data.themeColor}}> {GConf.Tools.Data.textAds} </h3>
                 </div>
                 <div className='col-4 align-self-end text-center d-none d-lg-block'>
                     <img src='https://cdn.abyedh.tn/images/Tools/blog.svg' className='img-responsive' width='40%' height='40%'  />
@@ -65,7 +65,7 @@ function BlogPage() {
     }
     const ButtomCard = () =>{
         return(<>
-            <div className='card-body rounded-bottom-card' style={{backgroundColor:'#dc3545'}}>
+            <div className='card-body rounded-bottom-card' style={{backgroundColor: '#dc3545'}}>
                 <div className='text-end text-white me-5'>
                     <b>منصة أبيض التونسية </b>
                 </div>
@@ -77,12 +77,12 @@ function BlogPage() {
             <NavLink exact='true' to={`landing/${props.data.link}`}>
                 <div className='card card-body shadow-sm mb-3 border-div'>
                     <div className='row'>
-                        <div className='col-4 align-self-center'>
-                             <div className="icon-shape text-white rounded-circle elevation" style={{backgroundColor: props.data.iconColor, width: `${props.data.size}rem`, height: `${props.data.size}rem`}} >
+                        <div className='col-3 align-self-center'>
+                             <div className="icon-shape text-white rounded-circle elevation" style={{backgroundColor: GConf.Tools.Data.themeColor, width: `${props.data.size}rem`, height: `${props.data.size}rem`}} >
                                 <i className={`bi bi-${props.data.icon} `} style={{fontSize:`${props.data.size / 2 }rem`}}></i>
                             </div>
                         </div>
-                        <div className='col-8 align-self-center text-secondary text-end'>
+                        <div className='col-9 align-self-center text-secondary text-end'>
                             <h2 className='mb-0'>{props.data.text}</h2>
                             <small> {props.data.smallText} </small>
                            <br />
@@ -107,10 +107,10 @@ function BlogPage() {
     }
     return ( <>
         <TopNavBar />
+        <br />
         <AdsLanding /> 
         <br />
-        <br />
-        <br />
+        
         <div className='container' dir='rtl'>
             <SearchBarCard />
             <div className='row'>

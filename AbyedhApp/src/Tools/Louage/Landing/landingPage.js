@@ -63,7 +63,7 @@ function BlogLandingPage() {
                 <nav className="p-2 fixed-top navshad" style={{backgroundColor: 'white'}}>
                     <div className='row'>
                         <div className='col-6 text-start align-self-center'>
-                            <NavLink exact='true' to='/Tools' className="m-0 p-0 ms-3">
+                            <NavLink exact='true' to='../' className="m-0 p-0 ms-3">
                                 <img  className="border-div-s d-none d-lg-inline border bg-danger" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
                                 <div  className="d-lg-none d-inline-block text-secondary p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
@@ -112,24 +112,6 @@ function BlogLandingPage() {
         );
     };
 
-    const StateDataCard = ({ status }) => {
-        const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
-        const statusCard = React.useCallback(() => {
-          switch(status) {
-            case 'dansGouv': return <DansGouvData TAG={tag} PID={45858588555} UID={555555222} />;  
-            case 'InterGouv': return <InterGouvData TAG={tag} PID={45858588555} UID={555555222} /> ;
-            case 'dansDeleg': return <DansDelegData TAG={tag} PID={45858588555} UID={555555222} /> ;
-             
-            default:  return <StateCard color='secondary' text='Indefinie' />;    
-          }
-        }, [status]);
-      
-        return (
-          <div className="container">
-            {statusCard()}
-          </div>
-        );
-    };
 
     return ( <>
             <TopNavBar />
@@ -138,14 +120,6 @@ function BlogLandingPage() {
             <br />
             <br />
             <div className="container-fluid">
-                {/* <div className="row p-1">
-                    <div className="col-12 col-lg-4 p-1">
-                        <StateCard status={tag} />
-                    </div> 
-                    <div className="col-12 col-lg-8 p-1 align-self-center">
-                        <StateDataCard status={tag} />
-                    </div> 
-                </div> */}
                 <StateCard status={tag} />
             </div>
             

@@ -51,12 +51,12 @@ function BlogPage() {
             </>)
         }
         return(<>
-                <nav className="p-2 fixed-top navshad" style={{backgroundColor: GConf.Tools.news.themeColor}}>
+                <nav className="p-2 fixed-top navshad" style={{backgroundColor: 'white'}}>
                     <div className='row'>
                         <div className='col-6 text-start align-self-center'>
                             <NavLink exact='true' to='/Tools' className="m-0 p-0 ms-3">
-                                <img  className="border-div d-none d-lg-inline" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px'}} />
-                                <div  className="d-lg-none d-inline-block text-white p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
+                                <img  className="border-div-s d-none d-lg-inline border bg-danger" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
+                                <div  className="d-lg-none d-inline-block text-secondary p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
                         </div>
                         <div className='col-6 text-end align-self-center'>
@@ -69,10 +69,10 @@ function BlogPage() {
 
     const AdsLanding = () =>{
         return(<>
-        <div className='card-body rounded-0' style={{height:'170px', backgroundColor:'#e9ecef', marginTop:'55px'}}>
+        <div className='card-body rounded-0' style={{height:'140px', backgroundColor:'white', marginTop:'55px'}}>
             <div className='row'>
                 <div className='col-12 col-lg-8 align-self-center text-center'>
-                       <h3  dir='rtl' style={{color:GConf.Tools.news.themeColor}}> {GConf.Tools.news.textAds} </h3>
+                       <h3  dir='rtl' style={{color:GConf.Tools.LivreScolair.themeColor}}> {GConf.Tools.LivreScolair.textAds} </h3>
                 </div>
                 <div className='col-4 align-self-end text-center d-none d-lg-block'>
                     <img src='https://cdn.abyedh.tn/images/Tools/news.svg' className='img-responsive' width='40%' height='40%'  />
@@ -83,7 +83,7 @@ function BlogPage() {
     }
     const ButtomCard = () =>{
         return(<>
-            <div className='card-body rounded-bottom-card' style={{backgroundColor:GConf.Tools.news.themeColor}}>
+            <div className='card-body rounded-bottom-card mb-0 d-lg-none' style={{backgroundColor: '#dc3545'}}>
                 <div className='text-end text-white me-5'>
                     <b>منصة أبيض التونسية </b>
                 </div>
@@ -95,12 +95,12 @@ function BlogPage() {
             <NavLink exact='true' to={`landing/${props.data.link}`}>
                 <div className='card card-body shadow-sm mb-3 border-div'>
                     <div className='row'>
-                        <div className='col-5 align-self-center'>
-                             <div className="icon-shape text-white rounded-circle elevation" style={{backgroundColor: GConf.Tools.news.themeColor, width: `${props.data.size}rem`, height: `${props.data.size}rem`}} >
-                                <span className={`bi  i-${props.data.icon} `} style={{fontSize:`${props.data.size / 2 }rem`}}>{capitalizeFirstLetter(props.data.link)}</span>
+                        <div className='col-3 align-self-center'>
+                             <div className="icon-shape text-white rounded-circle elevation" style={{backgroundColor: GConf.Tools.LivreScolair.themeColor, width: `${props.data.size}rem`, height: `${props.data.size}rem`}} >
+                                <span className={`bi  i-${props.data.icon} `} style={{fontSize:`${props.data.size / 2 }rem`}}>{props.level}</span>
                             </div>
                         </div>
-                        <div className='col-7 align-self-center text-secondary text-end'>
+                        <div className='col-9 align-self-center text-secondary text-end'>
                             <h3 className='mb-0'>{props.text}</h3>
                             
                         </div>
@@ -124,20 +124,25 @@ function BlogPage() {
     }
     return ( <>
         <TopNavBar />
-        <AdsLanding /> 
         <br />
+        <AdsLanding /> 
         <br />
         <br />
         <div className='container' dir='rtl'>
             <SearchBarCard />
             <div className='row'>
-                <div className='col-12 col-md-6'><LinkCard data={Items[0]} text='التعليم الإبتدائي' /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[1]} text='التعليم الأعدادي' /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[2]} text='التعليم الثانوي' /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[3]} text='التعليم الجامعي'/></div>
+                <div className='col-12 col-md-6'><LinkCard data={Items[1]} level={1} text='التعليم الإبتدائي' /></div>
+                <div className='col-12 col-md-6'><LinkCard data={Items[2]} level={2} text='التعليم الأعدادي' /></div>
+                <div className='col-12 col-md-6'><LinkCard data={Items[3]} level={3} text='التعليم الثانوي' /></div>
+ 
             </div>
         </div>
-        <ButtomCard /> 
+        
+        <br />
+        <br />
+        <br />
+ 
+        <ButtomCard fixed /> 
     </> );
 }
 

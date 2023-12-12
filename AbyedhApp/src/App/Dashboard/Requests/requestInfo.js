@@ -66,6 +66,7 @@ import Peinture from './infoPage/handmade_peinture';
  import Plombier from './infoPage/handmade_plombier';
 
 import Qiosqie from './infoPage/qiosque_lavage';
+import QiosqieRequest from './infoPage/qiosque_request';
 // import Mecanicien from './infoPage/mecanicien';
  import Location from './infoPage/location_request';
  import ParkingReserver from './infoPage/parking_reserver';
@@ -138,7 +139,7 @@ function RequestInfo() {
             case 'location_request': return <Location TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
             case 'parking_reserver': return <ParkingReserver TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
             case 'parking_souscrire': return <ParkingSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'qiosque_request': return <Qiosqie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+          case 'qiosque_request': return <QiosqieRequest TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'qiosque_lavage': return <Qiosqie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
         //   case 'mecanicien': return <Mecanicien TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'courtier_request': return <CourtierRequest TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
@@ -160,7 +161,7 @@ function RequestInfo() {
           case 'chef_reserver': return <Chef TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'photographe_reserver': return <Photographe TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'fourniture_marriage_location': return <FournitureMarriage TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
-          case 'bijouterie_commande': return <Bijouterie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+          case 'bijouterie_shop': return <Bijouterie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
             case 'gym_souscription': return <Gym TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'pyscine_reserver': return <PyscineReserver TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'pyscine_souscrire': return <PyscineSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;

@@ -6,16 +6,16 @@ import { Icon, Input } from 'semantic-ui-react'
 function ProductsPage() {
     /* ###########################[const]############################ */
     const Items = [
-        {id:1, size:4 , link:'sante',  icon:'capsule-pill',  iconColor:'#d91a33', text:'طبية و شبه طبية', smallText:'بطاقة علاج , جواز صحي, وصفة طبية , ...'},
-        {id:1, size:4 , link:'transport',  icon:'mortarboard',  iconColor:'#d91a33', text:'تعليم', smallText:'رخصة سياقة , البطاقة الرمادية ...'},
-        {id:1, size:4 , link:'finance',  icon:'car-front-fill',  iconColor:'#d91a33', text:'نقل و تنقل', smallText:'البريد , البنوك التونسية ...'},
-        {id:1, size:4 , link:'droit',  icon:'gift-fill',  iconColor:'#d91a33', text:' ملابس ', smallText:'أنواع المحاكم , مجلات قانونية ...'},
-        {id:1, size:4 , link:'religious',  icon:'cart4',  iconColor:'#d91a33', text:' مواد غذائية', smallText:'التسجيل للحج , رخصة بناء جامع ...'},
-        {id:1, size:4 , link:'commerce',  icon:'virus',  iconColor:'#d91a33', text:' نظافة و تجميل', smallText:'كراس الشروط , أنشاء شركة تونسية ...'},
-        {id:1, size:4 , link:'education',  icon:'motherboard-fill',  iconColor:'#d91a33', text:'تكنولوجيا ', smallText:'النقلة المدرسية , الباكالوريا, المنحة الجامعية ...'},
-        {id:1, size:4 , link:'tourisme',  icon:'building',  iconColor:'#d91a33', text:' بناء ', smallText:'جواز السفر ,الحصول علي فيزا ...'},
-        {id:1, size:4 , link:'generale',  icon:'dice-3-fill',  iconColor:'#d91a33', text:' أدوات ', smallText:'بطاقة التعريف , مضمو ولادة ...'},
-        {id:1, size:4 , link:'sociale',  icon:'truck',  iconColor:'#d91a33', text:' ميكانيك ', smallText:'المنح الإجتماعية , التأمين ...'},
+        {id:1, size:4 , link:'sante',  icon:'capsule-pill',  iconColor:'#d91a33', text:'طبية و شبه طبية', smallText:'أدوية , منتجات شبه طبية, ...'},
+        {id:2, size:4 , link:'education',  icon:'mortarboard',  iconColor:'#d91a33', text:'تعليم', smallText:'كتب , كراسات , أدوات...'},
+        {id:3, size:4 , link:'transport',  icon:'car-front-fill',  iconColor:'#d91a33', text:'نقل و تنقل', smallText:' سيارات , دراجات , شاحنات ... '},
+        {id:4, size:4 , link:'vetements',  icon:'gift-fill',  iconColor:'#d91a33', text:' ملابس ', smallText:'ملابس رجال , ملابس نساء , أحذية ...'},
+        {id:5, size:4 , link:'alimentaire',  icon:'cart4',  iconColor:'#d91a33', text:' مواد غذائية', smallText:' مصبرات , بسكويت , معجنات...'},
+        {id:6, size:4 , link:'cosmetique',  icon:'virus',  iconColor:'#d91a33', text:' نظافة و تجميل', smallText:' مواد نظافة , مواد تجميل , مواد منزلية ...'},
+        {id:7, size:4 , link:'technologie',  icon:'motherboard-fill',  iconColor:'#d91a33', text:'تكنولوجيا ', smallText:' هواتف , ثلاجات , آلة غسيل ...'},
+        {id:8, size:4 , link:'construction',  icon:'building',  iconColor:'#d91a33', text:' بناء ', smallText:'مواد بناء , مواد طلاء ...'},
+        {id:9, size:4 , link:'outils',  icon:'dice-3-fill',  iconColor:'#d91a33', text:' أدوات ', smallText:'مواد كهربائية , بلاستيك ...'},
+        {id:10, size:4 , link:'mecanique',  icon:'truck',  iconColor:'#d91a33', text:' ميكانيك ', smallText:'آلات فلاحية , آلات بناء ...'},
     ]
 
     /*#########################[UseEffect]###########################*/

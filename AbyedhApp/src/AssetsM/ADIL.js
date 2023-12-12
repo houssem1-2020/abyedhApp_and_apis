@@ -4824,7 +4824,7 @@ const AbyedhADIL = {
 
     },
     
-    /* Tools */
+    /* Tools
     rentingHouse: {
         tag: 'docteur',
         themeColor: '#6f92d9',
@@ -4897,7 +4897,7 @@ const AbyedhADIL = {
         ],
         profileTarif:true,
 
-    },
+    }, */
     agriToolsOld: {
         tag: 'docteur',
         themeColor: '#265e61',

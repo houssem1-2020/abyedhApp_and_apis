@@ -241,7 +241,7 @@ function CollectivTaxiPage() {
                 <nav className="p-2 fixed-top navshad" style={{backgroundColor: 'white'}}>
                     <div className='row'>
                         <div className='col-6 text-start align-self-center'>
-                            <NavLink exact='true' to='/Tools' className="m-0 p-0 ms-3">
+                            <NavLink exact='true' to='../' className="m-0 p-0 ms-3">
                                 <img  className="border-div-s d-none d-lg-inline border bg-danger " src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
                                 <div  className="d-lg-none d-inline-block text-secondary p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                             </NavLink>
@@ -298,12 +298,12 @@ function CollectivTaxiPage() {
                 size='small'
                 open={modalS}
                 dimmer= 'blurring'
- 
+                className='fullscreen-modal-gouv'
                 onClose={() => setModalS(false)}
                 onOpen={() => setModalS(true)}
             >
                 <Modal.Header><h4 className='text-end'> طلب تاكسي </h4></Modal.Header>
-                <Modal.Content scrolling>
+                <Modal.Content >
                     {GConf.UserData.Logged ? 
                             <Tab menu={{secondary: true , selected: { backgroundColor: 'purple' },  dir:'rtl', style:{justifyContent: 'right',} }} panes={panes} className='yes-menu-tabs' />  
                     : 
@@ -319,13 +319,14 @@ function CollectivTaxiPage() {
                 size='small'
                 open={modalInfoS}
                 dimmer= 'blurring'
- 
+                className='fullscreen-modal-gouv m-0 p-0'
                 onClose={() => setModalInfoS(false)}
                 onOpen={() => setModalInfoS(true)}
             >
                 <Modal.Header><h5 className='text-end card-body'>  التاكسي الجماعي في تونس </h5></Modal.Header>
-                <Modal.Content scrolling>
+                <Modal.Content >
                     Info Modal 
+                    <Button className='rounded-pill' negative onClick={ () => setModalInfoS(false)}> <span className='bi bi-x' ></span> غلق </Button>
                 </Modal.Content>
                 <Modal.Actions>
                      

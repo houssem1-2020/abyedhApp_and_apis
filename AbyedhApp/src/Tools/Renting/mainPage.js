@@ -20,7 +20,42 @@ function BlogPage() {
     const [gouv ,setGouv] = useState('')
     const [deleg ,setDeleg] = useState('')
     const navigate = useNavigate();
-
+    const subCatagSmall =  [
+        [
+            { id: 1, name: 'إستديو', value: 'dentiste', imgSrc: 'studio' },
+            { id: 2, name: 'فيلا', value: 'dentiste', imgSrc: 'garage' }, 
+            { id: 3, name: 'شقة', value: 'dentiste', imgSrc: 'apartement' },
+            { id: 4, name: 'دار', value: 'dentiste', imgSrc: 'maison' },
+        ],
+        [   
+            { id: 5, name: 'مكتب', value: 'dentiste', imgSrc: 'office' },
+            { id: 6, name: 'دار للطلبة', value: 'dentiste', imgSrc: 'rak2' },
+            { id: 7, name: 'كاراج', value: 'dentiste', imgSrc: 'garage' },
+            { id: 8, name: 'Hostle', value: 'dentiste', imgSrc: 'studio' },
+        ]   
+    ]
+    const subCatagLarge =[
+        [
+            { id: 1, name: 'إستديو', value: 'dentiste', imgSrc: 'studio' },
+            { id: 2, name: 'فيلا', value: 'dentiste', imgSrc: 'garage' },
+            { id: 3, name: 'شقة', value: 'dentiste', imgSrc: 'apartement' },
+            { id: 4, name: 'دار', value: 'dentiste', imgSrc: 'maison' },
+            { id: 5, name: 'مكتب', value: 'dentiste', imgSrc: 'office' },
+            { id: 6, name: 'دار للطلبة', value: 'dentiste', imgSrc: 'rak2' },
+            { id: 7, name: 'كاراج', value: 'dentiste', imgSrc: 'garage' },
+            { id: 8, name: 'Hostle', value: 'dentiste', imgSrc: 'studio' },
+        ]
+    ]
+    const subCateg =[
+            { id: 1, name: 'إستديو', value: 'dentiste', imgSrc: 'studio' },
+            { id: 2, name: 'فيلا', value: 'dentiste', imgSrc: 'garage' },
+            { id: 3, name: 'شقة', value: 'dentiste', imgSrc: 'apartement' },
+            { id: 4, name: 'دار', value: 'dentiste', imgSrc: 'maison' },
+            { id: 5, name: 'مكتب', value: 'dentiste', imgSrc: 'office' },
+            { id: 6, name: 'دار للطلبة', value: 'dentiste', imgSrc: 'rak2' },
+            { id: 7, name: 'كاراج', value: 'dentiste', imgSrc: 'garage' },
+            { id: 8, name: 'Hostle', value: 'dentiste', imgSrc: 'studio' },
+    ]
     /*#########################[UseEffect]###########################*/
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -107,7 +142,7 @@ function BlogPage() {
         const FastSearch = (props) =>{
             return(<>
                 <h5 className='text-end text-secondary'> بحث سريع  </h5>
-                <NavLink exact='true' to={`/Tools/Renting/result/${GConf.ADIL[tag].subCateg[isSelected].value}/${props.gouv}/${props.deleg}`} >
+                <NavLink exact='true' to={`/Tools/Renting/result/${subCateg[isSelected].value}/${props.gouv}/${props.deleg}`} >
                             <div className='card p-3 shadow-sm rounded-pill text-center'>
                                <div className='row' style={{color:GConf.Tools.Renting.themeColor}}>
                                     <div className='col-10 align-text-center' dir='rtl'><b> بحث في {props.deleg} , {props.gouv} </b></div>
@@ -129,87 +164,104 @@ function BlogPage() {
                     <Button fluid size='medium' onClick={() => GoToResult()} className='rounded-pill  text-white' style={{backgroundColor:GConf.Tools.Renting.themeColor}}   >بحث  <Icon name='search' className='ms-2' /> </Button>
                 </div></>)
     }
-
+    const SystemLinkCard = () =>{
+        return(<>
+            <div className='card p-2 shadow-sm mb-2 border-div' dir='ltr'>
+                <h5 className='text-end text-secondary mb-1 mt-2' dir='rtl'> هَلْ أَنْتَ  صاحب عقار و تريد كراءه  ؟ </h5>
+                <div className='row mt-0 pt-0 '>
+                    <div className='col-3 align-self-center text-center'>
+                        <img src={`https://cdn.abyedh.tn/images/Tools/rent_house.svg`} className=' mt-3 img-responsive mb-1 ms-2' width='100%'  height='auto' alt='abyedh.tn' />
+                    </div>
+                    <div className='col-9 align-self-center text-center'>
+                        <p> إِكْتَشِفْ النسخة  المصغرة لـنظام إدارة عقارات للبيع و الكراء اللّي تعُاوْنِكْ  إِنّكْ تَعَرِّفْ بنَفْسِكْ و تستقبل طلبات عملائك    </p>
+                    </div>
+                </div>
+                <div className='mt-3'>
+                    <div className='row'>
+                        <div className='col-6 align-self-center text-start'><Button className='rounded-pill mb-2' style={{backgroundColor:'#f0f0f0', color : GConf.Tools.Louage.themeColor}} size='tiny' onClick={() => navigate(`/Tools/Louage/add`)}> التسجيل في النظام </Button></div>
+                        <div className='col-6 align-self-center text-end'><Button className='rounded-pill text-white mb-2' style={{backgroundColor:GConf.Tools.Louage.themeColor}} size='tiny' onClick={() => navigate(`/Tools/Louage/app`)}>  الدخول للنظام </Button></div>
+                    </div>
+                </div>
+                 
+                
+            </div> 
+        </>)
+    }
 
     return ( <>
         <TopNavBar />
         <AdsLanding /> 
-        <br />
-        <br />
-        <br />
-        <div className='container' dir='rtl'>
         <div className='container '>
-                <div className='row'> 
-                    <div className='col-12 col-lg-8 align-self-center ' dir='rtl'>
-                        <div className='d-none d-lg-flex '>
-                                <Swiper
-                                    spaceBetween={30}
-                                    pagination={{
-                                        dynamicBullets: true,
-                                    }}
-                                    modules={[Pagination]}
-                                    className="mySwiper pb-4 mb-1"
-                                >
-                                    {
-                                        GConf.ADIL[tag].subCatagLarge.map((slides, index) => (
-                                            <SwiperSlide key={index}>
-                                                <div className='row card-body justify-content-center'>
-                                                    {slides.map((option,index) => (
-                                                        <div className='col-3 p-0' key={index}>
-                                                            <ItmesList
-                                                                key={option.id -1}
-                                                                option={option}
-                                                                selected={isSelected === option.id -1 }
-                                                                onChange={() => setisSelected(option.id -1 )}
-                                                            />
-                                                        </div>
-                                                    ))}     
-                                                </div>
-                                            </SwiperSlide>
-                                        ))
-                                    }
-                                    
-                                </Swiper>
-                        </div>
-                        <div className='d-lg-none '>
-                                <Swiper
-                                    spaceBetween={30}
-                                    pagination={{
-                                        dynamicBullets: true,
-                                    }}
-                                    modules={[Pagination]}
-                                    className="mySwiper pb-4 mb-1"
-                                >
-                                    {
-                                        GConf.ADIL[tag].subCatagSmall.map((slides, index) => (
-                                            <SwiperSlide key={index}>
-                                                <div className='row card-body '>
-                                                    {slides.map((option,index) => (
-                                                        <div className='col-6 p-0' key={index}>
-                                                            <ItmesList
-                                                                key={option.id -1}
-                                                                option={option}
-                                                                selected={isSelected === option.id -1 }
-                                                                onChange={() => setisSelected(option.id -1 )}
-                                                            />
-                                                        </div>
-                                                    ))}     
-                                                </div>
-                                            </SwiperSlide>
-                                        ))
-                                    }
-                                    
-                                </Swiper>
-                        </div> 
-                        <br />
-                    </div> 
-                    <div className='col-12 col-lg-4 align-self-center'>
-                        <SelectGouvCard />
+            <div className='row'> 
+                <div className='col-12 col-lg-8 align-self-center ' dir='rtl'>
+                    <div className='d-none d-lg-flex '>
+                            <Swiper
+                                spaceBetween={30}
+                                pagination={{
+                                    dynamicBullets: true,
+                                }}
+                                modules={[Pagination]}
+                                className="mySwiper pb-4 mb-1"
+                            >
+                                {
+                                    subCatagLarge.map((slides, index) => (
+                                        <SwiperSlide key={index}>
+                                            <div className='row card-body justify-content-center'>
+                                                {slides.map((option,index) => (
+                                                    <div className='col-3 p-0' key={index}>
+                                                        <ItmesList
+                                                            key={option.id -1}
+                                                            option={option}
+                                                            selected={isSelected === option.id -1 }
+                                                            onChange={() => setisSelected(option.id -1 )}
+                                                        />
+                                                    </div>
+                                                ))}     
+                                            </div>
+                                        </SwiperSlide>
+                                    ))
+                                }
+                                
+                            </Swiper>
                     </div>
+                    <div className='d-lg-none '>
+                            <Swiper
+                                spaceBetween={30}
+                                pagination={{
+                                    dynamicBullets: true,
+                                }}
+                                modules={[Pagination]}
+                                className="mySwiper pb-4 mb-1"
+                            >
+                                {
+                                    subCatagSmall.map((slides, index) => (
+                                        <SwiperSlide key={index}>
+                                            <div className='row card-body '>
+                                                {slides.map((option,index) => (
+                                                    <div className='col-6 p-0' key={index}>
+                                                        <ItmesList
+                                                            key={option.id -1}
+                                                            option={option}
+                                                            selected={isSelected === option.id -1 }
+                                                            onChange={() => setisSelected(option.id -1 )}
+                                                        />
+                                                    </div>
+                                                ))}     
+                                            </div>
+                                        </SwiperSlide>
+                                    ))
+                                }
+                                
+                            </Swiper>
+                    </div> 
+                    <br />
                 </div> 
-                <br />
-                
-            </div>
+                <div className='col-12 col-lg-4 align-self-center'>
+                    <SelectGouvCard />
+                </div>
+            </div> 
+            <br />
+            <SystemLinkCard />
         </div>
         <ButtomCard /> 
     </> );

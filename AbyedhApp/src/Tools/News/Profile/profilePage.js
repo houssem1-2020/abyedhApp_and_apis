@@ -7,17 +7,21 @@ import { toast } from 'react-toastify';
 import GConf from '../../../AssetsM/generalConf';
 import { Button, Placeholder } from 'semantic-ui-react';
 
+
+
 function BlogProfilePage() {
         /* ###########################[const]############################ */
-        let {PAID} = useParams()
+        let {Gouv} = useParams()
         let [loading, SetLoading] = useState(true)
         let [postData, setPostData] = useState([])
-    
+        
+
         /*#########################[UseEffect]###########################*/
         useEffect(() => {
+           
             window.scrollTo(0, 0);
             axios.post(`${GConf.ApiToolsLink}/blog/select`, {
-                PAID: PAID,
+                PAID: Gouv,
               })
               .then(function (response) {
                     setPostData(response.data)
@@ -32,7 +36,8 @@ function BlogProfilePage() {
         }, [])
     
         /* ###########################[Function]############################# */
-    
+        
+
         /* ###########################[Card]############################# */
         const TopNavBar = () =>{
             const UserCard = () =>{
@@ -92,9 +97,7 @@ function BlogProfilePage() {
             <br />
             <br />
             <div className='container' >
-                <Link exaxt='true' to='/Tools/News'><Button className='rounded-circle' icon='arrow left' /></Link>
-                <br />
-                <br />
+            
                 {
                     loading ? 
                     <SekeltonCard />

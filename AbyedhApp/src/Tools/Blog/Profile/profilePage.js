@@ -46,7 +46,7 @@ function BlogProfilePage() {
                     <nav className="p-2 fixed-top navshad" style={{backgroundColor: 'white'}}>
                         <div className='row'>
                             <div className='col-6 text-start align-self-center'>
-                                <NavLink exact='true' to='/Tools' className="m-0 p-0 ms-3">
+                                <NavLink exact='true' to='../' className="m-0 p-0 ms-3">
                                     <img  className="border-div-s d-none d-lg-inline border bg-danger" src="https://cdn.abyedh.tn/images/logo/mlogo.gif"   alt="Logo" style={{width:'20px', height:'40px', borderRadius: '10px 20px 10px 50px'}} />
                                     <div  className="d-lg-none d-inline-block text-secondary p-1"  > <span className='bi bi-arrow-left-short bi-md ' ></span> </div>
                                 </NavLink>
@@ -90,11 +90,7 @@ function BlogProfilePage() {
             <br />
             <br />
             <br />
-            <br />
             <div className='container' >
-                <Link exaxt='true' to='/tools/Blog'><Button className='rounded-circle' icon='arrow left' /></Link>
-                <br />
-                <br />
                 {
                     loading ? 
                     <SekeltonCard />

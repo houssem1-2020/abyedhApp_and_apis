@@ -2,20 +2,33 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import GConf from '../../AssetsM/generalConf';
 import { Icon, Input } from 'semantic-ui-react'
+import { Pagination,Autoplay,Navigation } from "swiper";
+import { Swiper, SwiperSlide, } from "swiper/react";
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
 
 function BlogPage() {
     /* ###########################[const]############################ */
     const Items = [
-        {id:1, size:4 , link:'sante',  icon:'capsule-pill',  iconColor:'#d91a33', text:'طبية و شبه طبية', smallText:'بطاقة علاج , جواز صحي, وصفة طبية , ...'},
-        {id:1, size:4 , link:'transport',  icon:'mortarboard',  iconColor:'#d91a33', text:'تعليم', smallText:'رخصة سياقة , البطاقة الرمادية ...'},
-        {id:1, size:4 , link:'finance',  icon:'car-front-fill',  iconColor:'#d91a33', text:'نقل و تنقل', smallText:'البريد , البنوك التونسية ...'},
-        {id:1, size:4 , link:'droit',  icon:'gift-fill',  iconColor:'#d91a33', text:' ملابس ', smallText:'أنواع المحاكم , مجلات قانونية ...'},
-        {id:1, size:4 , link:'religious',  icon:'cart4',  iconColor:'#d91a33', text:' مواد غذائية', smallText:'التسجيل للحج , رخصة بناء جامع ...'},
-        {id:1, size:4 , link:'commerce',  icon:'virus',  iconColor:'#d91a33', text:' نظافة و تجميل', smallText:'كراس الشروط , أنشاء شركة تونسية ...'},
-        {id:1, size:4 , link:'education',  icon:'motherboard-fill',  iconColor:'#d91a33', text:'تكنولوجيا ', smallText:'النقلة المدرسية , الباكالوريا, المنحة الجامعية ...'},
-        {id:1, size:4 , link:'tourisme',  icon:'building',  iconColor:'#d91a33', text:' بناء ', smallText:'جواز السفر ,الحصول علي فيزا ...'},
-        {id:1, size:4 , link:'generale',  icon:'dice-3-fill',  iconColor:'#d91a33', text:' أدوات ', smallText:'بطاقة التعريف , مضمو ولادة ...'},
-        {id:1, size:4 , link:'sociale',  icon:'truck',  iconColor:'#d91a33', text:' ميكانيك ', smallText:'المنح الإجتماعية , التأمين ...'},
+        {id:1, size:3.2 , link:'Football',  icon:'people-fill',  iconColor:'#d91a33', text:'كرة القدم', smallText:'بطاقة علاج , جواز صحي, وصفة طبية , ...'},
+        {id:1, size:3.2 , link:'Handball',  icon:'people-fill',  iconColor:'#d91a33', text:'كرة اليد ', smallText:'رخصة سياقة , البطاقة الرمادية ...'},
+        {id:1, size:3.2 , link:'Basketball',  icon:'people-fill',  iconColor:'#d91a33', text:'كرة السلة ', smallText:'البريد , البنوك التونسية ...'},
+        {id:1, size:3.2 , link:'Volleyball',  icon:'people-fill',  iconColor:'#d91a33', text:' كرة الطائرة  ', smallText:'أنواع المحاكم , مجلات قانونية ...'},
+        {id:1, size:3.2 , link:'Tennis',  icon:'person-fill',  iconColor:'#d91a33', text:'كرة التنس', smallText:'التسجيل للحج , رخصة بناء جامع ...'},
+        {id:1, size:3.2 , link:'Judo',  icon:'person-fill',  iconColor:'#d91a33', text:'جودو', smallText:'كراس الشروط , أنشاء شركة تونسية ...'},
+        {id:1, size:3.2 , link:'Natation',  icon:'person-fill',  iconColor:'#d91a33', text:'سباحة ', smallText:'النقلة المدرسية , الباكالوريا, المنحة الجامعية ...'},
+        {id:1, size:3.2 , link:'Athlétisme',  icon:'person-fill',  iconColor:'#d91a33', text:' ألعاب قوي ', smallText:'جواز السفر ,الحصول علي فيزا ...'},
+        {id:1, size:3.2 , link:'Boxe',  icon:'person-fill',  iconColor:'#d91a33', text:' ملاكمة  ', smallText:'بطاقة التعريف , مضمو ولادة ...'},
+        {id:1, size:3.2 , link:'Karaté',  icon:'person-fill',  iconColor:'#d91a33', text:' كاراتاي ', smallText:'المنح الإجتماعية , التأمين ...'},
+        {id:1, size:3.2 , link:'Taekwondo',  icon:'person-fill',  iconColor:'#d91a33', text:' تيكواندو ', smallText:'المنح الإجتماعية , التأمين ...'},
+        {id:1, size:3.2 , link:'Escrime',  icon:'person-fill',  iconColor:'#d91a33', text:' المبارزة ', smallText:'المنح الإجتماعية , التأمين ...'},
+        {id:1, size:3.2 , link:'Gymnastique',  icon:'person-fill',  iconColor:'#d91a33', text:' الجمباز ', smallText:'المنح الإجتماعية , التأمين ...'},
+        {id:1, size:3.2 , link:'Cyclisme',  icon:'person-fill',  iconColor:'#d91a33', text:' ركوب الدراجات ', smallText:'المنح الإجتماعية , التأمين ...'},
+        {id:1, size:3.2 , link:'Équitation',  icon:'person-fill',  iconColor:'#d91a33', text:' ركوب الخيل ', smallText:'المنح الإجتماعية , التأمين ...'},
+        {id:1, size:3.2 , link:'Golf',  icon:'person-fill',  iconColor:'#d91a33', text:' الجولف ', smallText:'المنح الإجتماعية , التأمين ...'},
+        {id:1, size:3.2 , link:'Sports_nautiques',  icon:'person-fill',  iconColor:'#d91a33', text:' الرياضات البحرية ', smallText:'المنح الإجتماعية , التأمين ...'},
+        {id:1, size:3.2 , link:'Pétanque',  icon:'person-fill',  iconColor:'#d91a33', text:' الكرة الحديدية ', smallText:'المنح الإجتماعية , التأمين ...'},
     ]
 
     /*#########################[UseEffect]###########################*/
@@ -77,15 +90,9 @@ function BlogPage() {
             <NavLink exact='true' to={`landing/${props.data.link}`}>
                 <div className='card card-body shadow-sm mb-3 border-div'>
                     <div className='row'>
-                        <div className='col-4 align-self-center'>
-                             <div className="icon-shape text-white rounded-circle elevation" style={{backgroundColor: GConf.Tools.sport.themeColor, width: `${props.data.size}rem`, height: `${props.data.size}rem`}} >
-                                <i className={`bi bi-${props.data.icon} `} style={{fontSize:`${props.data.size / 2 }rem`}}></i>
-                            </div>
-                        </div>
-                        <div className='col-8 align-self-center text-secondary text-end'>
-                            <h2 className='mb-0'>{props.data.text}</h2>
-                            <small> {props.data.smallText} </small>
-                           <br />
+                        <div className='col-12 align-self-center text-secondary'>
+                            {/* <i className={`bi bi-${props.data.icon} `}></i> */}
+                            <h3 className='mb-0 text-truncate' style={{color:GConf.Tools.sport.themeColor}}> {props.data.text}</h3>
                         </div>
                     </div>
                 </div> 
@@ -107,24 +114,92 @@ function BlogPage() {
     }
     return ( <>
         <TopNavBar />
+        <br />
         <AdsLanding /> 
         <br />
-        <br />
-        <br />
+        
         <div className='container' dir='rtl'>
             <SearchBarCard />
-            <div className='row'>
-                <div className='col-12 col-md-6'><LinkCard data={Items[0]} /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[1]} /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[2]} /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[3]} /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[4]} /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[5]} /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[6]} /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[7]} /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[8]} /></div>
-                <div className='col-12 col-md-6'><LinkCard data={Items[9]} /></div>
+            <Swiper
+                spaceBetween={30}
+                pagination={{
+                    dynamicBullets: true,
+                }}
+                modules={[Pagination]}
+                className="mySwiper pb-4 mb-1"
+            >
+                    
+                <SwiperSlide  key={0}>
+                    <div className='row p-0  justify-content-center'>
+                        <div className='col-5 m-0'><LinkCard data={Items[0]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[1]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[2]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[3]} /></div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide key={1}>
+                    <div className='row p-0  justify-content-center'>
+                        <div className='col-5 m-0'><LinkCard data={Items[4]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[5]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[6]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[7]} /></div>
+                    </div>
+                </SwiperSlide>
+                
+            </Swiper>
+            <br />
+            <Swiper
+                spaceBetween={30}
+                pagination={{
+                    dynamicBullets: true,
+                }}
+                modules={[Pagination]}
+                className="mySwiper pb-4 mb-1"
+            >
+                    
+                <SwiperSlide key={0}>
+                    <div className='row p-0  justify-content-center'>
+                        <div className='col-5 m-0'><LinkCard data={Items[8]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[9]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[10]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[11]} /></div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide key={1}>
+                    <div className='row p-0  justify-content-center'>
+                        <div className='col-5 m-0'><LinkCard data={Items[12]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[13]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[14]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[15]} /></div>
+                    </div>
+                </SwiperSlide>
+                
+            </Swiper>
+
+            <div className='row p-2'>
+                <div className='col-6 col-md-6'><LinkCard data={Items[16]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[17]} /></div>
             </div>
+            {/* <div className='row'>
+                <div className='col-6 col-md-6'><LinkCard data={Items[0]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[1]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[2]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[3]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[4]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[5]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[6]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[7]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[8]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[9]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[10]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[11]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[12]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[13]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[14]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[15]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[16]} /></div>
+                <div className='col-6 col-md-6'><LinkCard data={Items[17]} /></div>
+            </div> */}
         </div>
         <ButtomCard /> 
     </> );

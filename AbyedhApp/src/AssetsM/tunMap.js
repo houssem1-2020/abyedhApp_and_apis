@@ -491,7 +491,7 @@ const TunMap = {
         {PK: 173, ID: 173, Gouv: "Siliana", Name: "Gaâfour", ArabName: "قعفور", PostalCode: 6110},
         {PK: 174, ID: 174, Gouv: "Siliana", Name: "El Aroussa", ArabName: "العروسة", PostalCode: 6116},
         {PK: 175, ID: 175, Gouv: "Siliana", Name: "El Krib", ArabName: "الكريب", PostalCode: 6120},
-        {PK: 176, ID: 176, Gouv: "siliana", Name: "Sidi Bourouis", ArabName: "بورويس", PostalCode: 6113},
+        {PK: 176, ID: 176, Gouv: "Siliana", Name: "Sidi Bourouis", ArabName: "بورويس", PostalCode: 6113},
         {PK: 177, ID: 177, Gouv: "Siliana", Name: "Makthar", ArabName: "مكثر", PostalCode: 6140},
         {PK: 178, ID: 178, Gouv: "Siliana", Name: "Rouhia", ArabName: "الروحية", PostalCode: 6150},
         {PK: 179, ID: 179, Gouv: "siliana", Name: "Kesra", ArabName: "كسرى", PostalCode: 6114},

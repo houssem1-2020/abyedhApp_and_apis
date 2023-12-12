@@ -2,34 +2,53 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import GConf from '../../AssetsM/generalConf';
 import { Icon, Input } from 'semantic-ui-react'
+import { Pagination,Autoplay,Navigation } from "swiper";
+import { Swiper, SwiperSlide, } from "swiper/react";
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
+import Ripples from 'react-ripples'
+import { useState } from 'react';
 
 function BlogPage() {
     /* ###########################[const]############################ */
-    const Items = [
-        {id:1, size:3 , link:'Tunis',  icon:'heart-pulse',  iconColor:'#4287f5', text:'تونس', smallText:'بطاقة علاج , جواز صحي, وصفة طبية , ...'},
-        {id:1, size:3 , link:'Sfax',  icon:'car-front-fill',  iconColor:'#fcba03', text:'صفاقص', smallText:'رخصة سياقة , البطاقة الرمادية ...'},
-        {id:1, size:3 , link:'Nabeul',  icon:'currency-dollar',  iconColor:'#0de089', text:'نابل', smallText:'البريد , البنوك التونسية ...'},
-        {id:1, size:3 , link:'Sousse',  icon:'bank',  iconColor:'#810de0', text:'سوسة', smallText:'أنواع المحاكم , مجلات قانونية ...'},
-        {id:1, size:3 , link:'Ben Arous',  icon:'moon-fill',  iconColor:'#e0420d', text:'بن عروس', smallText:'التسجيل للحج , رخصة بناء جامع ...'},
-        {id:1, size:3 , link:'Ariana',  icon:'cart4',  iconColor:'#8a0c79', text:'أريانة', smallText:'كراس الشروط , أنشاء شركة تونسية ...'},
-        {id:1, size:3 , link:'Kairouan',  icon:'briefcase-fill',  iconColor:'#0d96e0', text:'القيروان ', smallText:'النقلة المدرسية , الباكالوريا, المنحة الجامعية ...'},
-        {id:1, size:3 , link:'Bizerte',  icon:'airplane-fill',  iconColor:'#0de0b9', text:'بنزرت', smallText:'جواز السفر ,الحصول علي فيزا ...'},
-        {id:1, size:3 , link:'Monastir',  icon:'lightbulb-fill',  iconColor:'#423e42', text:'المنستير', smallText:'بطاقة التعريف , مضمو ولادة ...'},
-        {id:1, size:3 , link:'Medenine',  icon:'people-fill',  iconColor:'#0de089', text:'مدنين', smallText:'المنح الإجتماعية , التأمين ...'},
-        {id:1, size:3 , link:'Kasserine',  icon:'heart-pulse',  iconColor:'#4287f5', text:'القصرين', smallText:'بطاقة علاج , جواز صحي, وصفة طبية , ...'},
-        {id:1, size:3 , link:'Sidi Bouzid',  icon:'car-front-fill',  iconColor:'#fcba03', text:'سيدي بوزيد', smallText:'رخصة سياقة , البطاقة الرمادية ...'},
-        {id:1, size:3 , link:'Mahdia',  icon:'currency-dollar',  iconColor:'#0de089', text:'المهدية', smallText:'البريد , البنوك التونسية ...'},
-        {id:1, size:3 , link:'Jendouba',  icon:'bank',  iconColor:'#810de0', text:'جندوبة', smallText:'أنواع المحاكم , مجلات قانونية ...'},
-        {id:1, size:3 , link:'Manouba',  icon:'moon-fill',  iconColor:'#e0420d', text:'منوبة', smallText:'التسجيل للحج , رخصة بناء جامع ...'},
-        {id:1, size:3 , link:'Gabes',  icon:'cart4',  iconColor:'#8a0c79', text:'قابس', smallText:'كراس الشروط , أنشاء شركة تونسية ...'},
-        {id:1, size:3 , link:'Gafsa',  icon:'briefcase-fill',  iconColor:'#0d96e0', text:'قفصة ', smallText:'النقلة المدرسية , الباكالوريا, المنحة الجامعية ...'},
-        {id:1, size:3 , link:'Beja',  icon:'airplane-fill',  iconColor:'#0de0b9', text:'باجة', smallText:'جواز السفر ,الحصول علي فيزا ...'},
-        {id:1, size:3 , link:'Kef',  icon:'lightbulb-fill',  iconColor:'#423e42', text:'الكاف', smallText:'بطاقة التعريف , مضمو ولادة ...'},
-        {id:1, size:3 , link:'Siliana',  icon:'people-fill',  iconColor:'#0de089', text:'سليانة', smallText:'المنح الإجتماعية , التأمين ...'},
-        {id:1, size:3 , link:'Zaghouan',  icon:'briefcase-fill',  iconColor:'#0d96e0', text:'زغوان', smallText:'النقلة المدرسية , الباكالوريا, المنحة الجامعية ...'},
-        {id:1, size:3 , link:'Kebili',  icon:'airplane-fill',  iconColor:'#0de0b9', text:'قبلي', smallText:'جواز السفر ,الحصول علي فيزا ...'},
-        {id:1, size:3 , link:'Tataouine',  icon:'lightbulb-fill',  iconColor:'#423e42', text:'تطاوين', smallText:'بطاقة التعريف , مضمو ولادة ...'},
-        {id:1, size:3 , link:'Tozeur',  icon:'people-fill',  iconColor:'#0de089', text:'توزر', smallText:'المنح الإجتماعية , التأمين ...'},
+    const [isSelected, setisSelected] = useState(0);
+
+    const subCatagSmall =  [
+        [
+            { id: 1, name: 'القطاع الصحي', value: 'dentiste', imgSrc: 'univ_economy' },
+            { id: 2, name: 'القطاع التعليمي', value: 'dentiste', imgSrc: 'univ_sn' }, 
+            { id: 3, name: ' قطاع النقل', value: 'dentiste', imgSrc: 'univ_sn' },
+            { id: 4, name: ' القطاع السياحي', value: 'dentiste', imgSrc: 'univ_engeneering' },
+        ],
+        [   
+            { id: 5, name: 'القطاع الثقافي', value: 'dentiste', imgSrc: 'univ_engeneering' },
+            { id: 6, name: 'القطاع القانوني', value: 'dentiste', imgSrc: 'univ_language' },
+            { id: 7, name: 'القطاع الفني', value: 'dentiste', imgSrc: 'univ_language' },
+            { id: 8, name: 'القطاع الصناعي', value: 'dentiste', imgSrc: 'univ_language' },
+        ]   
+    ]
+    const subCatagLarge =[
+        [
+            { id: 1, name: 'القطاع الصحي', value: 'dentiste', imgSrc: 'univ_economy' },
+            { id: 2, name: 'القطاع التعليمي', value: 'dentiste', imgSrc: 'univ_sn' }, 
+            { id: 3, name: ' قطاع النقل', value: 'dentiste', imgSrc: 'univ_sn' },
+            { id: 4, name: ' القطاع السياحي', value: 'dentiste', imgSrc: 'univ_engeneering' },  
+            { id: 5, name: 'القطاع الثقافي', value: 'dentiste', imgSrc: 'univ_engeneering' },
+            { id: 6, name: 'القطاع القانوني', value: 'dentiste', imgSrc: 'univ_language' },
+            { id: 7, name: 'القطاع الفني', value: 'dentiste', imgSrc: 'univ_language' },
+            { id: 8, name: 'القطاع الصناعي', value: 'dentiste', imgSrc: 'univ_language' },
+        ]
+    ]
+    const subCateg =[
+        { id: 1, name: 'القطاع الصحي', value: 'dentiste', imgSrc: 'univ_economy' },
+        { id: 2, name: 'القطاع التعليمي', value: 'dentiste', imgSrc: 'univ_sn' }, 
+        { id: 3, name: ' قطاع النقل', value: 'dentiste', imgSrc: 'univ_sn' },
+        { id: 4, name: ' القطاع السياحي', value: 'dentiste', imgSrc: 'univ_engeneering' },  
+        { id: 5, name: 'القطاع الثقافي', value: 'dentiste', imgSrc: 'univ_engeneering' },
+        { id: 6, name: 'القطاع القانوني', value: 'dentiste', imgSrc: 'univ_language' },
+        { id: 7, name: 'القطاع الفني', value: 'dentiste', imgSrc: 'univ_language' },
+        { id: 8, name: 'القطاع الصناعي', value: 'dentiste', imgSrc: 'univ_language' },
     ]
 
     /*#########################[UseEffect]###########################*/
@@ -66,13 +85,24 @@ function BlogPage() {
                 </nav>
             </>)
     }
-
+    const ItmesList = ({ option, selected, onChange }) => {
+        return (
+                <Ripples className='shadow-sm  m-1 border-div d-block'>
+                <div className={`card p-2 ps-3 border-div ${selected ? 'border-selected' : ''}`}  selected={selected} onClick={onChange} style={{cursor:'pointer'}}>
+                    <div className='row'>
+                        <div className='col-4 text-center m-0 p-0'><img src={`https://cdn.abyedh.tn/images/Search/Land_icons/${option.imgSrc}.gif`} className='img-responsive' width='40px' height='40px' /></div>
+                        <div className='col-8 text-center m-0 p-0  align-self-center'><b>{option.name}</b></div>
+                    </div>
+                </div>
+                </Ripples>
+        );
+    }
     const AdsLanding = () =>{
         return(<>
         <div className='card-body rounded-0' style={{height:'170px', backgroundColor:'white', marginTop:'55px'}}>
             <div className='row'>
                 <div className='col-12 col-lg-8 align-self-center text-center'>
-                       <h3  dir='rtl' style={{color: '#349925'}}> {GConf.Tools.news.textAds} </h3>
+                       <h3  dir='rtl' style={{color: GConf.Tools.Jobs.themeColor}}> {GConf.Tools.Jobs.textAds} </h3>
                 </div>
                 <div className='col-4 align-self-end text-center d-none d-lg-block'>
                     <img src='https://cdn.abyedh.tn/images/Tools/jobs.svg' className='img-responsive' width='40%' height='40%'  />
@@ -96,7 +126,7 @@ function BlogPage() {
                 <div className='card card-body shadow-sm mb-3 border-div'>
                     <div className='row'>
                         <div className='col-5 align-self-center'>
-                             <div className="icon-shape text-white rounded-circle elevation" style={{backgroundColor:  '#349925', width: `${props.data.size}rem`, height: `${props.data.size}rem`}} >
+                             <div className="icon-shape text-white rounded-circle elevation" style={{backgroundColor:  GConf.Tools.Jobs.themeColor, width: `${props.data.size}rem`, height: `${props.data.size}rem`}} >
                                 <span className={`bi  i-${props.data.icon} `} style={{fontSize:`${props.data.size / 2 }rem`}}>{capitalizeFirstLetter(props.data.link)}</span>
                             </div>
                         </div>
@@ -109,39 +139,59 @@ function BlogPage() {
             </NavLink>
         </>)
     }
-    const SearchBarCard = () =>{
-        return(<>
-            <div className='mb-4'>
-                <Input
-                    fluid 
-                    size='big'
-                    icon={ <Icon name='search' inverted circular link onClick/>}
-                    placeholder='بحث'
-                    
-                />
-            </div>
-        </>)
-    }
+ 
     return ( <>
         <TopNavBar />
+        <br />
         <AdsLanding /> 
         <br />
-        <br />
-        <br />
         <div className='container' dir='rtl'>
-            <SearchBarCard />
-            <div className='row'>
-                <div className='col-12 col-md-4'><LinkCard data={Items[0]} text='القطاع الصحي' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع التعليمي' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[0]} text='قطاع النقل' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع السياحي' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع الثقافي' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع القانوني' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع الفني' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع الصناعي' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع المالي' /></div>
+            <Swiper
+                spaceBetween={30}
+                pagination={{
+                    dynamicBullets: true,
+                }}
+                modules={[Pagination]}
+                className="mySwiper pb-4 mb-1"
+            >
+                {
+                    subCatagSmall.map((slides, index) => (
+                        <SwiperSlide key={index}>
+                            <div className='row card-body '>
+                                {slides.map((option,index) => (
+                                    <div className='col-6 p-0' key={index}>
+                                        <ItmesList
+                                            key={option.id -1}
+                                            option={option}
+                                            selected={isSelected === option.id -1 }
+                                            onChange={() => setisSelected(option.id -1 )}
+                                        />
+                                    </div>
+                                ))}     
+                            </div>
+                        </SwiperSlide>
+                    ))
+                }
                 
+            </Swiper>
+            <br />
+            <div className='card card-body mb-4 shadow-sm border-div'>
+                <NavLink exact='true' to={`landing/searching`}>
+                    <div className='row'>
+                        <div className='col-5 align-self-center'><img src='https://cdn.abyedh.tn/Images/Tools/Jobs/jobs_cv.svg' width='100%' height='100px' /></div>
+                        <div className='col-7 align-self-center text-secondary'><h3> هل أنت باحث عن عمل؟  </h3> <small> قم بإدخال المعلومات الكافية في ملفك و ستجد  الفرصة المناسبة  <span className='bi bi-arrow-left-short pt-3'></span></small></div>
+                    </div>
+                </NavLink>
             </div>
+            <div className='card card-body mb-4 shadow-sm border-div'>
+                <NavLink exact='true' to={`landing/searching`}>
+                    <div className='row'>
+                        <div className='col-8 align-self-center text-secondary'> <h3>هل تبحث عن خبرات بشرية؟  </h3><small> قم بالبحث عن الأشخاص المناسبيين للعمل معك  <span className='bi bi-arrow-left-short'></span></small></div>
+                        <div className='col-4 align-self-center'><img src='https://cdn.abyedh.tn/Images/Tools/Jobs/jobs_boss.svg' width='100%' height='100px' /></div>
+                    </div>
+                </NavLink>
+            </div>
+ 
         </div>
         <ButtomCard /> 
     </> );

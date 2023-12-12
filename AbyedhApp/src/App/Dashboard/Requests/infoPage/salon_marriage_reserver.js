@@ -313,17 +313,26 @@ function SallonMariage() {
                                     <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Nom  </td>
                                     <td>{loading ? requestData.Name : ''}</td>
                                 </tr>
-                                <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-calendar me-2'></span> Date </td>
-                                    <td>{loading ? new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                <tr >
+                                    <td className='text-secondary'><span className='bi bi-person me-2'></span> Evenemment </td>
+                                    <td>{loading ? requestData.Res_Genre : ''} </td>
+                                </tr>
+                                <tr >
+                                    <td className='text-secondary'><span className='bi bi-person me-2'></span> Presence </td>
+                                    <td>{loading ? requestData.Estimate_Presence : ''}  <small>personnes</small></td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-clock me-2'></span> Temps </td>
-                                    <td>{loading ? requestData.RDV_Time : ''}</td>
-                                </tr>
-                                <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-calendar-check me-2'></span> Passe Le</td>
-                                    <td>{loading ? new Date(requestData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                    <td className='text-secondary'><span className='bi bi-star me-2'></span> Dates</td>
+                                    <td>
+                                        <ul>
+                                            {loading ? 
+                                            <>
+                                            {JSON.parse(requestData.Wanted_Dates).map((data,index) => <li key={index}>{data.Wanted_Day} :<br />  de {data.Wanted_Time_D.slice(0,-3)} à {data.Wanted_Time_F.slice(0,-3)}</li>)}
+                                            </> 
+                                            : ''}
+                                        </ul>
+                                        
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-chat-dots-fill me-2'></span> Commentaire</td>

@@ -166,7 +166,7 @@ function DocteurSpecific() {
         return(<>
         {loading ? <SekeltonCard /> : 
           <>
-            {returnedProfileData.SP_Tarif == '' ? <ListeVide icon='cash-coin' />
+            {returnedProfileData.SP_Tarif == '' || (JSON.parse(returnedProfileData.SP_Tarif).length == 0 && !addTarifWas) ? <ListeVide icon='cash-coin' />
             :
             <>
               <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
@@ -182,7 +182,7 @@ function DocteurSpecific() {
               </div>
               <br />
               <div className='text-end '>
-                  <Button   className='rounded-pill ' size='tiny' basic={addTarifWas ? false : true} color={addTarifWas ? 'blue' : undefined}  onClick={() => UpdateFunction('SP_Tarif')}>  <Icon name='check' className='ms-2' /> Modifier </Button>
+                  <Button   className='rounded-pill ' size='tiny' disabled={addTarifWas ? false : true} color={addTarifWas ? 'blue' : undefined}  onClick={() => UpdateFunction('SP_Tarif')}>  <Icon name='check' className='ms-2' /> Modifier </Button>
               </div>
             </>
             } 
@@ -288,7 +288,7 @@ function DocteurSpecific() {
         return(<>
         {loading ? <SekeltonCard /> : 
           <>
-          {returnedProfileData.SP_Diplomes == '' ?  <ListeVide icon='credit-card-2-front' /> 
+          {returnedProfileData.SP_Diplomes == '' || (JSON.parse(returnedProfileData.SP_Diplomes).addDiplomeWas == 0 && !addTarifWas) ?  <ListeVide icon='credit-card-2-front' /> 
           :
           <>
             <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
@@ -303,7 +303,7 @@ function DocteurSpecific() {
             </div>
             <br />
             <div className='text-end '>
-                <Button   className='rounded-pill' size='tiny' basic={addDiplomeWas ? false : true}  color={addDiplomeWas ? 'blue' : undefined} onClick={() => UpdateFunction('SP_Diplomes')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+                <Button   className='rounded-pill' size='tiny'   disabled ={addDiplomeWas ? false : true}  color={addDiplomeWas ? 'blue' : undefined} onClick={() => UpdateFunction('SP_Diplomes')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
             </div>
             
           </> 

@@ -306,7 +306,7 @@ function DocteurSpecific() {
         return<>
              <h5>Info du { findElementByLink(`rq/${TAG}`) }</h5>
                     <div className="table-responsive">
-                        <table className="table table-striped">
+                        <table className="table table-striped text-nowrap">
                             <tbody>
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Nom  </td>

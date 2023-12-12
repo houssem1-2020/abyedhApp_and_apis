@@ -72,7 +72,7 @@ function BlogPage() {
         <div className='card-body rounded-0' style={{height:'170px', backgroundColor:'white', marginTop:'55px'}}>
             <div className='row'>
                 <div className='col-12 col-lg-8 align-self-center text-center'>
-                       <h3  dir='rtl' style={{color: '#2c9da3'}}> {GConf.Tools.news.textAds} </h3>
+                       <h3  dir='rtl' style={{color: GConf.Tools.Salaire.themeColor}}> {GConf.Tools.Salaire.textAds} </h3>
                 </div>
                 <div className='col-4 align-self-end text-center d-none d-lg-block'>
                     <img src='https://cdn.abyedh.tn/images/Tools/Salaire.svg' className='img-responsive' width='40%' height='40%'  />
@@ -92,15 +92,15 @@ function BlogPage() {
     }
     const LinkCard = (props) =>{
         return(<>
-            <NavLink exact='true' to={`landing/${props.data.link}`}>
+            <NavLink exact='true' to={`landing/${props.link}`}>
                 <div className='card card-body shadow-sm mb-3 border-div'>
                     <div className='row'>
-                        <div className='col-5 align-self-center'>
-                             <div className="icon-shape text-white rounded-circle elevation" style={{backgroundColor:  '#2c9da3', width: `${props.data.size}rem`, height: `${props.data.size}rem`}} >
-                                <span className={`bi  i-${props.data.icon} `} style={{fontSize:`${props.data.size / 2 }rem`}}>{capitalizeFirstLetter(props.data.link)}</span>
+                        <div className={`${props.full ? 'col-5' : 'col-12' }  align-self-center text-center`}>
+                            <div className="icon-shape text-white rounded-circle elevation mb-3" style={{backgroundColor: GConf.Tools.Salaire.themeColor, width: `4 rem`, height: `4 rem`}} >
+                                <i className={`bi bi-${props.icon} `} style={{fontSize:'2rem'}}></i>
                             </div>
                         </div>
-                        <div className='col-7 align-self-center text-secondary text-end'>
+                        <div className={`${props.full ? 'col-7' : 'col-12' } align-self-center  text-center text-secondary`}>
                             <h3 className='mb-0'>{props.text}</h3>
                             
                         </div>
@@ -124,22 +124,21 @@ function BlogPage() {
     }
     return ( <>
         <TopNavBar />
+        <br />
         <AdsLanding /> 
-        <br />
-        <br />
         <br />
         <div className='container' dir='rtl'>
             <SearchBarCard />
             <div className='row'>
-                <div className='col-12 col-md-4'><LinkCard data={Items[0]} text='القطاع الصحي' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع التعليمي' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[0]} text='قطاع النقل' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع السياحي' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع الثقافي' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع القانوني' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع الفني' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع الصناعي' /></div>
-                <div className='col-12 col-md-4'><LinkCard data={Items[1]} text='القطاع المالي' /></div>
+                <div className='col-6 col-md-4'><LinkCard icon='heart-pulse' text='القطاع الصحي' /></div>
+                <div className='col-6 col-md-4'><LinkCard icon='briefcase-fill' text='القطاع التعليمي' /></div>
+                <div className='col-6 col-md-4'><LinkCard icon='car-front-fill' text='قطاع النقل' /></div>
+                <div className='col-6 col-md-4'><LinkCard icon='airplane-fill' text='القطاع السياحي' /></div>
+                <div className='col-12 col-md-4'><LinkCard icon='film' full text='القطاع الثقافي' /></div>
+                <div className='col-6 col-md-4'><LinkCard icon='bank' text='القطاع القانوني' /></div>
+                <div className='col-6 col-md-4'><LinkCard icon='film' text='القطاع الفني' /></div>
+                <div className='col-6 col-md-4'><LinkCard icon='upc-scan' text='القطاع الصناعي' /></div>
+                <div className='col-6 col-md-4'><LinkCard icon='cart4' text='القطاع المالي' /></div>
                 
             </div>
         </div>

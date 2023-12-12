@@ -9,6 +9,9 @@ import SKLT from '../../../AssetsM/Cards/usedSlk';
 import { toast } from 'react-toastify';
 import APPItem from '../../../AssetsM/APPITEM';
 import APPConf from '../../../AssetsM/APPConf';
+import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L, { Map } from 'leaflet';
 
 const CustomTabs = ({activeIndex, setActiveIndex,TAG}) => {
     return(<>
@@ -151,7 +154,9 @@ function Transporteur() {
     const [reqState, setReqState] = useState('')
     const [loading , setLoading] = useState(false)
     const [requestData, setRequestData] = useState([])
-    
+    const [positionsMap, setPositionsMap] = useState([])
+    const [modalOpen , setModalOpen] = useState(false)
+    L.Icon.Default.mergeOptions(GConf.LeafleftIcon);
     const panesRigth = [
         {
             menuItem: { key: 'articles', icon: 'grab', content:  'Controle ' }, 
@@ -278,7 +283,10 @@ function Transporteur() {
             }
           });
     }
-
+    const OpenModal = (lat,lng) =>{
+        setPositionsMap([lat,lng])
+        setModalOpen(true)
+    }
 
     /*#########################[Card]##################################*/
     const StateCard = ({ status }) => {
@@ -307,26 +315,43 @@ function Transporteur() {
         return<>
              <h5>Info du { findElementByLink(`rq/${TAG}`) }</h5>
                     <div className="table-responsive">
-                        <table className="table table-striped">
+                        <table className="table table-striped text-nowrap">
                             <tbody>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Nom  </td>
+                                    <td className='text-secondary'><span className='bi bi-person me-2'></span> Nom  </td>
                                     <td>{loading ? requestData.Name : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-calendar me-2'></span> Date </td>
-                                    <td>{loading ? new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                    <td className='text-secondary'><span className='bi bi-calendar me-2'></span> Jour Voulu </td>
+                                    <td>{loading ? <>{new Date(requestData.Wanted_Day).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )} | {requestData.Wanted_Time}</> : ''}</td>
+                                </tr>
+                                <tr >
+                                    <td className='text-secondary'><span className='bi bi-person me-2'></span> Genre </td>
+                                    <td>{loading ? requestData.Genre : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-clock me-2'></span> Temps </td>
-                                    <td>{loading ? requestData.RDV_Time : ''}</td>
+                                    <td className='text-secondary'><span className='bi bi-map me-2'></span> De </td>
+                                    <td>{loading ? <>{JSON.parse(requestData.De).Gouv} , {JSON.parse(requestData.De).Deleg}  <Button size='mini' icon onClick={() => OpenModal(JSON.parse(requestData.De).Lat, JSON.parse(requestData.De).Lng)} className='rounded-circle border bg-white ms-2 text-danger' > <Icon name='map marker alternate' /> </Button></> : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-calendar-check me-2'></span> Passe Le</td>
-                                    <td>{loading ? new Date(requestData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                    <td className='text-secondary'><span className='bi bi-map me-2'></span> Vers </td>
+                                    <td>{loading ? <>{JSON.parse(requestData.Vers).Gouv} , {JSON.parse(requestData.Vers).Deleg}  <Button size='mini' icon onClick={() => OpenModal(JSON.parse(requestData.Vers).Lat, JSON.parse(requestData.Vers).Lng)} className='rounded-circle border bg-white ms-2 text-danger' > <Icon name='map marker alternate' /> </Button></> : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-chat-dots-fill me-2'></span> Commentaire</td>
+                                    <td className='text-secondary'><span className='bi bi-star me-2'></span> Articles</td>
+                                    <td>
+                                        <ul>
+                                            {loading ? 
+                                            <>
+                                            {JSON.parse(requestData.Articles).map((data,index) => <li key={index}>{data.Name}</li>)}
+                                            </> 
+                                            : ''}
+                                        </ul>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className='text-secondary'><span className='bi bi-chat-dots-fill me-2'></span> Commentaire</td>
                                     <td>{loading ? requestData.Comment : ''}</td>
                                 </tr>
                             </tbody>
@@ -377,6 +402,27 @@ function Transporteur() {
                     </div>
             </div>
         </div> 
+        <Modal
+            onClose={() => setModalOpen(false)}
+            onOpen={() => setModalOpen(true)}
+            open={modalOpen}
+                
+        >
+        <Modal.Content >
+                <MapContainer  center={positionsMap} zoom={15} scrollWheelZoom={false} className="map-height cursor-map-crosshair border-div"  >
+                    <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={positionsMap}>
+                        <Popup>
+                            
+                        </Popup>
+                    </Marker>
+                </MapContainer>
+ 
+        </Modal.Content>
+        </Modal>
     </> );
 }
 

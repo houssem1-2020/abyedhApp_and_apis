@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import GConf from '../../AssetsM/generalConf';
-import { Icon, Input } from 'semantic-ui-react'
+import { Button, Icon, Input } from 'semantic-ui-react'
+import { Pagination,Autoplay,Navigation } from "swiper";
+import { Swiper, SwiperSlide, } from "swiper/react";
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
 
 function BlogPage() {
     /* ###########################[const]############################ */
@@ -17,7 +22,7 @@ function BlogPage() {
         {id:1, size:3 , link:'Monastir',  icon:'lightbulb-fill',  iconColor:'#423e42', text:'المنستير', smallText:'بطاقة التعريف , مضمو ولادة ...'},
         {id:1, size:3 , link:'Medenine',  icon:'people-fill',  iconColor:'#0de089', text:'مدنين', smallText:'المنح الإجتماعية , التأمين ...'},
         {id:1, size:3 , link:'Kasserine',  icon:'heart-pulse',  iconColor:'#4287f5', text:'القصرين', smallText:'بطاقة علاج , جواز صحي, وصفة طبية , ...'},
-        {id:1, size:3 , link:'Sidi Bouzid',  icon:'car-front-fill',  iconColor:'#fcba03', text:'سيدي بوزيد', smallText:'رخصة سياقة , البطاقة الرمادية ...'},
+        {id:1, size:3 , link:'Sidi Bouzid',  icon:'car-front-fill',  iconColor:'#fcba03', text:'س. بوزيد', smallText:'رخصة سياقة , البطاقة الرمادية ...'},
         {id:1, size:3 , link:'Mahdia',  icon:'currency-dollar',  iconColor:'#0de089', text:'المهدية', smallText:'البريد , البنوك التونسية ...'},
         {id:1, size:3 , link:'Jendouba',  icon:'bank',  iconColor:'#810de0', text:'جندوبة', smallText:'أنواع المحاكم , مجلات قانونية ...'},
         {id:1, size:3 , link:'Manouba',  icon:'moon-fill',  iconColor:'#e0420d', text:'منوبة', smallText:'التسجيل للحج , رخصة بناء جامع ...'},
@@ -94,15 +99,12 @@ function BlogPage() {
         return(<>
             <NavLink exact='true' to={`landing/${props.data.link}`}>
                 <div className='card card-body shadow-sm mb-3 border-div'>
-                    <div className='row'>
-                        <div className='col-5 align-self-center'>
-                             <div className="icon-shape text-white rounded-circle elevation" style={{backgroundColor: GConf.Tools.news.themeColor, width: `${props.data.size}rem`, height: `${props.data.size}rem`}} >
-                                <span className={`bi  i-${props.data.icon} `} style={{fontSize:`${props.data.size / 2 }rem`}}>{capitalizeFirstLetter(props.data.link)}</span>
-                            </div>
-                        </div>
-                        <div className='col-7 align-self-center text-secondary text-end'>
+                    <div className='row d-inline' style={{color:GConf.Tools.news.themeColor}}>
+                        {/* <div className='col-4 align-self-center'>
+                              <Button className='rounded-circle' icon>{capitalizeFirstLetter(props.data.link)}</Button>
+                        </div> */}
+                        <div className='col-12 align-self-center  text-center'>
                             <h3 className='mb-0'>{props.data.text}</h3>
-                            
                         </div>
                     </div>
                 </div> 
@@ -126,11 +128,94 @@ function BlogPage() {
         <TopNavBar />
         <AdsLanding /> 
         <br />
-        <br />
-        <br />
         <div className='container' dir='rtl'>
             <SearchBarCard />
-            <div className='row'>
+            
+            <Swiper
+                spaceBetween={30}
+                pagination={{
+                    dynamicBullets: true,
+                }}
+                modules={[Pagination]}
+                className="mySwiper pb-4 mb-1"
+            >
+                    
+                <SwiperSlide  key={0}>
+                    <div className='row p-0  justify-content-center'>
+                        <div className='col-5 m-0'><LinkCard data={Items[0]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[1]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[2]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[3]} /></div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide key={1}>
+                    <div className='row p-0  justify-content-center'>
+                        <div className='col-5 m-0'><LinkCard data={Items[4]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[5]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[6]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[7]} /></div>
+                    </div>
+                </SwiperSlide>
+                
+            </Swiper>
+            <br />
+            <Swiper
+                spaceBetween={30}
+                pagination={{
+                    dynamicBullets: true,
+                }}
+                modules={[Pagination]}
+                className="mySwiper pb-4 mb-1"
+            >
+                    
+                <SwiperSlide key={0}>
+                    <div className='row p-0  justify-content-center'>
+                        <div className='col-5 m-0'><LinkCard data={Items[8]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[9]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[10]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[11]} /></div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide key={1}>
+                    <div className='row p-0  justify-content-center'>
+                        <div className='col-5 m-0'><LinkCard data={Items[12]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[13]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[14]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[15]} /></div>
+                    </div>
+                </SwiperSlide>
+                
+            </Swiper>
+            <br />
+            <Swiper
+                spaceBetween={30}
+                pagination={{
+                    dynamicBullets: true,
+                }}
+                modules={[Pagination]}
+                className="mySwiper pb-4 mb-1 "
+            >
+                    
+                <SwiperSlide key={0}>
+                    <div className='row p-0  justify-content-center'>
+                        <div className='col-5 m-0'><LinkCard data={Items[16]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[17]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[18]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[19]} /></div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide key={1}>
+                    <div className='row p-0  justify-content-center'>
+                        <div className='col-5 m-0'><LinkCard data={Items[20]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[21]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[22]} /></div>
+                        <div className='col-5 m-0'><LinkCard data={Items[23]} /></div>
+                    </div>
+                </SwiperSlide>
+                
+                
+            </Swiper>
+            {/* <div className='row'>
                 <div className='col-12 col-md-3'><LinkCard data={Items[0]} /></div>
                 <div className='col-12 col-md-3'><LinkCard data={Items[1]} /></div>
                 <div className='col-12 col-md-3'><LinkCard data={Items[2]} /></div>
@@ -155,7 +240,7 @@ function BlogPage() {
                 <div className='col-12 col-md-3'><LinkCard data={Items[21]} /></div>
                 <div className='col-12 col-md-3'><LinkCard data={Items[22]} /></div>
                 <div className='col-12 col-md-3'><LinkCard data={Items[23]} /></div>
-            </div>
+            </div> */}
         </div>
         <ButtomCard /> 
     </> );

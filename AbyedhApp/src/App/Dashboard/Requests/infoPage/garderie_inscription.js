@@ -310,23 +310,39 @@ function GarderieInscription() {
                         <table className="table table-striped">
                             <tbody>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Nom  </td>
-                                    <td>{loading ? requestData.Name : ''}</td>
+                                    <td className='text-secondary'><span className='bi bi-person me-2'></span> Nom & Prenon </td>
+                                    <td>{loading ? requestData.EL_Name : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-calendar me-2'></span> Date </td>
-                                    <td>{loading ? new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                    <td className='text-secondary'><span className='bi bi-calendar me-2'></span>  Naissance </td>
+                                    <td>{loading ? new Date(requestData.EL_Naissance).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-clock me-2'></span> Temps </td>
-                                    <td>{loading ? requestData.RDV_Time : ''}</td>
+                                    <td className='text-secondary'><span className='bi bi-person me-2'></span> Genre </td>
+                                    <td>{loading ? requestData.EL_Genre : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-calendar-check me-2'></span> Passe Le</td>
-                                    <td>{loading ? new Date(requestData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                    <td className='text-secondary'><span className='bi bi-map me-2'></span> Adresse </td>
+                                    <td>{loading ? requestData.EL_Adress : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-chat-dots-fill me-2'></span> Commentaire</td>
+                                    <td className='text-secondary'><span className='bi bi-people me-2'></span> Pére  </td>
+                                    <td>{loading ? requestData.EL_Pere_Nom : ''} </td>
+                                </tr>
+                                <tr>
+                                    <td className='text-secondary'><span className='bi bi-phone me-2'></span> Telephone  </td>
+                                    <td>{loading ? requestData.EL_Pere_Phone : ''} </td>
+                                </tr>
+                                <tr>
+                                    <td className='text-secondary'><span className='bi bi-people me-2'></span> Mére  </td>
+                                    <td> {loading ? requestData.EL_Mere_Nom : ''}</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-secondary'><span className='bi bi-phone me-2'></span> Telephone  </td>
+                                    <td> {loading ? requestData.EL_Mere_Phone : ''}</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-secondary'><span className='bi bi-chat-dots-fill me-2'></span> Commentaire</td>
                                     <td>{loading ? requestData.Comment : ''}</td>
                                 </tr>
                             </tbody>

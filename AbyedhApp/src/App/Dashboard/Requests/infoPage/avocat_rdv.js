@@ -319,7 +319,7 @@ function Avocat() {
                                 </tr>
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-clock me-2'></span> Temps </td>
-                                    <td>{loading ? requestData.RDV_Time : ''}</td>
+                                    <td>{loading ? requestData.RDV_Time.slice(0, -3) : ''}</td>
                                 </tr>
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-calendar-check me-2'></span> Passe Le</td>
