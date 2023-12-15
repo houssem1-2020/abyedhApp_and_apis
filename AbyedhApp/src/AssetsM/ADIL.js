@@ -1528,7 +1528,7 @@ const AbyedhADIL = {
 
         ],
         profileBtns:[
-                {id:1, name:' طَلَبْ طًبَقْ' , icon:'food' , link:'Action', bgColor:''},
+                {id:1, name:' طَلَبْ طًبَقْ' , icon:'egg-fried' , link:'Action', bgColor:''},
                 {id:1, name:' حَجْزْ طَاوْلَة' , icon:'calendar' , link:'Action', bgColor:''},
                 {id:2, name:'مُتَابَعَة ' , icon:'eye' , link:'Suivie', bgColor:''},
 

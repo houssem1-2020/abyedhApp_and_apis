@@ -314,20 +314,16 @@ function DocteurSpecific() {
                                     <td>{loading ? requestData.Name : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Voiture  </td>
-                                    <td>{loading ? requestData.Car_Genre : ''}</td>
+                                    <td className='col-5 text-secondary'><span className='bi bi-calendar me-2'></span> Date </td>
+                                    <td>{loading ? new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Lavage ?  </td>
-                                    <td>{loading ? requestData.Wash_Genre : ''}</td>
+                                    <td className='col-5 text-secondary'><span className='bi bi-clock me-2'></span> Temps </td>
+                                    <td>{loading ? requestData.RDV_Time : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='text-secondary'><span className='bi bi-calendar me-2'></span> Jour Voulu </td>
-                                    <td>{loading ? <>{new Date(requestData.Wanted_Day).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )} | {requestData.Wanted_Time}</> : ''}</td>
-                                </tr>
-                                <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Etat de Voit.  </td>
-                                    <td>{loading ? requestData.Car_State : ''}</td>
+                                    <td className='col-5 text-secondary'><span className='bi bi-calendar-check me-2'></span> Passe Le</td>
+                                    <td>{loading ? new Date(requestData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
                                 </tr>
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-chat-dots-fill me-2'></span> Commentaire</td>

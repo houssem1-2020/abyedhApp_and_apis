@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import SKLT from '../../../AssetsM/Cards/usedSlk';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer, useMapEvents  } from 'react-leaflet';
 import AvatarGroup from '@atlaskit/avatar-group';
 import FrameForPrint from '../../../AssetsM/Cards/frameForPrint';
 import usePrintFunction from '../../../AssetsM/Hooks/printFunction';
@@ -20,6 +20,7 @@ import FullCalendar from '@fullcalendar/react' // must go before plugins
 import timeGridPlugin from '@fullcalendar/timegrid';
 import ADIL from '../../AssetsM/APPITEM';
 import { NavLink } from 'react-router-dom';
+
 
 const EditProfile = ({generalData, setGeneralData, UpdateGeneralDataFunc, delegList,GetDelegList,loaderState}) =>{
     const genreOptions = [
@@ -97,7 +98,183 @@ const EditPassword = ({passwordData, setPasswordData, UpdatePasswordFunc,loaderS
         </div>
     </>)
 }
+const MapEventsHandler = ({ onLocationSelected }) => {
+    useMapEvents({
+      click: (e) => {
+        const { lat, lng } = e.latlng;
+        onLocationSelected({ lat, lng });
+      },
+    });
+  
+    return null;
+}
+const Horaire = ({alwaysState, setAlwaysState, timming, setTimming, setPauseDay , SetTimmingData,UpdateTimmingData, setSelectedUpdateDay, selectedUpdateDay}) =>{
+    let [addInput, setAddInput] = useState(false)
+    let [dateDataToChange, setDateDataToChange] = useState({pauseDay: false, matinStart:'08:00', matinFinsh:'12:00', soirStart:'14:00', soirFinsh:'18:00'})
+    const weekDays = [
+        { key: 'af', value: 'Lun', text: 'الانثنين' },
+        { key: 'ax', value: 'Mar', text: 'الثلاثاء' },
+        { key: 'al', value: 'Mer', text: 'الاربعاء' },
+        { key: 'dz', value: 'Jeu', text: 'الخميس' },
+        { key: 'as', value: 'Vend', text: 'الجمعة' },
+        { key: 'ad', value: 'Sam', text: 'السبت' },
+        { key: 'ao', value: 'Dim', text: 'الاحد' },
+    ]
+    const ArabificationDate = (dateName) =>{
+        switch (dateName) {
+            case 'Lun' : return 'الإثــنين' 
+            break;
+            case 'Mar' : return 'الثلاثــاء'
+            break;
+            case 'Mer' : return 'الإربــعاء'
+            break;
+            case 'Jeu' : return 'الخميس'
+            break;
+            case 'Vend' : return 'الجـمعة'
+            break;
+            case 'Sam' : return 'الســبت'
+            break;
+            case 'Dim' : return 'الأحـــد'
+            break;
 
+            default:
+                break;
+        }
+    }
+    const DayHoraire = (props) =>{
+        return(<>
+                <div className={`row  mb-1 ${props.data.dayOff ? 'text-danger':''}`}>
+                    <div  className='col-3 col-lg-3 m-0 p-1'>
+                        <b>{ArabificationDate(props.data.day)}</b>
+                    </div>
+                    <div  className='col-4 col-lg-4  m-0 p-1'>
+                        <small>{props.data.matin.start} - {props.data.matin.end}</small>
+                    </div>
+                    <div  className='col-4 col-lg-4  m-0 p-1'>
+                        <small>{props.data.soir.start} - {props.data.soir.end}</small>
+                    </div>
+                    <div className='col-1 m-0 p-1'>
+                        <span className='bi bi-pencil-square bi-xsm text-secondary' onClick={() => OpenEditTime(props.data.day)}></span>
+                    </div>
+                </div>
+        </>)
+    }
+    const OpenEditTime = (value) =>{
+        setSelectedUpdateDay(value)
+        setAddInput(true)
+    }
+    const UpdateTimingFunc = () =>{
+        const targetIndex = timming.findIndex(element => element.day === selectedUpdateDay)
+        let copyOfHoraire = timming
+        copyOfHoraire[targetIndex] = {day: selectedUpdateDay , dayOff: dateDataToChange.pauseDay , matin:{start: dateDataToChange.matinStart ,end: dateDataToChange.matinFinsh},soir:{start: dateDataToChange.soirStart,end: dateDataToChange.soirFinsh}}
+        setTimming(copyOfHoraire)
+        //SetTimmingData()
+        setAddInput(!addInput)
+    }
+    return(<>
+        <br />
+        <div className=' ' dir='rtl'>
+            <h5 className='text-end text-secondary ' dir='rtl'> <span className='bi bi-calendar-week-fill'></span>   أوقات العمل  </h5>
+            <div className='row'>
+                <div className='col-12 col-lg-12'>
+                    <div className=' '>
+                        <div className='row'>
+                            <div className='col-10 col-lg-9 align-self-center'> 
+                                <h5 className='mb-0 text-success'>مفتوح دائما</h5>  
+                                <small>عند تفعيل هذه الخاصية ستضهر في حالة مفتوح دائما </small>
+                            </div>
+                            <div className='col-2 col-lg-3  align-self-center '> 
+                                <div className="form-check form-switch">
+                                    <input className="form-check-input form-check-input-lg" type="checkbox"  onChange={() => setAlwaysState(!alwaysState)}  checked={alwaysState} />
+                                </div>
+                            </div>
+                        </div>
+                        <Divider />
+                        {addInput ? 
+                                <div className=' card card-body border-div  '>
+                                    <div className='text-start'><span className='bi bi-x-circle-fill  text-danger text-secondary mb-2' onClick={() => setAddInput(!addInput)}></span></div>
+                                    <h5 className='mt-0'> هل يوم {ArabificationDate(selectedUpdateDay)} يوم راحة ؟  </h5>
+                                    <Select options={[ { key: 'af', value: false, text: 'لا' }, { key: 'ax', value: true, text: 'نعم' }]} onChange={(e, {value}) => setDateDataToChange({... dateDataToChange, pauseDay : value})} className='mb-3'/>
+                                    <div className='row mb-3 '>
+                                        <div className='col-6'><Input  type='time' size='mini'  value={dateDataToChange.matinStart}  fluid className='mb-1 w-100'  onChange={(e) => setDateDataToChange({... dateDataToChange, matinStart : e.target.value})} /></div>
+                                        <div className='col-6'><Input  type='time' size="mini"  value={dateDataToChange.matinFinsh} fluid className='mb-1 w-100'  onChange={(e) => setDateDataToChange({... dateDataToChange, matinFinsh : e.target.value})}/></div>
+                                    </div>
+                                    <div className='row mb-3'>
+                                        <div className='col-6'><Input  type='time' size='mini'  value={dateDataToChange.soirStart}   fluid className='mb-1 w-100'  onChange={(e) => setDateDataToChange({... dateDataToChange, soirStart : e.target.value})} /></div>
+                                        <div className='col-6'><Input  type='time' size="mini"  value={dateDataToChange.soirFinsh}  fluid className='mb-1 w-100'  onChange={(e) => setDateDataToChange({... dateDataToChange, soirFinsh : e.target.value})}/></div>
+                                    </div>
+                                    <Button size='mini'     className='rounded-pill    font-droid' onClick={() => UpdateTimingFunc()} fluid  >   <Icon name='time' /> تعديل وقت يوم  {ArabificationDate(selectedUpdateDay)}  </Button>
+                                </div>
+
+                        :
+                                <>
+                                    <div className='row text-secondary mb-2'>
+                                        <div  className='col-4 col-lg-4'> <b>اليوم</b> </div>
+                                        <div  className='col-4 col-lg-4'> <small>صباح</small> </div>
+                                        <div  className='col-4 col-lg-4'> <small>مساء</small> </div>
+                                    </div>
+                                    
+                                    {
+                                        timming.map( (data,index) => <DayHoraire key={index} data={data} />)
+                                    }
+                                </>
+                        }
+                        
+                    </div>
+                </div>
+                <div className='col-12 col-lg-5 d-none'>
+                    <div className='card card-body border-div'>
+                        <h5>قم باختيار يوم لتعديل الوقت </h5>
+                        <Select options={weekDays} onChange={(e, { value }) => setSelectedUpdateDay(value)} className='mb-3'/>
+                        <div className='row mb-3 '>
+                            <div className='col-6'><Input  type='time' size='mini'  value={timming.find(obj => obj.day === selectedUpdateDay).matin.start}  fluid className='mb-1 w-100'  onChange={(e) => SetTimmingData(selectedUpdateDay,'matin','start',e.target.value)} /></div>
+                            <div className='col-6'><Input  type='time' size="mini"  value={timming.find(obj => obj.day === selectedUpdateDay).matin.end} fluid className='mb-1 w-100'  onChange={(e) => SetTimmingData(selectedUpdateDay,'matin','end',e.target.value)}/></div>
+                        </div>
+                        <div className='row mb-3'>
+                            <div className='col-6'><Input  type='time' size='mini'  value={timming.find(obj => obj.day === selectedUpdateDay).soir.start}   fluid className='mb-1 w-100'  onChange={(e) => SetTimmingData(selectedUpdateDay,'soir','start',e.target.value)} /></div>
+                            <div className='col-6'><Input  type='time' size="mini"  value={timming.find(obj => obj.day === selectedUpdateDay).soir.end}  fluid className='mb-1 w-100'  onChange={(e) => SetTimmingData(selectedUpdateDay,'soir','end',e.target.value)}/></div>
+                        </div>
+                        <div className='row mb-3'>
+                            <div className='col-2 text-end'>
+                                <div className="form-check form-switch">
+                                    <input className="form-check-input form-check-input-lg" type="checkbox" checked={timming.find(obj => obj.day === selectedUpdateDay).dayOff}   onChange={() => setPauseDay(selectedUpdateDay,selectedUpdateDay.dayOff)}   />
+                                </div>
+                            </div>
+                            <div className='col-10'>يوم راحة ؟ </div>
+                        </div>
+                        
+                        <Button size='mini'     className='rounded-pill    font-droid' onClick={() => UpdateTimmingData()} fluid  >   <Icon name='time' /> تعديل  </Button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </>)
+}
+const Location = ({position,handleLocationSelected,GetMyLocation}) =>{
+    return(<>
+        <br />
+        <div className='  mb-3' dir='rtl'>
+                <div className='row'>
+                        <div className='col-6 align-self-center text-end'><h5 className='text-end text-secondary ' dir='rtl'> <span className='bi bi-geo-alt-fill'></span>   الموقع الجغرافي </h5></div>
+                        <div className='col-6 align-self-center text-start'><Button icon='map pin' className='rounded-circle' onClick={() => GetMyLocation()}></Button></div>
+                </div> 
+                
+                <small className='mb-3'> قم بالنقر علي الزر لتحديد مكانك الحاليا إفتراضيا  </small>
+                <MapContainer center={[position.Lat,position.Lng]} zoom={6} scrollWheelZoom={false} className="map-height  border-div">
+                    <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <MapEventsHandler onLocationSelected={handleLocationSelected} />
+                    <Marker position={[position.Lat,position.Lng]}>
+                        <Popup> </Popup>
+                    </Marker>
+                </MapContainer> 
+                {/* <LocationPicker    />*/}
+        </div>
+    </>)
+}
 
 function ProfilePage() {
     /*###############################[Const]################################# */
@@ -107,8 +284,13 @@ function ProfilePage() {
     
     /*Horiare */
     const [horaireData, setHoraireData] = useState([])
-    const [alwaysState , setAlwaysState] = useState(false)
+    //const [alwaysState , setAlwaysState] = useState(false)
     const [delegList ,setDelegList] = useState([])
+    let [selectedUpdateDay , setSelectedUpdateDay] = useState('Lun')
+    let [alwaysState , setAlwaysState] = useState(false)
+    let [timming, setTimming] = useState([{day:"Lun",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Mar",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Mer",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Jeu",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Vend",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Sam",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}},{day:"Dim",dayOff:false,matin:{start:"08:00",end:"12:00"},soir:{start:"14:00",end:"18:00"}}])
+    let [test , setTest] = useState(10)
+    
 
     /*Images */
     const [imagesListe, setImagesListe] = useState([])
@@ -120,6 +302,7 @@ function ProfilePage() {
     
     /*Position */
     const [myPosition, setMyPosition] = useState([36.17720,9.12337])
+    let [position, setPosition] = useState({Lat: 36.83040, Lng: 10.13280})
 
     /* Others */
     const [loading , setLoading] = useState(false)
@@ -138,13 +321,21 @@ function ProfilePage() {
             menuItem: { key: 'mpd', icon: 'eye slash', content: 'MDP' }, 
             render: () =><><Tab.Pane className='border-div' attached={false}><EditPassword passwordData={passwordData} setPasswordData={setPasswordData} UpdatePasswordFunc={UpdatePasswordFunc} loaderState={loaderState} /> </Tab.Pane> <br/></>,
         },
+        // {
+        //     menuItem: { key: 'comment', icon: 'time', content: 'Horaire' }, 
+        //     render: () => <><Tab.Pane className='border-div' attached={false}><Horaire /></Tab.Pane><br /></>,
+        // },
+        // {
+        //     menuItem: { key: 'position', icon: 'map', content: 'Position' },
+        //     render: () => <><Tab.Pane className='border-div' attached={false}><PositionMap  /></Tab.Pane><br /></>,
+        // },
         {
             menuItem: { key: 'comment', icon: 'time', content: 'Horaire' }, 
-            render: () => <><Tab.Pane className='border-div' attached={false}><Horaire /></Tab.Pane><br /></>,
+            render: () => <><Tab.Pane className='border-div' attached={false}><Horaire alwaysState={alwaysState} setAlwaysState={setAlwaysState} timming={timming} setTimming={setTimming} setPauseDay={setPauseDay} SetTimmingData={SetTimmingData} setSelectedUpdateDay={setSelectedUpdateDay} selectedUpdateDay={selectedUpdateDay} UpdateTimmingData={UpdateTimmingData} /></Tab.Pane><br /></>,
         },
         {
             menuItem: { key: 'position', icon: 'map', content: 'Position' },
-            render: () => <><Tab.Pane className='border-div' attached={false}><PositionMap  /></Tab.Pane><br /></>,
+            render: () => <><Tab.Pane className='border-div' attached={false}><Location position={position} handleLocationSelected={handleLocationSelected} GetMyLocation={GetMyLocation} /></Tab.Pane><br /></>,
         },
         {
             menuItem: { key: 'images', icon: 'images', content: 'Images' },
@@ -345,9 +536,15 @@ function ProfilePage() {
         //UpdateImageFuncMultiple(formData);
     }
     const UpdateImageFuncMultiple = (formData) =>{
-        axios.post(`${GConf.ApiLink}/profile/images/ajouter`, formData)
-        .then(response => console.log(`Done ` + response.data))
-        .catch(error => console.log(error));
+        console.log(todisplayedImage.length)
+        if (todisplayedImage.length < 5) {toast.error("Il Faut 5 Images !", GConf.TostErrorGonf) } 
+        else if (todisplayedImage.length > 5) {toast.error("cinque Images Seulemment Sont autoriseé !", GConf.TostErrorGonf) } 
+        else {
+            axios.post(`${GConf.ApiLink}/profile/images/ajouter`, formData)
+            .then(response => toast.error("Images Enregistreé !", GConf.TostSuucessGonf))
+            .catch(error => console.log(error));
+        }
+        
     }
     // const UpdateImageFunc = () =>{
     //     if (!uploadImage) { } 
@@ -431,8 +628,61 @@ function ProfilePage() {
             })                
         }
     }
+    const handleLocationSelected = (location) => {
+        setPosition({Lat: location.lat , Lng:location.lng})
+    }
+    const GetMyLocation = () =>{
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                if (!position.coords.latitude) {toast.error(<><div><h5>ENTRE VOTRE POSITION Lat</h5></div></>, GConf.TostInternetGonf)}
+                else if (!position.coords.longitude) {toast.error(<><div><h5>ENTRE VOTRE POSITION Lng</h5></div></>, GConf.TostInternetGonf)}
+                else{
+                    setPosition({Lat:position.coords.latitude, Lng:position.coords.longitude})
+                }
+            },
+            function(error) {
+                toast.error(<><div><h5>ENTRE VOTRE POSITION</h5></div></>, GConf.TostInternetGonf)
+            }
+        );
+    }
 
     /*Horiare */
+    const SetTimmingData = (day,time,genre,value) => {
+        const targetIndex = timming.findIndex(element => element.day === day)
+        let copyOfHoraire = timming
+
+        if (time == 'matin') {
+            if (genre == 'start') {
+                copyOfHoraire[targetIndex].matin.start = value
+                setTimming(copyOfHoraire)
+            } else {
+                copyOfHoraire[targetIndex].matin.end = value
+                setTimming(copyOfHoraire)
+            }
+        } else {
+            if (genre == 'start') {
+                copyOfHoraire[targetIndex].soir.start = value
+                setTimming(copyOfHoraire)
+            } else {
+                copyOfHoraire[targetIndex].soir.end = value
+                setTimming(copyOfHoraire)
+            }
+        }
+
+    }
+    const UpdateTimmingData = (day,time,genre,value) => {
+        //setTimming(...timming)
+        setTest(Math.random())
+        toast.success("", GConf.TostAddedToTimming)
+
+    }  
+    const setPauseDay = (day,state) =>{
+        const targetIndex = timming.findIndex(element => element.day === day)
+        let copyOfHoraire = timming
+        copyOfHoraire[targetIndex].dayOff = !state
+        setTimming(copyOfHoraire)
+        setTest(Math.random())
+    }
 
     /*###############################[Card]################################# */
     const PrintProfile = () =>{ 
@@ -656,7 +906,7 @@ function ProfilePage() {
             return(<>
                 <div className='card card-body shadow-m mb-2 border-div'>
                     <div className='row'>
-                       <div className='col-4'><img src={`https://cdn.abyedh.tn/images/Directory/${props.imageLink}`} className='border border-2 rounded shadow-sm' width='200px' height='90px'  /></div> 
+                       <div className='col-4'><div className='max-height-image'><img src={`https://cdn.abyedh.tn/images/Directory/${props.imageLink}`} className='border border-2 rounded shadow-sm d-block' width='100%' height="auto"  /></div></div> 
                        <div className='col-4'></div> 
                        <div className='col-4'><Button onClick={() => RemoveImageFunc(props.imageLink)}>Delete Btn</Button></div> 
                     </div>
@@ -667,16 +917,16 @@ function ProfilePage() {
             return(<>
                 <div className='text-center'>
                         <h3>
-                            <span className='bi bi-exclamation-triangle-fill text-info bi-md'></span> 
+                            <span className='bi bi-exclamation-triangle-fill text-info bi-md me-3'></span> 
                             Vous n'avait pas d'images
                         </h3>
                         <label onChange={handleFileSelect} htmlFor="formId"   className='text-info' role="button">
                                 <Input type='file' hidden name="Images" id="formId" multiple />
-                                <img src='https://assets.ansl.tn/Images/usful/uploadImage.jpg' width='100%'  height='150px' />
+                                {/* <img src='https://assets.ansl.tn/Images/usful/uploadImage.jpg' width='100%'  height='150px' /> */}
+                                <span className='bi bi-cloud-upload ' style={{fontSize : '100px'}}></span>
+                                <h3> Cliquer Pour Charger des Imgaes  </h3>
                         </label>
-                        <h3>
-                            Cliquer Pour Charger des Imgaes 
-                        </h3>
+                        
                 </div>
             </>)
         }
@@ -688,17 +938,34 @@ function ProfilePage() {
                     <div className='row'>
                             {todisplayedImage.length != '0' ? 
                             <>
+                                <Carousel>
                                 {todisplayedImage.map((data,index) => 
-                                        <div className='col-4 mb-3' key={index}>
-                                            <img src={URL.createObjectURL(todisplayedImage[index])} className='border border-2 rounded shadow-sm' width='200px' height='90px'  />
+                                        <div className='col-12 col-lg-4 mb-5' key={index}>
+                                            <div className='max-height-image mb-2'>
+                                                <img src={URL.createObjectURL(todisplayedImage[index])} className='border border-div d-block' width='100%' height='150px'  />
+                                            </div>
+                                            <Button fluid onClick={() => {setToDisplayedImage(todisplayedImage.filter((item, tindex) => tindex !== index))}}>Supprimeé</Button>
                                         </div>
                                 )}
-                                
+                                </Carousel>
                                 <br />
-                                <div className='text-end'>
-                                    <Button   className='rounded-pill bg-system-btn' size='tiny' onClick={() => UpdateImageFuncMultiple(formaDataArr)} ><Icon name='save' /> Enregistreé <Loader inverted active={loaderState} inline size='tiny' className='ms-2 text-danger'/></Button>
+                                <div className='row'>
+                                    <div className='col-6 align-self-center'>
+                                        {todisplayedImage.length == '5' ? <></> 
+                                        :
+                                        <label onChange={handleFileSelect} htmlFor="formId"   className='text-info' role="button">
+                                                <Input type='file' hidden name="Images" id="formId" multiple />
+                                                <span className='bi bi-cloud-upload ' style={{fontSize : '30px'}}></span>
+                                        </label>
+                                         }
+                                    </div>
+                                    <div className='col-6 align-self-center text-end'>
+                                            <Button   className='rounded-pill bg-system-btn' size='tiny' onClick={() => UpdateImageFuncMultiple(formaDataArr)} ><Icon name='save' /> Enregistreé <Loader inverted active={loaderState} inline size='tiny' className='text-danger'/></Button>
+                                    </div>
+                                    
                                 </div>
-
+                                
+                                
                             </>   
                             : 
                             <PasDeResultat />}
@@ -889,11 +1156,11 @@ function ProfilePage() {
         />
         </>)
     }
-    const Horaire = () =>{
-        return(<>
-            <Tab menu={{ secondary: true, className: 'tab-right'}} defaultActiveIndex={1} panes={horairePanes} />
-        </>)
-    }
+    // const Horaire = () =>{
+    //     return(<>
+    //         <Tab menu={{ secondary: true, className: 'tab-right'}} defaultActiveIndex={1} panes={horairePanes} />
+    //     </>)
+    // }
     return (<>
         {/* <Bounce bottom>
             <h5><span className="bi bi-person-circle"></span> Profile</h5>

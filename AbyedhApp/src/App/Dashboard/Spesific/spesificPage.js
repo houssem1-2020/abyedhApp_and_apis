@@ -3,10 +3,12 @@ import GConf from '../../AssetsM/APPConf';
 
 
 import DocteurSpecific from './spesificPage/docteur'; 
+import InfirmierSpecific from './spesificPage/infirmier'; 
 import PharmacieSpecific from './spesificPage/pharmacie';
 import CliniqueSpecific from './spesificPage/clinique'; 
 
  import GarderieSpecific from './spesificPage/garderie';
+ import FormationSpecific from './spesificPage/formation';
  import RestaurantSpecific from './spesificPage/restaurant';
 
  import AutoEcoleSpecific from './spesificPage/autoecole';
@@ -67,7 +69,7 @@ import WeddingPhotographeSpecific from './spesificPage/wedding_photographe';
 import WeddingBijouxSpecific from './spesificPage/wedding_bijoux';
 import WeddingChefSpecific from './spesificPage/wedding_chef';
 import WeddingSallonMariageSpecific from './spesificPage/wedding_salon_marriage';
-
+import VeterinaireSpecific from './spesificPage/veterinaire'; 
  
 
 
@@ -88,12 +90,14 @@ function RequestPage() {
       const statusCard = React.useCallback(() => {
       switch(status) {
           case 'docteur': return <DocteurSpecific TAG={GConf.systemTag} PID={GConf.systemTag} />;  
+          case 'infirmier': return <InfirmierSpecific TAG={GConf.systemTag} PID={GConf.systemTag} />;  
           case 'pharmacie': return <PharmacieSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'clinique': return <CliniqueSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
         
           case 'labo': return <LaboSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'centreMD': return <CentreMdSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'garderie': return <GarderieSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+          case 'formation': return <FormationSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'autoecole': return <AutoEcoleSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'ecole': return <EcoleSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'lycee': return <LyceeSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
@@ -144,6 +148,7 @@ function RequestPage() {
           case 'comptable': return <ComptableSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'hotels': return <HotelsSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'vg_agence': return <VgAgenceSpecific TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+          case 'veterinaire': return <VeterinaireSpecific TAG={GConf.systemTag} PID={GConf.systemTag} />;
            
           default:  return <IndefinieCard />;    
       }

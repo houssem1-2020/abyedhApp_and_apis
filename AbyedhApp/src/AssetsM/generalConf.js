@@ -20,9 +20,9 @@ const GConf = {
     abyedhMap : TunMap,
     UserData : GetUID(),
     SoketLink : 'https://api.abyedh.tn/apiAbyedh', //https://api.abyedh.tn/apiAbyedh
-    ApiLink : 'http://localhost:3011/Search', //https://api.abyedh.tn/apiAbyedh
-    ApiProfileLink : 'http://localhost:3011/Profile', //https://api.abyedh.tn/apiAbyedh
-    ApiToolsLink : 'http://localhost:3011/Tools', //https://api.abyedh.tn/apiAbyedh
+    ApiLink : 'https://api.abyedh.tn/apiAbyedh/Search', //https://api.abyedh.tn/apiAbyedh
+    ApiProfileLink : 'https://api.abyedh.tn/apiAbyedh/Profile', //https://api.abyedh.tn/apiAbyedh
+    ApiToolsLink : 'https://api.abyedh.tn/apiAbyedh/Tools', //https://api.abyedh.tn/apiAbyedh
 
     themeColor : '#dc3545',
     TostErrorGonf : {

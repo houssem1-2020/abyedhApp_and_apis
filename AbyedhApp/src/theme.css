@@ -469,4 +469,8 @@ Dropdown{text-align: right !important;}
   border-radius: 10px 10px 0px 0px !important;
 }
 
- 
+.sticky-div {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+   
+}

@@ -23,6 +23,7 @@ import { useLocation } from 'react-router-dom';
 
 //SPESIFIC
 const DocteurSpecific = React.lazy(() => import('./Specific/docteur'));
+const InfirmierSpecific = React.lazy(() => import('./Specific/infirmier'));
 const CliniqueSpecific = React.lazy(() => import('./Specific/clinique')); 
 const PharmacieSpecific = React.lazy(() => import('./Specific/pharmacie'));
 const GarderieSpecific = React.lazy(() => import('./Specific/garderie'));
@@ -39,6 +40,7 @@ const CoiffureSpecific = React.lazy(() => import('./Specific/coiffure'));
 const HotelsSpecific = React.lazy(() => import('./Specific/hotels'));
 const LaboSpecific = React.lazy(() => import('./Specific/labo'));
 const LibrairieSpecific = React.lazy(() => import('./Specific/librairie'));
+const FormationSpecific = React.lazy(() => import('./Specific/formation'));
 const LyceeSpecific = React.lazy(() => import('./Specific/lycee'));
 const StadeSpecific = React.lazy(() => import('./Specific/stade'));
 const SociteSpecific = React.lazy(() => import('./Specific/socite'));
@@ -79,6 +81,8 @@ const WeddingPhotographeSpecific = React.lazy(() => import('./Specific/wedding_p
 const WeddingBijouxSpecific = React.lazy(() => import('./Specific/wedding_bijoux'));
 const WeddingChefSpecific = React.lazy(() => import('./Specific/wedding_chef'));
 const WeddingSallonMariageSpecific = React.lazy(() => import('./Specific/wedding_salon_marriage'));
+const VeterinaireSpecific = React.lazy(() => import('./Specific/veterinaire'));
+const FourragerieSpecific = React.lazy(() => import('./Specific/fourragerie'));
 const AdminAMosqSpecific = React.lazy(() => import('./Specific/admin_a_mosq'));
 const AdminACourtSpecific = React.lazy(() => import('./Specific/admin_a_court'));
 const AdminAArSpecific = React.lazy(() => import('./Specific/admin_a_ar'));
@@ -99,6 +103,7 @@ const AdminSHospitalSpecific = React.lazy(() => import('./Specific/admin_s_hospi
 
 ///ACTION
 const DocteurActions = React.lazy(() => import('./Actions/docteur'));
+const InfirmierActions = React.lazy(() => import('./Actions/infirmier'));
 const GarderieActions = React.lazy(() => import('./Actions/garderie'));
 const PharmacieActions = React.lazy(() => import('./Actions/pharmacie'));
 const RestaurantActions = React.lazy(() => import('./Actions/restaurant'));
@@ -115,6 +120,7 @@ const CoiffureActions = React.lazy(() => import('./Actions/coiffure'));
 const HotelsActions = React.lazy(() => import('./Actions/hotels'));
 const LaboActions = React.lazy(() => import('./Actions/labo'));
 const LibrairieActions = React.lazy(() => import('./Actions/librairie'));
+const FormationActions = React.lazy(() => import('./Actions/formation'));
 const LyceeActions = React.lazy(() => import('./Actions/lycee'));
 const StadeActions = React.lazy(() => import('./Actions/stade'));
 const SociteActions = React.lazy(() => import('./Actions/socite'));
@@ -155,9 +161,12 @@ const WeddingPhotographeActions = React.lazy(() => import('./Actions/wedding_pho
 const WeddingBijouxActions = React.lazy(() => import('./Actions/wedding_bijoux'));
 const WeddingChefActions = React.lazy(() => import('./Actions/wedding_chef'));
 const WeddingSallonMariageActions = React.lazy(() => import('./Actions/wedding_salon_marriage'));
+const VeterinaireActions = React.lazy(() => import('./Actions/veterinaire'));
+const FourragerieActions = React.lazy(() => import('./Actions/fourragerie'));
 
 //Suivie
 const DocteurSuivie = React.lazy(() => import('./Suivie/docteur'));
+const InfirmierSuivie = React.lazy(() => import('./Suivie/infirmier'));
 const GarderieSuivie = React.lazy(() => import('./Suivie/garderie'));
 const PharmacieSuivie = React.lazy(() => import('./Suivie/pharmacie'));
 const RestaurantSuivie = React.lazy(() => import('./Suivie/restaurant'));
@@ -174,6 +183,7 @@ const CoiffureSuivie = React.lazy(() => import('./Suivie/coiffure'));
 const HotelsSuivie = React.lazy(() => import('./Suivie/hotels'));
 const LaboSuivie = React.lazy(() => import('./Suivie/labo'));
 const LibrairieSuivie = React.lazy(() => import('./Suivie/librairie'));
+const FormationSuivie = React.lazy(() => import('./Suivie/formation'));
 const LyceeSuivie = React.lazy(() => import('./Suivie/lycee'));
 const StadeSuivie = React.lazy(() => import('./Suivie/stade'));
 const SociteSuivie = React.lazy(() => import('./Suivie/socite'));
@@ -214,6 +224,8 @@ const WeddingPhotographeSuivie = React.lazy(() => import('./Suivie/wedding_photo
 const WeddingBijouxSuivie = React.lazy(() => import('./Suivie/wedding_bijoux'));
 const WeddingChefSuivie = React.lazy(() => import('./Suivie/wedding_chef'));
 const WeddingSallonMariageSuivie = React.lazy(() => import('./Suivie/wedding_salon_marriage'));
+const VeterinaireSuivie = React.lazy(() => import('./Suivie/veterinaire'));
+const FourragerieSuivie = React.lazy(() => import('./Suivie/fourragerie'));
 
 
 
@@ -287,8 +299,8 @@ const CommentsCard = ({tag, profileData,rateValue,setRateValue,SaveRating }) =>{
     const NoDataCard = (props) =>{
         return(<>
                 <div className='card-body'>
-                    <div className='text-center'> <img src={`https://cdn.abyedh.tn/images/Search/data_not_found_${props.genre}.svg`} className='mb-2' width='100px' height='100px' /> </div>
-                    <div className='text-center'>آسف , هذه المعلومات غير متوفرة بعد</div>
+                    <div className='text-center'> <img src={`https://cdn.abyedh.tn/images/Search/comments.svg`} className='mb-2' width='150px' height='100px' /> </div>
+                    <div className='text-center'>  لا توجد تعليقات  </div>
                 </div>
         </>)
     }
@@ -364,6 +376,7 @@ const ForLazyLoading = () =>{
         </>);
 }
 
+
 function ProfilePage() {
     /*#########################[Const]##################################*/
         let {tag,PID} = useParams()
@@ -389,8 +402,9 @@ function ProfilePage() {
                             <div className='col-12 col-lg-6 mb-4'><ImagesCard /> </div> 
                             <div className='col-12 col-lg-7 mb-4'><CommentsCard tag={tag} profileData={profileData}  rateValue={rateValue} setRateValue={setRateValue} SaveRating={SaveRating} /> </div> 
                             <div className='col-12 col-lg-5 mb-4'><RatingCard /> </div> 
-                            <div className='col-12 d-none mb-4'>
-                                { GConf.ADIL[tag].systemActive ?  <ActionCardForSmall /> : <></> }                        
+                            <div className='col-12  mb-4'>
+                                {/* { GConf.ADIL[tag].systemActive ?  <ActionCardForSmall /> : <></> }                         */}
+                                { GConf.ADIL[tag].systemActive ?  <ActionForSmallCard /> : <></> }                        
                             </div> 
                         </div> 
                         {/* <div className='d-lg-none'>
@@ -426,6 +440,10 @@ function ProfilePage() {
         {
             menuItem: { key: 'sv', content:  <b className='' ><span className='bi bi-eye-fill bi-sm'></span></b> , dir:'rtl',  className:'rounded border border-2 border-div' , style:{color:GConf.ADIL[tag].themeColor,},},
             render: () => <>{!GConf.UserData.Logged ?  <LogginCard />: <FollowStateCard status={tag} /> }</>,
+        },
+        {
+            menuItem: { key: 'pb', content:  <b className='' ><span className='bi bi-eye-fill bi-sm'></span></b> , dir:'rtl',  className:'rounded border border-2 border-div' , style:{color:GConf.ADIL[tag].themeColor,},},
+            render: () => <PublicationCard />,
         },
         ]
         const [activeIndex, setActiveIndex] = useState(0)
@@ -642,8 +660,8 @@ function ProfilePage() {
 
                 {/* <div className="card-header  border-div" style={{marginBottom:'50px', marginTop:'30px', backgroundColor: ConverColorToHsl(GConf.ADIL[tag].themeColor) , color: "black"}}> */}
                 {/* <div className="card-header   rounded-0" style={{marginBottom:'35px', marginTop:'30px', background: `linear-gradient(to top, ${ConverColorToHsl(GConf.ADIL[tag].themeColor)},  #ffffff` , border: '0px solid' , color: "black"}}> */}
-                <div  style={{ position:'relative'}}>
-                    <div className="card-header-for-profile  border rounded-0" style={{marginBottom:'35px', marginTop:'30px',  backgroundImage: `url(https://cdn.abyedh.tn/images/ads/${tag}.svg)` , backgroundSize: 'auto', backgroundPosition: 'center', backgroundColor: 'rgba(255, 255, 255, 0.1)',  border: '0px solid' , color: "black"}}>
+                <div style={{ position:'relative'}}>
+                    <div className="card-header-for-profile  border rounded-0 " style={{marginBottom:'35px', marginTop:'30px',  backgroundImage: `url(https://cdn.abyedh.tn/images/ads/${tag}.svg)` , backgroundSize: 'auto', backgroundPosition: 'center', backgroundColor: 'rgba(255, 255, 255, 0.1)',  border: '0px solid' , color: "black"}}>
                         <div style={{ content: '',  background: 'rgba(255, 255, 255, 0.7)',  position: 'absolute', top: 0, left: 0, width: '100%', height: '120px', }}></div>
                         
                         <div 
@@ -652,8 +670,24 @@ function ProfilePage() {
                         >
                             <div className='col-10 col-lg-12 align-self-center text-lg-center text-center'>
                                 <div className='row'>
-                                    <div className='col-5 col-lg-12'><img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white p-3 shadow-sm' width='100px'  height='100px' /></div>
-                                    <div className='col-7 d-lg-none align-self-center ps-2'><h3 className='text-truncate' style={{maxWidth: '250px'}}  >{profileData.genrale ?   profileData.genrale[0].Name  : '' }</h3></div>
+                                    <div className='col-4 col-lg-12'><img src={`https://cdn.abyedh.tn/Images/Search/CIcons/${tag}.gif`} className='img-responsive rounded-circle bg-white border-white p-3 shadow-sm' width='100px'  height='100px' /></div>
+                                    <div className='col-8 pt-2 align-self-center d-lg-none'> 
+                                    {loading ? 
+                                            <div className='row'>
+                                                <div className='col-7 text-center'> 0  <br /><HalfStarRating rating={0} icon='star' disabled size='small' /> </div> 
+                                                <div className='col-2 text-center'><span className="text-secondary"> 0  <br /> <span className='bi bi-hand-thumbs-up-fill'></span>  </span></div> 
+                                                <div className='col-3 text-center'><span className="text-secondary">  0.0  <br /><span className='bi bi-eye-fill'></span>   </span></div> 
+                                            </div>
+                                            :
+                                            <>
+                                            <div className='row'>
+                                                <div className='col-7 text-center'><span className=" text-dark"> {Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} </span> <br /> <HalfStarRating rating={Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} icon='star' disabled size='small' /></div> 
+                                                <div className='col-2 text-center'><span className="text-secondary"> {profileData.genrale[0].Likes_Num} <br /> <span className='bi bi-hand-thumbs-up-fill'></span></span></div> 
+                                                <div className='col-3 text-center'><span className="text-secondary">{profileData.genrale[0].Views_Num >= 1000 ? (parseInt(profileData.genrale[0].Views_Num.toString().substring(0, 4)) / 1000).toFixed(1) + 'K' :  profileData.genrale[0].Views_Num} <br /> <span className='bi bi-eye-fill'></span> </span></div> 
+                                            </div> 
+                                    </>
+                                    }</div>
+                                    {/* <div className='col-7 d-lg-none align-self-center ps-2'><h3 className='text-truncate' style={{maxWidth: '250px'}}  >{profileData.genrale ?   profileData.genrale[0].Name  : '' }</h3></div> */}
                                 </div>
                                 
                                 
@@ -666,16 +700,7 @@ function ProfilePage() {
                         
                     </div>
                     <div className='floating-card-result-card pt-4 ms-2 '>
-                        {loading ? 
-                        <>...</>
-                        :
-                        <>
-                            <span className=" m-2 text-dark"> {Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} <HalfStarRating rating={Math.min(Math.max(parseFloat(`${Math.abs(profileData.genrale[0].PID)}`[0] + '.' + `${Math.abs(profileData.genrale[0].PID)}`.slice(-1)), 1), 5)} icon='star' disabled size='small' /> </span>
-                               
-                            <span className=" m-2 text-dark">| <span className='bi bi-hand-thumbs-up-fill'></span> {profileData.genrale[0].Likes_Num} </span>
-                            <span className=" m-2 text-dark">| <span className='bi bi-eye-fill'></span> {profileData.genrale[0].Views_Num >= 1000 ? (parseInt(profileData.genrale[0].Views_Num.toString().substring(0, 4)) / 1000).toFixed(1) + 'K' :  profileData.genrale[0].Views_Num}</span>
-                        </>
-                        }
+                        <h3 className='text-truncate text-center mt-2' style={{maxWidth: '320px'}}  >{profileData.genrale ?   profileData.genrale[0].Name  : '' }</h3>
                     </div>
                 </div>
             </>)
@@ -812,7 +837,7 @@ function ProfilePage() {
                             <div className='col-9'><h5 className='text-end' style={{color: GConf.ADIL[tag].themeColor}}>الموقع الجعرافي  </h5></div>
                         </div>
                         
-                        <MapContainer center={GetPosition()} zoom={15} scrollWheelZoom={false} className="map-height">
+                        <MapContainer center={GetPosition()} zoom={15} scrollWheelZoom={false} className="map-height"  style={{zIndex: 50}}>
                             <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -843,7 +868,8 @@ function ProfilePage() {
                 {src:'https://cdn.abyedh.tn/images/required/profile-img1.gif'},
                 {src:'https://cdn.abyedh.tn/images/required/profile-img2.gif'},
                 {src:'https://cdn.abyedh.tn/images/required/profile-img3.gif'},
-                {src:'https://cdn.abyedh.tn/images/required/not-f-4.svg'},
+                {src:'https://cdn.abyedh.tn/images/required/profile-img4.gif'},
+                {src:'https://cdn.abyedh.tn/images/required/profile-img5.gif'},
             ]
             const OpenModalToShowImage = (image) =>{
                 setSelectedImage(image)
@@ -1005,6 +1031,7 @@ function ProfilePage() {
             const statusCard = React.useCallback(() => {
             switch(status) {
                 case 'docteur': return  <Suspense fallback={<ForLazyLoading />}><DocteurSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>;  
+                case 'infirmier': return  <Suspense fallback={<ForLazyLoading />}><InfirmierSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>;  
                 case 'pharmacie': return <Suspense fallback={<ForLazyLoading />}><PharmacieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'clinique': return <Suspense fallback={<ForLazyLoading />}><CliniqueSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'labo': return <Suspense fallback={<ForLazyLoading />}><LaboSpecific TAG={tag} PID={PID} UID={UID} /></Suspense> ;
@@ -1015,6 +1042,7 @@ function ProfilePage() {
                 case 'lycee': return <Suspense fallback={<ForLazyLoading />}><LyceeSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'universite': return <Suspense fallback={<ForLazyLoading />}><UniversiteSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'librairie': return <Suspense fallback={<ForLazyLoading />}><LibrairieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'formation': return <Suspense fallback={<ForLazyLoading />}><FormationSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'transporteur': return <Suspense fallback={<ForLazyLoading />}><TransporteurSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'cafe': return <Suspense fallback={<ForLazyLoading />}><CafeSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'restaurant': return <Suspense fallback={<ForLazyLoading />}><RestaurantSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
@@ -1061,6 +1089,8 @@ function ProfilePage() {
                 case 'socite': return <Suspense fallback={<ForLazyLoading />}><SociteSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'hotels': return <Suspense fallback={<ForLazyLoading />}><HotelsSpecific TAG={tag} PID={PID} UID={UID} /></Suspense> ;
                 case 'vg_agence': return <Suspense fallback={<ForLazyLoading />}><VgAgenceSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'veterinaire': return <Suspense fallback={<ForLazyLoading />}><VeterinaireSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'fourragerie': return <Suspense fallback={<ForLazyLoading />}><FourragerieSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'admin_s_hospital': return <Suspense fallback={<ForLazyLoading />}><AdminSHospitalSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'admin_s_csb': return <Suspense fallback={<ForLazyLoading />}><AdminSScbSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'admin_e_centre': return <Suspense fallback={<ForLazyLoading />}><AdminECentreSpecific TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
@@ -1113,7 +1143,7 @@ function ProfilePage() {
         }
         const ActivePaneCard = (props) =>{
             return(<>
-                <div className={`card p-2 btn-cursor mb-1  text-center border-0  border-div ${ activeIndex == props.activeI ? 'shadow ': '' }`} onClick={ () => setActiveIndex(props.activeI)}>
+                <div className={`card p-2 btn-cursor mb-1  pt-3  text-center   border-div ${ activeIndex == props.activeI ? 'shadow-sm   ': 'border-0' }`} onClick={ () => setActiveIndex(props.activeI)}>
                         <h2 className='text-center' style={{color: GConf.ADIL[tag].themeColor}}><span className={`bi bi-${props.icon} bi-xsm`}></span></h2> 
                 </div>
             </>)
@@ -1146,6 +1176,7 @@ function ProfilePage() {
             const statusCard = React.useCallback(() => {
               switch(status) {
                 case 'docteur': return  <Suspense fallback={<ForLazyLoading />}><DocteurActions TAG={tag} PID={PID} UID={UID} /></Suspense>;  
+                case 'infirmier': return  <Suspense fallback={<ForLazyLoading />}><InfirmierActions TAG={tag} PID={PID} UID={UID} /></Suspense>;  
                 case 'pharmacie': return <Suspense fallback={<ForLazyLoading />}><PharmacieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'clinique': return <Suspense fallback={<ForLazyLoading />}><CliniqueActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'labo': return <Suspense fallback={<ForLazyLoading />}><LaboActions TAG={tag} PID={PID} UID={UID} /></Suspense> ;
@@ -1155,6 +1186,7 @@ function ProfilePage() {
                 case 'ecole': return <Suspense fallback={<ForLazyLoading />}><EcoleActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'lycee': return <Suspense fallback={<ForLazyLoading />}><LyceeActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'universite': return <Suspense fallback={<ForLazyLoading />}><UniversiteActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'formation': return <Suspense fallback={<ForLazyLoading />}><FormationActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'librairie': return <Suspense fallback={<ForLazyLoading />}><LibrairieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'transporteur': return <Suspense fallback={<ForLazyLoading />}><TransporteurActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'cafe': return <Suspense fallback={<ForLazyLoading />}><CafeActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
@@ -1202,6 +1234,8 @@ function ProfilePage() {
                 case 'socite': return <Suspense fallback={<ForLazyLoading />}><SociteActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'hotels': return <Suspense fallback={<ForLazyLoading />}><HotelsActions TAG={tag} PID={PID} UID={UID} /></Suspense> ;
                 case 'vg_agence': return <Suspense fallback={<ForLazyLoading />}><VgAgenceActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'veterinaire': return <Suspense fallback={<ForLazyLoading />}><VeterinaireActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'fourragerie': return <Suspense fallback={<ForLazyLoading />}><FourragerieActions TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
 
                 default:  return <IndefinieCard />;    
               }
@@ -1218,6 +1252,7 @@ function ProfilePage() {
             const statusCard = React.useCallback(() => {
               switch(status) {
                 case 'docteur': return  <Suspense fallback={<ForLazyLoading />}><DocteurSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>;  
+                case 'infirmier': return  <Suspense fallback={<ForLazyLoading />}><InfirmierSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>;  
                 case 'pharmacie': return <Suspense fallback={<ForLazyLoading />}><PharmacieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'clinique': return <Suspense fallback={<ForLazyLoading />}><CliniqueSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'labo': return <Suspense fallback={<ForLazyLoading />}><LaboSuivie TAG={tag} PID={PID} UID={UID} /></Suspense> ;
@@ -1228,6 +1263,7 @@ function ProfilePage() {
                 case 'lycee': return <Suspense fallback={<ForLazyLoading />}><LyceeSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'universite': return <Suspense fallback={<ForLazyLoading />}><UniversiteSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'librairie': return <Suspense fallback={<ForLazyLoading />}><LibrairieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'formation': return <Suspense fallback={<ForLazyLoading />}><FormationSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'transporteur': return <Suspense fallback={<ForLazyLoading />}><TransporteurSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'cafe': return <Suspense fallback={<ForLazyLoading />}><CafeSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'restaurant': return <Suspense fallback={<ForLazyLoading />}><RestaurantSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
@@ -1274,6 +1310,8 @@ function ProfilePage() {
                 case 'socite': return <Suspense fallback={<ForLazyLoading />}><SociteSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 case 'hotels': return <Suspense fallback={<ForLazyLoading />}><HotelsSuivie TAG={tag} PID={PID} UID={UID} /></Suspense> ;
                 case 'vg_agence': return <Suspense fallback={<ForLazyLoading />}><VgAgenceSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'veterinaire': return <Suspense fallback={<ForLazyLoading />}><VeterinaireSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
+                case 'fourragerie': return <Suspense fallback={<ForLazyLoading />}><FourragerieSuivie TAG={tag} PID={PID} UID={UID} /></Suspense>  ;
                 default:  return <><div className='col-12 col-md-4 mb-4 order-1 order-lg-2 text-center align-self-center'>
                             <img src={`https://cdn.abyedh.tn/images/ads/${tag}.svg`} width='60%' heigth='60%' className='img-responsive' />
                             </div><IndefinieCard /></>;    
@@ -1286,24 +1324,66 @@ function ProfilePage() {
               </div>
             );
         };
+        const ActionForSmallCard = () =>{
+            const SettingItemCard = (props) =>{
+                return(<>
+                        <div className="list-group-item list-group-item-action" onClick={() => setActiveIndex(2)}>
+                             
+                            <div className="row p-2">
+                                <div className="col-1 align-self-center"><span className="bi bi-arrow-left-short bi-md"></span></div>
+                                <div className="col-9 align-self-center text-end">
+                                    <b style={{color : GConf.ADIL[tag].themeColor}}>{props.data.name}</b>
+                                </div>
+                                <div className="col-2 align-self-center text-end">
+                                    <b style={{color : GConf.ADIL[tag].themeColor}}><span className={`bi bi-${props.data.icon}`}></span></b>
+                                </div>
+                            </div>
+                        </div>
+                </>)
+            }
+
+            return(<>
+                <div className="list-group shadow-sm  border-div">
+                    {GConf.ADIL[tag].profileBtns.map((data,index) => <SettingItemCard key={index} data={data} />).slice(0, GConf.ADIL[tag].profileBtns.length - 1)}
+                </div>
+            </>)
+        }
+        const PublicationCard = () =>{
+            return(<>
+                <div className='card-body'>
+                    <div className='text-center'> <img src={`https://cdn.abyedh.tn/images/Search/blog-post.svg`} className='mb-2' width='100px' height='100px' /> </div>
+                    <div className='text-center'>   هذا العميل ليس لديه منشورات  </div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </>)
+        }
     return ( <>
             <TopNavBar /> 
             <HeaderCard randomRate={((Math.random() * (5 - 2)) + 2).toFixed(1)}/>
             <br />
-            <div className='container'>
             
-                {/* <TopBtnsCard />  */}
-                
-                <div className='row'>
+            <div className='container'>                
+                <div className='row bg-white pt-3 pb-2'  style={{zIndex: 100, top:'50px', position: 'sticky'}}>
                     <div className='col-4 text-start d-none d-lg-block'>
                         <Button className='rounded-circle border shadow-sm' disabled={!GConf.UserData.Logged} onClick={() => AddToFarite()} icon size='large' style={{backgroundColor: isFavorite ?  GConf.ADIL[tag].themeColor : '#ffffff' }} > <Icon name='heart' style={{color: isFavorite ? '#ffffff' : GConf.ADIL[tag].themeColor}} /> </Button>
                     </div>
-                    <div className='col-12 col-lg-8'>
-                        <div className='row justify-content-center' dir='rtl'>
-                                <div className='col-3 col-lg-2'><ActivePaneCard icon='grid-3x3-gap-fill' activeI={0} /> </div>
-                                <div className='col-3 col-lg-2'><ActivePaneCard icon='view-list' activeI={1} /> </div>
-                                <div className='col-3 col-lg-2'><ActivePaneCard icon='pencil-square' activeI={2} /> </div>
-                                <div className='col-3 col-lg-2'><ActivePaneCard icon='eye-fill' activeI={3} /> </div>
+                   
+                    <div className='col-12 col-lg-8   ' style={{zIndex: 100, top:'55px', position: 'sticky'}}>
+                        <div className='row justify-content-center  ' dir='rtl'  >
+                                <div className='col col-lg-2'><ActivePaneCard icon='grid-3x3-gap-fill' activeI={0} /> </div>
+                                <div className='col col-lg-2'><ActivePaneCard icon='view-list' activeI={1} /> </div>
+                                <div className='col col-lg-2'><ActivePaneCard icon='pencil-square' activeI={2} /> </div>
+                                <div className='col col-lg-2'><ActivePaneCard icon='eye-fill' activeI={3} /> </div>
+                                <div className='col col-lg-2'><ActivePaneCard icon='list-columns-reverse' activeI={4} /> </div>
                         </div>
                     </div>
                 </div>
@@ -1325,7 +1405,7 @@ function ProfilePage() {
                 <br /> 
                 
                 
-                <br />
+                 
                 <ButtomCard />
             </div>
         </> );

@@ -210,8 +210,24 @@ function RequestPage() {
             </div>
 
             <div className='row'>
-                 {APPConf.landing[APPConf.systemTag].itemsList.map((data,index) => <ItemCard key={index} data={data} /> )}
+                 {APPConf.landing[APPConf.systemTag].itemsList.map((data,index) => <ItemCard key={index} data={data} /> ).slice(0, APPConf.landing[APPConf.systemTag].itemsList.length - 1)}
                 <div className='col-12 col-lg-12 mb-4 mt-4' >
+                    <div className='card p-3 shadow-sm  border-div text-center  mb-3' style={{color: APPConf.themeColor}}>
+                        <NavLink exact='true' to='/App/S/Spesific' className="stretched-link"></NavLink>
+                        <div className='row' style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}>
+                            <div className='col-2 align-self-center'><h1 className={`bi bi-${APPConf.landing[APPConf.systemTag].itemsList[APPConf.landing[APPConf.systemTag].itemsList.length - 1].icon} bi-md mt-1`} ></h1></div>
+                            <div className='col-8 align-self-center'><h3 className='mt-0'>{APPConf.landing[APPConf.systemTag].itemsList[APPConf.landing[APPConf.systemTag].itemsList.length - 1].itemName}</h3></div>
+                            <div className='col-2 align-self-center'><h1 className='bi bi-arrow-right-short bi-md mt-1' ></h1></div>
+                        </div>
+                    </div>
+                    <div className='card p-3 shadow-sm  border-div text-center  mb-3' style={{color: APPConf.themeColor}}>
+                        <NavLink exact='true' to='/App/S/#' className="stretched-link"></NavLink>
+                        <div className='row' style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}>
+                            <div className='col-2 align-self-center'><h1 className='bi bi-megaphone bi-md mt-1' ></h1></div>
+                            <div className='col-8 align-self-center'><h3 className='mt-0'>Publications</h3></div>
+                            <div className='col-2 align-self-center'><h1 className='bi bi-arrow-right-short bi-md mt-1' ></h1></div>
+                        </div>
+                    </div>
                     <div className='card p-3 shadow-sm  border-div text-center  ' style={{color: APPConf.themeColor}}>
                         <NavLink exact='true' to='/App/S/profile' className="stretched-link"></NavLink>
                         <div className='row' style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}>
@@ -219,8 +235,6 @@ function RequestPage() {
                             <div className='col-8 align-self-center'><h3 className='mt-0'>Paramétre de Profile</h3></div>
                             <div className='col-2 align-self-center'><h1 className='bi bi-arrow-right-short bi-md mt-1' ></h1></div>
                         </div>
-                         
-                        
                     </div>
                 </div>
                 

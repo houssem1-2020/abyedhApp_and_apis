@@ -4,12 +4,15 @@ import GConf from '../../AssetsM/APPConf';
  
 
 import Docteur from './infoPage/docteur'; 
+import Infirmier from './infoPage/infirmier'; 
 import PharmacieRdv from './infoPage/pharmacie_rdv';
 import PharmacieShop from './infoPage/pharmacie_shop';
 import Clinique from './infoPage/clinique_reserver'; 
 
 import GarderieInscription from './infoPage/garderie_inscription';
 import GarderieSouscrie from './infoPage/garderie_souscrire';
+import FormationInscription from './infoPage/formation_inscription';
+import FormationSouscrie from './infoPage/formation_souscrire';
 import RestaurantReservation from './infoPage/restaurant';
 import RestaurantCommande from './infoPage/restaurantcommande';
 import AutoEcole from './infoPage/autoecole_inscrie';
@@ -82,7 +85,7 @@ import Photographe from './infoPage/photographe_reserver';
 import Bijouterie from './infoPage/bijouterie_shop';
 import Chef from './infoPage/chef_reserver';
 import SallonMariage from './infoPage/salon_marriage_reserver';
-
+import Veterinaire from './infoPage/veterinaire'; 
  
 
 
@@ -106,7 +109,8 @@ function RequestInfo() {
       const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
       const statusCard = React.useCallback(() => {
       switch(status) {
-            case 'docteur_rdv': return <Docteur TAG={GConf.systemTag} PID={GConf.systemTag} />;  
+        case 'docteur_rdv': return <Docteur TAG={GConf.systemTag} PID={GConf.systemTag} />;  
+        case 'infirmier_rdv': return <Infirmier TAG={GConf.systemTag} PID={GConf.systemTag} />;  
          case 'pharmacie_shop': return <PharmacieShop TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
          case 'pharmacie_rdv': return <PharmacieRdv TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
          case 'clinique_reserver': return <Clinique TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
@@ -115,6 +119,8 @@ function RequestInfo() {
           case 'centre_reserver': return <CentreMd TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
             case 'garderie_inscription': return <GarderieInscription TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
             case 'garderie_souscription': return <GarderieSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'formation_inscription': return <FormationInscription TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+            case 'formation_souscription': return <FormationSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
             case 'autoecole_inscrie': return <AutoEcole TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'ecole_inscription': return <EcoleInscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'ecole_souscription': return <EcoleSouscrie TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
@@ -177,6 +183,7 @@ function RequestInfo() {
             case 'hotels_reserver': return <HotelsReserver TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
             case 'hotels_service': return <HotelsService TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
           case 'agence_service': return <VgAgence TAG={GConf.systemTag} PID={GConf.systemTag} /> ;
+          case 'veterinaire_rdv': return <Veterinaire TAG={GConf.systemTag} PID={GConf.systemTag} />;
           default:  return <IndefinieCard />;    
       }
       }, [status]);

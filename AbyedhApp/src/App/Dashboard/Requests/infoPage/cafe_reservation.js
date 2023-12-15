@@ -144,7 +144,7 @@ const TerminerCard = ({requestData, setRequestData, reqState, FindBtnState, Upda
     </>
 }
 
-function DocteurSpecific() {
+function RestaurantReservation() {
     /*#########################[Const]##################################*/
     const {TAG,CID} = useParams()
     const [activeIndex, setActiveIndex] = useState(0)
@@ -307,23 +307,36 @@ function DocteurSpecific() {
         return<>
              <h5>Info du { findElementByLink(`rq/${TAG}`) }</h5>
                     <div className="table-responsive">
-                        <table className="table table-striped">
+                        <table className="table table-striped text-nowrap">
                             <tbody>
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-person me-2'></span> Nom  </td>
                                     <td>{loading ? requestData.Name : ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-calendar me-2'></span> Date </td>
-                                    <td>{loading ? new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                    <td className='col-5 text-secondary'><span className='bi bi-calendar-check me-2'></span> Le </td>
+                                    <td>{loading ?<> {new Date(requestData.Wanted_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )} | {requestData.Wanted_Time.slice(0,-3)} </>: ''}</td>
                                 </tr>
                                 <tr>
-                                    <td className='col-5 text-secondary'><span className='bi bi-clock me-2'></span> Temps </td>
-                                    <td>{loading ? requestData.RDV_Time : ''}</td>
+                                    <td className='text-secondary'><span className='bi bi-star me-2'></span> Commandes</td>
+                                    <td>
+                                        <ul>
+                                            {loading ? 
+                                            <>
+                                            {JSON.parse(requestData.R_Articles).map((data,index) => <li key={index}>{data.Name}</li>)}
+                                            </> 
+                                            : ''}
+                                        </ul>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className='col-5 text-secondary'><span className='bi bi-clock me-2'></span> Table </td>
+                                    <td>{loading ? requestData.Table_Num : ''} </td>
                                 </tr>
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-calendar-check me-2'></span> Passe Le</td>
-                                    <td>{loading ? new Date(requestData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ) : ''}</td>
+                                    <td>{loading ?<> {new Date(requestData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )} | {requestData.R_Time.slice(0,-3)} </>: ''}</td>
                                 </tr>
                                 <tr>
                                     <td className='col-5 text-secondary'><span className='bi bi-chat-dots-fill me-2'></span> Commentaire</td>
@@ -380,4 +393,4 @@ function DocteurSpecific() {
     </> );
 }
 
-export default DocteurSpecific;
+export default RestaurantReservation;

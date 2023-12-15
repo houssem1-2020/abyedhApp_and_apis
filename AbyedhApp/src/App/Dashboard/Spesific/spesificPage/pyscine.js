@@ -2,21 +2,9 @@ import React, {useEffect,useState}  from 'react';
 import GConf from '../../../AssetsM/APPConf';
 import { _ } from "gridjs-react";
 import axios from 'axios';
-import { Fade } from 'react-reveal';
-import SKLT from '../../../AssetsM/Cards/usedSlk';
-import TableGrid from '../../../AssetsM/Cards/tableGrid';
-import SubNav from '../../../AssetsM/Cards/subNav';
-import GoBtn from '../../../AssetsM/Cards/goBtn';
-import TableImage from '../../../AssetsM/Cards/tableImg';
 import { toast } from 'react-toastify';
-import { Button , Icon, Modal, Tab, Statistic, Input} from 'semantic-ui-react';
-import { useNavigate} from 'react-router-dom';
-import FullCalendar from '@fullcalendar/react' // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
-import { Menu } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
-import ADIL from '../../../AssetsM/APPITEM';
-import CountUp from 'react-countup';
+import { Button , Icon, Modal, Tab, Statistic, Input, Placeholder} from 'semantic-ui-react';
+import APPConf from '../../../AssetsM/APPConf';
 
 
 function DocteurSpecific() {
@@ -25,6 +13,19 @@ function DocteurSpecific() {
      const [addAssurance, setAddAssurance] = useState(false)
      const [addDiplome, setAddDiplome] = useState(false)
      const [addCoash, setAddCoash] = useState(false)
+
+     const [loading, setLoading] = useState(true)
+     
+     const [addOneData, setOneData] = useState(false)
+     const [addTwoData, setTwoData] = useState(false)
+     const [addThreeData, setThreeData] = useState(false)
+     const [addFourData, setFourData] = useState(false)
+
+     const [addOneDataWas, setOneDataWas] = useState(false)
+     const [addTwoDataWas, setTwoDataWas] = useState(false)
+     const [addThreeDataWas, setThreeDataWas] = useState(false)
+     const [addFourDataWas, setFourDataWas] = useState(false)
+
      const [returnedProfileData, setReturnedProfileData] = useState({SP_Tarif:[], SP_Props:[], SP_Teams:[], SP_Coach:[]})
      const [loaderState, setLS] = useState(false)
    
@@ -37,7 +38,9 @@ function DocteurSpecific() {
         })
         .then(function (response) {
  
-          setReturnedProfileData(response.data) 
+          setReturnedProfileData(response.data)
+          setLoading(false) 
+
         }).catch((error) => {
           if(error.request) {
             toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de Charger La Liste de  Commandes  </div></>, GConf.TostInternetGonf)   
@@ -52,14 +55,26 @@ function DocteurSpecific() {
       emptyArray.splice(targetIndex, 1);
       setReturnedProfileData({...returnedProfileData, [targetGenre] :JSON.stringify(emptyArray) })
 
+      switch (targetGenre) {
+        case 'SP_Tarif':
+          setOneDataWas(true)
+          break;
+        case 'SP_Props':
+          setTwoDataWas(true)
+          break;
+        case 'SP_Teams':
+          setThreeDataWas(true)
+            break;
+        case 'SP_Coach':
+          setFourDataWas(true)
+            break;
+        default:
+          break;
+      }
+
+
     }
-    const UpdateFunction = (targetGenre) =>{
-      // if (commandeData.articles.length == 0 ) {toast.error("أدخل  منتجات   !", GConf.TostErrorGonf)}
-      // else if (!commandeData.Wanted_Day  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
-      // else if (!commandeData.Wanted_Time  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
-      // else if (!commandeData.Livraison_Par  ) {toast.error("أدخل  اليوم   !", GConf.TostErrorGonf)}
-      // else{
-           
+    const UpdateFunction = (targetGenre) =>{           
           setLS(true)
           axios.post(`${GConf.ApiLink}/spesific/update`, {
             PID : GConf.PID,
@@ -80,6 +95,20 @@ function DocteurSpecific() {
 
     /*#########################[Card]##################################*/
     
+    const SekeltonCard = () =>{
+      const PlaceHolderCard = () =>{
+          return(<>
+          <Placeholder className='mb-0 border-div' style={{ height: 30, width: '100%' }}>
+              <Placeholder.Image />
+          </Placeholder>
+          </>)
+      }
+      return(<>
+          <PlaceHolderCard />
+          <PlaceHolderCard />
+          <PlaceHolderCard />
+      </>)
+    }
     const ListeVide = (props) =>{
       return(<>
         <div className='text-center pt-4 text-secondary'>
@@ -87,6 +116,262 @@ function DocteurSpecific() {
           <h5 className='mt-2'>Cliquer Sur + pour ajouter </h5>
         </div>
 
+      </>)
+    }
+
+    const AddOneDataCard = (props) =>{
+      const [dataNow, setDataNow] = useState({PK: 1 , Name:'', Qte: ''}) 
+
+      const AddArticleToList = () =>{
+        if (!dataNow.Forfait) { toast.error("أدخل  إسم العرض   !", GConf.TostErrorGonf) } 
+        else if (!dataNow.Prix) { toast.error("أدخل السعر  !", GConf.TostErrorGonf) } 
+        else if (!dataNow.Description) { toast.error("أدخل الوصف  !", GConf.TostErrorGonf) } 
+        else {
+            if (returnedProfileData.SP_Tarif == '') {
+                let emptyArray = []
+                emptyArray.push(dataNow)
+                setReturnedProfileData({...returnedProfileData, SP_Tarif:JSON.stringify(emptyArray) })
+                setOneDataWas(true)
+            } else {    
+                let emptyArray = JSON.parse(returnedProfileData.SP_Tarif)
+                emptyArray.push(dataNow)
+                setReturnedProfileData({...returnedProfileData, SP_Tarif: JSON.stringify(emptyArray) })
+                setOneDataWas(true)
+            }
+        }
+        
+      }
+
+
+      return(<>
+      
+       <div className='card-body  mb-4 text-end' >
+          <input placeholder='Nom du Forfait'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, Forfait: e.target.value })} />
+          <input type='number' placeholder='Prix en D.T'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, Prix: e.target.value })} />
+          <input placeholder='Description'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, Description: e.target.value })} />
+          <br />
+          <Button  className='rounded-pill  '   size='small' basic={addOneDataWas ? false : true}  color={addOneDataWas ? 'blue' : undefined}  onClick={() => AddArticleToList()}>  <Icon name='plus' className='ms-2' /> Ajouter </Button>
+          
+      </div>
+      </>)
+    }
+    const OneDataListeCard = (props) =>{
+        return(<>
+        {loading ? <SekeltonCard /> : 
+          <>
+            {returnedProfileData.SP_Tarif == '' || (JSON.parse(returnedProfileData.SP_Tarif).length == 0 && !addOneDataWas) ? <ListeVide icon='cash-coin' />
+            :
+            <>
+              <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
+              {JSON.parse(returnedProfileData.SP_Tarif).map((data,index) => 
+                <div className='  p-2 border-div mb-2' key={index}>
+                    <div className='row'>
+                        <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'> {index + 1 } - {data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
+                        <div className='col-3 align-self-center'>{data.Prix} D.T</div> 
+                        <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Tarif')}></Button></div> 
+                    </div>
+                </div>
+              )}
+              </div>
+              <br />
+              <div className='text-end '>
+                  <Button   className='rounded-pill ' size='tiny' disabled={addOneDataWas ? false : true} color={addOneDataWas ? 'blue' : undefined}  onClick={() => UpdateFunction('SP_Tarif')}>  <Icon name='check' className='ms-2' /> Modifier </Button>
+              </div>
+            </>
+            } 
+          </>}
+        </>)
+    }
+
+    const AddTwoDataCard = (props) =>{
+      const [dataNow, setDataNow] = useState({PK: 1 , Name:'', Qte: ''}) 
+
+      const AddArticleToList = () =>{
+        if (!dataNow.Forfait) { toast.error("أدخل  إسم العرض   !", GConf.TostErrorGonf) } 
+        else if (!dataNow.Prix) { toast.error("أدخل السعر  !", GConf.TostErrorGonf) } 
+        else if (!dataNow.Description) { toast.error("أدخل الوصف  !", GConf.TostErrorGonf) } 
+        else {
+            if (returnedProfileData.SP_Props == '') {
+                let emptyArray = []
+                emptyArray.push(dataNow)
+                setReturnedProfileData({...returnedProfileData, SP_Props:JSON.stringify(emptyArray) })
+                setTwoDataWas(true)
+            } else {    
+                let emptyArray = JSON.parse(returnedProfileData.SP_Props)
+                emptyArray.push(dataNow)
+                setReturnedProfileData({...returnedProfileData, SP_Props: JSON.stringify(emptyArray) })
+                setTwoDataWas(true)
+            }
+        }
+        
+      }
+
+
+      return(<>
+      
+       <div className='card-body  mb-4 text-end' >
+          <input placeholder='Nom du Forfait'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, Forfait: e.target.value })} />
+          <input type='number' placeholder='Prix en D.T'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, Prix: e.target.value })} />
+          <input placeholder='Description'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, Description: e.target.value })} />
+          <br />
+          <Button  className='rounded-pill  '   size='small' basic={addTwoDataWas ? false : true}  color={addTwoDataWas ? 'blue' : undefined}  onClick={() => AddArticleToList()}>  <Icon name='plus' className='ms-2' /> Ajouter </Button>
+          
+      </div>
+      </>)
+    }
+    const TwoDataListeCard = (props) =>{
+        return(<>
+        {loading ? <SekeltonCard /> : 
+          <>
+            {returnedProfileData.SP_Props == '' || (JSON.parse(returnedProfileData.SP_Props).length == 0 && !addTwoDataWas) ? <ListeVide icon='boxes' />
+            :
+            <>
+              <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
+              {JSON.parse(returnedProfileData.SP_Props).map((data,index) => 
+                <div className='  p-2 border-div mb-2' key={index}>
+                    <div className='row'>
+                        <div className='col-7 align-self-center'><h5 className='mt-0 mb-1'> {index + 1 } - {data.Forfait}</h5> <small className='mb-0'>{data.Description}</small></div> 
+                        <div className='col-3 align-self-center'>{data.Prix} D.T</div> 
+                        <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Props')}></Button></div> 
+                    </div>
+                </div>
+              )}
+              </div>
+              <br />
+              <div className='text-end '>
+                  <Button   className='rounded-pill ' size='tiny' disabled={addTwoDataWas ? false : true} color={addTwoDataWas ? 'blue' : undefined}  onClick={() => UpdateFunction('SP_Props')}>  <Icon name='check' className='ms-2' /> Modifier </Button>
+              </div>
+            </>
+            } 
+          </>}
+        </>)
+    }
+
+    const AddThreeDataCard = (props) =>{
+        const [dataNow, setDataNow] = useState({PK: 1 , diplome:'', annee: '', faculte: ''}) 
+
+        const AddArticleToList = () =>{
+          if (dataNow.diplome == '') { toast.error("أدخل  إسم الشهادة   !", GConf.TostErrorGonf) } 
+          else if (dataNow.annee == '') { toast.error("أدخل سنة التخرج  !", GConf.TostErrorGonf) } 
+          else if (dataNow.faculte == '') { toast.error("أدخل اسم المؤسسة المانحة  !", GConf.TostErrorGonf) } 
+          else {
+              if (returnedProfileData.SP_Teams == '') {
+                  let emptyArray = []
+                  emptyArray.push(dataNow)
+                  setReturnedProfileData({...returnedProfileData, SP_Teams:JSON.stringify(emptyArray) })
+                  setThreeDataWas(true)
+              } else {    
+                  let emptyArray = JSON.parse(returnedProfileData.SP_Teams)
+                  emptyArray.push(dataNow)
+                  setReturnedProfileData({...returnedProfileData, SP_Teams: JSON.stringify(emptyArray) })
+                  setThreeDataWas(true)
+              }
+          }
+          
+        }
+
+
+        return(<>
+            <div className='card-body  mb-4 text-end'>
+                <input placeholder='Diplome'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, diplome: e.target.value })} />
+                <input type='date' placeholder='Anneé' defaultValue={new Date().toISOString().split('T')[0]}  className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, annee: e.target.value })} />
+                <input placeholder='Etablissment'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, faculte: e.target.value })} />
+                
+                <br />
+                <Button   className='rounded-pill' size='small' basic={addThreeDataWas ? false : true}  color={addThreeDataWas ? 'blue' : undefined} onClick={() => AddArticleToList()}>  <Icon name='plus' className='ms-2' /> Ajouter </Button>
+                
+            </div>
+        </>)
+    }
+    const ThreeDataListeCard = (props) =>{
+        return(<>
+        {loading ? <SekeltonCard /> : 
+          <>
+          {returnedProfileData.SP_Teams == '' || (JSON.parse(returnedProfileData.SP_Teams).length == 0 && !addThreeDataWas) ?  <ListeVide icon='person-lines-fill' /> 
+          :
+          <>
+            <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
+            {JSON.parse(returnedProfileData.SP_Teams).map((data,index) => 
+              <div className='  p-2 border-div mb-2' key={index}>
+                  <div className='row'>
+                      <div className='col-10 align-self-center'><h5 className='mt-0 mb-1'>{data.annee} : {data.diplome}</h5> <small className='mb-0'>{data.faculte}</small></div> 
+                      <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Teams')}></Button></div> 
+                  </div>
+              </div>
+            )}
+            </div>
+            <br />
+            <div className='text-end '>
+                <Button   className='rounded-pill' size='tiny'   disabled ={addThreeDataWas ? false : true}  color={addThreeDataWas ? 'blue' : undefined} onClick={() => UpdateFunction('SP_Teams')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+            </div>
+            
+          </> 
+          } 
+        </>}
+      </>)
+    }
+
+    const AddFourDataCard = (props) =>{
+      const [dataNow, setDataNow] = useState({PK: 1 , diplome:'', annee: '', faculte: ''}) 
+
+      const AddArticleToList = () =>{
+        if (dataNow.diplome == '') { toast.error("أدخل  إسم الشهادة   !", GConf.TostErrorGonf) } 
+        else if (dataNow.annee == '') { toast.error("أدخل سنة التخرج  !", GConf.TostErrorGonf) } 
+        else if (dataNow.faculte == '') { toast.error("أدخل اسم المؤسسة المانحة  !", GConf.TostErrorGonf) } 
+        else {
+            if (returnedProfileData.SP_Coach == '') {
+                let emptyArray = []
+                emptyArray.push(dataNow)
+                setReturnedProfileData({...returnedProfileData, SP_Coach:JSON.stringify(emptyArray) })
+                setFourDataWas(true)
+            } else {    
+                let emptyArray = JSON.parse(returnedProfileData.SP_Coach)
+                emptyArray.push(dataNow)
+                setReturnedProfileData({...returnedProfileData, SP_Coach: JSON.stringify(emptyArray) })
+                setFourDataWas(true)
+            }
+        }
+        
+      }
+
+
+      return(<>
+          <div className='card-body  mb-4 text-end'>
+              <input placeholder='Diplome'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, diplome: e.target.value })} />
+              <input type='date' placeholder='Anneé' defaultValue={new Date().toISOString().split('T')[0]}  className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, annee: e.target.value })} />
+              <input placeholder='Etablissment'   className='text-start form-control mb-1 rounded' onChange={ (e) => setDataNow({...dataNow, faculte: e.target.value })} />
+              
+              <br />
+              <Button   className='rounded-pill' size='small' basic={addFourDataWas ? false : true}  color={addFourDataWas ? 'blue' : undefined} onClick={() => AddArticleToList()}>  <Icon name='plus' className='ms-2' /> Ajouter </Button>
+              
+          </div>
+      </>)
+    }
+    const FourDataListeCard = (props) =>{
+        return(<>
+        {loading ? <SekeltonCard /> : 
+          <>
+          {returnedProfileData.SP_Coach == '' || (JSON.parse(returnedProfileData.SP_Coach).length == 0 && !addFourDataWas) ?  <ListeVide icon='people' /> 
+          :
+          <>
+            <div style={{maxHeight:'300px', overflowX:'auto', overflowX:'hidden'}}  >
+            {JSON.parse(returnedProfileData.SP_Coach).map((data,index) => 
+              <div className='  p-2 border-div mb-2' key={index}>
+                  <div className='row'>
+                      <div className='col-10 align-self-center'><h5 className='mt-0 mb-1'>{data.annee} : {data.diplome}</h5> <small className='mb-0'>{data.faculte}</small></div> 
+                      <div className='col-2 align-self-center'><Button icon="trash alternate" className='rounded-circle p-2 text-danger bg-white ' onClick={() => DeleteFromTarifList(index, 'SP_Coach')}></Button></div> 
+                  </div>
+              </div>
+            )}
+            </div>
+            <br />
+            <div className='text-end '>
+                <Button   className='rounded-pill' size='tiny'   disabled ={addFourDataWas ? false : true}  color={addFourDataWas ? 'blue' : undefined} onClick={() => UpdateFunction('SP_Coach')}>  <Icon name='plus' className='ms-2' /> Modifier </Button>
+            </div>
+            
+          </> 
+          } 
+        </>}
       </>)
     }
 
@@ -323,56 +608,40 @@ function DocteurSpecific() {
     }
     return (<>
             
-          
-          <div className='row mb-3'>
-              <div className='col-10 align-self-center'><h4>Liste des Tarif : </h4></div>
-              <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() =>setAddTarifActive(!addTarifActive)}> <Icon name={addTarifActive ? 'list ol' : 'plus'} /> </Button></div>
+            <div className='row mb-3'>
+              <div className='col-10 align-self-center'><h4 style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}> <span className='bi bi-cash-coin'></span> Liste des Tarif : </h4></div>
+              <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setOneData(!addOneData)}> <Icon name={addOneData ? 'list ol' : 'plus'} /> </Button></div>
           </div>
-          { addTarifActive ? 
-          <AddTarifCard />
-          :
-          <TarifListeCard />
-           
-          }
+          { addOneData ?  <AddOneDataCard /> : <OneDataListeCard /> }
 
           <br />
           <br />
           <br />
           <div className='row mb-3'>
-              <div className='col-10 align-self-center'><h4>  Dimension  : </h4></div>
-              <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setAddAssurance(!addAssurance)}> <Icon name={addAssurance ? 'list ol' : 'plus'} /> </Button></div>
+              <div className='col-10 align-self-center'><h4 style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}> <span className='bi bi-boxes'></span>  Dimension  : </h4></div>
+              <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setTwoData(!addTwoData)}> <Icon name={addTwoData ? 'list ol' : 'plus'} /> </Button></div>
           </div>
-          { addAssurance ? 
-          <AddAssurance />
-          :
-          <AssuranceListeCard />
-          }
+          { addTwoData ?  <AddTwoDataCard /> : <TwoDataListeCard /> }
 
           <br />
           <br />
           <br />
           <div className='row mb-3'>
-              <div className='col-10 align-self-center'><h4>  Equipes  : </h4></div>
-              <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setAddDiplome(!addDiplome)}> <Icon name={addDiplome ? 'list ol' : 'plus'} /> </Button></div>
+              <div className='col-10 align-self-center'><h4 style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}> <span className='bi bi-person-lines-fill'></span>  Equipes  : </h4></div>
+              <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setThreeData(!addThreeData)}> <Icon name={addThreeData ? 'list ol' : 'plus'} /> </Button></div>
           </div>
-          { addDiplome ? 
-          <AddDiplome />
-          :
-          <DiplomeListeCard />
-          }
+          { addThreeData ?  <AddThreeDataCard /> : <ThreeDataListeCard /> }
 
           <br />
           <br />
           <br />
           <div className='row mb-3'>
-              <div className='col-10 align-self-center'><h4>  Coash  : </h4></div>
-              <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setAddDiplome(!addDiplome)}> <Icon name={addDiplome ? 'list ol' : 'plus'} /> </Button></div>
+              <div className='col-10 align-self-center'><h4 style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}> <span className='bi bi-people'></span>  Coash  : </h4></div>
+              <div className='col-2 align-self-center'><Button   className='rounded-circle' icon onClick={() => setFourData(!addFourData)}> <Icon name={addFourData ? 'list ol' : 'plus'} /> </Button></div>
           </div>
-          { addDiplome ? 
-          <AddCoash />
-          :
-          <CoashListeCard />
-          }
+          { addFourData ?  <AddFourDataCard /> : <FourDataListeCard /> }
+          <br />
+          <br />
 
     </>);
 }

@@ -27,6 +27,34 @@ const  SuivieRequestData  = {
         }
 
     },
+    infirmier_rdv : {
+        icon:'bi-check-circle-fill text-success',
+        title:'حجز موعد مع طبيب',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>  
+                    <div className="mb-1"> <span className="bi bi-calendar"></span>  يوم الموعد  : {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                    <div className="mb-1"> <span className="bi bi-chat-square-dots"></span>  التشخيص  : {requestData.Comment}</div>  
+                </> )
+        },
+        stepsValues : [
+            {name: 'infirmier_rdv_saved' , value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            {name :'infirmier_rdv_seen', value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:1},
+            {name :'infirmier_rdv_accepted ', value:'100', text:'قبول الموعد', icon:'calendar outline', color:'gray', line:'toAccept', step:2},
+            {name :'infirmier_rdv_rejected ', value:'100', text:' رفض الموعد', icon:'calendar times outline', color:'gray', line:'toReject', step:2},
+            {name :'infirmier_rdv_retarder ', value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'toRetarder', step:2},
+            {name :'infirmier_rdv_redirected ', value:'80', text:' توجيه الموعد', icon:'doctor', color:'gray', line:'toRedirect', step:0},
+        ],
+        stepsValues2 : {
+            infirmier_rdv_saved:{value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            infirmier_rdv_seen:{value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:0},
+            infirmier_rdv_accepted :{value:'100', text:'قبول الموعد', icon:'calendar-plus', color:'gray', line:'all', step:0},
+            infirmier_rdv_rejected :{value:'100', text:' رفض الموعد', icon:'shield-x', color:'gray', line:'all', step:0},
+            infirmier_rdv_retarder :{value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'all', step:0},
+            infirmier_rdv_redirected :{value:'80', text:' توجيه الموعد', icon:'person', color:'gray', line:'all', step:0},
+        }
+
+    },
     pharmacie_shop: {
         icon:'bi-check-circle-fill text-success',
         title:'شراء دواء',
@@ -213,6 +241,42 @@ const  SuivieRequestData  = {
             garderie_inscription_rejected :{value:'100', text:' رفض الموعد', icon:'shield-x', color:'gray', line:'all', step:0},
             garderie_inscription_retarder :{value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'all', step:0},
             garderie_inscription_redirected :{value:'80', text:' توجيه الموعد', icon:'person', color:'gray', line:'all', step:0},
+        }
+
+    },
+    formation_inscription : {
+        icon:'bi-check-circle-fill text-success',
+        title:'تسجيل صغير في روضة',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                    <div className="mb-1"> <span className="bi bi-tag"></span> اسم الطفل  : {requestData.EL_Name}</div>  
+                    <div className="mb-1"> <span className="bi bi-calendar"></span> تاريخ الولادة  : {new Date(requestData.EL_Naissance).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                    <div className="mb-1"> <span className="bi bi-gender-ambiguous"></span>  الجنس : {requestData.EL_Genre}</div>  
+                    <div className="mb-1"> <span className="bi bi-geo-alt-fill"></span>  الولاية : {requestData.Gouv}</div>  
+                    <div className="mb-1"> <span className="bi bi-geo-alt-fill"></span>  المدينة : {requestData.Deleg}</div>  
+                    <div className="mb-1"> <span className="bi bi-map"></span>  العنوان : {requestData.EL_Adress}</div>  
+                    <div className="mb-1"> <span className="bi bi-person-fill"></span>  اسم الاب : {requestData.EL_Pere_Nom}</div>  
+                    <div className="mb-1"> <span className="bi bi-phone-vibrate-fill"></span>  هاتف الاب : {requestData.EL_Pere_Phone}</div>  
+                    <div className="mb-1"> <span className="bi bi-person"></span>  اسم الام  : {requestData.EL_Mere_Nom}</div>  
+                    <div className="mb-1"> <span className="bi bi-phone-vibrate"></span>  هاتف الام  : {requestData.EL_Mere_Phone}</div>  
+                </> )
+        },
+        stepsValues : [
+            {name: 'formation_inscription_saved' , value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            {name :'formation_inscription_seen', value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:1},
+            {name :'formation_inscription_accepted ', value:'100', text:'قبول الموعد', icon:'calendar outline', color:'gray', line:'toAccept', step:2},
+            {name :'formation_inscription_rejected ', value:'100', text:' رفض الموعد', icon:'calendar times outline', color:'gray', line:'toReject', step:2},
+            {name :'formation_inscription_retarder ', value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'toRetarder', step:2},
+            {name :'formation_inscription_redirected ', value:'80', text:' توجيه الموعد', icon:'doctor', color:'gray', line:'toRedirect', step:0},
+        ],
+        stepsValues2 : {
+            formation_inscription_saved:{value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            formation_inscription_seen:{value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:0},
+            formation_inscription_accepted :{value:'100', text:'قبول الموعد', icon:'calendar-plus', color:'gray', line:'all', step:0},
+            formation_inscription_rejected :{value:'100', text:' رفض الموعد', icon:'shield-x', color:'gray', line:'all', step:0},
+            formation_inscription_retarder :{value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'all', step:0},
+            formation_inscription_redirected :{value:'80', text:' توجيه الموعد', icon:'person', color:'gray', line:'all', step:0},
         }
 
     },
@@ -1896,6 +1960,71 @@ const  SuivieRequestData  = {
             architecture_service_rejected :{value:'100', text:' رفض الموعد', icon:'shield-x', color:'gray', line:'all', step:0},
             architecture_service_retarder :{value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'all', step:0},
             architecture_service_redirected :{value:'80', text:' توجيه الموعد', icon:'person', color:'gray', line:'all', step:0},
+        }
+
+    },
+    veterinaire_rdv : {
+        icon:'bi-check-circle-fill text-success',
+        title:'حجز موعد مع طبيب',
+        titleIcon:'bi-receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>  
+                    <div className="mb-1"> <span className="bi bi-calendar"></span>  يوم الموعد  : {new Date(requestData.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</div>  
+                    <div className="mb-1"> <span className="bi bi-chat-square-dots"></span>  التشخيص  : {requestData.Comment}</div>  
+                </> )
+        },
+        stepsValues : [
+            {name: 'veterinaire_rdv_saved' , value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            {name :'veterinaire_rdv_seen', value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:1},
+            {name :'veterinaire_rdv_accepted ', value:'100', text:'قبول الموعد', icon:'calendar outline', color:'gray', line:'toAccept', step:2},
+            {name :'veterinaire_rdv_rejected ', value:'100', text:' رفض الموعد', icon:'calendar times outline', color:'gray', line:'toReject', step:2},
+            {name :'veterinaire_rdv_retarder ', value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'toRetarder', step:2},
+            {name :'veterinaire_rdv_redirected ', value:'80', text:' توجيه الموعد', icon:'doctor', color:'gray', line:'toRedirect', step:0},
+        ],
+        stepsValues2 : {
+            veterinaire_rdv_saved:{value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            veterinaire_rdv_seen:{value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:0},
+            veterinaire_rdv_accepted :{value:'100', text:'قبول الموعد', icon:'calendar-plus', color:'gray', line:'all', step:0},
+            veterinaire_rdv_rejected :{value:'100', text:' رفض الموعد', icon:'shield-x', color:'gray', line:'all', step:0},
+            veterinaire_rdv_retarder :{value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'all', step:0},
+            veterinaire_rdv_redirected :{value:'80', text:' توجيه الموعد', icon:'person', color:'gray', line:'all', step:0},
+        }
+
+    },
+    fourragerie_shop : {
+        icon:'bi-pencil-square text-info',
+        title:'   طلب شراء مواد غذائية  ',
+        titleIcon:'receipt-cutoff',
+        GenTextFunction : function(requestData,pidData){
+            return (<>
+                 
+                <div className="mb-1"> <span className="bi bi-truck"></span>  توصيل عبر  : {requestData.Livraison_Par}</div>  
+                <div className="mb-1"> <span className="bi bi-calendar"></span>   بتاريخ  : {new Date(requestData.Wanted_Day).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )} | {requestData.Wanted_Time}</div>  
+                <div className="mb-1"> <span className="bi bi-chat"></span>  ملاحضات : {requestData.Comment}</div>  
+                <div className="mb-1"> 
+                    <span className="bi bi-basket"></span> للمنتجات : 
+                    <ul> 
+                        {JSON.parse(requestData.Articles).map( (data,index) => <li key={index}>{data.Qte} - {data.Name}</li>)}
+                    </ul>
+                </div>  
+                
+            </> )
+        },
+        stepsValues : [
+            {name: 'fourragerie_shop_saved' , value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            {name :'fourragerie_shop_seen', value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:1},
+            {name :'fourragerie_shop_accepted ', value:'100', text:'قبول الموعد', icon:'calendar outline', color:'gray', line:'toAccept', step:2},
+            {name :'fourragerie_shop_rejected ', value:'100', text:' رفض الموعد', icon:'calendar times outline', color:'gray', line:'toReject', step:2},
+            {name :'fourragerie_shop_retarder ', value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'toRetarder', step:2},
+            {name :'fourragerie_shop_redirected ', value:'80', text:' توجيه الموعد', icon:'doctor', color:'gray', line:'toRedirect', step:0},
+        ],
+        stepsValues2 : {
+            fourragerie_shop_saved:{value:'20', text:'تسجيل الطلب', icon:'check', color:'green', line:'all', step:0},
+            fourragerie_shop_seen:{value:'50', text:'إستلام الطلب', icon:'eye', color:'gray', line:'all', step:0},
+            fourragerie_shop_accepted :{value:'100', text:'قبول الموعد', icon:'calendar-plus', color:'gray', line:'all', step:0},
+            fourragerie_shop_rejected :{value:'100', text:' رفض الموعد', icon:'shield-x', color:'gray', line:'all', step:0},
+            fourragerie_shop_retarder :{value:'80', text:' تأجيل الموعد', icon:'calendar times outline', color:'gray', line:'all', step:0},
+            fourragerie_shop_redirected :{value:'80', text:' توجيه الموعد', icon:'person', color:'gray', line:'all', step:0},
         }
 
     },

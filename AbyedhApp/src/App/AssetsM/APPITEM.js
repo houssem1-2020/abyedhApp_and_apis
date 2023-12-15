@@ -128,7 +128,7 @@ const APPItem = {
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Reservation' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-range', link:'rq/clinique_reserver'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Traif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             clinique_reserver : [
@@ -173,7 +173,7 @@ const APPItem = {
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Rendy Vous' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/labo_rdv'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Tarif & Autres' , itemDesc:'Entrez La Liste de Vos Traif ', icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif & Autres' , itemDesc:'Entrez La Liste de Vos Tarif ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             labo_rdv : [
@@ -202,11 +202,11 @@ const APPItem = {
     },
     infirmier:{
         colorTheme:'#093587',
-        adsImageUrl:'labo.svg',
+        adsImageUrl:'infirmier.svg',
         systemTitle:' نظام إدارة المخابر ',
         systemUrl:'#',
         directoryTable:'صاحب مخبر طبي', 
-        RequestTable:'Labo', 
+        RequestTable:'infirmier', 
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
@@ -215,11 +215,11 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:6, colSm:12, itemName:'Rendy Vous' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/labo_rdv'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Rendy Vous' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/infirmier_rdv'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Tarifs, Diplomes, Assurance ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
-            labo_rdv : [
+            infirmier_rdv : [
                         {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
                         {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
                         {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
@@ -235,10 +235,10 @@ const APPItem = {
             { id: 3, name: ' تشريح وعلم الخلايا', value: 'CYTOGENETIQUE', imgSrc: 'cellule' },    
         ],
         tableItemList : {
-            labo_rdv :[{id:1, value: 'RDV_Cause', genre: 'text'}, {id:2, value: 'RDV_Date', genre: 'date'}, {id:2, value: 'RDV_Time', genre: 'text'}], 
+            infirmier_rdv :[{id:1, value: 'RDV_Cause', genre: 'text'}, {id:2, value: 'RDV_Date', genre: 'date'}, {id:2, value: 'RDV_Time', genre: 'text'}], 
         },
         tableHeader : {
-            labo_rdv : ['*', 'Client', 'Passé le','Passé à','Cause ','De','Vers','Etat','Voir'], 
+            infirmier_rdv : ['*', 'Client', 'Passé le','Passé à','Cause ','De','Vers','Etat','Voir'], 
         },
         xxxxxxxxxx: [],
         yyyyyyyyyy : []
@@ -259,7 +259,7 @@ const APPItem = {
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-range', link:'rq/centre_reserver'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Traif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             centre_reserver : [
@@ -578,7 +578,7 @@ const APPItem = {
     formation:{
         colorTheme:'#919034',
         adsImageUrl:'impremerie.svg',
-        systemTitle:'نظام إداراة المطابع',
+        systemTitle:'نظام إداراة مراكز التكوين الحر',
         systemUrl:'#',
         directoryTable:'صاحب مطبعة', 
         RequestTable:'Impremerie', 
@@ -590,47 +590,47 @@ const APPItem = {
             {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
+            {id: 1 , colLg:4, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/formation_inscription'},
+            // {id: 3 , colLg:4, colSm:12, itemName:'Souscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/formation_souscription'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
-            docteur_rdv : [
+            formation_inscription : [
                 {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
                 {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
                 {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
                 {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
-                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
-                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
-                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 4, navIndexName:'T'},
+            ],
+            formation_souscription : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 4, navIndexName:'T'},
             ],
         },
         genreListe : [
-            { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
-            { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
-            { id: 3, name: 'المجاري البولية', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
-            { id: 4, name: 'امراض الرئة', value: 'PNEUMOLOGIE', imgSrc: 'PNEUMOLOGIE' },
-            { id: 5, name: 'العيون', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
-            { id: 6, name: 'أذن أنف حنجرة', value: 'ORL', imgSrc: 'ORL' },
-            { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
-            { id: 8, name: 'الكلي', value: 'NEPHROLOGIE', imgSrc: 'NEPHROLOGIE' },
-            { id: 9, name: 'نساء و توليد', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
-            { id: 10, name: 'الجهاز الهضمي', value: 'GASTROLOGIE', imgSrc: 'GASTROLOGIE' },
-            { id: 11, name: 'الغدد', value: 'ENDOCRINOLOGIE', imgSrc: 'ENDOCRINOLOGIE' },
-            { id: 12, name: 'البشرة', value: 'DERMATOLOGIE', imgSrc: 'DERMATOLOGIE' },
-            { id: 13, name: 'القلب', value: 'CARDIOLOGIE', imgSrc: 'CARDIOLOGIE' },
-            { id: 14, name: 'النفس', value: 'PSYCHIATRIE', imgSrc: 'PSYCHIATRIE' },
-            { id: 15, name: 'التغذية', value: 'NUTRITION', imgSrc: 'NUTRITION' },    
+            { id: 1, name: 'تَحْضِيرِي', value: 'dentiste', imgSrc: 'nursery' },
+            { id: 2, name: 'مِحْضَنَة', value: 'dentiste', imgSrc: 'nurserya' },    
         ],
         tableItemList : {
-            restaurant_commande : [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}], 
-            restaurant_reservation :  [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}]
+            formation_inscription : [{id:1, value: 'EL_Name', genre: 'text'}, {id:2, value: 'EL_Naissance', genre: 'date'}, {id:2, value: 'EL_Genre', genre: 'text'}], 
+            formation_souscription :  [{id:1, value: 'Identifiant', genre: 'text'}, {id:2, value: 'Annee_Scolaire', genre: 'text'}]
         },
         tableHeader : {
-            restaurant_commande : ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Voir'], 
-            restaurant_reservation :  ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Etat','Voir'],
+            formation_inscription : ['*', 'Client', 'Passé le','Passé à','Nom','Naissance','Genre','Etat','Voir'], 
+            formation_souscription :  ['*', 'Client', 'Passé le','Passé à','Identifiant','Anneé','Etat','Etat','Voir'],
         },
         xxxxxxxxxx: [],
+        imageCarousel:[
+           {id:1, title:'إدارة العامة', color:'#4287f5', icon:'link-45deg', link:'garderie/garderie1.PNG'},
+           {id:2, title:'سهل', color:'#5dd492', icon:'emoji-smile', link:'garderie/garderie2.PNG'},
+           {id:3, title:'معين', color:'#8923e8', icon:'arrows-move', link:'garderie/garderie3.PNG'},
+           {id:4, title:'متطور', color:'#5d6360', icon:'arrow-repeat', link:'garderie/garderie4.PNG'},
+           {id:5, title:' مدعوم', color:'#e6327a', icon:'info-circle-fill', link:'garderie/garderie5.PNG'},
+   
+       ],
         yyyyyyyyyy : []
     },
     impremerie:{
@@ -708,7 +708,7 @@ const APPItem = {
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/transporteur_request'},
-            {id: 3 , colLg:6, colSm:12, itemName:'Traif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+            {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
         navItemList2 : {
             transporteur_request : [
@@ -3090,41 +3090,33 @@ const APPItem = {
 
     veterinaire:{
         colorTheme:'#f07800',
-        adsImageUrl:'socite.svg',
-        systemTitle:'نظام إداراة الشركات القابضة',
-        systemUrl:'#',
-        directoryTable:'صاحب شركة قابضة', 
-        RequestTable:'Socite', 
+        adsImageUrl:'veterinaire.svg',
+        systemTitle:' نظام إدارة العيادات الطبية ',
+        businesName:'العيادة ',
+        directoryTable:'طبيب', 
+        RequestTable:'veterinaire', 
         systemReady: false ,
-        adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
+        systemUrl:'https://veterinaire.system.abyedh.tn',
+        adsText:' نظام إداراة العيادات يقدم لك مجموعة من الأدوات و الحلول الرقمية التي تساعدك علي أداء عملك بالشكل الممتاز , كما أنه يبقيك دائما متصلا مع مرضاك  للإطمئنان علي صحتهم و متابعة تطور حالتهم الصحية , بالإضافة إلي مجموعة من لوحات لاتحكم الموجهة لفريق العمل لتتابع أداء مهامهم بسهولة , فضلا  عن مجموعة متميزة من الأدوات التي تعينك علي تطوير عملك ',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إدارة الحصص' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إدارة الوصفات الطبية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إدارة المرضي' , description:'', icon:'window-dock'},
         ],
         itemsList : [
-            {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
-            {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
-            {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
-        ],
-       navItemListold : [
-            {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
-            {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
-            {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
-            {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
-            {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
-            {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
-            {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            {id: 1 , colLg:6, colSm:12, itemName:'Rendy-Vous' , itemDesc:'Suivez les Etat du rendy-Vous ',  icon:'calendar-week', link:'rq/veterinaire_rdv'},
+            {id: 2 , colLg:6, colSm:12, itemName:'Tarifs & Autres' , itemDesc:'Tarifs, Diplomes, Assurance ', icon:'cash-coin', link:'Spesific'},
+            
         ],
         navItemList2 : {
-            docteur_rdv : [
-                        {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
-                        {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
-                        {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
-                        {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
-                        {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
-                        {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
-                        {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+            veterinaire_rdv : [
+                {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+                {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+                {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+                {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+                {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+                {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+                {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
             ],
         },
         genreListe : [
@@ -3145,16 +3137,83 @@ const APPItem = {
             { id: 15, name: 'التغذية', value: 'NUTRITION', imgSrc: 'NUTRITION' },    
         ],
         tableItemList : {
-            restaurant_commande : [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}], 
-            restaurant_reservation :  [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}]
+            veterinaire_rdv : [{id:1, value: 'RDV_Date', genre: 'date'}, {id:2, value: 'RDV_Time', genre: 'text'}], 
         },
         tableHeader : {
-            restaurant_commande : ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Voir'], 
-            restaurant_reservation :  ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Etat','Voir'],
+            veterinaire_rdv : ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Voir'], 
+             
         },
         xxxxxxxxxx: [],
         yyyyyyyyyy : []
     },
+
+    // veterinaire:{
+    //     colorTheme:'#f07800',
+    //     adsImageUrl:'socite.svg',
+    //     systemTitle:'نظام إداراة الشركات القابضة',
+    //     systemUrl:'#',
+    //     directoryTable:'صاحب شركة قابضة', 
+    //     RequestTable:'Socite', 
+    //     systemReady: false ,
+    //     adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
+    //     systemPos : [
+    //         {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+    //         {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+    //         {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+    //     ],
+    //     itemsList : [
+    //         {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/veterinaire_commande'},
+    //         {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/veterinaire_reservation'},
+    //         {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+    //     ],
+    //    navItemListold : [
+    //         {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+    //         {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+    //         {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+    //         {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+    //         {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
+    //         {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
+    //         {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+    //     ],
+    //     navItemList2 : {
+    //         docteur_rdv : [
+    //                     {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
+    //                     {id: 2 , navName:'Vu' , color:'#1070fd',  icon:'eye-fill', navIndex: 1, navIndexName:'S'},
+    //                     {id: 3 , navName:'Accepteé' , color:'#198754',  icon:'check-square-fill', navIndex: 2, navIndexName:'A'},
+    //                     {id: 4 , navName:'Refuseé' , color:'#dc3545',  icon:'x-square-fill', navIndex: 3, navIndexName:'R'},
+    //                     {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RT'},
+    //                     {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RD'},
+    //                     {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+    //         ],
+    //     },
+    //     genreListe : [
+    //         { id: 1, name: 'أسنان', value: 'STOMATOLOGIE', imgSrc: 'STOMATOLOGIE' },
+    //         { id: 2, name: 'أطفال', value: 'PEDIATRIE', imgSrc: 'PEDIATRIE' },
+    //         { id: 3, name: 'المجاري البولية', value: 'UROLOGIE', imgSrc: 'UROLOGIE' },
+    //         { id: 4, name: 'امراض الرئة', value: 'PNEUMOLOGIE', imgSrc: 'PNEUMOLOGIE' },
+    //         { id: 5, name: 'العيون', value: 'OPHTALMOLOGIE', imgSrc: 'OPHTALMOLOGIE' },
+    //         { id: 6, name: 'أذن أنف حنجرة', value: 'ORL', imgSrc: 'ORL' },
+    //         { id: 7, name: 'الأعصاب', value: 'NEUROLOGIE', imgSrc: 'NEUROLOGIE' },
+    //         { id: 8, name: 'الكلي', value: 'NEPHROLOGIE', imgSrc: 'NEPHROLOGIE' },
+    //         { id: 9, name: 'نساء و توليد', value: 'GYNECOLOGIE_OBSTETRIQUE', imgSrc: 'GYNECOLOGIE_OBSTETRIQUE' },
+    //         { id: 10, name: 'الجهاز الهضمي', value: 'GASTROLOGIE', imgSrc: 'GASTROLOGIE' },
+    //         { id: 11, name: 'الغدد', value: 'ENDOCRINOLOGIE', imgSrc: 'ENDOCRINOLOGIE' },
+    //         { id: 12, name: 'البشرة', value: 'DERMATOLOGIE', imgSrc: 'DERMATOLOGIE' },
+    //         { id: 13, name: 'القلب', value: 'CARDIOLOGIE', imgSrc: 'CARDIOLOGIE' },
+    //         { id: 14, name: 'النفس', value: 'PSYCHIATRIE', imgSrc: 'PSYCHIATRIE' },
+    //         { id: 15, name: 'التغذية', value: 'NUTRITION', imgSrc: 'NUTRITION' },    
+    //     ],
+    //     tableItemList : {
+    //         veterinaire_commande : [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}], 
+    //         veterinaire_reservation :  [{id:1, value: 'Comm_Genre', genre: 'text'}, {id:2, value: 'Table_Num', genre: 'text'}]
+    //     },
+    //     tableHeader : {
+    //         veterinaire_commande : ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Voir'], 
+    //         veterinaire_reservation :  ['*', 'Client', 'Passé le','Passé à','Data 1','Data 2','Etat','Etat','Voir'],
+    //     },
+    //     xxxxxxxxxx: [],
+    //     yyyyyyyyyy : []
+    // },
     fourragerie:{
         colorTheme:'#59a0b2',
         adsImageUrl:'socite.svg',

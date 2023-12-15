@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import GConf from '../../AssetsM/generalConf';
 import { toast } from 'react-toastify';
-import { Button, Icon, Modal} from 'semantic-ui-react';
+import { Button, Icon, Modal, Placeholder} from 'semantic-ui-react';
 import { Pagination,Autoplay,Navigation } from "swiper";
 import { Swiper, SwiperSlide, } from "swiper/react";
 import "swiper/css";
@@ -25,6 +25,7 @@ function SearchLandingPage() {
     const [deleg ,setDeleg] = useState('')
     const navigate = useNavigate();
     const [suggestionListe , setSuggestionListe] = useState([])
+    const [pageLoading, setPageLoading] = useState(true)
     /* ############### UseEffect #################*/
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -34,6 +35,7 @@ function SearchLandingPage() {
           })
           .then(function (response) {
             setSuggestionListe(response.data)
+            setPageLoading(false)
         })
     }, [])
 
@@ -293,6 +295,22 @@ function SearchLandingPage() {
         </>)
     }
     const FvaoriteOrSuggestionCard = () =>{
+        const SekeltonCard = () =>{
+            const PlaceHolderCard = () =>{
+                return(<>
+                <Placeholder className='mb-0 border-div' style={{ height: 70, width: '100%' }}>
+                    <Placeholder.Image />
+                </Placeholder>
+                </>)
+            }
+            return(<>
+                <div className='row'>
+                    <div className='col-8'><PlaceHolderCard /></div>
+                    <div className='col-4'><PlaceHolderCard /></div>
+                </div>
+            </>)
+        }
+
         const ItemCard = (props) =>{
             return(<>
             <NavLink exact='true' to={`/S/P/${tag}/${props.data.PID}`}>
@@ -309,6 +327,9 @@ function SearchLandingPage() {
             </>)
         }
         return(<>
+            {pageLoading ? <SekeltonCard />
+            :
+            
             <Swiper
                 slidesPerView= {1.8}
                 centeredSlides = {false}
@@ -322,6 +343,7 @@ function SearchLandingPage() {
                     <SwiperSlide key={index}> <ItemCard  key={index} data={carouselData} index={index} /></SwiperSlide> 
                  )}
             </Swiper>
+            }
         </>)
     }
     /*const BigScreenItemCard = () =>{
