@@ -505,14 +505,14 @@ function MainLandingPage() {
                     <div className='col-12'>
                         <DisplayedCard smallDisplay={true} data={GConf.Items.sante} />
                         <DisplayedCard smallDisplay={true} data={GConf.Items.education} />
-                        <DisplayedCard smallDisplay={true} data={GConf.Items.trasnportation} />
-                        <DisplayedCard smallDisplay={true} data={GConf.Items.houseCar} />
-                        <DisplayedCard smallDisplay={true} data={GConf.Items.life} />
-                        <DisplayedCard smallDisplay={true} data={GConf.Items.nutrition} />
+                        <DisplayedCard smallDisplay={true} data={GConf.Items.trasnportationSmall} />
+                        <DisplayedCard smallDisplay={true} data={GConf.Items.commerceSmall} />
+                        <DisplayedCard smallDisplay={true} data={GConf.Items.restaurationSmall} />
+                        <DisplayedCard smallDisplay={true} data={GConf.Items.lifeSmall} />
                         <DisplayedCard smallDisplay={true} data={GConf.Items.culture} />
-                        <DisplayedCard smallDisplay={true} data={GConf.Items.tourizme} />
-                        <DisplayedCard smallDisplay={true} data={GConf.Items.finance} />
-                        <DisplayedCard smallDisplay={true} data={GConf.Items.construction} />
+                        <DisplayedCard smallDisplay={true} data={GConf.Items.artisanatSmall} />
+                        <DisplayedCard smallDisplay={true} data={GConf.Items.financeSmall} />
+                        <DisplayedCard smallDisplay={true} data={GConf.Items.constructionSmall} />
                         <DisplayedCard smallDisplay={true} data={GConf.Items.politique} />
                         <DisplayedCard smallDisplay={true} data={GConf.Items.agricole} />
                         <DisplayedCard smallDisplay={true} data={GConf.Items.generale} />
@@ -522,6 +522,8 @@ function MainLandingPage() {
             <br />
             {/* <Tools /> */}
             <DownloadTheApp />
+            <br />
+            <Tools />
             <br />
             <br />
             <ButtomCard />

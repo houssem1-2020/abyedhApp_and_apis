@@ -41,7 +41,7 @@ function DocummentLanding() {
         }, [status]);
       
         return (
-          <div className="container">
+          <div className="c ">
             {statusCard()}
           </div>
         );

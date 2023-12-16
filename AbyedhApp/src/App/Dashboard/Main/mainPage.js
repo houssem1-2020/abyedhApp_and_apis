@@ -221,7 +221,7 @@ function RequestPage() {
                         </div>
                     </div>
                     <div className='card p-3 shadow-sm  border-div text-center  mb-3' style={{color: APPConf.themeColor}}>
-                        <NavLink exact='true' to='/App/S/#' className="stretched-link"></NavLink>
+                        <NavLink exact='true' to='/App/S/Publication' className="stretched-link"></NavLink>
                         <div className='row' style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}>
                             <div className='col-2 align-self-center'><h1 className='bi bi-megaphone bi-md mt-1' ></h1></div>
                             <div className='col-8 align-self-center'><h3 className='mt-0'>Publications</h3></div>

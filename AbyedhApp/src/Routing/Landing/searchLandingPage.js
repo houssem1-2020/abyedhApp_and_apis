@@ -198,7 +198,7 @@ function SearchLandingPage() {
                             <div className='card p-3 mb-2 shadow-sm rounded-pill text-center'>
                                <div className='row' style={{color:GConf.ADIL[tag].themeColor}}>
                                     <div className='col-2 align-text-center align-self-center'><img  className="rounded-circle " src={`https://cdn.abyedh.tn/images/p_pic/${GConf.UserData.UData.PictureId}.gif`}   alt="Logo" style={{width:'20px', height:'20px'}} /></div>
-                                    <div className='col-9 align-text-center' dir='rtl'> <b> بحث في  {props.gouv} , {props.deleg}</b>    </div>
+                                    <div className='col-9 align-text-center text-truncate'   style={{maxWidth:'280px'}}> <b>  {props.gouv} , {props.deleg} بحث في </b>    </div>
                                     <div className='col-1 align-text-center align-self-center'><b> <span className='bi bi-arrow-right-short'></span> </b></div>
                                </div>
                             </div>

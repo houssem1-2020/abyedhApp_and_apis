@@ -7,6 +7,7 @@ import { Select } from 'semantic-ui-react'
 import { Bounce } from 'react-reveal';
 import { NavLink } from 'react-router-dom';
 import QRCode from 'react-qr-code';
+import { toast } from 'react-toastify';
 
 const EditGeneralSettingCard = ({delegList,GetDelegList, GConf, setGeneralData, generalData, SaveGeneralDFunc}) =>{
     const options = [
@@ -33,31 +34,31 @@ const EditGeneralSettingCard = ({delegList,GetDelegList, GConf, setGeneralData, 
     ]
 
     return(<>
-            <h5 className='mb-1 text-end'>  الاسم  <span className='bi bi-calendar2'></span> </h5>
+            <h5 className='mb-1 text-end'>    <span className='bi bi-calendar2'></span> الاسم</h5>
             <Input className='mb-3' type='text' fluid   value={generalData.Name} onChange={(e) => setGeneralData({...generalData, Name: e.target.value })} />
             
-            <h5 className='mb-1 text-end'>  تاريخ الولادة  <span className='bi bi-calendar2'></span> </h5>
-            <Input className='mb-3' type='date' fluid   value={generalData.BirthDay} onChange={(e) => setGeneralData({...generalData, BirthDay: e.target.value })} />
+            <h5 className='mb-1 text-end'> <span className='bi bi-calendar2'></span>  تاريخ الولادة   </h5>
+            <Input className='mb-3' type='date' fluid   value={new Date(generalData.BirthDay).toISOString().substring(0, 10)} onChange={(e) => setGeneralData({...generalData, BirthDay: e.target.value })} />
 
-            <h5 className='mb-1 text-end'>  الهاتف  <span className='bi bi-calendar2'></span> </h5>
+            <h5 className='mb-1 text-end'> <span className='bi bi-calendar2'></span>  الهاتف   </h5>
             <Input className='mb-3' type='text' fluid   value={generalData.PhoneNum} onChange={(e) => setGeneralData({...generalData, PhoneNum: e.target.value })} />
 
-            <h5 className='mb-1 text-end'>    الجنس  <span className='bi bi-person-x-fill'></span> </h5>
-            <Select className='mb-3' fluid options={sexOptions} onChange={(e, { value }) => setGeneralData({...generalData, EL_Genre: value })} />
+            <h5 className='mb-1 text-end'> <span className='bi bi-person-x-fill'></span>   الجنس   </h5>
+            <Select className='mb-3' fluid options={sexOptions} value={generalData.EL_Genre} onChange={(e, { value }) => setGeneralData({...generalData, EL_Genre: value })} />
             
             <div className='p-1 mb-2'>
-                <h5 className='mb-1 text-end'>    {generalData.BirthGouv} - {generalData.BirthDeleg}   الموقع الجغرافي : <span className='bi bi-person-x-fill'></span> </h5>
+                <h5 className='mb-1 text-end'>  <span className='bi bi-person-x-fill'></span>      الموقع الجغرافي :  {generalData.BirthGouv} - {generalData.BirthDeleg}</h5>
                 <Select placeholder='اختر ولاية' fluid className='mb-2' options={GConf.abyedhMap.Gouv} value={generalData.BirthGouv} onChange={(e, { value }) => GetDelegList(value,true)} />
                 <Select placeholder='اختر مدينة ' fluid value={generalData.BirthDeleg} options={delegList} onChange={(e, { value }) => setGeneralData({...generalData, BirthDeleg: value })} />
             </div>
 
             <h5 className='mb-1 text-end'> 
-                      صورة الحساب  <img src={`https://cdn.abyedh.tn/images/p_pic/${generalData.PictureId}.gif`} className='rounded-circle' width='30px' height='30px'  />           
+                     <img src={`https://cdn.abyedh.tn/images/p_pic/${generalData.PictureId}.gif`} className='rounded-circle' width='30px' height='30px'  />     صورة الحساب          
             </h5>
             <Select className='mb-3' fluid options={options} onChange={(e, { value }) => setGeneralData({...generalData, PictureId: value })} />
 
-            <div className='text-start mt-4'>
-                <Button size='tiny' onClick={ (e) => SaveGeneralDFunc()} className='rounded-pill' icon> <Icon name='edit' /> تعديل </Button>    
+            <div className='text-end mt-4'>
+                <Button size='tiny' fluid onClick={ (e) => SaveGeneralDFunc()} className='rounded-pill bg-danger text-white' icon> <Icon name='edit' /> حفظ التعديلات </Button>    
             </div>
 
     </>)
@@ -66,29 +67,29 @@ const EditPWDSettingCard = ({passwordData, setPWDData, SavePWDFunc}) =>{
     return(<>
             <div dir='rtl'>
                  <h5 className='mb-1 text-end'  > <span className='bi bi-geo-alt'></span> المعرف </h5>
-                <Input className='mb-1' type='text' fluid  value={passwordData.PhoneNum} onChange={(e) => setPWDData({...passwordData, Gouv: e.target.value })} />
+                <Input className='mb-1' type='text' fluid  value={passwordData.PhoneNum} onChange={(e) => setPWDData({...passwordData, PhoneNum: e.target.value })} />
 
                 <h5 className='mb-1 text-end mt-2'  > <span className='bi bi-geo-alt-fill'></span> كلمة المرور </h5>
-                <Input className='mb-3' type='text' fluid  value={passwordData.PasswordHash} onChange={(e) => setPWDData({...passwordData, Deleg: e.target.value })} />
+                <Input className='mb-3' type='text' fluid  value={passwordData.PasswordHash} onChange={(e) => setPWDData({...passwordData, PasswordHash: e.target.value })} />
                  
                 <div className='text-start mt-4'>
-                    <Button size='tiny' onClick={ (e) => SavePWDFunc()} className='rounded-pill' icon> <Icon name='edit' /> تعديل </Button>    
+                    <Button size='tiny' fluid onClick={ () => SavePWDFunc()} className='rounded-pill bg-danger text-white' icon> <Icon name='edit' /> حفظ التعديلات  </Button>    
                 </div> 
             </div>
     </>)
 }
-const EditDirectorySettingCard = ({delegList,GetDelegList, GConf, settingData, setSettingData, SaveSettingFunc}) =>{
+const EditDirectorySettingCard = ({delegList,GetDelegList, GConf, generalData, setGeneralData, SaveSettingFunc}) =>{
     return(<>
             <div dir='rtl'>
                 <h5 className='text-end'>مكان البحث الإفتراضي</h5> 
                 <div className='p-1 mb-2'>
-                    <h5 className='mb-1 text-end'>    {settingData.Gouv} - {settingData.Deleg} </h5>
-                    <Select placeholder='اختر ولاية' fluid className='mb-2' options={GConf.abyedhMap.Gouv} value={settingData.Gouv} onChange={(e, { value }) => GetDelegList(value,false)} />
-                    <Select placeholder='اختر مدينة ' fluid value={settingData.Deleg} options={delegList} onChange={(e, { value }) => setSettingData({...settingData, Deleg: value })} />
+                    <h5 className='mb-1 text-end'>    {generalData.BirthGouv} - {generalData.BirthDeleg} </h5>
+                    <Select placeholder='اختر ولاية' fluid className='mb-2' options={GConf.abyedhMap.Gouv} value={generalData.BirthGouv} onChange={(e, { value }) => GetDelegList(value,true)} />
+                    <Select placeholder='اختر مدينة ' fluid value={generalData.BirthDeleg} options={delegList} onChange={(e, { value }) => setGeneralData({...generalData, BirthDeleg: value })} />
                 </div>
 
                 <div className='text-start mt-4'>
-                    <Button size='tiny' onClick={ (e) => SaveSettingFunc()} className='rounded-pill' icon> <Icon name='edit' /> تعديل </Button>    
+                    <Button size='tiny' fluid onClick={ (e) => SaveSettingFunc()} className='rounded-pill bg-danger text-white' icon> <Icon name='edit' /> حفظ التعديلات  </Button>    
                 </div> 
             </div>
     </>)
@@ -108,6 +109,12 @@ function SettingPage() {
     const [loading, setLoading] = useState(false)
     const [delegList ,setDelegList] = useState([]) 
 
+    const [generalEditStat, setGeneraleEditState] = useState(false)
+    const [passwordEditStat, setPasswordEditState] = useState(false)
+    const [directoryEditStat, setDirectoryEditState] = useState(false)
+
+    const [loaderState, setLS] = useState(false)
+
     const setting =[
         {id:0, name:'عام', imgSrc:'01', iconTitle:'arrows-move'},
         {id:1, name:'كملة المرور', imgSrc:'05', iconTitle:'key-fill'},
@@ -118,6 +125,7 @@ function SettingPage() {
 
     /* ########################[UseEffect]###################### */
     useEffect(() => {
+        console.log(GConf.UserData)
         axios.post(`${GConf.ApiProfileLink}/setting`, {
             UID:UID
           })
@@ -125,7 +133,6 @@ function SettingPage() {
             setPWDData(response.data.Auth)
             setGeneralData(response.data.General)
             setSettingData(JSON.parse(response.data.Setting.Directory))
-            console.log(response.data)
           })
       }, [])
 
@@ -145,13 +152,83 @@ function SettingPage() {
     }
 
     const SaveSettingFunc = () => {
-        console.log(settingData)
+        if (!generalData.BirthDeleg  ) {toast.error("أدخل  كلمة المرور   !", GConf.TostErrorGonf)}
+        else if (!generalData.BirthGouv  ) {toast.error("أدخل  المعرف   !", GConf.TostErrorGonf)}
+        else{
+            setLS(true)
+            axios.post(`${GConf.ApiProfileLink}/setting/update/location`, {
+                UID : UID,
+                BirthGouv : generalData.BirthGouv,
+                BirthDeleg : generalData.BirthDeleg,
+
+            }).then(function (response) {
+
+                if (response.status == 200) {
+                    toast.success(<><div><h5>تم التعديل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+                    setLS(false)
+                    localStorage.setItem('UserData', JSON.stringify(generalData)); 
+                    // console.log({Logged: true, UData : generalData})
+                    // console.log(GConf.UserData)
+                }
+                
+            }).catch((error) => {
+                if(error.request) {
+                  toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de connecter aux systeme </div></>, GConf.TostInternetGonf)   
+                  setLS(false)
+                }
+            });
+        } 
     }
     const SavePWDFunc = () => {
-        console.log(passwordData)
+        if (!passwordData.PasswordHash  ) {toast.error("أدخل  كلمة المرور   !", GConf.TostErrorGonf)}
+        else if (!passwordData.PhoneNum  ) {toast.error("أدخل  المعرف   !", GConf.TostErrorGonf)}
+        else{
+            setLS(true)
+            axios.post(`${GConf.ApiProfileLink}/setting/update/pwd`, {
+                UID : UID,
+                PasswordHash : passwordData.PasswordHash,
+                PhoneNum : passwordData.PhoneNum,
+
+            }).then(function (response) {
+                toast.success(<><div><h5>تم التعديل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+                setLS(false)
+            }).catch((error) => {
+                if(error.request) {
+                  toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de connecter aux systeme </div></>, GConf.TostInternetGonf)   
+                  setLS(false)
+                }
+            });
+        } 
+
     }
     const SaveGeneralDFunc = () => {
-        console.log(generalData)
+        if (!generalData.Name  ) {toast.error("أدخل  كلمة المرور   !", GConf.TostErrorGonf)}
+        else if (!generalData.BirthDay  ) {toast.error("أدخل  المعرف   !", GConf.TostErrorGonf)}
+        else if (!generalData.Sex  ) {toast.error("أدخل  المعرف   !", GConf.TostErrorGonf)}
+        else if (!generalData.BirthGouv  ) {toast.error("أدخل  المعرف   !", GConf.TostErrorGonf)}
+        else if (!generalData.BirthGouv  ) {toast.error("أدخل  المعرف   !", GConf.TostErrorGonf)}
+        else if (!generalData.PictureId  ) {toast.error("أدخل  المعرف   !", GConf.TostErrorGonf)}
+        else{
+            setLS(true)
+            axios.post(`${GConf.ApiProfileLink}/setting/update/generale`, {
+                UID : UID,
+                generalData : generalData,
+
+            }).then(function (response) {
+
+                if (response.status == 200) {
+                    toast.success(<><div><h5>تم التعديل بنجاح </h5>  </div></>, GConf.TostInternetGonf)
+                    setLS(false)
+                    localStorage.setItem('UserData', JSON.stringify(generalData)); 
+                }
+                
+            }).catch((error) => {
+                if(error.request) {
+                  toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de connecter aux systeme </div></>, GConf.TostInternetGonf)   
+                  setLS(false)
+                }
+            });
+        }
     }
     /* ########################[Card]########################### */
     const SettingItem = (props) =>{
@@ -192,9 +269,10 @@ function SettingPage() {
     }
 
     const GenralSettingCard = () =>{
+       
         return(<>
             <div className='row mb-2'> 
-                <div className='col-6 align-self-center text-end'> <b><span className='bi bi-person-fill bi-sm text-secondary ms-2'></span>  المعرف الوحيد</b>  </div>
+                <div className='col-6 align-self-center text-end'> <b><span className='bi bi-qr-code-scan bi-sm text-secondary ms-2'></span>  المعرف الوحيد</b>  </div>
                 <div className='col-6  align-self-center text-end'> {generalData ? <b className='text-danger' onClick={ (e) => OpenModalFunction('qrcode')}>{generalData.UID}</b>  : ''} </div>
             </div>
             <hr /> 
@@ -232,10 +310,10 @@ function SettingPage() {
                 <div className='col-6 align-self-center text-end'> <b><span className='bi bi-person-circle bi-sm text-secondary ms-2'></span>  صورة الحساب  </b>  </div>
                 <div className='col-6  align-self-center text-end'> {generalData ?  <img src={`https://cdn.abyedh.tn/images/p_pic/${generalData.PictureId}.gif`} className='rounded-circle' width='30px' height='30px'  /> : ''} </div>
             </div>
-            <br />
+            {/* <br />
             <div className='text-start'>
-                <Button size='tiny' onClick={ (e) => OpenModalFunction('general')} className='rounded-pill' icon> <Icon name='edit' /> تعديل </Button>    
-            </div>
+                <Button size='tiny' onClick={ () => setGeneraleEditState(!generalEditStat)} className='rounded-pill' icon> <Icon name='edit' /> تعديل </Button>    
+            </div> */}
         </>)
     }
     const PWDSettingCard = () =>{
@@ -249,10 +327,10 @@ function SettingPage() {
                 <div className='col-7 align-self-center text-end'> <b><span className='bi bi-key-fill bi-sm text-secondary ms-2'></span>  كلمة المرور</b>  </div>
                 <div className='col-5  align-self-center text-start'> {passwordData.PasswordHash} </div>
             </div>
-            <br />
+            {/* <br />
             <div className='text-start'>
                 <Button size='tiny' onClick={ (e) => OpenModalFunction('pwd')} className='rounded-pill' icon> <Icon name='edit' /> تعديل </Button>    
-            </div>
+            </div> */}
         </>)
     }
     const DirectorySettinfCard = () =>{
@@ -260,17 +338,17 @@ function SettingPage() {
             <h5>مكان البحث الإفتراضي</h5> 
             <div className='row mb-2'> 
                 <div className='col-6 align-self-center text-end'> <b><span className='bi bi-calendar-heart-fill bi-sm text-secondary ms-2'></span> الولاية </b>  </div>
-                <div className='col-6  align-self-center text-start'> {settingData.Gouv} </div>
+                <div className='col-6  align-self-center text-start'> {generalData.BirthGouv} </div>
             </div>
             <hr />
             <div className='row mb-2'> 
                 <div className='col-6 align-self-center text-end'> <b><span className='bi bi-calendar-heart-fill bi-sm text-secondary ms-2'></span> المدينة  </b>  </div>
-                <div className='col-6  align-self-center text-start'> {settingData.Deleg} </div>
+                <div className='col-6  align-self-center text-start'> {generalData.BirthDeleg} </div>
             </div>
-            <hr />
+            {/* <hr />
             <div className='text-start'>
                 <Button size='tiny' onClick={ (e) => OpenModalFunction('directory')} className='rounded-pill' icon> <Icon name='edit' /> تعديل </Button>    
-            </div>
+            </div> */}
         </>)
     }
     const QrCodeCard = () => {
@@ -437,16 +515,94 @@ function SettingPage() {
     */}
 
 
-    return (  <>
+    return (  <>        
             {
                 loading ? 
                 <SekeltonCard /> 
                 :
                 <Bounce bottom>
                     <Accordion >
-                        {
-                            setting.map( (data,index) => <SettingItem key={index} data={data} /> )
-                        }   
+                        <Accordion.Title
+                            active={activeIndex === 0}
+                            index={0}
+                            onClick={(e) => setActiveIndex(0)}
+                            className='card shadow-sm border-div mb-1'
+                        >
+                                <div className='row p-2'>
+                                    <div className='col-6 align-self-center pe-3 text-end' style={{color:'#4287f5'}}><h4 dir='ltr'>عام <span className={`bi bi-arrows-move`}></span></h4></div>
+                                    <div className='col-6 align-self-center ps-3 text-start'><img src={`https://cdn.abyedh.tn/Images/Profile/setting/01.gif`} width='30px' height='30px' /></div>
+                                </div>
+                        </Accordion.Title>
+                        <Accordion.Content active={activeIndex === 0} className='card mt-2 mb-2 shadow-sm border-div ' >
+                            <div className='card-body '>
+                                    {
+                                        generalEditStat ? 
+                                        <EditGeneralSettingCard generalData={generalData} setGeneralData={setGeneralData} SaveGeneralDFunc={SaveGeneralDFunc} delegList={delegList} GetDelegList={GetDelegList}  GConf={GConf}  />
+                                        :
+                                        <GenralSettingCard />
+                                        
+                                    }
+                                    <br />
+                                    <div className='text-start'>
+                                        <Button size='tiny' onClick={ () => setGeneraleEditState(!generalEditStat)} className='rounded-pill' icon> <Icon name='edit' /> تعديل </Button>    
+                                    </div>
+                            </div>
+                        </Accordion.Content>
+                        
+                        <Accordion.Title
+                            active={activeIndex === 1}
+                            index={1}
+                            onClick={(e) => setActiveIndex(1)}
+                            className='card shadow-sm border-div mb-1'
+                        >
+                                <div className='row p-2'>
+                                    <div className='col-6 align-self-center pe-3 text-end' style={{color:'#4287f5'}}><h4 dir='ltr'>كملة المرور <span className={`bi bi-key-fill`}></span></h4></div>
+                                    <div className='col-6 align-self-center ps-3 text-start'><img src={`https://cdn.abyedh.tn/Images/Profile/setting/05.gif`} width='30px' height='30px' /></div>
+                                </div>
+                        </Accordion.Title>
+                        <Accordion.Content active={activeIndex === 1} className='card mt-2 mb-2 shadow-sm border-div ' >
+                            <div className='card-body '>
+                                    {
+                                        passwordEditStat ? 
+                                        <EditPWDSettingCard passwordData={passwordData} setPWDData={setPWDData} SavePWDFunc={SavePWDFunc} />
+                                        :
+                                        <PWDSettingCard />
+                                        
+                                    }
+                                    <br />
+                                    <div className='text-start'>
+                                        <Button size='tiny' onClick={ () => setPasswordEditState(!passwordEditStat)} className='rounded-pill' icon> <Icon name='edit' /> تعديل </Button>    
+                                    </div>
+                            </div>
+                        </Accordion.Content>
+
+                        <Accordion.Title
+                            active={activeIndex === 2}
+                            index={2}
+                            onClick={(e) => setActiveIndex(2)}
+                            className='card shadow-sm border-div mb-1'
+                        >
+                                <div className='row p-2'>
+                                    <div className='col-6 align-self-center pe-3 text-end' style={{color:'#4287f5'}}><h4 dir='ltr'>محرك البحث <span className={`bi bi-search-heart`}></span></h4></div>
+                                    <div className='col-6 align-self-center ps-3 text-start'><img src={`https://cdn.abyedh.tn/Images/Profile/setting/03.gif`} width='30px' height='30px' /></div>
+                                </div>
+                        </Accordion.Title>
+                        <Accordion.Content active={activeIndex === 2} className='card mt-2 mb-2 shadow-sm border-div ' >
+                            <div className='card-body '>
+                                    {
+                                        directoryEditStat ? 
+                                        <EditDirectorySettingCard generalData={generalData} setGeneralData={setGeneralData} SaveSettingFunc={SaveSettingFunc}  delegList={delegList} GetDelegList={GetDelegList}  GConf={GConf} />
+                                        :
+                                        <DirectorySettinfCard />
+                                        
+                                    }
+                                    <br />
+                                    <div className='text-start'>
+                                        <Button size='tiny' onClick={ () => setDirectoryEditState(!directoryEditStat)} className='rounded-pill' icon> <Icon name='edit' /> تعديل </Button>    
+                                    </div>
+                            </div>
+                        </Accordion.Content>
+                            
                     </Accordion>
                 </Bounce>
             }
@@ -464,7 +620,7 @@ function SettingPage() {
                     <Modal.Actions>
                                 <Button className='rounded-pill' negative onClick={ () => setModalS(false)}>   غلق</Button>
                     </Modal.Actions>
-            </Modal>
+                </Modal>
         
         <br />
         <br />

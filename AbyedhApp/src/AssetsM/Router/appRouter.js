@@ -21,6 +21,7 @@ import ProfilePID from '../../App/Dashboard/Profile/profilePID';
 const MainPage = React.lazy(() => import('../../App/Dashboard/Main/mainPage'));
 const SystemPage = React.lazy(() => import('../../App/Dashboard/System/systemPage'));
 const SpesificPage = React.lazy(() => import('../../App/Dashboard/Spesific/spesificPage'));
+const PublicationPage = React.lazy(() => import('../../App/Dashboard/Publication/publicationPage'));
 const RequestPage = React.lazy(() => import('../../App/Dashboard/Requests/requestPage'));
 const RequestInfo = React.lazy(() => import('../../App/Dashboard/Requests/requestInfo'));
 const MessagesPages = React.lazy(() => import('../../App/Dashboard/Messages/messagesPage'));
@@ -89,6 +90,7 @@ const UserRouter = () => (
                     <Route path="" exact element={<Suspense fallback={<ForLazyLoadingLoader />}><MainPage /></Suspense>} />
                     <Route path="System" exact element={<Suspense fallback={<ForLazyLoadingLoader />}><SystemPage /></Suspense>} />
                     <Route path="Spesific" exact element={<Suspense fallback={<ForLazyLoadingLoader />}><SpesificPage /></Suspense>} />
+                    <Route path="Publication" exact element={<Suspense fallback={<ForLazyLoadingLoader />}><PublicationPage /></Suspense>} />
                     <Route path="rq" exact element={<Outlet />} >
                         <Route path=":TAG" exact element={<Suspense fallback={<ForLazyLoadingLoader />}><RequestPage /></Suspense>} />
                         <Route path="info/:TAG/:CID" exact element={<Suspense fallback={<ForLazyLoadingLoader />}><RequestInfo /></Suspense>} />

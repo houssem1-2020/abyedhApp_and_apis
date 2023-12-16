@@ -17,9 +17,11 @@ import { toast } from 'react-toastify';
 import SuivieRequestData from './suivieRequestData'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import { useNavigate} from 'react-router-dom';
 
 function SuiviePage() {
     /* ###########################[const]############################ */
+    const navigate = useNavigate();
    let userData = JSON.parse(localStorage.getItem("UID"));
    let [loading, SetLoading] = useState(true)
    let [suivieData, setSuivieData] = useState([])
@@ -51,6 +53,7 @@ function SuiviePage() {
         setSelectedForModal(genre)
         setOpenD(true)
     }
+     
    /* ###########################[Card]############################# */
     const SuivieCard = (props) =>{
         const CircularPourcentage = (props) =>{
@@ -107,21 +110,27 @@ function SuiviePage() {
         }
         return(<>
             
-                <div className='card  p-3 pb-0 shadow-sm mb-3 border-div '>
-                        <NavLink to={`/Profile/L/sv/${props.data.RequestData.R_ID}`} className="stretched-link"></NavLink>
-                        <div className='row mb-3'>
+                <div className='card  p-1 pb-0 shadow-sm mb-3 border-div '>
+                        {/* <NavLink to={`/Profile/L/sv/${props.data.RequestData.R_ID}`} className="stretched-link"></NavLink> */}
+                        <div className='row mt-2 mb-0'>
                             <div className='col-10'> 
                                 <div className="d-flex align-items-center">
                                     <div className="flex-shrink-0">
                                         <img src={`https://cdn.abyedh.tn/images/Search/CIcons/${props.data.P_Genre}.gif`} alt="..."  width='50px' height='50px'/>
                                     </div>
                                     <div className="flex-grow-1 ms-3">
-                                        <h4 className='mb-0 text-secondary'><NavLink exact='true' to={`/Profile/L/ma/${props.data.RequestData.R_ID}`}>{props.data.PidData.Name}</NavLink></h4>
-                                        <div><small>{new Date(props.data.Notif_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )} | {SuivieRequestData[props.data.Notif_Name].title} </small></div>
+                                        <h4 className='mb-0 text-secondary'><NavLink exact='true' to={`/Profile/L/sv/${props.data.RequestData.R_ID}`}>{SuivieRequestData[props.data.Notif_Name].title}</NavLink></h4>
+                                        <div ><b className='text-secondary' dir='ltr'>  {new Date(props.data.Notif_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )} | {props.data.PidData.Name}</b></div>
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-2 align-self-center text-center text-end'> <CircularPourcentage value={SuivieRequestData[props.data.Notif_Name].stepsValues2[props.data.State].value} /> </div>
+                            <div className='col-2   align-self-center text-end   pe-0'> <CircularPourcentage value={SuivieRequestData[props.data.Notif_Name].stepsValues2[props.data.State].value} /> </div>
+                        </div>
+                        <div className='p-1 '>
+                            <Button.Group fluid>
+                                <Button className='bg-white' icon onClick={() => navigate(`/Profile/L/sv/${props.data.RequestData.R_ID}`)}> <Icon name='eye' /> متابعة</Button>
+                                <Button  className='bg-white' icon onClick={() => navigate(`/Profile/L/sv/${props.data.RequestData.R_ID}`)}> <Icon name='edit outline' /> تعديل </Button>
+                            </Button.Group>
                         </div>
                     {/*<div className='card-body pb-0 d-none d-lg-block'>
                         <div className='row'>

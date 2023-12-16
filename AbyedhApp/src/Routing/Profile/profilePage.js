@@ -21,6 +21,8 @@ import "swiper/css/grid";
 import "swiper/css/pagination";
 import { useLocation } from 'react-router-dom';
 
+const PublicationProfilePage = React.lazy(() => import('./publicationProfilePage'));
+
 //SPESIFIC
 const DocteurSpecific = React.lazy(() => import('./Specific/docteur'));
 const InfirmierSpecific = React.lazy(() => import('./Specific/infirmier'));
@@ -443,7 +445,7 @@ function ProfilePage() {
         },
         {
             menuItem: { key: 'pb', content:  <b className='' ><span className='bi bi-eye-fill bi-sm'></span></b> , dir:'rtl',  className:'rounded border border-2 border-div' , style:{color:GConf.ADIL[tag].themeColor,},},
-            render: () => <PublicationCard />,
+            render: () => <Suspense fallback={<ForLazyLoading />}><PublicationProfilePage pidData={profileData} /></Suspense>,
         },
         ]
         const [activeIndex, setActiveIndex] = useState(0)

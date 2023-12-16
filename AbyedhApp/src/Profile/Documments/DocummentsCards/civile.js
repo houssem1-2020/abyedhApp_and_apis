@@ -1,354 +1,271 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { _ } from "gridjs-react";
-import { Grid, html,  h  } from "gridjs";
-import { Modal, Tab } from 'semantic-ui-react'
+import { Modal, Placeholder, Tab } from 'semantic-ui-react'
 import GConf from '../../../AssetsM/generalConf';
-import { Form, TextArea, Input , Button, Icon, Loader} from 'semantic-ui-react'
+import { Button, Icon, Loader} from 'semantic-ui-react'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import TableGrid from '../../../AssetsM/tableGrid';
 import QRCode from "react-qr-code";
 import { useEffect } from 'react';
-
-function GarderieActions() {
-    /* ############### Const #################*/
-    let {tag, PID} = useParams()
  
-    let UID = localStorage.getItem('UID')
-    const [childrenListe, setChildrenListe] = useState([])
-    const [inscriptionListe, setInscriptionListe] = useState([])
-    const [souscriptionListe, setSouscriptionListe] = useState([])
 
-    const [seanceListe, setSeanceListe] = useState([])
-    const [examainListe, setExamainListe] = useState([])
-    const [bultinListe, setBultinListe] = useState([])
-    const [avertissementListe, setAvertListe] = useState([])
-    const [retenueListe, setRetenueListe] = useState([])
-
+function SanteDocumment() {
+    /* ############### Const #################*/
+    const {tag, PID} = useParams()
+    const UID = localStorage.getItem('UID')
+    const [favoriteList, setFList] = useState({ rdv :{}, ordonance :{}, seance:{}, analyses:{}})
+    const [loading, SetLoading] = useState(true)
+    const [activeIndex, setActiveIndex] = useState(0)
     const [modalS, setModalS] = useState(false)
     const [seledtedItem, setSelectedItem] = useState({})
     const [seledtedItemData, setSelectedItemData] = useState({})
     const [loaderState, setLS] = useState(false)
-
+    
     const panes = [
         {
-          menuItem: { key: 'save', icon: 'calendar alternate', content:  <span className='me-2'>الأطفال </span> , dir:'rtl' },
-          render: () => <TableGrid tableData={childrenListe}  columns={['فتح','عدد','يوم','يوم']} />,
+           menuItem: { key: 'admin', icon: 'building', content:  <span className='me-2'>إدارة  </span> , dir:'rtl',  className:'rounded-pill border-tabs' },
+           render: () => <><OrdonanceListeCrad /></>,
         },
         {
-            menuItem: { key: 'edit', icon: 'pin', content:  <span className='me-2'>تسجيل</span> , dir:'rtl' },
-            render: () => <TableGrid tableData={inscriptionListe}  columns={['فتح','عدد','يوم','معرف']} />,
+            menuItem: { key: 'autres', icon: 'shopping cart', content:  <span className='me-2'>نقطة بيع </span> , dir:'rtl',  className:'rounded-pill border-tabs' },
+          render: () => <> <RendyVousListeCard /> </>,
         },
         {
-            menuItem: { key: 'oug', icon: 'list alternate outline', content:  <span className='me-2'>ترسيم</span> , dir:'rtl' },
-            render: () => <TableGrid tableData={souscriptionListe} columns={['فتح','عدد','يوم','معرف']} />,
-        },
-      ]
-
-      const selectedPanes = [
-        {
-          menuItem: { key: 'save', icon: 'calendar alternate', content:  '' , dir:'rtl' },
-          render: () => <TableGrid tableData={seanceListe}  columns={['فتح','عدد','يوم','يوم']} />,
+             menuItem: { key: 'seanes', icon: 'heart', content:  <span className='me-2'>صحة   </span> , dir:'rtl',  className:'rounded-pill border-tabs' },
+           render: () => <><SeanceListeCard /></>,
         },
         {
-            menuItem: { key: 'edit', icon: 'pin', content:  '' , dir:'rtl' },
-            render: () => <TableGrid tableData={examainListe}  columns={['فتح','عدد','يوم','معرف']} />,
-        },
-        {
-            menuItem: { key: 'oug', icon: 'list alternate outline', content:  '' , dir:'rtl' },
-            render: () => <TableGrid tableData={bultinListe} columns={['فتح','عدد','يوم','معرف']} />,
-        },
-        {
-            menuItem: { key: 'edddit', icon: 'american sign language interpreting', content:  '' , dir:'rtl' },
-            render: () => <TableGrid tableData={avertissementListe}  columns={['فتح','عدد','يوم','معرف']} />,
-        },
-        {
-            menuItem: { key: 'oddug', icon: 'sign language', content:  '' , dir:'rtl' },
-            render: () => <TableGrid tableData={retenueListe} columns={['فتح','عدد','يوم','معرف']} />,
-        },
-      ]
+            menuItem: { key: 'analyses', icon: 'heart', content:  <span className='me-2'>صحة   </span> , dir:'rtl',  className:'rounded-pill border-tabs' },
+          render: () => <><AnalyseListeCard /></>,
+       },
+    ]
 
     /* ############### UseEffect #################*/
-        useEffect(() => {
-            axios.post(`${GConf.ApiLink}/suivie/garderie`, {
+    useEffect(() => {
+            axios.post(`${GConf.ApiProfileLink}/documment/sante`, {
                 tag : tag,
                 PID : PID,
                 UID : UID,
             }).then(function (response) {
-                 console.log(response.data)
-                let rdvContainer = []
-                response.data.childrenData.map( (getData) => rdvContainer.push([
-                _(<Button className='rounded-pill text-white' icon style={{backgroundColor:'red'}} size='mini' onClick={ (e) => SelectChildFunction(getData)}><Icon  name='star' /></Button>),
-                getData.EL_Name,
-                getData.EL_Classe,
-                getData.EL_ID,
-                ],))
-                setChildrenListe(rdvContainer)
-
-                let seanceContainer = []
-                response.data.inscription.map( (getData) => seanceContainer.push([
-                _(<Button className='rounded-pill text-white' icon style={{backgroundColor:'red'}} size='mini' onClick={ (e) => OpenModalFunction('seance',getData)}><Icon  name='arrows alternate' /></Button>),
-                getData.S_Time,
-                new Date(getData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ),
-                getData.S_ID,
-                ],))
-                setInscriptionListe(seanceContainer)
-
-                let ordonanceContainer = []
-                response.data.souscription.map( (getData) => ordonanceContainer.push([
-                    _(<Button className='rounded-pill text-white' icon style={{backgroundColor:'red'}} size='mini' onClick={ (e) => OpenModalFunction('ordonance',getData)}><Icon  name='arrows alternate' /></Button>),
-                getData.OR_ID,
-                new Date(getData.R_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ),
-                getData.OR_Time,
-                ],))
-                setSouscriptionListe(ordonanceContainer)
+                 setFList(response.data)
+                 SetLoading(false)
             }).catch((error) => {
                 if(error.request) {
                   toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de connecter aux systeme </div></>, GConf.TostInternetGonf)   
                   setLS(false)
                 }
             });
-        }, [])
+    }, [])
     
     /* ############### Functions #################*/
-    const EditRdvFunction = () =>{
-        if (!childrenListe.comment) {toast.error("أدخل التشخيص !", GConf.TostErrorGonf)}
-        else if (!childrenListe.date) {toast.error("ادخل الموعد  !", GConf.TostErrorGonf)}
-        else{
-            setLS(true)
-            axios.post(`${GConf.ApiLink}/suivie/docteur`, {
-                childrenListeata : childrenListe,
-            }).then(function (response) {
-                let factureListContainer = []
-                response.data.map( (getData) => factureListContainer.push([
-                getData.T_ID,
-                getData.CA_Name,
-                getData.CL_Name,
-                new Date(getData.T_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ),
-                getData.T_Time,
-                getData.Final_Value,
-                // _( <a  className='data-link-modal'  onClick={() => openEditModal(getData,true)} ><b> <span className='bi bi-arrows-fullscreen'></span> </b></a>),
-                _(<Button className='rounded-pill text-white' icon style={{backgroundColor:'red'}} size='mini' onClick={ (e) => alert(`/S/ft/info/${getData.T_ID}`)}><Icon  name='arrows alternate' /></Button>)
-                ],))
-                setInscriptionListe(factureListContainer)
-            }).catch((error) => {
-                if(error.request) {
-                  toast.error(<><div><h5>Probleme de Connextion</h5> Impossible de connecter aux systeme </div></>, GConf.TostInternetGonf)   
-                  setLS(false)
-                }
-            });
-        } 
-    }
-    const GetTheLastRDV = (dateList) =>{
-        if (dateList.length === 0) {
-            return '--/--/--';
-          }
-        
-          let maxDate = new Date(0);
-        
-          dateList.forEach((obj) => {
-            const rdvDate = new Date(obj[1]);
-            if (rdvDate > maxDate) {
-              maxDate = rdvDate;
-            }
-          });
-          return maxDate.toISOString().split('T')[0];
-    }
     const OpenModalFunction = (genre,data) => {
         setSelectedItem(genre)
         setSelectedItemData(data)
         setModalS(true)
     }
-    const SelectChildFunction = (selectedData) => {
-        let seanceContainer = []
-        selectedData.Seances.map( (getData) => seanceContainer.push([
-        _(<Button className='rounded-pill text-white' icon style={{backgroundColor:'red'}} size='mini' onClick={ (e) => OpenModalFunction('seance',getData)}><Icon  name='arrows alternate' /></Button>),
-        getData.SE_Time_Start,
-        getData.SE_Time_Finish,
-        new Date(getData.SE_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ),
-        getData.Proffeseur_ID ,
-        ],))
-        setSeanceListe(seanceContainer)
-
-        let examainContainer = []
-        selectedData.Examain.map( (getData) => examainContainer.push([
-        _(<Button className='rounded-pill text-white' icon style={{backgroundColor:'red'}} size='mini' onClick={ (e) => OpenModalFunction('seance',getData)}><Icon  name='arrows alternate' /></Button>),
-        getData.SE_Time_Start,
-        getData.SE_Time_Finish,
-        new Date(getData.SE_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ),
-        getData.Proffeseur_ID ,
-        ],))
-        setExamainListe(examainContainer)
-
-        let bultinContainer = []
-        selectedData.Bultin.map( (getData) => bultinContainer.push([
-        _(<Button className='rounded-pill text-white' icon style={{backgroundColor:'red'}} size='mini' onClick={ (e) => OpenModalFunction('seance',getData)}><Icon  name='arrows alternate' /></Button>),
-        getData.SE_Time_Start,
-        getData.SE_Time_Finish,
-        new Date(getData.SE_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ),
-        getData.Proffeseur_ID ,
-        ],))
-        setBultinListe(bultinContainer)
-
-        let avertissementContainer = []
-        selectedData.Avertissemnt.map( (getData) => avertissementContainer.push([
-        _(<Button className='rounded-pill text-white' icon style={{backgroundColor:'red'}} size='mini' onClick={ (e) => OpenModalFunction('seance',getData)}><Icon  name='arrows alternate' /></Button>),
-        getData.SE_Time_Start,
-        getData.SE_Time_Finish,
-        new Date(getData.SE_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ),
-        getData.Proffeseur_ID ,
-        ],))
-        setAvertListe(avertissementContainer)
-
-        let retenueContainer = []
-        selectedData.Retenue.map( (getData) => retenueContainer.push([
-        _(<Button className='rounded-pill text-white' icon style={{backgroundColor:'red'}} size='mini' onClick={ (e) => OpenModalFunction('seance',getData)}><Icon  name='arrows alternate' /></Button>),
-        getData.SE_Time_Start,
-        getData.SE_Time_Finish,
-        new Date(getData.SE_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' ),
-        getData.Proffeseur_ID ,
-        ],))
-        setRetenueListe(retenueContainer)
-
-
-    }
+ 
     /* ############### Card #################*/
-    const NextRendyVous = () =>{
+    const ActivePaneCard = (props) =>{
         return(<>
-            <div className='card card-body shadow-sm border-div mb-4 text-center '>
-                <h5 className='text-end text-secondary'> عدد الأطفال</h5> 
-                <h1 className='display-3' style={{color:'red'}}>{GetTheLastRDV(childrenListe)}</h1>
+            <div className={`card p-2 btn-cursor mb-1  text-center    border-div ${ activeIndex == props.activeI ? 'border-2 border-danger ': '' }`} onClick={ () => setActiveIndex(props.activeI)}>
+                    <h2 className='text-center mb-0'  ><img src={`https://cdn.abyedh.tn/images/Profile/documments/sante/${props.icon}`} width='40px'  height='40px' /></h2> 
+                    <h5 className='mt-2'>{props.text}</h5>
             </div>
         </>)
     }
-    const Statistics = () =>{
-        return(<>
-            <div className='card card-body shadow-sm border-div mb-4 text-center '>
-                <h5 className='text-end text-secondary'> ملخص</h5> 
-                <div className='row' dir='rtl'>
-                    <div className='col-4'><h2 style={{color:'red'}}>{childrenListe.length} </h2>  طفل </div>
-                    <div className='col-4 border-end'><h2 style={{color:'red'}}>{souscriptionListe.length} </h2> تسجيل</div>
-                    <div className='col-4 border-end'><h2 style={{color:'red'}}>{inscriptionListe.length} </h2> ترسيم </div>
-                    
+
+    const OrdonanceListeCrad = (props) =>{
+        const ProfileCard = (props) =>{
+            return(<>
+                <div className='card p-2 mb-2 border-div  text-center'>
+                <NavLink exact='true' to={`/S/P/docteur/${props.data.PID}`} className='stretched-link'> </NavLink>
+                    <div className='row' dir='ltr'>
+                        <div className='col-2 align-self-center'><span className='bi bi-receipt-cutoff text-secondary bi-md'></span></div>
+                        <div className='col-7 align-self-center text-start text-secondary'><div><b>{props.data.Name}</b></div><small>{new Date(props.data.OR_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</small></div>
+                        <div className='col-3 align-self-center text-center'><Button icon className='rounded-circle' onClick={ (e) => OpenModalFunction('ordonance',props.data)}> <Icon name='arrow right' /></Button></div>
+                    </div>                     
                 </div>
-            </div>
+            </>)
+        }
+
+        return(<>
+                {
+                    loading ? 
+                    <SekeltonCard /> 
+                    :
+                    <>
+                        {
+                            favoriteList.ordonance.length == 0 ?
+                            <EmptyCard />
+                            :
+                            <div className='row'>
+                                {
+                                    favoriteList.ordonance.map( (data,index) => <div className='col-12 col-lg-4' key={index}> <ProfileCard key={index} data={data} /></div> )  
+                                }
+                                
+                            </div>
+                        }
+                    </>
+                }
+             
         </>)
     }
-    const RDVViewCard = (props) =>{
-        const rdvPannes = [
-            {
-              menuItem: { key: 'save', icon: 'calendar alternate', content:  <span className='me-2'>عرض</span> , dir:'rtl' },
-              render: () => <ShowRDVData />,
-            },
-            {
-                menuItem: { key: 'edit', icon: 'pin', content:  <span className='me-2'>QR</span> , dir:'rtl' },
-                render: () => <QRCode fgColor={'red'} value={props.data.R_ID} size={300} />,
-            },
-            {
-                menuItem: { key: 'oug', icon: 'list alternate outline', content:  <span className='me-2'>تعديل</span> , dir:'rtl' },
-                render: () => <EditRDVCard />,
-            },
-          ]
-        
-        const ShowRDVData = () =>{
-            return(<>Show</>)
+    const SeanceListeCard = (props) =>{
+        const ProfileCard = (props) =>{
+            return(<>
+                <div className='card p-2 mb-2 border-div  text-center'>
+                <NavLink exact='true' to={`/S/P/docteur/${props.data.PID}`} className='stretched-link'> </NavLink>
+                    <div className='row' dir='ltr'>
+                        <div className='col-2 align-self-center'><span className='bi bi-stopwatch text-secondary bi-md'></span></div>
+                        <div className='col-7 align-self-center text-start text-secondary'><div><b>{props.data.Name}</b></div><small>{new Date(props.data.S_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</small></div>
+                        <div className='col-3 align-self-center text-center'><Button icon className='rounded-circle' onClick={ (e) => OpenModalFunction('ordonance',props.data)}> <Icon name='arrow right' /></Button></div>
+                    </div>                     
+                </div>
+
+            </>)
         }
- 
-        const EditRDVCard = () =>{
-            return(<>Show</>)
+
+        return(<>
+                {
+                    loading ? 
+                    <SekeltonCard /> 
+                    :
+                    <>
+                        {
+                            favoriteList.seance.length == 0 ?
+                            <EmptyCard />
+                            :
+                            <div className='row'>
+                                {
+                                    favoriteList.seance.map( (data,index) => <div className='col-12 col-lg-4' key={index}> <ProfileCard key={index} data={data} /></div> )  
+                                }
+                                
+                            </div>
+                        }
+                    </>
+                }
+             
+        </>)
+    } 
+    const RendyVousListeCard = (props) =>{
+        const ProfileCard = (props) =>{
+            return(<>
+                <div className='card p-2 mb-2 border-div  text-center'>
+                <NavLink exact='true' to={`/S/P/docteur/${props.data.PID}`} className='stretched-link'> </NavLink>
+                    <div className='row' dir='ltr'>
+                        <div className='col-2 align-self-center'><span className='bi bi-calendar-date text-secondary bi-md'></span></div>
+                        <div className='col-7 align-self-center text-start text-secondary'><div><b>{props.data.Name}</b></div><small>{new Date(props.data.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</small></div>
+                        <div className='col-3 align-self-center text-center'><Button icon className='rounded-circle' onClick={ (e) => OpenModalFunction('ordonance',props.data)}> <Icon name='arrow right' /></Button></div>
+                    </div>                     
+                </div>
+
+            </>)
+        }
+
+        return(<>
+                {
+                    loading ? 
+                    <SekeltonCard /> 
+                    :
+                    <>
+                        {
+                            favoriteList.rdv.length == 0 ?
+                            <EmptyCard />
+                            :
+                            <div className='row'>
+                                {
+                                    favoriteList.rdv.map( (data,index) => <div className='col-12 col-lg-4' key={index}> <ProfileCard key={index} data={data} /></div> )  
+                                }
+                                
+                            </div>
+                        }
+                    </>
+                }
+             
+        </>)
+    }
+    const AnalyseListeCard = (props) =>{
+        const ProfileCard = (props) =>{
+            return(<>
+                <div className='card p-2 mb-2 border-div  text-center'>
+                <NavLink exact='true' to={`/S/P/docteur/${props.data.PID}`} className='stretched-link'> </NavLink>
+                    <div className='row' dir='ltr'>
+                        <div className='col-2 align-self-center'><span className='bi bi-stopwatch text-secondary bi-md'></span></div>
+                        <div className='col-7 align-self-center text-start text-secondary'><div><b>{props.data.Name}</b></div><small>{new Date(props.data.RDV_Date).toLocaleDateString('fr-FR').split( '/' ).reverse( ).join( '-' )}</small></div>
+                        <div className='col-3 align-self-center text-center'><Button icon className='rounded-circle' onClick={ (e) => OpenModalFunction('ordonance',props.data)}> <Icon name='arrow right' /></Button></div>
+                    </div>                     
+                </div>
+
+            </>)
+        }
+
+        return(<>
+                {
+                    loading ? 
+                    <SekeltonCard /> 
+                    :
+                    <>
+                        {
+                            favoriteList.analyses.length == 0 ?
+                            <EmptyCard />
+                            :
+                            <div className='row'>
+                                {
+                                    favoriteList.seance.map( (data,index) => <div className='col-12 col-lg-4' key={index}> <ProfileCard key={index} data={data} /></div> )  
+                                }
+                                
+                            </div>
+                        }
+                    </>
+                }
+             
+        </>)
+    } 
+
+    const SekeltonCard = () =>{
+        const PlaceHolderCard = () =>{
+            return(<>
+            <Placeholder className='mb-0 border-div ' style={{ height: 100, width: '100%' }}>
+                <Placeholder.Image />
+            </Placeholder>
+            </>)
         }
         return(<>
-            <Tab menu={{secondary: true ,   dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={rdvPannes} />
+                <div className='row'>
+                    <PlaceHolderCard />
+                    <PlaceHolderCard />
+                    <PlaceHolderCard />
+                </div>
         </>)
     }
-    const SeanceViewCard = (props) =>{
-        const rdvPannes = [
-            {
-              menuItem: { key: 'save', icon: 'calendar alternate', content:  <span className='me-2'>عرض</span> , dir:'rtl' },
-              render: () => <ShowSeanceData />,
-            },
-            {
-                menuItem: { key: 'edit', icon: 'pin', content:  <span className='me-2'>QR</span> , dir:'rtl' },
-                render: () => <QRCode fgColor={'red'} value={props.data.S_ID} size={300} />,
-            },
-
-          ]
-        
-        const ShowSeanceData = () =>{
-            return(<>{props.data.S_ID}</>)
-        }
- 
-         return(<>
-            <Tab menu={{secondary: true ,   dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={rdvPannes} />
+    const EmptyCard = () =>{
+        return(<>
+            <div className='card-body text-center'>
+                <img src='https://cdn.abyedh.tn/images/profile/doc-empty.svg' width='80%'  height='220px' />
+                <h5>ليس لديك اي عنصر في المفضلة . قم بإكتشاف محرك البحث في الصفحة الرئسية</h5> 
+            </div>
         </>)
     }
-    const OrdonanceViewCard = (props) =>{
-        const ordonancePannes = [
-            {
-              menuItem: { key: 'save', icon: 'calendar alternate', content:  <span className='me-2'>عرض</span> , dir:'rtl' },
-              render: () => <ShowOrdonanceData />,
-            },
-            {
-                menuItem: { key: 'edit', icon: 'pin', content:  <span className='me-2'>QR</span> , dir:'rtl' },
-                render: () => <QRCode fgColor={'red'} value={props.data.OR_ID} size={300} />,
-            },
-
-          ]
-        
-        const ShowOrdonanceData = () =>{
-            return(<>{JSON.parse(props.data.OR_Articles).map((data,index) => <span key={index}>{data.Nom}</span>)}</>)
-        }
- 
-         return(<>
-            <Tab menu={{secondary: true ,   dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={ordonancePannes} />
-        </>)
-
-    }
-
-    const SelectedItemToViewCard = ({ status }) => {
-        const StateCard = (props) =>{ return <span className={`badge bg-${props.color}`}> {props.text} </span>}
-        const statusCard = React.useCallback(() => {
-          switch(status) {
-            case 'ordonance': return <OrdonanceViewCard data={seledtedItemData} />;  
-            case 'seance': return <SeanceViewCard data={seledtedItemData} /> ;
-            case 'rdv': return <RDVViewCard data={seledtedItemData} /> ;
-            default:  return <StateCard color='secondary' text='Indefinie' />;    
-          }
-        }, [status]);
-      
-        return (
-          <div className="p-1">
-            {statusCard()}
-          </div>
-        );
-    };
+    
     return ( <>
-        <div className='row mt-4' >
-            <div className='col-12 col-lg-4'> 
-                {/* <NextRendyVous  />  */}
-                <Statistics />
+            <div className=' d-flex pb-4' dir='rtl' style ={{overflowX : 'auto', overflowY : 'hidden', paddingBottom:'5px'} }>
+                    <div className='col-4 col-lg-3 ms-2'><ActivePaneCard text='وصفة طبية' icon='ordonnace.png' activeI={0} /> </div>
+                    <div className='col-4 col-lg-3 ms-2'><ActivePaneCard text='موعد' icon='rendyVous.png' activeI={1} /> </div>
+                    <div className='col-4 col-lg-3 ms-2'><ActivePaneCard text='حصة' icon='seance.png' activeI={2} /> </div>                
+                    <div className='col-4 col-lg-3 ms-2'><ActivePaneCard text='نتيجة تحليل' icon='analyse.png' activeI={3} /> </div>                
             </div>
-            <div className='col-12 col-lg-8'>  
-                <Tab menu={{secondary: true ,   dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={panes} />
-                <Tab menu={{secondary: true ,   dir:'rtl', style:{justifyContent: 'right',} }} className='yes-menu-tabs' panes={selectedPanes} />
-            </div>
-        </div>
-        <Modal
-                size='fullscreen'
-                open={modalS}
-                onClose={() => setModalS(false)}
-                onOpen={() => setModalS(true)}
-                className='fullscreen-profile-modal'
-            >
-                <Modal.Content scrolling>
-                    <SelectedItemToViewCard status={seledtedItem} />                         
-                </Modal.Content>
-                <Modal.Actions>
-                            <Button className='rounded-pill' negative onClick={ () => setModalS(false)}>   غلق</Button>
-                </Modal.Actions>
-        </Modal>
+
+            <Tab 
+                    menu={{ secondary: true ,style: {overflowX : 'auto', overflowY : 'hidden', paddingBottom:'5px' } }} 
+                    panes={panes} 
+                    activeIndex={activeIndex}
+                    className='no-menu-tabs mt-2'/>
+
+            <br />
+             
     </> );
 }
 
-export default GarderieActions;
+export default SanteDocumment;

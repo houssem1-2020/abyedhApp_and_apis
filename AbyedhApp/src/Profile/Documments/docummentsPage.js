@@ -14,10 +14,10 @@ function DocummentPage() {
         {id:0, name:'ملفات صحية', link:'sante', icon:'heart-pulse-fill', color:'#3048d1'},
         {id:0, name:'ملفات التعليم', link:'education', icon:'mortarboard-fill', color:'#20274f'},
         {id:0, name:'ملفات النقل', link:'transport', icon:'truck-front-fill', color:'#b5452f'},
-        {id:0, name:'ملفات مالية', link:'finance', icon:'currency-exchange', color:'#c9a30a'},
-        {id:0, name:'ملفات مدنية', link:'civile', icon:'building', color:'#137d13'},
+        // {id:0, name:'ملفات مالية', link:'finance', icon:'currency-exchange', color:'#c9a30a'},
+        // {id:0, name:'ملفات مدنية', link:'civile', icon:'building', color:'#137d13'},
         {id:0, name:'ملفات رياضية', link:'sport', icon:'bicycle', color:'#60bdd6'},
-        {id:0, name:'م. إجتماعية', link:'sociale', icon:'people-fill', color:'#e8276e'},
+        // {id:0, name:'م. إجتماعية', link:'sociale', icon:'people-fill', color:'#e8276e'},
     ]
     const borderedfolderGenres = [
         {id:0, name:'وثائق  ', link:'document', icon:'file-earmark-break-fill', color:'##2766ee'},

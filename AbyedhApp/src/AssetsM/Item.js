@@ -447,5 +447,251 @@ const dirItem = {
             { id: 1, link: '/Tools/Blog', name: ' الموسوعة الإدارية', img: 'blog.svg' },
         ],
     },
+
+    //alimentaire !! 
+    commerceSmall:{
+        tag: 'تِجَارَة , نُقْطَةْ بُيْعْ',
+        icon: 'cup-straw',
+        themeColor: '#8bc24a',
+        slider: false,
+        slides: [
+            { id: 3, image: 'magazin', name: 'مَغَازَة', link: 'magazin' },
+            { id: 4, image: 'boulengerie', name: 'مِخْبَزَة', link: 'boulengerie' },
+            { id: 5, image: 'boucherie', name: 'بَيْعْ اللٌّحٌومْ', link: 'boucherie' },
+            { id: 6, image: 'fruiterie', name: 'بَيْعْ الخٌضَرْ', link: 'fruiterie' },
+            { id: 7, image: 'patesserie', name: 'بَيْعْ المٌرَطَبَاتْ', link: 'patesserie' },
+            { id: 8, image: 'epicerie', name: 'بَقَّالَة', link: 'epicerie' },
+        ],
+        smallSlider: true,
+        smallDisplay:[
+            [
+                { id: 3, image: 'magazin', name: 'مَغَازَة', link: 'magazin' },
+                { id: 4, image: 'boulengerie', name: 'مِخْبَزَة', link: 'boulengerie' },
+                { id: 5, image: 'boucherie', name: 'بَيْعْ اللٌّحٌومْ', link: 'boucherie' },
+                { id: 6, image: 'fruiterie', name: 'بَيْعْ الخٌضَرْ', link: 'fruiterie' },
+            ],
+            [
+                
+                { id: 7, image: 'patesserie', name: 'بَيْعْ المٌرَطَبَاتْ', link: 'patesserie' },
+                { id: 8, image: 'epicerie', name: 'بَقَّالَة', link: 'epicerie' },
+                { id: 1, image: 'electromenager', name: 'بَيْعْ الإِلِكْتْرٌونِيَاتْ', link: 'electromenager' },
+                { id: 2, image: 'meublerie', name: ' بَيْعْ الأَثَاثْ ', link: 'meublerie' },
+            ],
+            [
+                
+                { id: 2, image: 'boutique', name: 'مَحلْ مَلابِسْ', link: 'boutique' },
+                { id: 8, image: 'bijouterie', name: ' بيع المُجَوْهَرَاتْ', link: 'bijouterie' },
+                { id: 4, image: 'quincaillerie', name: 'Quncaillerie ', link: 'quincaillerie' },
+                { id: 1, image: 'depot', name: 'بَيْعْ بِالجٌمْلَة', link: 'depot' },
+            ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: 'Tools/Products/landing/alimentaire', name: 'مواد غذائية', img: 'products.svg' },
+        ],
+    },
+    trasnportationSmall: {
+        tag: 'نَقْلْ, سُيُارُة',
+        icon: 'truck',
+        themeColor:'#f44236',
+        slider: false,
+        slides: [
+                { id: 1, image: 'transp', name: 'وِكَالَةْ نَقْلْ بَضَائِعْ', link: 'transporteur' },
+                { id: 2, image: 'autoecole', name: 'مَدْرَسةْ تَعْلِيمْ سِيَاقَة', link: 'autoecole' },
+                { id: 3, image: 'taxi', name: 'تَاكْسِي', link: 'Tools/Taxi', tools:true },
+                { id: 4, image: 'louage', name: 'لٌوَّاجْ', link: 'Tools/Louage', tools:true }
+        ],
+        smallSlider: true,
+        smallDisplay:[
+            [
+                { id: 1, image: 'transp', name: 'وِكَالَةْ نَقْلْ بَضَائِعْ', link: 'transporteur' },
+                { id: 2, image: 'autoecole', name: 'مَدْرَسةْ تَعْلِيمْ سِيَاقَة', link: 'autoecole' },
+                { id: 3, image: 'taxi', name: 'تَاكْسِي', link: 'Tools/Taxi' , tools:true},
+                { id: 4, image: 'louage', name: 'لٌوَّاجْ', link: 'Tools/Louage', tools:true }
+            ],
+            [
+                { id: 3, image: 'location', name: ' كِرَاءْ السَيَّارَاتْ ', link: 'location' },
+                { id: 4, image: 'parking', name: 'مَوْقِفْ سَيّارَاتْ', link: 'parking' },
+                { id: 9, image: 'qiosque', name: 'مَحَطَةْ وَقُودْ', link: 'qiosque' },
+                { id: 10, image: 'mecanicien', name: 'مِيكَانِيكِي', link: 'mecanicien' },
+            ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: '/Tools/Public', name: 'موسوعة النقل', img: 'public.svg' },
+            { id: 1, link: '/Tools/Taxi', name: 'تاكسي', img: 'taxi.svg' },
+            { id: 1, link: '/Tools/Louage', name:  'سيارة اجرة' , img: 'louage.svg' },
+        ],
+        
+    },
+    lifeSmall:{
+        tag: 'حَيَاةْ , جَمَالْ',
+        icon: 'balloon-heart-fill',
+        themeColor: '#fb1e6b',
+        slider: false,
+        slides: [
+            { id: 1, image: 'coiffure', name: 'قَاعَةْ حِلاَقَة', link: 'coiffure' },
+            { id: 2, image: 'boutique', name: 'مَحلْ مَلابِسْ', link: 'boutique' },
+            { id: 3, image: 'salle_marriage', name: 'قَاعَةْ أَفْرَاحْ', link: 'salle_marriage' },
+            { id: 8, image: 'bijouterie', name: ' مُجَوْهَرَاتْ ', link: 'bijouterie' },
+            { id: 5, image: 'chef', name: 'طَبَّاخْ', link: 'chef' },
+            { id: 6, image: 'photographe', name: 'مَصَوِّرْ', link: 'photographe' },
+            { id: 7, image: 'fourniture_marriage', name: ' لَوَازِمْ أَفْرَاجْ', link: 'fourniture_marriage' },
+            { id: 4, image: 'orchestre', name: 'فِرْقَة مٌوسِيقِيَّة', link: 'orchestre' },
+        ],
+        smallSlider: true,
+        smallDisplay:[
+            [
+                { id: 1, image: 'coiffure', name: 'قَاعَةْ حِلاَقَة', link: 'coiffure' },
+                { id: 3, image: 'salle_marriage', name: 'قَاعَةْ أَفْرَاحْ', link: 'salle_marriage' },
+            ],
+            [
+                { id: 7, image: 'fourniture_marriage', name: ' لَوَازِمْ أَفْرَاجْ', link: 'fourniture_marriage' },
+                { id: 4, image: 'orchestre', name: 'فِرْقَة مٌوسِيقِيَّة', link: 'orchestre' },
+                
+            ],
+            [
+                { id: 5, image: 'chef', name: 'طَبَّاخْ', link: 'chef' },
+                { id: 6, image: 'photographe', name: 'مَصَوِّرْ', link: 'photographe' },
+            ]
+        ],
+        haveTools: true,
+        toolsList: [
+            // { id: 1, link: 'Tools/Story', name: 'حكايات', img: 'stories.svg' },
+            { id: 1, link: 'Tools/Invitation', name: 'إستدعاء', img: 'invitation.svg' },
+        ],
+    },
+    restaurationSmall:{
+        tag: 'ضيافة , سِيَاحَة ',
+        icon: 'airplane-engines-fill',
+        themeColor: '#607d8b',
+        slider: false,
+        slides: [
+            { id: 1, image: 'cafe', name: 'مَقْهًي', link: 'cafe' },
+            { id: 2, image: 'restaurant', name: 'مَطْعًمْ', link: 'restaurant' },
+            { id: 1, image: 'Hotels', name: 'فُنْدُقْ', link: 'hotels' },
+            { id: 2, image: 'travel', name: 'وِكَالَةْ أَسْفَارْ', link: 'vg_agence' },
+        ],
+        smallSlider: false,
+        smallDisplay:[
+            [
+                { id: 1, image: 'cafe', name: 'مَقْهًي', link: 'cafe' },
+                { id: 2, image: 'restaurant', name: 'مَطْعًمْ', link: 'restaurant' },
+                { id: 1, image: 'Hotels', name: 'فُنْدُقْ', link: 'hotels' },
+                { id: 2, image: 'travel', name: 'وِكَالَةْ أَسْفَارْ', link: 'vg_agence' },
+            ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: 'Tools/Camping', name: 'كمبي', img: 'camping.svg' },
+        ],
+    },
+    constructionSmall: {
+        tag: 'خَدَمَاتْ عَقّارِية',
+        icon: 'bricks',
+        themeColor: '#565d61',
+        slider: true,
+        slides: [
+            [
+                { id: 1, image: 'courtier', name: 'وَسِيطْ عَقَّارِي', link: 'courtier' },
+                { id: 2, image: 'contracteur', name: ' مٌقَاوِلْ', link: 'contracteur' },
+                { id: 3, image: 'architecture', name: 'مٌهَنْدِسْ مِعْمَارِي ', link: 'architecture' },
+                { id: 4, image: 'quincaillerie', name: 'Quncaillerie ', link: 'quincaillerie' },
+                { id: 5, image: 'forgeron', name: 'حَدَّادْ', link: 'forgeron' },
+                { id: 6, image: 'menuisier', name: 'نَجَّارْ', link: 'menuisier' },
+                { id: 7, image: 'peinture', name: 'دَهَّانْ ', link: 'peinture' },
+                { id: 8, image: 'electricien', name: 'كَهْرَبَائِي ', link: 'electricien' },
+            ],
+            [
+                { id: 9, image: 'plombier', name: 'Plombier', link: 'plombier' },
+                { id: 10, image: 'cristalerie', name: 'تًرْكِيبْ البِلٌوْرْ', link: 'cristalerie' },
+                { id: 11, image: 'marbrerie', name: 'جَلِيزْ وَ رٌخَامْ', link: 'marbrerie' },
+            ]
+        ],
+        smallSlider: true,
+        smallDisplay:[
+            [
+                { id: 1, image: 'courtier', name: 'وَسِيطْ عَقَّارِي', link: 'courtier' },
+                { id: 2, image: 'contracteur', name: ' مٌقَاوِلْ', link: 'contracteur' },
+            ],
+            [
+                { id: 3, image: 'architecture', name: 'مٌهَنْدِسْ مِعْمَارِي ', link: 'architecture' },
+            ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: '/Tools/Renting', name: 'للكراء', img: 'rent_house.svg' },
+        ],
+    },
+    artisanatSmall: {
+        tag: 'خَدَمَاتْ حرفية',
+        icon: 'bricks',
+        themeColor: '#565d61',
+        slider: true,
+        slides: [
+            [
+                { id: 1, image: 'courtier', name: 'وَسِيطْ عَقَّارِي', link: 'courtier' },
+                { id: 2, image: 'contracteur', name: ' مٌقَاوِلْ', link: 'contracteur' },
+                { id: 3, image: 'architecture', name: 'مٌهَنْدِسْ مِعْمَارِي ', link: 'architecture' },
+                { id: 4, image: 'quincaillerie', name: 'Quncaillerie ', link: 'quincaillerie' },
+                { id: 5, image: 'forgeron', name: 'حَدَّادْ', link: 'forgeron' },
+                { id: 6, image: 'menuisier', name: 'نَجَّارْ', link: 'menuisier' },
+                { id: 7, image: 'peinture', name: 'دَهَّانْ ', link: 'peinture' },
+                { id: 8, image: 'electricien', name: 'كَهْرَبَائِي ', link: 'electricien' },
+            ],
+            [
+                { id: 9, image: 'plombier', name: 'Plombier', link: 'plombier' },
+                { id: 10, image: 'cristalerie', name: 'تًرْكِيبْ البِلٌوْرْ', link: 'cristalerie' },
+                { id: 11, image: 'marbrerie', name: 'جَلِيزْ وَ رٌخَامْ', link: 'marbrerie' },
+            ]
+        ],
+        smallSlider: true,
+        smallDisplay:[
+            [
+                { id: 5, image: 'forgeron', name: 'حَدَّادْ', link: 'forgeron' },
+                { id: 6, image: 'menuisier', name: 'نَجَّارْ', link: 'menuisier' },
+                { id: 7, image: 'peinture', name: 'دَهَّانْ ', link: 'peinture' },
+                { id: 8, image: 'electricien', name: 'كَهْرَبَائِي ', link: 'electricien' },
+            ],
+            [
+                { id: 9, image: 'plombier', name: 'Plombier', link: 'plombier' },
+                { id: 10, image: 'cristalerie', name: 'تًرْكِيبْ البِلٌوْرْ', link: 'cristalerie' },
+                { id: 11, image: 'marbrerie', name: 'جَلِيزْ وَ رٌخَامْ', link: 'marbrerie' },
+            ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: '/Tools/Renting', name: 'للكراء', img: 'rent_house.svg' },
+        ],
+    },
+    financeSmall: {
+        tag: 'مَالِيّة و أَعْمَالْ',
+        icon: 'cash-coin',
+        themeColor: '#ff9700',
+        slider: false,
+        slides: [
+            { id: 2, image: 'comptable', name: ' مٌحَاسِبْ', link: 'comptable' },
+            { id: 3, image: 'bank', name: ' بَنْكْ', link: 'bank' },
+            { id: 4, image: 'admin_f_poste', name: ' مَكْتَبْ بَرِيدْ', link: 'admin_f_poste' },
+            { id: 5, image: 'admin_f_rf', name: 'قَبَاضَة مَالِيَّة', link: 'admin_f_rf' },
+        ],
+        smallSlider: false,
+        smallDisplay:[
+            [
+                { id: 1, image: 'depot', name: 'بَيْعْ بِالجٌمْلَة', link: 'depot' },
+                { id: 2, image: 'comptable', name: ' مٌحَاسِبْ', link: 'comptable' },
+                { id: 3, image: 'bank', name: ' بَنْكْ', link: 'bank' },
+                { id: 4, image: 'admin_f_poste', name: ' مَكْتَبْ بَرِيدْ', link: 'admin_f_poste' },
+            ],
+            [
+                { id: 5, image: 'admin_f_rf', name: 'قَبَاضَة مَالِيَّة', link: 'admin_f_rf' },
+            ]
+        ],
+        haveTools: true,
+        toolsList: [
+            { id: 1, link: 'Tools/Salaire', name: 'salaires', img: 'salaire.svg' },
+            { id: 1, link: 'Tools/Jobs', name: 'خدمني', img: 'jobs.svg' },
+        ],
+    },
 }
 export default dirItem
