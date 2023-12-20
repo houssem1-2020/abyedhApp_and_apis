@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import 'swiper/css/pagination';
 import { QrReader } from 'react-qr-reader';
 import GConf from '../AssetsM/generalConf';
-import { Button, Icon, Input, Modal } from 'semantic-ui-react';
+import { Button, Dropdown, Icon, Input, Modal } from 'semantic-ui-react';
 import { useNavigate} from 'react-router-dom';
 import { Suspense } from 'react';
 
@@ -195,8 +195,41 @@ function MainLandingPage() {
                         <div className='col-6 col-lg-6 text-center d-lg-none align-self-center'>
                             <h3 className='text-danger mt-5'>مِنَصَّـة أَبْيَـضْ </h3>
                         </div>
-                        <div className='col-3 col-lg-6 text-end align-self-center'>
-                            {GConf.UserData.Logged  ? <UserCard />  : <NavLink exact='true' to='/Profile' className="m-0 p-0 ms-3 text-danger">    <img  className="rounded-circle9 p-0 m-0 me-1" src={`https://cdn.abyedh.tn/images/p_pic/logIn.gif`}   alt="Logo" style={{width:'30px', height:'30px'}} />   </NavLink>}
+                        <div className='col-3 col-lg-6 d-flex align-self-center'>
+                        {/* {
+                            localStorage.getItem('PID') && localStorage.getItem('APP_TAG') ? 
+                            <>
+                            | <NavLink exact="true" className='text-secondary p-3'  to={'/App/S'}><i className={`icons-a bi bi-folder-symlink bi-sm`}></i></NavLink>
+                            </>
+                            :
+                            <></>
+                        } */}
+                            {GConf.UserData.Logged  ? 
+                            
+                            <>
+                            
+                            {localStorage.getItem('PID') && localStorage.getItem('APP_TAG') || localStorage.getItem('AddToDirectory')  ?
+
+                            <Dropdown floating className='pt-2 ps-0'  direction='left'  >
+                                <Dropdown.Menu >
+                                <Dropdown.Item className='text-end'><NavLink exact="true" className='text-secondary'  to={'/Profile'}> الملف الشخصي <span className={`icons-a bi bi-person-lines-fill bi-sm`}></span></NavLink></Dropdown.Item>
+                                    {localStorage.getItem('PID') && localStorage.getItem('APP_TAG') ?  <Dropdown.Item className='text-end'><NavLink exact="true" className='text-secondary'  to={'/App/S'}> الدخول للنظام <span className={`icons-a bi bi-folder-symlink bi-sm`}></span></NavLink></Dropdown.Item> : <></>}                                    
+                                    {localStorage.getItem('AddToDirectory') ?  <Dropdown.Item className='text-end' ><NavLink exact="true" className='text-secondary'  to={'/S/I/user/docteur'}>  متابعة التسجيل <span className={`icons-a bi bi-at bi-sm`}></span></NavLink></Dropdown.Item> : <></>}                                                                       
+                                    {localStorage.getItem('PID') || localStorage.getItem('APP_TAG') || localStorage.getItem('AddToDirectory') ? <Dropdown.Divider /> : <></> }
+                                    <Dropdown.Item icon='settings' text='الإعدادات' />
+                                    <Dropdown.Item icon='sign-out alternate' text='تسجيل الخروج' />
+                                </Dropdown.Menu>
+                            </Dropdown>
+                            :
+                            <></>
+                            }
+                            <UserCard />
+                            </> 
+                            : 
+                            
+                            <NavLink exact='true' to='/Profile' className="m-0 p-0 ms-3 text-danger">    <img  className="rounded-circle9 p-0 m-0 me-1" src={`https://cdn.abyedh.tn/images/p_pic/logIn.gif`}   alt="Logo" style={{width:'30px', height:'30px'}} />   </NavLink>}
+                            
+                            
                         </div>
                     </div>
                 </div>

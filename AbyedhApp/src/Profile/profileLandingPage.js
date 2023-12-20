@@ -37,12 +37,26 @@ function ProfileLandingPage() {
                                 
                             </div>
                             <div className='col-6 align-self-center text-end' >
-                            <Modal
+                                {localStorage.getItem('PID') && localStorage.getItem('APP_TAG') || localStorage.getItem('AddToDirectory')  ?                              
+                                <Dropdown floating className='pt-2 ps-0'  direction='left'  style={{zIndex:99999}}>
+                                    <Dropdown.Menu >
+                                        {localStorage.getItem('PID') && localStorage.getItem('APP_TAG') ?  <Dropdown.Item className='text-end' ><NavLink exact="true" className='text-secondary'  to={'/App/S'}> الدخول للنظام <span className={`icons-a bi bi-folder-symlink bi-sm`}></span></NavLink></Dropdown.Item> : <></>}                                    
+                                        {localStorage.getItem('AddToDirectory') ?  <Dropdown.Item className='text-end'><NavLink exact="true" className='text-secondary'  to={'/S/I/user/docteur'}>  متابعة التسجيل <span className={`icons-a bi bi-at bi-sm`}></span></NavLink></Dropdown.Item> : <></>}                                                                       
+                                        {localStorage.getItem('PID') || localStorage.getItem('APP_TAG') || localStorage.getItem('AddToDirectory') ? <Dropdown.Divider /> : <></> }
+                                        <Dropdown.Item icon='settings' text='الإعدادات' />
+                                        <Dropdown.Item icon='sign-out alternate' text='تسجيل الخروج' />
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                                : 
+                                    
+                                <></>}
+
+                                <Modal
                                     closeIcon
                                     centered={false}
                                     size='mini'
                                     dimmer='blurring'
-                                    trigger={<img  className="rounded-circle p-0 m-0 me-1" src={`https://cdn.abyedh.tn/images/p_pic/${GConf.UserData.UData.PictureId}.gif`}   alt="Logo" style={{width:'30px', height:'30px'}} />}
+                                    trigger={<img  className="rounded-circle p-0 m-0  ms-2" src={`https://cdn.abyedh.tn/images/p_pic/${GConf.UserData.UData.PictureId}.gif`}   alt="Logo" style={{width:'30px', height:'30px'}} />}
                                     >
                                     <Modal.Content className='mt-4' >
                                         <h5 className='text-center mb-2'>شكرا لمشاركتنا التجربة </h5> 
@@ -50,6 +64,8 @@ function ProfileLandingPage() {
                                         <Button onClick={logOutInput}  size='mini' style={{backgroundColor:GConf.themeColor}} fluid className='rounded-pill text-white'  >تسجيل الخروج </Button>
                                     </Modal.Content>
                                 </Modal>
+                                
+                            
 
                             {/* {
                                 localStorage.getItem('PID') && localStorage.getItem('APP_TAG') ? 
@@ -89,14 +105,14 @@ function ProfileLandingPage() {
                         {GConf.ProfileNavsData.map((links) => 
                                 <MainLink key={links.id} name={links.name} link={links.link} icon={links.icon} />
                         )}
-                        {
+                        {/* {
                             localStorage.getItem('PID') && localStorage.getItem('APP_TAG') ? 
                             <>
                             | <NavLink exact="true" className='text-secondary p-3'  to={'/App/S'}><i className={`icons-a bi bi-folder-symlink bi-sm`}></i></NavLink>
                             </>
                             :
                             <></>
-                        }
+                        } */}
                         
                 </div>
             </>)

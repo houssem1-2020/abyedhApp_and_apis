@@ -141,7 +141,6 @@ function PublicationProfilePage(props) {
         </div> 
         </>)
     }
-
     const ImagePostCard = (props) =>{
         return(<>
         <div className='card border-div mb-4 '> 
@@ -177,7 +176,6 @@ function PublicationProfilePage(props) {
         </div> 
         </>)
     }
-
     const VideoPostCard = (props) =>{
         return(<>
         <div className='card border-div mb-4 '>

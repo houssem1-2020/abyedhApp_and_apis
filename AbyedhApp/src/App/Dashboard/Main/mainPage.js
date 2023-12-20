@@ -112,17 +112,19 @@ function RequestPage() {
         return(<>
             <div className='card card-body shadow-sm mb-4 border-div pt-2  font-Expo-book'>
                 <div className='row'>
-                    <div className='col-1 text-center  '><b onClick={() => RemoveToday()} className='shadow  rounded-circle  pt-1 pb-1 ps-2 pe-2'>x</b></div>
-                    <div className='col-11 text-end '><span className='bi bi-badge-ad-fill bi-md text-danger'></span></div>
+                    {/* <div className='col-1 text-center  '><b onClick={() => RemoveToday()} className='shadow  rounded-circle  pt-1 pb-1 ps-2 pe-2'>x</b></div> */}
+                    <div className='col-12 text-end '><span className='bi bi-badge-ad-fill bi-md text-danger'></span></div>
                 </div>
                 
                 <div className='row'>
                     <div className='col-4 align-self-center'><img className="rounded-circle mb-3" src={`https://cdn.abyedh.tn/images/ads/${APPConf.systemTag}.svg`} width="90px" height="90px"/></div>
                     <div className='col-8 align-self-center text-secondary' dir='rtl'>
-                        <span className='text-warning'>   هل تريد أن تجرب  <b className='text-danger '>النسخة الكاملة </b>  لـ {APPConf.landing[APPConf.systemTag].systemTitle}  التي تمكنك من :  </span>
-                        <ul>
+                        <span className='text-secondary'>   هل تريد أن تجرب  <b className='text-danger '>النسخة الكاملة </b>  لـ {APPConf.landing[APPConf.systemTag].systemTitle}  ؟  </span>
+                        <br />
+                        <br />
+                        {/* <ul>
                             {APPConf.landing[APPConf.systemTag].systemPos.map((data,index) =>  <li key={index}> {data.posName} </li>)} 
-                        </ul>
+                        </ul> */}
                         <NavLink exact='true' to='/App/S/System'  >
                             <Button fluid className='rounded-pill font-Expo-book' size='mini'> إكتشف   {APPConf.landing[APPConf.systemTag].systemTitle} </Button>
                         </NavLink>
@@ -184,8 +186,20 @@ function RequestPage() {
             </div>
         </>)
     }
+    const SystemItemCard = (props) =>{
+        return(<>
+            <div className={`col-4 col-lg-2 me-3`}>
+                <div className='card card-body shadow-sm  border-div text-center mb-3' style={{color: APPConf.themeColor}}>
+                    <NavLink exact='true' to={`/App/S/System`} className="stretched-link"></NavLink>
+                        <div className='text-center align-self-center '> <span className={`bi bi-${props.data.icon} bi-lg ` } style={{color : APPConf.landing[APPConf.systemTag].colorTheme}}></span> </div>
+                        <div className='text-center align-self-center'><h5 className='mt-1 mb-0'>{props.data.name}</h5> </div>
+                </div> 
+            </div>
+        </>)
+    }
     return (<>
-            {APPConf.landing[APPConf.systemTag].systemReady && localStorage.getItem('removedCard') != new Date().toLocaleDateString('fr-FR') ? <AdsCard data={APPConf.systemTag} /> : ''}
+            {localStorage.getItem('removedCard') != new Date().toLocaleDateString('fr-FR') ? <AdsCard data={APPConf.systemTag} /> : ''}
+            {/* {APPConf.landing[APPConf.systemTag].systemReady && localStorage.getItem('removedCard') != new Date().toLocaleDateString('fr-FR') ? <AdsCard data={APPConf.systemTag} /> : ''} */}
              
             <div className='row mt-5'>
               <div className='col-12 mb-4'>
@@ -210,7 +224,14 @@ function RequestPage() {
             </div>
 
             <div className='row'>
-                 {APPConf.landing[APPConf.systemTag].itemsList.map((data,index) => <ItemCard key={index} data={data} /> ).slice(0, APPConf.landing[APPConf.systemTag].itemsList.length - 1)}
+                {APPConf.landing[APPConf.systemTag].itemsList.map((data,index) => <ItemCard key={index} data={data} /> ).slice(0, APPConf.landing[APPConf.systemTag].itemsList.length - 1)}
+                
+                <div className='col-12 col-lg-6  mt-4' >
+                    <div className='rows   d-flex' style={{width:'100%', overflowX: 'auto', overflowY : 'hidden', whiteSpace:'nowrap'}}>
+                        {APPConf.landing[APPConf.systemTag].systemItemsList.map((data,index) => <SystemItemCard key={index} data={data} /> )}
+                    </div>
+                </div>
+
                 <div className='col-12 col-lg-12 mb-4 mt-4' >
                     <div className='card p-3 shadow-sm  border-div text-center  mb-3' style={{color: APPConf.themeColor}}>
                         <NavLink exact='true' to='/App/S/Spesific' className="stretched-link"></NavLink>
@@ -237,10 +258,9 @@ function RequestPage() {
                         </div>
                     </div>
                 </div>
-                
             </div>
-            {APPConf.landing[APPConf.systemTag].systemReady && localStorage.getItem('removedCard') == new Date().toLocaleDateString('fr-FR') ? <AdsCardSmall data={APPConf.systemTag} /> : ''}
-            {!APPConf.landing[APPConf.systemTag].systemReady  ? <CammingSoonSystem data={APPConf.systemTag} /> : ''}
+            {/* {APPConf.landing[APPConf.systemTag].systemReady && localStorage.getItem('removedCard') == new Date().toLocaleDateString('fr-FR') ? <AdsCardSmall data={APPConf.systemTag} /> : ''} */}
+            {/* {!APPConf.landing[APPConf.systemTag].systemReady  ? <CammingSoonSystem data={APPConf.systemTag} /> : ''} */}
     </>);
 }
 

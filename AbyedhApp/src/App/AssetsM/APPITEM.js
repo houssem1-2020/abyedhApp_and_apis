@@ -7,17 +7,29 @@ const APPItem = {
         directoryTable:'طبيب', 
         RequestTable:'Docteur', 
         systemReady: true ,
+        systemVideoId: 'true' ,
         systemUrl:'https://docteur.system.abyedh.tn',
         adsText:' نظام إداراة العيادات يقدم لك مجموعة من الأدوات و الحلول الرقمية التي تساعدك علي أداء عملك بالشكل الممتاز , كما أنه يبقيك دائما متصلا مع مرضاك  للإطمئنان علي صحتهم و متابعة تطور حالتهم الصحية , بالإضافة إلي مجموعة من لوحات لاتحكم الموجهة لفريق العمل لتتابع أداء مهامهم بسهولة , فضلا  عن مجموعة متميزة من الأدوات التي تعينك علي تطوير عملك ',
         systemPos : [
-            {id: 1 , posName:'إدارة الحصص' , description:'متابعة مرضاك ', icon:'window-dock'},
-            {id: 2 , posName:'إدارة الوصفات الطبية' , description:'إنشاء جلسات', icon:'window-dock'},
-            {id: 3 , posName:'إدارة المرضي' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
+             
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Rendy-Vous' , itemDesc:'Suivez les Etat du rendy-Vous ',  icon:'calendar-week', link:'rq/docteur_rdv'},
             {id: 2 , colLg:6, colSm:12, itemName:'Tarifs & Autres' , itemDesc:'Tarifs, Diplomes, Assurance ', icon:'cash-coin', link:'Spesific'},
             
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Seances", icon:"stopwatch", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Calendrier", icon:"calendar2-week", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Patient", icon:"person-add", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Ordonance", icon:"receipt-cutoff", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Rapport", icon:"journal-richtext", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -68,14 +80,26 @@ const APPItem = {
         systemUrl:'https://pharmacie.system.abyedh.tn',
         adsText:'نظام إداراة نقاط الصيدليات يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/pharmacie_shop'},
             {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/pharmacie_rdv'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Tarifs, Diplomes, Assurance ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             pharmacie_shop : [
@@ -122,13 +146,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Reservation' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-range', link:'rq/clinique_reserver'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             clinique_reserver : [
@@ -167,13 +201,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Rendy Vous' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/labo_rdv'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif & Autres' , itemDesc:'Entrez La Liste de Vos Tarif ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             labo_rdv : [
@@ -210,13 +254,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Rendy Vous' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/infirmier_rdv'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Tarifs, Diplomes, Assurance ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             infirmier_rdv : [
@@ -253,9 +307,19 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-range', link:'rq/centre_reserver'},
@@ -298,14 +362,24 @@ const APPItem = {
         systemUrl:'https://garderie.system.abyedh.tn/',
         adsText:'نظام إدارة  رياض الأطفال يمكنك من  متابعة مختلف الانشطة اللي تصير داخل المؤسسة متاعك , و بالتالي مزيد من التحكم و الإدارة الذكية لجعل عملية التعلم أكثر جودة و تطور . كما يوفر مجموعة من الأدوات الرقمية اللي تساعدك في تحسين جودة المادة التعليمة مثل البرنامج البيداغوجي و غيرها  ',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/garderie_inscription'},
             {id: 3 , colLg:4, colSm:12, itemName:'Souscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/garderie_souscription'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             garderie_inscription : [
@@ -357,14 +431,24 @@ const APPItem = {
         systemUrl:'#',
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/garderie_inscription'},
             {id: 3 , colLg:4, colSm:12, itemName:'Souscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/garderie_souscription'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -416,14 +500,24 @@ const APPItem = {
         systemUrl:'https://lycee.system.abyedh.tn/',
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/garderie_inscription'},
             {id: 3 , colLg:4, colSm:12, itemName:'Souscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/garderie_souscription'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -475,14 +569,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/garderie_inscription'},
             {id: 3 , colLg:4, colSm:12, itemName:'Souscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/garderie_souscription'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -534,13 +638,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة الكتبيات  يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/librairie_shop'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ',  icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -585,14 +700,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/formation_inscription'},
             // {id: 3 , colLg:4, colSm:12, itemName:'Souscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/formation_souscription'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             formation_inscription : [
@@ -643,14 +768,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
             {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -702,13 +837,23 @@ const APPItem = {
         systemUrl:'https://transporteur.system.abyedh.tn/',
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/transporteur_request'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Operations", icon:"calendar-range", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Camions", icon:"truck", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Voyages", icon:"map", link:"pt"},
+             
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             transporteur_request : [
@@ -745,13 +890,23 @@ const APPItem = {
         systemUrl:'https://autoecole.system.abyedh.tn/',
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Inscription' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/autoecole_inscrie'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Abonnemment", icon:"postcard", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Seances", icon:"clock-history", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Voitures", icon:"car-front", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Calendrier ", icon:"calendar3", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -810,6 +965,14 @@ const APPItem = {
             {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:4, colSm:12, itemName:'Menu' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'list-columns-reverse', link:'Spesific'},
         ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
+        ],
         navItemList2 : {
             restaurant_commande : [
                 {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -855,14 +1018,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نكانك صاحب مطعم أبيض يوفرلك نظام إدارة و مراقبة و متابعة للمطعم وإلا العمل متاعك , من خلال بيئة إفتراضية تخليك ديما متصل بالزبائن متاعك لمعرفة ردود أفعالهم علي الخدمات اللي تقدمها ' ,
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/cafe_commande'},
             {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/cafe_reservation'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             cafe_commande : [
@@ -908,7 +1081,7 @@ const APPItem = {
     magazin:{
         colorTheme:'#5e7968',
         adsImageUrl:'ptvente_shop.svg',
-        systemTitle:'نظام إداراة نقاط  بيع التجزئة ',
+        systemTitle:'نظام إداراة  المغازات ',
         businesName:'المغازة ',
         directoryTable:'صاحب مغازة ', 
         RequestTable:'Magazin', 
@@ -916,13 +1089,24 @@ const APPItem = {
         systemUrl:'https://magazin.system.abyedh.tn',
         adsText:'نظام إداراة المغازاة و نقاط البيع يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/magazin_commande'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             magazin_commande : [
@@ -967,13 +1151,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط  بيع الخضر  يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/fruiterie_shop'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             fruiterie_shop : [
@@ -1009,13 +1204,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة المخابز  يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/boucheries_shop'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             boucheries_shop : [
@@ -1053,13 +1259,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط بيع اللحوم  يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/boulangerie_shop'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             boulangerie_shop : [
@@ -1095,9 +1312,20 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط بيع الحلويات  يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/patisserie_shop'},
@@ -1137,13 +1365,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة البقالات  يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/epicerie_shop'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             epicerie_shop : [
@@ -1181,13 +1420,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط بيع الالكترونيات  يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/electromenager_shop'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             electromenager_shop : [
@@ -1223,13 +1473,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط ابيع الاثاث  يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/meubles_shop'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             meubles_shop : [
@@ -1265,9 +1526,19 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-range', link:'rq/parking_reserver'},
@@ -1316,14 +1587,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/qiosque_request'},
             {id: 3 , colLg:4, colSm:12, itemName:'Lavage' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/qiosque_lavage'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             qiosque_request : [
@@ -1368,13 +1649,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Demandes de Location' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check2-circle', link:'rq/location_request'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             location_request : [
@@ -1409,13 +1700,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Demandes de Location' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check2-circle', link:'rq/location_request'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             location_request : [
@@ -1452,14 +1753,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Achat/Louer' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'box-arrow-up-right', link:'rq/courtier_request'},
             {id: 3 , colLg:4, colSm:12, itemName:'Vente/à Louer' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'box-arrow-in-down-left', link:'rq/courtier_torent'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             courtier_request : [
@@ -1502,13 +1813,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Demmande' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/contracteur_service'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             contracteur_service : [
@@ -1543,13 +1864,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Demmandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/architecture_service'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             architecture_service : [
@@ -1585,13 +1916,24 @@ const APPItem = {
         systemUrl:'https://quincaillerie.system.abyedh.tn',
         adsText:'نظام إداراة Quancaillerie  يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/quincaillerie_shop'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             quincaillerie_shop : [
@@ -1627,9 +1969,11 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' ,  itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
@@ -1644,6 +1988,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -1694,9 +2046,11 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
@@ -1711,6 +2065,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -1761,9 +2123,11 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
@@ -1778,6 +2142,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -1828,9 +2200,11 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
@@ -1845,6 +2219,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -1895,9 +2277,11 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
@@ -1912,6 +2296,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -1962,9 +2354,11 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
@@ -1979,6 +2373,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -2029,9 +2431,11 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
@@ -2046,6 +2450,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -2099,13 +2511,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check2-circle', link:'rq/coiffure_reserver'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             coiffure_reserver : [
@@ -2140,13 +2562,24 @@ const APPItem = {
         systemUrl:'https://boutique.system.abyedh.tn',
         adsText:'نظام إداراة نقاط بيع الملابس  يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/boutique_shop'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             boutique_shop : [
@@ -2192,13 +2625,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/photographe_reserver'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             photographe_reserver : [
@@ -2234,13 +2677,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/chef_reserver'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             chef_reserver : [
@@ -2276,13 +2729,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/orchestre_reserver'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             orchestre_reserver : [
@@ -2317,13 +2780,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Reservations' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/salon_marriage_reserver'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             salon_marriage_reserver : [
@@ -2358,9 +2831,11 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/fourniture_marriage_location'},
@@ -2374,6 +2849,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             fourniture_marriage_location : [
@@ -2408,13 +2891,24 @@ const APPItem = {
         systemUrl:'https://boutique.system.abyedh.tn',
         adsText:'نظام إداراة نقاط بيع الملابس  يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة المبيعات' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/bijouterie_shop'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             bijouterie_shop : [
@@ -2468,6 +2962,14 @@ const APPItem = {
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/gym_souscription'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
         ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
+        ],
         navItemList2 : {
             gym_souscription : [
                 {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -2509,14 +3011,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/pyscine_reserver'},
             {id: 3 , colLg:4, colSm:12, itemName:'Abonnemment' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/pyscine_souscrire'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             pyscine_reserver : [
@@ -2560,14 +3072,24 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/stade_reserver'},
             {id: 3 , colLg:4, colSm:12, itemName:'Abonnemment' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/stade_souscrire'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             stade_reserver : [
@@ -2614,13 +3136,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/cinema_reserver'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             cinema_reserver : [
@@ -2655,13 +3187,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/theatre_reserver'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             theatre_reserver : [
@@ -2696,13 +3238,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/musee_reserver'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             musee_reserver : [
@@ -2738,13 +3290,23 @@ const APPItem = {
         systemUrl:'https://avocat.system.abyedh.tn/',
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 3 , colLg:6, colSm:12, itemName:'Resndy Vous' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/avocat_rdv'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             avocat_rdv : [
@@ -2783,14 +3345,24 @@ const APPItem = {
         systemUrl:'https://hotel.system.abyedh.tn/',
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/hotels_reserver'},
             {id: 1 , colLg:4, colSm:12, itemName:'Service' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/hotels_service'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             hotels_reserver : [
@@ -2833,13 +3405,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 3 , colLg:6, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/agence_service'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             agence_service : [
@@ -2876,13 +3458,24 @@ const APPItem = {
         systemUrl:'https://ptvgros.system.abyedh.tn/',
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم .  كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير.  بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار)  التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cart4', link:'rq/depot_commande'},
             {id: 3 , colLg:6, colSm:12, itemName:'Articles' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'stars', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Camions ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             depot_commande : [
@@ -2922,13 +3515,23 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Demmandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/comptable_service'},
             {id: 3 , colLg:6, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             comptable_service : [
@@ -2963,9 +3566,11 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
@@ -2980,6 +3585,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -3030,9 +3643,11 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
@@ -3047,6 +3662,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -3107,6 +3730,14 @@ const APPItem = {
             {id: 1 , colLg:6, colSm:12, itemName:'Rendy-Vous' , itemDesc:'Suivez les Etat du rendy-Vous ',  icon:'calendar-week', link:'rq/veterinaire_rdv'},
             {id: 2 , colLg:6, colSm:12, itemName:'Tarifs & Autres' , itemDesc:'Tarifs, Diplomes, Assurance ', icon:'cash-coin', link:'Spesific'},
             
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             veterinaire_rdv : [
@@ -3224,14 +3855,25 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل منتجات جديدة للمخزون ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و متابعة واجهات البيع:  caisses ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء و متابعة الفواتير ' , description:'', icon:'window-dock'},
+            {id: 2 , posName:'إستقبال الوصفات الطبية من المرضي' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة عملاء جدد و متابعة قائمة الديون' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
             {id: 3 , colLg:4, colSm:12, itemName:'Reservation' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'calendar-week', link:'rq/restaurant_reservation'},
             {id: 3 , colLg:4, colSm:12, itemName:'Tarif' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'cash-coin', link:'Spesific'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Stock", icon:"upc-scan", link:"sa"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Fournisseur ", icon:"truck", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
        navItemListold : [
             {id: 1 , navName:'En Attent' , color:'#ffc20b',  icon:'hourglass-split', navIndex: 0, navIndexName:'W'},
@@ -3241,6 +3883,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -3291,9 +3941,11 @@ const APPItem = {
         systemReady: false ,
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:4, colSm:12, itemName:'Commandes' , itemDesc:'Suivez les Etat du rendy-Vous ', icon:'check-all', link:'rq/restaurant_commande'},
@@ -3308,6 +3960,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
@@ -3355,9 +4015,11 @@ const APPItem = {
         systemUrl:'#',
         adsText:'نظام إداراة نقاط البيع بالجملة يساعدك علي مراقبة و التحكم في مخزون المنتجات (stock) و متابعة فواتيرك و الإتصال بعملاءك و متابعة طلباتهم . كما يقدم لك واجهة رسومية (caisse) لتسجيل المبيعات و طباعة الفواتير. بالإضافة إلي مجموعة من الأدوات الإبداعية (مثل واجهة إستخراج الأسعار) التي تساعدك علي أداء عملك بجودة أفضل',
         systemPos : [
-            {id: 1 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 2 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
-            {id: 3 , posName:'1xxxxxxxxx1إدارة ال' , description:'', icon:'window-dock'},
+            {id: 1 , posName:'إضافة و تعديل حصص جديدة ' , description:'متابعة مرضاك ', icon:'window-dock'},
+            {id: 2 , posName:'إنشاء وصفات طبية مع قائمة كاملة للأدوية' , description:'إنشاء جلسات', icon:'window-dock'},
+            {id: 3 , posName:'إضافة مرضي جدد و متابعة حالتهم الصحية' , description:'', icon:'window-dock'},
+            {id: 4 , posName:'متابعة فريق العمل' , description:'', icon:'window-dock'},
+            {id: 5 , posName:'إنشاء تقارير حسب النوع' , description:'', icon:'window-dock'},
         ],
         itemsList : [
             {id: 1 , colLg:6, colSm:12, itemName:'Commandes' , icon:'check-all', link:'rq/restaurant_commande'},
@@ -3372,6 +4034,14 @@ const APPItem = {
             {id: 5 , navName:'Retardeé' , color:'#ad059f',  icon:'arrow-clockwise', navIndex: 4, navIndexName:'RD'},
             {id: 6 , navName:'Redirecteé' , color:'#92ab03',  icon:'compass-fill', navIndex: 5, navIndexName:'RT'},
             {id: 7 , navName:'Termineé' , color:'#6c757d',  icon:'slash-square-fill', navIndex: 6, navIndexName:'T'},
+        ],
+        systemItemsList : [
+            {id:3, colSysLg:1, colSysSm:4, name:"Plates", icon:"egg-fried", link:"sa"},
+            {id:4, colSysLg:1, colSysSm:4, name:"Caisse", icon:"window-fullscreen", link:"cl"},
+            {id:2, colSysLg:1, colSysSm:4, name:"Factures", icon:"receipt-cutoff", link:"pt"},
+            {id:5, colSysLg:1, colSysSm:4, name:"Tables ", icon:"bounding-box-circles", link:"or"},
+            {id:6, colSysLg:1, colSysSm:4, name:"Clients", icon:"person-add", link:"rp"},
+            {id:8, colSysLg:1, colSysSm:4, name:"Equipe", icon:"people-fill", link:"tm"},
         ],
         navItemList2 : {
             docteur_rdv : [
